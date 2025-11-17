@@ -13,4 +13,16 @@ urlpatterns = [
     # and sends it to the view as a variable named 'pk'.
     # e.g., /product/1/  or /product/2/
     path("product/<int:pk>/", views.product_detail, name="product_detail"),
+    # --- ADD THIS NEW LINE ---
+    # This will be the "action" for our add-to-cart button
+    path("add-to-cart/<int:product_id>/", views.add_to_cart, name="add_to_cart"),
+
+    # --- ADD THIS NEW LINE ---
+    # This will handle adding a specific variation
+    path("add-to-cart/var/<int:variation_id>/", views.add_to_cart_variation, name="add_to_cart_variation"),
+
+    path("cart/", views.view_cart, name="view_cart"),
+    # --- ADD THESE TWO NEW LINES ---
+    path("checkout/", views.checkout, name="checkout"),
+    path("order-success/", views.order_success, name="order_success"),
 ]

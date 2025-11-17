@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Order Confirmed!{% endblock %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <h1>Thank You For Your Order!</h1>
+        <p>Your order has been placed successfully.</p>
+        <p><a href="{% url 'pricing_sheet' %}" class="btn">Continue Shopping</a></p>
+    </div>
+{% endblock %}

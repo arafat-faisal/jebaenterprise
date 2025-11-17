@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+    <h1>Confirm Your Order</h1>
+
+    {% if cart_items %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>${{ item.price|floatformat:2 }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>${{ item.item_total|floatformat:2 }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h2 style="text-align: right;">Total: ${{ total_price|floatformat:2 }}</h2>
+        
+        <form method="POST" action="{% url 'checkout' %}">
+            {% csrf_token %}
+            <button type="submit" style="width: 100%;">Confirm & Place Order</button>
+        </form>
+
+    {% else %}
+        <p>Your cart is empty. <a href="{% url 'pricing_sheet' %}">Start Shopping</a></p>
+    {% endif %}
+{% endblock %}

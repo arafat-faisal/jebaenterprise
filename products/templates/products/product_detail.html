@@ -1,42 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-T">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ product.name }}</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; padding: 20px; max-width: 800px; margin: auto; }
-        h1 { color: #333; }
-        h2 { color: #555; }
-        p { font-size: 1.2rem; color: #3F51B5; } /* Your primary color */
-        ul { list-style: none; padding: 0; }
-        li { background-color: #f9f9f9; border: 1px solid #eee; padding: 10px; margin-bottom: 5px; }
-        a { color: #3F51B5; text-decoration: none; }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block title %}{{ product.name }} - Jeba Enterprise{% endblock %}
+
+{% block content %}
     <p><a href="{% url 'pricing_sheet' %}">&larr; Back to all products</a></p>
 
     <h1>{{ product.name }}</h1>
-    
-    <p>Price: ${{ product.selling_price }}</p>
-    
-    <p>Stock: {{ product.stock_quantity }}</p>
+    <p>Current Stock: {{ product.stock_quantity }}</p>
 
-    {% if variations %}
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+    {% if not variations %}
+        <h2>Price: ${{ product.selling_price|floatformat:2 }}</h2>
+        <form action="{% url 'add_to_cart' product.id %}" method="POST">
+            {% csrf_token %}
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 50px; padding: 10px;">
+            <button type="submit">Add to Cart</button>
+        </form>
+    
+    {% else %}
         <h2>Variations</h2>
-        <ul>
+        <ul style="list-style: none; padding: 0;">
             {% for var in variations %}
-                <li>
-                    <strong>{{ var.name }}</strong> - ${{ var.selling_price }}
-                    (Stock: {{ var.stock_quantity }})
+                <li style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                    <form action="{% url 'add_to_cart_variation' var.id %}" method="POST">
+                        {% csrf_token %}
+                        <strong>{{ var.name }}</strong>
+                        <p style="margin: 5px 0;">Price: ${{ var.selling_price|floatformat:2 }} (Stock: {{ var.stock_quantity }})</p>
+                        
+                        <label for="var_quantity_{{ var.id }}">Quantity:</label>
+                        <input type="number" id="var_quantity_{{ var.id }}" name="quantity" value="1" min="1" style="width: 50px; padding: 10px;">
+                        <button type="submit">Add {{ var.name }} to Cart</button>
+                    </form>
                 </li>
             {% endfor %}
         </ul>
-    {% else %}
-        <p>No variations for this product.</p>
     {% endif %}
-
-</body>
-</html>
+{% endblock %}
