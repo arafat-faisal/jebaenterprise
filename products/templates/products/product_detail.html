@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-T">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+        h1 { color: #333; }
+        h2 { color: #555; }
+        p { font-size: 1.2rem; color: #3F51B5; } /* Your primary color */
+        ul { list-style: none; padding: 0; }
+        li { background-color: #f9f9f9; border: 1px solid #eee; padding: 10px; margin-bottom: 5px; }
+        a { color: #3F51B5; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <p><a href="{% url 'pricing_sheet' %}">&larr; Back to all products</a></p>
+
+    <h1>{{ product.name }}</h1>
+    
+    <p>Price: ${{ product.selling_price }}</p>
+    
+    <p>Stock: {{ product.stock_quantity }}</p>
+
+    {% if variations %}
+        <h2>Variations</h2>
+        <ul>
+            {% for var in variations %}
+                <li>
+                    <strong>{{ var.name }}</strong> - ${{ var.selling_price }}
+                    (Stock: {{ var.stock_quantity }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No variations for this product.</p>
+    {% endif %}
+
+</body>
+</html>
