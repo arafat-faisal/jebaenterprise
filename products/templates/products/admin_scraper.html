@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitor Price Scraper</title>
+    <style>
+        /* ... all your existing styles ... */
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; }
+        input, select { width: 100%; padding: 10px; box-sizing: border-box; } /* Updated */
+        button { background: #3F51B5; color: white; padding: 10px 15px; border: none; cursor: pointer; margin-top: 10px; }
+        #loading { display: none; }
+        #results { margin-top: 20px; }
+        .product { border-bottom: 1px solid #eee; padding: 10px 0; }
+        .product-price { font-weight: bold; color: #3F51B5; }
+        .match-score { font-size: 0.9em; color: #55a630; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Competitor Price Tool (Daraz)</h2>
+        <p>Select a product from your catalog to find visually similar competitor items.</p>
+        
+        <form id="scraper-form">
+            {% csrf_token %}
+
+            <label for="product-select">Your Product (for Image Matching):</label>
+            <select id="product-select" name="product_id" required>
+                <option value="" disabled selected>-- Select a product --</option>
+                {% for product in all_products %}
+                    {% if product.images.all %}
+                        <option value="{{ product.id }}">{{ product.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+
+            <label for="search-term" style="margin-top: 15px; display: block;">Search Term (Editable):</label>
+            <input type="text" id="search-term" name="search_term" required>
+            <button type="submit">Scrape Prices</button>
+            <span id="loading">Loading...</span>
+        </form>
+        
+        <div id="results"></div>
+    </div>
+    
+    <script>
+        // --- ADD THIS NEW FUNCTION ---
+        // This links the dropdown to the text box
+        document.getElementById('product-select').addEventListener('change', function(e) {
+            let selectedProductName = e.target.options[e.target.selectedIndex].text;
+            document.getElementById('search-term').value = selectedProductName;
+        });
+        // --- END OF NEW FUNCTION ---
+
+        document.getElementById('scraper-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let productId = document.getElementById('product-select').value;
+            // --- GET THE NEW SEARCH TERM ---
+            let searchTerm = document.getElementById('search-term').value;
+
+            let loadingEl = document.getElementById('loading');
+            let resultsEl = document.getElementById('results');
+            let button = this.querySelector('button');
+
+            if (!productId || !searchTerm) {
+                resultsEl.innerHTML = '<p style="color: red;">Please select a product and fill out the search term.</p>';
+                return;
+            }
+
+            loadingEl.style.display = 'inline';
+            resultsEl.innerHTML = '';
+            button.disabled = true;
+
+            fetch("{% url 'admin_scraper' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                // --- UPDATE THE BODY ---
+                body: 'product_id=' + encodeURIComponent(productId) + '&search_term=' + encodeURIComponent(searchTerm)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // ... (the rest of the .then() block is exactly the same) ...
+                loadingEl.style.display = 'none';
+                button.disabled = false;
+
+                if (data.error) {
+                    resultsEl.innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
+                    return;
+                }
+
+                if (data.products && data.products.length > 0) {
+                    data.products.forEach(product => {
+                        let productEl = document.createElement('div');
+                        productEl.className = 'product';
+                        productEl.innerHTML = `
+                            <a href="${product.url}" target="_blank">${product.name}</a><br>
+                            <span class="product-price">Price: ${product.price}</span><br>
+                            <span class.match-score">Confidence Score: ${product.match_score}%</span>
+                        `;
+                        resultsEl.appendChild(productEl);
+                    });
+                } else {
+                    resultsEl.innerHTML = '<p>No matching products found.</p>';
+                }
+            })
+            .catch(err => {
+                loadingEl.style.display = 'none';
+                button.disabled = false;
+                resultsEl.innerHTML = `<p style="color: red;">A network error occurred: ${err}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>

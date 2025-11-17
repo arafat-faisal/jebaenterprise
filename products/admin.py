@@ -2,7 +2,20 @@ from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.urls import path
 from django.shortcuts import render
-from .models import Product, ProductVariation, Sale, SaleItem  # Import ALL models
+from .models import Product, ProductVariation, Sale, SaleItem, ProductImage , CompetitorPrice # Import ALL models
+
+
+# --- NEW CLASS FOR THE GALLERY ---
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    extra = 1  # Show 1 blank "image" form by default
+
+# --- ADD THIS NEW INLINE ---
+class CompetitorPriceInline(admin.TabularInline):
+    model = CompetitorPrice
+    extra = 0 # Don't show blank forms, just display existing data
+    readonly_fields = ('website_name', 'min_price', 'max_price', 'last_checked')
+    can_delete = True
 
 # --- This is your existing Product/Variation admin ---
 class ProductVariationInline(admin.TabularInline):
@@ -17,13 +30,14 @@ def print_selected_products(modeladmin, request, queryset):
     selected_ids = ",".join(str(product.id) for product in queryset)
     return HttpResponseRedirect(f"/print-products/?ids={selected_ids}")
 
-# --- THIS IS THE UPDATED PRODUCT ADMIN ---
 class ProductAdmin(admin.ModelAdmin):
-    inlines = [ProductVariationInline]
-    # Define the fields to show in the admin
+    # --- ADD THE NEW INLINE HERE ---
+    inlines = [ProductImageInline, ProductVariationInline, CompetitorPriceInline]
+    
     fieldsets = (
         (None, {
-            'fields': ('name', 'description', 'image')
+            # --- 'image' IS REMOVED FROM THIS LIST ---
+            'fields': ('name', 'description')
         }),
         ('Pricing', {
             'fields': ('buying_cost', 'selling_price')
@@ -33,9 +47,7 @@ class ProductAdmin(admin.ModelAdmin):
         }),
     )
     list_display = ('name', 'selling_price', 'stock_quantity', 'box_quantity')
-    # --- ADD THIS LINE ---
     list_editable = ('selling_price', 'stock_quantity', 'box_quantity')
-    # --- ADD THE ACTION HERE ---
     actions = [print_selected_products]
 
 admin.site.register(Product, ProductAdmin)

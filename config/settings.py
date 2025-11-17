@@ -142,3 +142,53 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Media files (User-uploaded content)
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# --- ADD THIS ENTIRE BLOCK AT THE BOTTOM OF settings.py ---
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    
+    # How to format the log messages
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    
+    # Where to send the logs (to a file, to the console)
+    'handlers': {
+        'file': {
+            'level': 'INFO', # Capture INFO, WARNING, ERROR, CRITICAL
+            'class': 'logging.FileHandler',
+            # This is the new file! It will be in your root folder.
+            'filename': BASE_DIR / 'jebaenterprise.log', 
+            'formatter': 'verbose', # Use the "verbose" format
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+    },
+    
+    # Which loggers to use
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        # This is OUR app. We're telling it to use the 'file' handler
+        'products': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}

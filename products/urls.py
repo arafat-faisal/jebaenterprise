@@ -27,4 +27,6 @@ urlpatterns = [
     path("order-success/", views.order_success, name="order_success"),
     # --- ADD THIS NEW LINE ---
     path("print-products/", views.print_products_page, name="print_products_page"),
+    # --- ADD THIS NEW LINE ---
+    path("admin-scraper/", views.admin_scraper_view, name="admin_scraper"),
 ]

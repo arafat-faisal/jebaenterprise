@@ -131,8 +131,8 @@
                     
                         {% if col == 'image' %}
                         <td>
-                            {% if product.image %}
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-thumbnail">
+                            {% if product.images.first %}
+                                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="img-thumbnail">
                             {% endif %}
                         </td>
                         
@@ -143,18 +143,29 @@
                         <td>{{ product.description|default:"" }}</td>
                         
                         {% elif col == 'selling_price' %}
+                        <td>${{ product.selling_price|floatformat:2 }}</td>
+
+                        {% elif col == 'variations' %}
                         <td>
-                            {% if product.variations.all %}
-                                <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
-                                    {% for var in product.variations.all %}
-                                        <li>
-                                            <strong>{{ var.name }}:</strong> ${{ var.selling_price|floatformat:2 }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            {% else %}
-                                ${{ product.selling_price|floatformat:2 }}
-                            {% endif %}
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
+                                {% for var in product.variations.all %}
+                                    <li>
+                                        <strong>{{ var.name }}:</strong> ${{ var.selling_price|floatformat:2 }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        
+                        {% elif col == 'competitor_prices' %}
+                        <td>
+                            <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
+                                {% for price in product.competitor_prices.all %}
+                                    <li>
+                                        <strong>{{ price.website_name }}:</strong> 
+                                        ${{ price.min_price }} - ${{ price.max_price }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </td>
                         
                         {% elif col == 'box_quantity' %}

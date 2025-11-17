@@ -4,7 +4,8 @@ class Product(models.Model):
     # ... all your existing Product fields are here ...
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to='products/', blank=True, null=True)
+    # image = models.ImageField(upload_to='products/', blank=True, null=True)
+
     buying_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     selling_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     stock_quantity = models.PositiveIntegerField(default=0)
@@ -100,3 +101,29 @@ class SaleItem(models.Model):
             self.product.save()
             
         super().save(*args, **kwargs) # This actually saves the SaleItem
+
+# ... (your Product, ProductVariation, Sale, SaleItem classes are here) ...
+
+# --- ADD THIS NEW CLASS AT THE BOTTOM ---
+class ProductImage(models.Model):
+    # This is the "link" to the main product
+    product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
+    
+    # This is the new image field
+    image = models.ImageField(upload_to='products/gallery/')
+    
+    def __str__(self):
+        return f"Image for {self.product.name}"
+    
+# --- ADD THIS NEW CLASS AT THE BOTTOM ---
+class CompetitorPrice(models.Model):
+    # Link to the product this price is for
+    product = models.ForeignKey(Product, related_name='competitor_prices', on_delete=models.CASCADE)
+
+    website_name = models.CharField(max_length=100) # e.g., "Daraz", "StarTech"
+    min_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    max_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    last_checked = models.DateTimeField(auto_now=True) # Automatically updates when saved
+
+    def __str__(self):
+        return f"{self.website_name} price for {self.product.name}"
