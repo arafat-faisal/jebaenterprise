@@ -25,4 +25,6 @@ urlpatterns = [
     # --- ADD THESE TWO NEW LINES ---
     path("checkout/", views.checkout, name="checkout"),
     path("order-success/", views.order_success, name="order_success"),
+    # --- ADD THIS NEW LINE ---
+    path("print-products/", views.print_products_page, name="print_products_page"),
 ]

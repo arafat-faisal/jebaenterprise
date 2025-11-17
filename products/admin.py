@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.http import HttpResponseRedirect
+from django.urls import path
+from django.shortcuts import render
 from .models import Product, ProductVariation, Sale, SaleItem  # Import ALL models
 
 # --- This is your existing Product/Variation admin ---
@@ -6,8 +9,34 @@ class ProductVariationInline(admin.TabularInline):
     model = ProductVariation
     extra = 1
 
+# --- THIS IS THE NEW ADMIN ACTION FUNCTION ---
+@admin.action(description="Print selected products")
+def print_selected_products(modeladmin, request, queryset):
+    # This function will be called when you select the action.
+    # It redirects to a new view, passing the selected IDs in the URL.
+    selected_ids = ",".join(str(product.id) for product in queryset)
+    return HttpResponseRedirect(f"/print-products/?ids={selected_ids}")
+
+# --- THIS IS THE UPDATED PRODUCT ADMIN ---
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductVariationInline]
+    # Define the fields to show in the admin
+    fieldsets = (
+        (None, {
+            'fields': ('name', 'description', 'image')
+        }),
+        ('Pricing', {
+            'fields': ('buying_cost', 'selling_price')
+        }),
+        ('Stock', {
+            'fields': ('stock_quantity', 'box_quantity')
+        }),
+    )
+    list_display = ('name', 'selling_price', 'stock_quantity', 'box_quantity')
+    # --- ADD THIS LINE ---
+    list_editable = ('selling_price', 'stock_quantity', 'box_quantity')
+    # --- ADD THE ACTION HERE ---
+    actions = [print_selected_products]
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductVariation)

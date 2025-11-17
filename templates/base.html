@@ -28,7 +28,58 @@
             color: var(--text-dark);
             margin: 0;
             padding: 20px;
+            padding-top: 100px;
         }
+
+        /* --- ADD ALL THESE NEW STYLES --- */
+        
+        /* Header / Navigation Bar */
+        .site-header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eee;
+            padding: 10px 40px;
+            position: fixed; /* Fix it to the top */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-header .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .site-header nav a {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            margin-left: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 20px auto 40px auto; /* Updated margin */
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        /* Footer */
+        .site-footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        /* --- END OF NEW STYLES --- */
 
         /* Container for a responsive layout */
         .container {
@@ -87,14 +138,39 @@
             font-family: var(--font-heading);
         }
 
+        /* --- ADD THIS NEW CLASS --- */
+        .img-thumbnail {
+            width: 60px;            /* Set a fixed width */
+            height: 60px;           /* Set a fixed height (making it square) */
+            object-fit: cover;      /* This "crops" the image */
+            object-position: center;  /* This "centers" the crop */
+            border-radius: 4px;     /* A nice soft edge */
+        }
+
+        /* --- END OF NEW CLASS --- */
+
     </style>
 
     <title>{% block title %}Jeba Enterprise{% endblock %}</title>
 </head>
 <body>
+
+    <header class="site-header">
+        <a href="{% url 'pricing_sheet' %}" class="logo">Jeba Enterprise</a>
+        <nav>
+            <a href="{% url 'pricing_sheet' %}">Products</a>
+            <a href="{% url 'view_cart' %}">Cart</a>
+        </nav>
+    </header>
+
     <div class="container">
         {% block content %}
         {% endblock %}
     </div>
+
+    <footer class="site-footer">
+        © {% now "Y" %} Jeba Enterprise. All rights reserved.
+    </footer>
+
 </body>
 </html>

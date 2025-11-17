@@ -3,9 +3,12 @@ from django.db import models
 class Product(models.Model):
     # ... all your existing Product fields are here ...
     name = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='products/', blank=True, null=True)
     buying_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     selling_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     stock_quantity = models.PositiveIntegerField(default=0)
+    box_quantity = models.PositiveIntegerField(default=1, help_text="How many products are in a box")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

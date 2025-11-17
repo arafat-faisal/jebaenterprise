@@ -10,6 +10,7 @@
     <table>
         <thead>
             <tr>
+                <th>Image</th>
                 <th>Product Name</th>
                 <th>Selling Price</th>
                 <th>Stock</th>
@@ -19,6 +20,11 @@
         <tbody>
             {% for product in products %}
             <tr>
+                <td>
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-thumbnail">
+                    {% endif %}
+                </td>
                 <td>{{ product.name }}</td>
                 <td>${{ product.selling_price|floatformat:2 }}</td>
                 <td>{{ product.stock_quantity }}</td>

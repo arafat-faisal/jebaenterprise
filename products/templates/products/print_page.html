@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print Products</title>
+    <style>
+        /* ... all your existing styles (body, page, table, etc) are here ... */
+        body { font-family: 'Inter', sans-serif; }
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 10mm auto;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+        h1 { font-family: 'Space Grotesk', sans-serif; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+        th {
+            background-color: #eee;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .img-thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* --- STYLES FOR THE FORM --- */
+        .settings-form {
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #f9f9f9;
+        }
+        .print-button, .update-button {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            background-color: #3F51B5;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        /* --- NEW STYLES FOR CHECKBOXES --- */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .checkbox-group label {
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .checkbox-group input {
+            margin-right: 5px;
+        }
+        /* --- END OF NEW STYLES --- */
+        
+        @media print {
+            body, .page {
+                margin: 0;
+                box-shadow: none;
+            }
+            .settings-form, .print-button {
+                display: none;
+            }
+            th, td {
+                border: 1px solid #000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <button class="print-button" onclick="window.print()">Print</button>
+        
+        <div class="settings-form">
+            <form method="GET" action="{% url 'print_products_page' %}">
+                <input type="hidden" name="ids" value="{{ request.GET.ids }}">
+                
+                <strong>Select columns to print:</strong>
+                
+                <div class="checkbox-group">
+                    {% for key, display_name in all_cols.items %}
+                    <div>
+                        <input 
+                            type="checkbox" 
+                            name="cols" 
+                            id="col-{{ key }}" 
+                            value="{{ key }}"
+                            {% if key in cols_list %}checked{% endif %}
+                        >
+                        <label for="col-{{ key }}">{{ display_name }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <button type="submit" class="update-button">Update View</button>
+            </form>
+        </div>
+        <h1>Product Catalogue</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    {% for header in col_headers %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    {% for col in cols_list %}
+                    
+                        {% if col == 'image' %}
+                        <td>
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-thumbnail">
+                            {% endif %}
+                        </td>
+                        
+                        {% elif col == 'name' %}
+                        <td>{{ product.name }}</td>
+                        
+                        {% elif col == 'description' %}
+                        <td>{{ product.description|default:"" }}</td>
+                        
+                        {% elif col == 'selling_price' %}
+                        <td>
+                            {% if product.variations.all %}
+                                <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
+                                    {% for var in product.variations.all %}
+                                        <li>
+                                            <strong>{{ var.name }}:</strong> ${{ var.selling_price|floatformat:2 }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                ${{ product.selling_price|floatformat:2 }}
+                            {% endif %}
+                        </td>
+                        
+                        {% elif col == 'box_quantity' %}
+                        <td>{{ product.box_quantity }}</td>
+                        
+                        {% elif col == 'stock' %}
+                        <td>{{ product.stock_quantity }}</td>
+                        
+                        {% endif %}
+
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+</body>
+</html>

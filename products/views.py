@@ -181,3 +181,46 @@ def checkout(request: HttpRequest):
 # --- ADD THIS SIMPLE SUCCESS VIEW ---
 def order_success(request):
     return render(request, 'products/order_success.html')
+
+
+def print_products_page(request):
+    # --- Part 1: Get Product IDs (no change) ---
+    product_ids_str = request.GET.get('ids', '')
+    product_ids = [int(id) for id in product_ids_str.split(',') if id.isdigit()]
+    
+    products = Product.objects.filter(id__in=product_ids).prefetch_related('variations')
+
+    # --- Part 2: Get Column Preferences (UPDATED) ---
+    
+    # Define all possible columns and their friendly names
+    all_cols = {
+        'image': 'Image',
+        'name': 'Product Name',
+        'description': 'Description',
+        'selling_price': 'Selling Price',
+        'box_quantity': 'Box Quantity',
+        'stock': 'Stock',
+    }
+    
+    # Get the list of checked boxes from the URL
+    # request.GET.getlist('cols') gets all values checked with name="cols"
+    selected_cols_keys = request.GET.getlist('cols')
+    
+    # If no columns were selected (e.g., first load), use a default
+    if not selected_cols_keys:
+        selected_cols_keys = ['image', 'name', 'description', 'selling_price', 'box_quantity']
+    
+    # Build the list of headers based on the selected keys
+    col_headers = [all_cols[key] for key in selected_cols_keys if key in all_cols]
+    
+    # The list of keys is just the selected_cols_keys
+    cols_list = selected_cols_keys
+
+    # --- Part 3: Send to Template (UPDATED) ---
+    context = {
+        'products': products,
+        'col_headers': col_headers,  # The list of names for the <th> row
+        'cols_list': cols_list,      # The list of keys for the <td> rows
+        'all_cols': all_cols,        # The full dictionary to build the checkboxes
+    }
+    return render(request, 'products/print_page.html', context)

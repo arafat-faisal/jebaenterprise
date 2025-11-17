@@ -6,6 +6,9 @@
     <p><a href="{% url 'pricing_sheet' %}">&larr; Back to all products</a></p>
 
     <h1>{{ product.name }}</h1>
+    {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px;">
+    {% endif %}
     <p>Current Stock: {{ product.stock_quantity }}</p>
 
     <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
