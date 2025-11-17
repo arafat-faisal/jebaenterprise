@@ -148,6 +148,201 @@
         }
 
         /* --- END OF NEW CLASS --- */
+        /* --- ADD ALL THESE NEW STYLES --- */
+        
+        /* 1. The Image Slider (CSS-Only) */
+        /* --- ADD THIS NEW SLIDER CSS --- */
+        
+        .slider {
+            width: 100%;
+            position: relative;
+            overflow: hidden; /* This hides the other slides */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .slider-track {
+            display: flex;
+            /* JavaScript will change this transition */
+            transition: transform 0.5s ease-in-out;
+        }
+        .slider-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        .slider-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        
+        /* Navigation Dots */
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            /* This is the line that makes them horizontal */
+            display: flex;
+            flex-direction: row; /* Be extra clear: we want a row */
+        }
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            margin: 0 5px;
+            cursor: pointer;
+
+            /* Add this to remove default button padding */
+            padding: 0;
+        }
+        .slider-dot.active {
+            background: #ffffff;
+        }
+        
+        /* --- END OF NEW SLIDER CSS --- */
+        
+        /* ... Your Product Grid styles are still here ... */
+
+        /* 2. The Product Grid */
+        .product-grid {
+            display: grid;
+            /* This is responsive: it creates as many columns as
+               can fit, with a minimum of 250px */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        /* 3. The Product Card (replaces the table row) */
+        .product-card {
+            background: #ffffff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden; /* This keeps the image corners rounded */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        .product-card-image {
+            width: 100%;
+            height: 200px; /* Fixed height for grid images */
+            object-fit: cover;
+            display: block;
+        }
+        .product-card-content {
+            padding: 15px;
+        }
+        .product-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0 0 10px 0;
+        }
+        .product-card-price {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .product-card .btn {
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box; /* Makes padding work correctly */
+        }
+
+        /* --- ADD ALL THESE NEW STYLES FOR PRODUCT PAGE --- */
+
+        /* 1. The Two-Column Layout */
+        .product-detail-layout {
+            display: grid;
+            /* 50% for each, but 'auto' for info is more flexible */
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px;
+        }
+
+        /* 2. The New Image Gallery */
+        .product-gallery .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        .thumbnail-nav {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .thumbnail-nav img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid #eee;
+            transition: all 0.2s ease;
+        }
+        .thumbnail-nav img:hover, .thumbnail-nav img.active {
+            border-color: var(--primary-color);
+        }
+
+        /* 3. The Product Info Column */
+        .product-info .product-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+        .product-info .product-stock {
+            font-size: 1rem;
+            color: #55a630;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .product-info .form-group {
+            margin-bottom: 20px;
+        }
+        .product-info label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .product-info select, .product-info input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Important for padding */
+        }
+        
+        /* 4. Quantity Selector */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-selector input[type="number"] {
+            text-align: center;
+            border-left: none;
+            border-right: none;
+            width: 60px;
+        }
+        
+        /* 5. Responsive layout for mobile */
+        @media (max-width: 768px) {
+            .product-detail-layout {
+                grid-template-columns: 1fr; /* Stack columns on mobile */
+            }
+        }
 
     </style>
 
@@ -172,5 +367,7 @@
         © {% now "Y" %} Jeba Enterprise. All rights reserved.
     </footer>
 
+{% block scripts %}
+{% endblock %}
 </body>
 </html>

@@ -1342,3 +1342,230 @@ INFO 2025-11-18 03:33:18,863 basehttp "GET /print-products/?ids=8%2C7&cols=image
 INFO 2025-11-18 03:38:38,442 basehttp "GET / HTTP/1.1" 200 6507
 INFO 2025-11-18 03:38:38,470 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
 INFO 2025-11-18 03:38:38,470 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:42:07,691 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 03:42:10,632 basehttp "GET / HTTP/1.1" 200 9657
+INFO 2025-11-18 03:42:10,651 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:42:26,298 basehttp "GET /product/7/ HTTP/1.1" 200 9038
+INFO 2025-11-18 03:42:26,327 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:42:26,327 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:42:26,329 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:48:49,383 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 03:48:54,312 basehttp "GET / HTTP/1.1" 200 12432
+INFO 2025-11-18 03:48:54,334 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:48:54,334 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:53:47,195 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 03:53:50,997 basehttp "GET / HTTP/1.1" 200 12658
+INFO 2025-11-18 03:53:51,022 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:54:51,428 basehttp "GET /print-products/?ids=8%2C7&cols=image&cols=name&cols=selling_price&cols=competitor_prices&cols=box_quantity HTTP/1.1" 200 9978
+INFO 2025-11-18 03:54:58,457 basehttp "GET /product/7/ HTTP/1.1" 200 9953
+INFO 2025-11-18 03:54:58,481 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:54:58,481 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:54:58,482 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:55:05,077 basehttp "GET /product/7/ HTTP/1.1" 200 9953
+INFO 2025-11-18 03:55:42,073 basehttp "GET /product/8/ HTTP/1.1" 200 10821
+INFO 2025-11-18 03:55:42,305 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 200 67458
+INFO 2025-11-18 03:55:42,329 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 200 50737
+INFO 2025-11-18 03:55:42,332 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 200 46806
+INFO 2025-11-18 03:55:42,339 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 200 33717
+INFO 2025-11-18 03:55:42,349 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 200 57619
+INFO 2025-11-18 03:55:42,355 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 200 42604
+INFO 2025-11-18 03:58:57,579 autoreload Watching for file changes with StatReloader
+ERROR 2025-11-18 03:59:10,232 log Internal Server Error: /product/8/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 57, in product_detail
+    return render(request, "products/product_detail.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'add_to_cart_variation' with arguments '('',)' not found. 1 pattern(s) tried: ['add\\-to\\-cart/var/(?P<variation_id>[0-9]+)/\\Z']
+ERROR 2025-11-18 03:59:10,235 basehttp "GET /product/8/ HTTP/1.1" 500 163456
+WARNING 2025-11-18 03:59:10,291 log Not Found: /favicon.ico
+WARNING 2025-11-18 03:59:10,291 basehttp "GET /favicon.ico HTTP/1.1" 404 4832
+INFO 2025-11-18 03:59:16,510 basehttp "GET / HTTP/1.1" 200 15140
+INFO 2025-11-18 03:59:16,536 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:59:16,537 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 03:59:18,104 basehttp "GET / HTTP/1.1" 200 15140
+ERROR 2025-11-18 03:59:21,191 log Internal Server Error: /product/8/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 57, in product_detail
+    return render(request, "products/product_detail.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'add_to_cart_variation' with arguments '('',)' not found. 1 pattern(s) tried: ['add\\-to\\-cart/var/(?P<variation_id>[0-9]+)/\\Z']
+ERROR 2025-11-18 03:59:21,207 basehttp "GET /product/8/ HTTP/1.1" 500 163191
+INFO 2025-11-18 04:01:17,387 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 04:01:22,284 basehttp "GET /product/8/ HTTP/1.1" 200 17656
+INFO 2025-11-18 04:01:22,553 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 200 35885
+INFO 2025-11-18 04:01:22,555 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 200 33717
+INFO 2025-11-18 04:01:22,558 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 200 57619
+INFO 2025-11-18 04:01:22,559 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 200 50737
+INFO 2025-11-18 04:01:22,560 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 200 67458
+INFO 2025-11-18 04:01:22,560 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 200 46806
+INFO 2025-11-18 04:01:22,561 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 200 42604
+WARNING 2025-11-18 04:01:22,573 log Not Found: /favicon.ico
+WARNING 2025-11-18 04:01:22,574 basehttp "GET /favicon.ico HTTP/1.1" 404 4832
+INFO 2025-11-18 04:01:46,391 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:01:46,618 basehttp "GET /product/8/ HTTP/1.1" 200 17656
+INFO 2025-11-18 04:01:48,493 basehttp "GET /cart/ HTTP/1.1" 200 11761
+INFO 2025-11-18 04:01:50,080 basehttp "GET /checkout/ HTTP/1.1" 200 11878
+INFO 2025-11-18 04:01:52,144 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:01:52,151 basehttp "GET /order-success/ HTTP/1.1" 200 11133
+INFO 2025-11-18 04:01:53,443 basehttp "GET / HTTP/1.1" 200 15140
+INFO 2025-11-18 04:01:55,504 basehttp "GET / HTTP/1.1" 200 15140
+INFO 2025-11-18 04:01:57,427 basehttp "GET /product/7/ HTTP/1.1" 200 17471
+INFO 2025-11-18 04:02:11,000 basehttp "GET / HTTP/1.1" 200 15140
+INFO 2025-11-18 04:02:51,440 basehttp "GET /admin HTTP/1.1" 301 0
+INFO 2025-11-18 04:02:51,899 basehttp "GET /admin/ HTTP/1.1" 200 11816
+INFO 2025-11-18 04:04:46,796 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13046
+INFO 2025-11-18 04:04:46,905 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 04:04:48,474 basehttp "GET /admin/products/product/add/ HTTP/1.1" 200 23593
+INFO 2025-11-18 04:04:48,572 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 04:06:06,315 basehttp "POST /admin/products/product/add/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:06:06,554 basehttp "GET /admin/products/product/ HTTP/1.1" 200 14157
+INFO 2025-11-18 04:06:06,663 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 04:06:06,673 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-11-18 04:06:10,327 basehttp "GET / HTTP/1.1" 200 16147
+INFO 2025-11-18 04:06:10,351 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 200 102566
+INFO 2025-11-18 04:06:28,491 basehttp "POST /admin/products/product/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:06:28,867 basehttp "GET /print-products/?ids=9,8,7 HTTP/1.1" 200 15922
+INFO 2025-11-18 04:06:28,896 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 04:06:40,757 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=variations&cols=box_quantity HTTP/1.1" 200 11163
+INFO 2025-11-18 04:06:40,787 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 04:06:40,787 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 04:06:47,842 basehttp "GET /product/9/ HTTP/1.1" 200 17813
+INFO 2025-11-18 04:06:47,866 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 04:06:47,876 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-2-1200x1246.jpeg HTTP/1.1" 200 74578
+INFO 2025-11-18 04:06:47,876 basehttp "GET /media/products/gallery/Egg-Dispenser-Tray.jpg HTTP/1.1" 200 24333
+INFO 2025-11-18 04:06:47,877 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-3-1200x1271.jpeg HTTP/1.1" 200 118437
+INFO 2025-11-18 04:06:47,877 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-4.jpeg HTTP/1.1" 200 87590
+INFO 2025-11-18 04:06:47,878 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-5-1200x1202.jpeg HTTP/1.1" 200 134882
+INFO 2025-11-18 04:07:01,659 basehttp "POST /add-to-cart/var/5/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:07:02,056 basehttp "GET /product/9/ HTTP/1.1" 200 17813
+INFO 2025-11-18 04:07:02,099 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-2-1200x1246.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 04:07:02,099 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-3-1200x1271.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 04:07:02,102 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-4.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 04:07:02,102 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-5-1200x1202.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 04:07:02,102 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 04:07:02,102 basehttp "GET /media/products/gallery/Egg-Dispenser-Tray.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 04:07:05,948 basehttp "GET /cart/ HTTP/1.1" 200 11759
+INFO 2025-11-18 04:07:06,833 basehttp "GET /checkout/ HTTP/1.1" 200 11876
+INFO 2025-11-18 04:07:08,596 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:07:08,615 basehttp "GET /order-success/ HTTP/1.1" 200 11133
+INFO 2025-11-18 04:07:10,003 basehttp "GET / HTTP/1.1" 200 16147
+INFO 2025-11-18 04:07:10,045 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 04:07:10,046 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 04:07:15,005 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13929
+INFO 2025-11-18 04:07:17,584 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 11206
+INFO 2025-11-18 04:07:17,693 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 04:07:26,869 basehttp "GET /admin/products/sale/11/change/ HTTP/1.1" 200 25802
+INFO 2025-11-18 04:07:26,896 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-11-18 04:07:26,981 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342

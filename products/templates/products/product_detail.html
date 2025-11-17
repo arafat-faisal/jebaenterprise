@@ -5,41 +5,137 @@
 {% block content %}
     <p><a href="{% url 'pricing_sheet' %}">&larr; Back to all products</a></p>
 
-    <h1>{{ product.name }}</h1>
-    <div class="gallery">
-        {% for img in product.images.all %}
-            <img src="{{ img.image.url }}" alt="{{ product.name }}" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; margin-bottom: 10px;">
-        {% endfor %}
+    <div class="product-detail-layout">
+        
+        <div class="product-gallery">
+            {% if product.images.first %}
+                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="main-image" id="main-image">
+            {% else %}
+                <img src="https://via.placeholder.com/400x400.text/No+Image" alt="No Image" class="main-image" id="main-image">
+            {% endif %}
+            <div class="thumbnail-nav">
+                {% for img in product.images.all %}
+                    <img src="{{ img.image.url }}" alt="Thumbnail" class="thumbnail-img">
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title">{{ product.name }}</h1>
+            
+            {% if product.variations.all %}
+
+                <h2 class="product-price" id="product-price">
+                    ${{ product.variations.first.selling_price|floatformat:2 }}
+                </h2>
+                <p class="product-stock" id="product-stock">
+                    Stock: {{ product.variations.first.stock_quantity }}
+                </p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+                <form id="add-to-cart-form" action="{% url 'add_to_cart_variation' product.variations.first.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="variation-select">Select Variation:</label>
+                        <select id="variation-select" name="variation_id">
+                            {% for var in product.variations.all %}
+                                <option 
+                                    value="{{ var.id }}"
+                                    data-price="{{ var.selling_price|floatformat:2 }}"
+                                    data-stock="{{ var.stock_quantity }}"
+                                    data-url="{% url 'add_to_cart_variation' var.id %}"
+                                >
+                                    {{ var.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 100px;">
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Add to Cart</button>
+                </form>
+
+            {% else %}
+
+                <h2 class="product-price" id="product-price">
+                    ${{ product.selling_price|floatformat:2 }}
+                </h2>
+                <p class="product-stock" id="product-stock">
+                    Stock: {{ product.stock_quantity }}
+                </p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+                <form id="add-to-cart-form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 100px;">
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Add to Cart</button>
+                </form>
+
+            {% endif %}
+            </div>
     </div>
-    <p>Current Stock: {{ product.stock_quantity }}</p>
 
-    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+    <div class="product-description" style="margin-top: 40px;">
+        <h2>Product Details</h2>
+        <p>{{ product.description|linebreaks|default:"No description available." }}</p>
+    </div>
 
-    {% if not variations %}
-        <h2>Price: ${{ product.selling_price|floatformat:2 }}</h2>
-        <form action="{% url 'add_to_cart' product.id %}" method="POST">
-            {% csrf_token %}
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 50px; padding: 10px;">
-            <button type="submit">Add to Cart</button>
-        </form>
-    
-    {% else %}
-        <h2>Variations</h2>
-        <ul style="list-style: none; padding: 0;">
-            {% for var in variations %}
-                <li style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
-                    <form action="{% url 'add_to_cart_variation' var.id %}" method="POST">
-                        {% csrf_token %}
-                        <strong>{{ var.name }}</strong>
-                        <p style="margin: 5px 0;">Price: ${{ var.selling_price|floatformat:2 }} (Stock: {{ var.stock_quantity }})</p>
-                        
-                        <label for="var_quantity_{{ var.id }}">Quantity:</label>
-                        <input type="number" id="var_quantity_{{ var.id }}" name="quantity" value="1" min="1" style="width: 50px; padding: 10px;">
-                        <button type="submit">Add {{ var.name }} to Cart</button>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mainImage = document.getElementById('main-image');
+        const thumbnails = document.querySelectorAll('.thumbnail-img');
+        
+        // --- THIS IS THE JAVASCRIPT FIX ---
+        // Find the variation select box
+        const variationSelect = document.getElementById('variation-select');
+        
+        // *Only* run the dynamic price logic if the select box exists
+        if (variationSelect) {
+            const priceDisplay = document.getElementById('product-price');
+            const stockDisplay = document.getElementById('product-stock');
+            const cartForm = document.getElementById('add-to-cart-form');
+
+            // 2. Dynamic Form Logic
+            variationSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                const price = selectedOption.dataset.price;
+                const stock = selectedOption.dataset.stock;
+                const url = selectedOption.dataset.url;
+                
+                priceDisplay.textContent = '$' + price;
+                stockDisplay.textContent = 'Stock: ' + stock;
+                cartForm.action = url;
+            });
+
+            // 3. Set Initial State
+            if (variationSelect.options.length > 0) {
+                variationSelect.dispatchEvent(new Event('change'));
+            }
+        }
+        // --- END OF JAVASCRIPT FIX ---
+
+
+        // 1. Image Gallery Logic (This is safe, no changes needed)
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                mainImage.src = this.src;
+                thumbnails.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        if (thumbnails.length > 0) {
+            thumbnails[0].classList.add('active');
+        }
+    });
+</script>
 {% endblock %}
