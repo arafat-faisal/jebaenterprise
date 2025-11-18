@@ -36,4 +36,6 @@ urlpatterns = [
 
     path("order/<int:pk>/", views.order_detail, name="order_detail"),
     path("search/", views.search_view, name="search"),
+    # ... inside urlpatterns ...
+    path("user-logout/", views.user_logout, name="user_logout"),
 ]

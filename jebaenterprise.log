@@ -168,3 +168,1340 @@ INFO 2025-11-18 18:29:11,028 basehttp "POST /search/ HTTP/1.1" 200 12545
 INFO 2025-11-18 18:29:16,216 basehttp "GET / HTTP/1.1" 200 17236
 INFO 2025-11-18 18:29:21,085 basehttp "POST /search/ HTTP/1.1" 200 12046
 INFO 2025-11-18 18:29:24,572 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:03:41,103 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 20:03:46,937 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:03:46,956 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:46,957 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:46,958 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,087 basehttp "GET /admin/products/category/ HTTP/1.1" 200 9658
+INFO 2025-11-18 20:03:49,110 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,111 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,112 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,112 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,115 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,115 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,116 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,117 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,117 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,118 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,120 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,120 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,120 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,120 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,122 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,124 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,560 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:03:49,575 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:49,575 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:53,004 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23569
+INFO 2025-11-18 20:03:53,024 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-11-18 20:03:53,114 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:03:53,315 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:08,949 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13867
+INFO 2025-11-18 20:04:08,980 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:08,986 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:09,083 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:04:11,561 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23569
+INFO 2025-11-18 20:04:11,691 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:04:29,753 basehttp "GET /admin/products/sale/23/change/ HTTP/1.1" 200 31195
+INFO 2025-11-18 20:04:29,780 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:29,781 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:29,783 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:29,784 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:29,785 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:29,881 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:04:29,900 basehttp "GET /static/admin/img/inline-delete.svg HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:39,455 basehttp "POST /admin/products/sale/23/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 20:04:40,584 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23786
+INFO 2025-11-18 20:04:40,713 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:04:40,732 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-11-18 20:04:51,736 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:04:57,486 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:06:29,565 autoreload E:\WebProjects\jebaenterprise\products\admin.py changed, reloading.
+INFO 2025-11-18 20:06:29,848 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 20:07:08,845 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 20:07:20,821 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23749
+INFO 2025-11-18 20:13:40,139 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-18 20:13:40,368 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 20:14:06,324 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 20:14:10,994 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23749
+INFO 2025-11-18 20:14:11,092 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:14:13,652 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13867
+INFO 2025-11-18 20:14:13,752 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:14:18,170 basehttp "POST /admin/products/product/ HTTP/1.1" 302 0
+INFO 2025-11-18 20:14:18,530 basehttp "GET /print-products/?ids=9,8,7 HTTP/1.1" 200 21263
+INFO 2025-11-18 20:14:24,207 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
+INFO 2025-11-18 20:14:37,841 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
+INFO 2025-11-18 20:16:28,129 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&cols=stock&blank_cols=selling_price HTTP/1.1" 200 15479
+INFO 2025-11-18 20:16:31,241 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=competitor_prices&cols=box_quantity&cols=stock&blank_cols=selling_price HTTP/1.1" 200 17597
+INFO 2025-11-18 20:17:00,955 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13867
+INFO 2025-11-18 20:17:10,758 basehttp "GET /admin-scraper/ HTTP/1.1" 200 5676
+INFO 2025-11-18 20:17:18,789 views --- Loaded 6 local hashes for Refrigerator Egg Dispenser Tray ---
+INFO 2025-11-18 20:17:18,789 views --- Scraping for: Refrigerator Egg Dispenser Tray ---
+INFO 2025-11-18 20:17:18,789 views --- Matching against: Refrigerator Egg Dispenser Tray | Scraping for: Refrigerator Egg Dispenser Tray ---
+INFO 2025-11-18 20:17:25,358 views --- Forcing lazy-load by scrolling... ---
+INFO 2025-11-18 20:17:40,640 views --- Found 40 items. Running Gallery AI filter... ---
+INFO 2025-11-18 20:17:40,941 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 99%) | Text: 100% | Image: 97% [BestDist: 2]
+INFO 2025-11-18 20:17:41,243 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 95%) | Text: 100% | Image: 75% [BestDist: 16]
+INFO 2025-11-18 20:17:41,533 views --- NO MATCH: 'Slide Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray 4 Layer Rolling Egg Dispenser Rack-The Asia Express' (Final: 37%) | Text: 33% | Image: 53% [BestDist: 30]
+INFO 2025-11-18 20:17:41,796 views --- NO MATCH: '4 Layer Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray Rolling Egg Dispenser Rack' (Final: 42%) | Text: 38% | Image: 56% [BestDist: 28]
+INFO 2025-11-18 20:17:42,085 views --- NO MATCH: 'Slide Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray 4 Layer Rolling Egg Dispenser Rack- Allion Shop' (Final: 38%) | Text: 34% | Image: 53% [BestDist: 30]
+INFO 2025-11-18 20:17:42,362 views --- NO MATCH: '2 Layer Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray Rolling Egg Dispenser Rack' (Final: 44%) | Text: 38% | Image: 66% [BestDist: 22]
+INFO 2025-11-18 20:17:42,645 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 100%) | Text: 100% | Image: 100% [BestDist: 0]
+INFO 2025-11-18 20:17:42,909 views --- NO MATCH: '4 Layer Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray Rolling Egg Dispenser Rack-Allion shop' (Final: 40%) | Text: 35% | Image: 62% [BestDist: 24]
+INFO 2025-11-18 20:17:43,204 views --- NO MATCH: 'Slide Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray 4 Layer Rolling Egg Dispenser Rack-Tarkata BD' (Final: 39%) | Text: 36% | Image: 53% [BestDist: 30]
+INFO 2025-11-18 20:17:43,500 views --- NO MATCH: 'Refrigerator Egg Dispenser Tray | Double Row Rolling Egg Storage Organizer | Space-Saving Egg Dispenser for Fridge & Countertop' (Final: 48%) | Text: 39% | Image: 84% [BestDist: 10]
+INFO 2025-11-18 20:17:43,782 views --- NO MATCH: '24 Egg Storage Box Eggs Holder Portable Food Storage Container PP Refrigerator Egg Tray' (Final: 43%) | Text: 36% | Image: 69% [BestDist: 20]
+INFO 2025-11-18 20:17:44,073 views --- NO MATCH: 'automatic egg rolling tray or dispenser, designed for refrigerator storage' (Final: 45%) | Text: 42% | Image: 56% [BestDist: 28]
+INFO 2025-11-18 20:17:44,365 views --- NO MATCH: 'automatic egg rolling tray or dispenser, designed for refrigerator storage' (Final: 45%) | Text: 42% | Image: 56% [BestDist: 28]
+INFO 2025-11-18 20:17:44,632 views --- NO MATCH: 'Egg Dispenser for Refrigerator, Egg Tray for Refrigerator, 4 Tiers Egg Holder for Fridge Holds 30 Eggs Simultaneously, Works in The Refrigerator, Kitchen, Cabinets, and Dining Table (Yellow)-Xaey' (Final: 32%) | Text: 26% | Image: 56% [BestDist: 28]
+INFO 2025-11-18 20:17:44,922 views --- MATCH: 'New refrigerator egg dispenser Egg rolling storage rack Egg tray' (Final: 65%) | Text: 65% | Image: 66% [BestDist: 22]
+INFO 2025-11-18 20:17:45,201 views --- NO MATCH: '1Pcs Automatic Scrolling Egg Holder Rolldown Refrigerator Egg Dispenser Kitchen Egg Storage Box Egg Stand For Fridge Egg Tray' (Final: 44%) | Text: 40% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:45,490 views --- NO MATCH: 'Egg Dispenser BPA Free Food Grade Portable Egg Tray Shockproof Leakproof Independent Grid Design Egg Holder Container for Refrigerator, Camping Picnic, Hiking, Plastic 12 Pcs Egg Storage Box Case' (Final: 29%) | Text: 22% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:45,800 views --- NO MATCH: 'automatic egg rolling tray or dispenser, designed for refrigerator storage' (Final: 45%) | Text: 42% | Image: 56% [BestDist: 28]
+INFO 2025-11-18 20:17:46,093 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray' (Final: 53%) | Text: 52% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:46,436 views --- NO MATCH: 'Egg Storage Refrigerator with 4-Layer Automatic Rolling Egg Dispenser and Space-Saving Egg Tray for Kitchen Cabinet in Restaurants' (Final: 42%) | Text: 39% | Image: 56% [BestDist: 28]
+INFO 2025-11-18 20:17:46,710 views --- NO MATCH: 'Egg Dispenser 2 Layer – Double Layer Egg Dispenser Tray with Lid, Automatic Rolling Egg Holder for Refrigerator and Kitchen Storage' (Final: 43%) | Text: 32% | Image: 88% [BestDist: 8]
+INFO 2025-11-18 20:17:46,985 views --- NO MATCH: 'Four-Layer Egg Storage Rack, Gravity Fed Egg Holder, Refrigerator Egg Storage Box, 4 Tier Rolling Egg Holder Dispenser, Auto Rolling Egg Holder for Fridge, Space Saving Egg Tray' (Final: 39%) | Text: 30% | Image: 75% [BestDist: 16]
+INFO 2025-11-18 20:17:47,273 views --- NO MATCH: 'Automatic Rolling Egg Storage Organizer | Multi-Layer Egg Holder for Fridge and Kitchen Refrigerator Egg Dispenser Tray' (Final: 50%) | Text: 41% | Image: 84% [BestDist: 10]
+INFO 2025-11-18 20:17:47,561 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:47,850 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:48,136 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:48,423 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 100%) | Text: 100% | Image: 100% [BestDist: 0]
+INFO 2025-11-18 20:17:48,698 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:48,964 views --- NO MATCH: 'Egg Dispenser 3-Tier Egg Roller for Refrigerator Space-Saving Egg Organizer Container Egg Tray for Cabinet Kitchen Countertop' (Final: 39%) | Text: 35% | Image: 56% [BestDist: 28]
+INFO 2025-11-18 20:17:49,253 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:49,549 views --- NO MATCH: '4 Layer Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray Rolling Egg Dispenser Rack' (Final: 44%) | Text: 38% | Image: 66% [BestDist: 22]
+INFO 2025-11-18 20:17:49,833 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:50,110 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 44%) | Text: 41% | Image: 56% [BestDist: 28]
+INFO 2025-11-18 20:17:50,423 views --- NO MATCH: 'Automatic egg rolling rack - refrigerator egg organizer, double-layer space saving egg dispenser tray | Durable HIPS , can hold' (Final: 45%) | Text: 39% | Image: 69% [BestDist: 20]
+INFO 2025-11-18 20:17:50,710 views --- NO MATCH: 'Egg Rack Holder Automatic Scrolling Double Layer Refrigerator Eggs Dispenser Storage Box Egg Tray Kitchen Storage Container' (Final: 46%) | Text: 40% | Image: 69% [BestDist: 20]
+INFO 2025-11-18 20:17:50,992 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 100%) | Text: 100% | Image: 100% [BestDist: 0]
+INFO 2025-11-18 20:17:51,271 views --- NO MATCH: '24 Grid Egg Storage Box Egg Refrigerator Storage Tray, Stackable Plastic Egg Containers for Fridge Kitchen' (Final: 40%) | Text: 34% | Image: 66% [BestDist: 22]
+INFO 2025-11-18 20:17:51,565 views --- NO MATCH: 'Egg Tray Refrigerator Plastic Egg Storage Container with Lid, 20 Compartment Single-Layer Egg Preservation Tray Fresh Box' (Final: 42%) | Text: 38% | Image: 59% [BestDist: 26]
+INFO 2025-11-18 20:17:51,868 views --- NO MATCH: 'Egg Dispenser 12 Slot Refrigerator Egg Tray Stackable Space-Saving Egg Storage Holder Plastic with Lid Fridge Egg Organizer Home' (Final: 40%) | Text: 35% | Image: 62% [BestDist: 24]
+INFO 2025-11-18 20:17:52,153 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 44%) | Text: 41% | Image: 56% [BestDist: 28]
+INFO 2025-11-18 20:17:52,331 views --- Saved Daraz prices for Refrigerator Egg Dispenser Tray: min=99.0, max=1250.0 ---
+INFO 2025-11-18 20:17:52,331 basehttp "POST /admin-scraper/ HTTP/1.1" 200 956
+INFO 2025-11-18 20:24:26,882 autoreload E:\WebProjects\jebaenterprise\config\settings.py changed, reloading.
+INFO 2025-11-18 20:28:01,297 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 20:28:54,874 basehttp "GET / HTTP/1.1" 200 16025
+INFO 2025-11-18 20:28:55,098 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 200 42518
+INFO 2025-11-18 20:28:55,098 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 200 35885
+INFO 2025-11-18 20:28:55,259 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 200 102566
+WARNING 2025-11-18 20:28:55,754 log Not Found: /favicon.ico
+WARNING 2025-11-18 20:28:55,754 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
+INFO 2025-11-18 20:29:00,923 basehttp "GET /accounts/login/ HTTP/1.1" 200 9673
+INFO 2025-11-18 20:29:54,997 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-18 20:29:56,520 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:30:02,460 basehttp "GET /product/8/ HTTP/1.1" 200 27232
+INFO 2025-11-18 20:30:02,579 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 200 57619
+INFO 2025-11-18 20:30:02,595 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 200 46806
+INFO 2025-11-18 20:30:02,595 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 200 50737
+INFO 2025-11-18 20:30:02,639 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 200 67458
+INFO 2025-11-18 20:30:02,647 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 200 42604
+INFO 2025-11-18 20:30:02,648 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 200 33717
+INFO 2025-11-18 20:31:36,759 basehttp "POST /search/ HTTP/1.1" 200 12046
+INFO 2025-11-18 20:32:02,126 basehttp "POST /search/ HTTP/1.1" 200 12046
+INFO 2025-11-18 20:32:30,935 basehttp "GET /search/?q=iOD&image= HTTP/1.1" 200 12045
+INFO 2025-11-18 20:32:34,367 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:32:47,455 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:32:53,324 basehttp "GET /search/?q=iOD&image= HTTP/1.1" 200 12045
+INFO 2025-11-18 20:32:56,267 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:33:15,754 basehttp "GET /search/?q=dOIiODiOD&image= HTTP/1.1" 200 12057
+INFO 2025-11-18 20:33:19,236 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:33:21,703 basehttp "GET /product/7/ HTTP/1.1" 200 26683
+INFO 2025-11-18 20:33:21,986 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
+INFO 2025-11-18 20:33:21,986 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 200 33734
+INFO 2025-11-18 20:33:21,986 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 200 33403
+INFO 2025-11-18 20:33:32,308 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
+INFO 2025-11-18 20:33:33,053 basehttp "GET /product/7/ HTTP/1.1" 200 26847
+INFO 2025-11-18 20:33:35,882 basehttp "GET /cart/ HTTP/1.1" 200 10789
+INFO 2025-11-18 20:33:37,431 basehttp "GET /checkout/ HTTP/1.1" 200 13645
+INFO 2025-11-18 20:33:42,583 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-18 20:33:42,684 basehttp "GET /order-success/ HTTP/1.1" 200 10017
+INFO 2025-11-18 20:33:45,277 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:33:51,175 basehttp "GET /admin HTTP/1.1" 301 0
+INFO 2025-11-18 20:33:51,388 basehttp "GET /admin/ HTTP/1.1" 200 12700
+INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-11-18 20:33:51,681 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-11-18 20:33:51,803 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-11-18 20:33:51,803 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-11-18 20:33:51,886 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-11-18 20:33:56,538 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 24213
+INFO 2025-11-18 20:33:56,601 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-11-18 20:33:56,624 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-11-18 20:33:56,624 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-11-18 20:33:56,641 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-11-18 20:33:56,671 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-11-18 20:33:56,691 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-11-18 20:33:56,692 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-11-18 20:33:56,784 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-11-18 20:33:56,852 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-11-18 20:33:56,852 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-11-18 20:33:56,995 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:33:57,015 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-11-18 20:33:57,310 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-11-18 20:33:57,330 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-11-18 20:34:01,978 basehttp "GET /admin/ HTTP/1.1" 200 12700
+INFO 2025-11-18 20:34:05,918 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13867
+INFO 2025-11-18 20:34:05,997 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2025-11-18 20:34:06,021 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 11973
+INFO 2025-11-18 20:34:06,373 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 20:34:14,488 basehttp "POST /admin/products/product/ HTTP/1.1" 302 0
+INFO 2025-11-18 20:34:14,884 basehttp "GET /print-products/?ids=9,8,7 HTTP/1.1" 200 21263
+INFO 2025-11-18 20:34:39,218 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
+INFO 2025-11-18 20:35:02,246 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
+INFO 2025-11-18 20:36:01,894 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
+INFO 2025-11-18 20:36:43,803 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=description&cols=selling_price&cols=box_quantity HTTP/1.1" 200 21263
+INFO 2025-11-18 20:36:48,931 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
+INFO 2025-11-18 20:36:56,627 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
+INFO 2025-11-18 20:37:50,646 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=competitor_prices&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 16857
+INFO 2025-11-18 20:39:21,904 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
+INFO 2025-11-18 20:39:32,358 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=description&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 21164
+INFO 2025-11-18 20:39:37,042 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
+INFO 2025-11-18 20:39:43,116 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
+INFO 2025-11-18 20:39:46,510 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
+INFO 2025-11-18 20:40:06,842 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=competitor_prices&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 16857
+INFO 2025-11-18 20:40:59,127 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:41:11,986 basehttp "GET /product/8/ HTTP/1.1" 200 27232
+INFO 2025-11-18 20:41:27,843 basehttp "GET /product/8/ HTTP/1.1" 200 27232
+INFO 2025-11-18 20:42:49,749 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 20:44:30,504 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 21:14:53,402 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 21:18:48,851 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 21:18:56,223 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 21:19:17,781 basehttp "GET / HTTP/1.1" 200 17236
+WARNING 2025-11-18 21:19:18,377 log Not Found: /favicon.ico
+WARNING 2025-11-18 21:19:18,377 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
+INFO 2025-11-18 21:19:19,994 basehttp "GET /my-orders/ HTTP/1.1" 200 11086
+INFO 2025-11-18 21:19:28,032 basehttp "GET /cart/ HTTP/1.1" 200 9937
+INFO 2025-11-18 21:19:37,453 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 21:19:41,802 basehttp "GET /product/8/ HTTP/1.1" 200 27232
+INFO 2025-11-18 21:30:11,120 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-18 21:30:22,086 log Not Found: /favicon.ico
+WARNING 2025-11-18 21:30:22,086 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
+INFO 2025-11-18 21:30:27,802 basehttp "GET /product/8/ HTTP/1.1" 200 28941
+INFO 2025-11-18 21:30:35,169 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 21:30:43,786 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 21:30:48,383 basehttp "GET /product/8/ HTTP/1.1" 200 28941
+INFO 2025-11-18 21:30:48,410 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 21:30:48,411 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 21:30:48,414 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 21:30:48,414 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 21:30:48,415 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 21:30:48,416 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 21:30:57,367 basehttp "GET /search/?q=Doi&image= HTTP/1.1" 200 13600
+INFO 2025-11-18 21:30:58,835 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 21:31:03,260 basehttp "GET /product/8/ HTTP/1.1" 200 28941
+INFO 2025-11-18 21:31:16,082 basehttp "GET /product/8/ HTTP/1.1" 200 28941
+INFO 2025-11-18 21:31:21,500 basehttp "GET /product/7/ HTTP/1.1" 200 28392
+INFO 2025-11-18 21:31:42,535 basehttp "GET /product/9/ HTTP/1.1" 200 28924
+INFO 2025-11-18 21:31:43,239 basehttp "GET /media/products/gallery/Egg-Dispenser-Tray.jpg HTTP/1.1" 200 24333
+INFO 2025-11-18 21:31:43,576 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-3-1200x1271.jpeg HTTP/1.1" 200 118437
+INFO 2025-11-18 21:31:43,825 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-2-1200x1246.jpeg HTTP/1.1" 200 74578
+INFO 2025-11-18 21:31:44,516 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-5-1200x1202.jpeg HTTP/1.1" 200 134882
+INFO 2025-11-18 21:31:44,516 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-4.jpeg HTTP/1.1" 200 87590
+INFO 2025-11-18 21:33:10,191 basehttp "GET / HTTP/1.1" 200 18005
+INFO 2025-11-18 21:33:10,564 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 200 42518
+INFO 2025-11-18 21:33:10,564 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 200 35885
+INFO 2025-11-18 21:33:10,939 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 200 102566
+WARNING 2025-11-18 21:33:12,057 log Not Found: /favicon.ico
+WARNING 2025-11-18 21:33:12,057 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
+INFO 2025-11-18 21:33:22,037 basehttp "GET / HTTP/1.1" 200 18005
+INFO 2025-11-18 21:33:37,057 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
+INFO 2025-11-18 21:33:44,257 basehttp "GET /register/ HTTP/1.1" 200 11226
+INFO 2025-11-18 21:34:01,115 basehttp "GET / HTTP/1.1" 200 18005
+INFO 2025-11-18 21:34:11,457 basehttp "GET /product/7/ HTTP/1.1" 200 27181
+INFO 2025-11-18 21:34:11,524 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
+INFO 2025-11-18 21:34:11,537 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 200 33403
+INFO 2025-11-18 21:34:11,553 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 200 33734
+INFO 2025-11-18 21:34:26,109 basehttp "GET / HTTP/1.1" 200 18005
+INFO 2025-11-18 21:34:32,452 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
+INFO 2025-11-18 21:35:39,015 basehttp "GET / HTTP/1.1" 200 18005
+INFO 2025-11-18 21:35:39,115 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 200 42518
+INFO 2025-11-18 21:35:39,115 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 200 35885
+INFO 2025-11-18 21:35:39,212 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 200 102566
+WARNING 2025-11-18 21:35:39,768 log Not Found: /favicon.ico
+WARNING 2025-11-18 21:35:39,768 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
+ERROR 2025-11-18 21:36:58,274 log Internal Server Error: /product/8/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
+    product = get_object_or_404(Product, pk=pk)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+ERROR 2025-11-18 21:36:58,274 basehttp "GET /product/8/ HTTP/1.1" 500 175413
+ERROR 2025-11-18 21:37:13,617 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 66, in pricing_sheet
+    return render(request, "products/pricing_sheet.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 320, in render
+    match = condition.eval(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
+    return self.value.resolve(context, ignore_failures=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 925, in _resolve_lookup
+    current = current()
+              ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+ERROR 2025-11-18 21:37:13,619 basehttp "GET / HTTP/1.1" 500 265056
+INFO 2025-11-18 21:37:43,522 basehttp "GET / HTTP/1.1" 200 18005
+INFO 2025-11-18 21:37:54,292 basehttp "GET /product/8/ HTTP/1.1" 200 27730
+INFO 2025-11-18 21:37:54,389 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 200 57619
+INFO 2025-11-18 21:37:54,394 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 200 50737
+INFO 2025-11-18 21:37:54,476 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 200 46806
+INFO 2025-11-18 21:37:54,481 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 200 42604
+INFO 2025-11-18 21:37:54,495 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 200 67458
+INFO 2025-11-18 21:37:54,497 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 200 33717
+INFO 2025-11-18 21:38:09,859 basehttp "GET /register/ HTTP/1.1" 200 11226
+INFO 2025-11-18 21:39:30,899 basehttp "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-18 21:39:31,384 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
+INFO 2025-11-18 21:39:43,052 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-18 21:39:44,846 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-18 21:39:50,683 basehttp "GET / HTTP/1.1" 200 19216
+WARNING 2025-11-18 21:39:50,914 log Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2025-11-18 21:39:50,914 basehttp "POST /accounts/login/ HTTP/1.1" 403 2503
+INFO 2025-11-18 21:40:02,775 basehttp "GET /accounts/login/ HTTP/1.1" 200 11885
+INFO 2025-11-18 21:40:13,441 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-18 21:40:20,157 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 21:40:30,570 basehttp "GET /product/8/ HTTP/1.1" 200 28941
+INFO 2025-11-18 21:41:16,981 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
+INFO 2025-11-18 21:41:18,310 basehttp "GET /product/8/ HTTP/1.1" 200 29105
+INFO 2025-11-18 21:41:34,785 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
+INFO 2025-11-18 21:41:36,248 basehttp "GET /product/8/ HTTP/1.1" 200 29105
+INFO 2025-11-18 21:41:40,739 basehttp "GET /cart/ HTTP/1.1" 200 11810
+INFO 2025-11-18 21:41:58,051 basehttp "GET /cart/ HTTP/1.1" 200 11810
+INFO 2025-11-18 21:42:01,474 basehttp "GET /checkout/ HTTP/1.1" 200 14666
+INFO 2025-11-18 21:42:43,377 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-18 21:42:43,790 basehttp "GET /order-success/ HTTP/1.1" 200 11018
+INFO 2025-11-18 21:42:51,243 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
+INFO 2025-11-18 21:42:57,332 basehttp "GET /order/25/ HTTP/1.1" 200 13891
+INFO 2025-11-18 21:43:22,131 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
+INFO 2025-11-18 21:43:24,538 basehttp "GET /cart/ HTTP/1.1" 200 10938
+INFO 2025-11-18 21:43:40,923 basehttp "GET /cart/ HTTP/1.1" 200 10938
+INFO 2025-11-18 22:10:15,505 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-18 22:10:28,360 log Not Found: /favicon.ico
+WARNING 2025-11-18 22:10:28,362 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
+INFO 2025-11-18 22:10:29,906 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 22:10:57,071 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 22:11:13,534 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 22:11:16,958 basehttp "GET /product/8/ HTTP/1.1" 200 28941
+ERROR 2025-11-18 22:11:20,410 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 66, in pricing_sheet
+    return render(request, "products/pricing_sheet.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 320, in render
+    match = condition.eval(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
+    return self.value.resolve(context, ignore_failures=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 722, in resolve
+    obj = self.var.resolve(context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 854, in resolve
+    value = self._resolve_lookup(context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
+    current = current[bit]
+              ~~~~~~~^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+                    ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 40, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 20, in get_user
+    request._cached_user = auth.get_user(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 304, in get_user
+    user_id = _get_user_session_key(request)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 95, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 55, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+ERROR 2025-11-18 22:11:20,419 basehttp "GET / HTTP/1.1" 500 303254
+ERROR 2025-11-18 22:14:47,265 log Internal Server Error: /product/8/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
+    product = get_object_or_404(Product, pk=pk)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+ERROR 2025-11-18 22:14:47,266 basehttp "GET /product/8/ HTTP/1.1" 500 176638
+ERROR 2025-11-18 22:14:49,565 log Internal Server Error: /product/8/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
+    product = get_object_or_404(Product, pk=pk)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+ERROR 2025-11-18 22:14:49,566 basehttp "GET /product/8/ HTTP/1.1" 500 176638
+ERROR 2025-11-18 22:15:04,612 log Internal Server Error: /product/8/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
+    product = get_object_or_404(Product, pk=pk)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+ERROR 2025-11-18 22:15:04,614 basehttp "GET /product/8/ HTTP/1.1" 500 176427
+ERROR 2025-11-18 22:15:04,705 log Internal Server Error: /product/8/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
+    product = get_object_or_404(Product, pk=pk)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+ERROR 2025-11-18 22:15:04,708 basehttp "GET /product/8/ HTTP/1.1" 500 176067
+ERROR 2025-11-18 22:18:22,448 log Internal Server Error: /product/8/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (13.200.110.68), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
+    product = get_object_or_404(Product, pk=pk)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (13.200.110.68), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
+
+ERROR 2025-11-18 22:18:22,450 basehttp "GET /product/8/ HTTP/1.1" 500 175701
+INFO 2025-11-18 22:18:35,347 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 22:18:41,540 basehttp "GET /product/8/ HTTP/1.1" 200 28941
+INFO 2025-11-18 22:18:42,437 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:18:42,466 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:18:42,516 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:18:42,516 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:18:42,516 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:18:42,525 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:18:42,562 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:18:42,562 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:35:55,523 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-18 22:36:21,672 log Not Found: /favicon.ico
+WARNING 2025-11-18 22:36:21,673 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
+INFO 2025-11-18 22:36:27,730 basehttp "GET /product/8/ HTTP/1.1" 200 28500
+INFO 2025-11-18 22:36:41,283 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 22:36:54,077 basehttp "GET /product/8/ HTTP/1.1" 200 28500
+INFO 2025-11-18 22:37:18,962 basehttp "GET /product/7/ HTTP/1.1" 200 27951
+INFO 2025-11-18 22:37:19,205 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:37:19,205 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:37:19,327 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:37:59,620 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
+INFO 2025-11-18 22:38:01,973 basehttp "GET /order/24/ HTTP/1.1" 200 13934
+INFO 2025-11-18 22:38:08,130 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
+INFO 2025-11-18 22:38:11,019 basehttp "GET /cart/ HTTP/1.1" 200 10938
+INFO 2025-11-18 22:38:13,927 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 22:38:23,974 basehttp "GET /product/8/ HTTP/1.1" 200 28500
+INFO 2025-11-18 22:40:05,649 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 22:40:05,688 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:40:05,688 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-18 22:40:05,688 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+WARNING 2025-11-18 22:40:05,760 log Not Found: /favicon.ico
+WARNING 2025-11-18 22:40:05,761 basehttp "GET /favicon.ico HTTP/1.1" 404 6034
+INFO 2025-11-18 22:40:13,025 basehttp "GET /product/8/ HTTP/1.1" 200 28500
+INFO 2025-11-18 22:40:19,978 basehttp "GET /product/7/ HTTP/1.1" 200 27951
+INFO 2025-11-18 22:40:20,000 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:40:20,004 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:40:20,004 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 22:40:59,553 basehttp "GET / HTTP/1.1" 200 19216
+WARNING 2025-11-18 22:40:59,660 log Not Found: /favicon.ico
+WARNING 2025-11-18 22:40:59,660 basehttp "GET /favicon.ico HTTP/1.1" 404 6034
+INFO 2025-11-18 22:41:02,311 basehttp "GET /product/8/ HTTP/1.1" 200 28500
+INFO 2025-11-18 22:47:58,893 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-18 22:48:17,599 log Not Found: /favicon.ico
+WARNING 2025-11-18 22:48:17,600 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
+INFO 2025-11-18 22:48:19,136 basehttp "GET /product/8/ HTTP/1.1" 200 28129
+INFO 2025-11-18 22:48:54,549 basehttp "GET /product/8/ HTTP/1.1" 200 28129
+INFO 2025-11-18 23:00:09,204 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 23:00:24,955 basehttp "GET /product/8/ HTTP/1.1" 200 28344
+INFO 2025-11-18 23:00:31,796 basehttp "GET /product/8/ HTTP/1.1" 200 28344
+INFO 2025-11-18 23:01:01,633 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 23:01:03,782 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 23:01:07,082 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 23:01:08,093 basehttp "GET /product/8/ HTTP/1.1" 200 28344
+WARNING 2025-11-18 23:01:51,647 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:01:51,647 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+WARNING 2025-11-18 23:01:57,557 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:01:57,557 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+WARNING 2025-11-18 23:02:01,074 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:02:01,076 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+WARNING 2025-11-18 23:02:24,275 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:02:24,277 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+INFO 2025-11-18 23:02:56,352 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-18 23:02:58,826 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:02:58,828 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+INFO 2025-11-18 23:02:59,708 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 23:03:07,586 basehttp "GET / HTTP/1.1" 200 19216
+WARNING 2025-11-18 23:03:10,260 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:03:10,261 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+WARNING 2025-11-18 23:03:21,811 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:03:21,812 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+WARNING 2025-11-18 23:03:24,612 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:03:24,613 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+WARNING 2025-11-18 23:03:25,965 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:03:25,966 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+INFO 2025-11-18 23:05:47,435 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 23:05:49,600 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 23:07:15,764 basehttp "GET / HTTP/1.1" 200 19216
+INFO 2025-11-18 23:07:17,240 basehttp "GET /product/8/ HTTP/1.1" 200 28344
+WARNING 2025-11-18 23:07:19,734 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:07:19,735 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6145
+INFO 2025-11-18 23:10:07,486 basehttp "GET /cart/ HTTP/1.1" 200 10938
+WARNING 2025-11-18 23:10:07,510 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:10:07,512 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6145
+INFO 2025-11-18 23:10:08,941 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
+WARNING 2025-11-18 23:10:08,961 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:10:08,962 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6145
+INFO 2025-11-18 23:10:11,803 basehttp "GET / HTTP/1.1" 200 19216
+WARNING 2025-11-18 23:10:11,827 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:10:11,828 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6145
+INFO 2025-11-18 23:10:56,013 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-18 23:10:56,242 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 23:11:07,602 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-18 23:11:07,822 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 23:11:24,238 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
+INFO 2025-11-18 23:11:24,472 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 23:13:03,405 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 23:13:07,918 basehttp "GET / HTTP/1.1" 200 18950
+WARNING 2025-11-18 23:13:07,945 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:13:07,946 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:13:10,706 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 23:13:11,876 basehttp "GET / HTTP/1.1" 200 18005
+WARNING 2025-11-18 23:13:11,907 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:13:11,907 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:13:14,027 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
+WARNING 2025-11-18 23:13:14,051 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:13:14,052 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:13:16,086 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-18 23:13:17,332 basehttp "GET / HTTP/1.1" 200 18950
+WARNING 2025-11-18 23:13:17,363 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:13:17,363 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:13:19,342 basehttp "GET /product/8/ HTTP/1.1" 200 28159
+WARNING 2025-11-18 23:13:19,375 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:13:19,375 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:14:18,523 basehttp "GET /product/8/ HTTP/1.1" 200 28425
+WARNING 2025-11-18 23:14:18,559 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:14:18,560 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+WARNING 2025-11-18 23:14:19,702 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:14:19,703 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+WARNING 2025-11-18 23:14:21,051 log Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-11-18 23:14:21,052 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
+WARNING 2025-11-18 23:14:59,095 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:14:59,096 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+WARNING 2025-11-18 23:14:59,116 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:14:59,122 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:15:00,715 basehttp "GET /product/8/ HTTP/1.1" 200 28421
+WARNING 2025-11-18 23:15:00,741 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:15:00,742 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:15:01,749 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 23:15:02,922 basehttp "GET / HTTP/1.1" 200 18005
+WARNING 2025-11-18 23:15:02,948 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:15:02,948 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:15:04,043 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
+WARNING 2025-11-18 23:15:04,066 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:15:04,067 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:15:05,944 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-18 23:15:07,195 basehttp "GET / HTTP/1.1" 200 19212
+WARNING 2025-11-18 23:15:07,228 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:15:07,229 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:15:10,218 basehttp "GET /product/8/ HTTP/1.1" 200 28421
+WARNING 2025-11-18 23:15:10,245 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:15:10,246 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:15:13,465 basehttp "GET / HTTP/1.1" 200 19212
+WARNING 2025-11-18 23:15:13,496 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:15:13,497 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:15:25,425 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 23:15:26,595 basehttp "GET / HTTP/1.1" 200 18005
+WARNING 2025-11-18 23:15:26,624 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:15:26,625 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:15:41,245 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 23:15:44,066 basehttp "GET / HTTP/1.1" 200 19212
+WARNING 2025-11-18 23:15:44,772 log Not Found: /favicon.ico
+WARNING 2025-11-18 23:15:44,773 basehttp "GET /favicon.ico HTTP/1.1" 404 6301
+INFO 2025-11-18 23:15:50,284 basehttp "GET /product/8/ HTTP/1.1" 200 28421
+INFO 2025-11-18 23:26:47,886 basehttp "GET / HTTP/1.1" 200 17834
+WARNING 2025-11-18 23:26:47,912 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:26:47,912 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:26:47,998 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-11-18 23:26:54,783 basehttp "GET / HTTP/1.1" 200 17834
+WARNING 2025-11-18 23:26:54,806 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:26:54,806 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:26:54,808 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-18 23:27:05,727 basehttp "GET / HTTP/1.1" 200 17834
+INFO 2025-11-18 23:27:05,753 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+WARNING 2025-11-18 23:27:10,433 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:27:10,434 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:27:37,674 basehttp "GET / HTTP/1.1" 200 17834
+INFO 2025-11-18 23:27:37,699 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-18 23:27:55,181 basehttp "GET / HTTP/1.1" 200 17834
+INFO 2025-11-18 23:27:55,202 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-18 23:29:16,782 basehttp "GET / HTTP/1.1" 200 17834
+INFO 2025-11-18 23:29:16,799 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-11-18 23:29:32,267 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:29:32,268 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:29:34,421 basehttp "GET /product/8/ HTTP/1.1" 200 26932
+WARNING 2025-11-18 23:29:34,442 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 23:29:34,443 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
+INFO 2025-11-18 23:29:34,449 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-18 23:29:34,451 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 23:29:34,454 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 23:29:34,454 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 23:29:34,455 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 23:29:34,456 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 23:29:34,456 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 23:31:24,441 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-18 23:31:42,607 log Not Found: /favicon.ico
+WARNING 2025-11-18 23:31:42,608 basehttp "GET /favicon.ico HTTP/1.1" 404 6301
+INFO 2025-11-18 23:31:47,185 basehttp "GET / HTTP/1.1" 200 19041
+INFO 2025-11-18 23:31:47,402 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-11-18 23:32:12,453 basehttp "GET / HTTP/1.1" 200 19041
+INFO 2025-11-18 23:33:01,652 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 23:33:11,638 basehttp "GET / HTTP/1.1" 200 19041
+INFO 2025-11-18 23:33:12,671 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-18 23:33:15,475 basehttp "GET / HTTP/1.1" 200 19041
+INFO 2025-11-18 23:33:18,459 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 23:33:19,794 basehttp "GET / HTTP/1.1" 200 17834
+INFO 2025-11-18 23:33:22,379 basehttp "GET / HTTP/1.1" 200 17834
+INFO 2025-11-18 23:33:24,140 basehttp "GET /product/8/ HTTP/1.1" 200 26932
+INFO 2025-11-18 23:34:02,848 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
+INFO 2025-11-18 23:34:04,081 basehttp "GET /product/8/ HTTP/1.1" 200 26932
+INFO 2025-11-18 23:34:04,290 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-18 23:34:18,063 basehttp "GET /cart HTTP/1.1" 301 0
+INFO 2025-11-18 23:34:18,668 basehttp "GET /cart/ HTTP/1.1" 200 10262
+INFO 2025-11-18 23:34:21,598 basehttp "GET /checkout/ HTTP/1.1" 200 13118
+INFO 2025-11-18 23:34:36,079 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-18 23:34:36,233 basehttp "GET /order-success/ HTTP/1.1" 200 9636
+INFO 2025-11-18 23:34:39,122 basehttp "GET / HTTP/1.1" 200 17834
+INFO 2025-11-18 23:34:39,275 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-18 23:34:56,932 basehttp "GET /product/8/ HTTP/1.1" 200 26932
+INFO 2025-11-18 23:35:08,909 basehttp "GET / HTTP/1.1" 200 17834

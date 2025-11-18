@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Print Products</title>
     <style>
-        /* ... all your existing styles (body, page, table, etc) are here ... */
         body { font-family: 'Inter', sans-serif; }
         .page {
             width: 210mm;
@@ -56,7 +55,6 @@
             margin-top: 10px;
         }
         
-        /* --- NEW STYLES FOR CHECKBOXES --- */
         .checkbox-group {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -70,7 +68,6 @@
         .checkbox-group input {
             margin-right: 5px;
         }
-        /* --- END OF NEW STYLES --- */
         
         @media print {
             body, .page {
@@ -94,26 +91,46 @@
             <form method="GET" action="{% url 'print_products_page' %}">
                 <input type="hidden" name="ids" value="{{ request.GET.ids }}">
                 
-                <strong>Select columns to print:</strong>
-                
-                <div class="checkbox-group">
-                    {% for key, display_name in all_cols.items %}
-                    <div>
-                        <input 
-                            type="checkbox" 
-                            name="cols" 
-                            id="col-{{ key }}" 
-                            value="{{ key }}"
-                            {% if key in cols_list %}checked{% endif %}
-                        >
-                        <label for="col-{{ key }}">{{ display_name }}</label>
+                <div style="margin-bottom: 20px;">
+                    <strong>1. Select columns to include:</strong>
+                    <div class="checkbox-group">
+                        {% for key, display_name in all_cols.items %}
+                        <div>
+                            <input 
+                                type="checkbox" 
+                                name="cols" 
+                                id="col-{{ key }}" 
+                                value="{{ key }}"
+                                {% if key in cols_list %}checked{% endif %}
+                            >
+                            <label for="col-{{ key }}">{{ display_name }}</label>
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
+                </div>
+
+                <div>
+                    <strong>2. Select columns to leave BLANK (Header shows, data hidden):</strong>
+                    <div class="checkbox-group">
+                        {% for key, display_name in all_cols.items %}
+                        <div>
+                            <input 
+                                type="checkbox" 
+                                name="blank_cols" 
+                                id="blank-{{ key }}" 
+                                value="{{ key }}"
+                                {% if key in blank_cols_keys %}checked{% endif %}
+                            >
+                            <label for="blank-{{ key }}">{{ display_name }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
                 
                 <button type="submit" class="update-button">Update View</button>
             </form>
         </div>
+        
         <h1>Product Catalogue</h1>
 
         <table>
@@ -128,52 +145,57 @@
                 {% for product in products %}
                 <tr>
                     {% for col in cols_list %}
-                    
-                        {% if col == 'image' %}
-                        <td>
-                            {% if product.images.first %}
-                                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="img-thumbnail">
-                            {% endif %}
-                        </td>
                         
-                        {% elif col == 'name' %}
-                        <td>{{ product.name }}</td>
+                        {% if col in blank_cols_keys %}
+                            <td>&nbsp;</td>
                         
-                        {% elif col == 'description' %}
-                        <td>{{ product.description|default:"" }}</td>
-                        
-                        {% elif col == 'selling_price' %}
-                        <td>${{ product.selling_price|floatformat:2 }}</td>
+                        {% else %}
+                            {% if col == 'image' %}
+                            <td>
+                                {% if product.images.first %}
+                                    <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="img-thumbnail">
+                                {% endif %}
+                            </td>
+                            
+                            {% elif col == 'name' %}
+                            <td>{{ product.name }}</td>
+                            
+                            {% elif col == 'description' %}
+                            <td>{{ product.description|default:"" }}</td>
+                            
+                            {% elif col == 'selling_price' %}
+                            <td>${{ product.selling_price|floatformat:2 }}</td>
 
-                        {% elif col == 'variations' %}
-                        <td>
-                            <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
-                                {% for var in product.variations.all %}
-                                    <li>
-                                        <strong>{{ var.name }}:</strong> ${{ var.selling_price|floatformat:2 }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                        
-                        {% elif col == 'competitor_prices' %}
-                        <td>
-                            <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
-                                {% for price in product.competitor_prices.all %}
-                                    <li>
-                                        <strong>{{ price.website_name }}:</strong> 
-                                        ${{ price.min_price }} - ${{ price.max_price }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </td>
-                        
-                        {% elif col == 'box_quantity' %}
-                        <td>{{ product.box_quantity }}</td>
-                        
-                        {% elif col == 'stock' %}
-                        <td>{{ product.stock_quantity }}</td>
-                        
+                            {% elif col == 'variations' %}
+                            <td>
+                                <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
+                                    {% for var in product.variations.all %}
+                                        <li>
+                                            <strong>{{ var.name }}:</strong> ${{ var.selling_price|floatformat:2 }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            
+                            {% elif col == 'competitor_prices' %}
+                            <td>
+                                <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
+                                    {% for price in product.competitor_prices.all %}
+                                        <li>
+                                            <strong>{{ price.website_name }}:</strong> 
+                                            ${{ price.min_price }} - ${{ price.max_price }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            
+                            {% elif col == 'box_quantity' %}
+                            <td>{{ product.box_quantity }}</td>
+                            
+                            {% elif col == 'stock' %}
+                            <td>{{ product.stock_quantity }}</td>
+                            
+                            {% endif %}
                         {% endif %}
 
                     {% endfor %}
@@ -181,6 +203,6 @@
                 {% endfor %}
             </tbody>
         </table>
-        </div>
+    </div>
 </body>
 </html>

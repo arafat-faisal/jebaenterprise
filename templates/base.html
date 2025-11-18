@@ -41,36 +41,64 @@
         }
 
         /* --- The New Floating Header --- */
+        /* --- The New Floating Header --- */
         .site-header {
             background-color: var(--bg-card);
-            padding: 15px 30px;
-            border-radius: var(--radius-pill); /* Pill shape like the image */
+            padding: 15px 20px; /* Reduced padding */
+            border-radius: var(--radius-lg); /* Smaller radius on mobile */
             box-shadow: var(--shadow-soft);
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap; /* Allow wrapping for mobile */
+            gap: 15px;
             align-items: center;
             max-width: 1200px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 20px auto;
             position: relative;
-            top: 0;
         }
 
         .logo {
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* Slightly smaller */
             color: var(--text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            margin-right: auto; /* Pushes icons to the right */
         }
 
-        /* The Search Bar (Pill Shape) */
+        /* The Search Bar */
         .search-container {
             flex-grow: 1;
             max-width: 500px;
-            margin: 0 40px;
             position: relative;
+            /* Mobile Default: Order 3 (Bottom) */
+            order: 3; 
+            width: 100%; /* Full width on mobile */
+            margin: 0;
+        }
+        
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            order: 2; /* Top Right on mobile */
+        }
+
+        /* --- DESKTOP OVERRIDES (Screens wider than 768px) --- */
+        @media (min-width: 768px) {
+            .site-header {
+                padding: 15px 30px;
+                border-radius: var(--radius-pill);
+                flex-wrap: nowrap; /* One single line */
+            }
+            .logo { font-size: 1.5rem; margin-right: 0; }
+            .search-container { 
+                order: 0; /* Natural flow */
+                margin: 0 40px; 
+                width: auto; 
+            }
+            .nav-links { order: 0; }
         }
         .search-input {
             width: 100%;
@@ -165,8 +193,7 @@
 
     <header class="site-header">
         <a href="{% url 'pricing_sheet' %}" class="logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg>
-            Jeba.
+            <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 40px; width: auto;">
         </a>
         
         <!-- 2. Pill Search Bar with Image Upload -->
@@ -194,7 +221,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                     {% if request.session.cart %}<span style="position: absolute; top: 10%; right: 0%; width: 10px; height: 10px; background: var(--accent-lime); border: 2px solid #fff;border-radius: 50%;"></span>{% endif %}
                 </a>
-                <a href="{% url 'logout' %}" class="nav-icon" title="Logout">
+                <a href="{% url 'user_logout' %}" class="nav-icon" title="Logout">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                 </a>
             {% else %}

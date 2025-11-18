@@ -32,6 +32,8 @@ from .forms import CheckoutForm
 
 from django.core.files.storage import default_storage
 
+from django.contrib.auth import logout # Import this
+
 def pricing_sheet(request):
         # 1. Start with all products (and prefetch related data)
         all_products = Product.objects.prefetch_related('images', 'variations').all()
@@ -249,16 +251,18 @@ def print_products_page(request):
         'image': 'Image',
         'name': 'Product Name',
         'description': 'Description',
-        'selling_price': 'Base Price', # Renamed from "Selling Price"
-        'variations': 'Price Variations', # NEW
-        'competitor_prices': 'Competitor Prices', # NEW
+        'selling_price': 'Base Price',
+        'variations': 'Price Variations',
+        'competitor_prices': 'Competitor Prices',
         'box_quantity': 'Box Quantity',
         'stock': 'Stock',
     }
     
-    # Get the list of checked boxes from the URL
-    # request.GET.getlist('cols') gets all values checked with name="cols"
+    # Get the list of checked boxes for VISIBILITY
     selected_cols_keys = request.GET.getlist('cols')
+    
+    # --- NEW: Get the list of checked boxes for BLANK DATA ---
+    blank_cols_keys = request.GET.getlist('blank_cols')
     
     # If no columns were selected (e.g., first load), use a default
     if not selected_cols_keys:
@@ -275,10 +279,10 @@ def print_products_page(request):
         'products': products,
         'col_headers': col_headers,  # The list of names for the <th> row
         'cols_list': cols_list,      # The list of keys for the <td> rows
+        'blank_cols_keys': blank_cols_keys, # NEW: List of columns to blank out
         'all_cols': all_cols,        # The full dictionary to build the checkboxes
     }
     return render(request, 'products/print_page.html', context)
-
 
 # --- ADD THIS NEW VIEW AT THE BOTTOM ---
 # ... (all your other imports) ...
@@ -618,3 +622,7 @@ def search_view(request):
         'is_image_search': bool(image_file)
     }
     return render(request, 'products/search_results.html', context)
+
+def user_logout(request):
+    logout(request)
+    return redirect('pricing_sheet')
