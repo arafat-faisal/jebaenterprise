@@ -23,14 +23,14 @@
                         <tr>
                             <td>
                                 <strong>{{ item.name }}</strong><br>
-                                ${{ item.price|floatformat:2 }} x {{ item.quantity }}
+                                ৳{{ item.price|floatformat:2 }} x {{ item.quantity }}
                             </td>
-                            <td>${{ item.item_total|floatformat:2 }}</td>
+                            <td>৳{{ item.item_total|floatformat:2 }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-                <h2 style="text-align: right; margin-top: 20px;">Total: ${{ total_price|floatformat:2 }}</h2>
+                <h2 style="text-align: right; margin-top: 20px;">Total: ৳{{ total_price|floatformat:2 }}</h2>
             </div>
             
             <div style="background-color: #f9f9f9; padding: 30px; border-radius: 8px; border: 1px solid #eee;">

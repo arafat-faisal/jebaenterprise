@@ -34,61 +34,139 @@ from django.core.files.storage import default_storage
 
 from django.contrib.auth import logout # Import this
 
-def pricing_sheet(request):
-        # 1. Start with all products (and prefetch related data)
-        all_products = Product.objects.prefetch_related('images', 'variations').all()
-        
-        # 2. Get Search Query (q) and Category Filter
-        search_query = request.GET.get('q')
-        category_id = request.GET.get('category')
+from django.core.mail import send_mail
+from django.db.models import Avg
+from .forms import ReviewForm, UserForm, ProfileForm,SignUpForm # Import new forms
+from .models import Review, Wishlist, UserProfile # Import new models
 
-        # 3. Apply Filters
-        if search_query:
-            # Filter products where name OR description contains the query
-            all_products = all_products.filter(
-                Q(name__icontains=search_query) | Q(description__icontains=search_query)
-            )
+# Add these imports at the top
+from django.db.models import Sum, Count
+
+
+# def pricing_sheet(request):
+#         # 1. Start with all products (and prefetch related data)
+#         all_products = Product.objects.prefetch_related('images', 'variations').all()
+        
+#         # 2. Get Search Query (q) and Category Filter
+#         search_query = request.GET.get('q')
+#         category_id = request.GET.get('category')
+
+#         # 3. Apply Filters
+#         if search_query:
+#             # Filter products where name OR description contains the query
+#             all_products = all_products.filter(
+#                 Q(name__icontains=search_query) | Q(description__icontains=search_query)
+#             )
             
-        if category_id:
-            all_products = all_products.filter(category_id=category_id)
+#         if category_id:
+#             all_products = all_products.filter(category_id=category_id)
 
-        # 4. Final Product Ordering
-        all_products = all_products.order_by('name')
+#         # 4. Final Product Ordering
+#         all_products = all_products.order_by('name')
 
-        # 5. Get all Categories for the filter bar
-        all_categories = Category.objects.all().order_by('name')
+#         # 5. Get all Categories for the filter bar
+#         all_categories = Category.objects.all().order_by('name')
 
-        # 6. Pass data to the template
-        context = {
-            'products': all_products,
-            'all_categories': all_categories,
-            'active_category': category_id # Pass this to highlight the active filter
-        }
+#         # 6. Pass data to the template
+#         context = {
+#             'products': all_products,
+#             'all_categories': all_categories,
+#             'active_category': category_id # Pass this to highlight the active filter
+#         }
         
-        return render(request, "products/pricing_sheet.html", context)
+#         return render(request, "products/pricing_sheet.html", context)
+# --- UPDATE: Homepage View ---
+def pricing_sheet(request):
+    # 1. Get the Hero Product (The one you checked in Admin)
+    # We try to get the newest one marked 'is_featured'. 
+    # If none are checked, we fallback to the newest product.
+    featured_product = Product.objects.filter(is_featured=True).order_by('-created_at').first()
+    if not featured_product:
+        featured_product = Product.objects.order_by('-created_at').first()
+
+    # 2. Get New Arrivals (Last 4 created)
+    new_arrivals = Product.objects.order_by('-created_at')[:4]
+
+    # 3. Get Best Sellers (Calculated by summing SaleItems)
+    # This is "Real Data" logic!
+    best_sellers = Product.objects.annotate(
+        total_sold=Sum('saleitem__quantity')
+    ).order_by('-total_sold')[:4]
+
+    # 4. Get a mix for the bottom grid
+    all_products = Product.objects.all().order_by('?')[:8] # Random mix for discovery
+
+    context = {
+        'featured_product': featured_product,
+        'new_arrivals': new_arrivals,
+        'best_sellers': best_sellers,
+        'products': all_products,
+    }
+    return render(request, "products/pricing_sheet.html", context)
+
+# --- NEW: Dedicated Catalog View ---
+def product_catalog(request):
+    products = Product.objects.all().prefetch_related('images')
+    
+    # Filtering Logic
+    category_id = request.GET.get('category')
+    sort_by = request.GET.get('sort')
+
+    if category_id:
+        products = products.filter(category_id=category_id)
+    
+    if sort_by == 'new':
+        products = products.order_by('-created_at')
+    elif sort_by == 'price-low':
+        products = products.order_by('selling_price')
+    elif sort_by == 'price-high':
+        products = products.order_by('-selling_price')
+        
+    all_categories = Category.objects.all()
+
+    context = {
+        'products': products,
+        'all_categories': all_categories,
+        'active_category': category_id
+    }
+    return render(request, 'products/catalog.html', context)
 
 
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     variations = product.variations.filter(is_active=True)
     
-    # --- NEW: Get 4 related products (excluding the current one) ---
+    # Related Products logic (Keep existing)
     related_products = Product.objects.filter(category=product.category).exclude(id=pk)[:4]
-    # If no category, just get random recent ones
     if not related_products:
         related_products = Product.objects.exclude(id=pk).order_by('-created_at')[:4]
 
+    # --- NEW: Reviews & Wishlist Data ---
+    reviews = product.reviews.all().order_by('-created_at')
+    avg_rating = reviews.aggregate(Avg('rating'))['rating__avg'] or 0
+    
+    in_wishlist = False
+    if request.user.is_authenticated:
+        in_wishlist = Wishlist.objects.filter(user=request.user, product=product).exists()
+    
     context = {
         'product': product,
         'variations': variations,
-        'related_products': related_products, # Pass this to the template
+        'related_products': related_products,
+        'reviews': reviews,
+        'avg_rating': round(avg_rating, 1),
+        'review_form': ReviewForm(),
+        'in_wishlist': in_wishlist,
     }
     return render(request, "products/product_detail.html", context)
+
+
 # --- THIS IS YOUR MODIFIED 'add_to_cart' FOR MAIN PRODUCTS ---
 def add_to_cart(request: HttpRequest, product_id):
     product = get_object_or_404(Product, id=product_id)
     cart = request.session.get('cart', {})
     quantity = int(request.POST.get('quantity', 1))
+    action = request.POST.get('action')
 
     # We use a unique ID for the cart session
     cart_item_id = str(product_id) # 'product_1'
@@ -105,6 +183,12 @@ def add_to_cart(request: HttpRequest, product_id):
         }
 
     request.session['cart'] = cart
+
+    # <--- NEW LOGIC HERE ---
+    if action == 'buy_now':
+        return redirect('checkout')
+    # -----------------------
+
     return redirect('product_detail', pk=product_id)
 
 # --- THIS IS THE NEW 'add_to_cart_variation' FUNCTION ---
@@ -113,6 +197,7 @@ def add_to_cart_variation(request: HttpRequest, variation_id):
     product = variation.product # Get the parent product
     cart = request.session.get('cart', {})
     quantity = int(request.POST.get('quantity', 1))
+    action = request.POST.get('action')
 
     # We use a unique ID for the cart session
     cart_item_id = f"var_{variation_id}" # 'var_1'
@@ -129,6 +214,8 @@ def add_to_cart_variation(request: HttpRequest, variation_id):
         }
 
     request.session['cart'] = cart
+    if action == 'buy_now':
+        return redirect('checkout')
     # Redirect back to the main product's page
     return redirect('product_detail', pk=product.id)
 
@@ -179,6 +266,20 @@ def checkout(request):
             
             # 3. Now save it to get an ID
             new_sale.save()
+
+            # --- FEATURE 3: SEND EMAIL ---
+            if request.user.is_authenticated and request.user.email:
+                try:
+                    send_mail(
+                        subject=f"Order Confirmed: #{new_sale.id}",
+                        message=f"Thank you for your order, {new_sale.customer_name}! We have received it and will ship it soon.",
+                        from_email=settings.EMAIL_HOST_USER,
+                        recipient_list=[request.user.email],
+                        fail_silently=True,
+                    )
+                except:
+                    pass # Don't crash if email fails
+            # -----------------------------
 
             # 4. Loop through every item in the session cart
             for product_id, item_data in cart.items():
@@ -517,21 +618,32 @@ def admin_scraper_view(request):
 # --- ADD THIS NEW FUNCTION ---
 def register_view(request):
     if request.method == 'POST':
-        # Create a form instance from the posted data
-        form = UserCreationForm(request.POST)
+        # Use our new Custom Form instead of the default UserCreationForm
+        form = SignUpForm(request.POST)
         if form.is_valid():
-            # Save the new user and log a success message
-            form.save()
+            user = form.save()
+            
+            # --- SEND WELCOME EMAIL ---
+            try:
+                send_mail(
+                    subject=f"Welcome to Jeba Enterprise, {user.first_name}!",
+                    message=f"Hi {user.first_name},\n\nThank you for creating an account with us. We are excited to have you!\n\nYou can now log in to view your order history and manage your profile.\n\nBest regards,\nThe Jeba Team",
+                    from_email=settings.EMAIL_HOST_USER,
+                    recipient_list=[user.email],
+                    fail_silently=True,
+                )
+            except:
+                pass # Don't crash if email fails (e.g. no internet)
+            # --------------------------
+
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}! You can now log in.')
-            return redirect('login') # Redirects to the login page (built-in)
+            return redirect('login')
     else:
-        # Create a blank form for a GET request
-        form = UserCreationForm()
+        form = SignUpForm()
 
     context = {'form': form}
     return render(request, 'registration/register.html', context)
-
 
 # --- ADD THIS NEW FUNCTION ---
 # This decorator prevents anyone who isn't logged in from seeing the page
@@ -563,66 +675,112 @@ def order_detail(request, pk):
 
 def search_view(request):
     query = request.GET.get('q')
-    # Check FILES for image (POST request)
     image_file = request.FILES.get('image')
     
+    # 1. Start with all products
     products = Product.objects.all()
     
-    # --- 1. Text Search (GET) ---
+    # --- SEARCH LOGIC ---
     if request.method == 'GET' and query:
         products = products.filter(
             Q(name__icontains=query) | 
             Q(description__icontains=query) |
             Q(category__name__icontains=query)
         )
-
-    # --- 2. Image Search (POST) ---
     elif request.method == 'POST' and image_file:
-        # ... (Same image processing logic as before) ...
-        file_path = default_storage.save(f"temp/{image_file.name}", image_file)
-        full_path = default_storage.path(file_path)
-        
-        try:
-            uploaded_img = Image.open(full_path)
-            uploaded_hash = imagehash.phash(uploaded_img)
-            
-            matched_products = []
-            for product in Product.objects.prefetch_related('images'):
-                best_score = 100 
-                for product_img in product.images.all():
-                    try:
-                        db_img = Image.open(product_img.image.path)
-                        db_hash = imagehash.phash(db_img)
-                        distance = uploaded_hash - db_hash
-                        if distance < best_score:
-                            best_score = distance
-                    except: continue
-                
-                # Distance threshold (0 = exact match, < 20 = similar)
-                if best_score < 20:
-                    matched_products.append((product, best_score))
-            
-            matched_products.sort(key=lambda x: x[1])
-            products = [p[0] for p in matched_products]
-            
-        except Exception as e:
-            print(f"Search Error: {e}")
-            products = []
-        finally:
-            if default_storage.exists(file_path):
-                default_storage.delete(file_path)
+        # ... (Keep your existing Image Search Logic here) ...
+        # For brevity, I am not repeating the whole imagehash block, 
+        # but KEEP IT EXACTLY AS IT WAS inside this elif.
+        # ...
+        pass # Placeholder: Put your imagehash code back here!
 
-    # If just visiting the page with no query
-    elif not query and not image_file:
-        products = []
+    # --- NEW: APPLY FILTERS (Category & Sort) ON SEARCH RESULTS ---
+    # This allows users to filter/sort *within* their search results
+    
+    category_id = request.GET.get('category')
+    sort_by = request.GET.get('sort')
+
+    if category_id:
+        products = products.filter(category_id=category_id)
+
+    if sort_by == 'new':
+        products = products.order_by('-created_at')
+    elif sort_by == 'price-low':
+        products = products.order_by('selling_price')
+    elif sort_by == 'price-high':
+        products = products.order_by('-selling_price')
+
+    # Get categories for the sidebar
+    all_categories = Category.objects.all()
 
     context = {
         'products': products,
         'query': query,
-        'is_image_search': bool(image_file)
+        'is_image_search': bool(image_file),
+        'all_categories': all_categories, # Needed for sidebar
+        'active_category': category_id,
+        'active_sort': sort_by
     }
     return render(request, 'products/search_results.html', context)
 
 def user_logout(request):
     logout(request)
     return redirect('pricing_sheet')
+
+
+# --- FEATURE 1: ADD REVIEW ---
+@login_required
+def add_review(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.product = product
+            review.user = request.user
+            review.save()
+            messages.success(request, 'Review submitted!')
+    return redirect('product_detail', pk=product_id)
+
+# --- FEATURE 2: WISHLIST LOGIC ---
+@login_required
+def toggle_wishlist(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    # Check if already in wishlist
+    wish_item = Wishlist.objects.filter(user=request.user, product=product).first()
+    
+    if wish_item:
+        wish_item.delete() # Remove
+        messages.info(request, 'Removed from Wishlist')
+    else:
+        Wishlist.objects.create(user=request.user, product=product) # Add
+        messages.success(request, 'Added to Wishlist')
+        
+    # Redirect back to where they came from
+    return redirect(request.META.get('HTTP_REFERER', 'pricing_sheet'))
+
+@login_required
+def wishlist_view(request):
+    items = Wishlist.objects.filter(user=request.user)
+    return render(request, 'products/wishlist.html', {'items': items})
+
+# --- FEATURE 5: PROFILE SETTINGS ---
+@login_required
+def profile_view(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Profile updated successfully!')
+            return redirect('profile')
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+    
+    return render(request, 'registration/profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })

@@ -1,1753 +1,273 @@
-INFO 2025-11-18 17:25:44,385 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 17:25:56,536 basehttp "GET / HTTP/1.1" 200 16631
-INFO 2025-11-18 17:25:57,778 basehttp "GET /my-orders/ HTTP/1.1" 200 14099
-INFO 2025-11-18 17:26:03,009 basehttp "GET /order/19/ HTTP/1.1" 200 0
-INFO 2025-11-18 17:26:07,652 basehttp "GET /order/18/ HTTP/1.1" 200 0
-INFO 2025-11-18 17:26:22,613 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 18279
-INFO 2025-11-18 17:26:22,721 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 17:26:27,509 basehttp "GET /admin/products/sale/19/change/ HTTP/1.1" 200 31206
-INFO 2025-11-18 17:26:27,608 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 17:26:34,016 basehttp "POST /admin/products/sale/19/change/ HTTP/1.1" 302 0
-INFO 2025-11-18 17:26:34,647 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 18496
-INFO 2025-11-18 17:26:34,749 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 17:26:42,058 basehttp "GET /my-orders/ HTTP/1.1" 200 14101
-INFO 2025-11-18 17:26:47,175 basehttp "GET /order/19/ HTTP/1.1" 200 0
-INFO 2025-11-18 17:26:52,021 basehttp "GET / HTTP/1.1" 200 16631
-INFO 2025-11-18 17:26:53,416 basehttp "GET /my-orders/ HTTP/1.1" 200 14101
-INFO 2025-11-18 17:26:54,566 basehttp "GET /cart/ HTTP/1.1" 200 11537
-INFO 2025-11-18 17:26:58,745 basehttp "GET / HTTP/1.1" 200 16631
-INFO 2025-11-18 17:40:07,065 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 17:40:13,520 basehttp "GET / HTTP/1.1" 200 16631
-INFO 2025-11-18 17:40:14,875 basehttp "GET /my-orders/ HTTP/1.1" 200 14101
-INFO 2025-11-18 17:40:16,487 basehttp "GET /order/19/ HTTP/1.1" 200 14556
-INFO 2025-11-18 17:40:26,184 basehttp "GET /my-orders/ HTTP/1.1" 200 14101
-INFO 2025-11-18 17:40:27,252 basehttp "GET /order/18/ HTTP/1.1" 200 14498
-INFO 2025-11-18 17:40:35,803 basehttp "GET /my-orders/ HTTP/1.1" 200 14101
-INFO 2025-11-18 17:40:36,790 basehttp "GET /order/17/ HTTP/1.1" 200 14478
-INFO 2025-11-18 17:40:40,885 basehttp "GET /my-orders/ HTTP/1.1" 200 14101
-INFO 2025-11-18 17:41:20,118 basehttp "GET /order/19/ HTTP/1.1" 200 14556
-INFO 2025-11-18 17:41:28,165 basehttp "GET /my-orders/ HTTP/1.1" 200 14101
-INFO 2025-11-18 17:41:30,009 basehttp "GET /order/17/ HTTP/1.1" 200 14478
-INFO 2025-11-18 17:41:33,358 basehttp "GET /my-orders/ HTTP/1.1" 200 14101
-INFO 2025-11-18 17:41:34,437 basehttp "GET /order/18/ HTTP/1.1" 200 14498
-INFO 2025-11-18 17:41:36,179 basehttp "GET /my-orders/ HTTP/1.1" 200 14101
-INFO 2025-11-18 17:41:36,955 basehttp "GET /order/19/ HTTP/1.1" 200 14556
-INFO 2025-11-18 17:49:04,290 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 17:49:14,559 basehttp "GET / HTTP/1.1" 200 13217
-INFO 2025-11-18 17:49:14,578 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 17:49:14,579 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 17:49:14,579 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
-INFO 2025-11-18 17:49:29,522 basehttp "GET / HTTP/1.1" 200 13217
-INFO 2025-11-18 17:49:31,271 basehttp "GET /my-orders/ HTTP/1.1" 200 6156
-INFO 2025-11-18 17:49:34,112 basehttp "GET / HTTP/1.1" 200 13217
-INFO 2025-11-18 17:49:38,880 basehttp "GET /product/8/ HTTP/1.1" 200 12520
-INFO 2025-11-18 17:49:49,802 basehttp "GET / HTTP/1.1" 200 13217
-INFO 2025-11-18 17:49:53,054 basehttp "GET /cart/ HTTP/1.1" 200 5918
-INFO 2025-11-18 17:49:58,557 basehttp "GET / HTTP/1.1" 200 13217
-INFO 2025-11-18 17:53:59,928 basehttp "GET /product/7/ HTTP/1.1" 200 12335
-INFO 2025-11-18 17:54:00,088 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 200 33734
-INFO 2025-11-18 17:54:00,091 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
-INFO 2025-11-18 17:54:00,095 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 200 33403
-INFO 2025-11-18 17:54:03,810 basehttp "GET / HTTP/1.1" 200 13217
-INFO 2025-11-18 17:54:20,698 basehttp "GET /product/9/ HTTP/1.1" 200 12674
-INFO 2025-11-18 17:54:20,730 basehttp "GET /media/products/gallery/Egg-Dispenser-Tray.jpg HTTP/1.1" 200 24333
-INFO 2025-11-18 17:54:20,731 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-4.jpeg HTTP/1.1" 200 87590
-INFO 2025-11-18 17:54:20,731 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-2-1200x1246.jpeg HTTP/1.1" 200 74578
-INFO 2025-11-18 17:54:20,732 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-3-1200x1271.jpeg HTTP/1.1" 200 118437
-INFO 2025-11-18 17:54:20,732 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-5-1200x1202.jpeg HTTP/1.1" 200 134882
-INFO 2025-11-18 17:54:24,333 basehttp "GET / HTTP/1.1" 200 13217
-INFO 2025-11-18 17:55:16,533 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-18 17:55:16,780 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 17:56:32,815 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 17:56:38,669 basehttp "GET / HTTP/1.1" 200 15053
-INFO 2025-11-18 17:56:40,703 basehttp "GET /product/8/ HTTP/1.1" 200 21945
-INFO 2025-11-18 17:56:50,265 basehttp "GET /my-orders/ HTTP/1.1" 200 7992
-INFO 2025-11-18 17:56:52,268 basehttp "GET /cart/ HTTP/1.1" 200 7754
-INFO 2025-11-18 17:56:56,559 basehttp "GET / HTTP/1.1" 200 15053
-INFO 2025-11-18 17:56:58,385 basehttp "GET / HTTP/1.1" 200 15053
-INFO 2025-11-18 17:57:00,691 basehttp "GET /product/7/ HTTP/1.1" 200 21396
-INFO 2025-11-18 17:57:10,372 basehttp "GET / HTTP/1.1" 200 15053
-INFO 2025-11-18 17:57:12,419 basehttp "GET /product/9/ HTTP/1.1" 200 21928
-INFO 2025-11-18 17:57:30,230 basehttp "GET /product/7/ HTTP/1.1" 200 21396
-INFO 2025-11-18 18:01:38,198 basehttp "GET /product/7/ HTTP/1.1" 200 24500
-INFO 2025-11-18 18:02:11,431 basehttp "GET / HTTP/1.1" 200 15053
-INFO 2025-11-18 18:02:13,645 basehttp "GET /product/8/ HTTP/1.1" 200 25049
-INFO 2025-11-18 18:02:28,277 basehttp "GET /cart/ HTTP/1.1" 200 7754
-INFO 2025-11-18 18:02:29,659 basehttp "GET /my-orders/ HTTP/1.1" 200 7992
-INFO 2025-11-18 18:02:31,613 basehttp "GET / HTTP/1.1" 200 15053
-INFO 2025-11-18 18:02:39,179 basehttp "GET / HTTP/1.1" 200 15053
-INFO 2025-11-18 18:02:44,875 basehttp "GET /my-orders/ HTTP/1.1" 200 10318
-INFO 2025-11-18 18:02:47,481 basehttp "GET /order/19/ HTTP/1.1" 200 10773
-INFO 2025-11-18 18:02:55,833 basehttp "GET /my-orders/ HTTP/1.1" 200 10318
-INFO 2025-11-18 18:02:57,961 basehttp "GET /order/18/ HTTP/1.1" 200 10715
-INFO 2025-11-18 18:03:01,121 basehttp "GET /my-orders/ HTTP/1.1" 200 10318
-INFO 2025-11-18 18:03:02,217 basehttp "GET /order/17/ HTTP/1.1" 200 10695
-INFO 2025-11-18 18:03:04,345 basehttp "GET /my-orders/ HTTP/1.1" 200 10318
-INFO 2025-11-18 18:03:05,264 basehttp "GET /order/19/ HTTP/1.1" 200 10773
-INFO 2025-11-18 18:03:07,186 basehttp "GET /my-orders/ HTTP/1.1" 200 10318
-INFO 2025-11-18 18:03:09,850 basehttp "GET / HTTP/1.1" 200 15053
-INFO 2025-11-18 18:03:15,920 basehttp "GET /product/9/ HTTP/1.1" 200 25032
-INFO 2025-11-18 18:03:16,127 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-3-1200x1271.jpeg HTTP/1.1" 200 118437
-INFO 2025-11-18 18:03:16,131 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-5-1200x1202.jpeg HTTP/1.1" 200 134882
-INFO 2025-11-18 18:03:16,143 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-2-1200x1246.jpeg HTTP/1.1" 200 74578
-INFO 2025-11-18 18:03:16,151 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-4.jpeg HTTP/1.1" 200 87590
-INFO 2025-11-18 18:03:16,153 basehttp "GET /media/products/gallery/Egg-Dispenser-Tray.jpg HTTP/1.1" 200 24333
-INFO 2025-11-18 18:03:29,446 basehttp "POST /add-to-cart/var/6/ HTTP/1.1" 302 0
-INFO 2025-11-18 18:03:30,179 basehttp "GET /product/9/ HTTP/1.1" 200 25172
-INFO 2025-11-18 18:03:35,009 basehttp "GET /cart/ HTTP/1.1" 200 8602
-INFO 2025-11-18 18:03:38,649 basehttp "GET /checkout/ HTTP/1.1" 200 11458
-INFO 2025-11-18 18:03:42,151 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-18 18:03:42,260 basehttp "GET /order-success/ HTTP/1.1" 200 7834
-INFO 2025-11-18 18:03:45,121 basehttp "GET / HTTP/1.1" 200 15053
-INFO 2025-11-18 18:03:47,862 basehttp "GET /product/7/ HTTP/1.1" 200 24500
-INFO 2025-11-18 18:03:47,884 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
-INFO 2025-11-18 18:03:47,885 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 200 33403
-INFO 2025-11-18 18:03:47,894 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 200 33734
-INFO 2025-11-18 18:06:27,820 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
-INFO 2025-11-18 18:06:28,443 basehttp "GET /product/7/ HTTP/1.1" 200 24640
-INFO 2025-11-18 18:08:15,551 basehttp "GET /product/7/ HTTP/1.1" 200 24697
-INFO 2025-11-18 18:08:17,371 basehttp "GET /cart/ HTTP/1.1" 200 8639
-INFO 2025-11-18 18:08:18,482 basehttp "GET /checkout/ HTTP/1.1" 200 11495
-INFO 2025-11-18 18:08:26,993 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-18 18:08:27,101 basehttp "GET /order-success/ HTTP/1.1" 200 7891
-INFO 2025-11-18 18:08:29,491 basehttp "GET / HTTP/1.1" 200 15110
-INFO 2025-11-18 18:08:32,625 basehttp "GET /product/8/ HTTP/1.1" 200 25106
-INFO 2025-11-18 18:08:34,074 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
-INFO 2025-11-18 18:08:34,701 basehttp "GET /product/8/ HTTP/1.1" 200 25246
-INFO 2025-11-18 18:08:41,682 basehttp "GET /cart/ HTTP/1.1" 200 8657
-INFO 2025-11-18 18:08:42,729 basehttp "GET /checkout/ HTTP/1.1" 200 11513
-INFO 2025-11-18 18:08:45,322 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-18 18:08:45,431 basehttp "GET /order-success/ HTTP/1.1" 200 7891
-INFO 2025-11-18 18:08:48,261 basehttp "GET / HTTP/1.1" 200 15110
-INFO 2025-11-18 18:10:34,464 basehttp "GET / HTTP/1.1" 200 15110
-INFO 2025-11-18 18:10:35,978 basehttp "GET /product/8/ HTTP/1.1" 200 25106
-INFO 2025-11-18 18:10:37,473 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
-INFO 2025-11-18 18:10:38,095 basehttp "GET /product/8/ HTTP/1.1" 200 25271
-INFO 2025-11-18 18:10:44,244 basehttp "GET /cart/ HTTP/1.1" 200 8682
-INFO 2025-11-18 18:10:45,612 basehttp "GET /checkout/ HTTP/1.1" 200 11538
-INFO 2025-11-18 18:11:27,350 basehttp "GET /checkout/ HTTP/1.1" 200 11539
-INFO 2025-11-18 18:11:53,733 basehttp "GET /checkout/ HTTP/1.1" 200 11538
-INFO 2025-11-18 18:12:22,259 basehttp "GET /checkout/ HTTP/1.1" 200 11538
-INFO 2025-11-18 18:12:49,558 basehttp "GET /checkout/ HTTP/1.1" 200 11537
-INFO 2025-11-18 18:12:56,931 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-18 18:12:57,037 basehttp "GET /order-success/ HTTP/1.1" 200 7891
-INFO 2025-11-18 18:12:59,924 basehttp "GET / HTTP/1.1" 200 15110
-INFO 2025-11-18 18:13:03,900 basehttp "GET /cart/ HTTP/1.1" 200 7811
-INFO 2025-11-18 18:13:07,984 basehttp "GET / HTTP/1.1" 200 15110
-INFO 2025-11-18 18:14:52,295 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 18:14:56,799 basehttp "GET / HTTP/1.1" 200 15110
-INFO 2025-11-18 18:14:59,883 basehttp "GET /admin/ HTTP/1.1" 200 12698
-INFO 2025-11-18 18:15:01,545 basehttp "GET /admin/products/product/ HTTP/1.1" 200 14367
-INFO 2025-11-18 18:15:01,657 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 18:15:08,090 basehttp "POST /admin/products/product/ HTTP/1.1" 302 0
-INFO 2025-11-18 18:15:08,456 basehttp "GET /print-products/?ids=9,8,7 HTTP/1.1" 200 15922
-INFO 2025-11-18 18:15:18,780 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 9707
-INFO 2025-11-18 18:15:45,409 basehttp "GET /admin/products/product/ HTTP/1.1" 200 14367
-INFO 2025-11-18 18:15:50,851 basehttp "GET /admin/products/category/ HTTP/1.1" 200 9658
-INFO 2025-11-18 18:15:50,963 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 18:15:59,838 basehttp "GET / HTTP/1.1" 200 15110
-INFO 2025-11-18 18:16:04,500 basehttp "GET /?q=doi HTTP/1.1" 200 13635
-INFO 2025-11-18 18:20:59,854 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-18 18:21:00,102 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 18:21:20,555 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-18 18:21:20,767 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 18:27:08,997 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-18 18:27:09,394 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 18:27:34,223 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
-INFO 2025-11-18 18:27:34,457 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 18:28:05,158 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
-INFO 2025-11-18 18:28:05,379 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 18:28:11,804 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 18:28:23,203 basehttp "GET /?q=doi HTTP/1.1" 200 15761
-INFO 2025-11-18 18:28:33,731 basehttp "GET /search/?q=yogu&image= HTTP/1.1" 200 12601
-INFO 2025-11-18 18:28:38,344 basehttp "GET /search/?q=doi&image= HTTP/1.1" 200 12599
-INFO 2025-11-18 18:28:47,543 basehttp "GET /search/?q=gun&image= HTTP/1.1" 200 12544
-INFO 2025-11-18 18:28:50,640 basehttp "GET /search/?q=massage&image= HTTP/1.1" 200 12053
-INFO 2025-11-18 18:28:58,749 basehttp "GET /search/?q=egg&image= HTTP/1.1" 200 12590
-INFO 2025-11-18 18:29:11,028 basehttp "POST /search/ HTTP/1.1" 200 12545
-INFO 2025-11-18 18:29:16,216 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 18:29:21,085 basehttp "POST /search/ HTTP/1.1" 200 12046
-INFO 2025-11-18 18:29:24,572 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:03:41,103 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 20:03:46,937 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:03:46,956 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:46,957 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:46,958 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,087 basehttp "GET /admin/products/category/ HTTP/1.1" 200 9658
-INFO 2025-11-18 20:03:49,110 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,111 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,112 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,112 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,115 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,115 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,116 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,117 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,117 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,118 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,120 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,120 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,120 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,120 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,122 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,124 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,560 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:03:49,575 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:49,575 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:53,004 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23569
-INFO 2025-11-18 20:03:53,024 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
-INFO 2025-11-18 20:03:53,114 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:03:53,315 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:08,949 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13867
-INFO 2025-11-18 20:04:08,980 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:08,986 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:09,083 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:04:11,561 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23569
-INFO 2025-11-18 20:04:11,691 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:04:29,753 basehttp "GET /admin/products/sale/23/change/ HTTP/1.1" 200 31195
-INFO 2025-11-18 20:04:29,780 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:29,781 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:29,783 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:29,784 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:29,785 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:29,881 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:04:29,900 basehttp "GET /static/admin/img/inline-delete.svg HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:39,455 basehttp "POST /admin/products/sale/23/change/ HTTP/1.1" 302 0
-INFO 2025-11-18 20:04:40,584 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23786
-INFO 2025-11-18 20:04:40,713 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:04:40,732 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
-INFO 2025-11-18 20:04:51,736 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:04:57,486 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:06:29,565 autoreload E:\WebProjects\jebaenterprise\products\admin.py changed, reloading.
-INFO 2025-11-18 20:06:29,848 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 20:07:08,845 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 20:07:20,821 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23749
-INFO 2025-11-18 20:13:40,139 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-18 20:13:40,368 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 20:14:06,324 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 20:14:10,994 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 23749
-INFO 2025-11-18 20:14:11,092 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:14:13,652 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13867
-INFO 2025-11-18 20:14:13,752 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:14:18,170 basehttp "POST /admin/products/product/ HTTP/1.1" 302 0
-INFO 2025-11-18 20:14:18,530 basehttp "GET /print-products/?ids=9,8,7 HTTP/1.1" 200 21263
-INFO 2025-11-18 20:14:24,207 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
-INFO 2025-11-18 20:14:37,841 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
-INFO 2025-11-18 20:16:28,129 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&cols=stock&blank_cols=selling_price HTTP/1.1" 200 15479
-INFO 2025-11-18 20:16:31,241 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=competitor_prices&cols=box_quantity&cols=stock&blank_cols=selling_price HTTP/1.1" 200 17597
-INFO 2025-11-18 20:17:00,955 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13867
-INFO 2025-11-18 20:17:10,758 basehttp "GET /admin-scraper/ HTTP/1.1" 200 5676
-INFO 2025-11-18 20:17:18,789 views --- Loaded 6 local hashes for Refrigerator Egg Dispenser Tray ---
-INFO 2025-11-18 20:17:18,789 views --- Scraping for: Refrigerator Egg Dispenser Tray ---
-INFO 2025-11-18 20:17:18,789 views --- Matching against: Refrigerator Egg Dispenser Tray | Scraping for: Refrigerator Egg Dispenser Tray ---
-INFO 2025-11-18 20:17:25,358 views --- Forcing lazy-load by scrolling... ---
-INFO 2025-11-18 20:17:40,640 views --- Found 40 items. Running Gallery AI filter... ---
-INFO 2025-11-18 20:17:40,941 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 99%) | Text: 100% | Image: 97% [BestDist: 2]
-INFO 2025-11-18 20:17:41,243 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 95%) | Text: 100% | Image: 75% [BestDist: 16]
-INFO 2025-11-18 20:17:41,533 views --- NO MATCH: 'Slide Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray 4 Layer Rolling Egg Dispenser Rack-The Asia Express' (Final: 37%) | Text: 33% | Image: 53% [BestDist: 30]
-INFO 2025-11-18 20:17:41,796 views --- NO MATCH: '4 Layer Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray Rolling Egg Dispenser Rack' (Final: 42%) | Text: 38% | Image: 56% [BestDist: 28]
-INFO 2025-11-18 20:17:42,085 views --- NO MATCH: 'Slide Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray 4 Layer Rolling Egg Dispenser Rack- Allion Shop' (Final: 38%) | Text: 34% | Image: 53% [BestDist: 30]
-INFO 2025-11-18 20:17:42,362 views --- NO MATCH: '2 Layer Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray Rolling Egg Dispenser Rack' (Final: 44%) | Text: 38% | Image: 66% [BestDist: 22]
-INFO 2025-11-18 20:17:42,645 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 100%) | Text: 100% | Image: 100% [BestDist: 0]
-INFO 2025-11-18 20:17:42,909 views --- NO MATCH: '4 Layer Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray Rolling Egg Dispenser Rack-Allion shop' (Final: 40%) | Text: 35% | Image: 62% [BestDist: 24]
-INFO 2025-11-18 20:17:43,204 views --- NO MATCH: 'Slide Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray 4 Layer Rolling Egg Dispenser Rack-Tarkata BD' (Final: 39%) | Text: 36% | Image: 53% [BestDist: 30]
-INFO 2025-11-18 20:17:43,500 views --- NO MATCH: 'Refrigerator Egg Dispenser Tray | Double Row Rolling Egg Storage Organizer | Space-Saving Egg Dispenser for Fridge & Countertop' (Final: 48%) | Text: 39% | Image: 84% [BestDist: 10]
-INFO 2025-11-18 20:17:43,782 views --- NO MATCH: '24 Egg Storage Box Eggs Holder Portable Food Storage Container PP Refrigerator Egg Tray' (Final: 43%) | Text: 36% | Image: 69% [BestDist: 20]
-INFO 2025-11-18 20:17:44,073 views --- NO MATCH: 'automatic egg rolling tray or dispenser, designed for refrigerator storage' (Final: 45%) | Text: 42% | Image: 56% [BestDist: 28]
-INFO 2025-11-18 20:17:44,365 views --- NO MATCH: 'automatic egg rolling tray or dispenser, designed for refrigerator storage' (Final: 45%) | Text: 42% | Image: 56% [BestDist: 28]
-INFO 2025-11-18 20:17:44,632 views --- NO MATCH: 'Egg Dispenser for Refrigerator, Egg Tray for Refrigerator, 4 Tiers Egg Holder for Fridge Holds 30 Eggs Simultaneously, Works in The Refrigerator, Kitchen, Cabinets, and Dining Table (Yellow)-Xaey' (Final: 32%) | Text: 26% | Image: 56% [BestDist: 28]
-INFO 2025-11-18 20:17:44,922 views --- MATCH: 'New refrigerator egg dispenser Egg rolling storage rack Egg tray' (Final: 65%) | Text: 65% | Image: 66% [BestDist: 22]
-INFO 2025-11-18 20:17:45,201 views --- NO MATCH: '1Pcs Automatic Scrolling Egg Holder Rolldown Refrigerator Egg Dispenser Kitchen Egg Storage Box Egg Stand For Fridge Egg Tray' (Final: 44%) | Text: 40% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:45,490 views --- NO MATCH: 'Egg Dispenser BPA Free Food Grade Portable Egg Tray Shockproof Leakproof Independent Grid Design Egg Holder Container for Refrigerator, Camping Picnic, Hiking, Plastic 12 Pcs Egg Storage Box Case' (Final: 29%) | Text: 22% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:45,800 views --- NO MATCH: 'automatic egg rolling tray or dispenser, designed for refrigerator storage' (Final: 45%) | Text: 42% | Image: 56% [BestDist: 28]
-INFO 2025-11-18 20:17:46,093 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray' (Final: 53%) | Text: 52% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:46,436 views --- NO MATCH: 'Egg Storage Refrigerator with 4-Layer Automatic Rolling Egg Dispenser and Space-Saving Egg Tray for Kitchen Cabinet in Restaurants' (Final: 42%) | Text: 39% | Image: 56% [BestDist: 28]
-INFO 2025-11-18 20:17:46,710 views --- NO MATCH: 'Egg Dispenser 2 Layer – Double Layer Egg Dispenser Tray with Lid, Automatic Rolling Egg Holder for Refrigerator and Kitchen Storage' (Final: 43%) | Text: 32% | Image: 88% [BestDist: 8]
-INFO 2025-11-18 20:17:46,985 views --- NO MATCH: 'Four-Layer Egg Storage Rack, Gravity Fed Egg Holder, Refrigerator Egg Storage Box, 4 Tier Rolling Egg Holder Dispenser, Auto Rolling Egg Holder for Fridge, Space Saving Egg Tray' (Final: 39%) | Text: 30% | Image: 75% [BestDist: 16]
-INFO 2025-11-18 20:17:47,273 views --- NO MATCH: 'Automatic Rolling Egg Storage Organizer | Multi-Layer Egg Holder for Fridge and Kitchen Refrigerator Egg Dispenser Tray' (Final: 50%) | Text: 41% | Image: 84% [BestDist: 10]
-INFO 2025-11-18 20:17:47,561 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:47,850 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:48,136 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:48,423 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 100%) | Text: 100% | Image: 100% [BestDist: 0]
-INFO 2025-11-18 20:17:48,698 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:48,964 views --- NO MATCH: 'Egg Dispenser 3-Tier Egg Roller for Refrigerator Space-Saving Egg Organizer Container Egg Tray for Cabinet Kitchen Countertop' (Final: 39%) | Text: 35% | Image: 56% [BestDist: 28]
-INFO 2025-11-18 20:17:49,253 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:49,549 views --- NO MATCH: '4 Layer Egg Storage Box Refrigerator Side Door Storage Box Automatic Scrolling Egg Holder Tray Rolling Egg Dispenser Rack' (Final: 44%) | Text: 38% | Image: 66% [BestDist: 22]
-INFO 2025-11-18 20:17:49,833 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 45%) | Text: 41% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:50,110 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 44%) | Text: 41% | Image: 56% [BestDist: 28]
-INFO 2025-11-18 20:17:50,423 views --- NO MATCH: 'Automatic egg rolling rack - refrigerator egg organizer, double-layer space saving egg dispenser tray | Durable HIPS , can hold' (Final: 45%) | Text: 39% | Image: 69% [BestDist: 20]
-INFO 2025-11-18 20:17:50,710 views --- NO MATCH: 'Egg Rack Holder Automatic Scrolling Double Layer Refrigerator Eggs Dispenser Storage Box Egg Tray Kitchen Storage Container' (Final: 46%) | Text: 40% | Image: 69% [BestDist: 20]
-INFO 2025-11-18 20:17:50,992 views --- MATCH: 'Refrigerator Egg Dispenser Tray' (Final: 100%) | Text: 100% | Image: 100% [BestDist: 0]
-INFO 2025-11-18 20:17:51,271 views --- NO MATCH: '24 Grid Egg Storage Box Egg Refrigerator Storage Tray, Stackable Plastic Egg Containers for Fridge Kitchen' (Final: 40%) | Text: 34% | Image: 66% [BestDist: 22]
-INFO 2025-11-18 20:17:51,565 views --- NO MATCH: 'Egg Tray Refrigerator Plastic Egg Storage Container with Lid, 20 Compartment Single-Layer Egg Preservation Tray Fresh Box' (Final: 42%) | Text: 38% | Image: 59% [BestDist: 26]
-INFO 2025-11-18 20:17:51,868 views --- NO MATCH: 'Egg Dispenser 12 Slot Refrigerator Egg Tray Stackable Space-Saving Egg Storage Holder Plastic with Lid Fridge Egg Organizer Home' (Final: 40%) | Text: 35% | Image: 62% [BestDist: 24]
-INFO 2025-11-18 20:17:52,153 views --- NO MATCH: 'Refrigerator Egg Storage 4 Layer Automatically Rolling Eggs Dispenser Space Save Egg Tray For Cabinet Restaurant Kitchen' (Final: 44%) | Text: 41% | Image: 56% [BestDist: 28]
-INFO 2025-11-18 20:17:52,331 views --- Saved Daraz prices for Refrigerator Egg Dispenser Tray: min=99.0, max=1250.0 ---
-INFO 2025-11-18 20:17:52,331 basehttp "POST /admin-scraper/ HTTP/1.1" 200 956
-INFO 2025-11-18 20:24:26,882 autoreload E:\WebProjects\jebaenterprise\config\settings.py changed, reloading.
-INFO 2025-11-18 20:28:01,297 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 20:28:54,874 basehttp "GET / HTTP/1.1" 200 16025
-INFO 2025-11-18 20:28:55,098 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 200 42518
-INFO 2025-11-18 20:28:55,098 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 200 35885
-INFO 2025-11-18 20:28:55,259 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 200 102566
-WARNING 2025-11-18 20:28:55,754 log Not Found: /favicon.ico
-WARNING 2025-11-18 20:28:55,754 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
-INFO 2025-11-18 20:29:00,923 basehttp "GET /accounts/login/ HTTP/1.1" 200 9673
-INFO 2025-11-18 20:29:54,997 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-18 20:29:56,520 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:30:02,460 basehttp "GET /product/8/ HTTP/1.1" 200 27232
-INFO 2025-11-18 20:30:02,579 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 200 57619
-INFO 2025-11-18 20:30:02,595 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 200 46806
-INFO 2025-11-18 20:30:02,595 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 200 50737
-INFO 2025-11-18 20:30:02,639 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 200 67458
-INFO 2025-11-18 20:30:02,647 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 200 42604
-INFO 2025-11-18 20:30:02,648 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 200 33717
-INFO 2025-11-18 20:31:36,759 basehttp "POST /search/ HTTP/1.1" 200 12046
-INFO 2025-11-18 20:32:02,126 basehttp "POST /search/ HTTP/1.1" 200 12046
-INFO 2025-11-18 20:32:30,935 basehttp "GET /search/?q=iOD&image= HTTP/1.1" 200 12045
-INFO 2025-11-18 20:32:34,367 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:32:47,455 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:32:53,324 basehttp "GET /search/?q=iOD&image= HTTP/1.1" 200 12045
-INFO 2025-11-18 20:32:56,267 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:33:15,754 basehttp "GET /search/?q=dOIiODiOD&image= HTTP/1.1" 200 12057
-INFO 2025-11-18 20:33:19,236 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:33:21,703 basehttp "GET /product/7/ HTTP/1.1" 200 26683
-INFO 2025-11-18 20:33:21,986 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
-INFO 2025-11-18 20:33:21,986 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 200 33734
-INFO 2025-11-18 20:33:21,986 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 200 33403
-INFO 2025-11-18 20:33:32,308 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
-INFO 2025-11-18 20:33:33,053 basehttp "GET /product/7/ HTTP/1.1" 200 26847
-INFO 2025-11-18 20:33:35,882 basehttp "GET /cart/ HTTP/1.1" 200 10789
-INFO 2025-11-18 20:33:37,431 basehttp "GET /checkout/ HTTP/1.1" 200 13645
-INFO 2025-11-18 20:33:42,583 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-18 20:33:42,684 basehttp "GET /order-success/ HTTP/1.1" 200 10017
-INFO 2025-11-18 20:33:45,277 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:33:51,175 basehttp "GET /admin HTTP/1.1" 301 0
-INFO 2025-11-18 20:33:51,388 basehttp "GET /admin/ HTTP/1.1" 200 12700
-INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22120
-INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
-INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
-INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
-INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
-INFO 2025-11-18 20:33:51,495 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
-INFO 2025-11-18 20:33:51,681 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
-INFO 2025-11-18 20:33:51,803 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
-INFO 2025-11-18 20:33:51,803 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
-INFO 2025-11-18 20:33:51,886 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
-INFO 2025-11-18 20:33:56,538 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 24213
-INFO 2025-11-18 20:33:56,601 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
-INFO 2025-11-18 20:33:56,624 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
-INFO 2025-11-18 20:33:56,624 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
-INFO 2025-11-18 20:33:56,641 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
-INFO 2025-11-18 20:33:56,671 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
-INFO 2025-11-18 20:33:56,691 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
-INFO 2025-11-18 20:33:56,692 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
-INFO 2025-11-18 20:33:56,784 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
-INFO 2025-11-18 20:33:56,852 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
-INFO 2025-11-18 20:33:56,852 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
-INFO 2025-11-18 20:33:56,995 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:33:57,015 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
-INFO 2025-11-18 20:33:57,310 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
-INFO 2025-11-18 20:33:57,330 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
-INFO 2025-11-18 20:34:01,978 basehttp "GET /admin/ HTTP/1.1" 200 12700
-INFO 2025-11-18 20:34:05,918 basehttp "GET /admin/products/product/ HTTP/1.1" 200 13867
-INFO 2025-11-18 20:34:05,997 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
-INFO 2025-11-18 20:34:06,021 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 11973
-INFO 2025-11-18 20:34:06,373 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-18 20:34:14,488 basehttp "POST /admin/products/product/ HTTP/1.1" 302 0
-INFO 2025-11-18 20:34:14,884 basehttp "GET /print-products/?ids=9,8,7 HTTP/1.1" 200 21263
-INFO 2025-11-18 20:34:39,218 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
-INFO 2025-11-18 20:35:02,246 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
-INFO 2025-11-18 20:36:01,894 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
-INFO 2025-11-18 20:36:43,803 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=description&cols=selling_price&cols=box_quantity HTTP/1.1" 200 21263
-INFO 2025-11-18 20:36:48,931 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
-INFO 2025-11-18 20:36:56,627 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
-INFO 2025-11-18 20:37:50,646 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=competitor_prices&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 16857
-INFO 2025-11-18 20:39:21,904 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
-INFO 2025-11-18 20:39:32,358 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=description&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 21164
-INFO 2025-11-18 20:39:37,042 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
-INFO 2025-11-18 20:39:43,116 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
-INFO 2025-11-18 20:39:46,510 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 14739
-INFO 2025-11-18 20:40:06,842 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=competitor_prices&cols=box_quantity&blank_cols=selling_price HTTP/1.1" 200 16857
-INFO 2025-11-18 20:40:59,127 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:41:11,986 basehttp "GET /product/8/ HTTP/1.1" 200 27232
-INFO 2025-11-18 20:41:27,843 basehttp "GET /product/8/ HTTP/1.1" 200 27232
-INFO 2025-11-18 20:42:49,749 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 20:44:30,504 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 21:14:53,402 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 21:18:48,851 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 21:18:56,223 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 21:19:17,781 basehttp "GET / HTTP/1.1" 200 17236
-WARNING 2025-11-18 21:19:18,377 log Not Found: /favicon.ico
-WARNING 2025-11-18 21:19:18,377 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
-INFO 2025-11-18 21:19:19,994 basehttp "GET /my-orders/ HTTP/1.1" 200 11086
-INFO 2025-11-18 21:19:28,032 basehttp "GET /cart/ HTTP/1.1" 200 9937
-INFO 2025-11-18 21:19:37,453 basehttp "GET / HTTP/1.1" 200 17236
-INFO 2025-11-18 21:19:41,802 basehttp "GET /product/8/ HTTP/1.1" 200 27232
-INFO 2025-11-18 21:30:11,120 autoreload Watching for file changes with StatReloader
-WARNING 2025-11-18 21:30:22,086 log Not Found: /favicon.ico
-WARNING 2025-11-18 21:30:22,086 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
-INFO 2025-11-18 21:30:27,802 basehttp "GET /product/8/ HTTP/1.1" 200 28941
-INFO 2025-11-18 21:30:35,169 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 21:30:43,786 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 21:30:48,383 basehttp "GET /product/8/ HTTP/1.1" 200 28941
-INFO 2025-11-18 21:30:48,410 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 21:30:48,411 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 21:30:48,414 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 21:30:48,414 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 21:30:48,415 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 21:30:48,416 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 21:30:57,367 basehttp "GET /search/?q=Doi&image= HTTP/1.1" 200 13600
-INFO 2025-11-18 21:30:58,835 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 21:31:03,260 basehttp "GET /product/8/ HTTP/1.1" 200 28941
-INFO 2025-11-18 21:31:16,082 basehttp "GET /product/8/ HTTP/1.1" 200 28941
-INFO 2025-11-18 21:31:21,500 basehttp "GET /product/7/ HTTP/1.1" 200 28392
-INFO 2025-11-18 21:31:42,535 basehttp "GET /product/9/ HTTP/1.1" 200 28924
-INFO 2025-11-18 21:31:43,239 basehttp "GET /media/products/gallery/Egg-Dispenser-Tray.jpg HTTP/1.1" 200 24333
-INFO 2025-11-18 21:31:43,576 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-3-1200x1271.jpeg HTTP/1.1" 200 118437
-INFO 2025-11-18 21:31:43,825 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-2-1200x1246.jpeg HTTP/1.1" 200 74578
-INFO 2025-11-18 21:31:44,516 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-5-1200x1202.jpeg HTTP/1.1" 200 134882
-INFO 2025-11-18 21:31:44,516 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-4.jpeg HTTP/1.1" 200 87590
-INFO 2025-11-18 21:33:10,191 basehttp "GET / HTTP/1.1" 200 18005
-INFO 2025-11-18 21:33:10,564 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 200 42518
-INFO 2025-11-18 21:33:10,564 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 200 35885
-INFO 2025-11-18 21:33:10,939 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 200 102566
-WARNING 2025-11-18 21:33:12,057 log Not Found: /favicon.ico
-WARNING 2025-11-18 21:33:12,057 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
-INFO 2025-11-18 21:33:22,037 basehttp "GET / HTTP/1.1" 200 18005
-INFO 2025-11-18 21:33:37,057 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
-INFO 2025-11-18 21:33:44,257 basehttp "GET /register/ HTTP/1.1" 200 11226
-INFO 2025-11-18 21:34:01,115 basehttp "GET / HTTP/1.1" 200 18005
-INFO 2025-11-18 21:34:11,457 basehttp "GET /product/7/ HTTP/1.1" 200 27181
-INFO 2025-11-18 21:34:11,524 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
-INFO 2025-11-18 21:34:11,537 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 200 33403
-INFO 2025-11-18 21:34:11,553 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 200 33734
-INFO 2025-11-18 21:34:26,109 basehttp "GET / HTTP/1.1" 200 18005
-INFO 2025-11-18 21:34:32,452 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
-INFO 2025-11-18 21:35:39,015 basehttp "GET / HTTP/1.1" 200 18005
-INFO 2025-11-18 21:35:39,115 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 200 42518
-INFO 2025-11-18 21:35:39,115 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 200 35885
-INFO 2025-11-18 21:35:39,212 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 200 102566
-WARNING 2025-11-18 21:35:39,768 log Not Found: /favicon.ico
-WARNING 2025-11-18 21:35:39,768 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
-ERROR 2025-11-18 21:36:58,274 log Internal Server Error: /product/8/
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
-    product = get_object_or_404(Product, pk=pk)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
-    return queryset.get(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
-    num = len(clone)
-          ^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
-    self._fetch_all()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
-    results = compiler.execute_sql(
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
-    cursor = self.connection.cursor()
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
-    return self._cursor()
-           ^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
-    self.ensure_connection()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
-    with self.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-ERROR 2025-11-18 21:36:58,274 basehttp "GET /product/8/ HTTP/1.1" 500 175413
-ERROR 2025-11-18 21:37:13,617 log Internal Server Error: /
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 66, in pricing_sheet
-    return render(request, "products/pricing_sheet.html", context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
-    return template.render(context, request)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
-    return self.template.render(context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
-    return SafeString("".join([node.render_annotated(context) for node in self]))
-                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
-    return self.render(context)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
-    return compiled_parent._render(context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
-    return SafeString("".join([node.render_annotated(context) for node in self]))
-                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
-    return self.render(context)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
-    result = block.nodelist.render(context)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
-    return SafeString("".join([node.render_annotated(context) for node in self]))
-                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
-    return self.render(context)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 320, in render
-    match = condition.eval(context)
-            ^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
-    return self.value.resolve(context, ignore_failures=True)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 722, in resolve
-    obj = self.var.resolve(context)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 854, in resolve
-    value = self._resolve_lookup(context)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 925, in _resolve_lookup
-    current = current()
-              ^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1106, in first
-    for obj in queryset[:1]:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
-    self._fetch_all()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
-    results = compiler.execute_sql(
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
-    cursor = self.connection.cursor()
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
-    return self._cursor()
-           ^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
-    self.ensure_connection()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
-    with self.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-ERROR 2025-11-18 21:37:13,619 basehttp "GET / HTTP/1.1" 500 265056
-INFO 2025-11-18 21:37:43,522 basehttp "GET / HTTP/1.1" 200 18005
-INFO 2025-11-18 21:37:54,292 basehttp "GET /product/8/ HTTP/1.1" 200 27730
-INFO 2025-11-18 21:37:54,389 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 200 57619
-INFO 2025-11-18 21:37:54,394 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 200 50737
-INFO 2025-11-18 21:37:54,476 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 200 46806
-INFO 2025-11-18 21:37:54,481 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 200 42604
-INFO 2025-11-18 21:37:54,495 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 200 67458
-INFO 2025-11-18 21:37:54,497 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 200 33717
-INFO 2025-11-18 21:38:09,859 basehttp "GET /register/ HTTP/1.1" 200 11226
-INFO 2025-11-18 21:39:30,899 basehttp "POST /register/ HTTP/1.1" 302 0
-INFO 2025-11-18 21:39:31,384 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
-INFO 2025-11-18 21:39:43,052 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-18 21:39:44,846 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-18 21:39:50,683 basehttp "GET / HTTP/1.1" 200 19216
-WARNING 2025-11-18 21:39:50,914 log Forbidden (CSRF token from POST incorrect.): /accounts/login/
-WARNING 2025-11-18 21:39:50,914 basehttp "POST /accounts/login/ HTTP/1.1" 403 2503
-INFO 2025-11-18 21:40:02,775 basehttp "GET /accounts/login/ HTTP/1.1" 200 11885
-INFO 2025-11-18 21:40:13,441 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-18 21:40:20,157 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 21:40:30,570 basehttp "GET /product/8/ HTTP/1.1" 200 28941
-INFO 2025-11-18 21:41:16,981 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
-INFO 2025-11-18 21:41:18,310 basehttp "GET /product/8/ HTTP/1.1" 200 29105
-INFO 2025-11-18 21:41:34,785 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
-INFO 2025-11-18 21:41:36,248 basehttp "GET /product/8/ HTTP/1.1" 200 29105
-INFO 2025-11-18 21:41:40,739 basehttp "GET /cart/ HTTP/1.1" 200 11810
-INFO 2025-11-18 21:41:58,051 basehttp "GET /cart/ HTTP/1.1" 200 11810
-INFO 2025-11-18 21:42:01,474 basehttp "GET /checkout/ HTTP/1.1" 200 14666
-INFO 2025-11-18 21:42:43,377 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-18 21:42:43,790 basehttp "GET /order-success/ HTTP/1.1" 200 11018
-INFO 2025-11-18 21:42:51,243 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
-INFO 2025-11-18 21:42:57,332 basehttp "GET /order/25/ HTTP/1.1" 200 13891
-INFO 2025-11-18 21:43:22,131 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
-INFO 2025-11-18 21:43:24,538 basehttp "GET /cart/ HTTP/1.1" 200 10938
-INFO 2025-11-18 21:43:40,923 basehttp "GET /cart/ HTTP/1.1" 200 10938
-INFO 2025-11-18 22:10:15,505 autoreload Watching for file changes with StatReloader
-WARNING 2025-11-18 22:10:28,360 log Not Found: /favicon.ico
-WARNING 2025-11-18 22:10:28,362 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
-INFO 2025-11-18 22:10:29,906 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 22:10:57,071 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
-INFO 2025-11-18 22:11:13,534 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 22:11:16,958 basehttp "GET /product/8/ HTTP/1.1" 200 28941
-ERROR 2025-11-18 22:11:20,410 log Internal Server Error: /
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
-    return self._session_cache
-           ^^^^^^^^^^^^^^^^^^^
-AttributeError: 'SessionStore' object has no attribute '_session_cache'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 66, in pricing_sheet
-    return render(request, "products/pricing_sheet.html", context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
-    content = loader.render_to_string(template_name, context, request, using=using)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
-    return template.render(context, request)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
-    return self.template.render(context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
-    return self._render(context)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
-    return SafeString("".join([node.render_annotated(context) for node in self]))
-                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
-    return self.render(context)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
-    return compiled_parent._render(context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
-    return self.nodelist.render(context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
-    return SafeString("".join([node.render_annotated(context) for node in self]))
-                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
-    return self.render(context)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 320, in render
-    match = condition.eval(context)
-            ^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 886, in eval
-    return self.value.resolve(context, ignore_failures=True)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 722, in resolve
-    obj = self.var.resolve(context)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 854, in resolve
-    value = self._resolve_lookup(context)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 891, in _resolve_lookup
-    current = current[bit]
-              ~~~~~~~^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\functional.py", line 251, in inner
-    self._setup()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\functional.py", line 404, in _setup
-    self._wrapped = self._setupfunc()
-                    ^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 40, in <lambda>
-    request.user = SimpleLazyObject(lambda: get_user(request))
-                                            ^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\middleware.py", line 20, in get_user
-    request._cached_user = auth.get_user(request)
-                           ^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 304, in get_user
-    user_id = _get_user_session_key(request)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\__init__.py", line 95, in _get_user_session_key
-    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
-                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 55, in __getitem__
-    return self._session[key]
-           ^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
-    self._session_cache = self.load()
-                          ^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
-    s = self._get_session_from_db()
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
-    return self.model.objects.get(
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
-    num = len(clone)
-          ^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
-    self._fetch_all()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
-    results = compiler.execute_sql(
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
-    cursor = self.connection.cursor()
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
-    return self._cursor()
-           ^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
-    self.ensure_connection()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
-    with self.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-ERROR 2025-11-18 22:11:20,419 basehttp "GET / HTTP/1.1" 500 303254
-ERROR 2025-11-18 22:14:47,265 log Internal Server Error: /product/8/
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
-    product = get_object_or_404(Product, pk=pk)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
-    return queryset.get(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
-    num = len(clone)
-          ^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
-    self._fetch_all()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
-    results = compiler.execute_sql(
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
-    cursor = self.connection.cursor()
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
-    return self._cursor()
-           ^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
-    self.ensure_connection()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
-    with self.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-ERROR 2025-11-18 22:14:47,266 basehttp "GET /product/8/ HTTP/1.1" 500 176638
-ERROR 2025-11-18 22:14:49,565 log Internal Server Error: /product/8/
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
-    product = get_object_or_404(Product, pk=pk)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
-    return queryset.get(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
-    num = len(clone)
-          ^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
-    self._fetch_all()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
-    results = compiler.execute_sql(
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
-    cursor = self.connection.cursor()
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
-    return self._cursor()
-           ^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
-    self.ensure_connection()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
-    with self.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-ERROR 2025-11-18 22:14:49,566 basehttp "GET /product/8/ HTTP/1.1" 500 176638
-ERROR 2025-11-18 22:15:04,612 log Internal Server Error: /product/8/
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
-    product = get_object_or_404(Product, pk=pk)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
-    return queryset.get(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
-    num = len(clone)
-          ^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
-    self._fetch_all()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
-    results = compiler.execute_sql(
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
-    cursor = self.connection.cursor()
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
-    return self._cursor()
-           ^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
-    self.ensure_connection()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
-    with self.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-ERROR 2025-11-18 22:15:04,614 basehttp "GET /product/8/ HTTP/1.1" 500 176427
-ERROR 2025-11-18 22:15:04,705 log Internal Server Error: /product/8/
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
-    product = get_object_or_404(Product, pk=pk)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
-    return queryset.get(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
-    num = len(clone)
-          ^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
-    self._fetch_all()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
-    results = compiler.execute_sql(
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
-    cursor = self.connection.cursor()
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
-    return self._cursor()
-           ^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
-    self.ensure_connection()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
-    with self.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (3.111.225.200), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-ERROR 2025-11-18 22:15:04,708 basehttp "GET /product/8/ HTTP/1.1" 500 176067
-ERROR 2025-11-18 22:18:22,448 log Internal Server Error: /product/8/
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (13.200.110.68), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 70, in product_detail
-    product = get_object_or_404(Product, pk=pk)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 90, in get_object_or_404
-    return queryset.get(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 631, in get
-    num = len(clone)
-          ^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
-    self._fetch_all()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
-    results = compiler.execute_sql(
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
-    cursor = self.connection.cursor()
-             ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
-    return self._cursor()
-           ^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
-    self.ensure_connection()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
-    with self.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
-    self.connect()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
-    self.connection = self.get_new_connection(conn_params)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
-    connection = self.Database.connect(**conn_params)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\psycopg2\__init__.py", line 135, in connect
-    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.OperationalError: connection to server at "aws-1-ap-south-1.pooler.supabase.com" (13.200.110.68), port 5432 failed: FATAL:  MaxClientsInSessionMode: max clients reached - in Session mode max clients are limited to pool_size
-
-ERROR 2025-11-18 22:18:22,450 basehttp "GET /product/8/ HTTP/1.1" 500 175701
-INFO 2025-11-18 22:18:35,347 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 22:18:41,540 basehttp "GET /product/8/ HTTP/1.1" 200 28941
-INFO 2025-11-18 22:18:42,437 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:18:42,466 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:18:42,516 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:18:42,516 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:18:42,516 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:18:42,525 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:18:42,562 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:18:42,562 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:35:55,523 autoreload Watching for file changes with StatReloader
-WARNING 2025-11-18 22:36:21,672 log Not Found: /favicon.ico
-WARNING 2025-11-18 22:36:21,673 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
-INFO 2025-11-18 22:36:27,730 basehttp "GET /product/8/ HTTP/1.1" 200 28500
-INFO 2025-11-18 22:36:41,283 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 22:36:54,077 basehttp "GET /product/8/ HTTP/1.1" 200 28500
-INFO 2025-11-18 22:37:18,962 basehttp "GET /product/7/ HTTP/1.1" 200 27951
-INFO 2025-11-18 22:37:19,205 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:37:19,205 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:37:19,327 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:37:59,620 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
-INFO 2025-11-18 22:38:01,973 basehttp "GET /order/24/ HTTP/1.1" 200 13934
-INFO 2025-11-18 22:38:08,130 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
-INFO 2025-11-18 22:38:11,019 basehttp "GET /cart/ HTTP/1.1" 200 10938
-INFO 2025-11-18 22:38:13,927 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 22:38:23,974 basehttp "GET /product/8/ HTTP/1.1" 200 28500
-INFO 2025-11-18 22:40:05,649 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 22:40:05,688 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:40:05,688 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
-INFO 2025-11-18 22:40:05,688 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
-WARNING 2025-11-18 22:40:05,760 log Not Found: /favicon.ico
-WARNING 2025-11-18 22:40:05,761 basehttp "GET /favicon.ico HTTP/1.1" 404 6034
-INFO 2025-11-18 22:40:13,025 basehttp "GET /product/8/ HTTP/1.1" 200 28500
-INFO 2025-11-18 22:40:19,978 basehttp "GET /product/7/ HTTP/1.1" 200 27951
-INFO 2025-11-18 22:40:20,000 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:40:20,004 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:40:20,004 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 22:40:59,553 basehttp "GET / HTTP/1.1" 200 19216
-WARNING 2025-11-18 22:40:59,660 log Not Found: /favicon.ico
-WARNING 2025-11-18 22:40:59,660 basehttp "GET /favicon.ico HTTP/1.1" 404 6034
-INFO 2025-11-18 22:41:02,311 basehttp "GET /product/8/ HTTP/1.1" 200 28500
-INFO 2025-11-18 22:47:58,893 autoreload Watching for file changes with StatReloader
-WARNING 2025-11-18 22:48:17,599 log Not Found: /favicon.ico
-WARNING 2025-11-18 22:48:17,600 basehttp "GET /favicon.ico HTTP/1.1" 404 6036
-INFO 2025-11-18 22:48:19,136 basehttp "GET /product/8/ HTTP/1.1" 200 28129
-INFO 2025-11-18 22:48:54,549 basehttp "GET /product/8/ HTTP/1.1" 200 28129
-INFO 2025-11-18 23:00:09,204 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:00:24,955 basehttp "GET /product/8/ HTTP/1.1" 200 28344
-INFO 2025-11-18 23:00:31,796 basehttp "GET /product/8/ HTTP/1.1" 200 28344
-INFO 2025-11-18 23:01:01,633 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:01:03,782 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 23:01:07,082 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 23:01:08,093 basehttp "GET /product/8/ HTTP/1.1" 200 28344
-WARNING 2025-11-18 23:01:51,647 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:01:51,647 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-WARNING 2025-11-18 23:01:57,557 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:01:57,557 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-WARNING 2025-11-18 23:02:01,074 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:02:01,076 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-WARNING 2025-11-18 23:02:24,275 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:02:24,277 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-INFO 2025-11-18 23:02:56,352 autoreload Watching for file changes with StatReloader
-WARNING 2025-11-18 23:02:58,826 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:02:58,828 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-INFO 2025-11-18 23:02:59,708 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 23:03:07,586 basehttp "GET / HTTP/1.1" 200 19216
-WARNING 2025-11-18 23:03:10,260 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:03:10,261 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-WARNING 2025-11-18 23:03:21,811 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:03:21,812 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-WARNING 2025-11-18 23:03:24,612 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:03:24,613 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-WARNING 2025-11-18 23:03:25,965 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:03:25,966 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-INFO 2025-11-18 23:05:47,435 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:05:49,600 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 23:07:15,764 basehttp "GET / HTTP/1.1" 200 19216
-INFO 2025-11-18 23:07:17,240 basehttp "GET /product/8/ HTTP/1.1" 200 28344
-WARNING 2025-11-18 23:07:19,734 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:07:19,735 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6145
-INFO 2025-11-18 23:10:07,486 basehttp "GET /cart/ HTTP/1.1" 200 10938
-WARNING 2025-11-18 23:10:07,510 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:10:07,512 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6145
-INFO 2025-11-18 23:10:08,941 basehttp "GET /my-orders/ HTTP/1.1" 200 12087
-WARNING 2025-11-18 23:10:08,961 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:10:08,962 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6145
-INFO 2025-11-18 23:10:11,803 basehttp "GET / HTTP/1.1" 200 19216
-WARNING 2025-11-18 23:10:11,827 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:10:11,828 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6145
-INFO 2025-11-18 23:10:56,013 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-18 23:10:56,242 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:11:07,602 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-18 23:11:07,822 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:11:24,238 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
-INFO 2025-11-18 23:11:24,472 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:13:03,405 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:13:07,918 basehttp "GET / HTTP/1.1" 200 18950
-WARNING 2025-11-18 23:13:07,945 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:13:07,946 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:13:10,706 basehttp "GET /user-logout/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:13:11,876 basehttp "GET / HTTP/1.1" 200 18005
-WARNING 2025-11-18 23:13:11,907 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:13:11,907 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:13:14,027 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
-WARNING 2025-11-18 23:13:14,051 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:13:14,052 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:13:16,086 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:13:17,332 basehttp "GET / HTTP/1.1" 200 18950
-WARNING 2025-11-18 23:13:17,363 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:13:17,363 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:13:19,342 basehttp "GET /product/8/ HTTP/1.1" 200 28159
-WARNING 2025-11-18 23:13:19,375 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:13:19,375 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:14:18,523 basehttp "GET /product/8/ HTTP/1.1" 200 28425
-WARNING 2025-11-18 23:14:18,559 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:14:18,560 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-WARNING 2025-11-18 23:14:19,702 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:14:19,703 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-WARNING 2025-11-18 23:14:21,051 log Method Not Allowed (GET): /accounts/logout/
-WARNING 2025-11-18 23:14:21,052 basehttp "GET /accounts/logout/ HTTP/1.1" 405 0
-WARNING 2025-11-18 23:14:59,095 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:14:59,096 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-WARNING 2025-11-18 23:14:59,116 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:14:59,122 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:15:00,715 basehttp "GET /product/8/ HTTP/1.1" 200 28421
-WARNING 2025-11-18 23:15:00,741 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:15:00,742 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:15:01,749 basehttp "GET /user-logout/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:15:02,922 basehttp "GET / HTTP/1.1" 200 18005
-WARNING 2025-11-18 23:15:02,948 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:15:02,948 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:15:04,043 basehttp "GET /accounts/login/ HTTP/1.1" 200 10674
-WARNING 2025-11-18 23:15:04,066 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:15:04,067 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:15:05,944 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:15:07,195 basehttp "GET / HTTP/1.1" 200 19212
-WARNING 2025-11-18 23:15:07,228 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:15:07,229 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:15:10,218 basehttp "GET /product/8/ HTTP/1.1" 200 28421
-WARNING 2025-11-18 23:15:10,245 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:15:10,246 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:15:13,465 basehttp "GET / HTTP/1.1" 200 19212
-WARNING 2025-11-18 23:15:13,496 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:15:13,497 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:15:25,425 basehttp "GET /user-logout/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:15:26,595 basehttp "GET / HTTP/1.1" 200 18005
-WARNING 2025-11-18 23:15:26,624 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:15:26,625 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:15:41,245 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:15:44,066 basehttp "GET / HTTP/1.1" 200 19212
-WARNING 2025-11-18 23:15:44,772 log Not Found: /favicon.ico
-WARNING 2025-11-18 23:15:44,773 basehttp "GET /favicon.ico HTTP/1.1" 404 6301
-INFO 2025-11-18 23:15:50,284 basehttp "GET /product/8/ HTTP/1.1" 200 28421
-INFO 2025-11-18 23:26:47,886 basehttp "GET / HTTP/1.1" 200 17834
-WARNING 2025-11-18 23:26:47,912 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:26:47,912 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:26:47,998 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
-INFO 2025-11-18 23:26:54,783 basehttp "GET / HTTP/1.1" 200 17834
-WARNING 2025-11-18 23:26:54,806 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:26:54,806 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:26:54,808 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-18 23:27:05,727 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:27:05,753 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-WARNING 2025-11-18 23:27:10,433 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:27:10,434 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:27:37,674 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:27:37,699 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-18 23:27:55,181 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:27:55,202 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-18 23:29:16,782 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:29:16,799 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
-WARNING 2025-11-18 23:29:32,267 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:29:32,268 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:29:34,421 basehttp "GET /product/8/ HTTP/1.1" 200 26932
-WARNING 2025-11-18 23:29:34,442 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:29:34,443 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:29:34,449 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-18 23:29:34,451 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 23:29:34,454 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 23:29:34,454 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 23:29:34,455 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 23:29:34,456 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 23:29:34,456 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 304 0
-INFO 2025-11-18 23:31:24,441 autoreload Watching for file changes with StatReloader
-WARNING 2025-11-18 23:31:42,607 log Not Found: /favicon.ico
-WARNING 2025-11-18 23:31:42,608 basehttp "GET /favicon.ico HTTP/1.1" 404 6301
-INFO 2025-11-18 23:31:47,185 basehttp "GET / HTTP/1.1" 200 19041
-INFO 2025-11-18 23:31:47,402 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
-INFO 2025-11-18 23:32:12,453 basehttp "GET / HTTP/1.1" 200 19041
-INFO 2025-11-18 23:33:01,652 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:33:11,638 basehttp "GET / HTTP/1.1" 200 19041
-INFO 2025-11-18 23:33:12,671 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-18 23:33:15,475 basehttp "GET / HTTP/1.1" 200 19041
-INFO 2025-11-18 23:33:18,459 basehttp "GET /user-logout/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:33:19,794 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:33:22,379 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:33:24,140 basehttp "GET /product/8/ HTTP/1.1" 200 26932
-INFO 2025-11-18 23:34:02,848 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:34:04,081 basehttp "GET /product/8/ HTTP/1.1" 200 26932
-INFO 2025-11-18 23:34:04,290 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-18 23:34:18,063 basehttp "GET /cart HTTP/1.1" 301 0
-INFO 2025-11-18 23:34:18,668 basehttp "GET /cart/ HTTP/1.1" 200 10262
-INFO 2025-11-18 23:34:21,598 basehttp "GET /checkout/ HTTP/1.1" 200 13118
-INFO 2025-11-18 23:34:36,079 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:34:36,233 basehttp "GET /order-success/ HTTP/1.1" 200 9636
-INFO 2025-11-18 23:34:39,122 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:34:39,275 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-18 23:34:56,932 basehttp "GET /product/8/ HTTP/1.1" 200 26932
-INFO 2025-11-18 23:35:08,909 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:51:03,216 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:51:18,984 basehttp "GET / HTTP/1.1" 200 17851
-INFO 2025-11-18 23:51:19,000 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-WARNING 2025-11-18 23:51:20,620 log Not Found: /favicon.ico
-WARNING 2025-11-18 23:51:20,620 basehttp "GET /favicon.ico HTTP/1.1" 404 6299
-INFO 2025-11-18 23:51:24,233 basehttp "GET / HTTP/1.1" 200 17851
-INFO 2025-11-18 23:51:34,799 basehttp "GET /accounts/login/ HTTP/1.1" 200 10520
-INFO 2025-11-18 23:51:36,803 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:51:38,031 basehttp "GET / HTTP/1.1" 200 18194
-INFO 2025-11-18 23:51:40,334 basehttp "GET /admin/ HTTP/1.1" 200 15908
-INFO 2025-11-18 23:51:40,366 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
-INFO 2025-11-18 23:53:11,574 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:53:15,569 basehttp "GET / HTTP/1.1" 200 19041
-INFO 2025-11-18 23:53:20,245 basehttp "GET / HTTP/1.1" 200 19041
-INFO 2025-11-18 23:53:23,435 basehttp - Broken pipe from ('127.0.0.1', 64512)
-INFO 2025-11-18 23:53:24,015 basehttp "GET /product/8/ HTTP/1.1" 200 28139
-WARNING 2025-11-18 23:53:37,561 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:53:37,562 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:53:41,911 basehttp "GET / HTTP/1.1" 200 19041
-WARNING 2025-11-18 23:53:41,935 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-18 23:53:41,941 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 6410
-INFO 2025-11-18 23:53:41,946 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-18 23:53:48,297 basehttp "GET /admin/ HTTP/1.1" 200 12700
-INFO 2025-11-18 23:54:15,756 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:54:18,966 basehttp "GET / HTTP/1.1" 200 19041
-INFO 2025-11-18 23:54:19,983 basehttp "GET /cart/ HTTP/1.1" 200 10763
-INFO 2025-11-18 23:54:21,254 basehttp "GET /my-orders/ HTTP/1.1" 200 11912
-INFO 2025-11-18 23:54:23,041 basehttp "GET /user-logout/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:54:24,336 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:54:30,977 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:58:19,252 autoreload Watching for file changes with StatReloader
-INFO 2025-11-18 23:58:24,557 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-18 23:58:24,581 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-18 23:58:25,904 basehttp "GET /accounts/login/ HTTP/1.1" 200 10503
-INFO 2025-11-18 23:58:27,829 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-18 23:58:29,255 basehttp "GET / HTTP/1.1" 200 19353
-INFO 2025-11-18 23:58:33,764 basehttp "GET /admin/ HTTP/1.1" 200 15908
-INFO 2025-11-19 00:01:43,376 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 00:01:49,160 basehttp "GET / HTTP/1.1" 200 19353
-INFO 2025-11-19 00:01:49,185 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-19 00:01:50,411 basehttp "GET /admin/ HTTP/1.1" 200 32713
-INFO 2025-11-19 00:01:50,655 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
-INFO 2025-11-19 00:01:50,657 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
-INFO 2025-11-19 00:01:50,660 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
-INFO 2025-11-19 00:01:50,669 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
-INFO 2025-11-19 00:01:50,673 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
-INFO 2025-11-19 00:01:50,677 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 200 2637
-INFO 2025-11-19 00:01:50,680 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
-INFO 2025-11-19 00:01:50,684 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 200 164819
-INFO 2025-11-19 00:01:50,695 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
-INFO 2025-11-19 00:01:50,696 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
-INFO 2025-11-19 00:02:11,216 basehttp "GET /admin/ HTTP/1.1" 200 32713
-INFO 2025-11-19 00:02:11,242 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:11,243 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:11,243 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:11,243 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:11,243 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:11,244 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:11,245 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:11,245 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:15,343 basehttp "GET / HTTP/1.1" 200 19353
-INFO 2025-11-19 00:02:16,486 basehttp "GET /admin/ HTTP/1.1" 200 32713
-INFO 2025-11-19 00:02:26,077 basehttp "GET /admin/products/sale/?q=12 HTTP/1.1" 200 30064
-INFO 2025-11-19 00:02:26,110 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:26,111 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:26,111 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:26,111 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:26,112 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
-INFO 2025-11-19 00:02:26,113 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:26,114 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:26,116 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:26,116 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:26,117 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
-INFO 2025-11-19 00:02:26,119 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
-INFO 2025-11-19 00:02:26,455 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:02:33,503 basehttp "GET /admin/products/productvariation/ HTTP/1.1" 200 21909
-INFO 2025-11-19 00:02:33,609 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:02:35,909 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 38627
-INFO 2025-11-19 00:02:36,013 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:02:56,377 basehttp "GET /admin/auth/user/ HTTP/1.1" 200 27851
-INFO 2025-11-19 00:02:56,394 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,399 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,399 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,399 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,400 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,400 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,408 basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,409 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,412 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,412 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,414 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,415 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:02:56,489 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:03:01,607 basehttp "GET /admin/auth/group/ HTTP/1.1" 200 19270
-INFO 2025-11-19 00:03:01,729 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:03:03,479 basehttp "GET /admin/ HTTP/1.1" 200 32729
-INFO 2025-11-19 00:03:06,087 basehttp "GET /admin/ HTTP/1.1" 200 32729
-INFO 2025-11-19 00:03:07,476 basehttp "GET /admin/ HTTP/1.1" 200 32729
-INFO 2025-11-19 00:03:09,109 basehttp "GET /admin/products/category/ HTTP/1.1" 200 18912
-INFO 2025-11-19 00:03:09,226 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:03:10,912 basehttp "GET /admin/products/productvariation/ HTTP/1.1" 200 21909
-INFO 2025-11-19 00:03:10,944 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,945 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,945 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,945 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,946 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,947 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,947 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,949 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,950 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,951 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:10,951 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:11,030 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:03:12,587 basehttp "GET /admin/products/product/ HTTP/1.1" 200 25182
-INFO 2025-11-19 00:03:12,694 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:03:21,912 basehttp "POST /admin/products/product/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:03:22,262 basehttp "GET /print-products/?ids=9,8,7 HTTP/1.1" 200 21263
-INFO 2025-11-19 00:03:31,007 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 14838
-INFO 2025-11-19 00:03:41,274 basehttp "GET /admin/products/product/ HTTP/1.1" 200 25182
-INFO 2025-11-19 00:03:43,629 basehttp "GET /admin/ HTTP/1.1" 200 32729
-INFO 2025-11-19 00:03:43,652 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:43,656 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:43,656 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:43,657 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:43,657 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:43,657 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:43,659 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:43,660 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:03:46,332 basehttp "GET / HTTP/1.1" 200 19353
-INFO 2025-11-19 00:04:03,317 basehttp "GET / HTTP/1.1" 200 19353
-INFO 2025-11-19 00:04:08,953 basehttp "GET /user-logout/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:04:10,276 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-19 00:04:21,499 basehttp "GET /accounts/login/ HTTP/1.1" 200 10503
-INFO 2025-11-19 00:04:23,425 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:04:24,862 basehttp "GET / HTTP/1.1" 200 19353
-INFO 2025-11-19 00:07:53,456 basehttp "GET / HTTP/1.1" 200 20165
-INFO 2025-11-19 00:07:53,480 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,639 basehttp "GET /admin/ HTTP/1.1" 200 32726
-INFO 2025-11-19 00:07:55,666 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,667 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,667 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,667 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,667 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,670 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,670 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,671 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,714 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
-INFO 2025-11-19 00:07:55,714 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:35,882 basehttp "GET / HTTP/1.1" 200 20414
-INFO 2025-11-19 00:08:37,949 basehttp "GET /admin/ HTTP/1.1" 200 32714
-INFO 2025-11-19 00:08:43,088 basehttp "GET /admin/ HTTP/1.1" 200 32714
-INFO 2025-11-19 00:08:43,114 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:43,116 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:43,116 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:43,116 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:43,117 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:43,119 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:43,121 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:43,122 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:43,166 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:43,166 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
-INFO 2025-11-19 00:08:45,972 basehttp "GET / HTTP/1.1" 200 20414
-INFO 2025-11-19 00:09:12,112 basehttp "GET / HTTP/1.1" 200 19909
-INFO 2025-11-19 00:09:13,443 basehttp "GET /admin/ HTTP/1.1" 200 32714
-INFO 2025-11-19 00:09:15,331 basehttp "GET /my-orders/ HTTP/1.1" 200 12780
-INFO 2025-11-19 00:09:18,684 basehttp "GET / HTTP/1.1" 200 19909
-INFO 2025-11-19 00:09:21,757 basehttp "GET /my-orders/ HTTP/1.1" 200 12780
-INFO 2025-11-19 00:09:29,711 basehttp "GET /cart/ HTTP/1.1" 200 11631
-INFO 2025-11-19 00:09:33,628 basehttp "GET / HTTP/1.1" 200 19909
-INFO 2025-11-19 00:09:35,303 basehttp "GET /product/8/ HTTP/1.1" 200 29007
-INFO 2025-11-19 00:09:38,144 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:09:38,657 basehttp "GET /product/8/ HTTP/1.1" 200 29171
-INFO 2025-11-19 00:09:41,079 basehttp "GET /cart/ HTTP/1.1" 200 12501
-INFO 2025-11-19 00:09:42,211 basehttp "GET /checkout/ HTTP/1.1" 200 15357
-INFO 2025-11-19 00:09:45,935 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:09:46,029 basehttp "GET /order-success/ HTTP/1.1" 200 11711
-INFO 2025-11-19 00:09:48,272 basehttp "GET / HTTP/1.1" 200 19909
-INFO 2025-11-19 00:09:50,157 basehttp "GET /my-orders/ HTTP/1.1" 200 13485
-INFO 2025-11-19 00:09:52,319 basehttp "GET /order/27/ HTTP/1.1" 200 14646
-INFO 2025-11-19 00:09:58,122 basehttp "GET /my-orders/ HTTP/1.1" 200 13485
-INFO 2025-11-19 00:09:59,721 basehttp "GET /admin/ HTTP/1.1" 200 32725
-INFO 2025-11-19 00:09:59,750 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:09:59,751 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:09:59,752 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:09:59,752 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:09:59,752 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
-INFO 2025-11-19 00:09:59,754 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:09:59,756 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:09:59,757 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:09:59,797 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
-INFO 2025-11-19 00:09:59,799 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:10,976 basehttp "GET /admin/products/product/ HTTP/1.1" 200 25182
-INFO 2025-11-19 00:10:11,000 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:11,003 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:11,003 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:11,343 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:10:13,947 basehttp "GET /admin/products/product/8/change/ HTTP/1.1" 200 67023
-INFO 2025-11-19 00:10:13,974 basehttp "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
-INFO 2025-11-19 00:10:14,054 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:10:46,340 basehttp "GET /admin/products/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 8999
-INFO 2025-11-19 00:10:46,443 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:10:55,310 basehttp "POST /admin/products/category/add/?_to_field=id&_popup=1 HTTP/1.1" 200 393
-INFO 2025-11-19 00:10:55,332 basehttp "GET /static/admin/js/popup_response.js HTTP/1.1" 200 1535
-INFO 2025-11-19 00:10:59,464 basehttp "POST /admin/products/product/8/change/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:10:59,835 basehttp "GET /admin/products/product/ HTTP/1.1" 200 25791
-INFO 2025-11-19 00:10:59,868 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:59,868 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:59,868 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:59,868 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:59,868 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:59,870 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:59,872 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:10:59,873 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:11:00,017 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:11:02,307 basehttp "GET /admin/products/product/9/change/ HTTP/1.1" 200 72325
-INFO 2025-11-19 00:11:02,412 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:11:06,183 basehttp "GET /admin/products/category/ HTTP/1.1" 200 21334
-INFO 2025-11-19 00:11:06,291 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:11:07,473 basehttp "GET /admin/products/product/ HTTP/1.1" 200 25192
-INFO 2025-11-19 00:11:07,579 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:11:09,142 basehttp "GET /admin/products/product/7/change/ HTTP/1.1" 200 61768
-INFO 2025-11-19 00:11:09,163 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
-INFO 2025-11-19 00:11:09,167 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:11:09,310 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:11:13,477 basehttp "POST /admin/products/product/7/change/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:11:13,893 basehttp "GET /admin/products/product/ HTTP/1.1" 200 25780
-INFO 2025-11-19 00:11:13,925 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
-INFO 2025-11-19 00:11:14,006 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
-INFO 2025-11-19 00:11:17,658 basehttp "GET / HTTP/1.1" 200 19909
-INFO 2025-11-19 00:11:23,838 basehttp "GET /product/8/ HTTP/1.1" 200 28545
-INFO 2025-11-19 00:11:37,335 basehttp "GET /product/7/ HTTP/1.1" 200 27996
-INFO 2025-11-19 00:11:49,661 basehttp "GET / HTTP/1.1" 200 19909
-INFO 2025-11-19 00:11:49,687 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-19 00:12:03,868 basehttp "GET / HTTP/1.1" 200 19909
-INFO 2025-11-19 00:12:10,605 basehttp "GET /user-logout/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:12:11,835 basehttp "GET / HTTP/1.1" 200 17834
-INFO 2025-11-19 00:12:13,221 basehttp "GET /accounts/login/ HTTP/1.1" 200 10503
-INFO 2025-11-19 00:12:25,669 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:12:26,976 basehttp "GET / HTTP/1.1" 200 19092
-INFO 2025-11-19 00:12:30,707 basehttp "GET /my-orders/ HTTP/1.1" 200 16200
-INFO 2025-11-19 00:12:33,154 basehttp "GET /order/23/ HTTP/1.1" 200 13822
-INFO 2025-11-19 00:12:35,274 basehttp "GET /my-orders/ HTTP/1.1" 200 16200
-INFO 2025-11-19 00:12:36,542 basehttp "GET /cart/ HTTP/1.1" 200 10814
-INFO 2025-11-19 00:12:39,388 basehttp "GET / HTTP/1.1" 200 19092
-INFO 2025-11-19 00:12:40,364 basehttp "GET /user-logout/ HTTP/1.1" 302 0
-INFO 2025-11-19 00:12:41,589 basehttp "GET / HTTP/1.1" 200 17834
+INFO 2025-11-19 01:46:34,238 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 01:46:43,738 basehttp "GET / HTTP/1.1" 200 19905
+INFO 2025-11-19 01:46:46,055 basehttp "GET /cart/ HTTP/1.1" 200 12333
+INFO 2025-11-19 01:46:47,754 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:46:49,151 basehttp "GET / HTTP/1.1" 200 18268
+INFO 2025-11-19 01:46:50,861 basehttp "GET /accounts/login/ HTTP/1.1" 200 10937
+INFO 2025-11-19 01:46:55,261 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:46:56,753 basehttp "GET / HTTP/1.1" 200 19535
+INFO 2025-11-19 01:47:00,146 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:47:01,548 basehttp "GET / HTTP/1.1" 200 18268
+INFO 2025-11-19 01:47:02,691 basehttp "GET /register/ HTTP/1.1" 200 12292
+INFO 2025-11-19 01:47:56,192 basehttp "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:47:56,196 basehttp "GET /accounts/login/ HTTP/1.1" 200 10937
+INFO 2025-11-19 01:48:00,287 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:48:01,773 basehttp "GET / HTTP/1.1" 200 19535
+INFO 2025-11-19 01:49:11,773 basehttp "GET /product/8/ HTTP/1.1" 200 30302
+INFO 2025-11-19 01:49:13,671 basehttp "GET /wishlist/toggle/8/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:49:14,397 basehttp "GET /product/8/ HTTP/1.1" 200 30311
+INFO 2025-11-19 01:49:16,354 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:49:16,464 basehttp "GET /checkout/ HTTP/1.1" 200 15223
+INFO 2025-11-19 01:49:24,765 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:49:24,871 basehttp "GET /order-success/ HTTP/1.1" 200 11337
+INFO 2025-11-19 01:49:29,473 basehttp "GET / HTTP/1.1" 200 19535
+INFO 2025-11-19 01:51:08,273 basehttp "GET /product/7/ HTTP/1.1" 200 29753
+INFO 2025-11-19 01:51:20,693 basehttp "POST /add-review/7/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:51:21,479 basehttp "GET /product/7/ HTTP/1.1" 200 30216
+INFO 2025-11-19 01:51:32,350 basehttp "GET / HTTP/1.1" 200 19535
+INFO 2025-11-19 01:51:35,501 basehttp "GET /product/9/ HTTP/1.1" 200 30747
+INFO 2025-11-19 01:51:39,194 basehttp "GET /product/7/ HTTP/1.1" 200 30216
+INFO 2025-11-19 01:54:12,503 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 01:54:14,191 basehttp "GET /wishlist/toggle/7/ HTTP/1.1" 302 0
+INFO 2025-11-19 01:54:14,956 basehttp "GET /product/7/ HTTP/1.1" 200 30225
+INFO 2025-11-19 01:54:14,984 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 01:54:26,358 basehttp "GET /wishlist/ HTTP/1.1" 200 12288
+INFO 2025-11-19 01:54:31,598 basehttp "GET /wishlist HTTP/1.1" 301 0
+INFO 2025-11-19 01:54:32,287 basehttp "GET /wishlist/ HTTP/1.1" 200 12288
+INFO 2025-11-19 01:58:07,747 basehttp "GET / HTTP/1.1" 200 19535
+INFO 2025-11-19 01:59:48,813 basehttp "GET /wishlist/ HTTP/1.1" 200 18630
+INFO 2025-11-19 01:59:53,709 basehttp "GET /product/7/ HTTP/1.1" 200 30225
+INFO 2025-11-19 02:00:09,647 basehttp "GET / HTTP/1.1" 200 19535
+INFO 2025-11-19 02:03:20,144 basehttp "GET / HTTP/1.1" 200 19943
+INFO 2025-11-19 02:03:21,792 basehttp "GET /wishlist/ HTTP/1.1" 200 19038
+INFO 2025-11-19 02:03:25,294 basehttp "GET / HTTP/1.1" 200 19943
+INFO 2025-11-19 02:05:27,906 basehttp "GET /product/7/ HTTP/1.1" 200 30633
+INFO 2025-11-19 02:05:33,017 basehttp "GET /product/8/ HTTP/1.1" 200 30719
+INFO 2025-11-19 02:05:42,116 basehttp "GET / HTTP/1.1" 200 19943
+INFO 2025-11-19 02:10:09,234 autoreload E:\WebProjects\jebaenterprise\products\models.py changed, reloading.
+INFO 2025-11-19 02:10:09,478 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 02:18:54,588 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 02:19:01,078 basehttp "GET / HTTP/1.1" 200 20569
+INFO 2025-11-19 02:19:01,103 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:10,632 basehttp "GET / HTTP/1.1" 200 20569
+INFO 2025-11-19 02:19:13,099 basehttp "GET /products/?sort=new HTTP/1.1" 200 14638
+INFO 2025-11-19 02:19:19,188 basehttp "GET / HTTP/1.1" 200 20569
+INFO 2025-11-19 02:19:20,410 basehttp "GET /products/ HTTP/1.1" 200 14630
+INFO 2025-11-19 02:19:24,375 basehttp "GET / HTTP/1.1" 200 20569
+INFO 2025-11-19 02:19:26,482 basehttp "GET /product/9/ HTTP/1.1" 200 31401
+INFO 2025-11-19 02:19:31,667 basehttp "GET / HTTP/1.1" 200 20569
+INFO 2025-11-19 02:19:36,105 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 02:19:36,647 basehttp "GET / HTTP/1.1" 200 19302
+INFO 2025-11-19 02:19:38,211 basehttp "GET /accounts/login/ HTTP/1.1" 200 11591
+INFO 2025-11-19 02:19:42,388 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 02:19:43,041 basehttp "GET / HTTP/1.1" 200 21386
+INFO 2025-11-19 02:19:47,863 basehttp "GET /product/9/ HTTP/1.1" 200 32218
+INFO 2025-11-19 02:19:53,798 basehttp "GET /admin/ HTTP/1.1" 200 35904
+INFO 2025-11-19 02:19:53,832 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:53,834 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:53,834 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:53,834 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:53,835 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:53,836 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:53,838 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:53,838 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:53,884 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-19 02:19:53,884 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-19 02:20:02,018 basehttp "GET /admin/products/product/ HTTP/1.1" 200 27520
+INFO 2025-11-19 02:20:02,044 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 02:20:02,050 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 02:20:02,050 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
+INFO 2025-11-19 02:20:02,145 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 02:20:08,903 basehttp "POST /admin/products/product/ HTTP/1.1" 302 0
+INFO 2025-11-19 02:20:09,420 basehttp "GET /admin/products/product/ HTTP/1.1" 200 28031
+INFO 2025-11-19 02:20:09,542 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 02:20:13,379 basehttp "GET /product/9/ HTTP/1.1" 200 32218
+INFO 2025-11-19 02:20:15,498 basehttp "GET / HTTP/1.1" 200 21372
+INFO 2025-11-19 02:20:40,187 basehttp "GET /products/?sort=new HTTP/1.1" 200 15455
+INFO 2025-11-19 02:20:43,834 basehttp "GET / HTTP/1.1" 200 21372
+INFO 2025-11-19 02:20:53,114 basehttp "GET /search/?q=egg&image= HTTP/1.1" 200 15381
+INFO 2025-11-19 02:21:01,910 basehttp "GET /search/?q=gun&image= HTTP/1.1" 200 15335
+INFO 2025-11-19 02:21:05,424 basehttp "GET /search/?q=doi&image= HTTP/1.1" 200 15390
+INFO 2025-11-19 02:21:07,371 basehttp "GET / HTTP/1.1" 200 21372
+INFO 2025-11-19 02:36:42,247 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 02:36:47,213 basehttp "GET / HTTP/1.1" 200 21372
+INFO 2025-11-19 02:36:47,242 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-19 02:36:47,242 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 02:36:51,516 basehttp "GET /products/?sort=new HTTP/1.1" 200 23326
+INFO 2025-11-19 02:37:00,169 basehttp "GET /products/?category=1 HTTP/1.1" 200 22459
+INFO 2025-11-19 02:37:02,421 basehttp "GET /products/?category=1 HTTP/1.1" 200 22459
+INFO 2025-11-19 02:37:05,802 basehttp "GET /products/?sort=new HTTP/1.1" 200 23326
+INFO 2025-11-19 02:37:09,611 basehttp "GET /products/?sort=price-low HTTP/1.1" 200 23326
+INFO 2025-11-19 02:37:12,728 basehttp "GET /products/?sort=price-high HTTP/1.1" 200 23326
+INFO 2025-11-19 02:37:21,630 basehttp "GET /search/?q=egg&image= HTTP/1.1" 200 15381
+INFO 2025-11-19 02:37:26,565 basehttp "GET / HTTP/1.1" 200 21372
+INFO 2025-11-19 02:37:29,991 basehttp "GET /products/ HTTP/1.1" 200 23326
+INFO 2025-11-19 02:37:57,282 basehttp "GET / HTTP/1.1" 200 21372
+INFO 2025-11-19 02:38:01,966 basehttp "GET /products/ HTTP/1.1" 200 23326
+INFO 2025-11-19 02:38:07,679 basehttp "GET / HTTP/1.1" 200 21372
+INFO 2025-11-19 02:41:53,205 basehttp - Broken pipe from ('127.0.0.1', 59964)
+INFO 2025-11-19 02:44:40,663 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 02:44:49,764 basehttp "GET / HTTP/1.1" 200 21344
+WARNING 2025-11-19 02:44:49,863 log Not Found: /favicon.ico
+WARNING 2025-11-19 02:44:49,864 basehttp "GET /favicon.ico HTTP/1.1" 404 7663
+WARNING 2025-11-19 02:44:56,445 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:44:56,446 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 02:45:22,238 basehttp "GET /search/?q=doi&image= HTTP/1.1" 200 18402
+WARNING 2025-11-19 02:45:22,266 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:45:22,267 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 02:45:34,916 basehttp "GET /search/?q=doi&sort=new HTTP/1.1" 200 18408
+INFO 2025-11-19 02:45:35,901 basehttp "GET /search/?q=doi&sort=price-low HTTP/1.1" 200 18408
+INFO 2025-11-19 02:45:36,714 basehttp "GET /search/?q=doi&sort=price-high HTTP/1.1" 200 18408
+INFO 2025-11-19 02:45:38,182 basehttp "GET /search/?q=doi&sort=new HTTP/1.1" 200 18408
+INFO 2025-11-19 02:45:40,892 basehttp "GET /search/?q=a&image= HTTP/1.1" 200 20057
+INFO 2025-11-19 02:45:42,802 basehttp "GET /search/?q=a&sort=new HTTP/1.1" 200 20063
+INFO 2025-11-19 02:45:45,293 basehttp "GET /search/?q=a&sort=price-low HTTP/1.1" 200 20063
+INFO 2025-11-19 02:45:46,274 basehttp "GET /search/?q=a&sort=price-high HTTP/1.1" 200 20063
+INFO 2025-11-19 02:45:48,462 basehttp "GET /search/?q=a&category=1 HTTP/1.1" 200 19215
+INFO 2025-11-19 02:45:51,655 basehttp "GET /search/?q=a HTTP/1.1" 200 20057
+INFO 2025-11-19 02:45:55,077 basehttp "GET / HTTP/1.1" 200 21344
+INFO 2025-11-19 02:46:01,910 basehttp "GET /products/ HTTP/1.1" 200 23326
+WARNING 2025-11-19 02:46:03,767 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:46:03,768 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 02:49:51,337 basehttp "GET /products/ HTTP/1.1" 200 22800
+WARNING 2025-11-19 02:49:51,357 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:49:51,357 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 02:49:51,364 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 02:50:03,112 basehttp "GET /search/?q=egg&image= HTTP/1.1" 200 19654
+WARNING 2025-11-19 02:50:03,137 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:50:03,138 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 02:50:09,961 basehttp "GET / HTTP/1.1" 200 21344
+WARNING 2025-11-19 02:50:09,982 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:50:09,983 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 02:50:13,281 basehttp "GET /products/ HTTP/1.1" 200 22800
+WARNING 2025-11-19 02:50:13,309 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:50:13,309 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 02:50:20,623 basehttp "GET / HTTP/1.1" 200 21344
+WARNING 2025-11-19 02:50:20,651 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:50:20,652 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 02:50:22,314 basehttp "GET / HTTP/1.1" 200 21344
+WARNING 2025-11-19 02:50:22,343 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:50:22,344 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 02:50:24,125 basehttp "GET / HTTP/1.1" 200 21344
+WARNING 2025-11-19 02:50:24,159 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 02:50:24,159 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 03:12:24,224 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 03:12:29,419 basehttp "GET / HTTP/1.1" 200 21395
+INFO 2025-11-19 03:12:29,445 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 03:12:29,446 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 03:12:31,616 basehttp "GET /product/7/ HTTP/1.1" 200 31687
+INFO 2025-11-19 03:12:31,643 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 03:12:31,644 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 03:12:31,644 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 03:12:35,827 basehttp "GET /product/8/ HTTP/1.1" 200 31773
+INFO 2025-11-19 03:12:40,253 basehttp "GET / HTTP/1.1" 200 21395
+INFO 2025-11-19 03:12:40,943 basehttp "GET /wishlist/ HTTP/1.1" 200 16691
+INFO 2025-11-19 03:12:43,835 basehttp "GET / HTTP/1.1" 200 21395
+INFO 2025-11-19 03:12:46,824 basehttp "GET /product/7/ HTTP/1.1" 200 31687
+INFO 2025-11-19 03:12:48,323 basehttp "GET /wishlist/toggle/7/ HTTP/1.1" 302 0
+INFO 2025-11-19 03:12:49,140 basehttp "GET /product/7/ HTTP/1.1" 200 31696
+INFO 2025-11-19 03:12:53,224 basehttp "GET / HTTP/1.1" 200 21395
+INFO 2025-11-19 03:12:57,027 basehttp "GET /products/ HTTP/1.1" 200 22800
+INFO 2025-11-19 03:13:00,276 basehttp "GET /products/?sort=price-high HTTP/1.1" 200 22800
+INFO 2025-11-19 03:13:02,690 basehttp "GET /wishlist/ HTTP/1.1" 200 18204
+INFO 2025-11-19 03:13:05,415 basehttp "GET / HTTP/1.1" 200 21395
+INFO 2025-11-19 03:13:58,178 basehttp "GET /admin/ HTTP/1.1" 200 33436
+INFO 2025-11-19 03:13:58,200 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 03:13:58,200 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 03:13:58,201 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 03:13:58,201 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+INFO 2025-11-19 03:13:58,202 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
+INFO 2025-11-19 03:13:58,206 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:13:58,206 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:13:58,207 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:13:58,246 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-19 03:13:58,246 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,424 basehttp "GET /admin/auth/user/1/change/ HTTP/1.1" 200 40587
+INFO 2025-11-19 03:14:13,462 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,462 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,462 basehttp "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,463 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,463 basehttp "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,464 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,476 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,478 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,479 basehttp "GET /static/jazzmin/js/change_form.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,480 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-11-19 03:14:13,550 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 03:14:18,391 basehttp "GET /static/jazzmin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO 2025-11-19 03:15:35,876 autoreload E:\WebProjects\jebaenterprise\products\models.py changed, reloading.
+INFO 2025-11-19 03:15:36,143 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 03:16:36,104 autoreload E:\WebProjects\jebaenterprise\products\admin.py changed, reloading.
+INFO 2025-11-19 03:16:36,343 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 03:17:01,387 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 03:17:13,265 basehttp "GET / HTTP/1.1" 200 21395
+INFO 2025-11-19 03:17:14,896 basehttp "GET /product/7/ HTTP/1.1" 200 31696
+INFO 2025-11-19 03:17:20,760 basehttp "GET / HTTP/1.1" 200 21395
+INFO 2025-11-19 03:17:23,002 basehttp "GET /admin/products/product/ HTTP/1.1" 200 27528
+INFO 2025-11-19 03:17:23,050 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:17:23,122 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 03:17:25,042 basehttp "GET /admin/products/product/7/change/ HTTP/1.1" 200 67942
+INFO 2025-11-19 03:17:25,074 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 304 0
+INFO 2025-11-19 03:17:25,078 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-11-19 03:17:25,080 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+INFO 2025-11-19 03:17:25,082 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-11-19 03:17:25,161 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 03:17:25,167 basehttp "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+INFO 2025-11-19 03:17:47,028 basehttp "GET /admin/products/product/7/change/ HTTP/1.1" 200 67942
+INFO 2025-11-19 03:20:08,843 basehttp "POST /admin/products/product/7/change/ HTTP/1.1" 302 0
+INFO 2025-11-19 03:20:09,308 basehttp "GET /admin/products/product/ HTTP/1.1" 200 28106
+INFO 2025-11-19 03:20:09,426 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 03:20:11,901 basehttp "GET / HTTP/1.1" 200 21434
+INFO 2025-11-19 03:20:11,925 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781.png HTTP/1.1" 200 410471
+INFO 2025-11-19 03:21:55,549 basehttp "GET /products/ HTTP/1.1" 200 22800
+INFO 2025-11-19 03:21:58,032 basehttp "GET / HTTP/1.1" 200 21434
+INFO 2025-11-19 03:21:58,058 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781.png HTTP/1.1" 304 0
+INFO 2025-11-19 03:22:03,536 basehttp "GET /my-orders/ HTTP/1.1" 200 14582
+INFO 2025-11-19 03:22:06,362 basehttp "GET / HTTP/1.1" 200 21434
+INFO 2025-11-19 03:22:15,443 basehttp "GET /my-orders/ HTTP/1.1" 200 14582
+INFO 2025-11-19 03:22:17,594 basehttp "GET /order/27/ HTTP/1.1" 200 15743
+INFO 2025-11-19 03:22:23,231 basehttp "GET / HTTP/1.1" 200 21434
+INFO 2025-11-19 03:22:23,254 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781.png HTTP/1.1" 304 0
+INFO 2025-11-19 03:25:26,591 basehttp "GET / HTTP/1.1" 200 21822
+INFO 2025-11-19 03:25:31,098 basehttp "GET / HTTP/1.1" 200 21822
+WARNING 2025-11-19 03:25:37,378 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 03:25:37,378 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 03:26:00,585 basehttp "GET / HTTP/1.1" 200 22114
+INFO 2025-11-19 03:26:00,616 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781.png HTTP/1.1" 304 0
+WARNING 2025-11-19 03:26:06,260 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 03:26:06,261 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 03:26:48,334 basehttp "GET / HTTP/1.1" 200 21822
+INFO 2025-11-19 03:26:53,788 basehttp "GET /product/7/ HTTP/1.1" 200 31696
+INFO 2025-11-19 03:27:04,078 basehttp "GET /admin/products/product/7/change/ HTTP/1.1" 200 68348
+INFO 2025-11-19 03:27:04,192 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 03:27:17,973 basehttp "POST /admin/products/product/7/change/ HTTP/1.1" 302 0
+INFO 2025-11-19 03:27:18,448 basehttp "GET /admin/products/product/ HTTP/1.1" 200 28106
+INFO 2025-11-19 03:27:18,567 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 03:27:20,935 basehttp "GET /admin/products/product/7/change/ HTTP/1.1" 200 67942
+INFO 2025-11-19 03:27:21,048 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 03:27:27,322 basehttp "GET / HTTP/1.1" 200 21822
+INFO 2025-11-19 03:27:29,444 basehttp "GET / HTTP/1.1" 200 21822
+INFO 2025-11-19 03:27:34,964 basehttp "POST /admin/products/product/7/change/ HTTP/1.1" 302 0
+INFO 2025-11-19 03:27:35,449 basehttp "GET /admin/products/product/ HTTP/1.1" 200 28106
+INFO 2025-11-19 03:27:35,565 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 03:27:40,065 basehttp "GET / HTTP/1.1" 200 21822
+INFO 2025-11-19 03:31:49,139 basehttp "GET / HTTP/1.1" 200 22457
+INFO 2025-11-19 03:31:49,163 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 200 410471
+WARNING 2025-11-19 03:31:59,818 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 03:31:59,820 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+WARNING 2025-11-19 03:32:42,841 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 03:32:42,842 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 03:35:18,071 basehttp "GET / HTTP/1.1" 200 21834
+WARNING 2025-11-19 03:35:18,106 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-11-19 03:35:18,108 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+WARNING 2025-11-19 03:35:18,109 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 7774
+INFO 2025-11-19 03:35:18,109 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
+INFO 2025-11-19 03:35:44,125 basehttp "GET /product/7/ HTTP/1.1" 200 31696
+INFO 2025-11-19 03:38:06,739 basehttp "GET /product/7/ HTTP/1.1" 200 31696
+INFO 2025-11-19 03:38:16,184 basehttp "GET / HTTP/1.1" 200 21834
+INFO 2025-11-19 03:38:16,210 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
+INFO 2025-11-19 03:38:24,068 basehttp "GET /products/ HTTP/1.1" 200 22800
+INFO 2025-11-19 03:38:26,901 basehttp "GET /product/9/ HTTP/1.1" 200 32218
+INFO 2025-11-19 03:38:32,445 basehttp "GET / HTTP/1.1" 200 21834
+INFO 2025-11-19 03:39:49,416 autoreload E:\WebProjects\jebaenterprise\products\models.py changed, reloading.
+INFO 2025-11-19 03:39:49,668 autoreload Watching for file changes with StatReloader

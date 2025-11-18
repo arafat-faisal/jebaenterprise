@@ -13,6 +13,8 @@ from .models import Product, ProductVariation, Sale, SaleItem, ProductImage, Com
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
+    # Explicitly show both fields so you can upload them separately
+    fields = ('image', 'transparent_image')
 
 class CompetitorPriceInline(admin.TabularInline):
     model = CompetitorPrice
@@ -39,12 +41,14 @@ def print_selected_products(modeladmin, request, queryset):
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline, ProductVariationInline, CompetitorPriceInline]
     fieldsets = (
-        (None, {'fields': ('name', 'description', 'category')}),
+        (None, {'fields': ('name', 'description', 'category', 'is_featured')}), # Added is_featured
         ('Pricing', {'fields': ('buying_cost', 'selling_price')}),
         ('Stock', {'fields': ('stock_quantity', 'box_quantity')}),
     )
-    list_display = ('name', 'selling_price', 'stock_quantity', 'category')
-    list_editable = ('selling_price', 'stock_quantity')
+    # Update list display to show the checkmark
+    list_display = ('name', 'selling_price', 'stock_quantity', 'category', 'is_featured')
+    list_editable = ('selling_price', 'stock_quantity', 'is_featured') # Allow quick toggling
+    list_filter = ('is_featured', 'category') # Filter by featured
     actions = [print_selected_products]
 
 # --- 4. NEW: Smart Sales Admin Dashboard ---

@@ -164,14 +164,14 @@
                             <td>{{ product.description|default:"" }}</td>
                             
                             {% elif col == 'selling_price' %}
-                            <td>${{ product.selling_price|floatformat:2 }}</td>
+                            <td>৳{{ product.selling_price|floatformat:2 }}</td>
 
                             {% elif col == 'variations' %}
                             <td>
                                 <ul style="margin: 0; padding-left: 15px; font-size: 0.9em;">
                                     {% for var in product.variations.all %}
                                         <li>
-                                            <strong>{{ var.name }}:</strong> ${{ var.selling_price|floatformat:2 }}
+                                            <strong>{{ var.name }}:</strong> ৳{{ var.selling_price|floatformat:2 }}
                                         </li>
                                     {% endfor %}
                                 </ul>
@@ -183,7 +183,7 @@
                                     {% for price in product.competitor_prices.all %}
                                         <li>
                                             <strong>{{ price.website_name }}:</strong> 
-                                            ${{ price.min_price }} - ${{ price.max_price }}
+                                            ৳{{ price.min_price }} - ৳{{ price.max_price }}
                                         </li>
                                     {% endfor %}
                                 </ul>

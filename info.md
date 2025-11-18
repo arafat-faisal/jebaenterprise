@@ -51,3 +51,10 @@ This "Progress File" reflects all the successful modifications, from core featur
 2.  **Deployment:** Configure your **Namecheap VPS** to take this code live on `Jebaenterprise.com`.
 
 ***
+
+### B. Install Python Packages
+
+In the activated `(venv)` terminal, run this single command:
+
+```bash
+pip install django psycopg2-binary dj-database-url python-dotenv Pillow thefuzz requests imagehash playwright beautifulsoup4 django-jazzmin

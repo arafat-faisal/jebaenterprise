@@ -6,6 +6,7 @@ urlpatterns = [
     # This matches the "homepage" (e.g., http://127.0.0.1:8001/)
     # and tells it to run the 'pricing_sheet' function from views.py
     path("", views.pricing_sheet, name="pricing_sheet"),
+    path("products/", views.product_catalog, name="product_catalog"), # <--- NEW LINE
 
     # --- ADD THIS NEW LINE ---
     # This creates a dynamic URL. <int:pk> is a "path converter"
@@ -38,4 +39,9 @@ urlpatterns = [
     path("search/", views.search_view, name="search"),
     # ... inside urlpatterns ...
     path("user-logout/", views.user_logout, name="user_logout"),
+    # ... inside urlpatterns ...
+    path("add-review/<int:product_id>/", views.add_review, name="add_review"),
+    path("wishlist/toggle/<int:product_id>/", views.toggle_wishlist, name="toggle_wishlist"),
+    path("wishlist/", views.wishlist_view, name="wishlist"),
+    path("profile/", views.profile_view, name="profile"),
 ]

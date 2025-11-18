@@ -22,15 +22,15 @@
                 {% for item in cart_items %}
                 <tr>
                     <td>{{ item.name }}</td>
-                    <td>${{ item.price|floatformat:2 }}</td>
+                    <td>৳{{ item.price|floatformat:2 }}</td>
                     <td>{{ item.quantity }}</td>
-                    <td>${{ item.item_total|floatformat:2 }}</td>
+                    <td>৳{{ item.item_total|floatformat:2 }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         
-        <h2 style="text-align: right;">Total: ${{ total_price|floatformat:2 }}</h2>
+        <h2 style="text-align: right;">Total: ৳{{ total_price|floatformat:2 }}</h2>
         
         <a href="{% url 'checkout' %}" class="btn" style="width: 100%; text-align: center; display: block; box-sizing: border-box;">
             Proceed to Checkout

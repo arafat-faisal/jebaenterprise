@@ -17,14 +17,23 @@
     .hero-card {
         background-color: var(--bg-card);
         border-radius: var(--radius-xl);
-        padding: 30px; /* Reduced padding */
+        padding: 0; /* Remove padding to let children control spacing */
         box-shadow: var(--shadow-soft);
         position: relative;
         overflow: hidden;
+        z-index: 1;
         min-height: 400px;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        align-items: center; /* Center content vertically */
+        justify-content: space-between; /* Space between text and image */
+    }
+
+    /* Text Container */
+    .hero-text {
+        flex: 1; /* Take up available space */
+        padding: 40px;
+        z-index: 2; /* Ensure text is above background elements */
+        max-width: 50%; /* Limit text width */
     }
     
     .hero-tag {
@@ -43,7 +52,24 @@
         font-weight: 800;
         line-height: 1.1;
         margin-bottom: 20px;
-        max-width: 60%;
+        color: var(--text-main);
+    }
+
+    /* Image Container */
+    .hero-image-container {
+        flex: 1; /* Take up remaining space */
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-image-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        /* Removed transform: rotate(-10deg); */
     }
 
     /* The "New Gen" Side Column (Right Side) */
@@ -129,77 +155,86 @@
         }
         
         .hero-card {
-            min-height: auto; /* Let height grow naturally */
-            padding: 25px;
+            flex-direction: column-reverse; /* Stack image on top of text on mobile */
+            padding: 20px;
+            text-align: center;
+            min-height: auto;
+        }
+
+        .hero-text {
+            max-width: 100%;
+            padding: 20px 0 0 0;
         }
         
         .hero-title {
             font-size: 2rem; /* Smaller font */
-            max-width: 100%; /* Allow full width text */
+        }
+
+        .hero-image-container {
+            height: 250px; /* Fixed height for image on mobile */
+            width: 100%;
         }
         
-        /* Force the image to be static (not floating) on mobile */
-        .hero-card img {
-            position: static !important; /* Override the inline style */
-            right: auto !important;
-            bottom: auto !important;
-            width: 100% !important;
-            height: auto !important;
-            transform: none !important;
-            margin-top: 20px;
-            max-height: 250px; /* Limit height so it doesn't take over */
-        }
-        
-        .side-stack { display: none; } /* Optional: Hide side stack on mobile to save space? Or keep it: */
-        /* .side-stack { display: flex; } */
+        .side-stack { display: none; } 
     }
 </style>
 
 <div class="bento-grid">
     <div class="hero-card">
-        {% if products.first %}
-            <div style="z-index: 2;">
+        {% if featured_product %}
+            <div class="hero-text">
                 <span class="hero-tag">Featured Product</span>
-                <h1 class="hero-title">{{ products.first.name }}</h1>
-                <p style="color: var(--text-sub); margin-bottom: 30px; max-width: 50%;">
-                    {{ products.first.description|truncatechars:80 }}
+                <h1 class="hero-title">{{ featured_product.name }}</h1>
+                <p style="color: var(--text-sub); margin-bottom: 30px;">
+                    {{ featured_product.description|truncatechars:80 }}
                 </p>
-                <a href="{% url 'product_detail' products.first.id %}" class="btn">
+                <a href="{% url 'product_detail' featured_product.id %}" class="btn">
                     View Product ↗
                 </a>
             </div>
             
-            {% if products.first.images.first %}
-            <img src="{{ products.first.images.first.image.url }}" 
-                 style="position: absolute; right: -50px; bottom: -50px; height: 110%; width: auto; object-fit: contain; transform: rotate(-10deg);">
-            {% endif %}
+            <div class="hero-image-container">
+                {% if featured_product.images.first %}
+                    {% if featured_product.images.first.transparent_image %}
+                        <img src="{{ featured_product.images.first.transparent_image.url }}" alt="{{ featured_product.name }}">
+                    {% else %}
+                        <img src="{{ featured_product.images.first.image.url }}" alt="{{ featured_product.name }}">
+                    {% endif %}
+                {% endif %}
+            </div>
         {% else %}
-            <h1>Welcome to Jeba Enterprise</h1>
+             <div class="hero-text">
+                <h1>Welcome to Jeba Enterprise</h1>
+            </div>
         {% endif %}
     </div>
 
     <div class="side-stack">
-        <div class="side-card">
+        <a href="{% url 'product_catalog' %}?sort=new" class="side-card" style="text-decoration: none; color: inherit;">
             <div>
                 <h3 style="margin-bottom: 5px;">New Arrivals</h3>
                 <p style="color: var(--text-sub); font-size: 0.9rem;">Check out the latest.</p>
             </div>
-            <div style="background: #D4F759; width: 50px; height: 50px; border-radius: 50%;"></div>
-        </div>
+            <div style="background: #D4F759; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 1.5rem;">✨</span>
+            </div>
+        </a>
         
-        <div class="side-card" style="background: #1A1C1E; color: white;">
+        <a href="{% url 'product_catalog' %}" class="side-card" style="background: #1A1C1E; color: white; text-decoration: none;">
             <div>
                 <h3 style="margin-bottom: 5px; color: white;">Best Sellers</h3>
                 <p style="color: #888; font-size: 0.9rem;">Top rated items.</p>
             </div>
-            <div style="background: #333; width: 50px; height: 50px; border-radius: 50%;"></div>
-        </div>
+            <div style="background: #333; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 1.5rem;">🔥</span>
+            </div>
+        </a>
     </div>
 </div>
 
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
     <h2>More Products</h2>
-    <a href="#" style="color: var(--text-sub); text-decoration: none; font-size: 0.9rem;">View All</a>
+    <a href="{% url 'product_catalog' %}" style="color: var(--text-sub); text-decoration: none; font-size: 0.9rem;">View All</a>
 </div>
 
 <div class="modern-grid">
@@ -215,7 +250,7 @@
             
             <div class="card-meta">
                 <div>
-                    <div class="card-price">${{ product.selling_price|floatformat:2 }}</div>
+                    <div class="card-price">৳{{ product.selling_price|floatformat:2 }}</div>
                     <small style="color: #ccc;">{{ product.stock_quantity }} left</small>
                 </div>
                 <a href="{% url 'product_detail' product.id %}" class="card-btn-icon">

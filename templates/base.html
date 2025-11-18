@@ -86,19 +86,25 @@
         }
 
         /* --- DESKTOP OVERRIDES (Screens wider than 768px) --- */
+        /* --- DESKTOP OVERRIDES (Screens wider than 768px) --- */
         @media (min-width: 768px) {
             .site-header {
                 padding: 15px 30px;
                 border-radius: var(--radius-pill);
-                flex-wrap: nowrap; /* One single line */
+                flex-wrap: nowrap;
             }
-            .logo { font-size: 1.5rem; margin-right: 0; }
+            .logo { font-size: 1.5rem; margin-right: 40px; } /* Added margin right */
             .search-container { 
-                order: 0; /* Natural flow */
-                margin: 0 40px; 
-                width: auto; 
+                order: 0;
+                margin: 0; 
+                width: auto;
+                flex-grow: 1; /* Take available space */
+                max-width: 600px;
             }
-            .nav-links { order: 0; }
+            .nav-links { 
+                order: 0; 
+                margin-left: auto; /* <--- THIS PUSHES ICONS TO THE RIGHT */
+            }
         }
         .search-input {
             width: 100%;
@@ -213,6 +219,7 @@
         </form>
         
         <nav class="nav-links">
+            
             {% if user.is_authenticated %}
                 {# --- NEW ADMIN BUTTON --- #}
                 {% if user.is_superuser %}
@@ -230,10 +237,10 @@
                 <a href="{% url 'my_orders' %}" class="nav-icon" title="My Orders">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                 </a>
-                <a href="{% url 'view_cart' %}" class="nav-icon" title="Cart">
+                <!-- <a href="{% url 'view_cart' %}" class="nav-icon" title="Cart">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                     {% if request.session.cart %}<span style="position: absolute; top: 10%; right: 0%; width: 10px; height: 10px; background: var(--accent-lime); border: 2px solid #fff;border-radius: 50%;"></span>{% endif %}
-                </a>
+                </a> -->
                 <a href="{% url 'user_logout' %}" class="nav-icon" title="Logout">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                 </a>
@@ -241,6 +248,15 @@
                 <a href="{% url 'login' %}">Login</a>
                 <a href="{% url 'register' %}" class="btn" style="padding: 8px 24px; font-size: 0.9rem;">Sign Up</a>
             {% endif %}
+            <a href="{% url 'view_cart' %}" class="nav-icon" title="Cart">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                {% if request.session.cart %}
+                    <span style="position: absolute; top: -2px; right: -2px; width: 10px; height: 10px; background: var(--accent-lime); border: 2px solid #fff; border-radius: 50%;"></span>
+                {% endif %}
+            </a>
+            <a href="{% url 'wishlist' %}" class="nav-icon" title="Wishlist">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            </a>
         </nav>
     </header>
 

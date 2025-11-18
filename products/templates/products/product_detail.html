@@ -100,6 +100,7 @@
     .quantity-input { width: 70px; padding: 15px; border-radius: 50px; border: 1px solid #eee; text-align: center; font-weight: 700; }
     .btn-add-cart { background-color: var(--accent-lime); color: var(--text-main); font-weight: 700; padding: 16px 30px; border-radius: 50px; border: none; cursor: pointer; font-size: 1rem; display: flex; align-items: center; gap: 10px; flex-grow: 1; justify-content: center; white-space: nowrap; }
     .btn-icon-only { width: 54px; height: 54px; border-radius: 50%; border: 1px solid #eee; background: white; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+    .btn-icon-only.in-wishlist { background-color: #ffebee; border-color: #ff1744; }
 
     /* Related Products */
     .related-section { margin-top: 50px; }
@@ -197,7 +198,7 @@
         </div>
 
         <div class="price-tag">
-            <span id="product-price">${{ product.selling_price|floatformat:2 }}</span>
+            <span id="product-price">৳{{ product.selling_price|floatformat:2 }}</span>
             <span id="product-stock" style="font-size: 0.9rem; font-weight: 600; color: #55a630; background: #e9ffe0; padding: 5px 15px; border-radius: 20px;">
                 In Stock: {{ product.stock_quantity }}
             </span>
@@ -236,18 +237,45 @@
                 {% csrf_token %}
         {% endif %}
 
-            <div class="action-row">
-                <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                
-                <button type="submit" class="btn-add-cart">
-                    Add to Cart
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </button>
-                
-                <button type="button" class="btn-icon-only">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                </button>
-            </div>
+            {% if product.stock_quantity > 0 %}
+                <div class="action-row">
+                    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+                    
+                    <button type="submit" name="action" value="add" class="btn-add-cart">
+                        Add to Cart
+                    </button>
+                     <button type="submit" name="action" value="buy_now" class="btn-buy-now">
+                        Buy Now
+                    </button>
+                    <a href="{% url 'toggle_wishlist' product.id %}" class="btn-icon-only {% if in_wishlist %}in-wishlist{% endif %}">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="{% if in_wishlist %}#ff1744{% else %}none{% endif %}" stroke="{% if in_wishlist %}#ff1744{% else %}currentColor{% endif %}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </a>
+                    </a>
+                </div>
+            {% else %}
+                <div style="margin-top: 20px; padding: 15px; background: #fff3cd; color: #856404; border-radius: 8px; font-weight: bold; text-align: center;">
+                    🚫 Out of Stock
+                </div>
+            {% endif %}
+
+            <style>
+                .btn-buy-now {
+                    background-color: #1A1C1E; /* Black */
+                    color: #ffffff;
+                    font-weight: 700;
+                    padding: 16px 30px;
+                    border-radius: 50px;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    flex-grow: 1; /* Make it expand */
+                    transition: transform 0.2s;
+                }
+                .btn-buy-now:hover {
+                    opacity: 0.9;
+                    transform: translateY(-3px);
+                }
+            </style>
         </form>
     </div>
 </div>
@@ -270,7 +298,46 @@
         {% endfor %}
     </div>
 </div>
+<div class="related-section" style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 40px;">
+    <h2 class="related-header">Reviews ({{ reviews.count }})</h2>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        <div>
+            {% for review in reviews %}
+                <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <strong>{{ review.user.username }}</strong>
+                        <span style="color: #FFC107;">{{ review.rating }} ★</span>
+                    </div>
+                    <p style="color: var(--text-sub); margin-top: 5px;">{{ review.comment }}</p>
+                    <small style="color: #ccc;">{{ review.created_at|date:"M d, Y" }}</small>
+                </div>
+            {% empty %}
+                <p>No reviews yet. Be the first!</p>
+            {% endfor %}
+        </div>
 
+        <div style="background: #F9F9F9; padding: 25px; border-radius: 15px;">
+            <h3 style="margin-top: 0;">Write a Review</h3>
+            {% if user.is_authenticated %}
+                <form method="POST" action="{% url 'add_review' product.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Rating (1-5)</label>
+                        {{ review_form.rating }}
+                    </div>
+                    <div class="form-group">
+                        <label>Comment</label>
+                        {{ review_form.comment }}
+                    </div>
+                    <button type="submit" class="btn-add-cart" style="width: 100%;">Submit Review</button>
+                </form>
+            {% else %}
+                <p>Please <a href="{% url 'login' %}">Log In</a> to write a review.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
@@ -310,7 +377,8 @@
 
             variationSelect.addEventListener('change', function() {
                 const selectedOption = this.options[this.selectedIndex];
-                priceDisplay.textContent = '$' + selectedOption.dataset.price;
+                // CHANGED '$' TO '৳' HERE
+                priceDisplay.textContent = '৳' + selectedOption.dataset.price; 
                 stockDisplay.textContent = 'In Stock: ' + selectedOption.dataset.stock;
                 cartForm.action = selectedOption.dataset.url;
             });

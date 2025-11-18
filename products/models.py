@@ -1,26 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
-
-
-# --- ADD THIS NEW CLASS ---
+# --- Category Model ---
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
     class Meta:
-        verbose_name_plural = "Categories" # Fixes the plural name in admin
+        verbose_name_plural = "Categories"
 
     def __str__(self):
         return self.name
 
-# --- End of Category Model ---
-
+# --- Product Model ---
 class Product(models.Model):
-    # ... all your existing Product fields are here ...
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
-    # image = models.ImageField(upload_to='products/', blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='products')
+    
+    # Added featured field
+    is_featured = models.BooleanField(default=False, help_text="Check this to show on Homepage Hero section")
 
     buying_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     selling_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -32,38 +33,24 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-# --- ADD THIS NEW CLASS ---
+# --- Product Variation ---
 class ProductVariation(models.Model):
-    # This is the "link" to the main product
-    # models.CASCADE means if you delete a product, all its variations get deleted too.
     product = models.ForeignKey(Product, related_name='variations', on_delete=models.CASCADE)
-    
-    # Name of the variation, e.g., "Small, Red" or "KH-320 (Retail Box)"
     name = models.CharField(max_length=255)
-    
-    # The "variation price" from your blueprint
     selling_price = models.DecimalField(max_digits=10, decimal_places=2)
-    
-    # The "toggle" from your blueprint
     is_active = models.BooleanField(default=True)
-    
-    # How many of this specific variation you have
     stock_quantity = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        # This will make it display nicely, e.g., "Fascial Gun KH-320 - Retail Box"
         return f"{self.product.name} - {self.name}"
     
+# --- Sale Model ---
 class Sale(models.Model):
-    # Link to the logged-in user (optional, so guests can still buy if you allow it later)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    
-    # --- NEW FIELDS FOR SHIPPING ---
     customer_name = models.CharField(max_length=100, blank=True, null=True)
     phone_number = models.CharField(max_length=20, blank=True, null=True)
     shipping_address = models.TextField(blank=True, null=True)
     
-    # --- ORDER STATUS ---
     STATUS_CHOICES = [
         ('PENDING', 'Pending'),
         ('PROCESSING', 'Processing'),
@@ -72,92 +59,99 @@ class Sale(models.Model):
         ('CANCELLED', 'Cancelled'),
     ]
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
-
-    # This records when the sale was made
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        # Display name and status in the dropdown
         return f"Sale #{self.id} - {self.status}"
 
     @property
+    def total_amount(self):
+        # Sum of (Sold Price * Quantity) for all items in this sale
+        return sum(item.sold_price * item.quantity for item in self.items.all())
+
+    @property
     def total_profit(self):
-        # Get all items for this sale and sum their individual profits
         items = self.items.all()
         return sum(item.profit for item in items)
 
-# --- AND ADD THIS NEW CLASS ---
+# --- Sale Item ---
 class SaleItem(models.Model):
-    # Link this item to its parent sale
     sale = models.ForeignKey(Sale, related_name='items', on_delete=models.CASCADE)
-    
-    # Link to the main product that was sold
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    
-    # Link to the specific variation (if any)
-    # blank=True, null=True means this field is OPTIONAL
     variation = models.ForeignKey(ProductVariation, on_delete=models.SET_NULL, blank=True, null=True)
-    
-    # How many were sold?
     quantity = models.PositiveIntegerField(default=1)
-    
-    # --- ADD THIS LINE ---
-    # Store the buying_cost AT THE TIME of the sale
     buying_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-
-    # This is your "adjustable sell rate" feature.
-    # We store the price AT THE TIME of the sale.
     sold_price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return f"{self.quantity}x {self.product.name}"
 
-    # --- ADD THIS NEW FUNCTION ---
     @property
     def profit(self):
-        # Calculate the profit for this single line item
         return (self.sold_price - self.buying_cost) * self.quantity
 
-    # This is the "magic" function that runs when you save
     def save(self, *args, **kwargs):
-        # If this is a new sale item (not just an edit)
         if not self.pk: 
-            # 1. Update the variation stock (if a variation was sold)
             if self.variation:
                 self.variation.stock_quantity -= self.quantity
                 self.variation.save()
-            
-            # 2. Update the main product's total stock
             self.product.stock_quantity -= self.quantity
             self.product.save()
-            
-        super().save(*args, **kwargs) # This actually saves the SaleItem
+        super().save(*args, **kwargs)
 
-# ... (your Product, ProductVariation, Sale, SaleItem classes are here) ...
-
-# --- ADD THIS NEW CLASS AT THE BOTTOM ---
+# --- Product Image (Gallery) ---
 class ProductImage(models.Model):
-    # This is the "link" to the main product
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
-    
-    # This is the new image field
     image = models.ImageField(upload_to='products/gallery/')
+    
+    # We keep this field for MANUAL uploads
+    transparent_image = models.ImageField(upload_to='products/transparent/', blank=True, null=True, help_text="Upload a PNG with no background here (Optional)")
     
     def __str__(self):
         return f"Image for {self.product.name}"
-    
-# --- ADD THIS NEW CLASS AT THE BOTTOM ---
-class CompetitorPrice(models.Model):
-    # Link to the product this price is for
-    product = models.ForeignKey(Product, related_name='competitor_prices', on_delete=models.CASCADE)
 
-    website_name = models.CharField(max_length=100) # e.g., "Daraz", "StarTech"
+# --- Competitor Price ---
+class CompetitorPrice(models.Model):
+    product = models.ForeignKey(Product, related_name='competitor_prices', on_delete=models.CASCADE)
+    website_name = models.CharField(max_length=100)
     min_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     max_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    last_checked = models.DateTimeField(auto_now=True) # Automatically updates when saved
+    last_checked = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.website_name} price for {self.product.name}"
-    
 
-# ... (all your existing models are here) ...
+# --- Reviews ---
+class Review(models.Model):
+    product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.IntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    comment = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.product.name} ({self.rating}*)"
+
+# --- Wishlist ---
+class Wishlist(models.Model):
+    user = models.ForeignKey(User, related_name='wishlist', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'product')
+
+# --- User Profile ---
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Profile for {self.user.username}"
+
+# --- SAFE SIGNALS (No AI) ---
+@receiver(post_save, sender=User)
+def ensure_profile_exists(sender, instance, **kwargs):
+    # Safer method to get or create profile
+    UserProfile.objects.get_or_create(user=instance)
