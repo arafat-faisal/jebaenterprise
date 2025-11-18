@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .header { background-color: #ffffff; padding: 30px; text-align: left; border-bottom: 1px solid #eee; }
+        .logo { font-size: 24px; font-weight: 800; color: #1A1C1E; text-decoration: none; }
+        .logo span { color: #D4F759; } /* Your Lime Accent */
+        
+        .content { padding: 30px; color: #333; line-height: 1.6; }
+        .order-title { font-size: 24px; font-weight: 700; margin: 0 0 5px 0; color: #1A1C1E; }
+        .order-date { color: #888; font-size: 14px; margin-bottom: 20px; }
+        
+        .status-badge { 
+            background-color: #fff3cd; color: #856404; 
+            padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; display: inline-block; float: right; 
+        }
+
+        .section-box { background-color: #F8F9FB; border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .section-title { font-size: 16px; font-weight: 700; color: #3F51B5; margin-bottom: 10px; margin-top: 0; }
+        
+        .address-text { margin: 0; color: #555; font-size: 14px; }
+        
+        .items-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .items-table th { text-align: left; font-size: 12px; color: #888; text-transform: uppercase; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+        .items-table td { padding: 10px 0; border-bottom: 1px solid #eee; font-size: 14px; color: #333; }
+        .item-name { font-weight: 600; }
+        .item-meta { font-size: 12px; color: #888; }
+        
+        .total-row td { border-top: 2px solid #eee; border-bottom: none; padding-top: 15px; font-weight: 700; font-size: 16px; }
+        
+        .footer { background-color: #f9f9f9; padding: 20px; text-align: center; font-size: 12px; color: #999; }
+        .btn { display: inline-block; background-color: #1A1C1E; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; font-size: 14px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <span class="status-badge">Pending</span>
+            <div class="logo">JEBA<span>.</span></div>
+        </div>
+        
+        <div class="content">
+            <h1 class="order-title">Order #{{ sale.id }}</h1>
+            <div class="order-date">Placed on {{ sale.created_at|date:"M d, Y" }}</div>
+            
+            <p>Hi {{ sale.customer_name }},</p>
+            <p>Thank you for your order! We have received it and will begin processing it shortly.</p>
+            
+            <!-- Shipping Info Box -->
+            <div class="section-box">
+                <h3 class="section-title">Shipping To</h3>
+                <p class="address-text"><strong>Name:</strong> {{ sale.customer_name }}</p>
+                <p class="address-text"><strong>Phone:</strong> {{ sale.phone_number }}</p>
+                <p class="address-text"><strong>Address:</strong><br>{{ sale.shipping_address|linebreaksbr }}</p>
+            </div>
+            
+            <!-- Items List -->
+            <h3 class="section-title" style="color: #3F51B5;">Items Ordered</h3>
+            <table class="items-table">
+                <thead>
+                    <tr>
+                        <th style="width: 60px;">Item</th> 
+                        <th></th> <th style="text-align: center;">Qty</th>
+                        <th style="text-align: right;">Price</th>
+                        <th style="text-align: right;">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in sale.items.all %}
+                    <tr>
+                        <!-- 1. Product Image Thumbnail -->
+                        <td style="padding: 10px 0; border-bottom: 1px solid #eee; vertical-align: middle;">
+                            {% if item.product.images.first %}
+                                <!-- THE MAGIC CHANGE: src="cid:img_{{ item.product.id }}" -->
+                                <img src="cid:img_{{ item.product.id }}" alt="Product" width="50" height="50" style="border-radius: 6px; object-fit: cover; display: block; border: 1px solid #eee;">
+                            {% else %}
+                                <div style="width: 50px; height: 50px; background-color: #eee; border-radius: 6px;"></div>
+                            {% endif %}
+                        </td>
+
+                        <td style="padding: 10px 0; border-bottom: 1px solid #eee; vertical-align: middle; padding-left: 10px;">
+                            <div class="item-name">{{ item.product.name }}</div>
+                            {% if item.variation %}
+                                <div class="item-meta" style="color: #888; font-size: 12px;">Variant: {{ item.variation.name }}</div>
+                            {% endif %}
+                        </td>
+
+                        <td style="text-align: center; padding: 10px 0; border-bottom: 1px solid #eee; vertical-align: middle;">
+                            {{ item.quantity }}
+                        </td>
+
+                        <td style="text-align: right; padding: 10px 0; border-bottom: 1px solid #eee; vertical-align: middle;">
+                            ৳{{ item.sold_price|floatformat:0 }}
+                        </td>
+
+                        <td style="text-align: right; padding: 10px 0; border-bottom: 1px solid #eee; vertical-align: middle;">
+                            ৳{% widthratio item.sold_price 1 item.quantity %}
+                        </td> 
+                    </tr>
+                    {% endfor %}
+                    
+                    <tr class="total-row">
+                        <td colspan="4" style="text-align: right; padding-top: 15px;"><strong>Total:</strong></td>
+                        <td style="text-align: right; padding-top: 15px; font-size: 18px; color: #3F51B5;"><strong>৳{{ sale.total_amount|floatformat:0 }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <center>
+                <a href="http://127.0.0.1:8001{% url 'my_orders' %}" class="btn">View Order Status</a>
+            </center>
+        </div>
+        
+        <div class="footer">
+            &copy; {% now "Y" %} Jeba Enterprise. All rights reserved.<br>
+            If you have any questions, reply to this email.
+        </div>
+    </div>
+</body>
+</html>

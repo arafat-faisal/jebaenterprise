@@ -272,7 +272,27 @@
             padding-left: 45px; /* Make room for the icon */
         }
     </style>
-
+    
+    {% if messages %}
+        <style>
+            .message-list { max-width: 1200px; margin: 10px auto; padding: 0 20px; }
+            .msg { padding: 15px; border-radius: 8px; margin-bottom: 10px; font-weight: 600; }
+            .msg-error { background-color: #ffebee; color: #d32f2f; border: 1px solid #ffcdd2; }
+            .msg-success { background-color: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+            .msg-info { background-color: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+        </style>
+        <div class="message-list">
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="msg msg-error">{{ message }}</div>
+                {% elif message.tags == 'success' %}
+                    <div class="msg msg-success">{{ message }}</div>
+                {% else %}
+                    <div class="msg msg-info">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="container">
         {% block content %}
         {% endblock %}

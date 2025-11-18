@@ -42,6 +42,12 @@ from .models import Review, Wishlist, UserProfile # Import new models
 # Add these imports at the top
 from django.db.models import Sum, Count
 
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.core.mail import EmailMultiAlternatives
+
+from .utils import send_order_email # Import the new helper
+
 
 # def pricing_sheet(request):
 #         # 1. Start with all products (and prefetch related data)
@@ -257,35 +263,37 @@ def checkout(request):
         form = CheckoutForm(request.POST)
         
         if form.is_valid():
-            # 1. Create the Sale object but don't save to DB yet (commit=False)
+            # new_sale.save()
+            # --- 1. SECURITY CHECK: Verify Stock Levels FIRST ---
+            for key, item_data in cart.items():
+                product = get_object_or_404(Product, id=item_data['product_id'])
+                order_qty = item_data['quantity']
+                
+                # Check Variation Stock
+                if item_data['variation_id']:
+                    variation = get_object_or_404(ProductVariation, id=item_data['variation_id'])
+                    if variation.stock_quantity < order_qty:
+                        messages.error(request, f"Sorry, '{product.name} - {variation.name}' is out of stock. Only {variation.stock_quantity} left.")
+                        return redirect('view_cart')
+                
+                # Check Main Product Stock (Global stock)
+                if product.stock_quantity < order_qty:
+                    messages.error(request, f"Sorry, '{product.name}' is out of stock. Only {product.stock_quantity} left.")
+                    return redirect('view_cart')
+
+            # --- 2. IF STOCK IS OK, CREATE SALE ---
             new_sale = form.save(commit=False)
             
-            # 2. Associate with logged-in user (if they are logged in)
             if request.user.is_authenticated:
                 new_sale.user = request.user
             
-            # 3. Now save it to get an ID
             new_sale.save()
 
-            # --- FEATURE 3: SEND EMAIL ---
-            if request.user.is_authenticated and request.user.email:
-                try:
-                    send_mail(
-                        subject=f"Order Confirmed: #{new_sale.id}",
-                        message=f"Thank you for your order, {new_sale.customer_name}! We have received it and will ship it soon.",
-                        from_email=settings.EMAIL_HOST_USER,
-                        recipient_list=[request.user.email],
-                        fail_silently=True,
-                    )
-                except:
-                    pass # Don't crash if email fails
-            # -----------------------------
+            
 
-            # 4. Loop through every item in the session cart
-            for product_id, item_data in cart.items():
-                # Logic to handle both standard products and variations
-                product_id_clean = item_data['product_id']
-                product = get_object_or_404(Product, id=product_id_clean)
+            # --- 4. CREATE SALE ITEMS ---
+            for key, item_data in cart.items():
+                product = get_object_or_404(Product, id=item_data['product_id'])
                 
                 variation = None
                 if item_data['variation_id']:
@@ -299,24 +307,28 @@ def checkout(request):
                     sold_price=item_data['price'],
                     buying_cost=product.buying_cost 
                 )
+            # --- 4. SEND EMAIL WITH EMBEDDED IMAGES ---
+            if request.user.is_authenticated and request.user.email:
+                try:
+                    send_order_email(new_sale, request.user.email)
+                except Exception as e:
+                    print(f"Email sending failed: {e}")
+            # ------------------------------------------
 
             # 5. Clear the cart and redirect
             request.session['cart'] = {}
             return redirect('order_success')
 
     else:
-        # --- GET REQUEST: Pre-fill the form ---
         initial_data = {}
         if request.user.is_authenticated:
-            # Auto-fill name if logged in
             initial_data['customer_name'] = f"{request.user.first_name} {request.user.last_name}".strip()
             
         form = CheckoutForm(initial=initial_data)
 
-    # --- Calculate Totals for Display ---
     cart_items = []
     total_price = 0
-    for product_id, item_data in cart.items():
+    for key, item_data in cart.items():
         item_total = item_data['price'] * item_data['quantity']
         cart_items.append({
             'name': item_data['name'],
@@ -329,7 +341,7 @@ def checkout(request):
     context = {
         'cart_items': cart_items,
         'total_price': total_price,
-        'form': form, # We pass the form to the template here
+        'form': form,
     }
     return render(request, 'products/checkout.html', context)
 
@@ -784,3 +796,44 @@ def profile_view(request):
         'user_form': user_form,
         'profile_form': profile_form
     })
+
+# --- NEW: Cart Update Logic ---
+def update_cart(request, item_id, action):
+    cart = request.session.get('cart', {})
+    
+    if item_id in cart:
+        item = cart[item_id]
+        
+        if action == 'increase':
+            # Check stock availability before increasing
+            product_id = item['product_id']
+            variation_id = item.get('variation_id')
+            
+            product = get_object_or_404(Product, id=product_id)
+            current_qty = item['quantity']
+            
+            stock_ok = True
+            if variation_id:
+                variation = get_object_or_404(ProductVariation, id=variation_id)
+                if variation.stock_quantity <= current_qty:
+                    stock_ok = False
+                    messages.error(request, f"Sorry, only {variation.stock_quantity} available for {variation.name}.")
+            else:
+                if product.stock_quantity <= current_qty:
+                    stock_ok = False
+                    messages.error(request, f"Sorry, only {product.stock_quantity} available.")
+            
+            if stock_ok:
+                cart[item_id]['quantity'] += 1
+                
+        elif action == 'decrease':
+            cart[item_id]['quantity'] -= 1
+            # Remove if quantity becomes 0
+            if cart[item_id]['quantity'] < 1:
+                del cart[item_id]
+                
+        elif action == 'remove':
+            del cart[item_id]
+    
+    request.session['cart'] = cart
+    return redirect('view_cart')

@@ -93,9 +93,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        # PASTE YOUR NEW "SESSION POOLER" STRING HERE
         default=os.getenv('DATABASE_URL'),
-        conn_max_age=600
+        conn_max_age=0, # <--- CHANGE THIS TO 0
+        conn_health_checks=True,
     )
 }
 
@@ -319,3 +319,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'jebaenterprisebd@gmail.com' 
 EMAIL_HOST_PASSWORD = 'fktj sgfd kubq fnav' # NOT your normal password
+
+# Switch to File-based sessions to save DB connections
+SESSION_ENGINE = "django.contrib.sessions.backends.file"
+SESSION_FILE_PATH = BASE_DIR / "sessions"

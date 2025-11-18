@@ -3,37 +3,121 @@
 {% block title %}Your Shopping Cart{% endblock %}
 
 {% block content %}
+
+<style>
+    .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    .cart-table th, .cart-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+    .cart-table th {
+        font-weight: 700;
+        color: var(--text-sub);
+    }
+    
+    /* Quantity Controls (+ / -) */
+    .qty-control {
+        display: inline-flex;
+        align-items: center;
+        background: #F8F9FB;
+        border-radius: 50px;
+        padding: 5px;
+    }
+    .qty-btn {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: white;
+        text-decoration: none;
+        color: var(--text-main);
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: 0.2s;
+    }
+    .qty-btn:hover {
+        background: var(--accent-lime);
+        color: black;
+    }
+    .qty-val {
+        margin: 0 15px;
+        font-weight: 600;
+        min-width: 20px;
+        text-align: center;
+    }
+    
+    /* Remove Button */
+    .btn-remove {
+        color: #d32f2f;
+        font-size: 0.9rem;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: 0.2s;
+    }
+    .btn-remove:hover { text-decoration: underline; opacity: 0.8; }
+</style>
+
+<div style="max-width: 1000px; margin: 0 auto;">
     <h1>Your Cart</h1>
 
     {% if not cart_items %}
-        <p>Your cart is empty.</p>
-        <p><a href="{% url 'pricing_sheet' %}" class="btn">Start Shopping</a></p>
+        <div style="text-align: center; padding: 60px;">
+            <h3 style="margin-bottom: 10px;">Your cart is empty 🛒</h3>
+            <p style="color: var(--text-sub); margin-bottom: 30px;">Looks like you haven't added anything yet.</p>
+            <a href="{% url 'pricing_sheet' %}" class="btn">Start Shopping</a>
+        </div>
     {% else %}
-        <table>
+        <table class="cart-table">
             <thead>
                 <tr>
-                    <th>Product</th>
+                    <th style="width: 40%;">Product</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
-                </tr>
+                    <th></th> </tr>
             </thead>
             <tbody>
                 {% for item in cart_items %}
                 <tr>
-                    <td>{{ item.name }}</td>
+                    <td>
+                        <strong>{{ item.name }}</strong>
+                    </td>
                     <td>৳{{ item.price|floatformat:2 }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>৳{{ item.item_total|floatformat:2 }}</td>
+                    <td>
+                        <div class="qty-control">
+                            <a href="{% url 'update_cart' item.id 'decrease' %}" class="qty-btn">-</a>
+                            <span class="qty-val">{{ item.quantity }}</span>
+                            <a href="{% url 'update_cart' item.id 'increase' %}" class="qty-btn">+</a>
+                        </div>
+                    </td>
+                    <td style="font-weight: 700;">৳{{ item.item_total|floatformat:2 }}</td>
+                    <td>
+                        <a href="{% url 'update_cart' item.id 'remove' %}" class="btn-remove">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                            Remove
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         
-        <h2 style="text-align: right;">Total: ৳{{ total_price|floatformat:2 }}</h2>
-        
-        <a href="{% url 'checkout' %}" class="btn" style="width: 100%; text-align: center; display: block; box-sizing: border-box;">
-            Proceed to Checkout
-        </a>
+        <div style="margin-top: 30px; text-align: right; border-top: 2px solid #eee; padding-top: 20px;">
+            <h2 style="margin-bottom: 20px;">Total: ৳{{ total_price|floatformat:2 }}</h2>
+            <a href="{% url 'checkout' %}" class="btn" style="padding: 15px 40px; font-size: 1.1rem;">
+                Proceed to Checkout →
+            </a>
+        </div>
     {% endif %}
+</div>
 {% endblock %}
