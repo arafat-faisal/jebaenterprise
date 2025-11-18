@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Log In{% endblock %}
+
+{% block content %}
+    <div style="max-width: 500px; margin: 0 auto; padding-top: 20px;">
+        <h1 style="text-align: center;">Log In</h1>
+
+        {% if form.errors %}
+            <p style="color: red; text-align: center; border: 1px solid red; padding: 10px; border-radius: 4px;">
+                Your username and password didn't match. Please try again.
+            </p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div style="margin-bottom: 15px;">
+                <label for="{{ form.username.id_for_label }}">Username</label>
+                {{ form.username }}
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="{{ form.password.id_for_label }}">Password</label>
+                {{ form.password }}
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Log In</button>
+        </form>
+
+        <p style="text-align: center; margin-top: 20px;">
+            Don't have an account? <a href="{% url 'register' %}">Register Here</a>
+        </p>
+    </div>
+{% endblock %}

@@ -1,141 +1,135 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ product.name }} - Jeba Enterprise{% endblock %}
+{% block title %}Home - Jeba Enterprise{% endblock %}
 
 {% block content %}
-    <p><a href="{% url 'pricing_sheet' %}">&larr; Back to all products</a></p>
+    
+    <h2>Filter by Category</h2>
+    <style>
+        .category-filters { margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .category-btn { background-color: #ccc; color: #333; padding: 0.5rem 0.75rem; text-decoration: none; border-radius: 4px; display: inline-block; }
+        .category-btn.active { background-color: var(--primary-color); color: white; }
+    </style>
 
-    <div class="product-detail-layout">
+    <div class="category-filters">
         
-        <div class="product-gallery">
-            {% if product.images.first %}
-                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="main-image" id="main-image">
-            {% else %}
-                <img src="https://via.placeholder.com/400x400.text/No+Image" alt="No Image" class="main-image" id="main-image">
-            {% endif %}
-            <div class="thumbnail-nav">
-                {% for img in product.images.all %}
-                    <img src="{{ img.image.url }}" alt="Thumbnail" class="thumbnail-img">
-                {% endfor %}
-            </div>
+        <a href="{% url 'pricing_sheet' %}" 
+           class="btn category-btn {% if not active_category %}active{% endif %}">
+            All Products
+        </a>
+        
+        {% for cat in all_categories %}
+        <a href="{% url 'pricing_sheet' %}?category={{ cat.id }}" 
+           class="btn category-btn {% if active_category|safe == cat.id|safe %}active{% endif %}">
+            {{ cat.name }}
+        </a>
+        {% endfor %}
+    </div>
+   
+    <h2>Featured Products</h2>
+    <div class="slider">
+        <div class="slider-track">
+            {% for product in products|slice:":5" %}
+                {% if product.images.first %}
+                <div class="slider-slide">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                    </a>
+                </div>
+                {% endif %}
+            {% endfor %}
         </div>
-
-        <div class="product-info">
-            <h1 class="product-title">{{ product.name }}</h1>
-            
-            {% if product.variations.all %}
-
-                <h2 class="product-price" id="product-price">
-                    ${{ product.variations.first.selling_price|floatformat:2 }}
-                </h2>
-                <p class="product-stock" id="product-stock">
-                    Stock: {{ product.variations.first.stock_quantity }}
-                </p>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-
-                <form id="add-to-cart-form" action="{% url 'add_to_cart_variation' product.variations.first.id %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="variation-select">Select Variation:</label>
-                        <select id="variation-select" name="variation_id">
-                            {% for var in product.variations.all %}
-                                <option 
-                                    value="{{ var.id }}"
-                                    data-price="{{ var.selling_price|floatformat:2 }}"
-                                    data-stock="{{ var.stock_quantity }}"
-                                    data-url="{% url 'add_to_cart_variation' var.id %}"
-                                >
-                                    {{ var.name }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 100px;">
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Add to Cart</button>
-                </form>
-
-            {% else %}
-
-                <h2 class="product-price" id="product-price">
-                    ${{ product.selling_price|floatformat:2 }}
-                </h2>
-                <p class="product-stock" id="product-stock">
-                    Stock: {{ product.stock_quantity }}
-                </p>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-
-                <form id="add-to-cart-form" action="{% url 'add_to_cart' product.id %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 100px;">
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Add to Cart</button>
-                </form>
-
-            {% endif %}
-            </div>
+        
+        <div class="slider-dots"></div>
     </div>
 
-    <div class="product-description" style="margin-top: 40px;">
-        <h2>Product Details</h2>
-        <p>{{ product.description|linebreaks|default:"No description available." }}</p>
+    <h2 style="font-size: 1.8rem; margin-top: 30px;">
+        {% if request.GET.q %}
+            Showing results for "{{ request.GET.q }}"
+        {% else %}
+            Store View
+        {% endif %}
+    </h2>
+    
+    <h2>All Products</h2>
+    <div class="product-grid">
+        
+        {% for product in products %}
+            <div class="product-card">
+                {% if product.images.first %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="product-card-image">
+                    </a>
+                {% endif %}
+                
+                <div class="product-card-content">
+                    <h3 class="product-card-title">{{ product.name }}</h3>
+                    <p class="product-card-price">${{ product.selling_price|floatformat:2 }}</p>
+                    <a href="{% url 'product_detail' product.id %}" class="btn">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 
 {% endblock %}
 
-
 {% block scripts %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const mainImage = document.getElementById('main-image');
-        const thumbnails = document.querySelectorAll('.thumbnail-img');
+        const track = document.querySelector('.slider-track');
+        // Get all slides that were generated by Django
+        const slides = Array.from(track.children);
+        const dotsContainer = document.querySelector('.slider-dots');
         
-        // --- THIS IS THE JAVASCRIPT FIX ---
-        // Find the variation select box
-        const variationSelect = document.getElementById('variation-select');
-        
-        // *Only* run the dynamic price logic if the select box exists
-        if (variationSelect) {
-            const priceDisplay = document.getElementById('product-price');
-            const stockDisplay = document.getElementById('product-stock');
-            const cartForm = document.getElementById('add-to-cart-form');
+        if (!slides || slides.length === 0) return;
 
-            // 2. Dynamic Form Logic
-            variationSelect.addEventListener('change', function() {
-                const selectedOption = this.options[this.selectedIndex];
-                const price = selectedOption.dataset.price;
-                const stock = selectedOption.dataset.stock;
-                const url = selectedOption.dataset.url;
-                
-                priceDisplay.textContent = '$' + price;
-                stockDisplay.textContent = 'Stock: ' + stock;
-                cartForm.action = url;
+        let slideWidth = slides[0].getBoundingClientRect().width;
+        let currentIndex = 0;
+
+        // 1. Create Navigation Dots
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                // Reset the auto-play timer
+                clearInterval(autoPlay);
+                autoPlay = setInterval(nextSlide, 5000);
             });
-
-            // 3. Set Initial State
-            if (variationSelect.options.length > 0) {
-                variationSelect.dispatchEvent(new Event('change'));
-            }
-        }
-        // --- END OF JAVASCRIPT FIX ---
-
-
-        // 1. Image Gallery Logic (This is safe, no changes needed)
-        thumbnails.forEach(thumb => {
-            thumb.addEventListener('click', function() {
-                mainImage.src = this.src;
-                thumbnails.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
+            dotsContainer.appendChild(dot);
         });
         
-        if (thumbnails.length > 0) {
-            thumbnails[0].classList.add('active');
-        }
+        const dots = Array.from(dotsContainer.children);
+
+        // 2. Core Slider Functions
+        const goToSlide = (index) => {
+            track.style.transform = 'translateX(-' + slideWidth * index + 'px)';
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            currentIndex = index;
+        };
+
+        const nextSlide = () => {
+            let nextIndex = currentIndex + 1;
+            if (nextIndex >= slides.length) {
+                nextIndex = 0; // Loop back to the start
+            }
+            goToSlide(nextIndex);
+        };
+
+        // 3. Auto-play!
+        // Switch every 5 seconds (5000ms)
+        let autoPlay = setInterval(nextSlide, 5000);
+
+        // 4. Handle window resize
+        window.addEventListener('resize', () => {
+            slideWidth = slides[0].getBoundingClientRect().width;
+            goToSlide(currentIndex);
+        });
     });
 </script>
 {% endblock %}

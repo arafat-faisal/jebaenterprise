@@ -192,3 +192,7 @@ LOGGING = {
         },
     },
 }
+
+# --- AUTHENTICATION SETTINGS ---
+LOGIN_REDIRECT_URL = '/'          # Redirect to the homepage after successful login
+LOGOUT_REDIRECT_URL = '/'         # Redirect to the homepage after logging out

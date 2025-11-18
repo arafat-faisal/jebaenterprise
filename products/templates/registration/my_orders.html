@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+    <div style="max-width: 900px; margin: 0 auto; padding-top: 20px;">
+        <h1 style="text-align: center;">My Order History</h1>
+
+        {% if orders %}
+            <table style="width: 100%; margin-top: 30px;">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Total Profit</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>{{ order.created_at|date:"M d, Y P" }}</td>
+                        <td>${{ order.total_profit|floatformat:2 }}</td>
+                        <td>
+                            <a href="/admin/products/sale/{{ order.id }}/change/" target="_blank">View Items</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div style="text-align: center; margin-top: 50px;">
+                <p>You have no past orders with Jeba Enterprise.</p>
+                <a href="{% url 'pricing_sheet' %}" class="btn">Start Shopping</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

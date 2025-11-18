@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Register New Account{% endblock %}
+
+{% block content %}
+    <div style="max-width: 500px; margin: 0 auto; padding-top: 20px;">
+        <h1 style="text-align: center;">Register</h1>
+        <form method="POST">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div style="margin-bottom: 15px;">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% for error in field.errors %}
+                        <small style="color: red;">{{ error }}</small>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Create Account</button>
+        </form>
+
+        <p style="text-align: center; margin-top: 20px;">
+            Already have an account? <a href="{% url 'login' %}">Log In Here</a>
+        </p>
+    </div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product,ProductVariation, Sale, SaleItem, ProductImage,  CompetitorPrice  # Import your Product model
+from .models import Product,ProductVariation, Sale, SaleItem, ProductImage,  CompetitorPrice,Category   # Import your Product model
 from django.http import HttpRequest
 
 # --- ADD ALL THESE IMPORTS AT THE TOP ---
@@ -21,21 +21,46 @@ import logging
 
 from django.conf import settings
 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
+
+from django.contrib.auth.decorators import login_required
+
+from django.db.models import Q
+
 def pricing_sheet(request):
-    # 1. Get all products from the database
-    # We order them by name
-    all_products = Product.objects.all().order_by('name')
-    
-    # 2. Put the data into a "context" dictionary
-    # This is how we pass data from Python to HTML
-    context = {
-        'products': all_products,
-    }
-    
-    # 3. "Render" the HTML page
-    # This tells Django to take the 'products/pricing_sheet.html' template,
-    # combine it with our 'context' data, and send it to the browser.
-    return render(request, "products/pricing_sheet.html", context)
+        # 1. Start with all products (and prefetch related data)
+        all_products = Product.objects.prefetch_related('images', 'variations').all()
+        
+        # 2. Get Search Query (q) and Category Filter
+        search_query = request.GET.get('q')
+        category_id = request.GET.get('category')
+
+        # 3. Apply Filters
+        if search_query:
+            # Filter products where name OR description contains the query
+            all_products = all_products.filter(
+                Q(name__icontains=search_query) | Q(description__icontains=search_query)
+            )
+            
+        if category_id:
+            all_products = all_products.filter(category_id=category_id)
+
+        # 4. Final Product Ordering
+        all_products = all_products.order_by('name')
+
+        # 5. Get all Categories for the filter bar
+        all_categories = Category.objects.all().order_by('name')
+
+        # 6. Pass data to the template
+        context = {
+            'products': all_products,
+            'all_categories': all_categories,
+            'active_category': category_id # Pass this to highlight the active filter
+        }
+        
+        return render(request, "products/pricing_sheet.html", context)
+
 
 # --- ADD THIS NEW FUNCTION ---
 def product_detail(request, pk):
@@ -143,7 +168,11 @@ def checkout(request: HttpRequest):
         # --- THIS IS THE ORDER PROCESSING LOGIC ---
 
         # 1. Create a new "Sale" (the "receipt")
-        new_sale = Sale.objects.create()
+        new_sale = Sale.objects.create(
+            # --- ADD THIS LINE ---
+            # If the user is logged in, assign the user object to the new sale
+            user=request.user if request.user.is_authenticated else None
+        )
 
         # 2. Loop through every item in the session cart
         for product_id, item_data in cart.items():
@@ -475,3 +504,35 @@ def admin_scraper_view(request):
         except Exception as e:
             logger.error(f"--- SCRAPING FAILED (Outer Try): {e} ---")
             return JsonResponse({'error': f'Scraping failed: {str(e)}'}, status=500)
+        
+
+# --- ADD THIS NEW FUNCTION ---
+def register_view(request):
+    if request.method == 'POST':
+        # Create a form instance from the posted data
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            # Save the new user and log a success message
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}! You can now log in.')
+            return redirect('login') # Redirects to the login page (built-in)
+    else:
+        # Create a blank form for a GET request
+        form = UserCreationForm()
+
+    context = {'form': form}
+    return render(request, 'registration/register.html', context)
+
+
+# --- ADD THIS NEW FUNCTION ---
+# This decorator prevents anyone who isn't logged in from seeing the page
+@login_required
+def my_orders_view(request):
+    # Filter Sales to ONLY show the ones belonging to the current user
+    user_orders = Sale.objects.filter(user=request.user).order_by('-created_at')
+
+    context = {
+        'orders': user_orders
+    }
+    return render(request, 'registration/my_orders.html', context)

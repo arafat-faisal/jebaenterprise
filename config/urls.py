@@ -24,6 +24,7 @@ urlpatterns = [
     # --- ADD THIS LINE ---
     # This tells Django: "For any URL that isn't 'admin/',
     # go look for a new urls.py file inside the 'products' app."
+    path("accounts/", include("django.contrib.auth.urls")),
     path("", include("products.urls")),
 ]
 # --- ADD THIS LINE AT THE BOTTOM ---

@@ -1,10 +1,26 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+
+
+# --- ADD THIS NEW CLASS ---
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    class Meta:
+        verbose_name_plural = "Categories" # Fixes the plural name in admin
+
+    def __str__(self):
+        return self.name
+
+# --- End of Category Model ---
 
 class Product(models.Model):
     # ... all your existing Product fields are here ...
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     # image = models.ImageField(upload_to='products/', blank=True, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='products')
 
     buying_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     selling_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -40,6 +56,9 @@ class ProductVariation(models.Model):
     
 # --- ADD THIS NEW CLASS ---
 class Sale(models.Model):
+    # links the sale to the logged-in user. Null=True allows old sales to exist.
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+
     # This just records when the sale was made
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -127,3 +146,6 @@ class CompetitorPrice(models.Model):
 
     def __str__(self):
         return f"{self.website_name} price for {self.product.name}"
+    
+
+# ... (all your existing models are here) ...

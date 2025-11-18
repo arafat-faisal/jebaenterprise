@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.urls import path
 from django.shortcuts import render
-from .models import Product, ProductVariation, Sale, SaleItem, ProductImage , CompetitorPrice # Import ALL models
+from .models import Product, ProductVariation, Sale, SaleItem, ProductImage , CompetitorPrice, Category # Import ALL models
 
 
 # --- NEW CLASS FOR THE GALLERY ---
@@ -72,3 +72,5 @@ class SaleAdmin(admin.ModelAdmin):
     
 # Register your new Sale models
 admin.site.register(Sale, SaleAdmin)
+# Register your new Category models
+admin.site.register(Category)
