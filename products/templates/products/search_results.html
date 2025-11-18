@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results - Jeba Enterprise{% endblock %}
+
+{% block content %}
+
+<style>
+    .search-header {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .search-title {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+    .search-meta {
+        color: var(--text-sub);
+        font-size: 1rem;
+    }
+    
+    /* Re-using your modern grid */
+    .modern-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 24px;
+    }
+
+    .modern-product-card {
+        background: var(--bg-card);
+        border-radius: var(--radius-lg);
+        padding: 15px;
+        box-shadow: var(--shadow-soft);
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        display: flex;
+        flex-direction: column;
+    }
+    .modern-product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+        border-color: #eee;
+    }
+    
+    .card-img-container {
+        height: 200px;
+        background-color: #F8F9FB;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+    .card-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+
+    .card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: auto;
+    }
+    .card-price {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    .card-btn-icon {
+        background: var(--text-main);
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+</style>
+
+<div class="search-header">
+    <h1 class="search-title">
+        {% if is_image_search %}
+            Visual Search Results
+        {% else %}
+            Results for "{{ query }}"
+        {% endif %}
+    </h1>
+    <p class="search-meta">{{ products|length }} items found</p>
+</div>
+
+{% if products %}
+    <div class="modern-grid">
+        {% for product in products %}
+            <div class="modern-product-card">
+                <a href="{% url 'product_detail' product.id %}" class="card-img-container">
+                    {% if product.images.first %}
+                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="https://via.placeholder.com/300" alt="No Image">
+                    {% endif %}
+                </a>
+                
+                <h3 style="font-size: 1.1rem; margin-bottom: 5px;">{{ product.name }}</h3>
+                
+                <div class="card-meta">
+                    <div>
+                        <div class="card-price">${{ product.selling_price|floatformat:2 }}</div>
+                        <small style="color: #ccc;">{{ product.stock_quantity }} left</small>
+                    </div>
+                    <a href="{% url 'product_detail' product.id %}" class="card-btn-icon">↗</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div style="text-align: center; padding: 60px;">
+        <h3>No products found matching your search.</h3>
+        <p style="color: var(--text-sub);">Try a different keyword or upload a clearer image.</p>
+        <a href="{% url 'pricing_sheet' %}" class="btn" style="margin-top: 20px;">Browse All Products</a>
+    </div>
+{% endif %}
+
+{% endblock %}

@@ -30,6 +30,8 @@ from django.db.models import Q
 
 from .forms import CheckoutForm
 
+from django.core.files.storage import default_storage
+
 def pricing_sheet(request):
         # 1. Start with all products (and prefetch related data)
         all_products = Product.objects.prefetch_related('images', 'variations').all()
@@ -554,3 +556,65 @@ def order_detail(request, pk):
         'sale': sale
     }
     return render(request, 'products/order_detail.html', context)
+
+def search_view(request):
+    query = request.GET.get('q')
+    # Check FILES for image (POST request)
+    image_file = request.FILES.get('image')
+    
+    products = Product.objects.all()
+    
+    # --- 1. Text Search (GET) ---
+    if request.method == 'GET' and query:
+        products = products.filter(
+            Q(name__icontains=query) | 
+            Q(description__icontains=query) |
+            Q(category__name__icontains=query)
+        )
+
+    # --- 2. Image Search (POST) ---
+    elif request.method == 'POST' and image_file:
+        # ... (Same image processing logic as before) ...
+        file_path = default_storage.save(f"temp/{image_file.name}", image_file)
+        full_path = default_storage.path(file_path)
+        
+        try:
+            uploaded_img = Image.open(full_path)
+            uploaded_hash = imagehash.phash(uploaded_img)
+            
+            matched_products = []
+            for product in Product.objects.prefetch_related('images'):
+                best_score = 100 
+                for product_img in product.images.all():
+                    try:
+                        db_img = Image.open(product_img.image.path)
+                        db_hash = imagehash.phash(db_img)
+                        distance = uploaded_hash - db_hash
+                        if distance < best_score:
+                            best_score = distance
+                    except: continue
+                
+                # Distance threshold (0 = exact match, < 20 = similar)
+                if best_score < 20:
+                    matched_products.append((product, best_score))
+            
+            matched_products.sort(key=lambda x: x[1])
+            products = [p[0] for p in matched_products]
+            
+        except Exception as e:
+            print(f"Search Error: {e}")
+            products = []
+        finally:
+            if default_storage.exists(file_path):
+                default_storage.delete(file_path)
+
+    # If just visiting the page with no query
+    elif not query and not image_file:
+        products = []
+
+    context = {
+        'products': products,
+        'query': query,
+        'is_image_search': bool(image_file)
+    }
+    return render(request, 'products/search_results.html', context)

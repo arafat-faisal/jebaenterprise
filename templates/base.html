@@ -146,6 +146,17 @@
             margin-top: 50px;
             padding-bottom: 20px;
         }
+        .camera-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-45%);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .camera-icon:hover svg {
+            stroke: var(--text-main);
+        }
     </style>
 
     <title>{% block title %}Jeba Enterprise{% endblock %}</title>
@@ -158,11 +169,20 @@
             Jeba.
         </a>
         
-        <form method="GET" action="{% url 'pricing_sheet' %}" class="search-container">
+        <!-- 2. Pill Search Bar with Image Upload -->
+        <form method="GET" action="{% url 'search' %}" class="search-container" id="search-form" enctype="multipart/form-data">
             <span class="search-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8E94A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </span>
+            
             <input type="search" name="q" placeholder="Search products..." class="search-input" value="{{ request.GET.q|default:'' }}">
+            
+            <!-- Camera Icon Trigger -->
+            <label for="image-upload" class="camera-icon" title="Search by Image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8E94A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </label>
+            <!-- Hidden File Input -->
+            <input type="file" name="image" id="image-upload" style="display: none;" accept="image/*">
         </form>
         
         <nav class="nav-links">
@@ -205,7 +225,29 @@
     <footer class="site-footer">
         © {% now "Y" %} Jeba Enterprise. All rights reserved.
     </footer>
-
+    <!-- Add this Javascript to base.html scripts block -->
+    <script>
+        document.getElementById('image-upload').addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                // Change form method to POST for file upload
+                const form = document.getElementById('search-form');
+                form.method = 'POST'; 
+                // We also need to change the encoding type dynamically
+                form.enctype = 'multipart/form-data';
+                
+                // Add CSRF token if not present (Django needs this for POST)
+                if (!form.querySelector('[name=csrfmiddlewaretoken]')) {
+                    const csrfInput = document.createElement('input');
+                    csrfInput.type = 'hidden';
+                    csrfInput.name = 'csrfmiddlewaretoken';
+                    csrfInput.value = '{{ csrf_token }}';
+                    form.appendChild(csrfInput);
+                }
+                
+                form.submit();
+            }
+        });
+    </script>
 {% block scripts %}
 {% endblock %}
 </body>

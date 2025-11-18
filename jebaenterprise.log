@@ -134,3 +134,37 @@ INFO 2025-11-18 18:12:57,037 basehttp "GET /order-success/ HTTP/1.1" 200 7891
 INFO 2025-11-18 18:12:59,924 basehttp "GET / HTTP/1.1" 200 15110
 INFO 2025-11-18 18:13:03,900 basehttp "GET /cart/ HTTP/1.1" 200 7811
 INFO 2025-11-18 18:13:07,984 basehttp "GET / HTTP/1.1" 200 15110
+INFO 2025-11-18 18:14:52,295 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 18:14:56,799 basehttp "GET / HTTP/1.1" 200 15110
+INFO 2025-11-18 18:14:59,883 basehttp "GET /admin/ HTTP/1.1" 200 12698
+INFO 2025-11-18 18:15:01,545 basehttp "GET /admin/products/product/ HTTP/1.1" 200 14367
+INFO 2025-11-18 18:15:01,657 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 18:15:08,090 basehttp "POST /admin/products/product/ HTTP/1.1" 302 0
+INFO 2025-11-18 18:15:08,456 basehttp "GET /print-products/?ids=9,8,7 HTTP/1.1" 200 15922
+INFO 2025-11-18 18:15:18,780 basehttp "GET /print-products/?ids=9%2C8%2C7&cols=image&cols=name&cols=selling_price&cols=box_quantity HTTP/1.1" 200 9707
+INFO 2025-11-18 18:15:45,409 basehttp "GET /admin/products/product/ HTTP/1.1" 200 14367
+INFO 2025-11-18 18:15:50,851 basehttp "GET /admin/products/category/ HTTP/1.1" 200 9658
+INFO 2025-11-18 18:15:50,963 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 18:15:59,838 basehttp "GET / HTTP/1.1" 200 15110
+INFO 2025-11-18 18:16:04,500 basehttp "GET /?q=doi HTTP/1.1" 200 13635
+INFO 2025-11-18 18:20:59,854 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-18 18:21:00,102 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 18:21:20,555 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-18 18:21:20,767 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 18:27:08,997 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-18 18:27:09,394 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 18:27:34,223 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
+INFO 2025-11-18 18:27:34,457 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 18:28:05,158 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
+INFO 2025-11-18 18:28:05,379 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 18:28:11,804 autoreload Watching for file changes with StatReloader
+INFO 2025-11-18 18:28:23,203 basehttp "GET /?q=doi HTTP/1.1" 200 15761
+INFO 2025-11-18 18:28:33,731 basehttp "GET /search/?q=yogu&image= HTTP/1.1" 200 12601
+INFO 2025-11-18 18:28:38,344 basehttp "GET /search/?q=doi&image= HTTP/1.1" 200 12599
+INFO 2025-11-18 18:28:47,543 basehttp "GET /search/?q=gun&image= HTTP/1.1" 200 12544
+INFO 2025-11-18 18:28:50,640 basehttp "GET /search/?q=massage&image= HTTP/1.1" 200 12053
+INFO 2025-11-18 18:28:58,749 basehttp "GET /search/?q=egg&image= HTTP/1.1" 200 12590
+INFO 2025-11-18 18:29:11,028 basehttp "POST /search/ HTTP/1.1" 200 12545
+INFO 2025-11-18 18:29:16,216 basehttp "GET / HTTP/1.1" 200 17236
+INFO 2025-11-18 18:29:21,085 basehttp "POST /search/ HTTP/1.1" 200 12046
+INFO 2025-11-18 18:29:24,572 basehttp "GET / HTTP/1.1" 200 17236
