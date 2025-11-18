@@ -58,3 +58,26 @@ In the activated `(venv)` terminal, run this single command:
 
 ```bash
 pip install django psycopg2-binary dj-database-url python-dotenv Pillow thefuzz requests imagehash playwright beautifulsoup4 django-jazzmin
+
+
+## 📅 Session Report: Nov 18 - Nov 19 (Completed)
+
+### ✅ Features Implemented
+1.  **Visual Search:** Integrated `imagehash` (manual mode enabled for stability).
+2.  **UI Overhaul:** "Sequoia/Nitec" design system implemented.
+    * Added Sidebar Navigation (Responsive).
+    * Added Bento Grid Layout.
+    * Added Vertical/Horizontal Gallery logic.
+3.  **Admin Modernization:** Installed `jazzmin` for a clean white dashboard.
+    * Added Revenue Charts & Stock Alerts.
+4.  **User System:**
+    * Built `UserProfile` for shipping info.
+    * Added `Wishlist` and `Reviews` models.
+    * Configured Gmail SMTP for transactional emails.
+5.  **Localization:** Changed all currency symbols from `$` to `৳`. Fixed "Total Profit" leak in user history.
+
+### 🚧 Next Steps (To-Do)
+1.  **Deploy:** Push to Namecheap VPS.
+    * *Requirement:* `requirements.txt` is ready. Need to configure Nginx/Gunicorn.
+2.  **Payment Gateway:** Currently "Cash on Delivery". Consider adding bKash/SSLCommerz.
+3.  **Footer:** The footer is currently static. Make links functional.
