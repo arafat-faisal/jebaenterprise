@@ -9,341 +9,143 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Variables for your blueprint's colors */
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
         :root {
-            --primary-color: #3F51B5;    /* Deep Indigo */
-            --background-color: #F0F2F5; /* Very light grey */
-            --accent-color: #FFC107;     /* Amber */
-            --text-dark: #212121;
-            --text-light: #616161;
+            /* 1. The Palette from your Image */
+            --bg-body: #F3F5F9;       /* The soft background grey */
+            --bg-card: #FFFFFF;       /* Pure white cards */
+            --text-main: #1A1C1E;     /* Dark, nearly black text */
+            --text-sub: #8E94A3;      /* Soft grey text */
             
-            --font-heading: 'Space Grotesk', sans-serif;
-            --font-body: 'Inter', sans-serif;
+            --accent-lime: #D4F759;   /* That "View All Products" button color */
+            --accent-black: #000000;  /* For primary buttons */
+            
+            /* 2. The Shapes */
+            --radius-xl: 28px;        /* For the big hero card */
+            --radius-lg: 20px;        /* For product cards */
+            --radius-pill: 50px;      /* For buttons/search bar */
+            
+            /* 3. The "Soft" Depth */
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.04);
+            --shadow-hover: 0 15px 50px rgba(0,0,0,0.08);
         }
 
-        /* Basic reset and body styling */
         body {
-            font-family: var(--font-body);
-            background-color: var(--background-color);
-            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif; /* Modern geometric sans */
+            background-color: var(--bg-body);
+            color: var(--text-main);
             margin: 0;
             padding: 20px;
-            padding-top: 100px;
+            /* We remove the top padding because the header will be part of the flow now */
         }
 
-        /* --- ADD ALL THESE NEW STYLES --- */
-        
-        /* Header / Navigation Bar */
+        /* --- The New Floating Header --- */
         .site-header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #eee;
-            padding: 10px 40px;
-            position: fixed; /* Fix it to the top */
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
+            background-color: var(--bg-card);
+            padding: 15px 30px;
+            border-radius: var(--radius-pill); /* Pill shape like the image */
+            box-shadow: var(--shadow-soft);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+            position: relative;
+            top: 0;
         }
-        .site-header .logo {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-main);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .site-header nav a {
-            font-family: var(--font-heading);
-            font-weight: 500;
+
+        /* The Search Bar (Pill Shape) */
+        .search-container {
+            flex-grow: 1;
+            max-width: 500px;
+            margin: 0 40px;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: var(--radius-pill);
+            border: 1px solid #eee;
+            background: #F8F9FB;
+            font-family: inherit;
+            outline: none;
+            transition: 0.2s;
+        }
+        .search-input:focus {
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
             margin-left: 20px;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
         }
-        
-        /* Main Container */
+        .nav-icon {
+            background: #F8F9FB;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            transition: 0.2s;
+            position: relative; /* <--- ADD THIS LINE */
+        }
+        .nav-icon:hover {
+            background: #eee;
+        }
+
+        /* --- Global Layout --- */
         .container {
-            max-width: 900px;
-            margin: 20px auto 40px auto; /* Updated margin */
-            background-color: #ffffff;
-            padding: 20px 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            max-width: 1200px;
+            margin: 0 auto;
+            background: transparent; /* Remove old white box */
+            padding: 0;
+            box-shadow: none;
+        }
+
+        h1, h2, h3 { color: var(--text-main); margin-top: 0; }
+
+        /* --- The "Lime" Button Style --- */
+        .btn {
+            background-color: var(--accent-lime);
+            color: var(--text-main);
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
         }
         
         /* Footer */
         .site-footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            color: var(--text-light);
-            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-top: 50px;
+            padding-bottom: 20px;
         }
-        /* --- END OF NEW STYLES --- */
-
-        /* Container for a responsive layout */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        /* Style headings with 'Space Grotesk' */
-        h1, h2, h3 {
-            font-family: var(--font-heading);
-            color: var(--primary-color);
-        }
-        
-        /* Style links and buttons with your brand colors */
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        button, .btn {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            background-color: var(--accent-color);
-            color: var(--text-dark);
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-        }
-        button:hover, .btn:hover {
-            opacity: 0.85;
-        }
-
-        /* Simple table styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f9f9f9;
-            font-family: var(--font-heading);
-        }
-
-        /* --- ADD THIS NEW CLASS --- */
-        .img-thumbnail {
-            width: 60px;            /* Set a fixed width */
-            height: 60px;           /* Set a fixed height (making it square) */
-            object-fit: cover;      /* This "crops" the image */
-            object-position: center;  /* This "centers" the crop */
-            border-radius: 4px;     /* A nice soft edge */
-        }
-
-        /* --- END OF NEW CLASS --- */
-        /* --- ADD ALL THESE NEW STYLES --- */
-        
-        /* 1. The Image Slider (CSS-Only) */
-        /* --- ADD THIS NEW SLIDER CSS --- */
-        
-        .slider {
-            width: 100%;
-            position: relative;
-            overflow: hidden; /* This hides the other slides */
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-        }
-        .slider-track {
-            display: flex;
-            /* JavaScript will change this transition */
-            transition: transform 0.5s ease-in-out;
-        }
-        .slider-slide {
-            min-width: 100%;
-            position: relative;
-        }
-        .slider-slide img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        
-        /* Navigation Dots */
-        .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-
-            /* This is the line that makes them horizontal */
-            display: flex;
-            flex-direction: row; /* Be extra clear: we want a row */
-        }
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            margin: 0 5px;
-            cursor: pointer;
-
-            /* Add this to remove default button padding */
-            padding: 0;
-        }
-        .slider-dot.active {
-            background: #ffffff;
-        }
-        
-        /* --- END OF NEW SLIDER CSS --- */
-        
-        /* ... Your Product Grid styles are still here ... */
-
-        /* 2. The Product Grid */
-        .product-grid {
-            display: grid;
-            /* This is responsive: it creates as many columns as
-               can fit, with a minimum of 250px */
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        /* 3. The Product Card (replaces the table row) */
-        .product-card {
-            background: #ffffff;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            overflow: hidden; /* This keeps the image corners rounded */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: all 0.2s ease;
-        }
-        .product-card:hover {
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
-        }
-        .product-card-image {
-            width: 100%;
-            height: 200px; /* Fixed height for grid images */
-            object-fit: cover;
-            display: block;
-        }
-        .product-card-content {
-            padding: 15px;
-        }
-        .product-card-title {
-            font-family: var(--font-heading);
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin: 0 0 10px 0;
-        }
-        .product-card-price {
-            font-size: 1.1rem;
-            color: var(--primary-color);
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        .product-card .btn {
-            width: 100%;
-            text-align: center;
-            box-sizing: border-box; /* Makes padding work correctly */
-        }
-
-        /* --- ADD ALL THESE NEW STYLES FOR PRODUCT PAGE --- */
-
-        /* 1. The Two-Column Layout */
-        .product-detail-layout {
-            display: grid;
-            /* 50% for each, but 'auto' for info is more flexible */
-            grid-template-columns: 1fr 1fr; 
-            gap: 40px;
-        }
-
-        /* 2. The New Image Gallery */
-        .product-gallery .main-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #eee;
-        }
-        .thumbnail-nav {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .thumbnail-nav img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 4px;
-            cursor: pointer;
-            border: 2px solid #eee;
-            transition: all 0.2s ease;
-        }
-        .thumbnail-nav img:hover, .thumbnail-nav img.active {
-            border-color: var(--primary-color);
-        }
-
-        /* 3. The Product Info Column */
-        .product-info .product-price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 10px 0;
-        }
-        .product-info .product-stock {
-            font-size: 1rem;
-            color: #55a630;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .product-info .form-group {
-            margin-bottom: 20px;
-        }
-        .product-info label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-        .product-info select, .product-info input[type="number"] {
-            width: 100%;
-            padding: 12px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box; /* Important for padding */
-        }
-        
-        /* 4. Quantity Selector */
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-        }
-        .quantity-selector input[type="number"] {
-            text-align: center;
-            border-left: none;
-            border-right: none;
-            width: 60px;
-        }
-        
-        /* 5. Responsive layout for mobile */
-        @media (max-width: 768px) {
-            .product-detail-layout {
-                grid-template-columns: 1fr; /* Stack columns on mobile */
-            }
-        }
-    
     </style>
 
     <title>{% block title %}Jeba Enterprise{% endblock %}</title>
@@ -351,27 +153,49 @@
 <body>
 
     <header class="site-header">
-        <a href="{% url 'pricing_sheet' %}" class="logo">Jeba Enterprise</a>
+        <a href="{% url 'pricing_sheet' %}" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"/></svg>
+            Jeba.
+        </a>
         
-        <form method="GET" action="{% url 'pricing_sheet' %}" style="flex-grow: 1; max-width: 400px; margin: 0 20px;">
-            <input type="search" name="q" placeholder="Search products..." value="{{ request.GET.q|default:'' }}" 
-                   style="width: 100%; padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px;">
+        <form method="GET" action="{% url 'pricing_sheet' %}" class="search-container">
+            <span class="search-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8E94A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <input type="search" name="q" placeholder="Search products..." class="search-input" value="{{ request.GET.q|default:'' }}">
         </form>
-        <nav>
-            <a href="{% url 'pricing_sheet' %}">Products</a>
-            
+        
+        <nav class="nav-links">
             {% if user.is_authenticated %}
-                <a href="{% url 'my_orders' %}">My Orders</a>
-                <a href="{% url 'logout' %}">Logout</a>
-                <a href="{% url 'view_cart' %}">Cart ({{ user.username }})</a>
+                <a href="{% url 'my_orders' %}" class="nav-icon" title="My Orders">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </a>
+                <a href="{% url 'view_cart' %}" class="nav-icon" title="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    {% if request.session.cart %}<span style="position: absolute; top: 10%; right: 0%; width: 10px; height: 10px; background: var(--accent-lime); border: 2px solid #fff;border-radius: 50%;"></span>{% endif %}
+                </a>
+                <a href="{% url 'logout' %}" class="nav-icon" title="Logout">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                </a>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'register' %}">Register</a>
-                <a href="{% url 'view_cart' %}">Cart</a>
+                <a href="{% url 'register' %}" class="btn" style="padding: 8px 24px; font-size: 0.9rem;">Sign Up</a>
             {% endif %}
-            
         </nav>
     </header>
+
+    <style>
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-45%);
+            z-index: 1;
+        }
+        .search-input {
+            padding-left: 45px; /* Make room for the icon */
+        }
+    </style>
 
     <div class="container">
         {% block content %}

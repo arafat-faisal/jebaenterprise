@@ -1,105 +1,201 @@
 {% extends 'base.html' %}
 
-{% block title %}Home - Jeba Enterprise{% endblock %}
+{% block title %}Discover - Jeba Enterprise{% endblock %}
 
 {% block content %}
+
+<style>
+    /* The Bento Grid Layout */
+    .bento-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* 2/3rds left, 1/3rd right */
+        gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    /* The Big Hero Card (Left Side) */
+    .hero-card {
+        background-color: var(--bg-card);
+        border-radius: var(--radius-xl);
+        padding: 40px;
+        box-shadow: var(--shadow-soft);
+        position: relative;
+        overflow: hidden;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     
-    <h2>Featured Products</h2>
-    <div class="slider">
-        <div class="slider-track">
-            {% for product in products|slice:":5" %}
-                {% if product.images.first %}
-                <div class="slider-slide">
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
-                    </a>
-                </div>
-                {% endif %}
-            {% endfor %}
+    .hero-tag {
+        background: #F3F5F9;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #666;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        max-width: 60%;
+    }
+
+    /* The "New Gen" Side Column (Right Side) */
+    .side-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .side-card {
+        background: var(--bg-card);
+        border-radius: var(--radius-lg);
+        padding: 20px;
+        box-shadow: var(--shadow-soft);
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* The Product Grid (Bottom Section) */
+    .modern-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 24px;
+    }
+
+    .modern-product-card {
+        background: var(--bg-card);
+        border-radius: var(--radius-lg);
+        padding: 15px;
+        box-shadow: var(--shadow-soft);
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        display: flex;
+        flex-direction: column;
+    }
+    .modern-product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+        border-color: #eee;
+    }
+    
+    .card-img-container {
+        height: 200px;
+        background-color: #F8F9FB; /* Light grey backing for images */
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+    .card-img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Keep product aspect ratio */
+        mix-blend-mode: multiply; /* Helps remove white backgrounds visually */
+    }
+
+    .card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: auto;
+    }
+    .card-price {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    .card-btn-icon {
+        background: var(--text-main);
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+        .bento-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<div class="bento-grid">
+    <div class="hero-card">
+        {% if products.first %}
+            <div style="z-index: 2;">
+                <span class="hero-tag">Featured Product</span>
+                <h1 class="hero-title">{{ products.first.name }}</h1>
+                <p style="color: var(--text-sub); margin-bottom: 30px; max-width: 50%;">
+                    {{ products.first.description|truncatechars:80 }}
+                </p>
+                <a href="{% url 'product_detail' products.first.id %}" class="btn">
+                    View Product ↗
+                </a>
+            </div>
+            
+            {% if products.first.images.first %}
+            <img src="{{ products.first.images.first.image.url }}" 
+                 style="position: absolute; right: -50px; bottom: -50px; height: 110%; width: auto; object-fit: contain; transform: rotate(-10deg);">
+            {% endif %}
+        {% else %}
+            <h1>Welcome to Jeba Enterprise</h1>
+        {% endif %}
+    </div>
+
+    <div class="side-stack">
+        <div class="side-card">
+            <div>
+                <h3 style="margin-bottom: 5px;">New Arrivals</h3>
+                <p style="color: var(--text-sub); font-size: 0.9rem;">Check out the latest.</p>
+            </div>
+            <div style="background: #D4F759; width: 50px; height: 50px; border-radius: 50%;"></div>
         </div>
         
-        <div class="slider-dots"></div>
-    </div>
-
-    <h2>All Products</h2>
-    <div class="product-grid">
-        
-        {% for product in products %}
-            <div class="product-card">
-                {% if product.images.first %}
-                    <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="product-card-image">
-                    </a>
-                {% endif %}
-                
-                <div class="product-card-content">
-                    <h3 class="product-card-title">{{ product.name }}</h3>
-                    <p class="product-card-price">${{ product.selling_price|floatformat:2 }}</p>
-                    <a href="{% url 'product_detail' product.id %}" class="btn">
-                        View Details
-                    </a>
-                </div>
+        <div class="side-card" style="background: #1A1C1E; color: white;">
+            <div>
+                <h3 style="margin-bottom: 5px; color: white;">Best Sellers</h3>
+                <p style="color: #888; font-size: 0.9rem;">Top rated items.</p>
             </div>
-        {% endfor %}
+            <div style="background: #333; width: 50px; height: 50px; border-radius: 50%;"></div>
+        </div>
     </div>
+</div>
 
-{% endblock %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h2>More Products</h2>
+    <a href="#" style="color: var(--text-sub); text-decoration: none; font-size: 0.9rem;">View All</a>
+</div>
 
-{% block scripts %}
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const track = document.querySelector('.slider-track');
-        // Get all slides that were generated by Django
-        const slides = Array.from(track.children);
-        const dotsContainer = document.querySelector('.slider-dots');
-        
-        if (!slides || slides.length === 0) return;
-
-        let slideWidth = slides[0].getBoundingClientRect().width;
-        let currentIndex = 0;
-
-        // 1. Create Navigation Dots
-        slides.forEach((slide, index) => {
-            const dot = document.createElement('button');
-            dot.classList.add('slider-dot');
-            if (index === 0) dot.classList.add('active');
+<div class="modern-grid">
+    {% for product in products %}
+        <div class="modern-product-card">
+            <a href="{% url 'product_detail' product.id %}" class="card-img-container">
+                {% if product.images.first %}
+                    <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                {% endif %}
+            </a>
             
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                // Reset the auto-play timer
-                clearInterval(autoPlay);
-                autoPlay = setInterval(nextSlide, 5000);
-            });
-            dotsContainer.appendChild(dot);
-        });
-        
-        const dots = Array.from(dotsContainer.children);
+            <h3 style="font-size: 1.1rem; margin-bottom: 5px;">{{ product.name }}</h3>
+            
+            <div class="card-meta">
+                <div>
+                    <div class="card-price">${{ product.selling_price|floatformat:2 }}</div>
+                    <small style="color: #ccc;">{{ product.stock_quantity }} left</small>
+                </div>
+                <a href="{% url 'product_detail' product.id %}" class="card-btn-icon">
+                    ↗
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
-        // 2. Core Slider Functions
-        const goToSlide = (index) => {
-            track.style.transform = 'translateX(-' + slideWidth * index + 'px)';
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
-            currentIndex = index;
-        };
-
-        const nextSlide = () => {
-            let nextIndex = currentIndex + 1;
-            if (nextIndex >= slides.length) {
-                nextIndex = 0; // Loop back to the start
-            }
-            goToSlide(nextIndex);
-        };
-
-        // 3. Auto-play!
-        // Switch every 5 seconds (5000ms)
-        let autoPlay = setInterval(nextSlide, 5000);
-
-        // 4. Handle window resize
-        window.addEventListener('resize', () => {
-            slideWidth = slides[0].getBoundingClientRect().width;
-            goToSlide(currentIndex);
-        });
-    });
-</script>
 {% endblock %}

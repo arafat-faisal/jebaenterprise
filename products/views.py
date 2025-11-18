@@ -64,25 +64,22 @@ def pricing_sheet(request):
         return render(request, "products/pricing_sheet.html", context)
 
 
-# --- ADD THIS NEW FUNCTION ---
 def product_detail(request, pk):
-    # pk is the product ID passed from the URL
-    # 1. Get the single product from the database
-    # get_object_or_404 is a shortcut to get a product or show a "Not Found" page
     product = get_object_or_404(Product, pk=pk)
-    
-    # 2. Get all the variations that BELONG to this product
     variations = product.variations.filter(is_active=True)
     
-    # 3. Put them into the context
+    # --- NEW: Get 4 related products (excluding the current one) ---
+    related_products = Product.objects.filter(category=product.category).exclude(id=pk)[:4]
+    # If no category, just get random recent ones
+    if not related_products:
+        related_products = Product.objects.exclude(id=pk).order_by('-created_at')[:4]
+
     context = {
         'product': product,
         'variations': variations,
+        'related_products': related_products, # Pass this to the template
     }
-    
-    # 4. Render the new HTML template
     return render(request, "products/product_detail.html", context)
-
 # --- THIS IS YOUR MODIFIED 'add_to_cart' FOR MAIN PRODUCTS ---
 def add_to_cart(request: HttpRequest, product_id):
     product = get_object_or_404(Product, id=product_id)

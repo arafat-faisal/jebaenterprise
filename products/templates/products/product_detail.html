@@ -1,140 +1,450 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ product.name }} - Jeba Enterprise{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
-    <p><a href="{% url 'pricing_sheet' %}">&larr; Back to all products</a></p>
 
-    <div class="product-detail-layout">
-        
-        <div class="product-gallery">
+<style>
+    /* --- Main Layout --- */
+    .product-container {
+        background: var(--bg-card);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-soft);
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
+        margin-bottom: 40px;
+    }
+
+    /* Left: Gallery */
+    .gallery-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .main-image-box {
+        background: #F8F9FB;
+        border-radius: var(--radius-lg);
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+    .main-image-box img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+    .thumbnail-list {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+    .thumb-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
+        background: #fff;
+        border: 2px solid transparent;
+        cursor: pointer;
+        padding: 5px;
+        transition: 0.2s;
+        box-shadow: var(--shadow-soft);
+    }
+    .thumb-btn.active {
+        border-color: var(--text-main);
+    }
+    .thumb-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Right: Info */
+    .product-details {
+        display: flex;
+        flex-direction: column;
+    }
+    .breadcrumbs {
+        font-size: 0.9rem;
+        color: var(--text-sub);
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    .product-title-lg {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 10px;
+        letter-spacing: -0.02em;
+    }
+    .rating-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        color: var(--text-sub);
+    }
+    .star-icon { color: #FFC107; }
+    
+    .price-tag {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* --- NEW: Description Read More Logic --- */
+    .description-container {
+        position: relative;
+        margin-bottom: 30px;
+    }
+    
+    .desc-content {
+        color: var(--text-sub);
+        line-height: 1.6;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    /* The "Collapsed" State */
+    .desc-collapsed {
+        max-height: 100px; /* Only show top 100px */
+        /* Create a fade-out effect at the bottom */
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+
+    /* The "Expanded" State */
+    .desc-expanded {
+        max-height: 1000px; /* Large enough to fit content */
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .read-more-btn {
+        background: none;
+        border: none;
+        color: var(--text-main);
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        padding: 0;
+        margin-top: 5px;
+        text-decoration: underline;
+    }
+    .read-more-btn:hover { color: var(--accent-lime); }
+
+    /* --- Form Styling --- */
+    .form-group { margin-bottom: 25px; }
+    .form-label {
+        display: block;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        color: var(--text-sub);
+    }
+    
+    .custom-select {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 50px;
+        border: 1px solid #eee;
+        background: #F8F9FB;
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231A1C1E%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+        background-position: right 20px center;
+        background-size: 12px;
+    }
+
+    .quantity-input {
+        width: 80px;
+        padding: 15px;
+        border-radius: 50px;
+        border: 1px solid #eee;
+        text-align: center;
+        font-weight: 700;
+        margin-right: 10px;
+    }
+
+    .action-row {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .btn-add-cart {
+        background-color: var(--accent-lime);
+        color: var(--text-main);
+        font-weight: 700;
+        padding: 16px 40px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-grow: 1;
+        justify-content: center;
+        transition: transform 0.2s;
+    }
+    .btn-add-cart:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(212, 247, 89, 0.4);
+    }
+
+    .btn-icon-only {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        border: 1px solid #eee;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    .btn-icon-only:hover { border-color: var(--text-main); }
+
+    /* --- FIXED: Related Products Styling --- */
+    .related-section { margin-top: 60px; }
+    .related-header { margin-bottom: 30px; font-size: 1.5rem; font-weight: 700; }
+
+    .related-grid {
+        display: grid;
+        /* This forces columns to stay small (min 200px, max 1fr) */
+        /* Use auto-fill so if there are few items, they don't stretch to infinity */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+        gap: 20px;
+    }
+
+    .related-card {
+        background: var(--bg-card);
+        border-radius: var(--radius-lg);
+        padding: 15px;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.2s;
+        border: 1px solid transparent;
+        display: flex;
+        flex-direction: column;
+    }
+    .related-card:hover {
+        transform: translateY(-5px);
+        border-color: #eee;
+    }
+    
+    .related-img-box {
+        /* FIX: Fixed height for related images */
+        height: 160px;
+        width: 100%;
+        background-color: #F8F9FB;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .related-img-box img {
+        /* Ensure image fits nicely */
+        width: 100%;
+        height: 100%;
+        object-fit: contain; 
+        mix-blend-mode: multiply;
+    }
+
+    .related-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 5px 0;
+        /* Limit text to 2 lines */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2; /* <--- Added this line to fix the warning */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .related-price {
+        font-weight: 700;
+        color: var(--text-main);
+        margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+        .product-container { grid-template-columns: 1fr; padding: 20px; }
+        .main-image-box { height: 300px; }
+    }
+</style>
+
+<div class="product-container">
+    <div class="gallery-wrapper">
+        <div class="main-image-box">
             {% if product.images.first %}
-                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}" class="main-image" id="main-image">
+                <img src="{{ product.images.first.image.url }}" id="main-image" alt="{{ product.name }}">
             {% else %}
-                <img src="https://via.placeholder.com/400x400.text/No+Image" alt="No Image" class="main-image" id="main-image">
+                <img src="https://via.placeholder.com/400" id="main-image" alt="No Image">
             {% endif %}
-            <div class="thumbnail-nav">
-                {% for img in product.images.all %}
-                    <img src="{{ img.image.url }}" alt="Thumbnail" class="thumbnail-img">
-                {% endfor %}
-            </div>
+        </div>
+        
+        <div class="thumbnail-list">
+            {% for img in product.images.all %}
+                <div class="thumb-btn {% if forloop.first %}active{% endif %}" onclick="switchImage(this, '{{ img.image.url }}')">
+                    <img src="{{ img.image.url }}" alt="Thumb">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="product-details">
+        <div class="breadcrumbs">
+            Home &rsaquo; {{ product.category.name|default:"Products" }} &rsaquo; Details
+        </div>
+        
+        <h1 class="product-title-lg">{{ product.name }}</h1>
+        
+        <div class="rating-row">
+            <span class="star-icon">★★★★☆</span>
+            <span>3.5k Reviews</span>
+            <span style="background: #F3F5F9; padding: 4px 10px; border-radius: 20px; margin-left: 10px; font-size: 0.8em; font-weight: 700;">Popular</span>
         </div>
 
-        <div class="product-info">
-            <h1 class="product-title">{{ product.name }}</h1>
-            
-            {% if product.variations.all %}
+        <div class="price-tag">
+            <span id="product-price">${{ product.selling_price|floatformat:2 }}</span>
+            <span id="product-stock" style="font-size: 0.9rem; font-weight: 600; color: #55a630; background: #e9ffe0; padding: 5px 15px; border-radius: 20px;">
+                In Stock: {{ product.stock_quantity }}
+            </span>
+        </div>
 
-                <h2 class="product-price" id="product-price">
-                    ${{ product.variations.first.selling_price|floatformat:2 }}
-                </h2>
-                <p class="product-stock" id="product-stock">
-                    Stock: {{ product.variations.first.stock_quantity }}
-                </p>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-
-                <form id="add-to-cart-form" action="{% url 'add_to_cart_variation' product.variations.first.id %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="variation-select">Select Variation:</label>
-                        <select id="variation-select" name="variation_id">
-                            {% for var in product.variations.all %}
-                                <option 
-                                    value="{{ var.id }}"
-                                    data-price="{{ var.selling_price|floatformat:2 }}"
-                                    data-stock="{{ var.stock_quantity }}"
-                                    data-url="{% url 'add_to_cart_variation' var.id %}"
-                                >
-                                    {{ var.name }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 100px;">
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Add to Cart</button>
-                </form>
-
-            {% else %}
-
-                <h2 class="product-price" id="product-price">
-                    ${{ product.selling_price|floatformat:2 }}
-                </h2>
-                <p class="product-stock" id="product-stock">
-                    Stock: {{ product.stock_quantity }}
-                </p>
-                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-
-                <form id="add-to-cart-form" action="{% url 'add_to_cart' product.id %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" value="1" min="1" style="width: 100px;">
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Add to Cart</button>
-                </form>
-
-            {% endif %}
+        <div class="description-container">
+            <div class="desc-content desc-collapsed" id="desc-box">
+                {{ product.description|linebreaks }}
             </div>
-    </div>
+            {% if product.description|length > 100 %}
+                <button onclick="toggleDescription()" id="read-more-btn" class="read-more-btn">Read More ↓</button>
+            {% endif %}
+        </div>
 
-    <div class="product-description" style="margin-top: 40px;">
-        <h2>Product Details</h2>
-        <p>{{ product.description|linebreaks|default:"No description available." }}</p>
+        {% if product.variations.all %}
+            <form id="add-to-cart-form" action="{% url 'add_to_cart_variation' product.variations.first.id %}" method="POST">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label class="form-label">Select Option</label>
+                    <select id="variation-select" name="variation_id" class="custom-select">
+                        {% for var in product.variations.all %}
+                            <option 
+                                value="{{ var.id }}"
+                                data-price="{{ var.selling_price|floatformat:2 }}"
+                                data-stock="{{ var.stock_quantity }}"
+                                data-url="{% url 'add_to_cart_variation' var.id %}"
+                            >
+                                {{ var.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+        {% else %}
+            <form id="add-to-cart-form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                {% csrf_token %}
+        {% endif %}
+
+            <div class="action-row">
+                <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+                
+                <button type="submit" class="btn-add-cart">
+                    Add to Cart
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </button>
+                
+                <button type="button" class="btn-icon-only">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+            </div>
+        </form>
     </div>
+</div>
+
+<div class="related-section">
+    <h2 class="related-header">You Might Also Like</h2>
+    <div class="related-grid">
+        {% for rel in related_products %}
+            <div class="related-card">
+                <a href="{% url 'product_detail' rel.id %}" class="related-img-box">
+                    {% if rel.images.first %}
+                        <img src="{{ rel.images.first.image.url }}" alt="{{ rel.name }}">
+                    {% else %}
+                        <img src="https://via.placeholder.com/200" alt="No Image">
+                    {% endif %}
+                </a>
+                <h3 class="related-title">{{ rel.name }}</h3>
+                <div class="related-price">${{ rel.selling_price|floatformat:2 }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
 
-
 {% block scripts %}
 <script>
+    // 1. Description Toggle Logic
+    function toggleDescription() {
+        const descBox = document.getElementById('desc-box');
+        const btn = document.getElementById('read-more-btn');
+        
+        if (descBox.classList.contains('desc-collapsed')) {
+            // Expand
+            descBox.classList.remove('desc-collapsed');
+            descBox.classList.add('desc-expanded');
+            btn.innerText = "Read Less ↑";
+        } else {
+            // Collapse
+            descBox.classList.remove('desc-expanded');
+            descBox.classList.add('desc-collapsed');
+            btn.innerText = "Read More ↓";
+        }
+    }
+
+    // 2. Image Gallery Switcher
+    function switchImage(thumb, url) {
+        document.getElementById('main-image').src = url;
+        document.querySelectorAll('.thumb-btn').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
-        const mainImage = document.getElementById('main-image');
-        const thumbnails = document.querySelectorAll('.thumbnail-img');
-        
-        // --- THIS IS THE JAVASCRIPT FIX ---
-        // Find the variation select box
+        // 3. Dynamic Variation Logic
         const variationSelect = document.getElementById('variation-select');
-        
-        // *Only* run the dynamic price logic if the select box exists
         if (variationSelect) {
             const priceDisplay = document.getElementById('product-price');
             const stockDisplay = document.getElementById('product-stock');
             const cartForm = document.getElementById('add-to-cart-form');
 
-            // 2. Dynamic Form Logic
             variationSelect.addEventListener('change', function() {
                 const selectedOption = this.options[this.selectedIndex];
-                const price = selectedOption.dataset.price;
-                const stock = selectedOption.dataset.stock;
-                const url = selectedOption.dataset.url;
-                
-                priceDisplay.textContent = '$' + price;
-                stockDisplay.textContent = 'Stock: ' + stock;
-                cartForm.action = url;
+                priceDisplay.textContent = '$' + selectedOption.dataset.price;
+                stockDisplay.textContent = 'In Stock: ' + selectedOption.dataset.stock;
+                cartForm.action = selectedOption.dataset.url;
             });
-
-            // 3. Set Initial State
-            if (variationSelect.options.length > 0) {
-                variationSelect.dispatchEvent(new Event('change'));
-            }
-        }
-        // --- END OF JAVASCRIPT FIX ---
-
-
-        // 1. Image Gallery Logic (This is safe, no changes needed)
-        thumbnails.forEach(thumb => {
-            thumb.addEventListener('click', function() {
-                mainImage.src = this.src;
-                thumbnails.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-        
-        if (thumbnails.length > 0) {
-            thumbnails[0].classList.add('active');
+            
+            // Trigger initial update
+            variationSelect.dispatchEvent(new Event('change'));
         }
     });
 </script>
