@@ -33,5 +33,7 @@ urlpatterns = [
     path("register/", views.register_view, name="register"),
     # --- ADD THIS NEW LINE ---
     path("my-orders/", views.my_orders_view, name="my_orders"),
+
+    path("order/<int:pk>/", views.order_detail, name="order_detail"),
     
 ]

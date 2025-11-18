@@ -54,25 +54,37 @@ class ProductVariation(models.Model):
         # This will make it display nicely, e.g., "Fascial Gun KH-320 - Retail Box"
         return f"{self.product.name} - {self.name}"
     
-# --- ADD THIS NEW CLASS ---
 class Sale(models.Model):
-    # links the sale to the logged-in user. Null=True allows old sales to exist.
+    # Link to the logged-in user (optional, so guests can still buy if you allow it later)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    
+    # --- NEW FIELDS FOR SHIPPING ---
+    customer_name = models.CharField(max_length=100, blank=True, null=True)
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
+    shipping_address = models.TextField(blank=True, null=True)
+    
+    # --- ORDER STATUS ---
+    STATUS_CHOICES = [
+        ('PENDING', 'Pending'),
+        ('PROCESSING', 'Processing'),
+        ('SHIPPED', 'Shipped'),
+        ('DELIVERED', 'Delivered'),
+        ('CANCELLED', 'Cancelled'),
+    ]
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
 
-    # This just records when the sale was made
+    # This records when the sale was made
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        # This will make it display as "Sale #1", "Sale #2", etc.
-        return f"Sale #{self.id}"
+        # Display name and status in the dropdown
+        return f"Sale #{self.id} - {self.status}"
 
-    # --- ADD THIS NEW FUNCTION ---
     @property
     def total_profit(self):
         # Get all items for this sale and sum their individual profits
         items = self.items.all()
         return sum(item.profit for item in items)
-
 
 # --- AND ADD THIS NEW CLASS ---
 class SaleItem(models.Model):

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Order #{{ sale.id }} Details{% endblock %}
+
+{% block content %}
+
+<style>
+    .status-badge {
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        display: inline-block;
+    }
+    /* Status Colors */
+    .status-pending { background-color: #ffeeba; color: #856404; }
+    .status-processing { background-color: #cce5ff; color: #004085; }
+    .status-shipped { background-color: #d4edda; color: #155724; }
+    .status-delivered { background-color: #d4edda; color: #155724; }
+    .status-cancelled { background-color: #f8d7da; color: #721c24; }
+    /* Default fallback */
+    .status-default { background-color: #e2e3e5; color: #383d41; }
+</style>
+
+<div style="max-width: 800px; margin: 0 auto;">
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 20px;">
+        <div>
+            <h1 style="margin: 0;">Order #{{ sale.id }}</h1>
+            <p style="color: #666; margin: 5px 0;">Placed on {{ sale.created_at|date:"M d, Y" }}</p>
+        </div>
+        <div style="text-align: right;">
+            <span class="status-badge status-{{ sale.status|lower|default:'default' }}">
+                {{ sale.get_status_display }}
+            </span>
+        </div>
+    </div>
+
+    <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+        <h3 style="margin-top: 0; color: #3F51B5;">Shipping To</h3>
+        <p style="margin: 5px 0;"><strong>Name:</strong> {{ sale.customer_name|default:"Not provided" }}</p>
+        <p style="margin: 5px 0;"><strong>Phone:</strong> {{ sale.phone_number|default:"Not provided" }}</p>
+        <p style="margin: 5px 0;"><strong>Address:</strong><br>{{ sale.shipping_address|default:"Not provided"|linebreaksbr }}</p>
+    </div>
+
+    <h3 style="color: #3F51B5;">Items Ordered</h3>
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #eee;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Product</th>
+                <th style="padding: 12px; text-align: right; border: 1px solid #ddd;">Price</th>
+                <th style="padding: 12px; text-align: center; border: 1px solid #ddd;">Qty</th>
+                <th style="padding: 12px; text-align: right; border: 1px solid #ddd;">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in sale.items.all %}
+            <tr>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    <strong>{{ item.product.name }}</strong>
+                    {% if item.variation %}
+                        <br><small style="color: #666;">Variant: {{ item.variation.name }}</small>
+                    {% endif %}
+                </td>
+                <td style="padding: 12px; text-align: right; border: 1px solid #ddd;">
+                    ${{ item.sold_price|floatformat:2 }}
+                </td>
+                <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">
+                    {{ item.quantity }}
+                </td>
+                <td style="padding: 12px; text-align: right; border: 1px solid #ddd;">
+                    ${{ item.sold_price|floatformat:2 }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="margin-top: 40px; text-align: center;">
+        <a href="{% url 'my_orders' %}" class="btn" style="background-color: #6c757d; color: white;">&larr; Back to My Orders</a>
+    </div>
+</div>
+{% endblock %}

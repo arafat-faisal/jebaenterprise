@@ -28,6 +28,8 @@ from django.contrib.auth.decorators import login_required
 
 from django.db.models import Q
 
+from .forms import CheckoutForm
+
 def pricing_sheet(request):
         # 1. Start with all products (and prefetch related data)
         all_products = Product.objects.prefetch_related('images', 'variations').all()
@@ -156,57 +158,60 @@ def view_cart(request):
     return render(request, 'products/view_cart.html', context)
 
 
-# --- ADD THIS CHECKOUT FUNCTION ---
-def checkout(request: HttpRequest):
+def checkout(request):
     # Get the cart from the session
     cart = request.session.get('cart', {})
     if not cart:
-        # If the cart is empty, just redirect to the cart page
         return redirect('view_cart')
 
     if request.method == 'POST':
-        # --- THIS IS THE ORDER PROCESSING LOGIC ---
-
-        # 1. Create a new "Sale" (the "receipt")
-        new_sale = Sale.objects.create(
-            # --- ADD THIS LINE ---
-            # If the user is logged in, assign the user object to the new sale
-            user=request.user if request.user.is_authenticated else None
-        )
-
-        # 2. Loop through every item in the session cart
-        for product_id, item_data in cart.items():
-
-            # Get the main product
-            # THIS IS THE CORRECT LINE
-            product = get_object_or_404(Product, id=item_data['product_id'])
+        # --- PROCESS THE FORM ---
+        form = CheckoutForm(request.POST)
+        
+        if form.is_valid():
+            # 1. Create the Sale object but don't save to DB yet (commit=False)
+            new_sale = form.save(commit=False)
             
-            variation = None
-            if item_data['variation_id']:
-                variation = get_object_or_404(ProductVariation, id=item_data['variation_id'])
-            # 3. Create a "SaleItem" for this item
-            SaleItem.objects.create(
-                sale=new_sale,
-                product=product,
-                variation=variation,
-                quantity=item_data['quantity'],
-                sold_price=item_data['price'],
-                # We are using the product's CURRENT buying_cost
-                # A better app might store this in the session too
-                buying_cost=product.buying_cost 
-            )
-            # NOTE: The save() method you wrote in models.py
-            # is AUTOMATICALLY called here,
-            # so your stock is updated!
+            # 2. Associate with logged-in user (if they are logged in)
+            if request.user.is_authenticated:
+                new_sale.user = request.user
+            
+            # 3. Now save it to get an ID
+            new_sale.save()
 
-        # 4. Clear the cart from the session
-        request.session['cart'] = {}
+            # 4. Loop through every item in the session cart
+            for product_id, item_data in cart.items():
+                # Logic to handle both standard products and variations
+                product_id_clean = item_data['product_id']
+                product = get_object_or_404(Product, id=product_id_clean)
+                
+                variation = None
+                if item_data['variation_id']:
+                    variation = get_object_or_404(ProductVariation, id=item_data['variation_id'])
+                
+                SaleItem.objects.create(
+                    sale=new_sale,
+                    product=product,
+                    variation=variation,
+                    quantity=item_data['quantity'],
+                    sold_price=item_data['price'],
+                    buying_cost=product.buying_cost 
+                )
 
-        # 5. Redirect to a "success" page
-        return redirect('order_success')
+            # 5. Clear the cart and redirect
+            request.session['cart'] = {}
+            return redirect('order_success')
 
-    # --- This is the GET request logic (just showing the page) ---
-    # We re-use the logic from view_cart to show cart items
+    else:
+        # --- GET REQUEST: Pre-fill the form ---
+        initial_data = {}
+        if request.user.is_authenticated:
+            # Auto-fill name if logged in
+            initial_data['customer_name'] = f"{request.user.first_name} {request.user.last_name}".strip()
+            
+        form = CheckoutForm(initial=initial_data)
+
+    # --- Calculate Totals for Display ---
     cart_items = []
     total_price = 0
     for product_id, item_data in cart.items():
@@ -222,9 +227,9 @@ def checkout(request: HttpRequest):
     context = {
         'cart_items': cart_items,
         'total_price': total_price,
+        'form': form, # We pass the form to the template here
     }
     return render(request, 'products/checkout.html', context)
-
 
 # --- ADD THIS SIMPLE SUCCESS VIEW ---
 def order_success(request):
@@ -536,3 +541,19 @@ def my_orders_view(request):
         'orders': user_orders
     }
     return render(request, 'registration/my_orders.html', context)
+
+@login_required
+def order_detail(request, pk):
+    # 1. Get the sale object (receipt) by its ID (pk)
+    sale = get_object_or_404(Sale, pk=pk)
+
+    # 2. SECURITY CHECK: Ensure the logged-in user is the one who made this order.
+    # If someone tries to guess an ID (e.g., /order/5/) that isn't theirs, kick them out.
+    if sale.user != request.user:
+        return redirect('my_orders')
+
+    # 3. Render the receipt page
+    context = {
+        'sale': sale
+    }
+    return render(request, 'products/order_detail.html', context)

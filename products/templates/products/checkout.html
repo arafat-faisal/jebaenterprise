@@ -6,33 +6,72 @@
     <h1>Confirm Your Order</h1>
 
     {% if cart_items %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in cart_items %}
-                <tr>
-                    <td>{{ item.name }}</td>
-                    <td>${{ item.price|floatformat:2 }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>${{ item.item_total|floatformat:2 }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
         
-        <h2 style="text-align: right;">Total: ${{ total_price|floatformat:2 }}</h2>
-        
-        <form method="POST" action="{% url 'checkout' %}">
-            {% csrf_token %}
-            <button type="submit" style="width: 100%;">Confirm & Place Order</button>
-        </form>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 20px;">
+            
+            <div>
+                <h3>Order Summary</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in cart_items %}
+                        <tr>
+                            <td>
+                                <strong>{{ item.name }}</strong><br>
+                                ${{ item.price|floatformat:2 }} x {{ item.quantity }}
+                            </td>
+                            <td>${{ item.item_total|floatformat:2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h2 style="text-align: right; margin-top: 20px;">Total: ${{ total_price|floatformat:2 }}</h2>
+            </div>
+            
+            <div style="background-color: #f9f9f9; padding: 30px; border-radius: 8px; border: 1px solid #eee;">
+                <h3 style="margin-top: 0;">Shipping Information</h3>
+                
+                <form method="POST" action="{% url 'checkout' %}">
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #333;">
+                                {{ field.label }}
+                            </label>
+                            {{ field }}
+                            
+                            {% if field.errors %}
+                                <div style="color: red; font-size: 0.9em; margin-top: 5px;">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    
+                    <style>
+                        .form-control {
+                            width: 100%;
+                            padding: 12px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            box-sizing: border-box;
+                            font-size: 1rem;
+                        }
+                    </style>
+
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 10px; font-size: 1.1rem;">
+                        Confirm Order (Cash on Delivery)
+                    </button>
+                </form>
+            </div>
+
+        </div>
 
     {% else %}
         <p>Your cart is empty. <a href="{% url 'pricing_sheet' %}">Start Shopping</a></p>

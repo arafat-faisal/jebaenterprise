@@ -67,9 +67,14 @@ class SaleItemInline(admin.TabularInline):
 
 class SaleAdmin(admin.ModelAdmin):
     inlines = [SaleItemInline]
-    list_display = ('id', 'created_at', 'total_profit')
-    readonly_fields = ('total_profit',) # Make it read-only
-    
+    # Add the new fields to the list display
+    list_display = ('id', 'customer_name', 'phone_number', 'status', 'created_at', 'total_profit')
+    # Add filters to the sidebar
+    list_filter = ('status', 'created_at') 
+    # Enable search
+    search_fields = ('customer_name', 'phone_number', 'id')
+    readonly_fields = ('total_profit',)
+
 # Register your new Sale models
 admin.site.register(Sale, SaleAdmin)
 # Register your new Category models

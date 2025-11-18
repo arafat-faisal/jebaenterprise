@@ -19,11 +19,19 @@
                 <tbody>
                     {% for order in orders %}
                     <tr>
-                        <td>{{ order.id }}</td>
-                        <td>{{ order.created_at|date:"M d, Y P" }}</td>
-                        <td>${{ order.total_profit|floatformat:2 }}</td>
+                        <td>#{{ order.id }}</td>
+                        <td>{{ order.created_at|date:"M d, Y" }}</td>
+                        
                         <td>
-                            <a href="/admin/products/sale/{{ order.id }}/change/" target="_blank">View Items</a>
+                            <span style="font-weight: bold; font-size: 0.85rem; padding: 2px 6px; border-radius: 4px; background-color: #eee;">
+                                {{ order.get_status_display }}
+                            </span>
+                        </td>
+
+                        <td>
+                            <a href="{% url 'order_detail' order.id %}" class="btn" style="padding: 5px 10px; font-size: 0.8rem;">
+                                View Receipt
+                            </a>
                         </td>
                     </tr>
                     {% endfor %}
