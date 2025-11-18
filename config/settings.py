@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -196,3 +197,117 @@ LOGGING = {
 # --- AUTHENTICATION SETTINGS ---
 LOGIN_REDIRECT_URL = '/'          # Redirect to the homepage after successful login
 LOGOUT_REDIRECT_URL = '/'         # Redirect to the homepage after logging out
+
+
+# --- JAZZMIN MODERN THEME SETTINGS ---
+
+JAZZMIN_SETTINGS = {
+    # Title on the login screen
+    "site_header": "Jeba Enterprise",
+    
+    # Title on the brand (top left)
+    "site_brand": "Jeba Admin",
+    
+    # Logo to use for your site, must be present in static files, used for brand on top left
+    # You can put your logo.png in your static folder and reference it here
+    "site_logo": None, 
+    
+    # CSS classes that are applied to the logo above
+    "site_logo_classes": "img-circle",
+
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome to Jeba Enterprise HQ",
+
+    # Copyright on the footer
+    "copyright": "Jeba Enterprise Ltd",
+
+    # The model admin to search from the search bar, search bar omitted if excluded
+    "search_model": ["products.Product", "products.Sale"],
+
+    # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
+    "user_avatar": None,
+
+    ############
+    # Top Menu #
+    ############
+
+    # Links to put along the top menu
+    "topmenu_links": [
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "View Site", "url": "/", "new_window": True},
+    ],
+
+    #############
+    # User Menu #
+    #############
+
+    # Additional links to include in the user menu on the top right
+    "usermenu_links": [
+        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+        {"model": "auth.user"}
+    ],
+
+    #############
+    # Side Menu #
+    #############
+
+    # Whether to display the side menu
+    "show_sidebar": True,
+
+    # Whether to aut expand the menu
+    "navigation_expanded": True,
+    
+    # Custom icons for side menu apps/models
+    # Use FontAwesome icons (e.g. "fas fa-shopping-bag")
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        
+        "products.Product": "fas fa-box-open",
+        "products.Sale": "fas fa-shopping-cart",
+        "products.Category": "fas fa-tags",
+        "products.ProductVariation": "fas fa-sliders-h",
+    },
+    # Icons that are used when one is not manually specified
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+}
+
+# --- UI TWEAKS TO MATCH "PRODY" IMAGE ---
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    
+    # The "Prody" look is clean white/light grey
+    "brand_colour": "navbar-white",
+    "accent": "accent-primary",
+    "navbar": "navbar-white navbar-light",
+    "no_navbar_border": True,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": True,
+    
+    # Sidebar colors (Light/White style)
+    "sidebar": "sidebar-light-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": True,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    
+    "theme": "flatly", # Clean, modern font style
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    }
+}
