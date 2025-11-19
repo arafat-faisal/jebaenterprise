@@ -1,13 +1,14 @@
 import requests
 import json
 from django.conf import settings
+from django.conf import settings
+
 
 # --- CONFIGURATION ---
-# Replace these with your actual keys from Steadfast
-API_KEY = 'qwxkqlw0cf9hxgarhzibhf80ij2qdy1e '
-SECRET_KEY = 'h96tjqmj8dobahni0x8amiez '
-BASE_URL = 'https://portal.packzy.com/api/v1'
-
+# We now pull these from settings.py, which pulls from .env
+API_KEY = settings.STEADFAST_API_KEY
+SECRET_KEY = settings.STEADFAST_SECRET_KEY
+BASE_URL = settings.STEADFAST_BASE_URL
 
 def make_payload(sale):
     """

@@ -18,18 +18,18 @@ from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv()
+load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1ec6iex4*6t2^a0oo6b0_%8#=iqh$q(y6$9152+!4_9bd+mgjw'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
 
 # Application definition
@@ -312,14 +312,20 @@ JAZZMIN_UI_TWEAKS = {
     }
 }
 
-# Email Configuration (Replace with your details)
+# Email Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'jebaenterprisebd@gmail.com' 
-EMAIL_HOST_PASSWORD = 'fktj sgfd kubq fnav' # NOT your normal password
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
 
 # Switch to File-based sessions to save DB connections
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
 SESSION_FILE_PATH = BASE_DIR / "sessions"
+
+# --- STEADFAST CONFIGURATION ---
+STEADFAST_API_KEY = os.getenv('STEADFAST_API_KEY')
+STEADFAST_SECRET_KEY = os.getenv('STEADFAST_SECRET_KEY')
+STEADFAST_BASE_URL = 'https://portal.packzy.com/api/v1'
