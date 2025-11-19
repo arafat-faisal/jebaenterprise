@@ -1,28 +1,80 @@
 {% extends 'base.html' %}
 
-{% block title %}Register New Account{% endblock %}
+{% block title %}Create Account{% endblock %}
 
 {% block content %}
-    <div style="max-width: 500px; margin: 0 auto; padding-top: 20px;">
-        <h1 style="text-align: center;">Register</h1>
-        <form method="POST">
-            {% csrf_token %}
 
-            {% for field in form %}
-                <div style="margin-bottom: 15px;">
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    {{ field }}
-                    {% for error in field.errors %}
-                        <small style="color: red;">{{ error }}</small>
-                    {% endfor %}
-                </div>
-            {% endfor %}
+<style>
+    .auth-container {
+        max-width: 500px;
+        margin: 60px auto;
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 28px; /* var(--radius-xl) */
+        box-shadow: 0 10px 40px rgba(0,0,0,0.04); /* var(--shadow-soft) */
+        border: 1px solid #f0f0f0;
+    }
+    .auth-title { font-size: 2rem; font-weight: 800; margin-bottom: 10px; text-align: center; }
+    .auth-sub { color: #8E94A3; margin-bottom: 30px; font-size: 0.95rem; text-align: center; }
 
-            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Create Account</button>
-        </form>
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; font-weight: 700; margin-bottom: 8px; color: #1A1C1E; font-size: 0.9rem; margin-left: 5px; }
+    
+    .form-control { 
+        width: 100%; padding: 10px 15px; border: 1px solid #eee; 
+        border-radius: 50px; background: #F8F9FB; box-sizing: border-box; 
+        font-family: inherit; font-size: 1rem; transition: 0.2s; outline: none;
+    }
+    .form-control:focus { background: #fff; border-color: #1A1C1E; }
 
-        <p style="text-align: center; margin-top: 20px;">
-            Already have an account? <a href="{% url 'login' %}">Log In Here</a>
-        </p>
-    </div>
+    .btn-auth {
+        width: 100%; padding: 16px; background: #D4F759; /* Lime Accent for Sign Up */
+        color: #1A1C1E; font-weight: 700; border: none; border-radius: 50px; 
+        font-size: 1rem; cursor: pointer; transition: transform 0.2s; margin-top: 10px;
+    }
+    .btn-auth:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .field-help { font-size: 0.8rem; color: #888; margin-top: 5px; margin-left: 5px; }
+    .field-error { color: #d32f2f; font-size: 0.85rem; margin-top: 5px; display: block; font-weight: 600; }
+</style>
+
+<div class="auth-container">
+    <div class="auth-title">Create Account</div>
+    <p class="auth-sub">Join Jeba Enterprise for faster checkout.</p>
+
+    <form method="POST" novalidate>
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                {{ field }}
+                
+                {% if field.help_text %}
+                    <div class="field-help">{{ field.help_text|safe }}</div>
+                {% endif %}
+                
+                {% for error in field.errors %}
+                    <span class="field-error">⚠️ {{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="btn-auth">Create Account &rarr;</button>
+    </form>
+
+    <p style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: #8E94A3;">
+        Already have an account? <a href="{% url 'login' %}" style="color: #3F51B5; font-weight: 700; text-decoration: none;">Log In</a>
+    </p>
+</div>
+
+<script>
+    // Apply styles to Django form widgets
+    document.querySelectorAll('input').forEach(input => {
+        if (input.type !== 'hidden' && input.type !== 'submit') {
+            input.classList.add('form-control');
+        }
+    });
+</script>
+
 {% endblock %}

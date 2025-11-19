@@ -7,7 +7,7 @@ import json
 from django.core.serializers.json import DjangoJSONEncoder
 from datetime import timedelta
 
-from .models import Product, ProductVariation, Sale, SaleItem, ProductImage, CompetitorPrice, Category
+from .models import Product, ProductVariation, Sale, SaleItem, ProductImage, CompetitorPrice, Category, SiteSettings
 
 from django.contrib import messages
 from .steadfast import create_steadfast_order # Import our new helper
@@ -188,7 +188,7 @@ class SaleAdmin(admin.ModelAdmin):
         }
         return render(request, 'admin/products/sale/send_to_steadfast.html', context)
     
-    
+
     # This function injects chart data into the admin page
     def changelist_view(self, request, extra_context=None):
         # A. Calculate Sales for Last 30 Days
@@ -224,3 +224,15 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductVariation)
 admin.site.register(Sale, SaleAdmin)
 admin.site.register(Category)
+
+
+# Register the Settings model
+@admin.register(SiteSettings)
+class SiteSettingsAdmin(admin.ModelAdmin):
+    # Only allow changing, not adding/deleting (since it's a singleton)
+    def has_add_permission(self, request):
+        # Only allow adding if none exists
+        return not SiteSettings.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False

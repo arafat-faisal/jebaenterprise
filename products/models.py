@@ -95,11 +95,16 @@ class Sale(models.Model):
     
     @property
     def total_amount(self):
-        # 1. Calculate Item Total
         item_total = sum(item.sold_price * item.quantity for item in self.items.all())
-        # 2. Add Delivery Charge
         return item_total + self.delivery_charge
     
+
+    # --- ADD THIS NEW PROPERTY ---
+    @property
+    def subtotal(self):
+        return sum(item.sold_price * item.quantity for item in self.items.all())
+    # -----------------------------
+
     @property
     def total_profit(self):
         items = self.items.all()
@@ -186,3 +191,48 @@ class UserProfile(models.Model):
 def ensure_profile_exists(sender, instance, **kwargs):
     # Safer method to get or create profile
     UserProfile.objects.get_or_create(user=instance)
+
+
+# ... existing code ...
+
+# --- GLOBAL SITE SETTINGS ---
+class SiteSettings(models.Model):
+    """
+    Singleton model to store global configuration.
+    Only one instance of this should ever exist.
+    """
+    bkash_number = models.CharField(max_length=15, default="017XXXXXXXX", help_text="Personal bKash Number for manual payments")
+    delivery_charge_inside = models.DecimalField(max_digits=5, decimal_places=0, default=60, help_text="Delivery charge inside Dhaka")
+    delivery_charge_outside = models.DecimalField(max_digits=5, decimal_places=0, default=120, help_text="Delivery charge outside Dhaka")
+
+    # --- NEW SOCIAL FIELDS ---
+    facebook_page_url = models.URLField(blank=True, null=True, default="https://facebook.com", help_text="Full URL to your Facebook Page")
+    messenger_username = models.CharField(max_length=50, blank=True, null=True, help_text="Your Page Username or ID (e.g. 'JebaEnterprise')")
+    # -------------------------
+
+    # --- NEW FIELD ---
+    meta_pixel_id = models.CharField(max_length=50, blank=True, null=True, help_text="Your Meta Pixel ID (e.g. '1234567890')")
+    # -----------------
+    # NEW FIELD FOR CAPI
+    meta_access_token = models.TextField(blank=True, null=True, help_text="Long Access Token from Events Manager > Settings > Conversions API")
+    # -----------------------------
+
+    def save(self, *args, **kwargs):
+        # Force ID to be 1 so there's only ever one settings object
+        self.pk = 1
+        super().save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        # Prevent deletion
+        pass
+
+    @classmethod
+    def load(cls):
+        """
+        Helper to get the settings object (creates it if missing).
+        """
+        obj, created = cls.objects.get_or_create(pk=1)
+        return obj
+
+    class Meta:
+        verbose_name_plural = "Site Settings"

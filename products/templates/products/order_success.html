@@ -3,9 +3,40 @@
 {% block title %}Order Confirmed!{% endblock %}
 
 {% block content %}
-    <div style="text-align: center;">
+    <div style="text-align: center; padding: 50px 20px;">
+        <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
         <h1>Thank You For Your Order!</h1>
         <p>Your order has been placed successfully.</p>
-        <p><a href="{% url 'pricing_sheet' %}" class="btn">Continue Shopping</a></p>
+        
+        {% if sale %}
+            <p style="margin-top: 10px; color: #666;">Order Number: <strong>{{ sale.order_id }}</strong></p>
+        {% endif %}
+
+        <p style="margin-top: 30px;">
+            <a href="{% url 'pricing_sheet' %}" class="btn">Continue Shopping</a>
+        </p>
     </div>
+
+    {% if site_settings.meta_pixel_id and sale %}
+    <script>
+        // 1. Build ID List safely
+        // We create a simple comma-separated string first. VS Code sees this as just a string.
+        var raw_ids = "{% for item in sale.items.all %}{{ item.product.id }},{% endfor %}";
+        
+        // Then we split it into an array using standard JS
+        var content_ids = raw_ids.split(',').filter(function(el) {
+            return el.length > 0; // Remove empty items caused by trailing commas
+        });
+
+        // 2. Fire Pixel Event
+        fbq('track', 'Purchase', {
+            value: parseFloat("{{ sale.total_amount|default:0 }}"),
+            currency: 'BDT',
+            content_type: 'product',
+            content_ids: content_ids
+        }, {
+            eventID: "{{ sale.order_id }}"
+        });
+    </script>
+    {% endif %}
 {% endblock %}

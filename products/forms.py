@@ -1,4 +1,5 @@
 from django import forms
+from django.core.validators import RegexValidator
 from .models import Sale
 
 from .models import Review, UserProfile
@@ -27,6 +28,23 @@ class CheckoutForm(forms.ModelForm):
         initial='COD'
     )
     
+    # --- FIX: Add 'widget' here to restore the styling ---
+    transaction_id = forms.CharField(
+        required=False, 
+        validators=[
+            RegexValidator(
+                regex='^[A-Za-z0-9]{8,15}$',
+                message='Invalid TrxID. It should be 8-15 alphanumeric characters (e.g., 9G7H6K).'
+            )
+        ],
+        widget=forms.TextInput(attrs={
+            'placeholder': 'e.g. 8N7A6D5...', 
+            'class': 'form-control',          # <--- This applies your CSS style
+            'style': 'text-transform: uppercase;' 
+        })
+    )
+    # -----------------------------------------------------
+
     class Meta:
         model = Sale
         fields = ['customer_name', 'phone_number', 'shipping_address', 'payment_method', 'transaction_id']
@@ -34,7 +52,7 @@ class CheckoutForm(forms.ModelForm):
             'customer_name': forms.TextInput(attrs={'placeholder': 'Full Name', 'class': 'form-control'}),
             'phone_number': forms.TextInput(attrs={'placeholder': '017...', 'class': 'form-control'}),
             'shipping_address': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Street, City, Zip Code', 'class': 'form-control'}),
-            'transaction_id': forms.TextInput(attrs={'placeholder': 'e.g. 8N7A6D5...', 'class': 'form-control'}),
+            # We removed 'transaction_id' from here because it's defined above now
         }
 
     def clean(self):
@@ -42,8 +60,12 @@ class CheckoutForm(forms.ModelForm):
         method = cleaned_data.get('payment_method')
         trx_id = cleaned_data.get('transaction_id')
 
-        if method == 'BKASH' and not trx_id:
-            self.add_error('transaction_id', "Transaction ID is required for bKash payment.")
+        if method == 'BKASH':
+            if not trx_id:
+                self.add_error('transaction_id', "Transaction ID is required for bKash payment.")
+            else:
+                # Force Uppercase for consistency
+                cleaned_data['transaction_id'] = trx_id.upper()
         
         return cleaned_data
     
@@ -73,7 +95,7 @@ class ProfileForm(forms.ModelForm):
 
 # --- NEW: Custom Sign Up Form ---
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+    email = forms.EmailField(required=False, help_text="Optional. Recommended for order tracking.")
     first_name = forms.CharField(required=True, max_length=30)
     last_name = forms.CharField(required=True, max_length=30)
 

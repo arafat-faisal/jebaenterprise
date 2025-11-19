@@ -39,7 +39,8 @@ def submit_steadfast_order(payload):
         # Ensure cod_amount is numeric
         payload['cod_amount'] = float(payload['cod_amount'])
         
-        response = requests.post(url, json=payload, headers=headers)
+        # --- FIX: Added timeout=10 ---
+        response = requests.post(url, json=payload, headers=headers, timeout=10)
         data = response.json()
         
         if response.status_code == 200 and 'consignment' in data:
@@ -53,8 +54,11 @@ def submit_steadfast_order(payload):
             error_msg = str(data) if data else "Unknown Error"
             return {'success': False, 'error': error_msg}
             
+    except requests.exceptions.Timeout:
+        return {'success': False, 'error': "Steadfast API timed out. Please try again later."}
     except Exception as e:
         return {'success': False, 'error': str(e)}
+
 
 # For the "Bulk Action" (uses default data)
 def create_steadfast_order(sale):
@@ -69,7 +73,8 @@ def check_delivery_status(consignment_id):
         'Content-Type': 'application/json'
     }
     try:
-        response = requests.get(url, headers=headers)
+        # --- FIX: Added timeout=5 (shorter timeout for status checks) ---
+        response = requests.get(url, headers=headers, timeout=5)
         if response.status_code == 200 and 'delivery_status' in response.json():
             return response.json()['delivery_status']
     except:

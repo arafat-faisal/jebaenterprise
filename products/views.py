@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product,ProductVariation, Sale, SaleItem, ProductImage,  CompetitorPrice,Category   # Import your Product model
+from .models import Product,ProductVariation, Sale, SaleItem, ProductImage,  CompetitorPrice,Category , SiteSettings  # Import your Product model
 from django.http import HttpRequest
 
 # --- ADD ALL THESE IMPORTS AT THE TOP ---
@@ -53,6 +53,9 @@ import threading
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .steadfast import check_delivery_status # Import helper
+
+from .marketing import send_purchase_event
+
 
 
 # def pricing_sheet(request):
@@ -269,7 +272,7 @@ def checkout(request):
     cart = request.session.get('cart', {})
     if not cart:
         return redirect('view_cart')
-
+    settings = SiteSettings.load()
     if request.method == 'POST':
         form = CheckoutForm(request.POST)
         if form.is_valid():
@@ -297,13 +300,14 @@ def checkout(request):
                     new_sale = form.save(commit=False)
                     if request.user.is_authenticated:
                         new_sale.user = request.user
-                    # --- NEW: SET DELIVERY CHARGE ---
+
+                    # --- USE DYNAMIC CHARGES ---
                     delivery_area = form.cleaned_data.get('delivery_area')
                     if delivery_area == 'OUTSIDE':
-                        new_sale.delivery_charge = 120
+                        new_sale.delivery_charge = settings.delivery_charge_outside
                     else:
-                        new_sale.delivery_charge = 60
-                    # --------------------------------
+                        new_sale.delivery_charge = settings.delivery_charge_inside
+                    # ---------------------------
                     new_sale.save()
 
                     # 3. Create Items (Stock is deducted in SaleItem.save automatically)
@@ -321,6 +325,14 @@ def checkout(request):
                             sold_price=item_data['price'],
                             buying_cost=product.buying_cost 
                         )
+                # --- NEW: 1. Send Server-Side Event (CAPI) ---
+                # We run this in a thread so it doesn't slow down checkout
+                threading.Thread(target=send_purchase_event, args=(new_sale, request)).start()
+                
+                # --- NEW: 2. Save ID for the Success Page ---
+                request.session['last_order_id'] = new_sale.id
+
+
 
                 # B. BACKGROUND EMAIL (Makes Checkout Instant)
                 if request.user.is_authenticated and request.user.email:
@@ -360,14 +372,24 @@ def checkout(request):
         })
         total_price += item_total
 
-    context = {'cart_items': cart_items, 'total_price': total_price, 'form': form}
+    context = {
+        'cart_items': cart_items,
+        'total_price': total_price,
+        'form': form,
+        'settings': settings, # <--- PASS SETTINGS TO TEMPLATE
+    }
     return render(request, 'products/checkout.html', context)
 
 
 # --- ADD THIS SIMPLE SUCCESS VIEW ---
 def order_success(request):
-    return render(request, 'products/order_success.html')
-
+    # Retrieve the order that was just made
+    last_order_id = request.session.get('last_order_id')
+    sale = None
+    if last_order_id:
+        sale = Sale.objects.filter(id=last_order_id).first()
+        
+    return render(request, 'products/order_success.html', {'sale': sale})
 
 def print_products_page(request):
     # --- Part 1: Get Product IDs (no change) ---
@@ -649,23 +671,23 @@ def admin_scraper_view(request):
 # --- ADD THIS NEW FUNCTION ---
 def register_view(request):
     if request.method == 'POST':
-        # Use our new Custom Form instead of the default UserCreationForm
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             
-            # --- SEND WELCOME EMAIL ---
-            try:
-                send_mail(
-                    subject=f"Welcome to Jeba Enterprise, {user.first_name}!",
-                    message=f"Hi {user.first_name},\n\nThank you for creating an account with us. We are excited to have you!\n\nYou can now log in to view your order history and manage your profile.\n\nBest regards,\nThe Jeba Team",
-                    from_email=settings.EMAIL_HOST_USER,
-                    recipient_list=[user.email],
-                    fail_silently=True,
-                )
-            except:
-                pass # Don't crash if email fails (e.g. no internet)
-            # --------------------------
+            # --- SEND WELCOME EMAIL (Only if email exists) ---
+            if user.email: # <--- ADD THIS CHECK
+                try:
+                    send_mail(
+                        subject=f"Welcome to Jeba Enterprise, {user.first_name}!",
+                        message=f"Hi {user.first_name},\n\nThank you for creating an account with us. We are excited to have you!\n\nYou can now log in to view your order history and manage your profile.\n\nBest regards,\nThe Jeba Team",
+                        from_email=settings.EMAIL_HOST_USER,
+                        recipient_list=[user.email],
+                        fail_silently=True,
+                    )
+                except:
+                    pass 
+            # -------------------------------------------------
 
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}! You can now log in.')
@@ -676,17 +698,47 @@ def register_view(request):
     context = {'form': form}
     return render(request, 'registration/register.html', context)
 
+
 # --- ADD THIS NEW FUNCTION ---
 # This decorator prevents anyone who isn't logged in from seeing the page
 @login_required
 def my_orders_view(request):
-    # Filter Sales to ONLY show the ones belonging to the current user
+    # Get all orders
     user_orders = Sale.objects.filter(user=request.user).order_by('-created_at')
+
+    # --- NEW: SYNC STATUS WITH STEADFAST ---
+    for order in user_orders:
+        # Only check if we have a consignment ID and the order isn't already closed
+        if order.consignment_id and order.status not in ['DELIVERED', 'CANCELLED']:
+            try:
+                # Call API
+                api_status = check_delivery_status(order.consignment_id)
+                
+                if api_status:
+                    # 1. Attach live status to the object (for this request only)
+                    # We use a temporary attribute 'live_status_display'
+                    order.live_status_display = api_status
+                    
+                    # 2. Auto-Update Database if final status reached
+                    if api_status == 'delivered':
+                        order.status = 'DELIVERED'
+                        order.save(update_fields=['status'])
+                    elif api_status == 'cancelled':
+                        order.status = 'CANCELLED'
+                        order.save(update_fields=['status'])
+                    elif api_status == 'partial_delivered':
+                         # Optional: You might want a custom status for this, 
+                         # or just keep it as SHIPPED but show the label.
+                         pass
+            except Exception as e:
+                print(f"Error syncing order {order.id}: {e}")
+    # ---------------------------------------
 
     context = {
         'orders': user_orders
     }
     return render(request, 'registration/my_orders.html', context)
+
 
 @login_required
 def order_detail(request, pk):
@@ -906,3 +958,12 @@ def user_dashboard(request):
         'recent_orders': recent_orders
     }
     return render(request, 'registration/dashboard.html', context)
+
+
+# ... existing imports ...
+
+def about_us(request):
+    return render(request, 'products/about.html')
+
+def contact_us(request):
+    return render(request, 'products/contact.html')

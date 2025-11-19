@@ -50,4 +50,6 @@ urlpatterns = [
     path("wishlist/", views.wishlist_view, name="wishlist"),
     path("profile/", views.profile_view, name="profile"),
     path("update-cart/<str:item_id>/<str:action>/", views.update_cart, name="update_cart"),
+    path("about/", views.about_us, name="about_us"),
+    path("contact/", views.contact_us, name="contact_us"),
 ]

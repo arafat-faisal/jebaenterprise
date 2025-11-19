@@ -4,9 +4,8 @@ from django.utils.html import strip_tags
 from django.conf import settings
 from email.mime.image import MIMEImage
 import os
-
 def send_order_email(sale, user_email):
-    subject = f"Order Confirmed: #{sale.id}"
+    subject = f"Order Confirmed: {sale.order_id}"
     from_email = settings.EMAIL_HOST_USER
     to_email = [user_email]
 
@@ -18,29 +17,36 @@ def send_order_email(sale, user_email):
     msg = EmailMultiAlternatives(subject, text_content, from_email, to_email)
     msg.attach_alternative(html_content, "text/html")
 
-    # 3. Embed Product Images
-    # We loop through items and attach their images if they exist
+    # 3. EMBED LOGO (logo.png)
+    # This assumes you saved 'logo.png' in your media folder
+    logo_path = os.path.join(settings.MEDIA_ROOT, 'logo.png') 
+    
+    if os.path.exists(logo_path):
+        try:
+            with open(logo_path, 'rb') as f:
+                logo_data = f.read()
+            
+            logo = MIMEImage(logo_data)
+            logo.add_header('Content-ID', '<logo_img>') # We refer to this ID in the HTML
+            logo.add_header('Content-Disposition', 'inline', filename='logo.png')
+            msg.attach(logo)
+        except Exception as e:
+            print(f"Could not attach logo: {e}")
+
+    # 4. Embed Product Images
     for item in sale.items.all():
         if item.product.images.first():
             img_obj = item.product.images.first()
             try:
-                # Get the path to the file on disk
                 img_path = img_obj.image.path
-                
                 with open(img_path, 'rb') as f:
                     image_data = f.read()
-                
-                # Create MIMEImage
                 image = MIMEImage(image_data)
-                
-                # Define a unique Content-ID (cid)
-                # We use the product ID to make it unique: 'img_123'
                 image.add_header('Content-ID', f'<img_{item.product.id}>')
                 image.add_header('Content-Disposition', 'inline', filename=os.path.basename(img_path))
-                
                 msg.attach(image)
             except Exception as e:
                 print(f"Could not attach image for {item.product.name}: {e}")
 
-    # 4. Send
+    # 5. Send
     msg.send()

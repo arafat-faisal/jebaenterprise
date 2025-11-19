@@ -21,17 +21,17 @@
         box-shadow: var(--shadow-soft);
         border: 1px solid #f0f0f0;
     }
-    .form-group { margin-bottom: 20px; }
+    .form-group { margin-bottom: 15px; }
     .form-group label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--text-main); font-size: 0.95rem; }
     .form-control { 
         width: 100%; 
-        padding: 14px; 
+        padding: 10px 15px; 
         border: 1px solid #eee; 
         border-radius: 10px; 
         background: #F8F9FB; 
         box-sizing: border-box; 
         font-family: inherit;
-        font-size: 1rem;
+        font-size: 0.95rem;
         transition: 0.2s;
     }
     .form-control:focus { background: #fff; border-color: var(--text-main); outline: none; }
@@ -137,16 +137,16 @@
                 <div style="margin-top: 40px;">
                     <h3 style="margin-bottom: 15px;">Delivery Location</h3>
                     <div class="option-grid">
-                        <label class="option-card selected" id="card-inside" onclick="setDelivery('INSIDE', 60)">
+                        <label class="option-card selected" id="card-inside" onclick="setDelivery('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}')">
                             <input type="radio" name="delivery_area" value="INSIDE" checked style="display:none;">
                             <span class="option-title">Inside Dhaka</span>
-                            <span class="option-sub">Delivery: ৳60</span>
+                            <span class="option-sub">Delivery: ৳{{ settings.delivery_charge_inside|default:60 }}</span>
                         </label>
 
-                        <label class="option-card" id="card-outside" onclick="setDelivery('OUTSIDE', 120)">
+                        <label class="option-card" id="card-outside" onclick="setDelivery('OUTSIDE', '{{ settings.delivery_charge_outside|default:120 }}')">
                             <input type="radio" name="delivery_area" value="OUTSIDE" style="display:none;">
                             <span class="option-title">Outside Dhaka</span>
-                            <span class="option-sub">Delivery: ৳120</span>
+                            <span class="option-sub">Delivery: ৳{{ settings.delivery_charge_outside|default:120 }}</span>
                         </label>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                         <img src="/media/bkash_logo.svg" style="width: 50px;" alt="bKash">
                         <div>
                             <strong>Send Money to:</strong><br>
-                            <span style="font-size: 1.2rem; font-weight: 800; color: #e2136e;">017XXXXXXXX</span> (Personal)
+                            <span style="font-size: 1.2rem; font-weight: 800; color: #e2136e;">{{ settings.bkash_number|default:"017XXXXXXXX" }}</span> (Personal)
                         </div>
                     </div>
                     <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px; line-height: 1.5;">
@@ -234,10 +234,13 @@
     </div>
     
     <script>
-        // 1. Get Base Subtotal
+        // FIX 2: Parse Float to ensure math works
         const subtotal = parseFloat("{{ total_price }}");
 
         function setDelivery(area, cost) {
+            // FIX 3: Ensure cost is a number
+            cost = parseFloat(cost);
+
             // Update Visuals
             document.querySelectorAll('.option-card').forEach(function(el) {
                 if(el.querySelector('input[name="delivery_area"]')) {
@@ -291,9 +294,9 @@
         // --- INITIALIZATION ON LOAD ---
         document.addEventListener('DOMContentLoaded', function() {
             
-            // 1. Force Delivery Default (Fixes "No Charge" Issue)
-            // We default to Inside Dhaka (60) immediately on load.
-            setDelivery('INSIDE', 60);
+            // FIX 4: Wrapped this value in quotes too
+            // We default to Inside Dhaka immediately on load.
+            setDelivery('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}');
 
             // 2. Check Payment State (If validation failed)
             const checkedPayment = document.querySelector('input[name="payment_method"]:checked');

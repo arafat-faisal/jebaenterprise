@@ -336,9 +336,72 @@
             background-color: #F8F9FB;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
-    </style>
+        /* --- Floating Messenger Button --- */
+        /* --- Floating Messenger Button (Refined) --- */
+        .messenger-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #0084FF; /* Messenger Blue */
+            color: white;
+            width: 48px; /* Smaller size (was 60px) */
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            text-decoration: none;
+            
+            /* Default State: Subtle & Semi-Transparent */
+            opacity: 0.6;
+            transform: scale(0.9);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            
+            /* Smooth "Sweet" Animation */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+        }
 
+        .messenger-float:hover {
+            /* Hover State: Big, Vibrant & Glowing */
+            opacity: 1;
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 132, 255, 0.5);
+        }
+
+        .messenger-icon {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .messenger-float:hover .messenger-icon {
+            transform: rotate(-10deg); /* Playful tilt on hover */
+        }
+    </style>
+    <link rel="icon" href="/media/logo.svg" type="image/svg+xml">
     <title>{% block title %}Jeba Enterprise{% endblock %}</title>
+    {% if site_settings.meta_pixel_id %}
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // Init with Dynamic ID
+        fbq('init', '{{ site_settings.meta_pixel_id }}');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+             src="https://www.facebook.com/tr?id={{ site_settings.meta_pixel_id }}&ev=PageView&noscript=1"/>
+    </noscript>
+    {% endif %}
 </head>
 <body>
 
@@ -453,6 +516,7 @@
         {% block content %}
         {% endblock %}
     </div>
+    
 
     <footer class="sequoia-footer">
         <div class="footer-content">
@@ -489,9 +553,8 @@
                 <div>
                     <div class="col-title">Company</div>
                     <ul class="footer-link-list">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="{% url 'about_us' %}">About Us</a></li> <li><a href="#">Careers</a></li>
+                        <li><a href="{% url 'contact_us' %}">Contact</a></li> </ul>
                     </ul>
                 </div>
             </div>
@@ -500,11 +563,44 @@
         <div class="footer-bottom">
             <div>&copy; {% now "Y" %} Jeba Enterprise. All rights reserved.</div>
             <div class="social-links">
-                <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                <a href="{{ site_settings.facebook_page_url }}" target="_blank" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
             </div>
         </div>
     </footer>
+    {% if site_settings.messenger_username %}
+        <a href="https://m.me/{{ site_settings.messenger_username }}" target="_blank" class="messenger-float" title="Chat with us" onclick="playPopSound()">
+            <svg class="messenger-icon" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.03 2 11C2 13.66 3.39 16.04 5.56 17.59C5.69 17.68 5.77 17.83 5.76 17.99L5.5 20.8C5.45 21.36 6.03 21.73 6.53 21.46L9.57 19.84C9.7 19.77 9.85 19.76 9.99 19.8C10.65 19.93 11.32 20 12 20C17.52 20 22 15.97 22 11C22 6.03 17.52 2 12 2ZM17 10.5L13.9 15.2C13.71 15.48 13.32 15.55 13.04 15.36L10.5 13.64L7.29 15.35C6.95 15.53 6.61 15.12 6.8 14.83L9.9 10.12C10.09 9.84 10.48 9.77 10.76 9.96L13.3 11.68L16.51 9.97C16.85 9.79 17.19 10.2 17 10.5Z"/>
+            </svg>
+        </a>
+
+        <script>
+            function playPopSound() {
+                // A short "Pop" sound encoded in Base64 (No external file needed)
+                const audio = new Audio("data:audio/wav;base64,UklGRl9vT1BXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU");
+                // Note: The above string is shortened for brevity. 
+                // Let's use a real hosted URL or a proper short generated beep to be safe.
+                
+                // ALTERNATIVE: Create a pleasant "beep" using pure JavaScript (No download needed)
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+
+                osc.type = 'sine'; // Smooth sine wave
+                osc.frequency.setValueAtTime(800, ctx.currentTime); // Start at 800Hz
+                osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.1); // Drop quickly (Pop effect)
+                
+                gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                osc.start();
+                osc.stop(ctx.currentTime + 0.15);
+            }
+        </script>
+    {% endif %}
     <!-- Add this Javascript to base.html scripts block -->
     <script>
         document.getElementById('image-upload').addEventListener('change', function() {
