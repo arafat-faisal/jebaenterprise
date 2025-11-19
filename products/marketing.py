@@ -61,7 +61,8 @@ def send_purchase_event(sale, request=None):
                 }
             }
         ],
-        "access_token": access_token
+        "access_token": access_token,
+        "test_event_code": "TEST42819"  # <--- ADD YOUR TEST CODE HERE
     }
 
     # 3. Send (Fire & Forget)

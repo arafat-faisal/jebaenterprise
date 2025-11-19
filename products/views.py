@@ -365,6 +365,7 @@ def checkout(request):
     for key, item_data in cart.items():
         item_total = item_data['price'] * item_data['quantity']
         cart_items.append({
+            'product_id': item_data['product_id'],  # <--- ADD THIS LINE
             'name': item_data['name'],
             'price': item_data['price'],
             'quantity': item_data['quantity'],
@@ -376,9 +377,10 @@ def checkout(request):
         'cart_items': cart_items,
         'total_price': total_price,
         'form': form,
-        'settings': settings, # <--- PASS SETTINGS TO TEMPLATE
+        'settings': settings,
     }
     return render(request, 'products/checkout.html', context)
+
 
 
 # --- ADD THIS SIMPLE SUCCESS VIEW ---

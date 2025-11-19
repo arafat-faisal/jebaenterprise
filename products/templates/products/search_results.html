@@ -185,5 +185,11 @@
         sidebar.classList.toggle('active');
     }
 </script>
-
+{% if site_settings.meta_pixel_id %}
+<script>
+    fbq('track', 'Search', {
+        search_string: "{{ query|escapejs }}"
+    });
+</script>
+{% endif %}
 {% endblock %}

@@ -314,4 +314,22 @@
     {% endif %}
 
 </div>
+{% if site_settings.meta_pixel_id %}
+<script>
+    // Track InitiateCheckout
+    // We use the string parsing trick again to keep VS Code happy
+    var raw_ids = "{% for item in cart_items %}{{ item.product_id }},{% endfor %}";
+    var content_ids = raw_ids.split(',').filter(function(el) {
+        return el.length > 0;
+    });
+
+    fbq('track', 'InitiateCheckout', {
+        value: parseFloat("{{ total_price|default:0 }}"),
+        currency: 'BDT',
+        content_type: 'product',
+        content_ids: content_ids,
+        num_items: content_ids.length
+    });
+</script>
+{% endif %}
 {% endblock %}

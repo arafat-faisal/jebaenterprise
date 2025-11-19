@@ -334,7 +334,7 @@
                 <div class="action-row">
                     <input type="number" name="quantity" value="1" min="1" class="quantity-input">
                     
-                    <button type="submit" name="action" value="add" class="btn-add-cart">
+                    <button type="submit" class="btn-add-cart" onclick="trackAddToCart()">
                         Add to Cart
                     </button>
                      <button type="submit" name="action" value="buy_now" class="btn-buy-now">
@@ -459,25 +459,21 @@
 
 {% block scripts %}
 <script>
-    // 1. Description Toggle Logic
+    // 1. Existing Description/Gallery Scripts
     function toggleDescription() {
         const descBox = document.getElementById('desc-box');
         const btn = document.getElementById('read-more-btn');
-        
         if (descBox.classList.contains('desc-collapsed')) {
-            // Expand
             descBox.classList.remove('desc-collapsed');
             descBox.classList.add('desc-expanded');
             btn.innerText = "Read Less ↑";
         } else {
-            // Collapse
             descBox.classList.remove('desc-expanded');
             descBox.classList.add('desc-collapsed');
             btn.innerText = "Read More ↓";
         }
     }
 
-    // 2. Image Gallery Switcher
     function switchImage(thumb, url) {
         document.getElementById('main-image').src = url;
         document.querySelectorAll('.thumb-btn').forEach(t => t.classList.remove('active'));
@@ -485,7 +481,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        // 3. Dynamic Variation Logic
         const variationSelect = document.getElementById('variation-select');
         if (variationSelect) {
             const priceDisplay = document.getElementById('product-price');
@@ -494,15 +489,37 @@
 
             variationSelect.addEventListener('change', function() {
                 const selectedOption = this.options[this.selectedIndex];
-                // CHANGED '$' TO '৳' HERE
                 priceDisplay.textContent = '৳' + selectedOption.dataset.price; 
                 stockDisplay.textContent = 'In Stock: ' + selectedOption.dataset.stock;
                 cartForm.action = selectedOption.dataset.url;
             });
-            
-            // Trigger initial update
             variationSelect.dispatchEvent(new Event('change'));
         }
     });
 </script>
+
+{% if site_settings.meta_pixel_id %}
+<script>
+    // 2. Track ViewContent (Runs immediately)
+    fbq('track', 'ViewContent', {
+        content_name: "{{ product.name }}",
+        content_ids: ["{{ product.id }}"],
+        content_type: 'product',
+        value: parseFloat("{{ product.selling_price }}"),
+        currency: 'BDT'
+    });
+
+    // 3. Track AddToCart (Runs on Click)
+    // Note: We attach this to the button click automatically
+    document.querySelector('.btn-add-cart').addEventListener('click', function() {
+        fbq('track', 'AddToCart', {
+            content_name: "{{ product.name }}",
+            content_ids: ["{{ product.id }}"],
+            content_type: 'product',
+            value: parseFloat("{{ product.selling_price }}"),
+            currency: 'BDT'
+        });
+    });
+</script>
+{% endif %}
 {% endblock %}
