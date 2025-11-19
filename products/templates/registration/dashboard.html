@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+
+{% block title %}My Dashboard{% endblock %}
+
+{% block content %}
+<style>
+    /* --- Dashboard Layout --- */
+    .dash-header {
+        margin-bottom: 30px;
+    }
+    .dash-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* Main Content | Sidebar */
+        gap: 30px;
+    }
+    
+    @media (max-width: 900px) {
+        .dash-grid { grid-template-columns: 1fr; }
+        .order-1 { order: 1; } /* Mobile reordering if needed */
+    }
+
+    /* --- Cards --- */
+    .dash-card {
+        background: var(--bg-card);
+        border-radius: var(--radius-lg);
+        padding: 25px;
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 30px;
+        border: 1px solid transparent;
+    }
+    .dash-card h3 {
+        margin-top: 0;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    /* --- Forms --- */
+    .form-row { margin-bottom: 15px; }
+    .form-label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-sub); font-size: 0.9rem; }
+    .form-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        font-family: inherit;
+        background: #F8F9FB;
+        box-sizing: border-box; /* Fixes padding issues */
+    }
+    .form-input:focus { background: white; border-color: var(--text-main); outline: none; }
+
+    /* --- Order List Mini --- */
+    .mini-order {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .mini-order:last-child { border-bottom: none; }
+    .status-pill {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    /* --- Tabs for Forms --- */
+    .tab-btn {
+        background: none; border: none; 
+        font-weight: 700; color: var(--text-sub); 
+        padding: 0 15px 10px 0; cursor: pointer;
+        border-bottom: 2px solid transparent;
+    }
+    .tab-btn.active { color: var(--text-main); border-bottom-color: var(--accent-lime); }
+</style>
+
+<div class="dash-header">
+    <h1>Hello, {{ user.first_name|default:user.username }}! 👋</h1>
+    <p style="color: var(--text-sub);">Manage your orders and account details.</p>
+</div>
+
+<div class="dash-grid">
+    <div>
+        <div class="dash-card">
+            <div style="margin-bottom: 20px;">
+                <button class="tab-btn active" onclick="showTab('profile')">Profile & Address</button>
+                <button class="tab-btn" onclick="showTab('security')">Security</button>
+            </div>
+
+            <div id="tab-profile">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-row">
+                            <label class="form-label">First Name</label>
+                            {{ user_form.first_name }}
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label">Last Name</label>
+                            {{ user_form.last_name }}
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label class="form-label">Email Address</label>
+                        {{ user_form.email }}
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label">Phone Number</label>
+                        {{ profile_form.phone_number }}
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label">Default Shipping Address</label>
+                        {{ profile_form.address }}
+                    </div>
+
+                    <button type="submit" name="update_profile" class="btn" style="width: 100%; margin-top: 10px;">Save Changes</button>
+                </form>
+            </div>
+
+            <div id="tab-security" style="display: none;">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    {% for field in password_form %}
+                        <div class="form-row">
+                            <label class="form-label">{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.errors %}
+                                <small style="color: red;">{{ field.errors.0 }}</small>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <div style="text-align: right; margin-bottom: 20px; margin-top: -10px;">
+                        <a href="{% url 'password_reset' %}" style="color: #3F51B5; font-size: 0.85rem; text-decoration: none; font-weight: 600;">
+                            Forgot your current password?
+                        </a>
+                    </div>
+                    <button type="submit" name="change_password" class="btn" style="width: 100%; background: #333; color: white;">
+                        Update Password
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="dash-card" style="background: #3F51B5; color: white;">
+            <div style="font-size: 0.9rem; opacity: 0.8;">Total Orders</div>
+            <div style="font-size: 2.5rem; font-weight: 800;">{{ recent_orders.count }}</div>
+        </div>
+
+        <div class="dash-card">
+            <h3>Recent Orders</h3>
+            {% if recent_orders %}
+                {% for order in recent_orders %}
+                    <div class="mini-order">
+                        <div>
+                            <div style="font-weight: 700;">{{ order.order_id }}</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sub);">{{ order.created_at|date:"M d" }} • ৳{{ order.total_amount|floatformat:0 }}</div>
+                        </div>
+                        <a href="{% url 'order_detail' order.id %}" class="btn" style="padding: 5px 12px; font-size: 0.8rem;">View</a>
+                    </div>
+                {% endfor %}
+                <a href="{% url 'my_orders' %}" style="display: block; text-align: center; margin-top: 15px; font-weight: 600; color: var(--text-main); text-decoration: none;">View All History →</a>
+            {% else %}
+                <p style="color: var(--text-sub); text-align: center;">No orders yet.</p>
+            {% endif %}
+        </div>
+        
+        <div class="dash-card" style="text-align: center;">
+            <h3>Need Help?</h3>
+            <p style="color: var(--text-sub); margin-bottom: 15px;">Reply to your order emails or call us.</p>
+            <a href="mailto:support@jeba.com" style="color: var(--text-main); font-weight: 700;">support@jeba.com</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Apply styles to Django form widgets manually via JS to save template mess
+    document.querySelectorAll('input, textarea').forEach(el => {
+        if(el.type !== 'checkbox' && el.type !== 'radio' && el.type !== 'hidden') {
+            el.classList.add('form-input');
+        }
+    });
+
+    function showTab(tabName) {
+        // Hide all
+        document.getElementById('tab-profile').style.display = 'none';
+        document.getElementById('tab-security').style.display = 'none';
+        
+        // Reset buttons
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        
+        // Show selected
+        document.getElementById('tab-' + tabName).style.display = 'block';
+        event.target.classList.add('active');
+    }
+</script>
+{% endblock %}

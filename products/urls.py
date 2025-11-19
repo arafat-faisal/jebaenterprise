@@ -3,6 +3,11 @@ from . import views  # We will import 'views' from our app
 
 # This list defines all the pages for the 'products' app
 urlpatterns = [
+    # CHANGE THIS LINE:
+    path("dashboard/", views.user_dashboard, name="user_dashboard"),
+    
+    # You can redirect 'profile' to dashboard if you want to keep the old link working
+    path("profile/", views.user_dashboard, name="profile"),
     # This matches the "homepage" (e.g., http://127.0.0.1:8001/)
     # and tells it to run the 'pricing_sheet' function from views.py
     path("", views.pricing_sheet, name="pricing_sheet"),

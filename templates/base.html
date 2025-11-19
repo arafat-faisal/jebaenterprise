@@ -86,39 +86,79 @@
         }
 
         /* --- DESKTOP OVERRIDES (Screens wider than 768px) --- */
-        /* --- DESKTOP OVERRIDES (Screens wider than 768px) --- */
+        /* --- NEW: Catalog Button Style --- */
+        .catalog-btn {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+            padding: 8px 16px;
+            border-radius: 50px; /* Pill shape */
+            background-color: transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+        .catalog-btn:hover {
+            background-color: #F3F5F9; /* Light grey hover */
+            color: #3F51B5; /* Indigo text on hover */
+        }
+
+        /* --- DESKTOP OVERRIDES --- */
         @media (min-width: 768px) {
             .site-header {
                 padding: 15px 30px;
                 border-radius: var(--radius-pill);
                 flex-wrap: nowrap;
             }
-            .logo { font-size: 1.5rem; margin-right: 40px; } /* Added margin right */
+            /* REDUCED MARGIN: changed from 40px to 20px to fit the new button */
+            .logo { font-size: 1.5rem; margin-right: 20px; } 
+            
+            /* Add spacing after the catalog button */
+            .catalog-btn { margin-right: 20px; }
+
             .search-container { 
                 order: 0;
                 margin: 0; 
                 width: auto;
-                flex-grow: 1; /* Take available space */
+                flex-grow: 1; 
                 max-width: 600px;
             }
             .nav-links { 
                 order: 0; 
-                margin-left: auto; /* <--- THIS PUSHES ICONS TO THE RIGHT */
+                margin-left: auto; 
             }
         }
         .search-input {
             width: 100%;
-            padding: 12px 20px;
+            /* We combine the padding here to ensure it works */
+            padding: 12px 20px 12px 50px; /* Top Right Bottom Left */
             border-radius: var(--radius-pill);
             border: 1px solid #eee;
             background: #F8F9FB;
             font-family: inherit;
             outline: none;
             transition: 0.2s;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
         }
         .search-input:focus {
             background: #fff;
             box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+        }
+        /* --- FIX: Remove Default Browser "X" Button --- */
+        /* Chrome, Safari, Edge */
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration {
+            display: none;
+            -webkit-appearance: none;
+        }
+        
+        /* Firefox (rarely needed but good practice) */
+        input[type="search"] {
+            -moz-appearance: textfield;
         }
 
         .nav-links a {
@@ -191,6 +231,111 @@
         .camera-icon:hover svg {
             stroke: var(--text-main);
         }
+        /* ... existing styles ... */
+
+        /* --- NEW: SEQUOIA FOOTER --- */
+        .sequoia-footer {
+            background-color: var(--bg-card);
+            margin-top: 80px;
+            padding: 60px 20px 30px;
+            border-top-left-radius: var(--radius-xl);
+            border-top-right-radius: var(--radius-xl);
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.03);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 2fr; /* Newsletter takes less space than links */
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        /* Newsletter Section */
+        .footer-brand h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; }
+        .footer-brand p { color: var(--text-sub); margin-bottom: 25px; line-height: 1.6; max-width: 350px; }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 400px;
+        }
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 1px solid #eee;
+            background: #F8F9FB;
+            font-family: inherit;
+            outline: none;
+        }
+        .btn-subscribe {
+            background: var(--text-main);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .btn-subscribe:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        /* Link Columns */
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .col-title { font-weight: 700; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-link-list { list-style: none; padding: 0; margin: 0; }
+        .footer-link-list li { margin-bottom: 12px; }
+        .footer-link-list a {
+            text-decoration: none;
+            color: var(--text-sub);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .footer-link-list a:hover { color: var(--text-main); }
+
+        /* Bottom Bar */
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+        .social-links a { color: var(--text-main); margin-left: 20px; text-decoration: none; }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .footer-content { grid-template-columns: 1fr; gap: 40px; }
+            .footer-links { grid-template-columns: 1fr 1fr; } /* Stack differently on mobile */
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .social-links a { margin: 0 10px; }
+        }
+        .delivery-card {
+            flex: 1;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .delivery-card:hover { border-color: #ccc; }
+        .delivery-card.selected { 
+            border-color: #1A1C1E; 
+            background-color: #F8F9FB;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
     </style>
 
     <title>{% block title %}Jeba Enterprise{% endblock %}</title>
@@ -201,7 +346,10 @@
         <a href="{% url 'pricing_sheet' %}" class="logo">
             <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 40px; width: auto;">
         </a>
-        
+        <a href="{% url 'product_catalog' %}" class="catalog-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            All Products
+        </a>
         <!-- 2. Pill Search Bar with Image Upload -->
         <form method="GET" action="{% url 'search' %}" class="search-container" id="search-form" enctype="multipart/form-data">
             <span class="search-icon">
@@ -234,6 +382,14 @@
                     </a>
                 {% endif %}
                 {# --- END NEW BUTTON --- #}
+                {# --- 2. NEW: DASHBOARD ICON (User Profile) --- #}
+                <a href="{% url 'user_dashboard' %}" class="nav-icon" title="My Dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+
                 <a href="{% url 'my_orders' %}" class="nav-icon" title="My Orders">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                 </a>
@@ -298,8 +454,56 @@
         {% endblock %}
     </div>
 
-    <footer class="site-footer">
-        © {% now "Y" %} Jeba Enterprise. All rights reserved.
+    <footer class="sequoia-footer">
+        <div class="footer-content">
+            
+            <div class="footer-brand">
+                <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 35px; margin-bottom: 5px;">
+                <p>Making modern lifestyle products accessible to everyone. Join our newsletter for exclusive offers.</p>
+                
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                    <button type="submit" class="btn-subscribe">Join</button>
+                </form>
+            </div>
+
+            <div class="footer-links">
+                <div>
+                    <div class="col-title">Shop</div>
+                    <ul class="footer-link-list">
+                        <li><a href="{% url 'pricing_sheet' %}">New Arrivals</a></li>
+                        <li><a href="{% url 'product_catalog' %}">Best Sellers</a></li>
+                        <li><a href="{% url 'product_catalog' %}">All Products</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="col-title">Support</div>
+                    <ul class="footer-link-list">
+                        <li><a href="{% url 'my_orders' %}">Track Order</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <div class="col-title">Company</div>
+                    <ul class="footer-link-list">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>&copy; {% now "Y" %} Jeba Enterprise. All rights reserved.</div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            </div>
+        </div>
     </footer>
     <!-- Add this Javascript to base.html scripts block -->
     <script>
@@ -321,6 +525,26 @@
                 }
                 
                 form.submit();
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('submit', function(e) {
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+            
+            if (submitBtn) {
+                // Change text to "Processing..."
+                const originalText = submitBtn.innerText;
+                submitBtn.innerText = "Processing...";
+                submitBtn.style.opacity = "0.7";
+                submitBtn.style.cursor = "not-allowed";
+                
+                // Disable the button to prevent double-clicks
+                // We use a tiny timeout to allow the form data to actually submit first
+                setTimeout(() => {
+                    submitBtn.disabled = true;
+                }, 10);
             }
         });
     </script>

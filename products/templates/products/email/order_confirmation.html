@@ -38,11 +38,13 @@
     <div class="email-container">
         <div class="header">
             <span class="status-badge">Pending</span>
-            <div class="logo">JEBA<span>.</span></div>
+            <div class="logo">
+                <img src="http://127.0.0.1:8000/media/logo.svg" alt="Jeba Enterprise" height="40" style="display: block; border: 0;">
+            </div>
         </div>
         
         <div class="content">
-            <h1 class="order-title">Order #{{ sale.id }}</h1>
+            <h1 class="order-title">Order {{ sale.order_id }}</h1>
             <div class="order-date">Placed on {{ sale.created_at|date:"M d, Y" }}</div>
             
             <p>Hi {{ sale.customer_name }},</p>

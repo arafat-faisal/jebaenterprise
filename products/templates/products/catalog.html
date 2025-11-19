@@ -215,6 +215,37 @@
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
+    /* ... existing styles ... */
+    
+    /* New Hero Image Styling */
+    .hero-product-img {
+        width: 200px;
+        height: 200px;
+        background: #fff;
+        border-radius: 20px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .hero-product-img img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    /* Make description readable */
+    .hero-desc {
+        color: var(--text-sub);
+        max-width: 400px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Limit to 2 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 </style>
 
 <button class="filter-toggle-btn" onclick="toggleSidebar()">
@@ -257,14 +288,35 @@
 
     <main>
         <div class="catalog-hero">
-            <div class="hero-text">
-                <span style="background: #F3F5F9; padding: 5px 10px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; color: #666; margin-bottom: 10px; display: inline-block;">#NewArrival</span>
-                <h2>Featured Collection</h2>
-                <p>Making pure sound music come true with style.</p>
-            </div>
-            <div style="width: 100px; height: 100px; background: #E0E7FF; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                <span style="font-size: 2.5rem;">🎧</span>
-            </div>
+            {% if hero_product %}
+                <div class="hero-text">
+                    <span style="background: #D4F759; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #000; margin-bottom: 15px; display: inline-block;">
+                        {% if hero_product.is_featured %}#Featured{% else %}#FreshArrival{% endif %}
+                    </span>
+                    
+                    <h2 style="font-size: 2.2rem; margin-bottom: 10px;">{{ hero_product.name }}</h2>
+                    <p class="hero-desc">
+                        {{ hero_product.description|default:"Upgrade your lifestyle with our latest collection." }}
+                    </p>
+                    
+                    <a href="{% url 'product_detail' hero_product.id %}" class="btn" style="background: #1A1C1E; color: white; padding: 10px 25px;">
+                        Check it out &rarr;
+                    </a>
+                </div>
+                
+                <div class="hero-product-img">
+                    {% if hero_product.images.first %}
+                        <img src="{{ hero_product.images.first.image.url }}" alt="{{ hero_product.name }}">
+                    {% else %}
+                        <div style="font-size: 3rem;">📦</div>
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="hero-text">
+                    <h2>Welcome to Jeba Enterprise</h2>
+                    <p>Quality products added daily.</p>
+                </div>
+            {% endif %}
         </div>
 
         <div class="catalog-grid">

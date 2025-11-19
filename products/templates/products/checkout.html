@@ -3,77 +3,312 @@
 {% block title %}Checkout{% endblock %}
 
 {% block content %}
-    <h1>Confirm Your Order</h1>
+
+<style>
+    /* --- LAYOUT --- */
+    .checkout-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 30px;
+        align-items: start;
+    }
+    
+    /* --- LEFT: FORM STYLES --- */
+    .checkout-card {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-soft);
+        border: 1px solid #f0f0f0;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--text-main); font-size: 0.95rem; }
+    .form-control { 
+        width: 100%; 
+        padding: 14px; 
+        border: 1px solid #eee; 
+        border-radius: 10px; 
+        background: #F8F9FB; 
+        box-sizing: border-box; 
+        font-family: inherit;
+        font-size: 1rem;
+        transition: 0.2s;
+    }
+    .form-control:focus { background: #fff; border-color: var(--text-main); outline: none; }
+
+    /* --- RIGHT: RECEIPT SUMMARY --- */
+    .summary-card {
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-soft);
+        border: 1px solid #f0f0f0;
+        position: sticky;
+        top: 20px;
+    }
+    .summary-header { font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px; }
+    
+    /* Item List */
+    .item-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9rem; align-items: center; }
+    .item-name { color: var(--text-main); font-weight: 600; }
+    .item-meta { color: var(--text-sub); font-size: 0.85rem; display: block; }
+    .item-price { font-weight: 700; color: var(--text-main); }
+    
+    /* Separator */
+    .receipt-divider { 
+        border: none; 
+        border-top: 2px dashed #e0e0e0; 
+        margin: 20px 0; 
+    }
+
+    /* Totals */
+    .total-row { display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--text-sub); }
+    .grand-total { 
+        display: flex; justify-content: space-between; 
+        margin-top: 15px; 
+        font-size: 1.4rem; 
+        font-weight: 800; 
+        color: #3F51B5; 
+    }
+
+    /* --- DELIVERY & PAYMENT CARDS --- */
+    .option-grid { display: flex; gap: 15px; }
+    .option-card {
+        flex: 1;
+        border: 2px solid #eee;
+        border-radius: 12px;
+        padding: 15px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+    .option-card:hover { border-color: #ccc; transform: translateY(-2px); }
+    
+    /* Selected State */
+    .option-card.selected {
+        border-color: #1A1C1E;
+        background-color: #F8F9FB;
+    }
+    .option-card.selected::after {
+        content: '✓';
+        position: absolute;
+        top: 5px; right: 8px;
+        font-weight: 900;
+        color: #1A1C1E;
+        font-size: 0.8rem;
+    }
+
+    .option-title { font-weight: 700; font-size: 0.95rem; display: block; margin-bottom: 4px; }
+    .option-sub { font-size: 0.85rem; color: #666; }
+
+    @media (max-width: 850px) {
+        .checkout-grid { grid-template-columns: 1fr; }
+        .checkout-card { order: 2; }
+        .summary-card { order: 1; margin-bottom: 20px; }
+    }
+</style>
+
+<div style="max-width: 1100px; margin: 0 auto;">
+    <h1 style="margin-bottom: 30px; font-size: 2.2rem;">Confirm Order</h1>
 
     {% if cart_items %}
+    <div class="checkout-grid">
         
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 20px;">
-            
-            <div>
-                <h3>Order Summary</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in cart_items %}
-                        <tr>
-                            <td>
-                                <strong>{{ item.name }}</strong><br>
-                                ৳{{ item.price|floatformat:2 }} x {{ item.quantity }}
-                            </td>
-                            <td>৳{{ item.item_total|floatformat:2 }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <h2 style="text-align: right; margin-top: 20px;">Total: ৳{{ total_price|floatformat:2 }}</h2>
-            </div>
-            
-            <div style="background-color: #f9f9f9; padding: 30px; border-radius: 8px; border: 1px solid #eee;">
-                <h3 style="margin-top: 0;">Shipping Information</h3>
+        <div class="checkout-card">
+            <form method="POST" action="{% url 'checkout' %}" id="checkout-form">
+                {% csrf_token %}
                 
-                <form method="POST" action="{% url 'checkout' %}">
-                    {% csrf_token %}
-                    
-                    {% for field in form %}
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #333;">
-                                {{ field.label }}
+                <h3 style="margin-top: 0;">Shipping Details</h3>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    {{ form.customer_name }}
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    {{ form.phone_number }}
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    {{ form.shipping_address }}
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 15px;">Delivery Location</h3>
+                    <div class="option-grid">
+                        <label class="option-card selected" id="card-inside" onclick="setDelivery('INSIDE', 60)">
+                            <input type="radio" name="delivery_area" value="INSIDE" checked style="display:none;">
+                            <span class="option-title">Inside Dhaka</span>
+                            <span class="option-sub">Delivery: ৳60</span>
+                        </label>
+
+                        <label class="option-card" id="card-outside" onclick="setDelivery('OUTSIDE', 120)">
+                            <input type="radio" name="delivery_area" value="OUTSIDE" style="display:none;">
+                            <span class="option-title">Outside Dhaka</span>
+                            <span class="option-sub">Delivery: ৳120</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 15px;">Payment Method</h3>
+                    <div class="option-grid">
+                        {% for radio in form.payment_method %}
+                            <label class="option-card payment-card" onclick="togglePayment('{{ radio.data.value }}')">
+                                {{ radio.tag }}
+                                <span class="option-title" style="margin:0;">{{ radio.choice_label }}</span>
                             </label>
-                            {{ field }}
-                            
-                            {% if field.errors %}
-                                <div style="color: red; font-size: 0.9em; margin-top: 5px;">
-                                    {{ field.errors }}
-                                </div>
-                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div id="bkash-info" style="display: none; background: #fff0f5; padding: 20px; border-radius: 12px; margin-top: 20px; border: 1px solid #ffc0cb;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <img src="/media/bkash_logo.svg" style="width: 50px;" alt="bKash">
+                        <div>
+                            <strong>Send Money to:</strong><br>
+                            <span style="font-size: 1.2rem; font-weight: 800; color: #e2136e;">017XXXXXXXX</span> (Personal)
                         </div>
-                    {% endfor %}
+                    </div>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px; line-height: 1.5;">
+                        1. Open bKash App > <strong>Send Money</strong>.<br>
+                        2. Enter Amount: <strong>৳<span id="bkash-total">{{ total_price|floatformat:0 }}</span></strong> (Include delivery).<br>
+                        3. Enter Reference: <strong>JEBAE</strong>.<br>
+                        4. Copy <strong>TrxID</strong> and paste below.
+                    </p>
                     
-                    <style>
-                        .form-control {
-                            width: 100%;
-                            padding: 12px;
-                            border: 1px solid #ccc;
-                            border-radius: 4px;
-                            box-sizing: border-box;
-                            font-size: 1rem;
-                        }
-                    </style>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label style="color: #e2136e;">Transaction ID (TrxID)</label>
+                        {{ form.transaction_id }}
+                        {% if form.transaction_id.errors %}
+                            <div style="color: red; font-size: 0.85rem; margin-top: 5px;">{{ form.transaction_id.errors }}</div>
+                        {% endif %}
+                    </div>
+                </div>
 
-                    <button type="submit" class="btn" style="width: 100%; margin-top: 10px; font-size: 1.1rem;">
-                        Confirm Order (Cash on Delivery)
-                    </button>
-                </form>
-            </div>
-
+                <button type="submit" class="btn" style="width: 100%; margin-top: 30px; font-size: 1.1rem; background: #1A1C1E; color: white; padding: 16px;">
+                    Confirm Order
+                </button>
+            </form>
         </div>
 
+        <div class="summary-card">
+            <div class="summary-header">Order Summary</div>
+            
+            <div style="margin-bottom: 20px;">
+                {% for item in cart_items %}
+                <div class="item-row">
+                    <div>
+                        <div class="item-name">{{ item.name }}</div>
+                        <span class="item-meta">Qty: {{ item.quantity }}</span>
+                    </div>
+                    <div class="item-price">৳{{ item.item_total|floatformat:0 }}</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <hr class="receipt-divider">
+
+            <div class="total-row">
+                <span>Subtotal</span>
+                <span>৳{{ total_price|floatformat:0 }}</span>
+            </div>
+            <div class="total-row">
+                <span>Delivery Charge</span>
+                <span>৳<span id="delivery-display">60</span></span>
+            </div>
+
+            <hr class="receipt-divider">
+
+            <div class="grand-total">
+                <span>Total</span>
+                <span>৳<span id="grand-total-display">{{ total_price|add:60|floatformat:0 }}</span></span>
+            </div>
+            
+            <div style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 20px;">
+                🔒 Secure Checkout
+            </div>
+        </div>
+
+    </div>
+    
+    <script>
+        // 1. Get Base Subtotal
+        const subtotal = parseFloat("{{ total_price }}");
+
+        function setDelivery(area, cost) {
+            // Update Visuals
+            document.querySelectorAll('.option-card').forEach(function(el) {
+                if(el.querySelector('input[name="delivery_area"]')) {
+                    el.classList.remove('selected');
+                }
+            });
+            
+            if(area === 'INSIDE') {
+                document.getElementById('card-inside').classList.add('selected');
+            } else {
+                document.getElementById('card-outside').classList.add('selected');
+            }
+
+            // Update Hidden Radio
+            var selector = 'input[name="delivery_area"][value="' + area + '"]';
+            document.querySelector(selector).checked = true;
+
+            // Update Numbers
+            document.getElementById('delivery-display').innerText = cost;
+            var grandTotal = subtotal + cost;
+            document.getElementById('grand-total-display').innerText = grandTotal.toFixed(0);
+            
+            // Update bKash Text
+            const bkashText = document.getElementById('bkash-total');
+            if(bkashText) {
+                bkashText.innerText = grandTotal.toFixed(0);
+            }
+        }
+        
+        function togglePayment(value) {
+            const infoBox = document.getElementById('bkash-info');
+            
+            // Toggle bKash Box
+            if (value === 'BKASH') {
+                infoBox.style.display = 'block';
+            } else {
+                infoBox.style.display = 'none';
+            }
+
+            // Visual Selection
+            document.querySelectorAll('.payment-card').forEach(function(card) {
+                const radio = card.querySelector('input');
+                if (radio.value === value) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+        }
+
+        // --- INITIALIZATION ON LOAD ---
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // 1. Force Delivery Default (Fixes "No Charge" Issue)
+            // We default to Inside Dhaka (60) immediately on load.
+            setDelivery('INSIDE', 60);
+
+            // 2. Check Payment State (If validation failed)
+            const checkedPayment = document.querySelector('input[name="payment_method"]:checked');
+            if (checkedPayment) {
+                togglePayment(checkedPayment.value);
+            }
+        });
+    </script>
+
     {% else %}
-        <p>Your cart is empty. <a href="{% url 'pricing_sheet' %}">Start Shopping</a></p>
+        <div style="text-align: center; padding: 60px;">
+            <h2>Your cart is empty 🛒</h2>
+            <p><a href="{% url 'pricing_sheet' %}" class="btn">Go Shopping</a></p>
+        </div>
     {% endif %}
+
+</div>
 {% endblock %}

@@ -48,6 +48,12 @@ from django.core.mail import EmailMultiAlternatives
 
 from .utils import send_order_email # Import the new helper
 
+from django.db import transaction
+import threading
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from .steadfast import check_delivery_status # Import helper
+
 
 # def pricing_sheet(request):
 #         # 1. Start with all products (and prefetch related data)
@@ -114,7 +120,7 @@ def pricing_sheet(request):
 def product_catalog(request):
     products = Product.objects.all().prefetch_related('images')
     
-    # Filtering Logic
+    # Filtering Logic (Keep existing)
     category_id = request.GET.get('category')
     sort_by = request.GET.get('sort')
 
@@ -130,13 +136,20 @@ def product_catalog(request):
         
     all_categories = Category.objects.all()
 
+    # --- NEW: FETCH HERO PRODUCT ---
+    # 1. Try to find a product marked as 'is_featured'
+    hero_product = Product.objects.filter(is_featured=True).first()
+    # 2. If none, fallback to the newest product
+    if not hero_product:
+        hero_product = Product.objects.order_by('-created_at').first()
+
     context = {
         'products': products,
         'all_categories': all_categories,
-        'active_category': category_id
+        'active_category': category_id,
+        'hero_product': hero_product, # <--- Pass this to the template
     }
     return render(request, 'products/catalog.html', context)
-
 
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
@@ -253,77 +266,86 @@ def view_cart(request):
 
 
 def checkout(request):
-    # Get the cart from the session
     cart = request.session.get('cart', {})
     if not cart:
         return redirect('view_cart')
 
     if request.method == 'POST':
-        # --- PROCESS THE FORM ---
         form = CheckoutForm(request.POST)
-        
         if form.is_valid():
-            # new_sale.save()
-            # --- 1. SECURITY CHECK: Verify Stock Levels FIRST ---
-            for key, item_data in cart.items():
-                product = get_object_or_404(Product, id=item_data['product_id'])
-                order_qty = item_data['quantity']
-                
-                # Check Variation Stock
-                if item_data['variation_id']:
-                    variation = get_object_or_404(ProductVariation, id=item_data['variation_id'])
-                    if variation.stock_quantity < order_qty:
-                        messages.error(request, f"Sorry, '{product.name} - {variation.name}' is out of stock. Only {variation.stock_quantity} left.")
-                        return redirect('view_cart')
-                
-                # Check Main Product Stock (Global stock)
-                if product.stock_quantity < order_qty:
-                    messages.error(request, f"Sorry, '{product.name}' is out of stock. Only {product.stock_quantity} left.")
-                    return redirect('view_cart')
+            try:
+                # A. ATOMIC TRANSACTION (Prevents Stock Crashes)
+                with transaction.atomic():
+                    # 1. Lock & Check Stock
+                    for key, item_data in cart.items():
+                        product_id = item_data['product_id']
+                        variation_id = item_data.get('variation_id')
+                        order_qty = item_data['quantity']
 
-            # --- 2. IF STOCK IS OK, CREATE SALE ---
-            new_sale = form.save(commit=False)
-            
-            if request.user.is_authenticated:
-                new_sale.user = request.user
-            
-            new_sale.save()
+                        # Lock the row until we are done
+                        product = Product.objects.select_for_update().get(id=product_id)
+                        
+                        if product.stock_quantity < order_qty:
+                            raise ValueError(f"Sorry, '{product.name}' is out of stock. Only {product.stock_quantity} left.")
 
-            
+                        if variation_id:
+                            variation = ProductVariation.objects.select_for_update().get(id=variation_id)
+                            if variation.stock_quantity < order_qty:
+                                raise ValueError(f"Sorry, '{product.name} - {variation.name}' is out of stock. Only {variation.stock_quantity} left.")
 
-            # --- 4. CREATE SALE ITEMS ---
-            for key, item_data in cart.items():
-                product = get_object_or_404(Product, id=item_data['product_id'])
-                
-                variation = None
-                if item_data['variation_id']:
-                    variation = get_object_or_404(ProductVariation, id=item_data['variation_id'])
-                
-                SaleItem.objects.create(
-                    sale=new_sale,
-                    product=product,
-                    variation=variation,
-                    quantity=item_data['quantity'],
-                    sold_price=item_data['price'],
-                    buying_cost=product.buying_cost 
-                )
-            # --- 4. SEND EMAIL WITH EMBEDDED IMAGES ---
-            if request.user.is_authenticated and request.user.email:
-                try:
-                    send_order_email(new_sale, request.user.email)
-                except Exception as e:
-                    print(f"Email sending failed: {e}")
-            # ------------------------------------------
+                    # 2. Create Sale
+                    new_sale = form.save(commit=False)
+                    if request.user.is_authenticated:
+                        new_sale.user = request.user
+                    # --- NEW: SET DELIVERY CHARGE ---
+                    delivery_area = form.cleaned_data.get('delivery_area')
+                    if delivery_area == 'OUTSIDE':
+                        new_sale.delivery_charge = 120
+                    else:
+                        new_sale.delivery_charge = 60
+                    # --------------------------------
+                    new_sale.save()
 
-            # 5. Clear the cart and redirect
-            request.session['cart'] = {}
-            return redirect('order_success')
+                    # 3. Create Items (Stock is deducted in SaleItem.save automatically)
+                    for key, item_data in cart.items():
+                        product = Product.objects.get(id=item_data['product_id'])
+                        variation = None
+                        if item_data['variation_id']:
+                            variation = ProductVariation.objects.get(id=item_data['variation_id'])
+                        
+                        SaleItem.objects.create(
+                            sale=new_sale,
+                            product=product,
+                            variation=variation,
+                            quantity=item_data['quantity'],
+                            sold_price=item_data['price'],
+                            buying_cost=product.buying_cost 
+                        )
 
+                # B. BACKGROUND EMAIL (Makes Checkout Instant)
+                if request.user.is_authenticated and request.user.email:
+                    # Run email in a separate thread so user doesn't wait
+                    email_thread = threading.Thread(target=send_order_email, args=(new_sale, request.user.email))
+                    email_thread.start()
+
+                # C. SUCCESS
+                request.session['cart'] = {}
+                return redirect('order_success')
+
+            except ValueError as e:
+                messages.error(request, str(e))
+                return redirect('view_cart')
+            except Exception as e:
+                print(f"Checkout Error: {e}")
+                messages.error(request, "An unexpected error occurred. Please try again.")
+                return redirect('view_cart')
     else:
         initial_data = {}
         if request.user.is_authenticated:
             initial_data['customer_name'] = f"{request.user.first_name} {request.user.last_name}".strip()
-            
+            if hasattr(request.user, 'profile'):
+                initial_data['phone_number'] = request.user.profile.phone_number
+                initial_data['shipping_address'] = request.user.profile.address
         form = CheckoutForm(initial=initial_data)
 
     cart_items = []
@@ -338,12 +360,9 @@ def checkout(request):
         })
         total_price += item_total
 
-    context = {
-        'cart_items': cart_items,
-        'total_price': total_price,
-        'form': form,
-    }
+    context = {'cart_items': cart_items, 'total_price': total_price, 'form': form}
     return render(request, 'products/checkout.html', context)
+
 
 # --- ADD THIS SIMPLE SUCCESS VIEW ---
 def order_success(request):
@@ -671,19 +690,25 @@ def my_orders_view(request):
 
 @login_required
 def order_detail(request, pk):
-    # 1. Get the sale object (receipt) by its ID (pk)
     sale = get_object_or_404(Sale, pk=pk)
-
-    # 2. SECURITY CHECK: Ensure the logged-in user is the one who made this order.
-    # If someone tries to guess an ID (e.g., /order/5/) that isn't theirs, kick them out.
+    
+    # Security Check
     if sale.user != request.user:
         return redirect('my_orders')
 
-    # 3. Render the receipt page
+    # --- LIVE TRACKING LOGIC ---
+    live_status = None
+    if sale.consignment_id:
+        # If sent to courier, get the REAL status from API
+        live_status = check_delivery_status(sale.consignment_id)
+    
+    # Pass both local sale data and live status
     context = {
-        'sale': sale
+        'sale': sale,
+        'live_status': live_status 
     }
     return render(request, 'products/order_detail.html', context)
+
 
 def search_view(request):
     query = request.GET.get('q')
@@ -837,3 +862,47 @@ def update_cart(request, item_id, action):
     
     request.session['cart'] = cart
     return redirect('view_cart')
+
+
+# --- 2. THE NEW DASHBOARD VIEW ---
+@login_required
+def user_dashboard(request):
+    user = request.user
+    
+    # 1. Handle Profile Update
+    if request.method == 'POST' and 'update_profile' in request.POST:
+        user_form = UserForm(request.POST, instance=user)
+        profile_form = ProfileForm(request.POST, instance=user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Profile updated successfully!')
+            return redirect('user_dashboard')
+            
+    # 2. Handle Password Change
+    elif request.method == 'POST' and 'change_password' in request.POST:
+        password_form = PasswordChangeForm(user, request.POST)
+        if password_form.is_valid():
+            user = password_form.save()
+            update_session_auth_hash(request, user)  # Important! Keeps user logged in
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('user_dashboard')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    
+    # 3. Initial Load
+    else:
+        user_form = UserForm(instance=user)
+        profile_form = ProfileForm(instance=user.profile)
+        password_form = PasswordChangeForm(user)
+
+    # Get recent orders for the dashboard widget
+    recent_orders = Sale.objects.filter(user=user).order_by('-created_at')[:3]
+    
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'password_form': password_form,
+        'recent_orders': recent_orders
+    }
+    return render(request, 'registration/dashboard.html', context)

@@ -1,297 +1,424 @@
-INFO 2025-11-19 03:51:01,201 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 03:51:04,208 basehttp "GET / HTTP/1.1" 200 21393
-INFO 2025-11-19 03:51:04,240 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
-INFO 2025-11-19 03:51:07,686 basehttp "GET /user-logout/ HTTP/1.1" 302 0
-INFO 2025-11-19 03:51:08,195 basehttp "GET / HTTP/1.1" 200 19756
-INFO 2025-11-19 03:51:09,321 basehttp "GET /cart/ HTTP/1.1" 200 10644
-INFO 2025-11-19 03:51:11,625 basehttp "GET / HTTP/1.1" 200 19756
-INFO 2025-11-19 03:51:13,517 basehttp "GET /product/7/ HTTP/1.1" 200 28879
-INFO 2025-11-19 03:51:14,979 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
-INFO 2025-11-19 03:51:15,029 basehttp "GET /checkout/ HTTP/1.1" 200 14400
-INFO 2025-11-19 03:51:18,791 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 03:51:18,852 basehttp "GET /order-success/ HTTP/1.1" 200 10724
-INFO 2025-11-19 03:51:21,116 basehttp "GET / HTTP/1.1" 200 19756
-INFO 2025-11-19 03:51:24,341 basehttp "GET /product/9/ HTTP/1.1" 200 29410
-INFO 2025-11-19 03:51:26,535 basehttp "POST /add-to-cart/var/5/ HTTP/1.1" 302 0
-INFO 2025-11-19 03:51:26,587 basehttp "GET /checkout/ HTTP/1.1" 200 14418
-ERROR 2025-11-19 03:51:30,837 log Internal Server Error: /checkout/
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.errors.CheckViolation: new row for relation "products_productvariation" violates check constraint "products_productvariation_stock_quantity_check"
-DETAIL:  Failing row contains (5, 30 pc, 300.00, t, -1, 9).
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 294, in checkout
-    SaleItem.objects.create(
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
-    obj.save(force_insert=True, using=self.db)
-  File "E:\WebProjects\jebaenterprise\products\models.py", line 97, in save
-    self.variation.save()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
-    self.save_base(
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
-    updated = self._save_table(
-              ^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1138, in _save_table
-    updated = self._do_update(
-              ^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1203, in _do_update
-    return filtered._update(values) > 0
-           ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1288, in _update
-    return query.get_compiler(self.db).execute_sql(ROW_COUNT)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 2060, in execute_sql
-    row_count = super().execute_sql(result_type)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
-    cursor.execute(sql, params)
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
-    return super().execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
-    return self._execute_with_wrappers(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
-    with self.db.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.IntegrityError: new row for relation "products_productvariation" violates check constraint "products_productvariation_stock_quantity_check"
-DETAIL:  Failing row contains (5, 30 pc, 300.00, t, -1, 9).
-
-ERROR 2025-11-19 03:51:30,841 basehttp "POST /checkout/ HTTP/1.1" 500 164679
-INFO 2025-11-19 03:51:41,983 basehttp "GET / HTTP/1.1" 200 19962
-INFO 2025-11-19 03:51:43,881 basehttp "GET /product/8/ HTTP/1.1" 200 29171
-INFO 2025-11-19 03:51:43,918 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 304 0
-INFO 2025-11-19 03:51:43,919 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 304 0
-INFO 2025-11-19 03:51:43,921 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 304 0
-INFO 2025-11-19 03:51:43,921 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 304 0
-INFO 2025-11-19 03:51:43,921 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 304 0
-INFO 2025-11-19 03:51:43,922 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 304 0
-INFO 2025-11-19 03:51:45,300 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
-INFO 2025-11-19 03:51:45,364 basehttp "GET /checkout/ HTTP/1.1" 200 14756
-ERROR 2025-11-19 03:51:49,779 log Internal Server Error: /checkout/
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-psycopg2.errors.CheckViolation: new row for relation "products_productvariation" violates check constraint "products_productvariation_stock_quantity_check"
-DETAIL:  Failing row contains (5, 30 pc, 300.00, t, -1, 9).
-
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 294, in checkout
-    SaleItem.objects.create(
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
-    return getattr(self.get_queryset(), name)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
-    obj.save(force_insert=True, using=self.db)
-  File "E:\WebProjects\jebaenterprise\products\models.py", line 97, in save
-    self.variation.save()
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
-    self.save_base(
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
-    updated = self._save_table(
-              ^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1138, in _save_table
-    updated = self._do_update(
-              ^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1203, in _do_update
-    return filtered._update(values) > 0
-           ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1288, in _update
-    return query.get_compiler(self.db).execute_sql(ROW_COUNT)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 2060, in execute_sql
-    row_count = super().execute_sql(result_type)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
-    cursor.execute(sql, params)
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
-    return super().execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
-    return self._execute_with_wrappers(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
-    with self.db.wrap_database_errors:
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
-    return self.cursor.execute(sql, params)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-django.db.utils.IntegrityError: new row for relation "products_productvariation" violates check constraint "products_productvariation_stock_quantity_check"
-DETAIL:  Failing row contains (5, 30 pc, 300.00, t, -1, 9).
-
-ERROR 2025-11-19 03:51:49,780 basehttp "POST /checkout/ HTTP/1.1" 500 164907
-INFO 2025-11-19 03:55:03,552 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-19 03:55:03,797 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:00:22,612 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:00:33,079 basehttp "GET / HTTP/1.1" 200 19971
-INFO 2025-11-19 04:00:33,306 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
-INFO 2025-11-19 04:00:33,312 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 200 410471
-INFO 2025-11-19 04:00:33,316 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 200 35885
-INFO 2025-11-19 04:00:33,324 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 200 42518
-INFO 2025-11-19 04:00:33,324 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 200 102566
-WARNING 2025-11-19 04:00:33,466 log Not Found: /favicon.ico
-WARNING 2025-11-19 04:00:33,467 basehttp "GET /favicon.ico HTTP/1.1" 404 7663
-INFO 2025-11-19 04:00:38,422 basehttp "GET /cart/ HTTP/1.1" 200 11810
-INFO 2025-11-19 04:00:40,059 basehttp "GET /checkout/ HTTP/1.1" 200 14765
-INFO 2025-11-19 04:00:42,770 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:00:42,820 basehttp "GET /cart/ HTTP/1.1" 200 12572
-INFO 2025-11-19 04:03:29,018 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-19 04:03:29,251 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:03:51,783 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
-INFO 2025-11-19 04:03:52,020 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:04:26,933 basehttp "GET /cart/ HTTP/1.1" 200 15353
-INFO 2025-11-19 04:04:31,170 basehttp "GET /update-cart/var_5/remove/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:04:31,230 basehttp "GET /cart/ HTTP/1.1" 200 14171
-INFO 2025-11-19 04:04:32,293 basehttp "GET /checkout/ HTTP/1.1" 200 14427
-INFO 2025-11-19 04:04:36,044 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:04:36,104 basehttp "GET /order-success/ HTTP/1.1" 200 10733
-INFO 2025-11-19 04:04:37,932 basehttp "GET / HTTP/1.1" 200 19765
-INFO 2025-11-19 04:04:37,959 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
-WARNING 2025-11-19 04:04:45,432 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
-WARNING 2025-11-19 04:04:45,432 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 8078
-INFO 2025-11-19 04:04:58,692 basehttp "GET /cart/ HTTP/1.1" 200 12392
-INFO 2025-11-19 04:04:59,943 basehttp "GET /wishlist/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:05:00,011 basehttp "GET /accounts/login/?next=/wishlist/ HTTP/1.1" 200 11600
-INFO 2025-11-19 04:05:02,662 basehttp "POST /accounts/login/?next=/wishlist/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:05:03,199 basehttp "GET /wishlist/ HTTP/1.1" 200 19297
-INFO 2025-11-19 04:05:05,073 basehttp "GET /cart/ HTTP/1.1" 200 13659
-INFO 2025-11-19 04:05:06,710 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:05:07,698 basehttp "GET /wishlist/ HTTP/1.1" 200 19297
-INFO 2025-11-19 04:05:10,168 basehttp "GET /my-orders/ HTTP/1.1" 200 13971
-INFO 2025-11-19 04:05:11,529 basehttp "GET /order/38/ HTTP/1.1" 200 14268
-INFO 2025-11-19 04:05:14,205 basehttp "GET /my-orders/ HTTP/1.1" 200 13971
-INFO 2025-11-19 04:05:16,276 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:05:31,349 basehttp "GET /product/9/ HTTP/1.1" 200 31460
-INFO 2025-11-19 04:05:31,590 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-4.jpeg HTTP/1.1" 200 87590
-INFO 2025-11-19 04:05:31,596 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-5-1200x1202.jpeg HTTP/1.1" 200 134882
-INFO 2025-11-19 04:05:31,597 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-2-1200x1246.jpeg HTTP/1.1" 200 74578
-INFO 2025-11-19 04:05:31,613 basehttp "GET /media/products/gallery/Egg-Dispenser-Tray.jpg HTTP/1.1" 200 24333
-INFO 2025-11-19 04:05:31,614 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-3-1200x1271.jpeg HTTP/1.1" 200 118437
-INFO 2025-11-19 04:05:38,710 basehttp "POST /add-to-cart/var/6/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:05:38,808 basehttp "GET /checkout/ HTTP/1.1" 200 15892
-INFO 2025-11-19 04:08:31,457 autoreload E:\WebProjects\jebaenterprise\config\settings.py changed, reloading.
-INFO 2025-11-19 04:08:31,705 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:09:03,358 autoreload E:\WebProjects\jebaenterprise\config\settings.py changed, reloading.
-INFO 2025-11-19 04:09:03,596 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:13:03,347 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:13:09,187 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:13:12,883 basehttp "GET /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:13:12,883 basehttp "GET /cart/ HTTP/1.1" 200 12392
-INFO 2025-11-19 04:13:15,108 basehttp "GET / HTTP/1.1" 200 19765
-INFO 2025-11-19 04:13:15,138 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
-INFO 2025-11-19 04:13:17,597 basehttp "GET /accounts/login/ HTTP/1.1" 200 11600
-INFO 2025-11-19 04:13:19,479 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:13:20,346 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:13:22,428 basehttp "GET /cart/ HTTP/1.1" 200 13659
-INFO 2025-11-19 04:13:24,358 basehttp - Broken pipe from ('127.0.0.1', 55103)
-INFO 2025-11-19 04:13:24,954 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:13:28,344 basehttp "GET /product/7/ HTTP/1.1" 200 30938
-INFO 2025-11-19 04:13:28,514 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
-INFO 2025-11-19 04:13:28,520 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 200 33403
-INFO 2025-11-19 04:13:28,523 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 200 33734
-INFO 2025-11-19 04:13:32,192 basehttp "GET /product/9/ HTTP/1.1" 200 31460
-INFO 2025-11-19 04:13:35,882 basehttp "POST /add-to-cart/var/6/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:13:36,213 basehttp "GET /checkout/ HTTP/1.1" 200 15892
-ERROR 2025-11-19 04:13:38,917 log Internal Server Error: /checkout/
-Traceback (most recent call last):
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
-    response = get_response(request)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "E:\WebProjects\jebaenterprise\products\views.py", line 260, in checkout
-    new_sale.save()
-    ^^^^^^^^
-UnboundLocalError: cannot access local variable 'new_sale' where it is not associated with a value
-ERROR 2025-11-19 04:13:38,917 basehttp "POST /checkout/ HTTP/1.1" 500 74921
-INFO 2025-11-19 04:14:01,646 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-19 04:14:01,877 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:14:10,432 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:14:10,800 basehttp "GET /order-success/ HTTP/1.1" 200 12000
-INFO 2025-11-19 04:14:13,307 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:14:35,250 basehttp "GET /product/7/ HTTP/1.1" 200 30938
-INFO 2025-11-19 04:14:36,896 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:14:37,230 basehttp "GET /checkout/ HTTP/1.1" 200 15874
-INFO 2025-11-19 04:14:44,997 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:14:45,336 basehttp "GET /order-success/ HTTP/1.1" 200 12000
-INFO 2025-11-19 04:14:47,643 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:16:26,720 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-19 04:16:26,946 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:16:31,708 basehttp "GET /product/7/ HTTP/1.1" 200 30938
-INFO 2025-11-19 04:16:32,764 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:16:33,119 basehttp "GET /checkout/ HTTP/1.1" 200 15874
-INFO 2025-11-19 04:16:40,833 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:16:41,168 basehttp "GET /order-success/ HTTP/1.1" 200 12000
-INFO 2025-11-19 04:17:14,803 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:17:23,514 basehttp "GET /my-orders/ HTTP/1.1" 200 16433
-INFO 2025-11-19 04:17:25,871 basehttp "GET /order/45/ HTTP/1.1" 200 14918
-INFO 2025-11-19 04:21:16,831 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-19 04:21:17,083 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:21:52,607 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-19 04:21:52,819 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:22:26,482 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-19 04:22:26,712 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:25:21,996 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:25:23,480 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:25:23,513 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
-INFO 2025-11-19 04:25:27,009 basehttp "GET /my-orders/ HTTP/1.1" 200 16433
-INFO 2025-11-19 04:25:31,151 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:25:34,311 basehttp "GET /product/7/ HTTP/1.1" 200 30938
-INFO 2025-11-19 04:25:35,741 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:25:36,078 basehttp "GET /checkout/ HTTP/1.1" 200 15874
-INFO 2025-11-19 04:25:45,238 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:25:45,558 basehttp "GET /order-success/ HTTP/1.1" 200 12000
-INFO 2025-11-19 04:25:47,832 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:25:53,882 basehttp "GET /my-orders/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:25:53,902 basehttp "GET /accounts/login/?next=/my-orders/ HTTP/1.1" 200 11600
-INFO 2025-11-19 04:25:53,987 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
-WARNING 2025-11-19 04:25:54,322 log Not Found: /favicon.ico
-WARNING 2025-11-19 04:25:54,322 basehttp "GET /favicon.ico HTTP/1.1" 404 7967
-INFO 2025-11-19 04:38:00,043 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
-INFO 2025-11-19 04:38:00,268 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:39:00,673 autoreload Watching for file changes with StatReloader
-INFO 2025-11-19 04:39:04,497 basehttp "GET /product/7/ HTTP/1.1" 200 30938
-INFO 2025-11-19 04:39:04,509 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
-INFO 2025-11-19 04:39:06,268 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:39:06,569 basehttp "GET /checkout/ HTTP/1.1" 200 15874
-INFO 2025-11-19 04:39:14,199 basehttp "POST /checkout/ HTTP/1.1" 302 0
-INFO 2025-11-19 04:39:14,546 basehttp "GET /order-success/ HTTP/1.1" 200 12000
-INFO 2025-11-19 04:39:16,365 basehttp "GET / HTTP/1.1" 200 21032
-INFO 2025-11-19 04:39:16,388 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:07,791 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 13:07:18,604 basehttp "GET / HTTP/1.1" 200 21032
+INFO 2025-11-19 13:07:18,643 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:18,643 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:18,643 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:18,643 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:18,643 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+WARNING 2025-11-19 13:07:18,721 log Not Found: /favicon.ico
+WARNING 2025-11-19 13:07:18,721 basehttp "GET /favicon.ico HTTP/1.1" 404 7967
+INFO 2025-11-19 13:07:24,056 basehttp "GET /wishlist/ HTTP/1.1" 200 19297
+INFO 2025-11-19 13:07:28,461 basehttp "GET / HTTP/1.1" 200 21032
+INFO 2025-11-19 13:07:30,067 basehttp "GET /my-orders/ HTTP/1.1" 200 18075
+INFO 2025-11-19 13:07:32,474 basehttp "GET /order/47/ HTTP/1.1" 200 14929
+INFO 2025-11-19 13:07:36,276 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:07:37,064 basehttp "GET / HTTP/1.1" 200 19765
+INFO 2025-11-19 13:07:46,063 basehttp "GET /product/9/ HTTP/1.1" 200 29419
+INFO 2025-11-19 13:07:46,085 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-2-1200x1246.jpeg HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:46,088 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-5-1200x1202.jpeg HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:46,088 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-4.jpeg HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:46,088 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-3-1200x1271.jpeg HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:46,089 basehttp "GET /media/products/gallery/Egg-Dispenser-Tray.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 13:07:50,051 basehttp "POST /add-to-cart/var/5/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:07:50,059 basehttp "GET /checkout/ HTTP/1.1" 200 14427
+INFO 2025-11-19 13:07:53,998 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:07:54,010 basehttp "GET /cart/ HTTP/1.1" 200 14945
+INFO 2025-11-19 13:07:58,558 basehttp "GET /update-cart/var_5/remove/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:07:58,561 basehttp "GET /cart/ HTTP/1.1" 200 12392
+INFO 2025-11-19 13:08:00,541 basehttp "GET / HTTP/1.1" 200 19765
+INFO 2025-11-19 13:08:03,126 basehttp "GET /product/9/ HTTP/1.1" 200 29419
+INFO 2025-11-19 13:08:06,689 basehttp "POST /add-to-cart/var/6/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:08:06,689 basehttp "GET /checkout/ HTTP/1.1" 200 14427
+INFO 2025-11-19 13:08:10,519 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:08:10,523 basehttp "GET /order-success/ HTTP/1.1" 200 10733
+INFO 2025-11-19 13:08:13,247 basehttp "GET / HTTP/1.1" 200 19765
+INFO 2025-11-19 13:08:22,129 basehttp "GET /accounts/login/ HTTP/1.1" 200 11600
+INFO 2025-11-19 13:08:25,022 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:08:25,822 basehttp "GET / HTTP/1.1" 200 21032
+INFO 2025-11-19 13:08:29,200 basehttp "GET /product/8/ HTTP/1.1" 200 31024
+INFO 2025-11-19 13:08:29,528 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 200 33717
+INFO 2025-11-19 13:08:29,528 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 200 67458
+INFO 2025-11-19 13:08:29,529 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 200 42604
+INFO 2025-11-19 13:08:29,531 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 200 57619
+INFO 2025-11-19 13:08:29,533 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 200 50737
+INFO 2025-11-19 13:08:29,533 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 200 46806
+INFO 2025-11-19 13:08:31,828 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:08:32,709 basehttp "GET /product/8/ HTTP/1.1" 200 31394
+INFO 2025-11-19 13:08:34,621 basehttp "GET /cart/ HTTP/1.1" 200 15602
+INFO 2025-11-19 13:08:37,304 basehttp "GET /update-cart/8/increase/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:08:37,612 basehttp "GET /cart/ HTTP/1.1" 200 15604
+INFO 2025-11-19 13:08:38,238 basehttp "GET /update-cart/8/decrease/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:08:38,555 basehttp "GET /cart/ HTTP/1.1" 200 15602
+INFO 2025-11-19 13:08:40,542 basehttp "GET /update-cart/8/increase/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:08:40,879 basehttp "GET /cart/ HTTP/1.1" 200 15604
+INFO 2025-11-19 13:08:41,719 basehttp "GET /update-cart/8/decrease/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:08:42,036 basehttp "GET /cart/ HTTP/1.1" 200 15602
+INFO 2025-11-19 13:08:43,510 basehttp "GET /checkout/ HTTP/1.1" 200 15892
+INFO 2025-11-19 13:08:52,449 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:08:52,751 basehttp "GET /order-success/ HTTP/1.1" 200 12000
+INFO 2025-11-19 13:08:54,814 basehttp "GET / HTTP/1.1" 200 21032
+INFO 2025-11-19 13:09:52,126 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:09:52,860 basehttp "GET / HTTP/1.1" 200 19765
+INFO 2025-11-19 13:11:52,308 basehttp "GET /product/7/ HTTP/1.1" 200 28888
+INFO 2025-11-19 13:11:52,337 basehttp "GET /media/products/gallery/Fascial-Gun-2.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 13:11:52,338 basehttp "GET /media/products/gallery/Fascial-Gun-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 13:11:52,338 basehttp "GET /media/products/gallery/Fascial-Gun-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 13:11:54,240 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:11:54,250 basehttp "GET /checkout/ HTTP/1.1" 200 14409
+INFO 2025-11-19 13:14:03,133 basehttp "GET / HTTP/1.1" 200 19971
+WARNING 2025-11-19 13:14:03,232 log Not Found: /favicon.ico
+WARNING 2025-11-19 13:14:03,233 basehttp "GET /favicon.ico HTTP/1.1" 404 7967
+INFO 2025-11-19 13:14:07,000 basehttp "GET /cart/ HTTP/1.1" 200 14153
+INFO 2025-11-19 13:14:08,248 basehttp "GET /update-cart/7/remove/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:14:08,251 basehttp "GET /cart/ HTTP/1.1" 200 12392
+INFO 2025-11-19 13:14:10,087 basehttp "GET / HTTP/1.1" 200 19765
+INFO 2025-11-19 13:14:10,977 basehttp "GET /accounts/login/ HTTP/1.1" 200 11600
+INFO 2025-11-19 13:14:13,757 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:14:14,531 basehttp "GET / HTTP/1.1" 200 21032
+INFO 2025-11-19 13:14:16,302 basehttp - Broken pipe from ('127.0.0.1', 63666)
+INFO 2025-11-19 13:14:16,502 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:14:16,986 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:14:17,306 basehttp - Broken pipe from ('127.0.0.1', 52110)
+INFO 2025-11-19 13:14:17,707 basehttp "GET / HTTP/1.1" 200 19765
+INFO 2025-11-19 13:14:20,242 basehttp "GET /products/?sort=new HTTP/1.1" 200 20731
+INFO 2025-11-19 13:48:05,337 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-19 13:48:05,607 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 13:54:01,726 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 13:54:06,412 basehttp "GET /products/?sort=new HTTP/1.1" 200 21559
+INFO 2025-11-19 13:54:12,898 basehttp "GET / HTTP/1.1" 200 20593
+INFO 2025-11-19 13:54:16,228 basehttp "GET /accounts/login/ HTTP/1.1" 200 12428
+INFO 2025-11-19 13:54:18,178 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:54:19,010 basehttp "GET / HTTP/1.1" 200 21860
+INFO 2025-11-19 13:54:56,496 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 13:54:59,331 basehttp "GET / HTTP/1.1" 200 21860
+INFO 2025-11-19 13:55:04,441 basehttp "GET /my-orders/ HTTP/1.1" 200 19723
+INFO 2025-11-19 13:55:06,295 basehttp "GET /order/49/ HTTP/1.1" 200 15742
+INFO 2025-11-19 13:55:08,985 basehttp "GET / HTTP/1.1" 200 21860
+WARNING 2025-11-19 13:55:33,376 log Not Found: /user_dashboard
+WARNING 2025-11-19 13:55:33,376 basehttp "GET /user_dashboard HTTP/1.1" 404 8499
+INFO 2025-11-19 13:56:00,237 basehttp "GET /wishlist/ HTTP/1.1" 200 20125
+INFO 2025-11-19 13:56:18,818 basehttp "GET /dashboard HTTP/1.1" 301 0
+INFO 2025-11-19 13:56:19,488 basehttp "GET /dashboard/ HTTP/1.1" 200 21800
+INFO 2025-11-19 13:56:48,414 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:56:49,176 basehttp "GET / HTTP/1.1" 200 20593
+INFO 2025-11-19 13:56:50,248 basehttp "GET /accounts/login/ HTTP/1.1" 200 12428
+INFO 2025-11-19 13:56:53,793 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 13:56:54,648 basehttp "GET / HTTP/1.1" 200 21860
+INFO 2025-11-19 13:56:57,479 basehttp "GET /dashboard/ HTTP/1.1" 200 21716
+INFO 2025-11-19 13:57:08,498 basehttp "GET / HTTP/1.1" 200 21860
+INFO 2025-11-19 13:58:43,932 basehttp "GET / HTTP/1.1" 200 22317
+INFO 2025-11-19 13:58:45,550 basehttp "GET /dashboard/ HTTP/1.1" 200 22173
+INFO 2025-11-19 13:58:50,634 basehttp "GET /search/?q=egg&image= HTTP/1.1" 200 20133
+INFO 2025-11-19 13:58:55,625 basehttp "GET / HTTP/1.1" 200 22317
+INFO 2025-11-19 13:59:15,329 basehttp "GET /my-orders/ HTTP/1.1" 200 21826
+INFO 2025-11-19 13:59:18,833 basehttp "GET /order/37/ HTTP/1.1" 200 15559
+INFO 2025-11-19 13:59:22,523 basehttp "GET / HTTP/1.1" 200 22317
+INFO 2025-11-19 14:00:03,775 basehttp "GET / HTTP/1.1" 200 22317
+INFO 2025-11-19 14:04:31,960 basehttp "GET / HTTP/1.1" 200 22318
+INFO 2025-11-19 14:04:43,875 basehttp "GET / HTTP/1.1" 200 23079
+INFO 2025-11-19 14:05:48,210 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:05:48,226 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
+INFO 2025-11-19 14:05:51,873 basehttp "GET /products/ HTTP/1.1" 200 24477
+INFO 2025-11-19 14:05:55,139 basehttp "GET / HTTP/1.1" 200 23511
+WARNING 2025-11-19 14:05:57,519 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 14:05:57,520 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 8601
+INFO 2025-11-19 14:07:01,156 basehttp "GET /product/7/ HTTP/1.1" 200 33408
+INFO 2025-11-19 14:27:31,989 basehttp "GET /product/7/ HTTP/1.1" 200 36330
+INFO 2025-11-19 14:28:34,234 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:28:38,125 basehttp "GET /product/7/ HTTP/1.1" 200 36330
+INFO 2025-11-19 14:29:09,142 basehttp "GET /product/7/ HTTP/1.1" 200 36332
+INFO 2025-11-19 14:29:12,754 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:29:12,775 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 14:29:15,547 basehttp "GET /product/9/ HTTP/1.1" 200 36922
+INFO 2025-11-19 14:29:30,029 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:29:35,682 basehttp "GET /dashboard/ HTTP/1.1" 200 23367
+INFO 2025-11-19 14:29:42,831 basehttp "GET /dashboard/ HTTP/1.1" 200 23367
+INFO 2025-11-19 14:29:44,101 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 14:29:44,894 basehttp "GET / HTTP/1.1" 200 21787
+INFO 2025-11-19 14:29:46,368 basehttp "GET /accounts/login/ HTTP/1.1" 200 13622
+INFO 2025-11-19 14:29:50,195 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 14:29:50,971 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:29:55,151 basehttp "GET /dashboard/ HTTP/1.1" 200 23451
+INFO 2025-11-19 14:30:33,866 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:30:44,052 basehttp "GET /products/ HTTP/1.1" 200 24477
+INFO 2025-11-19 14:30:51,958 basehttp "GET /products/?category=1 HTTP/1.1" 200 23726
+INFO 2025-11-19 14:30:54,930 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:31:09,751 basehttp "GET /cart/ HTTP/1.1" 200 16138
+INFO 2025-11-19 14:31:11,881 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:33:27,942 basehttp "GET /my-orders/ HTTP/1.1" 200 21374
+INFO 2025-11-19 14:33:31,957 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:33:34,038 basehttp "GET /my-orders/ HTTP/1.1" 200 21374
+INFO 2025-11-19 14:33:36,749 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:33:39,304 basehttp "GET /my-orders/ HTTP/1.1" 200 21374
+INFO 2025-11-19 14:33:40,523 basehttp "GET /order/49/ HTTP/1.1" 200 17393
+INFO 2025-11-19 14:33:44,364 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:36:39,785 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:36:42,527 basehttp "GET /dashboard/ HTTP/1.1" 200 23451
+INFO 2025-11-19 14:36:51,470 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 14:36:52,260 basehttp "GET / HTTP/1.1" 200 21787
+INFO 2025-11-19 14:36:53,914 basehttp "GET /accounts/login/ HTTP/1.1" 200 14232
+INFO 2025-11-19 14:36:56,312 basehttp "GET /accounts/password_reset/ HTTP/1.1" 200 2899
+INFO 2025-11-19 14:36:56,557 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+INFO 2025-11-19 14:36:56,562 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+INFO 2025-11-19 14:36:56,564 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+INFO 2025-11-19 14:36:56,601 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 200 164819
+INFO 2025-11-19 14:36:56,604 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+INFO 2025-11-19 14:36:56,604 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-11-19 14:36:56,612 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+INFO 2025-11-19 14:36:56,621 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 200 2637
+INFO 2025-11-19 14:36:56,686 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+INFO 2025-11-19 14:37:13,503 basehttp "POST /accounts/password_reset/ HTTP/1.1" 302 0
+INFO 2025-11-19 14:37:13,508 basehttp "GET /accounts/password_reset/done/ HTTP/1.1" 200 2319
+INFO 2025-11-19 14:37:26,036 basehttp "GET /accounts/login/ HTTP/1.1" 200 14232
+INFO 2025-11-19 14:37:28,343 basehttp "GET / HTTP/1.1" 200 21787
+INFO 2025-11-19 14:38:02,682 basehttp "GET /accounts/reset/OA/czir9y-f19a39955a0456bb10012159ed4d92fb/ HTTP/1.1" 302 0
+INFO 2025-11-19 14:38:03,001 basehttp "GET /accounts/reset/OA/set-password/ HTTP/1.1" 200 3456
+INFO 2025-11-19 14:38:19,597 basehttp "POST /accounts/reset/OA/set-password/ HTTP/1.1" 302 0
+INFO 2025-11-19 14:38:19,604 basehttp "GET /accounts/reset/done/ HTTP/1.1" 200 2306
+INFO 2025-11-19 14:38:22,272 basehttp "GET /accounts/login/ HTTP/1.1" 200 14232
+INFO 2025-11-19 14:38:24,298 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 14:38:25,094 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:38:54,246 basehttp "GET /product/7/ HTTP/1.1" 200 36341
+INFO 2025-11-19 14:39:01,313 basehttp "GET /product/8/ HTTP/1.1" 200 36484
+INFO 2025-11-19 14:39:13,809 basehttp "GET /my-orders/ HTTP/1.1" 200 21374
+INFO 2025-11-19 14:39:30,486 basehttp "GET / HTTP/1.1" 200 23511
+INFO 2025-11-19 14:39:33,288 basehttp "GET /dashboard/ HTTP/1.1" 200 23451
+INFO 2025-11-19 14:39:48,267 basehttp "GET /my-orders/ HTTP/1.1" 200 21374
+INFO 2025-11-19 14:41:52,527 basehttp "GET /dashboard/ HTTP/1.1" 200 23872
+WARNING 2025-11-19 14:42:03,761 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 14:42:03,762 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 8601
+INFO 2025-11-19 14:47:29,270 autoreload E:\WebProjects\jebaenterprise\products\models.py changed, reloading.
+INFO 2025-11-19 14:47:29,543 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 14:52:17,037 basehttp "GET /dashboard/ HTTP/1.1" 200 24059
+INFO 2025-11-19 14:52:25,289 basehttp "GET / HTTP/1.1" 200 23692
+INFO 2025-11-19 14:52:29,468 basehttp "GET / HTTP/1.1" 200 23692
+INFO 2025-11-19 14:52:34,148 basehttp "GET /products/ HTTP/1.1" 200 24658
+WARNING 2025-11-19 14:52:40,762 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 14:52:40,762 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 8601
+INFO 2025-11-19 14:56:34,990 basehttp "GET /products/ HTTP/1.1" 200 25219
+INFO 2025-11-19 14:56:48,304 basehttp "GET /products/ HTTP/1.1" 200 25219
+INFO 2025-11-19 14:56:51,435 basehttp "GET /search/?q=eg&image= HTTP/1.1" 200 22061
+INFO 2025-11-19 14:56:54,270 basehttp "GET / HTTP/1.1" 200 24253
+INFO 2025-11-19 14:56:56,031 basehttp "GET /dashboard/ HTTP/1.1" 200 24620
+INFO 2025-11-19 14:57:08,321 basehttp "GET / HTTP/1.1" 200 24253
+INFO 2025-11-19 14:57:46,074 basehttp "GET /product/7/ HTTP/1.1" 200 37083
+INFO 2025-11-19 14:57:51,050 basehttp "GET /products/ HTTP/1.1" 200 25219
+INFO 2025-11-19 15:02:50,854 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-19 15:02:51,120 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 15:04:23,414 basehttp "GET /products/ HTTP/1.1" 200 28809
+WARNING 2025-11-19 15:04:29,436 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-19 15:04:29,437 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 8601
+INFO 2025-11-19 15:04:43,827 basehttp "GET /search/?q=egg&image= HTTP/1.1" 200 22069
+INFO 2025-11-19 15:04:47,183 basehttp "GET /products/ HTTP/1.1" 200 28809
+INFO 2025-11-19 15:16:25,808 basehttp "GET / HTTP/1.1" 200 24253
+INFO 2025-11-19 15:16:25,837 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
+INFO 2025-11-19 15:16:31,005 basehttp "GET /products/?sort=new HTTP/1.1" 200 28809
+INFO 2025-11-19 15:16:34,600 basehttp "GET / HTTP/1.1" 200 24253
+INFO 2025-11-19 15:16:35,988 basehttp "GET /products/ HTTP/1.1" 200 28809
+INFO 2025-11-19 15:16:39,914 basehttp "GET / HTTP/1.1" 200 24253
+INFO 2025-11-19 15:20:12,322 basehttp "GET / HTTP/1.1" 200 30013
+INFO 2025-11-19 15:20:18,482 basehttp "GET /my-orders/ HTTP/1.1" 200 27900
+INFO 2025-11-19 15:20:35,885 basehttp "GET / HTTP/1.1" 200 30013
+INFO 2025-11-19 15:20:40,166 basehttp "GET /products/ HTTP/1.1" 200 34569
+INFO 2025-11-19 15:23:14,289 basehttp "GET / HTTP/1.1" 200 30078
+INFO 2025-11-19 15:23:36,657 basehttp "GET / HTTP/1.1" 200 30078
+INFO 2025-11-19 15:23:50,778 basehttp "GET / HTTP/1.1" 200 30077
+INFO 2025-11-19 15:24:46,305 basehttp "GET /products/ HTTP/1.1" 200 34633
+INFO 2025-11-19 15:24:57,826 basehttp "GET / HTTP/1.1" 200 30077
+INFO 2025-11-19 15:26:56,045 basehttp "GET / HTTP/1.1" 200 30077
+INFO 2025-11-19 15:27:00,261 basehttp "GET /my-orders/ HTTP/1.1" 200 27964
+INFO 2025-11-19 15:27:02,632 basehttp "GET / HTTP/1.1" 200 30077
+INFO 2025-11-19 15:27:05,196 basehttp "GET /my-orders/ HTTP/1.1" 200 27964
+INFO 2025-11-19 15:27:06,417 basehttp "GET /order/49/ HTTP/1.1" 200 23961
+INFO 2025-11-19 15:27:12,177 basehttp "GET /my-orders/ HTTP/1.1" 200 27964
+INFO 2025-11-19 15:27:16,434 basehttp "GET / HTTP/1.1" 200 30077
+INFO 2025-11-19 15:27:52,479 basehttp - Broken pipe from ('127.0.0.1', 57980)
+INFO 2025-11-19 15:27:53,171 basehttp "GET /products/ HTTP/1.1" 200 34633
+INFO 2025-11-19 15:29:01,234 basehttp "GET / HTTP/1.1" 200 30077
+INFO 2025-11-19 15:29:07,562 basehttp "GET /my-orders/ HTTP/1.1" 200 27964
+INFO 2025-11-19 15:29:11,234 basehttp "GET / HTTP/1.1" 200 30077
+INFO 2025-11-19 16:11:54,645 autoreload E:\WebProjects\jebaenterprise\products\models.py changed, reloading.
+INFO 2025-11-19 16:11:54,930 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 16:18:12,574 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 16:18:15,667 basehttp "GET / HTTP/1.1" 200 30077
+INFO 2025-11-19 16:18:15,685 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 16:18:18,674 basehttp "GET /my-orders/ HTTP/1.1" 200 27964
+INFO 2025-11-19 16:18:19,916 basehttp "GET /cart/ HTTP/1.1" 200 22704
+INFO 2025-11-19 16:18:21,697 basehttp "GET / HTTP/1.1" 200 30077
+INFO 2025-11-19 16:18:24,279 basehttp "GET /product/7/ HTTP/1.1" 200 42907
+INFO 2025-11-19 16:18:26,691 basehttp "POST /add-to-cart/7/ HTTP/1.1" 302 0
+INFO 2025-11-19 16:18:27,056 basehttp "GET /checkout/ HTTP/1.1" 200 28670
+INFO 2025-11-19 16:21:43,626 basehttp "GET /checkout/ HTTP/1.1" 200 28610
+INFO 2025-11-19 16:21:43,729 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2188
+INFO 2025-11-19 16:26:54,635 autoreload E:\WebProjects\jebaenterprise\products\models.py changed, reloading.
+INFO 2025-11-19 16:26:54,919 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 16:27:15,405 autoreload E:\WebProjects\jebaenterprise\products\models.py changed, reloading.
+INFO 2025-11-19 16:27:15,656 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 16:27:31,512 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 16:28:35,392 autoreload E:\WebProjects\jebaenterprise\products\forms.py changed, reloading.
+INFO 2025-11-19 16:28:35,647 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 16:28:53,082 autoreload E:\WebProjects\jebaenterprise\products\forms.py changed, reloading.
+INFO 2025-11-19 16:28:53,329 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 16:29:19,846 autoreload E:\WebProjects\jebaenterprise\products\forms.py changed, reloading.
+INFO 2025-11-19 16:29:20,102 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 16:30:16,923 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-19 16:30:17,176 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 16:39:51,260 basehttp "GET /checkout/ HTTP/1.1" 200 31351
+INFO 2025-11-19 16:39:51,284 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 16:40:08,406 basehttp "GET / HTTP/1.1" 200 30916
+INFO 2025-11-19 16:40:08,430 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 304 0
+INFO 2025-11-19 16:40:08,432 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 16:40:08,433 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 16:40:08,433 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 304 0
+INFO 2025-11-19 16:40:11,019 basehttp "GET /my-orders/ HTTP/1.1" 200 28804
+INFO 2025-11-19 16:40:12,641 basehttp "GET /order/49/ HTTP/1.1" 200 25678
+INFO 2025-11-19 16:40:22,839 basehttp "GET /cart/ HTTP/1.1" 200 25098
+INFO 2025-11-19 16:40:25,139 basehttp "GET /checkout/ HTTP/1.1" 200 31351
+INFO 2025-11-19 16:43:03,377 basehttp "GET /checkout/ HTTP/1.1" 200 32321
+INFO 2025-11-19 16:43:03,399 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 16:43:08,731 basehttp "GET /checkout/ HTTP/1.1" 200 32321
+INFO 2025-11-19 16:43:32,560 basehttp "GET / HTTP/1.1" 200 30916
+INFO 2025-11-19 16:43:35,284 basehttp "GET /product/8/ HTTP/1.1" 200 43889
+INFO 2025-11-19 16:43:35,305 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-1.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 16:43:35,305 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L2.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 16:43:35,305 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L3.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 16:43:35,306 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-3.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 16:43:35,308 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L-4.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 16:43:35,308 basehttp "GET /media/products/gallery/Yougurt-Maker-1.7-L.jpg HTTP/1.1" 304 0
+INFO 2025-11-19 16:43:36,755 basehttp "POST /add-to-cart/8/ HTTP/1.1" 302 0
+INFO 2025-11-19 16:43:37,101 basehttp "GET /checkout/ HTTP/1.1" 200 32322
+INFO 2025-11-19 17:06:24,747 basehttp "GET /checkout/ HTTP/1.1" 200 34601
+INFO 2025-11-19 17:06:40,272 basehttp "GET /products/ HTTP/1.1" 200 35472
+INFO 2025-11-19 17:06:41,407 basehttp "GET /cart/ HTTP/1.1" 200 26267
+INFO 2025-11-19 17:06:45,520 basehttp "GET /update-cart/7/remove/ HTTP/1.1" 302 0
+INFO 2025-11-19 17:06:45,819 basehttp "GET /cart/ HTTP/1.1" 200 25116
+INFO 2025-11-19 17:06:47,061 basehttp "GET /checkout/ HTTP/1.1" 200 34273
+INFO 2025-11-19 17:10:18,362 basehttp "GET /my-orders/ HTTP/1.1" 200 28804
+INFO 2025-11-19 17:10:23,943 basehttp "GET /order/49/ HTTP/1.1" 200 25678
+INFO 2025-11-19 17:10:29,126 basehttp "GET / HTTP/1.1" 200 30916
+INFO 2025-11-19 17:10:32,818 basehttp "GET /my-orders/ HTTP/1.1" 200 28804
+INFO 2025-11-19 17:10:36,537 basehttp "GET /order/49/ HTTP/1.1" 200 25678
+INFO 2025-11-19 17:10:47,825 basehttp "GET /cart/ HTTP/1.1" 200 25116
+INFO 2025-11-19 17:10:49,546 basehttp "GET /checkout/ HTTP/1.1" 200 34273
+INFO 2025-11-19 17:12:01,670 basehttp "GET /checkout/ HTTP/1.1" 200 34024
+INFO 2025-11-19 17:12:01,694 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 17:12:49,134 basehttp "GET /checkout/ HTTP/1.1" 200 34035
+INFO 2025-11-19 17:13:07,337 basehttp "GET /checkout/ HTTP/1.1" 200 34025
+INFO 2025-11-19 17:27:50,497 autoreload E:\WebProjects\jebaenterprise\products\models.py changed, reloading.
+INFO 2025-11-19 17:27:50,778 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 17:28:14,290 autoreload E:\WebProjects\jebaenterprise\products\models.py changed, reloading.
+INFO 2025-11-19 17:28:14,550 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 17:45:32,765 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 17:45:36,368 basehttp "GET / HTTP/1.1" 200 30916
+INFO 2025-11-19 17:45:38,791 basehttp "GET /cart/ HTTP/1.1" 200 25116
+INFO 2025-11-19 17:45:42,172 basehttp "GET /checkout/ HTTP/1.1" 200 34025
+INFO 2025-11-19 17:45:42,191 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 304 0
+INFO 2025-11-19 17:46:13,227 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-19 17:46:13,544 basehttp "GET /order-success/ HTTP/1.1" 200 21514
+INFO 2025-11-19 17:46:15,945 basehttp "GET / HTTP/1.1" 200 30546
+INFO 2025-11-19 17:46:17,354 basehttp "GET /my-orders/ HTTP/1.1" 200 29257
+INFO 2025-11-19 17:46:20,740 basehttp "GET /order/50/ HTTP/1.1" 200 25483
+INFO 2025-11-19 17:46:37,901 basehttp "GET / HTTP/1.1" 200 30546
+INFO 2025-11-19 17:46:40,329 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-19 17:46:41,051 basehttp "GET / HTTP/1.1" 200 28822
+INFO 2025-11-19 17:46:42,097 basehttp "GET /accounts/login/ HTTP/1.1" 200 21267
+INFO 2025-11-19 17:46:45,415 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 17:46:46,248 basehttp "GET / HTTP/1.1" 200 31363
+INFO 2025-11-19 17:46:47,973 basehttp "GET /admin/ HTTP/1.1" 200 33313
+INFO 2025-11-19 17:46:47,997 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 17:46:47,999 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 17:46:48,000 basehttp "GET /static/vendor/bootswatch/flatly/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 17:46:48,000 basehttp "GET /static/vendor/adminlte/img/AdminLTELogo.png HTTP/1.1" 304 0
+INFO 2025-11-19 17:46:48,000 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+INFO 2025-11-19 17:46:48,001 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 17:46:48,003 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 17:46:48,044 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-19 17:46:48,093 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+INFO 2025-11-19 17:46:48,115 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+INFO 2025-11-19 17:46:52,804 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 55022
+INFO 2025-11-19 17:46:52,829 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+INFO 2025-11-19 17:46:52,833 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-11-19 17:46:52,834 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-11-19 17:46:52,835 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-11-19 17:46:52,835 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-11-19 17:46:52,836 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-11-19 17:46:52,837 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-11-19 17:46:52,837 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+INFO 2025-11-19 17:46:52,839 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-11-19 17:46:52,844 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+INFO 2025-11-19 17:46:53,138 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 17:47:05,760 basehttp "GET /admin/products/sale/?payment_method__exact=BKASH&q= HTTP/1.1" 200 31491
+INFO 2025-11-19 17:47:06,077 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 17:47:15,439 basehttp "GET /admin/products/sale/50/change/?_changelist_filters=payment_method__exact%3DBKASH%26q%3D HTTP/1.1" 200 57280
+INFO 2025-11-19 17:47:15,463 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-11-19 17:47:15,463 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-11-19 17:47:15,464 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+INFO 2025-11-19 17:47:15,467 basehttp "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+INFO 2025-11-19 17:47:15,469 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-11-19 17:47:15,471 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-11-19 17:47:15,473 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-11-19 17:47:15,475 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-11-19 17:47:15,753 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 17:49:12,481 basehttp "POST /admin/products/sale/50/change/?_changelist_filters=payment_method__exact%3DBKASH%26q%3D HTTP/1.1" 302 0
+INFO 2025-11-19 17:49:13,196 basehttp "GET /admin/products/sale/?payment_method__exact=BKASH HTTP/1.1" 200 31992
+INFO 2025-11-19 17:49:13,525 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 17:49:48,091 basehttp "GET / HTTP/1.1" 200 28822
+INFO 2025-11-19 17:49:48,114 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-11-19 17:49:48,118 basehttp "GET /media/products/transparent/5cb2ef49-2c58-4805-b52a-845ce4c89781_qGPInEw.png HTTP/1.1" 200 410471
+INFO 2025-11-19 17:49:48,146 basehttp "GET /media/products/gallery/Autamatic-Yogurt-Maker-1.7L.jpg HTTP/1.1" 200 35885
+INFO 2025-11-19 17:49:48,147 basehttp "GET /media/products/gallery/Fascial-Gun-1.jpg HTTP/1.1" 200 42518
+INFO 2025-11-19 17:49:48,148 basehttp "GET /media/products/gallery/EGG-DESPANSOR-TRAY-1-1200x1072_1.jpeg HTTP/1.1" 200 102566
+INFO 2025-11-19 17:49:49,702 basehttp "GET /accounts/login/ HTTP/1.1" 200 21267
+INFO 2025-11-19 17:49:53,008 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-19 17:49:53,728 basehttp "GET / HTTP/1.1" 200 30546
+INFO 2025-11-19 17:49:55,413 basehttp "GET /my-orders/ HTTP/1.1" 200 29257
+INFO 2025-11-19 17:49:58,617 basehttp "GET /order/50/ HTTP/1.1" 200 26477
+INFO 2025-11-19 17:50:42,500 basehttp "GET /admin/products/sale/50/change/?_changelist_filters=payment_method__exact%3DBKASH HTTP/1.1" 200 57295
+INFO 2025-11-19 17:50:42,872 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 17:51:19,449 basehttp "GET /my-orders/ HTTP/1.1" 200 29257
+INFO 2025-11-19 17:51:21,598 basehttp "GET /order/35/ HTTP/1.1" 200 25460
+INFO 2025-11-19 17:51:24,881 basehttp "GET /my-orders/ HTTP/1.1" 200 29257
+INFO 2025-11-19 17:51:26,427 basehttp "GET /order/49/ HTTP/1.1" 200 25460
+INFO 2025-11-19 17:51:29,731 basehttp "GET /my-orders/ HTTP/1.1" 200 29257
+INFO 2025-11-19 17:51:31,874 basehttp "GET /order/50/ HTTP/1.1" 200 26477
+INFO 2025-11-19 17:52:21,714 basehttp "GET / HTTP/1.1" 200 30546
+INFO 2025-11-19 17:52:24,318 basehttp "GET /my-orders/ HTTP/1.1" 200 29257
+INFO 2025-11-19 17:52:26,279 basehttp "GET /order/50/ HTTP/1.1" 200 26477
+INFO 2025-11-19 17:53:39,578 basehttp "GET /admin/products/product/ HTTP/1.1" 200 27512
+INFO 2025-11-19 17:53:39,905 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 17:53:45,553 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 55030
+INFO 2025-11-19 17:53:45,904 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 17:54:04,229 basehttp "GET /admin/products/sale/50/change/ HTTP/1.1" 200 57145
+INFO 2025-11-19 17:54:04,563 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 17:54:18,291 basehttp - Broken pipe from ('127.0.0.1', 60598)
+INFO 2025-11-19 17:54:18,841 basehttp "GET /admin/auth/user/8/change/?_to_field=id HTTP/1.1" 200 40657
+INFO 2025-11-19 17:54:18,865 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-11-19 17:54:18,866 basehttp "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2025-11-19 17:54:18,866 basehttp "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+INFO 2025-11-19 17:54:18,867 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-11-19 17:54:19,186 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 17:54:26,985 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 55030
+INFO 2025-11-19 17:54:27,294 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 18:04:04,271 basehttp "GET / HTTP/1.1" 200 30546
+INFO 2025-11-19 18:13:41,641 autoreload E:\WebProjects\jebaenterprise\products\steadfast.py changed, reloading.
+INFO 2025-11-19 18:13:41,936 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 18:18:09,486 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 18:18:22,925 autoreload Watching for file changes with StatReloader
+INFO 2025-11-19 18:18:27,295 basehttp "GET / HTTP/1.1" 200 30546
+INFO 2025-11-19 18:18:28,835 basehttp "GET /dashboard/ HTTP/1.1" 200 30912
+INFO 2025-11-19 18:18:31,366 basehttp "GET /my-orders/ HTTP/1.1" 200 29257
+INFO 2025-11-19 18:18:37,369 basehttp "GET /my-orders/ HTTP/1.1" 200 29257
+INFO 2025-11-19 18:18:39,363 basehttp "GET /order/50/ HTTP/1.1" 200 26477
+INFO 2025-11-19 18:18:42,300 basehttp "GET /order/49/ HTTP/1.1" 200 25460
+INFO 2025-11-19 18:18:55,653 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 54881
+INFO 2025-11-19 18:18:56,019 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 18:19:04,769 basehttp "GET /admin/products/sale/50/change/ HTTP/1.1" 200 58145
+INFO 2025-11-19 18:19:05,096 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 18:19:37,982 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 54881
+INFO 2025-11-19 18:19:38,298 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 18:19:43,112 basehttp "GET /admin/products/sale/49/change/ HTTP/1.1" 200 58059
+INFO 2025-11-19 18:19:43,422 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 18:20:34,820 basehttp "GET /admin/products/sale/49/send-steadfast/ HTTP/1.1" 200 20623
+INFO 2025-11-19 18:21:08,090 basehttp "GET /admin/products/sale/49/change/ HTTP/1.1" 200 58059
+INFO 2025-11-19 18:21:08,421 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 18:21:23,725 basehttp "GET /admin/products/sale/49/send-steadfast/ HTTP/1.1" 200 20623

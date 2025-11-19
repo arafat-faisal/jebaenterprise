@@ -3,10 +3,11 @@
 {% block title %}Jeba Enterprise Admin{% endblock %}
 
 {% block branding %}
-    <h1 id="site-name">
-        <a href="{% url 'admin:index' %}">
-            <span style="font-family: 'Space Grotesk', sans-serif; letter-spacing: 1px; font-weight: 700;">
-                JEBA ENTERPRISE
+    <h1 id="site-name" style="margin: 0;">
+        <a href="{% url 'admin:index' %}" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="/media/logo.svg" alt="Logo" style="height: 35px; width: auto; filter: brightness(0) invert(1);"> 
+            <span style="font-family: 'Space Grotesk', sans-serif; letter-spacing: 1px; font-weight: 700; color: white;">
+                JEBA ADMIN
             </span>
         </a>
     </h1>

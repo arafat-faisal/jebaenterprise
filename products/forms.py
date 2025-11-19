@@ -8,14 +8,45 @@ from django.contrib.auth.forms import UserCreationForm  # Import this at the top
 
 
 class CheckoutForm(forms.ModelForm):
+    # --- NEW LOCATION FIELD ---
+    DELIVERY_OPTIONS = [
+        ('INSIDE', 'Inside Dhaka (৳60)'),
+        ('OUTSIDE', 'Outside Dhaka (৳120)'),
+    ]
+    delivery_area = forms.ChoiceField(
+        choices=DELIVERY_OPTIONS, 
+        widget=forms.RadioSelect(attrs={'class': 'delivery-radio'}),
+        initial='INSIDE'
+    )
+    # --------------------------
+
+    # We define payment_method explicitly to use a RadioSelect widget
+    payment_method = forms.ChoiceField(
+        choices=Sale.PAYMENT_METHODS,
+        widget=forms.RadioSelect(attrs={'class': 'payment-radio'}),
+        initial='COD'
+    )
+    
     class Meta:
         model = Sale
-        fields = ['customer_name', 'phone_number', 'shipping_address']
+        fields = ['customer_name', 'phone_number', 'shipping_address', 'payment_method', 'transaction_id']
         widgets = {
             'customer_name': forms.TextInput(attrs={'placeholder': 'Full Name', 'class': 'form-control'}),
             'phone_number': forms.TextInput(attrs={'placeholder': '017...', 'class': 'form-control'}),
             'shipping_address': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Street, City, Zip Code', 'class': 'form-control'}),
+            'transaction_id': forms.TextInput(attrs={'placeholder': 'e.g. 8N7A6D5...', 'class': 'form-control'}),
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        method = cleaned_data.get('payment_method')
+        trx_id = cleaned_data.get('transaction_id')
+
+        if method == 'BKASH' and not trx_id:
+            self.add_error('transaction_id', "Transaction ID is required for bKash payment.")
+        
+        return cleaned_data
+    
 
 class ReviewForm(forms.ModelForm):
     class Meta:

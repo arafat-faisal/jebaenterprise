@@ -81,3 +81,42 @@ pip install django psycopg2-binary dj-database-url python-dotenv Pillow thefuzz 
     * *Requirement:* `requirements.txt` is ready. Need to configure Nginx/Gunicorn.
 2.  **Payment Gateway:** Currently "Cash on Delivery". Consider adding bKash/SSLCommerz.
 3.  **Footer:** The footer is currently static. Make links functional.
+
+
+## 📅 Session Report: Nov 19 (Logistics & Automation)
+
+### ✅ Critical System Upgrades
+1.  **Crash-Proof Checkout:** Implemented `transaction.atomic()` and `select_for_update()` to prevent stock race conditions (negative inventory).
+2.  **Instant Checkout:** Moved email sending to a background thread so the user doesn't see a "loading" spinner while waiting for Gmail.
+3.  **Smart Order IDs:** Added a property to convert `ID: 49` into professional `Invoice: #JEBA-8049`.
+
+### ✅ Logistics & Courier Integration (Steadfast)
+1.  **API Connection:** Built `steadfast.py` to communicate with `portal.packzy.com`.
+2.  **Admin Automation:** Added "Send to Steadfast" button in the Admin Panel.
+3.  **Manual Review:** Created a custom "Edit & Send" page allowing the admin to fix typos or adjust COD amounts before pushing to the courier.
+4.  **Live Tracking:** The user's "Order Details" page now pulls the *real-time* status (e.g., "Delivered") directly from the Courier API, bypassing our local "Shipped" status.
+
+### ✅ Payment & Delivery Logic
+1.  **Manual bKash:** Added a "Pay with bKash" toggle. Users can see the specific number and input their TrxID.
+2.  **Dynamic Delivery Charge:**
+    * **Inside Dhaka:** 60 Tk.
+    * **Outside Dhaka:** 120 Tk.
+    * **Auto-Calculation:** The Cart Total and bKash instructions update instantly via JavaScript when the location changes.
+
+### ✅ User Experience (UX)
+1.  **User Dashboard:** Built a "Bento Grid" style dashboard for users to manage Orders, Addresses, and Passwords in one place.
+2.  **Professional Footer:** Replaced the single-line copyright with a Sequoia-style 3-column footer (Newsletter, Links, Socials).
+3.  **Branding:** Replaced text headers with the official `logo.svg` in the Navbar, Footer, Admin Panel, and Emails.
+
+---
+
+### 📂 New & Modified Files
+* `products/steadfast.py` (New: API Helper)
+* `products/templates/admin/products/sale/send_to_steadfast.html` (New: Courier Review Page)
+* `products/templates/registration/dashboard.html` (New: User Hub)
+* `products/models.py` (Added: Delivery Charge, Consignment ID, TrxID)
+* `products/views.py` (Updated: Checkout logic, Live Tracking)
+* `products/admin.py` (Updated: Custom Actions)
+
+### 🚧 Next Steps (To-Do)
+1.  **Deployment:** Configure Nginx, Gunicorn, and SSL on the Namecheap VPS to take the site live.

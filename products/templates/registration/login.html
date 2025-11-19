@@ -3,33 +3,37 @@
 {% block title %}Log In{% endblock %}
 
 {% block content %}
-    <div style="max-width: 500px; margin: 0 auto; padding-top: 20px;">
-        <h1 style="text-align: center;">Log In</h1>
+    <div style="max-width: 450px; margin: 40px auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.04);">
+        <h1 style="text-align: center; margin-bottom: 30px; font-weight: 800;">Welcome Back</h1>
 
         {% if form.errors %}
-            <p style="color: red; text-align: center; border: 1px solid red; padding: 10px; border-radius: 4px;">
-                Your username and password didn't match. Please try again.
-            </p>
+            <div style="background: #ffebee; color: #c62828; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem;">
+                The username or password you entered is incorrect.
+            </div>
         {% endif %}
 
         <form method="POST">
             {% csrf_token %}
 
-            <div style="margin-bottom: 15px;">
-                <label for="{{ form.username.id_for_label }}">Username</label>
+            <div style="margin-bottom: 20px;">
+                <label for="{{ form.username.id_for_label }}" style="display: block; font-weight: 700; margin-bottom: 8px; color: #555;">Username</label>
                 {{ form.username }}
-            </div>
+                </div>
 
-            <div style="margin-bottom: 15px;">
-                <label for="{{ form.password.id_for_label }}">Password</label>
+            <div style="margin-bottom: 10px;">
+                <label for="{{ form.password.id_for_label }}" style="display: block; font-weight: 700; margin-bottom: 8px; color: #555;">Password</label>
                 {{ form.password }}
             </div>
 
-            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Log In</button>
+            <div style="text-align: right; margin-bottom: 20px;">
+                <a href="{% url 'password_reset' %}" style="color: #8E94A3; font-size: 0.85rem; text-decoration: none; font-weight: 600;">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%; background: #1A1C1E; color: white;">Log In</button>
         </form>
 
-        <p style="text-align: center; margin-top: 20px;">
-            Don't have an account? <a href="{% url 'register' %}">Register Here</a>
+        <p style="text-align: center; margin-top: 30px; color: #888;">
+            New here? <a href="{% url 'register' %}" style="color: #3F51B5; font-weight: 700; text-decoration: none;">Create an Account</a>
         </p>
     </div>
 {% endblock %}

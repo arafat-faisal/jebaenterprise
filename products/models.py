@@ -51,6 +51,11 @@ class Sale(models.Model):
     phone_number = models.CharField(max_length=20, blank=True, null=True)
     shipping_address = models.TextField(blank=True, null=True)
     
+    # --- NEW STEADFAST FIELDS ---
+    consignment_id = models.IntegerField(null=True, blank=True, help_text="Steadfast Consignment ID")
+    tracking_code = models.CharField(max_length=50, null=True, blank=True, help_text="Steadfast Tracking Code")
+    # ----------------------------
+
     STATUS_CHOICES = [
         ('PENDING', 'Pending'),
         ('PROCESSING', 'Processing'),
@@ -58,17 +63,43 @@ class Sale(models.Model):
         ('DELIVERED', 'Delivered'),
         ('CANCELLED', 'Cancelled'),
     ]
+    # --- NEW FIELDS ---
+    PAYMENT_METHODS = [
+        ('COD', 'Cash on Delivery'),
+        ('BKASH', 'bKash'),
+    ]
+    payment_method = models.CharField(max_length=10, choices=PAYMENT_METHODS, default='COD')
+    transaction_id = models.CharField(max_length=50, blank=True, null=True)
+    # ------------------
+
+    # --- NEW FIELD ---
+    delivery_charge = models.DecimalField(max_digits=6, decimal_places=2, default=60.00)
+    # -----------------
+
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Sale #{self.id} - {self.status}"
 
+    # --- ADD THIS NEW PROPERTY ---
+    @property
+    def invoice_number(self):
+        return f"JEBA-{self.id + 8000}"
+    
+    @property
+    def order_id(self):
+        # This turns ID 49 into "8049" and ID 100 into "8100"
+        # It looks professional but keeps your database simple.
+        return f"#{self.id + 8000}"
+    
     @property
     def total_amount(self):
-        # Sum of (Sold Price * Quantity) for all items in this sale
-        return sum(item.sold_price * item.quantity for item in self.items.all())
-
+        # 1. Calculate Item Total
+        item_total = sum(item.sold_price * item.quantity for item in self.items.all())
+        # 2. Add Delivery Charge
+        return item_total + self.delivery_charge
+    
     @property
     def total_profit(self):
         items = self.items.all()
