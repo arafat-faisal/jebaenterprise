@@ -1,7 +1,6 @@
 import requests
 import json
 from django.conf import settings
-from django.conf import settings
 
 
 # --- CONFIGURATION ---
