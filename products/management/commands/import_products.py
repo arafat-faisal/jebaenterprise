@@ -1,146 +1,222 @@
 import csv
-import ast
-import requests
 import os
-import re
 import time
 import logging
-from concurrent.futures import ThreadPoolExecutor
+import requests
+from bs4 import BeautifulSoup
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from django.core.management.base import BaseCommand
 from django.core.files.base import ContentFile
+from django.db import connection, transaction
+from django.db.utils import OperationalError
 from products.models import Product, Category, ProductImage
 
 # --- LOGGING SETUP ---
 logging.basicConfig(
-    filename='import_fast.log',
+    filename='import_products.log',
     filemode='a',
     format='%(asctime)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
+logger = logging.getLogger(__name__)
 
 class Command(BaseCommand):
-    help = 'SUPER FAST Import with Infinite Retry (Except 404s)'
+    help = 'Import products with Product-Level Concurrency (Preserves Image Order)'
 
-    def handle(self, *args, **kwargs):
-        file_path = 'product_details.csv'
-        
-        if not os.path.exists(file_path):
-            self.stdout.write(self.style.ERROR(f'File not found: {file_path}'))
+    def add_arguments(self, parser):
+        parser.add_argument('--csv', type=str, default='product_details.csv', help='Path to CSV file')
+        parser.add_argument('--html_dir', type=str, default=r'E:\WebProjects\plan\htmls\product_details', help='Path to HTML folder')
+        parser.add_argument('--workers', type=int, default=10, help='Number of products to process at once')
+
+    def handle(self, *args, **options):
+        csv_path = options['csv']
+        html_dir = options['html_dir']
+        max_workers = options['workers']
+
+        if not os.path.exists(csv_path):
+            self.stdout.write(self.style.ERROR(f'CSV file not found: {csv_path}'))
             return
 
-        # 1. Setup Category
-        default_category, _ = Category.objects.get_or_create(name="Imported New")
-        
-        # 2. Read CSV into Memory
-        with open(file_path, 'r', encoding='utf-8') as csvfile:
-            rows = list(csv.DictReader(csvfile))
-            
-        total = len(rows)
-        self.stdout.write(f"🚀 Starting 20-Thread Import for {total} products...")
+        # Ensure default category exists (Main Thread)
+        default_category, _ = Category.objects.get_or_create(name="Imported Products")
 
-        # 3. The Worker Function (Runs in Parallel)
-        def process_row(row):
+        with open(csv_path, 'r', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            rows = list(reader)
+            total_rows = len(rows)
+
+            self.stdout.write(f"🚀 Starting import for {total_rows} products with {max_workers} threads...")
+
+            # --- PRODUCT LEVEL CONCURRENCY ---
+            # We process X products at a time. 
+            # Inside each thread, images are handled sequentially to keep order.
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                futures = {
+                    executor.submit(self.process_single_row, row, html_dir, default_category.id): row 
+                    for row in rows
+                }
+
+                for i, future in enumerate(as_completed(futures)):
+                    try:
+                        result = future.result()
+                        # Optional: Visual progress bar logic here
+                        if i % 5 == 0:
+                            self.stdout.write(f"   Processed {i + 1}/{total_rows}...")
+                    except Exception as e:
+                        logger.error(f"Thread failure: {e}")
+
+            self.stdout.write(self.style.SUCCESS("🎉 Import Process Completed!"))
+
+    def get_plain_text(self, soup_element):
+        """Strips ALL HTML tags and returns clean plain text."""
+        if not soup_element:
+            return ""
+        for tag in soup_element(["script", "style"]):
+            tag.extract()
+        return soup_element.get_text(separator=' ', strip=True)
+
+    def get_long_description(self, soup):
+        """Smart logic to find the long description container."""
+        div = soup.select_one('.wd-single-content .elementor-widget-container')
+        if not div:
+            div = soup.select_one('.wd-single-product-content')
+        if not div:
+            div = soup.select_one('#tab-description')
+        if not div:
+            div = soup.select_one('.woocommerce-Tabs-panel--description')
+        
+        # Nuclear Option
+        if not div:
+            meta_desc = soup.find("meta", property="og:description")
+            if meta_desc:
+                content = meta_desc.get("content", "")[:50]
+                if len(content) > 10:
+                    found_text = soup.find(string=lambda text: text and content in text)
+                    if found_text:
+                        parent = found_text.find_parent('div')
+                        if parent and 'elementor-widget-container' not in parent.get('class', []):
+                            parent = parent.find_parent('div') 
+                        div = parent
+
+        if not div:
+            return ""
+
+        # Clean junk tags but keep HTML structure
+        for tag in div(["script", "style", "iframe", "button", "input", "form", "noscript"]):
+            tag.extract()
+        
+        return div.decode_contents().strip()
+
+    def process_single_row(self, row, html_dir, category_id):
+        """
+        This runs inside a THREAD. 
+        It handles one single product from start to finish.
+        """
+        # 1. Fix DB Connection for Threads
+        # Django closes connections at end of request, but threads persist. 
+        # We must manage connections manually in threads to avoid timeouts/locks.
+        connection.close()
+        
+        filename = row.get('filename', '').strip()
+        product_name = row.get('product_name', 'Unknown Product').strip()
+        html_path = os.path.join(html_dir, filename)
+        
+        short_desc_text = ""
+        long_desc_html = ""
+        image_urls = []
+
+        # --- HTML PARSING ---
+        if filename and os.path.exists(html_path):
+            with open(html_path, 'r', encoding='utf-8', errors='ignore') as f:
+                soup = BeautifulSoup(f.read(), 'html.parser')
+
+                # Short Desc (Plain Text)
+                short_div = soup.select_one('.woocommerce-product-details__short-description')
+                if not short_div:
+                    short_div = soup.select_one('.elementor-widget-wd_single_product_short_description')
+                short_desc_text = self.get_plain_text(short_div)
+
+                # Long Desc (HTML)
+                long_desc_html = self.get_long_description(soup)
+
+                # Images
+                gallery_imgs = soup.select('.woocommerce-product-gallery img')
+                for img in gallery_imgs:
+                    src = img.get('data-large_image') or img.get('data-src') or img.get('src')
+                    if src:
+                        if src.startswith('//'): src = 'https:' + src
+                        if '100x100' not in src and '150x150' not in src: 
+                            if src not in image_urls:
+                                image_urls.append(src)
+
+        # --- DB SAVE (With Retry Logic for SQLite Locks) ---
+        retries = 3
+        while retries > 0:
             try:
-                product_name = row['product_name'].strip()
+                # We fetch the category inside the thread to prevent cross-thread object sharing issues
+                category = Category.objects.get(id=category_id)
                 
-                # --- STEP A: Create/Get Product (Database Operation) ---
-                # We use get_or_create to ensure we don't duplicate if run twice
-                # ... inside process_row ...
-                
-                product, created = Product.objects.get_or_create(
+                product, created = Product.objects.update_or_create(
                     name=product_name,
                     defaults={
-                        # --- UPDATED MAPPING ---
-                        'short_description': row.get('short_description', ''),
-                        'description': row.get('long_description', ''), # Long details go here
-                        # -----------------------
-                        'category': default_category,
-                        'selling_price': 0,
+                        'short_description': short_desc_text,
+                        'description': long_desc_html,
+                        'category': category,
+                        'selling_price': 0.00,
                         'stock_quantity': 10,
-                        'call_for_price': True,
-                        'is_featured': False
+                        'call_for_price': True
                     }
                 )
-
-                # --- STEP B: Handle Images ---
-                try:
-                    image_list = ast.literal_eval(row['image_urls'])
-                except:
-                    image_list = []
-
-                # Filter Thumbnails (-150x150 etc)
-                clean_urls = [u for u in image_list if not re.search(r'-\d+x\d+\.[a-zA-Z]+$', u)]
-
-                for index, img_url in enumerate(clean_urls):
-                    # Check if we already have this image (Resume Logic)
-                    # We guess the filename format to check DB
-                    try:
-                        ext = img_url.split('.')[-1].split('?')[0]
-                        if len(ext) > 4 or not ext: ext = 'jpg'
-                        expected_name = f"{product.id}-{index}.{ext}"
-                        
-                        # If image exists in DB, SKIP download
-                        if ProductImage.objects.filter(product=product, image__endswith=expected_name).exists():
-                            continue
-                    except:
-                        pass
-
-                    # DOWNLOAD (Infinite Retry)
-                    content = self.download_forever(img_url)
-                    
-                    if content:
-                        # Save to DB
-                        p_img = ProductImage(product=product)
-                        p_img.image.save(expected_name, ContentFile(content))
-                        p_img.save()
-                
-                return f"✅ {product_name}"
-
-            except Exception as e:
-                return f"❌ Error processing {row.get('product_name')}: {e}"
-
-        # 4. Run in Parallel (20 Workers = Super Fast)
-        with ThreadPoolExecutor(max_workers=20) as executor:
-            results = executor.map(process_row, rows)
-            
-            for i, result in enumerate(results):
-                # Print progress every 10 items to keep terminal clean
-                if "Error" in result:
-                    self.stdout.write(self.style.ERROR(result))
-                elif i % 5 == 0:
-                    self.stdout.write(self.style.SUCCESS(f"[{i}/{total}] Processing..."))
+                break # Success
+            except OperationalError:
+                # If Database is locked (SQLite), wait and retry
+                time.sleep(1)
+                retries -= 1
+                connection.close()
         
-        self.stdout.write(self.style.SUCCESS("🎉 Import Completed!"))
+        if retries == 0:
+            print(f"❌ DB Lock Error: {product_name}")
+            return
 
-    def download_forever(self, url):
-        """
-        Retries FOREVER until success or Dead End (404/403).
-        """
+        # --- IMAGE DOWNLOADING (SEQUENTIAL) ---
+        # We download images strictly one by one HERE inside the thread.
+        # This ensures Image 1 is saved before Image 2 for this specific product.
+        if image_urls:
+            self.download_images_sequentially(product, image_urls)
+        
+        status_msg = "Created" if created else "Updated"
+        print(f"✅ {status_msg}: {product_name}")
+
+    def download_images_sequentially(self, product, urls):
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Referer': 'https://google.com'
         }
         
-        while True:
+        # We iterate with enumeration to force order 0, 1, 2...
+        for i, url in enumerate(urls):
             try:
-                response = requests.get(url, headers=headers, timeout=10)
+                clean_url = url.split('?')[0]
+                ext = os.path.splitext(clean_url)[1].lower()
+                if ext not in ['.jpg', '.jpeg', '.png', '.webp']:
+                    ext = '.jpg'
                 
-                # SUCCESS
-                if response.status_code == 200:
-                    return response.content
-                
-                # DEAD ENDS (Stop retrying)
-                elif response.status_code in [404, 403, 410]:
-                    logging.warning(f"Dead End ({response.status_code}): {url}")
-                    return None 
-                
-                # SERVER BUSY (Retry)
-                else:
-                    time.sleep(2) # Wait a bit
+                # Naming convention preserves order visually in file system too
+                filename = f"prod_{product.id}_{i}{ext}"
+
+                # Skip if already downloaded
+                if ProductImage.objects.filter(product=product, image__icontains=filename).exists():
                     continue
 
-            except requests.exceptions.RequestException:
-                # CONNECTION DIED (Retry)
-                time.sleep(2)
-                continue
-            except Exception:
-                return None
+                response = requests.get(url, headers=headers, timeout=15)
+                if response.status_code == 200:
+                    img_instance = ProductImage(product=product)
+                    img_instance.image.save(filename, ContentFile(response.content))
+                    img_instance.save()
+                
+                # Small sleep not strictly necessary in threaded logic, 
+                # but good to prevent hammering the server too hard per-thread
+                time.sleep(0.1) 
+
+            except Exception as e:
+                logger.error(f"Error downloading {url}: {e}")

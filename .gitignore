@@ -10,3 +10,6 @@ __pycache__/
 .vscode/
 
 media/products/gallery/*
+media/products/
+media/temp/
+*.log

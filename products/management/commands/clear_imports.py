@@ -5,7 +5,7 @@ class Command(BaseCommand):
     help = 'Deletes all products in the "Imported New" category'
 
     def handle(self, *args, **kwargs):
-        target_category = "Imported New"
+        target_category = "Imported Products"
         
         # check if category exists
         try:
