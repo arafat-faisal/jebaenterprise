@@ -285,6 +285,16 @@ JAZZMIN_SETTINGS = {
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
+    
+    # --- NEW: Custom Link for Competitor Analysis ---
+    "custom_links": {
+        "products": [{
+            "name": "Competitor Analysis", 
+            "url": "admin_scraper", 
+            "icon": "fas fa-search-dollar",
+            # "permissions": ["products.view_product"] # Optional: Restrict access
+        }]
+    },
 }
 
 # --- UI TWEAKS TO MATCH "PRODY" IMAGE ---

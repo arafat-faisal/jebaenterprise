@@ -308,7 +308,7 @@
                 
                 <div style="margin-top: auto;">
                     {% if product.call_for_price or product.selling_price <= 0 %}
-                        <span style="font-size: 0.8rem; font-weight: 700; color: #0084FF; background: #e3f2fd; padding: 2px 8px; border-radius: 10px;">Call for Price</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #0084FF; background: #e3f2fd; padding: 2px 8px; border-radius: 10px;">Contact for Price</span>
                     {% else %}
                         <div style="color: #3F51B5; font-weight: 700;">৳{{ product.selling_price|floatformat:0 }}</div>
                     {% endif %}
@@ -338,7 +338,7 @@
             <div class="card-meta">
                 <div style="display: flex; flex-direction: column;">
                     {% if product.call_for_price %}
-                        <span style="font-size: 0.8rem; font-weight: 700; color: #0084FF; background: #e3f2fd; padding: 2px 8px; border-radius: 10px;">Call for Price</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #0084FF; background: #e3f2fd; padding: 2px 8px; border-radius: 10px;">Contact for Price</span>
                     {% else %}
                         <div class="card-price">৳{{ product.selling_price|floatformat:0 }}</div>
                         {% if product.stock_quantity <= 0 %}

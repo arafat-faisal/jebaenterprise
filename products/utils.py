@@ -5,7 +5,7 @@ from django.conf import settings
 from email.mime.image import MIMEImage
 import os
 
-# --- NEW IMPORTS FOR SCRAPER ---
+# --- IMPORTS FOR SCRAPER ---
 from playwright.sync_api import sync_playwright
 from bs4 import BeautifulSoup
 import requests
@@ -65,62 +65,73 @@ def send_order_email(sale, user_email):
     msg.send()
 
 # --- NEW HELPER: AUTO SCRAPER FUNCTION ---
-def fetch_competitor_data(product, search_term=None):
+def fetch_competitor_data(product, search_term=None, manual_image_bytes=None, save_to_db=True,
+                          image_weight=0.3, text_weight=0.7, confidence_threshold=60,
+                          text_slam_dunk=85, image_slam_dunk=90):
     """
     Runs the Playwright scraper for a single product.
-    Returns a dict with status and results.
+    Accepts custom thresholds and weights.
     """
-    from .models import CompetitorPrice  # Local import to avoid circular dependency
+    # Local import to prevent circular dependency issues
+    from .models import CompetitorPrice 
 
     if not search_term:
         search_term = product.name
 
-    # AI Thresholds
-    IMAGE_WEIGHT = 0.2
-    TEXT_WEIGHT = 0.8
-    CONFIDENCE_THRESHOLD = 65
-    TEXT_SLAM_DUNK = 85
+    # Use passed arguments for configuration
+    IMAGE_WEIGHT = float(image_weight)
+    TEXT_WEIGHT = float(text_weight)
+    CONFIDENCE_THRESHOLD = int(confidence_threshold)
+    TEXT_SLAM_DUNK = int(text_slam_dunk)
+    IMAGE_SLAM_DUNK = int(image_slam_dunk)
 
     try:
-        # 1. Load Local Images & Hashes
-        local_images = product.images.all()
-        if not local_images:
-            return {'success': False, 'error': 'No local images found'}
-
         local_hashes = []
-        for img in local_images:
+
+        # 1. Use Manual Image if provided
+        if manual_image_bytes:
             try:
-                with open(img.image.path, 'rb') as f:
-                    local_image_pil = Image.open(f)
-                    local_hashes.append(imagehash.phash(local_image_pil))
+                manual_img = Image.open(BytesIO(manual_image_bytes))
+                local_hashes.append(imagehash.phash(manual_img))
             except Exception as e:
-                logger.warning(f"Could not load local image {img.id}: {e}")
-
+                logger.warning(f"Failed to process manual image: {e}")
+        
+        # 2. If no manual image, load Product Images
         if not local_hashes:
-            return {'success': False, 'error': 'Could not process local images'}
+            local_images = product.images.all()
+            for img in local_images:
+                try:
+                    with open(img.image.path, 'rb') as f:
+                        local_image_pil = Image.open(f)
+                        local_hashes.append(imagehash.phash(local_image_pil))
+                except Exception as e:
+                    logger.warning(f"Could not load local image {img.id}: {e}")
 
-        # 2. Run Playwright
+        # 3. Run Playwright
         results = []
+        has_images = len(local_hashes) > 0
+
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             page = browser.new_page(user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
             
+            # Search Daraz
             search_url = f"https://www.daraz.com.bd/catalog/?q={search_term.replace(' ', '+')}"
-            page.goto(search_url, timeout=25000)
+            page.goto(search_url, timeout=30000)
             
             try:
-                page.wait_for_selector('[data-qa-locator="product-item"]', timeout=10000)
-                # Scroll to load lazy images
-                for i in range(5):
+                page.wait_for_selector('[data-qa-locator="product-item"]', timeout=8000)
+                # Quick scroll to trigger lazy loading
+                for _ in range(3):
                     page.evaluate("window.scrollBy(0, window.innerHeight)")
                     page.wait_for_timeout(500)
             except:
-                pass # If wait fails, scrape whatever loaded
+                pass 
 
             html_content = page.content()
             browser.close()
 
-        # 3. Parse HTML
+        # 4. Parse & Compare
         soup = BeautifulSoup(html_content, 'html.parser')
         product_items = soup.find_all(attrs={'data-qa-locator': 'product-item'})
 
@@ -130,7 +141,6 @@ def fetch_competitor_data(product, search_term=None):
                 price_span = item.find('div', class_='aBrP0').find('span', class_='ooOxS')
                 image_tag = item.find('img')
 
-                # Extract Image URL
                 image_url = None
                 if image_tag:
                     if image_tag.get('data-src'): image_url = image_tag['data-src']
@@ -143,57 +153,84 @@ def fetch_competitor_data(product, search_term=None):
 
                 scraped_name = name_link_tag.text.strip()
                 scraped_url = "https:" + name_link_tag['href']
-                scraped_price = price_span.text.replace('৳', '').replace(',', '').strip()
-
-                # 4. Calculate Scores
-                # Image Score
+                scraped_price_str = price_span.text.replace('৳', '').replace(',', '').strip()
+                
                 try:
-                    resp = requests.get(image_url, timeout=5)
-                    scraped_img = Image.open(BytesIO(resp.content))
-                    scraped_hash = imagehash.phash(scraped_img)
-                    
-                    min_dist = 64
-                    for lh in local_hashes:
-                        dist = lh - scraped_hash
-                        if dist < min_dist: min_dist = dist
-                    
-                    image_score = (1 - min_dist / 64) * 100
+                    scraped_price = float(scraped_price_str)
                 except:
-                    image_score = 0 # Fail safe
+                    continue
 
-                # Text Score
-                text_score = fuzz.ratio(product.name.lower(), scraped_name.lower())
+                # -- Image Match --
+                image_score = 0
+                if has_images:
+                    try:
+                        resp = requests.get(image_url, timeout=3) 
+                        scraped_img = Image.open(BytesIO(resp.content))
+                        scraped_hash = imagehash.phash(scraped_img)
+                        
+                        min_dist = 64
+                        for lh in local_hashes:
+                            dist = lh - scraped_hash
+                            if dist < min_dist: min_dist = dist
+                        
+                        image_score = (1 - min_dist / 64) * 100
+                    except:
+                        pass
 
-                # Final Score
+                # -- SMARTER TEXT MATCHING --
+                text_score_token = fuzz.token_set_ratio(product.name.lower(), scraped_name.lower())
+                text_score_partial = fuzz.partial_ratio(product.name.lower(), scraped_name.lower())
+                text_score = max(text_score_token, text_score_partial)
+
+                # -- Final Score Calculation --
                 confidence_score = (image_score * IMAGE_WEIGHT) + (text_score * TEXT_WEIGHT)
 
-                if (confidence_score >= CONFIDENCE_THRESHOLD) or (text_score >= TEXT_SLAM_DUNK):
+                # -- Selection Logic --
+                is_visual_match = (image_score >= IMAGE_SLAM_DUNK and text_score > 40)
+                
+                if (confidence_score >= CONFIDENCE_THRESHOLD) or (text_score >= TEXT_SLAM_DUNK) or is_visual_match:
                     results.append({
                         'name': scraped_name,
-                        'price': float(scraped_price),
-                        'match_score': confidence_score
+                        'price': scraped_price,
+                        'url': scraped_url,
+                        'image_url': image_url,
+                        'match_score': round(confidence_score, 1),
+                        'text_score': text_score,
+                        'image_score': round(image_score, 1)
                     })
 
             except Exception as e:
                 continue
+        
+        # Sort by Match Score
+        results.sort(key=lambda x: x['match_score'], reverse=True)
 
-        # 5. Save Results
+        # 5. Handle Results
+        min_p = 0
+        max_p = 0
+        
         if results:
             prices = [r['price'] for r in results]
             min_p = min(prices)
             max_p = max(prices)
 
-            CompetitorPrice.objects.update_or_create(
-                product=product,
-                website_name="Daraz",
-                defaults={
-                    'min_price': min_p,
-                    'max_price': max_p
-                }
-            )
-            return {'success': True, 'min': min_p, 'max': max_p, 'count': len(results)}
-        else:
-            return {'success': True, 'count': 0, 'message': 'No matches found'}
+            if save_to_db:
+                CompetitorPrice.objects.update_or_create(
+                    product=product,
+                    website_name="Daraz",
+                    defaults={
+                        'min_price': min_p,
+                        'max_price': max_p
+                    }
+                )
+        
+        return {
+            'success': True, 
+            'min': min_p, 
+            'max': max_p, 
+            'count': len(results),
+            'results': results 
+        }
 
     except Exception as e:
         logger.error(f"Scraping error for {product.name}: {e}")

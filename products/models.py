@@ -36,22 +36,19 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-    # --- NEW: SAVE LOGIC TO AUTO-FIX CALL FOR PRICE ---
+
     def save(self, *args, **kwargs):
         # If a valid price is set, ensure 'Call for Price' is OFF
         if self.selling_price > 0 and self.call_for_price:
             self.call_for_price = False
-            
         super().save(*args, **kwargs)
-    # --------------------------------------------------
+
     @property
     def main_image_obj(self):
         """Returns the ProductImage object that is main, or the first one as fallback."""
-        # 1. Try to get the image marked as "Main"
         main = self.images.filter(is_main=True).first()
         if main:
             return main
-        # 2. Fallback
         return self.images.first()
 
     @property
@@ -90,32 +87,19 @@ class Product(models.Model):
             self.save()
             return True
         return False
-    
-    # --- NEW: DYNAMIC PRICING MATH ---
-    def apply_dynamic_pricing(self):
-        """
-        Selling Price = (Average of Competitors' Min Price) - 50
-        """
-        # Get all competitor prices for this product
-        comp_prices = self.competitor_prices.all()
-        
-        if not comp_prices.exists():
-            return False # No data to work with
 
-        # Calculate Average of 'min_price' (ignoring None or 0)
+    # --- DYNAMIC PRICING MATH ---
+    def apply_dynamic_pricing(self):
+        comp_prices = self.competitor_prices.all()
+        if not comp_prices.exists(): return False 
+
         valid_prices = [cp.min_price for cp in comp_prices if cp.min_price and cp.min_price > 0]
-        
-        if not valid_prices:
-            return False
+        if not valid_prices: return False
 
         avg_min_price = sum(valid_prices) / len(valid_prices)
-        
-        # Math Formula: Avg - 50
         new_selling_price = avg_min_price - 50
         
-        # Safety Check: Don't go below buying cost!
         if self.buying_cost > 0 and new_selling_price < self.buying_cost:
-             # Fallback: Cost + 10 profit if comp price is too low
              new_selling_price = self.buying_cost + 10 
 
         self.selling_price = new_selling_price
@@ -132,7 +116,6 @@ class ProductVariation(models.Model):
 
     def __str__(self):
         return f"{self.product.name} - {self.name}"
-    
     
 # --- Sale Model ---
 class Sale(models.Model):
@@ -179,8 +162,6 @@ class Sale(models.Model):
     
     @property
     def order_id(self):
-        # This turns ID 49 into "8049" and ID 100 into "8100"
-        # It looks professional but keeps your database simple.
         return f"#{self.id + 8000}"
     
     @property
@@ -188,18 +169,14 @@ class Sale(models.Model):
         item_total = sum(item.sold_price * item.quantity for item in self.items.all())
         return item_total + self.delivery_charge
     
-
-    # --- ADD THIS NEW PROPERTY ---
     @property
     def subtotal(self):
         return sum(item.sold_price * item.quantity for item in self.items.all())
-    # -----------------------------
 
     @property
     def total_profit(self):
         items = self.items.all()
         return sum(item.profit for item in items)
-    
 
 # --- Sale Item ---
 class SaleItem(models.Model):
@@ -230,13 +207,10 @@ class SaleItem(models.Model):
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='products/gallery/')
-    
-    # We keep this field for MANUAL uploads
     transparent_image = models.ImageField(upload_to='products/transparent/', blank=True, null=True, help_text="Upload a PNG with no background here (Optional)")
     is_main = models.BooleanField(default=False, verbose_name="Main Thumbnail")
 
     def save(self, *args, **kwargs):
-        # Ensure only one image is marked as main per product
         if self.is_main:
             ProductImage.objects.filter(product=self.product).exclude(id=self.id).update(is_main=False)
         super().save(*args, **kwargs)
@@ -287,63 +261,41 @@ class UserProfile(models.Model):
 # --- SAFE SIGNALS (No AI) ---
 @receiver(post_save, sender=User)
 def ensure_profile_exists(sender, instance, **kwargs):
-    # Safer method to get or create profile
     UserProfile.objects.get_or_create(user=instance)
 
 
 # --- GLOBAL SITE SETTINGS ---
 class SiteSettings(models.Model):
-    """
-    Singleton model to store global configuration.
-    Only one instance of this should ever exist.
-    """
     bkash_number = models.CharField(max_length=15, default="017XXXXXXXX", help_text="Personal bKash Number for manual payments")
     delivery_charge_inside = models.DecimalField(max_digits=5, decimal_places=0, default=60, help_text="Delivery charge inside Dhaka")
     delivery_charge_outside = models.DecimalField(max_digits=5, decimal_places=0, default=120, help_text="Delivery charge outside Dhaka")
 
-    # --- NEW SOCIAL FIELDS ---
     facebook_page_url = models.URLField(blank=True, null=True, default="https://facebook.com", help_text="Full URL to your Facebook Page")
     messenger_username = models.CharField(max_length=50, blank=True, null=True, help_text="Your Page Username or ID (e.g. 'JebaEnterprise')")
-    # -------------------------
-
-    # --- NEW FIELD ---
     meta_pixel_id = models.CharField(max_length=50, blank=True, null=True, help_text="Your Meta Pixel ID (e.g. '1234567890')")
-    # -----------------
-    # NEW FIELD FOR CAPI
     meta_access_token = models.TextField(blank=True, null=True, help_text="Long Access Token from Events Manager > Settings > Conversions API")
-    # -----------------------------
 
-    # --- NEW CONTACT FIELDS ---
     contact_phone = models.CharField(max_length=20, default="+880 1771-000000", help_text="Support Phone Number")
     contact_email = models.EmailField(default="jebaenterprisebd@gmail.com", help_text="Support Email")
     contact_address = models.TextField(default="H# 00/00, AAAAA, AAAAA, AAAA", help_text="Physical Office Address")
     business_hours = models.CharField(max_length=100, default="Sat - Thu: 10:00 AM - 8:00 PM", help_text="e.g. Sat-Thu 10am-8pm")
-    # --------------------------
-
-    # --- NEW WHATSAPP FIELDS ---
     whatsapp_number = models.CharField(max_length=20, default="8801716330967", help_text="WhatsApp number for direct contact (Start with country code, e.g., 88017...).")
     contact_message_template = models.TextField(
         default="আমি [PRODUCT_NAME] সম্পর্কে বিস্তারিত তথ্য জানতে আগ্রহী। প্রোডাক্ট লিংক: [PRODUCT_LINK]", 
         help_text="Bengali message template. Use [PRODUCT_NAME] and [PRODUCT_LINK] placeholders."
     )
-    # ---------------------------
     
     call_for_price = models.BooleanField(default=False, help_text="If checked, price will be hidden and 'Contact for Price' shown.")
 
     def save(self, *args, **kwargs):
-        # Force ID to be 1 so there's only ever one settings object
         self.pk = 1
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        # Prevent deletion
         pass
 
     @classmethod
     def load(cls):
-        """
-        Helper to get the settings object (creates it if missing).
-        """
         obj, created = cls.objects.get_or_create(pk=1)
         return obj
 
@@ -375,3 +327,15 @@ class ProductEvent(models.Model):
 
     def __str__(self):
         return f"{self.product.name} - {self.event_type}"
+
+# --- NEW MODEL: SCRAPER PRESETS ---
+class ScraperPreset(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    image_weight = models.DecimalField(max_digits=3, decimal_places=2, default=0.3)
+    text_weight = models.DecimalField(max_digits=3, decimal_places=2, default=0.7)
+    confidence_threshold = models.IntegerField(default=60)
+    text_slam_dunk = models.IntegerField(default=85)
+    image_slam_dunk = models.IntegerField(default=90)
+
+    def __str__(self):
+        return self.name
