@@ -17,9 +17,12 @@ class Category(models.Model):
 # --- Product Model ---
 class Product(models.Model):
     name = models.CharField(max_length=255)
+    short_description = models.TextField(blank=True, null=True, help_text="Short summary shown beside the image")
+    
     description = models.TextField(blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='products')
     
+    call_for_price = models.BooleanField(default=False, help_text="If checked, price will be hidden and 'Call for Price' shown.")
     # Added featured field
     is_featured = models.BooleanField(default=False, help_text="Check this to show on Homepage Hero section")
 
@@ -216,6 +219,23 @@ class SiteSettings(models.Model):
     # NEW FIELD FOR CAPI
     meta_access_token = models.TextField(blank=True, null=True, help_text="Long Access Token from Events Manager > Settings > Conversions API")
     # -----------------------------
+
+    # --- NEW CONTACT FIELDS ---
+    contact_phone = models.CharField(max_length=20, default="+880 1771-000000", help_text="Support Phone Number")
+    contact_email = models.EmailField(default="jebaenterprisebd@gmail.com", help_text="Support Email")
+    contact_address = models.TextField(default="H# 00/00, AAAAA, AAAAA, AAAA", help_text="Physical Office Address")
+    business_hours = models.CharField(max_length=100, default="Sat - Thu: 10:00 AM - 8:00 PM", help_text="e.g. Sat-Thu 10am-8pm")
+    # --------------------------
+
+    # --- NEW WHATSAPP FIELDS ---
+    whatsapp_number = models.CharField(max_length=20, default="8801716330967", help_text="WhatsApp number for direct contact (Start with country code, e.g., 88017...).")
+    contact_message_template = models.TextField(
+        default="আমি [PRODUCT_NAME] সম্পর্কে বিস্তারিত তথ্য জানতে আগ্রহী। প্রোডাক্ট লিংক: [PRODUCT_LINK]", 
+        help_text="Bengali message template. Use [PRODUCT_NAME] and [PRODUCT_LINK] placeholders."
+    )
+    # ---------------------------
+    
+    call_for_price = models.BooleanField(default=False, help_text="If checked, price will be hidden and 'Contact for Price' shown.")
 
     def save(self, *args, **kwargs):
         # Force ID to be 1 so there's only ever one settings object

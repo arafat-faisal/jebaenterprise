@@ -325,6 +325,8 @@
                     <a href="{% url 'product_detail' product.id %}" class="cat-img-box">
                         {% if product.images.first %}
                             <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                        {% else %}
+                            <img src="https://via.placeholder.com/300" alt="No Image">
                         {% endif %}
                     </a>
                     
@@ -332,12 +334,26 @@
                     <div class="cat-rating">★★★★☆</div>
                     
                     <div class="cat-footer">
-                        <span class="cat-price">৳{{ product.selling_price|floatformat:0 }}</span>
+                        <div style="display: flex; flex-direction: column;">
+                            {% if product.call_for_price %}
+                                <span style="font-size: 0.85rem; font-weight: 700; color: #0084FF; background: #e3f2fd; padding: 2px 8px; border-radius: 4px;">Call for Price</span>
+                            {% else %}
+                                <span class="cat-price">৳{{ product.selling_price|floatformat:0 }}</span>
+                                
+                                {% if product.stock_quantity <= 0 %}
+                                    <small style="color: #d32f2f; font-weight: 700; font-size: 0.75rem;">Out of Stock</small>
+                                {% elif product.stock_quantity <= 5 %}
+                                    <small style="color: #e65100; font-weight: 700; font-size: 0.75rem;">Only {{ product.stock_quantity }} left!</small>
+                                {% else %}
+                                    <small style="color: #2e7d32; font-weight: 600; font-size: 0.75rem;">In Stock</small>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        
                         <a href="{% url 'product_detail' product.id %}" class="btn-pill-sm">View</a>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
+                </div> {% endfor %}
+        </div> 
     </main>
 </div>
 

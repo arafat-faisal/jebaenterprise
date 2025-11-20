@@ -20,7 +20,7 @@
         color: var(--text-sub);
     }
     
-    /* Quantity Controls (+ / -) */
+    /* Quantity Controls (Keep existing styles) */
     .qty-control {
         display: inline-flex;
         align-items: center;
@@ -28,45 +28,92 @@
         border-radius: 50px;
         padding: 5px;
     }
-    .qty-btn {
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: white;
-        text-decoration: none;
-        color: var(--text-main);
-        font-weight: bold;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        transition: 0.2s;
-    }
-    .qty-btn:hover {
-        background: var(--accent-lime);
-        color: black;
-    }
-    .qty-val {
-        margin: 0 15px;
-        font-weight: 600;
-        min-width: 20px;
-        text-align: center;
-    }
+    .qty-btn { /* ... existing styles ... */ }
+    .qty-val { margin: 0 15px; font-weight: 600; min-width: 20px; text-align: center; }
     
-    /* Remove Button */
-    .btn-remove {
-        color: #d32f2f;
-        font-size: 0.9rem;
-        text-decoration: none;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        transition: 0.2s;
-    }
-    .btn-remove:hover { text-decoration: underline; opacity: 0.8; }
-</style>
+    /* Remove Button (Keep existing styles) */
+    .btn-remove { /* ... existing styles ... */ }
 
+    /* --- MOBILE TABLE RESTRUCTURE --- */
+    @media (max-width: 600px) {
+        .container { padding: 15px !important; }
+
+        .cart-table {
+            border: none;
+        }
+        .cart-table thead { 
+            display: none; /* Hides table headers on mobile */
+        }
+        
+        .cart-table, .cart-table tbody, .cart-table tr, .cart-table td {
+            display: block;
+            width: 100%;
+        }
+        
+        /* Style each product row as a card */
+        .cart-table tr {
+            border: 1px solid #f0f0f0;
+            margin-bottom: 15px;
+            border-radius: var(--radius-lg);
+            background: var(--bg-card);
+            box-shadow: var(--shadow-soft);
+            padding: 10px;
+        }
+
+        .cart-table td {
+            /* Enforce wrapping for long text */
+            word-wrap: break-word;
+            word-break: break-word; 
+            
+            text-align: right !important; /* Pushes value to the right */
+            padding-left: 50% !important; /* Creates space for the label */
+            position: relative;
+            border: none;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1rem;
+            
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* FIX 1: Product Name (First Cell) */
+        .cart-table td:first-child {
+            /* Full width for the title */
+            text-align: left !important;
+            padding-left: 15px !important; 
+            border-bottom: 1px solid #ddd;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .cart-table td:first-child::before {
+            content: none; /* Hide the label for the product name */
+        }
+        
+        /* FIX 2: Total and Action cells */
+        .cart-table td:nth-child(4) { /* Total column */
+             font-weight: 800; 
+             color: var(--text-main);
+        }
+        .cart-table td:last-child {
+            border-bottom: 0;
+            justify-content: center;
+            padding-left: 10px !important; 
+        }
+
+        /* Inject Headers as Labels (The Magic) */
+        .cart-table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 10px;
+            width: 40%;
+            white-space: nowrap;
+            font-weight: 700;
+            color: var(--text-sub);
+            text-align: left;
+        }
+    }
+</style>
 <div style="max-width: 1000px; margin: 0 auto;">
     <h1>Your Cart</h1>
 
@@ -84,24 +131,25 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
-                    <th></th> </tr>
+                    <th></th> 
+                </tr>
             </thead>
             <tbody>
                 {% for item in cart_items %}
                 <tr>
-                    <td>
+                    <td data-label="Product">
                         <strong>{{ item.name }}</strong>
                     </td>
-                    <td>৳{{ item.price|floatformat:2 }}</td>
-                    <td>
+                    <td data-label="Price">৳{{ item.price|floatformat:2 }}</td>
+                    <td data-label="Quantity">
                         <div class="qty-control">
                             <a href="{% url 'update_cart' item.id 'decrease' %}" class="qty-btn">-</a>
                             <span class="qty-val">{{ item.quantity }}</span>
                             <a href="{% url 'update_cart' item.id 'increase' %}" class="qty-btn">+</a>
                         </div>
                     </td>
-                    <td style="font-weight: 700;">৳{{ item.item_total|floatformat:2 }}</td>
-                    <td>
+                    <td data-label="Total" style="font-weight: 700;">৳{{ item.item_total|floatformat:2 }}</td>
+                    <td data-label="Actions">
                         <a href="{% url 'update_cart' item.id 'remove' %}" class="btn-remove">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                             Remove

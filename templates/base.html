@@ -379,6 +379,60 @@
         .messenger-float:hover .messenger-icon {
             transform: rotate(-10deg); /* Playful tilt on hover */
         }
+
+        /* --- MOBILE HEADER CONSOLIDATION --- */
+        @media (max-width: 768px) {
+            /* GLOBAL FIX: Remove padding from the body element */
+            /* Tighten up icon spacing */
+            .nav-links a {
+                margin-left: 8px; 
+            }
+
+            /* Global Body Padding Fix */
+            body {
+                padding: 0 !important;
+            }
+            /* FIX: Full Bleed Header (Navbar) */
+            /* Global Site Header Adjustments (from previous fix) */
+            .site-header {
+                padding: 10px 15px !important;
+                max-width: 100% !important; 
+                margin: 0 !important; 
+                border-radius: 0 !important;
+                box-shadow: none !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 20px 15px !important; /* Add internal padding to content */
+            }
+            .catalog-btn {
+                display: none; /* Keep 'All Products' link hidden on mobile */
+            }
+            /* FIX: Ensure Footer is flush */
+            .sequoia-footer {
+                border-radius: 0 !important; /* Remove top rounding */
+                padding: 40px 15px 20px !important; /* Adjust internal padding */
+            }
+            .search-container {
+                /* Ensures search bar always wraps to the next line and takes full width */
+                order: 3;
+                width: 100% !important; 
+                max-width: 100% !important;
+            }
+            .nav-links {
+                /* CRITICAL FIX: Pushes icons to the far right */
+                margin-left: auto !important; 
+                order: 2; 
+                flex-shrink: 0; /* Prevents icons from shrinking */
+            }
+            /* Logo and Icons must be order 1 and 2 to stay on top */
+            .logo {
+                margin-right: 0 !important; /* Remove auto-margin to control flow */
+                flex-shrink: 0; /* Prevents logo image from shrinking */
+            }
+            /* The search bar should still wrap below (order: 3) */
+        }
+
     </style>
     <link rel="icon" href="/media/logo.svg" type="image/svg+xml">
     <title>{% block title %}Jeba Enterprise{% endblock %}</title>

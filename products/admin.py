@@ -22,6 +22,28 @@ from django.contrib import messages
 from .models import Product, ProductVariation, Sale, SaleItem, ProductImage, CompetitorPrice, Category
 from .steadfast import create_steadfast_order, make_payload, submit_steadfast_order
 
+from import_export.admin import ImportExportModelAdmin
+from import_export import resources
+from import_export.fields import Field
+from import_export.widgets import ForeignKeyWidget
+
+
+class ProductResource(resources.ModelResource):
+    category = Field(
+        column_name='category',
+        attribute='category',
+        widget=ForeignKeyWidget(Category, 'name')
+    )
+
+    class Meta:
+        model = Product
+        # --- ADD 'call_for_price' TO THIS LIST ---
+        fields = ('id', 'name', 'description', 'category', 'buying_cost', 
+                  'selling_price', 'stock_quantity', 'box_quantity', 
+                  'is_featured', 'call_for_price') # <--- Added here
+        # -----------------------------------------
+        import_id_fields = ('id',)
+
 
 # --- 1. Existing Inlines (No Changes) ---
 class ProductImageInline(admin.TabularInline):
@@ -59,20 +81,23 @@ def print_selected_products(modeladmin, request, queryset):
     return HttpResponseRedirect(f"/print-products/?ids={selected_ids}")
 
 # --- 3. Product Admin (No Changes) ---
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(ImportExportModelAdmin):
+    resource_class = ProductResource
     inlines = [ProductImageInline, ProductVariationInline, CompetitorPriceInline]
+    
+    # Update Fieldsets
     fieldsets = (
-        (None, {'fields': ('name', 'description', 'category', 'is_featured')}), # Added is_featured
+        (None, {'fields': ('name', 'category', 'is_featured', 'call_for_price')}),
+        ('Descriptions', {'fields': ('short_description', 'description')}), # <--- Added here
         ('Pricing', {'fields': ('buying_cost', 'selling_price')}),
         ('Stock', {'fields': ('stock_quantity', 'box_quantity')}),
     )
-    # Update list display to show the checkmark
-    list_display = ('name', 'selling_price', 'stock_quantity', 'category', 'is_featured')
-    list_editable = ('selling_price', 'stock_quantity', 'is_featured') # Allow quick toggling
-    list_filter = ('is_featured', 'category') # Filter by featured
+    
+    # Update List Display & Editable
+    list_display = ('name', 'selling_price', 'stock_quantity', 'category', 'is_featured', 'call_for_price') # <--- Added here
+    list_editable = ('selling_price', 'stock_quantity', 'is_featured', 'call_for_price') # <--- Added here
+    list_filter = ('is_featured', 'category', 'call_for_price')
     actions = [print_selected_products]
-
-
 
 # --- NEW ACTION ---
 # --- ACTION 2: SEND TO COURIER ---
@@ -230,6 +255,15 @@ admin.site.register(Category)
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
     # Only allow changing, not adding/deleting (since it's a singleton)
+    fieldsets = (
+        ('E-commerce Settings', {
+            'fields': ('meta_pixel_id', 'meta_access_token', 'delivery_charge_inside', 'delivery_charge_outside', 'messenger_username', 'facebook_page_url')
+        }),
+        ('Contact & Support', {
+            'fields': ('contact_phone', 'contact_email', 'contact_address', 'business_hours', 'whatsapp_number', 'contact_message_template') # <--- ADDED HERE
+        }),
+    )
+
     def has_add_permission(self, request):
         # Only allow adding if none exists
         return not SiteSettings.objects.exists()

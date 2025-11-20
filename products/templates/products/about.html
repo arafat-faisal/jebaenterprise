@@ -1,24 +1,87 @@
 {% extends 'base.html' %}
 
-{% block title %}About Us - Jeba Enterprise{% endblock %}
+{% block title %}About Us{% endblock %}
 
 {% block content %}
-<div style="max-width: 800px; margin: 40px auto; text-align: center;">
-    <h1 style="font-size: 3rem; margin-bottom: 20px;">About Jeba Enterprise</h1>
-    <p style="color: #666; font-size: 1.2rem; line-height: 1.6;">
-        Welcome to Jeba Enterprise, your number one source for modern lifestyle gadgets. 
-        We're dedicated to giving you the very best of home electronics, with a focus on dependability, 
-        customer service, and uniqueness.
-    </p>
+<style>
+    .about-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 0;
+    }
     
-    <div style="margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left;">
-        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <h3>🚀 Our Mission</h3>
-            <p style="color: #888;">To simplify your daily life with smart, affordable, and high-quality innovative products.</p>
+    /* Hero Section */
+    .about-hero {
+        text-align: center;
+        padding: 60px 20px;
+        background: white;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+    .about-title { font-size: 3rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; }
+    .about-subtitle { font-size: 1.2rem; color: var(--text-sub); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+    
+    /* Grid Section */
+    .value-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .value-card {
+        background: var(--bg-card);
+        padding: 30px;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-soft);
+        border: 1px solid transparent;
+    }
+    .value-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; color: var(--text-main); }
+    .value-desc { color: var(--text-sub); line-height: 1.6; }
+
+    @media (max-width: 768px) {
+        .value-grid { grid-template-columns: 1fr; }
+        .about-title { font-size: 2.2rem; }
+    }
+</style>
+
+<div class="about-container">
+    <div class="about-hero">
+        <div class="about-title">Our Story</div>
+        <div class="about-subtitle">
+            Welcome to <strong>Jeba Enterprise</strong>. We started with a simple mission: to bring high-quality, innovative lifestyle gadgets to every home in Bangladesh. We believe technology should make life easier, not more complicated.
         </div>
-        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <h3>💡 Our Vision</h3>
-            <p style="color: #888;">To become Bangladesh's most trusted e-commerce destination for lifestyle improvements.</p>
+    </div>
+    
+    <div class="value-grid">
+        <div class="value-card">
+            <div class="value-title">🚀 Our Mission</div>
+            <div class="value-desc">
+                To simplify your daily routine by providing smart, affordable, and reliable home solutions. We carefully select products that add real value to your life.
+            </div>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-title">❤️ Our Promise</div>
+            <div class="value-desc">
+                Dependability and customer service are at our core. We promise transparent pricing, fast delivery via Steadfast, and support that actually listens.
+            </div>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-title">📦 Quality First</div>
+            <div class="value-desc">
+                Every product in our catalog is tested for quality. If we wouldn't use it in our own homes, we won't sell it to you.
+            </div>
+        </div>
+
+        <div class="value-card">
+            <div class="value-title">🇧🇩 Locally Rooted</div>
+            <div class="value-desc">
+                Proudly based in Dhaka, we understand the local needs and delivery challenges better than anyone. We are built for Bangladesh.
+            </div>
         </div>
     </div>
 </div>

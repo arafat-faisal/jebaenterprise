@@ -103,10 +103,51 @@
     .option-title { font-weight: 700; font-size: 0.95rem; display: block; margin-bottom: 4px; }
     .option-sub { font-size: 0.85rem; color: #666; }
 
+    /* --- MOBILE RESPONSIVENESS FIXES --- */
     @media (max-width: 850px) {
-        .checkout-grid { grid-template-columns: 1fr; }
+        
+        /* 1. Global Page Width */
+        .checkout-grid {
+            grid-template-columns: 1fr; /* Force columns to stack vertically */
+            gap: 20px;
+        }
+
+        /* 2. Full-Bleed Containers (Remove side padding from blocks) */
+        .checkout-card, .summary-card {
+            border-radius: 0; /* Make corners sharp to blend with viewport edge */
+            box-shadow: none; /* Remove shadow on card edges */
+            border-left: none;
+            border-right: none;
+            padding: 20px 15px; /* Add padding inside the card */
+            margin: 0; /* Remove any side margin */
+        }
+        
+        /* 3. Re-Order Blocks: Display the Receipt Summary FIRST on mobile */
         .checkout-card { order: 2; }
-        .summary-card { order: 1; margin-bottom: 20px; }
+        .summary-card { order: 1; }
+
+        /* 4. Options Layout: Force delivery/payment cards to stack */
+        .option-grid {
+            flex-direction: column; 
+            gap: 10px;
+        }
+
+        /* 5. Fix Sticky Header (Optional: Makes the total visible when scrolling) */
+        .summary-card {
+            position: sticky; 
+            top: 0; /* Stick to the top of the viewport */
+            z-index: 100;
+        }
+        
+        /* Ensure the main page content doesn't have side padding */
+        .container {
+            padding: 0 !important;
+        }
+        
+        /* Fix the main H1 spacing */
+        .checkout-grid + h1 {
+            padding: 0 15px;
+        }
     }
 </style>
 

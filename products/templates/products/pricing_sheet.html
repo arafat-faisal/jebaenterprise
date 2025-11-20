@@ -249,13 +249,22 @@
             <h3 style="font-size: 1.1rem; margin-bottom: 5px;">{{ product.name }}</h3>
             
             <div class="card-meta">
-                <div>
-                    <div class="card-price">৳{{ product.selling_price|floatformat:2 }}</div>
-                    <small style="color: #ccc;">{{ product.stock_quantity }} left</small>
+                <div style="display: flex; flex-direction: column;">
+                    {% if product.call_for_price %}
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #0084FF; background: #e3f2fd; padding: 2px 8px; border-radius: 10px;">Call for Price</span>
+                    {% else %}
+                        <div class="card-price">৳{{ product.selling_price|floatformat:0 }}</div>
+                        
+                        {% if product.stock_quantity <= 0 %}
+                            <small style="color: #d32f2f; font-weight: 700;">Out of Stock</small>
+                        {% elif product.stock_quantity <= 5 %}
+                            <small style="color: #e65100; font-weight: 700;">Only {{ product.stock_quantity }} left!</small>
+                        {% else %}
+                            <small style="color: #2e7d32; font-weight: 600;">In Stock</small>
+                        {% endif %}
+                    {% endif %}
                 </div>
-                <a href="{% url 'product_detail' product.id %}" class="card-btn-icon">
-                    ↗
-                </a>
+                <a href="{% url 'product_detail' product.id %}" class="card-btn-icon">↗</a>
             </div>
         </div>
     {% endfor %}

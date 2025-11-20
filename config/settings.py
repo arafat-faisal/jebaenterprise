@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'products',  # Our new app for the e-commerce store
-    # ... all the other default apps
+    'products', 
+    'import_export',    
 ]
 
 
@@ -92,12 +92,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # This one line reads your Supabase URL and configures Django
 # In config/settings.py
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL'),
+#         conn_max_age=0, # <--- CHANGE THIS TO 0
+#         conn_health_checks=True,
+#     )
+# }
+
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=0, # <--- CHANGE THIS TO 0
-        conn_health_checks=True,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+    }
 }
 
 # Password validation
@@ -330,3 +342,6 @@ SESSION_FILE_PATH = BASE_DIR / "sessions"
 STEADFAST_API_KEY = os.getenv('STEADFAST_API_KEY')
 STEADFAST_SECRET_KEY = os.getenv('STEADFAST_SECRET_KEY')
 STEADFAST_BASE_URL = 'https://portal.packzy.com/api/v1'
+
+# Add this to configure import settings (optional but good)
+IMPORT_EXPORT_USE_TRANSACTIONS = True
