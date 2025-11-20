@@ -186,7 +186,7 @@
                 <span class="hero-tag">Featured Product</span>
                 <h1 class="hero-title">{{ featured_product.name }}</h1>
                 <p style="color: var(--text-sub); margin-bottom: 30px;">
-                    {{ featured_product.description|truncatechars:80 }}
+                    {{ featured_product.short_description|striptags|truncatechars:80 }}
                 </p>
                 <a href="{% url 'product_detail' featured_product.id %}" class="btn">
                     View Product ↗
@@ -194,11 +194,11 @@
             </div>
             
             <div class="hero-image-container">
-                {% if featured_product.images.first %}
-                    {% if featured_product.images.first.transparent_image %}
-                        <img src="{{ featured_product.images.first.transparent_image.url }}" alt="{{ featured_product.name }}">
+                {% if featured_product.main_image_obj %}
+                    {% if featured_product.main_image_obj.transparent_image %}
+                        <img src="{{ featured_product.main_image_obj.transparent_image.url }}" alt="{{ featured_product.name }}">
                     {% else %}
-                        <img src="{{ featured_product.images.first.image.url }}" alt="{{ featured_product.name }}">
+                        <img src="{{ featured_product.main_image_obj.image.url }}" alt="{{ featured_product.name }}">
                     {% endif %}
                 {% endif %}
             </div>
@@ -241,8 +241,10 @@
     {% for product in products %}
         <div class="modern-product-card">
             <a href="{% url 'product_detail' product.id %}" class="card-img-container">
-                {% if product.images.first %}
-                    <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                {% if product.thumbnail %}
+                    <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}">
+                {% else %}
+                    <img src="https://via.placeholder.com/300" alt="No Image">
                 {% endif %}
             </a>
             

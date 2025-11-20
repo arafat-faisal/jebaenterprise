@@ -295,8 +295,9 @@
                     </span>
                     
                     <h2 style="font-size: 2.2rem; margin-bottom: 10px;">{{ hero_product.name }}</h2>
+                    
                     <p class="hero-desc">
-                        {{ hero_product.description|default:"Upgrade your lifestyle with our latest collection." }}
+                        {{ hero_product.short_description|striptags|truncatechars:100 |default:"Upgrade your lifestyle with our latest collection." }}
                     </p>
                     
                     <a href="{% url 'product_detail' hero_product.id %}" class="btn" style="background: #1A1C1E; color: white; padding: 10px 25px;">
@@ -305,8 +306,12 @@
                 </div>
                 
                 <div class="hero-product-img">
-                    {% if hero_product.images.first %}
-                        <img src="{{ hero_product.images.first.image.url }}" alt="{{ hero_product.name }}">
+                    {% if hero_product.main_image_obj %}
+                         {% if hero_product.main_image_obj.transparent_image %}
+                             <img src="{{ hero_product.main_image_obj.transparent_image.url }}" alt="{{ hero_product.name }}">
+                         {% else %}
+                             <img src="{{ hero_product.main_image_obj.image.url }}" alt="{{ hero_product.name }}">
+                         {% endif %}
                     {% else %}
                         <div style="font-size: 3rem;">📦</div>
                     {% endif %}
@@ -323,8 +328,8 @@
             {% for product in products %}
                 <div class="cat-card">
                     <a href="{% url 'product_detail' product.id %}" class="cat-img-box">
-                        {% if product.images.first %}
-                            <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                        {% if product.thumbnail %}
+                            <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}">
                         {% else %}
                             <img src="https://via.placeholder.com/300" alt="No Image">
                         {% endif %}

@@ -18,7 +18,7 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=255)
     short_description = models.TextField(blank=True, null=True, help_text="Short summary shown beside the image")
-    
+
     description = models.TextField(blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='products')
     
@@ -35,6 +35,21 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    @property
+    def main_image_obj(self):
+        """Returns the ProductImage object that is main, or the first one as fallback."""
+        # 1. Try to get the image marked as "Main"
+        main = self.images.filter(is_main=True).first()
+        if main:
+            return main
+        # 2. Fallback
+        return self.images.first()
+
+    @property
+    def thumbnail(self):
+        """Returns the image file of the main image."""
+        img_obj = self.main_image_obj
+        return img_obj.image if img_obj else None
 
 # --- Product Variation ---
 class ProductVariation(models.Model):
@@ -112,6 +127,7 @@ class Sale(models.Model):
     def total_profit(self):
         items = self.items.all()
         return sum(item.profit for item in items)
+    
 
 # --- Sale Item ---
 class SaleItem(models.Model):
@@ -145,7 +161,14 @@ class ProductImage(models.Model):
     
     # We keep this field for MANUAL uploads
     transparent_image = models.ImageField(upload_to='products/transparent/', blank=True, null=True, help_text="Upload a PNG with no background here (Optional)")
-    
+    is_main = models.BooleanField(default=False, verbose_name="Main Thumbnail")
+
+    def save(self, *args, **kwargs):
+        # Ensure only one image is marked as main per product
+        if self.is_main:
+            ProductImage.objects.filter(product=self.product).exclude(id=self.id).update(is_main=False)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"Image for {self.product.name}"
 

@@ -50,7 +50,7 @@ class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
     # Explicitly show both fields so you can upload them separately
-    fields = ('image', 'transparent_image')
+    fields = ('image', 'transparent_image', 'is_main')
 
 class CompetitorPriceInline(admin.TabularInline):
     model = CompetitorPrice
