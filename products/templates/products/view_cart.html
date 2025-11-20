@@ -20,7 +20,7 @@
         color: var(--text-sub);
     }
     
-    /* Quantity Controls (Keep existing styles) */
+    /* Quantity Controls */
     .qty-control {
         display: inline-flex;
         align-items: center;
@@ -28,29 +28,42 @@
         border-radius: 50px;
         padding: 5px;
     }
-    .qty-btn { /* ... existing styles ... */ }
+    .qty-btn { 
+        width: 30px; 
+        height: 30px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        text-decoration: none; 
+        color: var(--text-main); 
+        font-weight: 700;
+    }
     .qty-val { margin: 0 15px; font-weight: 600; min-width: 20px; text-align: center; }
     
-    /* Remove Button (Keep existing styles) */
-    .btn-remove { /* ... existing styles ... */ }
+    /* Remove Button */
+    .btn-remove { 
+        color: #d32f2f; 
+        text-decoration: none; 
+        display: flex; 
+        align-items: center; 
+        gap: 5px; 
+        font-size: 0.9rem; 
+        font-weight: 600; 
+    }
 
     /* --- MOBILE TABLE RESTRUCTURE --- */
     @media (max-width: 600px) {
         .container { padding: 15px !important; }
 
-        .cart-table {
-            border: none;
-        }
-        .cart-table thead { 
-            display: none; /* Hides table headers on mobile */
-        }
+        .cart-table { border: none; }
+        .cart-table thead { display: none; } /* Hide headers */
         
         .cart-table, .cart-table tbody, .cart-table tr, .cart-table td {
             display: block;
             width: 100%;
         }
         
-        /* Style each product row as a card */
+        /* Card Style for Rows */
         .cart-table tr {
             border: 1px solid #f0f0f0;
             margin-bottom: 15px;
@@ -61,37 +74,30 @@
         }
 
         .cart-table td {
-            /* Enforce wrapping for long text */
             word-wrap: break-word;
-            word-break: break-word; 
-            
-            text-align: right !important; /* Pushes value to the right */
-            padding-left: 50% !important; /* Creates space for the label */
+            text-align: right !important; 
+            padding-left: 50% !important; 
             position: relative;
             border: none;
             border-bottom: 1px solid #f0f0f0;
             font-size: 1rem;
-            
             display: flex; 
             justify-content: space-between;
             align-items: center;
         }
 
-        /* FIX 1: Product Name (First Cell) */
+        /* Product Name (First Cell) */
         .cart-table td:first-child {
-            /* Full width for the title */
             text-align: left !important;
             padding-left: 15px !important; 
             border-bottom: 1px solid #ddd;
             font-size: 1.1rem;
             font-weight: 700;
         }
-        .cart-table td:first-child::before {
-            content: none; /* Hide the label for the product name */
-        }
+        .cart-table td:first-child::before { content: none; }
         
-        /* FIX 2: Total and Action cells */
-        .cart-table td:nth-child(4) { /* Total column */
+        /* Total and Action cells */
+        .cart-table td:nth-child(4) { 
              font-weight: 800; 
              color: var(--text-main);
         }
@@ -101,7 +107,7 @@
             padding-left: 10px !important; 
         }
 
-        /* Inject Headers as Labels (The Magic) */
+        /* Labels */
         .cart-table td::before {
             content: attr(data-label);
             position: absolute;
@@ -114,6 +120,7 @@
         }
     }
 </style>
+
 <div style="max-width: 1000px; margin: 0 auto;">
     <h1>Your Cart</h1>
 
@@ -139,8 +146,19 @@
                 <tr>
                     <td data-label="Product">
                         <strong>{{ item.name }}</strong>
+                        {% if item.call_for_price %}
+                            <br><small style="color: #0084FF; font-weight: bold;">(Contact Required)</small>
+                        {% endif %}
                     </td>
-                    <td data-label="Price">৳{{ item.price|floatformat:2 }}</td>
+                    
+                    <td data-label="Price">
+                        {% if item.call_for_price %}
+                            <span>--</span>
+                        {% else %}
+                            ৳{{ item.price|floatformat:2 }}
+                        {% endif %}
+                    </td>
+
                     <td data-label="Quantity">
                         <div class="qty-control">
                             <a href="{% url 'update_cart' item.id 'decrease' %}" class="qty-btn">-</a>
@@ -148,7 +166,15 @@
                             <a href="{% url 'update_cart' item.id 'increase' %}" class="qty-btn">+</a>
                         </div>
                     </td>
-                    <td data-label="Total" style="font-weight: 700;">৳{{ item.item_total|floatformat:2 }}</td>
+
+                    <td data-label="Total" style="font-weight: 700;">
+                        {% if item.call_for_price %}
+                            <span style="color: #0084FF; background: #e3f2fd; padding: 4px 8px; border-radius: 4px; font-size: 0.9rem;">Contact Us</span>
+                        {% else %}
+                            ৳{{ item.item_total|floatformat:2 }}
+                        {% endif %}
+                    </td>
+
                     <td data-label="Actions">
                         <a href="{% url 'update_cart' item.id 'remove' %}" class="btn-remove">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
@@ -161,7 +187,11 @@
         </table>
         
         <div style="margin-top: 30px; text-align: right; border-top: 2px solid #eee; padding-top: 20px;">
-            <h2 style="margin-bottom: 20px;">Total: ৳{{ total_price|floatformat:2 }}</h2>
+            <h2 style="margin-bottom: 20px;">
+                Total: ৳{{ total_price|floatformat:2 }}
+                <div style="font-size: 0.9rem; color: #666; font-weight: normal;">(Excluding 'Call for Price' items)</div>
+            </h2>
+            
             <a href="{% url 'checkout' %}" class="btn" style="padding: 15px 40px; font-size: 1.1rem;">
                 Proceed to Checkout →
             </a>

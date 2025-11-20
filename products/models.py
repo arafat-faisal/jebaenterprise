@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.db.models import Avg
 
 # --- Category Model ---
 class Category(models.Model):
@@ -35,6 +36,14 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    # --- NEW: SAVE LOGIC TO AUTO-FIX CALL FOR PRICE ---
+    def save(self, *args, **kwargs):
+        # If a valid price is set, ensure 'Call for Price' is OFF
+        if self.selling_price > 0 and self.call_for_price:
+            self.call_for_price = False
+            
+        super().save(*args, **kwargs)
+    # --------------------------------------------------
     @property
     def main_image_obj(self):
         """Returns the ProductImage object that is main, or the first one as fallback."""
@@ -51,6 +60,68 @@ class Product(models.Model):
         img_obj = self.main_image_obj
         return img_obj.image if img_obj else None
 
+    # --- AUTO CATEGORY LOGIC ---
+    def auto_assign_category(self):
+        CATEGORY_KEYWORDS = {
+            'Electronics': ['phone', 'mobile', 'laptop', 'camera', 'earphone', 'headphone', 'charger', 'cable', 'usb', 'speaker', 'watch', 'smart', 'tv', 'gadget', 'wireless', 'bluetooth'],
+            'Fashion': ['shirt', 'pant', 't-shirt', 'shoe', 'dress', 'saree', 'panjabi', 'bag', 'wallet', 'belt', 'cloth', 'wear', 'jersey'],
+            'Beauty & Health': ['cream', 'oil', 'shampoo', 'soap', 'makeup', 'perfume', 'lipstick', 'face', 'skin', 'hair', 'lotion'],
+            'Home & Living': ['bed', 'chair', 'table', 'sofa', 'light', 'lamp', 'decor', 'kitchen', 'bottle', 'mug', 'pillow', 'shelf'],
+            'Groceries': ['rice', 'oil', 'dal', 'spice', 'sugar', 'tea', 'coffee', 'food', 'snack', 'chocolate', 'biscuit'],
+            'Toys & Games': ['toy', 'doll', 'game', 'car', 'remote', 'puzzle', 'lego', 'teddy'],
+            'Automotive': ['bike', 'car', 'helmet', 'engine', 'oil', 'tire', 'parts'],
+            'Video & Audio': ['microphone', 'tripod', 'studio', 'vlog', 'kit', 'ring light', 'stand', 'recording'],
+        }
+
+        name_lower = self.name.lower()
+        found_category_name = None
+        
+        for cat_name, keywords in CATEGORY_KEYWORDS.items():
+            for keyword in keywords:
+                if keyword in name_lower:
+                    found_category_name = cat_name
+                    break
+            if found_category_name:
+                break
+        
+        if found_category_name:
+            category_obj, created = Category.objects.get_or_create(name=found_category_name)
+            self.category = category_obj
+            self.save()
+            return True
+        return False
+    
+    # --- NEW: DYNAMIC PRICING MATH ---
+    def apply_dynamic_pricing(self):
+        """
+        Selling Price = (Average of Competitors' Min Price) - 50
+        """
+        # Get all competitor prices for this product
+        comp_prices = self.competitor_prices.all()
+        
+        if not comp_prices.exists():
+            return False # No data to work with
+
+        # Calculate Average of 'min_price' (ignoring None or 0)
+        valid_prices = [cp.min_price for cp in comp_prices if cp.min_price and cp.min_price > 0]
+        
+        if not valid_prices:
+            return False
+
+        avg_min_price = sum(valid_prices) / len(valid_prices)
+        
+        # Math Formula: Avg - 50
+        new_selling_price = avg_min_price - 50
+        
+        # Safety Check: Don't go below buying cost!
+        if self.buying_cost > 0 and new_selling_price < self.buying_cost:
+             # Fallback: Cost + 10 profit if comp price is too low
+             new_selling_price = self.buying_cost + 10 
+
+        self.selling_price = new_selling_price
+        self.save()
+        return True
+
 # --- Product Variation ---
 class ProductVariation(models.Model):
     product = models.ForeignKey(Product, related_name='variations', on_delete=models.CASCADE)
@@ -61,6 +132,7 @@ class ProductVariation(models.Model):
 
     def __str__(self):
         return f"{self.product.name} - {self.name}"
+    
     
 # --- Sale Model ---
 class Sale(models.Model):
@@ -219,8 +291,6 @@ def ensure_profile_exists(sender, instance, **kwargs):
     UserProfile.objects.get_or_create(user=instance)
 
 
-# ... existing code ...
-
 # --- GLOBAL SITE SETTINGS ---
 class SiteSettings(models.Model):
     """
@@ -281,7 +351,6 @@ class SiteSettings(models.Model):
         verbose_name_plural = "Site Settings"
 
 # --- ANALYTICS & TRACKING MODELS ---
-
 class SearchEvent(models.Model):
     query = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
