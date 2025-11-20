@@ -56,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # --- NEW: Maintenance Mode Middleware ---
+    'products.middleware.MaintenanceMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -286,13 +288,12 @@ JAZZMIN_SETTINGS = {
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
     
-    # --- NEW: Custom Link for Competitor Analysis ---
+    # --- Custom Link for Competitor Analysis ---
     "custom_links": {
         "products": [{
             "name": "Competitor Analysis", 
             "url": "admin_scraper", 
             "icon": "fas fa-search-dollar",
-            # "permissions": ["products.view_product"] # Optional: Restrict access
         }]
     },
 }
@@ -355,3 +356,7 @@ STEADFAST_BASE_URL = 'https://portal.packzy.com/api/v1'
 
 # Add this to configure import settings (optional but good)
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+# --- MAINTENANCE MODE ---
+# Set this to 'True' in your .env file to enable maintenance page
+MAINTENANCE_MODE = os.getenv('MAINTENANCE_MODE', 'False') == 'True'

@@ -466,6 +466,7 @@ def print_products_page(request):
 # --- UPDATED ADMIN SCRAPER VIEW ---
 @staff_member_required
 def admin_scraper_view(request):
+    # --- GET Request Logic ---
     if request.method == 'GET':
         all_products = Product.objects.all().order_by('name')
         presets = ScraperPreset.objects.all()
@@ -475,6 +476,7 @@ def admin_scraper_view(request):
         }
         return render(request, 'products/admin_scraper.html', context)
 
+    # --- POST Request Logic ---
     if request.method == 'POST':
         action = request.POST.get('action')
         
@@ -847,6 +849,13 @@ def track_share(request, product_id):
         )
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'error'}, status=400)
+
+# --- CUSTOM ERROR PAGES ---
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500(request):
+    return render(request, '500.html', status=500)
 
 def about_us(request):
     return render(request, 'products/about.html')

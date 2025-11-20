@@ -21,7 +21,7 @@ from import_export.widgets import ForeignKeyWidget
 from .models import (
     Category, Product, ProductVariation, Sale, SaleItem, 
     ProductImage, SiteSettings, CompetitorPrice, Review, 
-    Wishlist, UserProfile, ProductEvent, SearchEvent
+    Wishlist, UserProfile, ProductEvent, SearchEvent, ScraperPreset
 )
 
 from .steadfast import create_steadfast_order, make_payload, submit_steadfast_order
@@ -165,7 +165,7 @@ class ProductAdmin(ImportExportModelAdmin):
         auto_categorize_products, 
         apply_smart_pricing,
         scrape_selected_products,
-        fix_call_for_price # <--- Added here
+        fix_call_for_price
     ]
 
     def open_scraper_button(self, obj):
@@ -275,6 +275,9 @@ class SaleAdmin(admin.ModelAdmin):
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
     fieldsets = (
+        ('General Configuration', {
+            'fields': ('maintenance_mode', 'call_for_price')
+        }),
         ('E-commerce Settings', {
             'fields': ('meta_pixel_id', 'meta_access_token', 'delivery_charge_inside', 'delivery_charge_outside', 'messenger_username', 'facebook_page_url')
         }),
@@ -337,6 +340,10 @@ class WinningProductAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
+
+@admin.register(ScraperPreset)
+class ScraperPresetAdmin(admin.ModelAdmin):
+    list_display = ('name', 'confidence_threshold', 'text_slam_dunk')
 
 @admin.register(CompetitorPrice)
 class CompetitorPriceAdmin(admin.ModelAdmin):

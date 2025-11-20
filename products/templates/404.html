@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 100px 20px; max-width: 600px; margin: 0 auto;">
+    <div style="font-size: 6rem; font-weight: 800; color: #e0e0e0; line-height: 1; margin-bottom: 20px;">404</div>
+    <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 15px;">Oops! Page Not Found</h1>
+    <p style="color: var(--text-sub); font-size: 1.1rem; margin-bottom: 40px; line-height: 1.6;">
+        The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a href="{% url 'pricing_sheet' %}" class="btn">Back to Home</a>
+        <a href="{% url 'product_catalog' %}" class="btn" style="background: #f0f0f0; color: var(--text-main);">Browse Products</a>
+    </div>
+</div>
+{% endblock %}

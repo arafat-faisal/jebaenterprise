@@ -24,7 +24,6 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='products')
     
     call_for_price = models.BooleanField(default=False, help_text="If checked, price will be hidden and 'Call for Price' shown.")
-    # Added featured field
     is_featured = models.BooleanField(default=False, help_text="Check this to show on Homepage Hero section")
 
     buying_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -305,6 +304,10 @@ class SiteSettings(models.Model):
     # ---------------------------
     
     call_for_price = models.BooleanField(default=False, help_text="If checked, price will be hidden and 'Contact for Price' shown.")
+
+    # --- NEW: MAINTENANCE MODE TOGGLE ---
+    maintenance_mode = models.BooleanField(default=False, help_text="If checked, the entire site (except admin) will show the 'Under Maintenance' page.")
+    # ------------------------------------
 
     def save(self, *args, **kwargs):
         # Force ID to be 1 so there's only ever one settings object

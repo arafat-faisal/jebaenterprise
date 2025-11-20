@@ -1,0 +1,533 @@
+{% extends 'base.html' %}
+
+{% block title %}We'll Be Back Soon{% endblock %}
+
+{% block content %}
+<style>
+    .maintenance-container {
+        text-align: center;
+        padding: 60px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .maintenance-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    /* SWEET MESSAGE */
+    .sweet-message {
+        background: #FFF0F5;
+        border: 2px solid #FFB6C1;
+        border-radius: 20px;
+        padding: 30px;
+        margin: 30px 0;
+        position: relative;
+    }
+    .sweet-message::after {
+        content: '💖';
+        position: absolute;
+        top: -15px;
+        right: -10px;
+        font-size: 2rem;
+        transform: rotate(15deg);
+    }
+    
+    /* SOCIAL BUTTONS */
+    .social-btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+    .btn-social {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s;
+        color: white;
+    }
+    .btn-social:hover { transform: translateY(-3px); opacity: 0.9; }
+    .btn-fb { background-color: #1877F2; }
+    .btn-msg { background-color: #0084FF; }
+    
+    /* --- ARCADE SECTION --- */
+    .arcade-wrapper {
+        margin-top: 50px;
+        border-top: 2px dashed #eee;
+        padding-top: 40px;
+    }
+    
+    /* Game Menu */
+    .game-menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        max-width: 600px;
+        margin: 20px auto;
+    }
+    .game-card {
+        background: white;
+        border: 2px solid #eee;
+        border-radius: 15px;
+        padding: 20px;
+        cursor: pointer;
+        transition: 0.2s;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .game-card:hover {
+        transform: translateY(-5px);
+        border-color: #1A1C1E;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .game-emoji { font-size: 3rem; display: block; margin-bottom: 10px; }
+    .game-title { font-weight: 800; color: #1A1C1E; }
+    
+    /* Game Canvas Area */
+    .game-stage {
+        display: none; /* Hidden by default */
+        margin-top: 20px;
+        position: relative;
+    }
+    canvas {
+        background: #f8f9fa;
+        border: 2px solid #333;
+        border-radius: 10px;
+        max-width: 100%;
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+        cursor: pointer;
+    }
+    .game-ui {
+        font-family: 'Courier New', monospace;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        max-width: 400px;
+        margin: 0 auto 10px auto;
+    }
+    .btn-back {
+        background: #eee;
+        color: #333;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    .btn-back:hover { background: #ddd; }
+</style>
+
+<div class="maintenance-container">
+    <div class="maintenance-icon">🛠️✨</div>
+    
+    <h1 style="font-weight: 800; margin-bottom: 15px;">We're Polishing Our Shelves!</h1>
+    
+    <p style="font-size: 1.1rem; color: var(--text-sub);">
+        We are currently performing scheduled maintenance to give you an even better shopping experience.
+        We should be back shortly!
+    </p>
+
+    <div class="sweet-message">
+        <h3 style="margin-top: 0; color: #D81B60;">While you wait...</h3>
+        <p style="color: #555; line-height: 1.6;">
+            Don't miss out on our latest updates and exclusive flash deals! 
+            Join our community on Facebook or send us a message if you need urgent support.
+        </p>
+        
+        <div class="social-btn-group">
+            {% if site_settings.facebook_page_url %}
+            <a href="{{ site_settings.facebook_page_url }}" target="_blank" class="btn-social btn-fb">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Visit Facebook Page
+            </a>
+            {% endif %}
+            
+            {% if site_settings.messenger_username %}
+            <a href="https://m.me/{{ site_settings.messenger_username }}" target="_blank" class="btn-social btn-msg">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.3 2.238.464 3.443.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26 6.559-6.963 3.13 3.259 5.889-3.259-6.56 6.963z"/></svg>
+                Message Us
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="arcade-wrapper">
+        <h3>Waiting Room Arcade 🕹️</h3>
+        <p style="font-size: 0.9rem; color: #777;">Choose a game to pass the time!</p>
+
+        <div id="gameMenu" class="game-menu">
+            <div class="game-card" onclick="loadGame('dino')">
+                <span class="game-emoji">🦖</span> <div class="game-title">Dino Jumper</div>
+            </div>
+            <div class="game-card" onclick="loadGame('balloon')">
+                <span class="game-emoji">🎈</span>
+                <div class="game-title">Balloon Pop</div>
+            </div>
+            <div class="game-card" onclick="loadGame('snake')">
+                <span class="game-emoji">🐍</span>
+                <div class="game-title">Classic Snake</div>
+            </div>
+        </div>
+
+        <div id="gameStage" class="game-stage">
+            <button class="btn-back" onclick="showMenu()">← Back to Menu</button>
+            <div class="game-ui">
+                <span>Score: <span id="score">0</span></span>
+                <span id="instructions">Tap to Jump</span>
+            </div>
+            <canvas id="gameCanvas" width="400" height="300"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreEl = document.getElementById('score');
+    const instrEl = document.getElementById('instructions');
+    
+    let currentGame = null;
+    let gameLoopId;
+    let score = 0;
+    let isGameOver = false;
+
+    // --- MENU LOGIC ---
+    function loadGame(gameType) {
+        document.getElementById('gameMenu').style.display = 'none';
+        document.getElementById('gameStage').style.display = 'block';
+        
+        currentGame = gameType;
+        score = 0;
+        isGameOver = false;
+        scoreEl.innerText = '0';
+
+        if (gameType === 'dino') initDino();
+        else if (gameType === 'balloon') initBalloon();
+        else if (gameType === 'snake') initSnake();
+    }
+
+    function showMenu() {
+        cancelAnimationFrame(gameLoopId);
+        if(currentGame === 'snake') clearInterval(snakeInterval);
+        
+        document.getElementById('gameStage').style.display = 'none';
+        document.getElementById('gameMenu').style.display = 'grid';
+        currentGame = null;
+    }
+
+    // --- GLOBAL INPUT HANDLER ---
+    canvas.addEventListener('mousedown', handleInput);
+    canvas.addEventListener('touchstart', (e) => { e.preventDefault(); handleInput(e.touches[0]); });
+
+    function handleInput(e) {
+        if (isGameOver) {
+            loadGame(currentGame); // Restart
+            return;
+        }
+
+        if (currentGame === 'dino') dinoJump();
+        else if (currentGame === 'balloon') popBalloon(e);
+        // Snake uses keyboard/swipe, handled separately
+    }
+
+    // ==========================================
+    // GAME 1: DINO JUMPER (Flipped Green Dino 🦖)
+    // ==========================================
+    let dino = { x: 50, y: 240, w: 30, h: 40, dy: 0, jumpForce: 12, grounded: true };
+    let obstacles = [];
+    let frame = 0;
+
+    function initDino() {
+        instrEl.innerText = "Tap/Space to Jump";
+        dino.y = 240; dino.dy = 0; obstacles = []; frame = 0;
+        updateDino();
+        
+        // Keyboard support
+        document.onkeydown = (e) => { if(e.code === 'Space') dinoJump(); };
+    }
+
+    function dinoJump() {
+        if (dino.grounded) {
+            dino.dy = -dino.jumpForce;
+            dino.grounded = false;
+        }
+    }
+
+    function updateDino() {
+        if (currentGame !== 'dino') return;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Ground
+        ctx.fillStyle = '#555';
+        ctx.fillRect(0, 280, canvas.width, 2);
+
+        // Dino Physics
+        dino.dy += 0.6; // Gravity
+        dino.y += dino.dy;
+        
+        if (dino.y > 240) { // Hit ground
+            dino.y = 240;
+            dino.dy = 0;
+            dino.grounded = true;
+        }
+
+        // --- DRAW DINO (FLIPPED HORIZONTALLY) ---
+        ctx.save();
+        // Move to the center of the dino's position
+        ctx.translate(dino.x + dino.w/2, dino.y + dino.h/2);
+        // Flip horizontally so it faces Right
+        ctx.scale(-1, 1); 
+        
+        ctx.font = "40px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        
+        // Draw the Green Dino Emoji
+        ctx.fillText("🦖", 0, 2); 
+        ctx.restore();
+        // ---------------------------------------
+
+        // Obstacles
+        frame++;
+        if (frame % 100 === 0) {
+            obstacles.push({ x: canvas.width, w: 20, h: 30 + Math.random() * 20 });
+        }
+
+        ctx.fillStyle = '#d32f2f';
+        for (let i = 0; i < obstacles.length; i++) {
+            let obs = obstacles[i];
+            obs.x -= 4; // Speed
+            ctx.fillRect(obs.x, 280 - obs.h, obs.w, obs.h);
+
+            // Collision
+            if (
+                dino.x < obs.x + obs.w &&
+                dino.x + dino.w > obs.x &&
+                dino.y < 280 &&
+                dino.y + dino.h > 280 - obs.h
+            ) {
+                drawGameOver();
+                return;
+            }
+
+            // Score & Remove
+            if (obs.x + obs.w < 0) {
+                obstacles.shift();
+                score++;
+                scoreEl.innerText = score;
+            }
+        }
+
+        gameLoopId = requestAnimationFrame(updateDino);
+    }
+
+
+    // ==========================================
+    // GAME 2: BALLOON POP
+    // ==========================================
+    let balloons = [];
+    let balloonTimer = 0;
+
+    function initBalloon() {
+        instrEl.innerText = "Tap balloons to pop!";
+        balloons = [];
+        updateBalloon();
+        document.onkeydown = null;
+    }
+
+    function popBalloon(e) {
+        const rect = canvas.getBoundingClientRect();
+        const clickX = (e.clientX || e.touches[0].clientX) - rect.left;
+        const clickY = (e.clientY || e.touches[0].clientY) - rect.top;
+
+        for (let i = 0; i < balloons.length; i++) {
+            let b = balloons[i];
+            let dist = Math.sqrt((clickX - b.x)**2 + (clickY - b.y)**2);
+            if (dist < b.r + 10) { // +10 hitbox buffer
+                balloons.splice(i, 1);
+                score++;
+                scoreEl.innerText = score;
+                return;
+            }
+        }
+    }
+
+    function updateBalloon() {
+        if (currentGame !== 'balloon') return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        balloonTimer++;
+        if (balloonTimer % 40 === 0) {
+            balloons.push({
+                x: Math.random() * (canvas.width - 40) + 20,
+                y: canvas.height + 30,
+                r: 15 + Math.random() * 10,
+                speed: 1 + Math.random() * 2,
+                color: `hsl(${Math.random()*360}, 70%, 60%)`
+            });
+        }
+
+        for (let i = 0; i < balloons.length; i++) {
+            let b = balloons[i];
+            b.y -= b.speed;
+
+            // Draw Balloon
+            ctx.beginPath();
+            ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+            ctx.fillStyle = b.color;
+            ctx.fill();
+            ctx.stroke();
+            
+            // String
+            ctx.beginPath();
+            ctx.moveTo(b.x, b.y + b.r);
+            ctx.lineTo(b.x, b.y + b.r + 20);
+            ctx.strokeStyle = '#999';
+            ctx.stroke();
+
+            if (b.y < -50) {
+                drawGameOver();
+                return;
+            }
+        }
+        gameLoopId = requestAnimationFrame(updateBalloon);
+    }
+
+
+    // ==========================================
+    // GAME 3: SNAKE
+    // ==========================================
+    let snake = [];
+    let food = {};
+    let direction = 'RIGHT';
+    let gridSize = 20;
+    let snakeInterval;
+
+    function initSnake() {
+        instrEl.innerText = "Swipe or Arrows to Move";
+        snake = [{x: 160, y: 160}, {x: 140, y: 160}, {x: 120, y: 160}];
+        direction = 'RIGHT';
+        spawnFood();
+        
+        // Controls
+        document.onkeydown = (e) => {
+            if(e.key === 'ArrowUp' && direction !== 'DOWN') direction = 'UP';
+            else if(e.key === 'ArrowDown' && direction !== 'UP') direction = 'DOWN';
+            else if(e.key === 'ArrowLeft' && direction !== 'RIGHT') direction = 'LEFT';
+            else if(e.key === 'ArrowRight' && direction !== 'LEFT') direction = 'RIGHT';
+        };
+
+        // Touch Controls (Simple quadrant tap)
+        canvas.onmousedown = (e) => {
+            if (isGameOver) { loadGame('snake'); return; }
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const cx = canvas.width / 2;
+            const cy = canvas.height / 2;
+            
+            if (Math.abs(x - cx) > Math.abs(y - cy)) {
+                if (x > cx && direction !== 'LEFT') direction = 'RIGHT';
+                else if (x < cx && direction !== 'RIGHT') direction = 'LEFT';
+            } else {
+                if (y > cy && direction !== 'UP') direction = 'DOWN';
+                else if (y < cy && direction !== 'DOWN') direction = 'UP';
+            }
+        };
+
+        if (snakeInterval) clearInterval(snakeInterval);
+        snakeInterval = setInterval(updateSnake, 150); // Game tick
+    }
+
+    function spawnFood() {
+        food = {
+            x: Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize,
+            y: Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize
+        };
+    }
+
+    function updateSnake() {
+        if (currentGame !== 'snake') return;
+
+        // Move Head
+        let head = { ...snake[0] };
+        if (direction === 'UP') head.y -= gridSize;
+        if (direction === 'DOWN') head.y += gridSize;
+        if (direction === 'LEFT') head.x -= gridSize;
+        if (direction === 'RIGHT') head.x += gridSize;
+
+        // Collision Wall
+        if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
+            clearInterval(snakeInterval);
+            drawGameOver();
+            return;
+        }
+        
+        // Collision Self
+        for (let part of snake) {
+            if (part.x === head.x && part.y === head.y) {
+                clearInterval(snakeInterval);
+                drawGameOver();
+                return;
+            }
+        }
+
+        snake.unshift(head); // Add new head
+
+        // Eat Food
+        if (head.x === food.x && head.y === food.y) {
+            score++;
+            scoreEl.innerText = score;
+            spawnFood();
+        } else {
+            snake.pop(); // Remove tail if not eating
+        }
+
+        // Draw
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw Food
+        ctx.fillStyle = '#E91E63';
+        ctx.fillRect(food.x, food.y, gridSize-2, gridSize-2);
+
+        // Draw Snake
+        ctx.fillStyle = '#4CAF50';
+        for (let part of snake) {
+            ctx.fillRect(part.x, part.y, gridSize-2, gridSize-2);
+        }
+    }
+
+
+    // ==========================================
+    // COMMON UTILS
+    // ==========================================
+    function drawGameOver() {
+        isGameOver = true;
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = '#d32f2f';
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("Game Over", canvas.width/2, canvas.height/2 - 10);
+        
+        ctx.font = "16px Arial";
+        ctx.fillStyle = '#333';
+        ctx.fillText("Tap to Restart", canvas.width/2, canvas.height/2 + 20);
+    }
+</script>
+{% endblock %}

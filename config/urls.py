@@ -19,6 +19,11 @@ from django.urls import path, include
 from django.conf import settings               
 from django.conf.urls.static import static
 
+# --- Define Custom Error Handlers ---
+# These point to the views we will create in the next step
+handler404 = 'products.views.custom_404'
+handler500 = 'products.views.custom_500'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # --- ADD THIS LINE ---
