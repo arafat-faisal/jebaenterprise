@@ -1,0 +1,12 @@
+From d6559a85df570c85416542b686cde4ced0a815f3 Mon Sep 17 00:00:00 2001
+From: "Md. Arafat Hossain Faisal" <arafatfaisal.pro@gmail.com>
+Date: Thu, 20 Nov 2025 19:13:13 +0600
+Subject: [PATCH] Add main image functionality to Product and ProductImage
+ models
+
+- Updated ProductImageInline in admin.py to include 'is_main' field for image management.
+- Enhanced Product model with properties to retrieve the main image and its thumbnail.
+- Modified ProductImage model to ensure only one image can be marked as main per product.
+- Updated catalog and pricing_sheet templates to utilize the new main image logic and display short descriptions.
+- Created a new migration to add 'is_main' field to ProductImage model.
+---
