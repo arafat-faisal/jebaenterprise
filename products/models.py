@@ -169,9 +169,11 @@ class Sale(models.Model):
         item_total = sum(item.sold_price * item.quantity for item in self.items.all())
         return item_total + self.delivery_charge
     
+    # --- ADD THIS NEW PROPERTY ---
     @property
     def subtotal(self):
         return sum(item.sold_price * item.quantity for item in self.items.all())
+    # -----------------------------
 
     @property
     def total_profit(self):
@@ -261,41 +263,63 @@ class UserProfile(models.Model):
 # --- SAFE SIGNALS (No AI) ---
 @receiver(post_save, sender=User)
 def ensure_profile_exists(sender, instance, **kwargs):
+    # Safer method to get or create profile
     UserProfile.objects.get_or_create(user=instance)
 
 
 # --- GLOBAL SITE SETTINGS ---
 class SiteSettings(models.Model):
+    """
+    Singleton model to store global configuration.
+    Only one instance of this should ever exist.
+    """
     bkash_number = models.CharField(max_length=15, default="017XXXXXXXX", help_text="Personal bKash Number for manual payments")
     delivery_charge_inside = models.DecimalField(max_digits=5, decimal_places=0, default=60, help_text="Delivery charge inside Dhaka")
     delivery_charge_outside = models.DecimalField(max_digits=5, decimal_places=0, default=120, help_text="Delivery charge outside Dhaka")
 
+    # --- NEW SOCIAL FIELDS ---
     facebook_page_url = models.URLField(blank=True, null=True, default="https://facebook.com", help_text="Full URL to your Facebook Page")
     messenger_username = models.CharField(max_length=50, blank=True, null=True, help_text="Your Page Username or ID (e.g. 'JebaEnterprise')")
-    meta_pixel_id = models.CharField(max_length=50, blank=True, null=True, help_text="Your Meta Pixel ID (e.g. '1234567890')")
-    meta_access_token = models.TextField(blank=True, null=True, help_text="Long Access Token from Events Manager > Settings > Conversions API")
+    # -------------------------
 
+    # --- NEW FIELD ---
+    meta_pixel_id = models.CharField(max_length=50, blank=True, null=True, help_text="Your Meta Pixel ID (e.g. '1234567890')")
+    # -----------------
+    # NEW FIELD FOR CAPI
+    meta_access_token = models.TextField(blank=True, null=True, help_text="Long Access Token from Events Manager > Settings > Conversions API")
+    # -----------------------------
+
+    # --- NEW CONTACT FIELDS ---
     contact_phone = models.CharField(max_length=20, default="+880 1771-000000", help_text="Support Phone Number")
     contact_email = models.EmailField(default="jebaenterprisebd@gmail.com", help_text="Support Email")
     contact_address = models.TextField(default="H# 00/00, AAAAA, AAAAA, AAAA", help_text="Physical Office Address")
     business_hours = models.CharField(max_length=100, default="Sat - Thu: 10:00 AM - 8:00 PM", help_text="e.g. Sat-Thu 10am-8pm")
+    # --------------------------
+
+    # --- NEW WHATSAPP FIELDS ---
     whatsapp_number = models.CharField(max_length=20, default="8801716330967", help_text="WhatsApp number for direct contact (Start with country code, e.g., 88017...).")
     contact_message_template = models.TextField(
         default="আমি [PRODUCT_NAME] সম্পর্কে বিস্তারিত তথ্য জানতে আগ্রহী। প্রোডাক্ট লিংক: [PRODUCT_LINK]", 
         help_text="Bengali message template. Use [PRODUCT_NAME] and [PRODUCT_LINK] placeholders."
     )
+    # ---------------------------
     
     call_for_price = models.BooleanField(default=False, help_text="If checked, price will be hidden and 'Contact for Price' shown.")
 
     def save(self, *args, **kwargs):
+        # Force ID to be 1 so there's only ever one settings object
         self.pk = 1
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
+        # Prevent deletion
         pass
 
     @classmethod
     def load(cls):
+        """
+        Helper to get the settings object (creates it if missing).
+        """
         obj, created = cls.objects.get_or_create(pk=1)
         return obj
 
@@ -317,6 +341,7 @@ class ProductEvent(models.Model):
         ('VIEW', 'Product View'),
         ('CART', 'Added to Cart'),
         ('PURCHASE', 'Purchased'),
+        ('SHARE', 'Shared'), # <--- ADDED SHARE
     ]
     
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='events')

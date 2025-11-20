@@ -175,21 +175,34 @@
         justify-content: center;
         flex-shrink: 0;
         background: white;
+        cursor: pointer;
     }
     .btn-icon-only.in-wishlist { background-color: #ffebee; border-color: #ff1744; }
+    
+    /* Share Button Style */
+    .btn-share-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        background: #f0f0f0;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    .btn-share-icon:hover { background: #e0e0e0; }
 
     /* Related Products */
     .related-section { margin-top: 50px; }
     .related-header { margin-bottom: 25px; font-size: 1.5rem; font-weight: 700; }
-    
-    /* --- UPDATED GRID (Responsive) --- */
     .related-grid { 
         display: grid; 
-        /* On desktop, keep 200px min */
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
         gap: 20px; 
     }
-    
     .related-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 15px; box-shadow: var(--shadow-soft); border: 1px solid transparent; display: flex; flex-direction: column; }
     .related-img-box { height: 160px; width: 100%; background-color: #F8F9FB; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; }
     .related-img-box img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
@@ -270,22 +283,10 @@
         .review-form-box { position: static; order: -1; }
         .product-title-lg { font-size: 1.6rem !important; }
         
-        /* Always show Nav buttons on mobile */
         .img-nav-btn { opacity: 1 !important; background: rgba(255, 255, 255, 0.9); width: 35px; height: 35px; }
-        .thumb-btn.active { 
-            box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2); /* Outer glow */
-            transform: scale(65%); /* Remove inset effect */
-        }
-
-        /* --- NEW: MOBILE GRID FIX (2 Columns) --- */
-        .related-grid {
-            /* Force 2 columns by lowering min-width to ~150px */
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
-            gap: 15px;
-        }
-        .related-img-box {
-            height: 130px; /* Slightly smaller image box for mobile */
-        }
+        .thumb-btn.active { box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2); }
+        .related-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+        .related-img-box { height: 130px; }
     }
 </style>
 
@@ -438,9 +439,12 @@
                      <button type="submit" name="action" value="buy_now" class="btn-buy-now">
                         Buy Now
                     </button>
-                    <a href="{% url 'toggle_wishlist' product.id %}" class="btn-icon-only {% if in_wishlist %}in-wishlist{% endif %}">
+                    <a href="{% url 'toggle_wishlist' product.id %}" class="btn-icon-only {% if in_wishlist %}in-wishlist{% endif %}" title="Wishlist">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="{% if in_wishlist %}#ff1744{% else %}none{% endif %}" stroke="{% if in_wishlist %}#ff1744{% else %}currentColor{% endif %}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     </a>
+                    <button type="button" class="btn-share-icon" onclick="handleShare()" title="Share Product">
+                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                    </button>
                 </div>
 
             {% else %}
@@ -744,6 +748,34 @@
             popup.classList.remove('active');
         }
     });
+
+    // --- NEW: SHARE LOGIC ---
+    async function handleShare() {
+        const shareData = {
+            title: '{{ product.name|escapejs }}',
+            text: 'Check out this amazing product from Jeba Enterprise!',
+            url: window.location.href
+        };
+
+        // Track Event Immediately
+        fetch("{% url 'track_share' product.id %}", {
+            method: 'POST',
+            headers: { 'X-CSRFToken': '{{ csrf_token }}' }
+        });
+
+        try {
+            // Use Native Share if available (Mobile)
+            if (navigator.share) {
+                await navigator.share(shareData);
+            } else {
+                // Fallback for Desktop
+                await navigator.clipboard.writeText(shareData.url);
+                alert('Link copied to clipboard!');
+            }
+        } catch (err) {
+            console.log('Share cancelled');
+        }
+    }
 </script>
 
 {% if site_settings.meta_pixel_id %}

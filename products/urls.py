@@ -52,4 +52,7 @@ urlpatterns = [
     path("update-cart/<str:item_id>/<str:action>/", views.update_cart, name="update_cart"),
     path("about/", views.about_us, name="about_us"),
     path("contact/", views.contact_us, name="contact_us"),
+    
+    # --- NEW: SHARE TRACKING ---
+    path("track-share/<int:product_id>/", views.track_share, name="track_share"),
 ]

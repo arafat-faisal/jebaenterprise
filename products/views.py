@@ -7,15 +7,15 @@ from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q, Sum, Avg
+from django.db.models import Q, Sum, Avg, Case, When, Value, IntegerField
 from .forms import CheckoutForm, ReviewForm, UserForm, ProfileForm, SignUpForm
 from django.contrib.auth import logout
 from django.core.mail import send_mail
 from .models import Review, Wishlist, UserProfile
 
-# --- UPDATED IMPORTS ---
+# --- UPDATED IMPORTS FROM UTILS ---
 from .utils import send_order_email, fetch_competitor_data 
-# -----------------------
+# ----------------------------------
 
 from django.db import transaction
 import threading
@@ -82,7 +82,7 @@ def pricing_sheet(request):
     return render(request, "products/pricing_sheet.html", context)
 
 
-# --- NEW: Dedicated Catalog View ---
+# --- NEW: Dedicated Catalog View with Smart Sorting ---
 def product_catalog(request):
     products = Product.objects.all().prefetch_related('images')
     
@@ -93,12 +93,24 @@ def product_catalog(request):
     if category_id:
         products = products.filter(category_id=category_id)
     
+    # Annotate to put Call for Price items last (Value 1)
+    products = products.annotate(
+        sort_priority=Case(
+            When(Q(call_for_price=True) | Q(selling_price__lte=0), then=Value(1)),
+            default=Value(0),
+            output_field=IntegerField(),
+        )
+    )
+
     if sort_by == 'new':
-        products = products.order_by('-created_at')
+        products = products.order_by('sort_priority', '-created_at')
     elif sort_by == 'price-low':
-        products = products.order_by('selling_price')
+        products = products.order_by('sort_priority', 'selling_price')
     elif sort_by == 'price-high':
-        products = products.order_by('-selling_price')
+        products = products.order_by('sort_priority', '-selling_price')
+    else:
+        # Default
+        products = products.order_by('sort_priority', '-created_at')
         
     all_categories = Category.objects.all()
 
@@ -454,7 +466,6 @@ def print_products_page(request):
 # --- UPDATED ADMIN SCRAPER VIEW ---
 @staff_member_required
 def admin_scraper_view(request):
-    # --- GET Request Logic ---
     if request.method == 'GET':
         all_products = Product.objects.all().order_by('name')
         presets = ScraperPreset.objects.all()
@@ -464,11 +475,10 @@ def admin_scraper_view(request):
         }
         return render(request, 'products/admin_scraper.html', context)
 
-    # --- POST Request Logic ---
     if request.method == 'POST':
         action = request.POST.get('action')
         
-        # FEATURE 1: SAVE PRICE (UPDATED to support Min/Max)
+        # FEATURE 1: MANUAL PRICE SAVE (Updated for Min/Max)
         if action == 'save_price':
             product_id = request.POST.get('product_id')
             price = request.POST.get('price')
@@ -478,7 +488,6 @@ def admin_scraper_view(request):
             if not product_id:
                 return JsonResponse({'success': False, 'error': 'Missing Product ID'})
             
-            # Determine values
             try:
                 defaults = {}
                 if min_price and max_price:
@@ -551,7 +560,7 @@ def admin_scraper_view(request):
             text_slam_dunk = 85
             image_slam_dunk = 90
 
-        # Call helper. save_to_db=True to AUTO-SAVE
+        # Call helper. save_to_db=True to AUTO-SAVE results as requested
         result = fetch_competitor_data(
             product, 
             search_term, 
@@ -822,6 +831,22 @@ def user_dashboard(request):
         'recent_orders': recent_orders
     }
     return render(request, 'registration/dashboard.html', context)
+
+# --- NEW: TRACK SHARE EVENT ---
+def track_share(request, product_id):
+    if request.method == 'POST':
+        product = get_object_or_404(Product, pk=product_id)
+        if not request.session.session_key:
+            request.session.save()
+            
+        ProductEvent.objects.create(
+            product=product,
+            user=request.user if request.user.is_authenticated else None,
+            session_id=request.session.session_key,
+            event_type='SHARE'
+        )
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'error'}, status=400)
 
 def about_us(request):
     return render(request, 'products/about.html')
