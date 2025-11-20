@@ -26,6 +26,8 @@ from import_export.admin import ImportExportModelAdmin
 from import_export import resources
 from import_export.fields import Field
 from import_export.widgets import ForeignKeyWidget
+from django.db.models import Count, Q
+from .models import Product, ProductEvent, SearchEvent
 
 
 class ProductResource(resources.ModelResource):
@@ -270,3 +272,63 @@ class SiteSettingsAdmin(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
+    
+
+class ProductAnalytics(Product):
+    class Meta:
+        proxy = True
+        verbose_name = "Product Analytics (Winning Products)"
+        verbose_name_plural = "Product Analytics (Winning Products)"
+
+@admin.register(ProductAnalytics)
+class WinningProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'total_views', 'total_carts', 'total_orders', 'cart_conversion_rate', 'sales_conversion_rate')
+    search_fields = ('name',)
+    list_per_page = 50
+
+    # This prevents adding/deleting products from this specific view
+    def has_add_permission(self, request):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        # Aggregate the events for every product
+        qs = qs.annotate(
+            views=Count('events', filter=Q(events__event_type='VIEW')),
+            carts=Count('events', filter=Q(events__event_type='CART')),
+            orders=Count('events', filter=Q(events__event_type='PURCHASE')),
+        )
+        return qs.order_by('-orders', '-carts', '-views')
+
+    # --- COLUMNS ---
+    def total_views(self, obj):
+        return obj.views
+    total_views.admin_order_field = 'views'
+
+    def total_carts(self, obj):
+        return obj.carts
+    total_carts.admin_order_field = 'carts'
+
+    def total_orders(self, obj):
+        return obj.orders
+    total_orders.admin_order_field = 'orders'
+
+    def cart_conversion_rate(self, obj):
+        # (Carts / Views) * 100
+        if obj.views == 0: return "0%"
+        return f"{((obj.carts / obj.views) * 100):.1f}%"
+
+    def sales_conversion_rate(self, obj):
+        # (Orders / Views) * 100
+        if obj.views == 0: return "0%"
+        return f"{((obj.orders / obj.views) * 100):.1f}%"
+    
+@admin.register(SearchEvent)
+class SearchTermAdmin(admin.ModelAdmin):
+    list_display = ('query', 'user', 'created_at')
+    list_filter = ('created_at',)
+    search_fields = ('query',)

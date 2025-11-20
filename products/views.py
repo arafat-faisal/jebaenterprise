@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product,ProductVariation, Sale, SaleItem, ProductImage,  CompetitorPrice,Category , SiteSettings  # Import your Product model
+from .models import Product,ProductVariation, Sale, SaleItem, ProductImage,  CompetitorPrice,Category , SiteSettings, ProductEvent, SearchEvent  # Import your Product model
 from django.http import HttpRequest
 
 # --- ADD ALL THESE IMPORTS AT THE TOP ---
@@ -156,6 +156,20 @@ def product_catalog(request):
 
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
+    
+    # --- NEW: TRACKING ---
+    # Ensure we have a session ID even for anonymous users
+    if not request.session.session_key:
+        request.session.save()
+        
+    ProductEvent.objects.create(
+        product=product,
+        user=request.user if request.user.is_authenticated else None,
+        session_id=request.session.session_key,
+        event_type='VIEW'
+    )
+    # ---------------------
+
     variations = product.variations.filter(is_active=True)
     
     # Related Products logic (Keep existing)
@@ -206,6 +220,18 @@ def add_to_cart(request: HttpRequest, product_id):
 
     request.session['cart'] = cart
 
+    # --- NEW: TRACKING ---
+    if not request.session.session_key:
+        request.session.save()
+
+    ProductEvent.objects.create(
+        product=product,
+        user=request.user if request.user.is_authenticated else None,
+        session_id=request.session.session_key,
+        event_type='CART'
+    )
+    # ---------------------
+
     # <--- NEW LOGIC HERE ---
     if action == 'buy_now':
         return redirect('checkout')
@@ -236,6 +262,17 @@ def add_to_cart_variation(request: HttpRequest, variation_id):
         }
 
     request.session['cart'] = cart
+    # --- NEW: TRACKING ---
+    if not request.session.session_key:
+        request.session.save()
+        
+    ProductEvent.objects.create(
+        product=product, # ensure you get 'product' from variation.product
+        user=request.user if request.user.is_authenticated else None,
+        session_id=request.session.session_key,
+        event_type='CART'
+    )
+    # ---------------------
     if action == 'buy_now':
         return redirect('checkout')
     # Redirect back to the main product's page
@@ -325,6 +362,14 @@ def checkout(request):
                             sold_price=item_data['price'],
                             buying_cost=product.buying_cost 
                         )
+                        # --- NEW: TRACKING PURCHASE ---
+                        ProductEvent.objects.create(
+                            product=product,
+                            user=request.user if request.user.is_authenticated else None,
+                            session_id=request.session.session_key,
+                            event_type='PURCHASE'
+                        )
+                        # ------------------------------
                 # --- NEW: 1. Send Server-Side Event (CAPI) ---
                 # We run this in a thread so it doesn't slow down checkout
                 threading.Thread(target=send_purchase_event, args=(new_sale, request)).start()
@@ -787,7 +832,17 @@ def search_view(request):
 
     # --- NEW: APPLY FILTERS (Category & Sort) ON SEARCH RESULTS ---
     # This allows users to filter/sort *within* their search results
-    
+    # --- NEW: TRACKING SEARCH ---
+    if request.method == 'GET' and query:
+        if not request.session.session_key:
+            request.session.save()
+            
+        SearchEvent.objects.create(
+            query=query,
+            user=request.user if request.user.is_authenticated else None,
+            session_id=request.session.session_key
+        )
+    # ----------------------------
     category_id = request.GET.get('category')
     sort_by = request.GET.get('sort')
 
@@ -812,6 +867,7 @@ def search_view(request):
         'active_category': category_id,
         'active_sort': sort_by
     }
+    
     return render(request, 'products/search_results.html', context)
 
 def user_logout(request):
