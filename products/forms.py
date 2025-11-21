@@ -5,11 +5,10 @@ from .models import Sale
 from .models import Review, UserProfile
 from django.contrib.auth.models import User
 
-from django.contrib.auth.forms import UserCreationForm  # Import this at the top if not already there
+from django.contrib.auth.forms import UserCreationForm
 
 
 class CheckoutForm(forms.ModelForm):
-    # --- NEW LOCATION FIELD ---
     DELIVERY_OPTIONS = [
         ('INSIDE', 'Inside Dhaka (৳60)'),
         ('OUTSIDE', 'Outside Dhaka (৳120)'),
@@ -19,16 +18,13 @@ class CheckoutForm(forms.ModelForm):
         widget=forms.RadioSelect(attrs={'class': 'delivery-radio'}),
         initial='INSIDE'
     )
-    # --------------------------
 
-    # We define payment_method explicitly to use a RadioSelect widget
     payment_method = forms.ChoiceField(
         choices=Sale.PAYMENT_METHODS,
         widget=forms.RadioSelect(attrs={'class': 'payment-radio'}),
         initial='COD'
     )
     
-    # --- FIX: Add 'widget' here to restore the styling ---
     transaction_id = forms.CharField(
         required=False, 
         validators=[
@@ -39,21 +35,22 @@ class CheckoutForm(forms.ModelForm):
         ],
         widget=forms.TextInput(attrs={
             'placeholder': 'e.g. 8N7A6D5...', 
-            'class': 'form-control',          # <--- This applies your CSS style
+            'class': 'form-control',          
             'style': 'text-transform: uppercase;' 
         })
     )
-    # -----------------------------------------------------
+    
+    # --- NEW: Enforce Mandatory Fields ---
+    # Even though model says blank=True, we force required=True in the form
+    customer_name = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Full Name', 'class': 'form-control'}))
+    phone_number = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': '017...', 'class': 'form-control'}))
+    shipping_address = forms.CharField(required=True, widget=forms.Textarea(attrs={'rows': 3, 'placeholder': 'Street, City, Zip Code', 'class': 'form-control'}))
+    # -------------------------------------
 
     class Meta:
         model = Sale
         fields = ['customer_name', 'phone_number', 'shipping_address', 'payment_method', 'transaction_id']
-        widgets = {
-            'customer_name': forms.TextInput(attrs={'placeholder': 'Full Name', 'class': 'form-control'}),
-            'phone_number': forms.TextInput(attrs={'placeholder': '017...', 'class': 'form-control'}),
-            'shipping_address': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Street, City, Zip Code', 'class': 'form-control'}),
-            # We removed 'transaction_id' from here because it's defined above now
-        }
+        # Widgets are now handled in the field definitions above to ensure they keep styles
 
     def clean(self):
         cleaned_data = super().clean()
@@ -64,7 +61,6 @@ class CheckoutForm(forms.ModelForm):
             if not trx_id:
                 self.add_error('transaction_id', "Transaction ID is required for bKash payment.")
             else:
-                # Force Uppercase for consistency
                 cleaned_data['transaction_id'] = trx_id.upper()
         
         return cleaned_data
@@ -93,7 +89,6 @@ class ProfileForm(forms.ModelForm):
         }
 
 
-# --- NEW: Custom Sign Up Form ---
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=False, help_text="Optional. Recommended for order tracking.")
     first_name = forms.CharField(required=True, max_length=30)

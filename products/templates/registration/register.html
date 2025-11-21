@@ -17,7 +17,7 @@
     .auth-title { font-size: 2rem; font-weight: 800; margin-bottom: 10px; text-align: center; }
     .auth-sub { color: #8E94A3; margin-bottom: 30px; font-size: 0.95rem; text-align: center; }
 
-    .form-group { margin-bottom: 20px; }
+    .form-group { margin-bottom: 20px; position: relative; } /* Added position relative */
     .form-label { display: block; font-weight: 700; margin-bottom: 8px; color: #1A1C1E; font-size: 0.9rem; margin-left: 5px; }
     
     .form-control { 
@@ -36,6 +36,20 @@
 
     .field-help { font-size: 0.8rem; color: #888; margin-top: 5px; margin-left: 5px; }
     .field-error { color: #d32f2f; font-size: 0.85rem; margin-top: 5px; display: block; font-weight: 600; }
+
+    /* Toggle Password Style */
+    .toggle-password {
+        position: absolute;
+        right: 15px;
+        top: 38px; /* Adjust based on label height */
+        cursor: pointer;
+        color: #8E94A3;
+        background: none;
+        border: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    .toggle-password:hover { color: #1A1C1E; }
 </style>
 
 <div class="auth-container">
@@ -49,6 +63,11 @@
             <div class="form-group">
                 <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
                 {{ field }}
+                
+                {# --- NEW: Toggle Button Logic --- #}
+                {% if 'password' in field.name|lower %}
+                    <button type="button" class="toggle-password" onclick="togglePassword('{{ field.id_for_label }}', this)">Show</button>
+                {% endif %}
                 
                 {% if field.help_text %}
                     <div class="field-help">{{ field.help_text|safe }}</div>
@@ -75,6 +94,18 @@
             input.classList.add('form-control');
         }
     });
+
+    // --- NEW: Toggle Password Function ---
+    function togglePassword(fieldId, btn) {
+        const input = document.getElementById(fieldId);
+        if (input.type === "password") {
+            input.type = "text";
+            btn.innerText = "Hide";
+        } else {
+            input.type = "password";
+            btn.innerText = "Show";
+        }
+    }
 </script>
 
 {% endblock %}

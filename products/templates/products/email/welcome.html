@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        .email-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .header { background-color: #ffffff; padding: 30px; text-align: center; border-bottom: 1px solid #eee; }
+        .content { padding: 30px; color: #333; line-height: 1.6; text-align: center; }
+        .btn { display: inline-block; background-color: #1A1C1E; color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 50px; margin-top: 20px; font-weight: bold; }
+        .footer { background-color: #f9f9f9; padding: 20px; text-align: center; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <img src="cid:logo_img" alt="Jeba Enterprise" height="40">
+        </div>
+        <div class="content">
+            <h1 style="color: #1A1C1E;">Welcome, {{ user.first_name }}!</h1>
+            <p>Thank you for joining <strong>Jeba Enterprise</strong>. Your account has been created successfully.</p>
+            <p>You can now track your orders, manage your address, and shop faster.</p>
+            
+            <a href="https://jebaenterprise.com/dashboard/" class="btn">Go to My Dashboard</a>
+        </div>
+        <div class="footer">
+            &copy; {% now "Y" %} Jeba Enterprise. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

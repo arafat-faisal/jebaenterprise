@@ -18,35 +18,37 @@ import logging
 # Get logger
 logger = logging.getLogger(__name__)
 
-def send_order_email(sale, user_email):
-    subject = f"Order Confirmed: {sale.order_id}"
-    from_email = settings.EMAIL_HOST_USER
-    to_email = [user_email]
-
-    # 1. Render Template
-    html_content = render_to_string('products/email/order_confirmation.html', {'sale': sale})
-    text_content = strip_tags(html_content)
-
-    # 2. Create Email Object
-    msg = EmailMultiAlternatives(subject, text_content, from_email, to_email)
-    msg.attach_alternative(html_content, "text/html")
-
-    # 3. EMBED LOGO (logo.png)
+# --- HELPER: Attach Logo ---
+def attach_logo(msg):
+    """Helper to attach the logo to an email message."""
     logo_path = os.path.join(settings.MEDIA_ROOT, 'logo.png') 
-    
     if os.path.exists(logo_path):
         try:
             with open(logo_path, 'rb') as f:
                 logo_data = f.read()
-            
             logo = MIMEImage(logo_data)
             logo.add_header('Content-ID', '<logo_img>')
             logo.add_header('Content-Disposition', 'inline', filename='logo.png')
             msg.attach(logo)
         except Exception as e:
             print(f"Could not attach logo: {e}")
+    return msg
 
-    # 4. Embed Product Images
+def send_order_email(sale, user_email):
+    subject = f"Order Confirmed: {sale.order_id}"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [user_email]
+
+    html_content = render_to_string('products/email/order_confirmation.html', {'sale': sale})
+    text_content = strip_tags(html_content)
+
+    msg = EmailMultiAlternatives(subject, text_content, from_email, to_email)
+    msg.attach_alternative(html_content, "text/html")
+
+    # Attach Logo
+    msg = attach_logo(msg)
+
+    # Embed Product Images
     for item in sale.items.all():
         if item.product.images.first():
             img_obj = item.product.images.first()
@@ -61,10 +63,26 @@ def send_order_email(sale, user_email):
             except Exception as e:
                 print(f"Could not attach image for {item.product.name}: {e}")
 
-    # 5. Send
     msg.send()
 
-# --- NEW HELPER: AUTO SCRAPER FUNCTION ---
+# --- NEW: Send Welcome Email ---
+def send_welcome_email(user):
+    subject = f"Welcome to Jeba Enterprise, {user.first_name}!"
+    from_email = settings.EMAIL_HOST_USER
+    to_email = [user.email]
+
+    html_content = render_to_string('products/email/welcome.html', {'user': user})
+    text_content = strip_tags(html_content)
+
+    msg = EmailMultiAlternatives(subject, text_content, from_email, to_email)
+    msg.attach_alternative(html_content, "text/html")
+    
+    # Attach Logo
+    msg = attach_logo(msg)
+    
+    msg.send()
+
+# --- SCRAPER FUNCTION ---
 def fetch_competitor_data(product, search_term=None, manual_image_bytes=None, save_to_db=True,
                           image_weight=0.3, text_weight=0.7, confidence_threshold=60,
                           text_slam_dunk=85, image_slam_dunk=90):

@@ -14,7 +14,8 @@ from django.core.mail import send_mail
 from .models import Review, Wishlist, UserProfile
 
 # --- UPDATED IMPORTS FROM UTILS ---
-from .utils import send_order_email, fetch_competitor_data 
+# We import the NEW send_welcome_email function here
+from .utils import send_order_email, fetch_competitor_data, send_welcome_email
 # ----------------------------------
 
 from django.db import transaction
@@ -588,13 +589,11 @@ def register_view(request):
             
             if user.email: 
                 try:
-                    send_mail(
-                        subject=f"Welcome to Jeba Enterprise, {user.first_name}!",
-                        message=f"Hi {user.first_name},\n\nThank you for creating an account with us.\n\nBest regards,\nThe Jeba Team",
-                        from_email=settings.EMAIL_HOST_USER,
-                        recipient_list=[user.email],
-                        fail_silently=True,
-                    )
+                    # --- REPLACED PLAIN TEXT WITH HTML TEMPLATE ---
+                    # We now call the function in utils.py that attaches the logo
+                    # and sends the nice HTML welcome email.
+                    threading.Thread(target=send_welcome_email, args=(user,)).start()
+                    # -----------------------------------------------
                 except:
                     pass 
 
