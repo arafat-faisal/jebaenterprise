@@ -4,6 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db.models import Avg
+import uuid
 
 # --- Category Model ---
 class Category(models.Model):
@@ -120,6 +121,10 @@ class ProductVariation(models.Model):
 class Sale(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     customer_name = models.CharField(max_length=100, blank=True, null=True)
+    # ... inside Sale model ...
+    # FINAL: Now we enforce uniqueness
+    access_token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    # ...
     phone_number = models.CharField(max_length=20, blank=True, null=True)
     shipping_address = models.TextField(blank=True, null=True)
     

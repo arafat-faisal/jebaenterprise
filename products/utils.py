@@ -4,6 +4,10 @@ from django.utils.html import strip_tags
 from django.conf import settings
 from email.mime.image import MIMEImage
 import os
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.contrib.staticfiles import finders
 
 # --- IMPORTS FOR SCRAPER ---
 from playwright.sync_api import sync_playwright
@@ -34,21 +38,34 @@ def attach_logo(msg):
             print(f"Could not attach logo: {e}")
     return msg
 
-def send_order_email(sale, user_email):
+# ... (Keep existing imports) ...
+
+# Update this function signature to accept 'domain'
+def send_order_email(sale, user_email, domain='jebaenterprise.com'):
     subject = f"Order Confirmed: {sale.order_id}"
     from_email = settings.EMAIL_HOST_USER
     to_email = [user_email]
 
-    html_content = render_to_string('products/email/order_confirmation.html', {'sale': sale})
+    # Create the tracking link
+    # If domain doesn't start with http, add it (assuming https for production, http for local)
+    protocol = "https" if "jeba" in domain else "http"
+    tracking_url = f"{protocol}://{domain}/track-order/{sale.access_token}/"
+
+    # Pass tracking_url to the template
+    context = {
+        'sale': sale,
+        'tracking_url': tracking_url
+    }
+
+    html_content = render_to_string('products/email/order_confirmation.html', context)
     text_content = strip_tags(html_content)
 
     msg = EmailMultiAlternatives(subject, text_content, from_email, to_email)
     msg.attach_alternative(html_content, "text/html")
 
-    # Attach Logo
     msg = attach_logo(msg)
 
-    # Embed Product Images
+    # ... (Keep existing image embedding logic) ...
     for item in sale.items.all():
         if item.product.images.first():
             img_obj = item.product.images.first()
@@ -64,6 +81,8 @@ def send_order_email(sale, user_email):
                 print(f"Could not attach image for {item.product.name}: {e}")
 
     msg.send()
+
+# ... (Keep rest of file) ...
 
 # --- NEW: Send Welcome Email ---
 def send_welcome_email(user):
@@ -253,3 +272,42 @@ def fetch_competitor_data(product, search_term=None, manual_image_bytes=None, sa
     except Exception as e:
         logger.error(f"Scraping error for {product.name}: {e}")
         return {'success': False, 'error': str(e)}
+    
+def link_callback(uri, rel):
+    """
+    Convert HTML URIs to absolute system paths so xhtml2pdf can access those resources
+    """
+    result = finders.find(uri)
+    if result:
+        if not isinstance(result, (list, tuple)):
+            result = [result]
+        result = list(set(result))
+        path = result[0]
+    else:
+        sUrl = settings.STATIC_URL        # Typically /static/
+        sRoot = settings.STATIC_ROOT      # Typically /home/userX/project_static/
+        mUrl = settings.MEDIA_URL         # Typically /media/
+        mRoot = settings.MEDIA_ROOT       # Typically /home/userX/project_media/
+
+        if uri.startswith(mUrl):
+            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+        elif uri.startswith(sUrl):
+            path = os.path.join(sRoot, uri.replace(sUrl, ""))
+        else:
+            return uri
+
+    # Make sure that file exists
+    if not os.path.isfile(path):
+            raise Exception(
+                'media URI must start with %s or %s' % (sUrl, mUrl)
+            )
+    return path
+
+def render_to_pdf(template_src, context_dict={}):
+    template = get_template(template_src)
+    html  = template.render(context_dict)
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result, link_callback=link_callback)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None

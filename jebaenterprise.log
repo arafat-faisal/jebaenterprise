@@ -4389,3 +4389,138 @@ INFO 2025-11-22 02:08:12,471 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
 INFO 2025-11-22 02:08:12,528 basehttp "GET / HTTP/1.1" 200 63132
 INFO 2025-11-22 02:09:32,853 basehttp "GET / HTTP/1.1" 200 63202
 INFO 2025-11-22 02:09:34,055 basehttp "GET /dashboard/ HTTP/1.1" 200 37629
+INFO 2025-11-22 02:27:05,287 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:27:10,766 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:27:21,793 basehttp "GET / HTTP/1.1" 200 62209
+INFO 2025-11-22 02:27:23,392 basehttp "GET /dashboard/ HTTP/1.1" 200 37629
+INFO 2025-11-22 02:27:24,195 basehttp "GET /my-orders/ HTTP/1.1" 200 29214
+INFO 2025-11-22 02:27:25,320 basehttp "GET /order/4/ HTTP/1.1" 200 31351
+INFO 2025-11-22 02:27:32,386 basehttp "GET /products/ HTTP/1.1" 200 349899
+INFO 2025-11-22 02:27:33,945 basehttp "GET / HTTP/1.1" 200 63015
+INFO 2025-11-22 02:27:36,209 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:27:36,266 basehttp "GET / HTTP/1.1" 200 62235
+INFO 2025-11-22 02:27:39,019 basehttp "GET /products/ HTTP/1.1" 200 348621
+INFO 2025-11-22 02:27:39,949 basehttp "GET /product/1630/ HTTP/1.1" 200 68472
+INFO 2025-11-22 02:27:40,151 basehttp "GET /media/products/gallery/prod_1630_3.jpg HTTP/1.1" 200 60632
+INFO 2025-11-22 02:27:40,151 basehttp "GET /media/products/gallery/prod_1630_2.jpg HTTP/1.1" 200 35293
+INFO 2025-11-22 02:27:40,173 basehttp "GET /media/products/gallery/prod_1630_1.jpg HTTP/1.1" 200 47743
+INFO 2025-11-22 02:27:40,173 basehttp "GET /media/products/gallery/prod_1630_5.jpg HTTP/1.1" 200 73788
+INFO 2025-11-22 02:27:40,173 basehttp "GET /media/products/gallery/prod_1630_4.jpg HTTP/1.1" 200 26007
+INFO 2025-11-22 02:27:41,455 basehttp "POST /add-to-cart/1630/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:27:41,473 basehttp "GET /checkout/ HTTP/1.1" 200 40381
+INFO 2025-11-22 02:27:48,282 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:27:48,430 basehttp "GET /order-success/ HTTP/1.1" 200 27106
+INFO 2025-11-22 02:27:58,026 basehttp "GET / HTTP/1.1" 200 61538
+INFO 2025-11-22 02:28:08,042 basehttp "GET /accounts/login/ HTTP/1.1" 200 30701
+INFO 2025-11-22 02:28:11,221 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:28:11,304 basehttp "GET / HTTP/1.1" 200 67653
+INFO 2025-11-22 02:28:12,949 basehttp "GET /admin/ HTTP/1.1" 200 45710
+INFO 2025-11-22 02:28:12,974 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+INFO 2025-11-22 02:28:13,018 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+INFO 2025-11-22 02:28:15,893 basehttp "GET /admin/products/sale/ HTTP/1.1" 200 37184
+INFO 2025-11-22 02:28:15,914 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+INFO 2025-11-22 02:28:15,921 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-11-22 02:28:15,921 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-11-22 02:28:15,921 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-11-22 02:28:15,921 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-11-22 02:28:15,921 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-11-22 02:28:15,921 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-11-22 02:28:15,927 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+INFO 2025-11-22 02:28:15,928 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-11-22 02:28:15,932 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+INFO 2025-11-22 02:28:15,943 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-22 02:28:24,389 basehttp "GET /admin/products/sale/5/change/ HTTP/1.1" 200 89399
+INFO 2025-11-22 02:28:24,412 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+INFO 2025-11-22 02:28:24,413 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-11-22 02:28:24,416 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-11-22 02:28:24,417 basehttp "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+INFO 2025-11-22 02:28:24,419 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-11-22 02:28:24,420 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-11-22 02:28:24,422 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-11-22 02:28:24,424 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-11-22 02:28:24,433 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-22 02:28:42,679 basehttp "GET /admin/auth/user/1/change/ HTTP/1.1" 200 46334
+INFO 2025-11-22 02:28:42,701 basehttp "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2025-11-22 02:28:42,702 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-11-22 02:28:42,702 basehttp "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+INFO 2025-11-22 02:28:42,702 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-11-22 02:28:42,723 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-22 02:28:43,774 basehttp "GET /admin/ HTTP/1.1" 200 45710
+INFO 2025-11-22 02:33:04,525 autoreload E:\WebProjects\jebaenterprise\products\utils.py changed, reloading.
+INFO 2025-11-22 02:33:04,835 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:35:52,895 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:36:03,316 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:36:10,857 basehttp "GET /admin/ HTTP/1.1" 200 45710
+INFO 2025-11-22 02:36:13,552 basehttp "GET /user-logout/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:36:13,619 basehttp "GET / HTTP/1.1" 200 61705
+INFO 2025-11-22 02:36:15,889 basehttp "GET /cart/ HTTP/1.1" 200 29514
+INFO 2025-11-22 02:36:17,025 basehttp "GET / HTTP/1.1" 200 61785
+INFO 2025-11-22 02:36:18,412 basehttp "GET /product/1378/ HTTP/1.1" 200 68937
+INFO 2025-11-22 02:36:19,872 basehttp "POST /add-to-cart/1378/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:36:19,891 basehttp "GET /checkout/ HTTP/1.1" 200 40390
+INFO 2025-11-22 02:36:26,531 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:36:26,581 basehttp "GET /order-success/ HTTP/1.1" 200 28295
+ERROR 2025-11-22 02:36:35,177 log Internal Server Error: /invoice-pdf/73f4bac7-2fa1-4791-b78d-f8eda6f4bef0/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\views.py", line 886, in download_invoice_pdf
+    response = HttpResponse(pdf, content_type='application/pdf')
+               ^^^^^^^^^^^^
+NameError: name 'HttpResponse' is not defined. Did you mean: 'JsonResponse'?
+ERROR 2025-11-22 02:36:35,177 basehttp "GET /invoice-pdf/73f4bac7-2fa1-4791-b78d-f8eda6f4bef0/ HTTP/1.1" 500 77638
+WARNING 2025-11-22 02:36:35,242 log Not Found: /favicon.ico
+WARNING 2025-11-22 02:36:35,243 basehttp "GET /favicon.ico HTTP/1.1" 404 9587
+INFO 2025-11-22 02:37:42,318 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-22 02:37:43,016 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:37:49,356 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-22 02:37:50,039 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:37:55,911 basehttp "GET /invoice-pdf/73f4bac7-2fa1-4791-b78d-f8eda6f4bef0/ HTTP/1.1" 200 4131
+INFO 2025-11-22 02:37:56,119 basehttp "GET /invoice-pdf/73f4bac7-2fa1-4791-b78d-f8eda6f4bef0/ HTTP/1.1" 200 4131
+INFO 2025-11-22 02:38:15,103 basehttp - Broken pipe from ('127.0.0.1', 56283)
+WARNING 2025-11-22 02:38:32,155 log Not Found: /track-order/73f4bac7-2fa1-4791-b78d-f8eda6f4bef0/
+WARNING 2025-11-22 02:38:32,155 basehttp "GET /track-order/73f4bac7-2fa1-4791-b78d-f8eda6f4bef0/ HTTP/1.1" 404 9701
+WARNING 2025-11-22 02:38:32,225 log Not Found: /favicon.ico
+WARNING 2025-11-22 02:38:32,226 basehttp "GET /favicon.ico HTTP/1.1" 404 9587
+INFO 2025-11-22 02:40:44,014 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
+INFO 2025-11-22 02:40:44,686 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:45:39,102 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:48:09,229 autoreload Watching for file changes with StatReloader
+INFO 2025-11-22 02:48:13,695 basehttp "GET /order-success/ HTTP/1.1" 200 28295
+INFO 2025-11-22 02:48:17,274 basehttp "GET /invoice-pdf/73f4bac7-2fa1-4791-b78d-f8eda6f4bef0/ HTTP/1.1" 200 4131
+INFO 2025-11-22 02:48:22,827 basehttp "GET /track-order/73f4bac7-2fa1-4791-b78d-f8eda6f4bef0/ HTTP/1.1" 200 30106
+INFO 2025-11-22 02:48:22,927 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-11-22 02:48:36,246 basehttp - Broken pipe from ('127.0.0.1', 57231)
+INFO 2025-11-22 02:49:20,486 basehttp "GET /accounts/login/ HTTP/1.1" 200 30701
+INFO 2025-11-22 02:49:23,053 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:49:23,109 basehttp "GET / HTTP/1.1" 200 62742
+INFO 2025-11-22 02:49:25,445 basehttp "GET /product/1386/ HTTP/1.1" 200 68284
+INFO 2025-11-22 02:49:25,464 basehttp "GET /media/products/gallery/prod_1386_2.jpg HTTP/1.1" 200 24502
+INFO 2025-11-22 02:49:25,465 basehttp "GET /media/products/gallery/prod_1386_1.jpg HTTP/1.1" 200 44056
+INFO 2025-11-22 02:49:27,453 basehttp "POST /add-to-cart/1386/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:49:27,490 basehttp "GET /checkout/ HTTP/1.1" 200 41703
+INFO 2025-11-22 02:49:32,992 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:49:33,023 basehttp "GET /order-success/ HTTP/1.1" 200 29581
+INFO 2025-11-22 02:49:40,031 basehttp "GET / HTTP/1.1" 200 62919
+INFO 2025-11-22 02:49:41,487 basehttp "GET /my-orders/ HTTP/1.1" 200 30057
+INFO 2025-11-22 02:49:43,573 basehttp "GET /order/7/ HTTP/1.1" 200 31407
+INFO 2025-11-22 02:50:22,937 basehttp "GET /dashboard/ HTTP/1.1" 200 38069
+INFO 2025-11-22 02:50:28,704 basehttp "GET /my-orders/ HTTP/1.1" 200 30057
+INFO 2025-11-22 02:50:29,940 basehttp "GET /order/7/ HTTP/1.1" 200 31407
+INFO 2025-11-22 02:50:32,021 basehttp "GET /my-orders/ HTTP/1.1" 200 30057
+INFO 2025-11-22 02:50:45,082 basehttp "GET /products/ HTTP/1.1" 200 349899
+INFO 2025-11-22 02:50:47,545 basehttp "GET /product/1630/ HTTP/1.1" 200 71989
+INFO 2025-11-22 02:50:49,186 basehttp "POST /add-to-cart/1630/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:50:49,208 basehttp "GET /checkout/ HTTP/1.1" 200 41693
+INFO 2025-11-22 02:50:53,422 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-22 02:50:53,456 basehttp "GET /order-success/ HTTP/1.1" 200 29582
+INFO 2025-11-22 02:50:57,715 basehttp "GET / HTTP/1.1" 200 66497
+INFO 2025-11-22 02:54:24,680 basehttp "GET /track-order/ef569572-a8b5-4517-8332-bc98711c917d/ HTTP/1.1" 200 30129
+INFO 2025-11-22 02:54:24,709 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-22 02:55:06,076 basehttp "GET /track-order/ef569572-a8b5-4517-8332-bc98711c917d/ HTTP/1.1" 200 30129
+INFO 2025-11-22 02:55:48,070 autoreload E:\WebProjects\jebaenterprise\products\views.py changed, reloading.
+INFO 2025-11-22 02:55:48,806 autoreload Watching for file changes with StatReloader

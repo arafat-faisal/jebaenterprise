@@ -120,6 +120,21 @@
             </center>
         </div>
         
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background-color: #e3f2fd; border-radius: 8px;">
+                <p style="margin: 0 0 10px 0; color: #1565c0; font-size: 14px;">
+                    Want to check your order status live?
+                </p>
+                <a href="{{ tracking_url }}" class="btn" style="background-color: #1565c0; color: white; text-decoration: none; padding: 12px 24px; border-radius: 50px; font-weight: bold; display: inline-block;">
+                    Track Order & Download Receipt
+                </a>
+                <p style="margin-top: 10px; font-size: 12px; color: #666;">
+                    Or copy this link: <br>
+                    <a href="{{ tracking_url }}" style="color: #666;">{{ tracking_url }}</a>
+                </p>
+            </div>
+
+        </div>
+        
         <div class="footer">
             &copy; {% now "Y" %} Jeba Enterprise. All rights reserved.<br>
             If you have any questions, reply to this email.

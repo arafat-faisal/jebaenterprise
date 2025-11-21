@@ -55,4 +55,10 @@ urlpatterns = [
     
     # --- NEW: SHARE TRACKING ---
     path("track-share/<int:product_id>/", views.track_share, name="track_share"),
+    # NEW PDF DOWNLOAD PATH
+    path("invoice-pdf/<uuid:token>/", views.download_invoice_pdf, name="download_invoice_pdf"),
+    # --- FIX: Added these missing paths ---
+    path("track-order/<uuid:token>/", views.guest_order_track, name="guest_order_track"),
+    path("receipt/<uuid:token>/", views.order_receipt, name="order_receipt"),
+    # --------------------------------------
 ]

@@ -12,6 +12,8 @@ from .forms import CheckoutForm, ReviewForm, UserForm, ProfileForm, SignUpForm
 from django.contrib.auth import logout
 from django.core.mail import send_mail
 from .models import Review, Wishlist, UserProfile
+from django.http import HttpResponse
+
 
 # --- UPDATED IMPORTS FROM UTILS ---
 # We import the NEW send_welcome_email function here
@@ -24,6 +26,8 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .steadfast import check_delivery_status
 from .marketing import send_purchase_event
+
+from .utils import render_to_pdf
 
 # Get a logger for this file
 logger = logging.getLogger(__name__)
@@ -375,9 +379,15 @@ def checkout(request):
                 # --- NEW: 2. Save ID for the Success Page ---
                 request.session['last_order_id'] = new_sale.id
 
-                # B. BACKGROUND EMAIL
+                # B. BACKGROUND EMAIL (UPDATED)
                 if request.user.is_authenticated and request.user.email:
-                    email_thread = threading.Thread(target=send_order_email, args=(new_sale, request.user.email))
+                    # Get the current domain (e.g., 127.0.0.1:8000)
+                    current_domain = request.get_host() 
+                    
+                    email_thread = threading.Thread(
+                        target=send_order_email, 
+                        args=(new_sale, request.user.email, current_domain) # Pass domain here
+                    )
                     email_thread.start()
 
                 # C. SUCCESS
@@ -861,3 +871,72 @@ def about_us(request):
 
 def contact_us(request):
     return render(request, 'products/contact.html')
+
+def download_invoice_pdf(request, token):
+    """Generates a downloadable PDF Invoice"""
+    sale = get_object_or_404(Sale, access_token=token)
+    
+    # Create absolute URL for the tracking link
+    domain = request.build_absolute_uri('/')[:-1]
+    tracking_url = f"{domain}/track-order/{sale.access_token}/"
+    
+    data = {
+        'sale': sale,
+        'tracking_url': tracking_url,
+        'settings': SiteSettings.load(),
+        # We pass absolute paths if needed, but link_callback handles most
+    }
+    
+    pdf = render_to_pdf('products/invoice_pdf.html', data)
+    
+    # Force download by setting Content-Disposition
+    if pdf:
+        response = HttpResponse(pdf, content_type='application/pdf')
+        filename = f"Invoice_{sale.invoice_number}.pdf"
+        content = f"attachment; filename={filename}"
+        response['Content-Disposition'] = content
+        return response
+    
+    return HttpResponse("Not found", status=404)
+
+def guest_order_track(request, token):
+    """Public tracking page accessible via secure token (no login required)."""
+    sale = get_object_or_404(Sale, access_token=token)
+    
+    # Live Status Check (Steadfast)
+    live_status = None
+    if sale.consignment_id:
+        try:
+            live_status = check_delivery_status(sale.consignment_id)
+            if live_status:
+                # Auto-update local status if needed
+                if live_status == 'delivered' and sale.status != 'DELIVERED':
+                    sale.status = 'DELIVERED'
+                    sale.save(update_fields=['status'])
+                elif live_status == 'cancelled' and sale.status != 'CANCELLED':
+                    sale.status = 'CANCELLED'
+                    sale.save(update_fields=['status'])
+        except:
+            pass
+
+    context = {
+        'sale': sale,
+        'live_status': live_status,
+        'is_guest_view': True # To hide sensitive user navbar items if needed
+    }
+    return render(request, 'products/order_detail.html', context)
+
+def order_receipt(request, token):
+    """Printable Receipt view."""
+    sale = get_object_or_404(Sale, access_token=token)
+    
+    # Absolute URL for QR code or Link
+    domain = request.build_absolute_uri('/')[:-1] # e.g. https://jebaenterprise.com
+    tracking_url = f"{domain}/track-order/{sale.access_token}/"
+    
+    context = {
+        'sale': sale,
+        'tracking_url': tracking_url,
+        'settings': SiteSettings.load()
+    }
+    return render(request, 'products/receipt.html', context)

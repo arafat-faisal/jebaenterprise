@@ -1,42 +1,46 @@
 {% extends 'base.html' %}
 
-{% block title %}Order Confirmed!{% endblock %}
+{% block title %}Order Confirmed{% endblock %}
 
 {% block content %}
-    <div style="text-align: center; padding: 50px 20px;">
-        <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
-        <h1>Thank You For Your Order!</h1>
-        <p>Your order has been placed successfully.</p>
-        
-        {% if sale %}
-            <p style="margin-top: 10px; color: #666;">Order Number: <strong>{{ sale.order_id }}</strong></p>
-        {% endif %}
-
-        <p style="margin-top: 30px;">
-            <a href="{% url 'pricing_sheet' %}" class="btn">Continue Shopping</a>
-        </p>
+<div style="max-width: 600px; margin: 60px auto; padding: 20px;">
+    
+    <div style="text-align: center; margin-bottom: 30px;">
+        <div style="width: 80px; height: 80px; background: #e8f5e9; color: #2e7d32; font-size: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+            ✓
+        </div>
+        <h1 style="color: #1A1C1E; font-weight: 800; margin: 0;">Order Placed!</h1>
+        <p style="color: #666; font-size: 1.1rem;">Thank you, {{ sale.customer_name }}</p>
     </div>
 
-    {% if site_settings.meta_pixel_id and sale %}
-    <script>
-        // 1. Build ID List safely
-        // We create a simple comma-separated string first. VS Code sees this as just a string.
-        var raw_ids = "{% for item in sale.items.all %}{{ item.product.id }},{% endfor %}";
-        
-        // Then we split it into an array using standard JS
-        var content_ids = raw_ids.split(',').filter(function(el) {
-            return el.length > 0; // Remove empty items caused by trailing commas
-        });
+    <div style="background: white; border: 1px solid #eee; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 30px;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding-bottom: 15px; margin-bottom: 15px;">
+            <span style="color: #888;">Order ID</span>
+            <span style="font-weight: 700; color: #3F51B5;">{{ sale.order_id }}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <span style="color: #888;">Total Amount</span>
+            <span style="font-weight: 700;">৳{{ sale.total_amount|floatformat:0 }}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <span style="color: #888;">Payment Method</span>
+            <span style="font-weight: 600;">{{ sale.get_payment_method_display }}</span>
+        </div>
+    </div>
 
-        // 2. Fire Pixel Event
-        fbq('track', 'Purchase', {
-            value: parseFloat("{{ sale.total_amount|default:0 }}"),
-            currency: 'BDT',
-            content_type: 'product',
-            content_ids: content_ids
-        }, {
-            eventID: "{{ sale.order_id }}"
-        });
-    </script>
-    {% endif %}
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+        
+        {% if sale.access_token %}
+        <a href="{% url 'download_invoice_pdf' sale.access_token %}" class="btn" style="background: #1A1C1E; color: white; text-align: center; padding: 15px; border-radius: 50px; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download Receipt (PDF)
+        </a>
+        {% endif %}
+
+        <a href="{% url 'pricing_sheet' %}" style="text-align: center; color: #666; text-decoration: none; font-weight: 600; padding: 10px;">
+            Continue Shopping
+        </a>
+    </div>
+
+</div>
 {% endblock %}
