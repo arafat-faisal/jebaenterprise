@@ -27,9 +27,8 @@ from jeba_accounts.models import UserProfile
 from jeba_analytics.models import ProductEvent, SearchEvent
 # -----------------------
 
-# Keep local imports because these files are still in 'products/' folder for now
-from .steadfast import create_steadfast_order, make_payload, submit_steadfast_order
-from .utils import fetch_competitor_data
+from products.steadfast import create_steadfast_order, make_payload, submit_steadfast_order
+from products.utils import fetch_competitor_data
 
 # --- RESOURCE FOR IMPORT/EXPORT ---
 class ProductResource(resources.ModelResource):
@@ -53,8 +52,6 @@ class ProductResource(resources.ModelResource):
 def auto_categorize_products(modeladmin, request, queryset):
     count = 0
     for product in queryset:
-        # Note: logic for auto_assign_category might need to be moved to a service later
-        # but if it's still on the Product model in jeba_inventory, this works.
         if hasattr(product, 'auto_assign_category') and product.auto_assign_category():
             count += 1
     messages.success(request, f"Successfully categorized {count} products.")
@@ -67,13 +64,10 @@ def apply_smart_pricing(modeladmin, request, queryset):
             count += 1
     messages.success(request, f"Updated prices for {count} products based on competitors.")
 
-# --- NEW ACTION: FIX CALL FOR PRICE ---
 @admin.action(description="Fix 'Call for Price' (Disable if Price > 0)")
 def fix_call_for_price(modeladmin, request, queryset):
-    # Filter those that have a price but still require 'call for price'
     to_fix = queryset.filter(call_for_price=True, selling_price__gt=0)
     count = to_fix.count()
-    # Bulk update
     to_fix.update(call_for_price=False)
     messages.success(request, f"Removed 'Call for Price' from {count} priced products.")
 
@@ -109,7 +103,6 @@ def send_to_courier(modeladmin, request, queryset):
 def scrape_selected_products(modeladmin, request, queryset):
     success_count = 0
     fail_count = 0
-    
     if queryset.count() > 5:
         messages.warning(request, "Please select fewer than 5 products at a time to prevent server timeout.")
         return
@@ -209,9 +202,10 @@ class SaleAdmin(admin.ModelAdmin):
                 '<a class="button" style="background-color: #4caf50; color: white;" target="_blank" href="https://portal.packzy.com/">Track on Steadfast (ID: {})</a>',
                 obj.consignment_id
             )
+        # --- FIX: Explicitly naming the reverse URL to avoid namespace collisions ---
         return format_html(
             '<a class="button" style="background-color: #3F51B5; color: white;" href="{}">Review & Send to Steadfast</a>',
-            reverse('admin:send-steadfast', args=[obj.pk])
+            reverse('admin:sale_send_steadfast', args=[obj.pk])
         )
     steadfast_action_button.short_description = "Courier Actions"
     steadfast_action_button.allow_tags = True
@@ -222,7 +216,7 @@ class SaleAdmin(admin.ModelAdmin):
             path(
                 '<int:sale_id>/send-steadfast/',
                 self.admin_site.admin_view(self.send_to_steadfast_view),
-                name='send-steadfast',
+                name='sale_send_steadfast', # --- FIX: Unique Name ---
             ),
         ]
         return custom_urls + urls
@@ -240,7 +234,7 @@ class SaleAdmin(admin.ModelAdmin):
                     sale.status = 'SHIPPED'
                     sale.save()
                     self.message_user(request, f"Successfully created Consignment: {sale.consignment_id}", messages.SUCCESS)
-                    # UPDATED REDIRECT: 'products_sale' -> 'jeba_sales_sale'
+                    # Redirect to the new correct app location
                     return redirect('admin:jeba_sales_sale_change', sale.id)
                 else:
                     self.message_user(request, f"Error from Steadfast: {result.get('error')}", messages.ERROR)
@@ -255,7 +249,8 @@ class SaleAdmin(admin.ModelAdmin):
             'form': form,
             'title': f"Send Order {sale.order_id} to Steadfast",
         }
-        return render(request, 'admin/products/sale/send_to_steadfast.html', context)
+        # Ensure this template path exists: products/templates/admin/products/sale/send_to_steadfast.html
+        return render(request, 'admin/jeba_sales/sale/send_to_steadfast.html', context)
 
     def changelist_view(self, request, extra_context=None):
         end_date = timezone.now()
@@ -304,8 +299,6 @@ class ProductAnalytics(Product):
         proxy = True
         verbose_name = "Product Analytics (Winning Products)"
         verbose_name_plural = "Product Analytics (Winning Products)"
-        # Note: We keep this proxy here for Admin display convenience.
-        # It references jeba_inventory.Product via inheritance.
 
 @admin.register(ProductAnalytics)
 class WinningProductAdmin(admin.ModelAdmin):
