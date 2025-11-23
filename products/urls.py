@@ -17,8 +17,6 @@ urlpatterns = [
     path('catalog/', inventory_views.product_catalog, name='product_catalog'),
     path('product/<int:pk>/', inventory_views.product_detail, name='product_detail'),
     path('search/', inventory_views.search_view, name='search'),
-    
-    # --- FIX: Renamed to 'print_products_page' to match your template ---
     path('print-products/', inventory_views.print_products_page, name='print_products_page'),
 
     # --- Sales & Cart ---
@@ -29,7 +27,10 @@ urlpatterns = [
     path('checkout/', sales_views.checkout, name='checkout'),
     path('order-success/', sales_views.order_success, name='order_success'),
     path('track-order/<uuid:token>/', sales_views.guest_order_track, name='guest_order_track'),
-    path('invoice/<uuid:token>/', sales_views.download_invoice_pdf, name='download_invoice'),
+    
+    # --- FIX: Renamed to 'download_invoice_pdf' to match template ---
+    path('invoice/<uuid:token>/', sales_views.download_invoice_pdf, name='download_invoice_pdf'),
+    
     path('receipt/<uuid:token>/', sales_views.order_receipt, name='order_receipt'),
 
     # --- User Accounts ---
