@@ -1,15 +1,20 @@
 import requests
 import json
 from django.conf import settings
+from typing import TYPE_CHECKING
 
+# --- MODULAR TYPE HINTING (No runtime cost) ---
+if TYPE_CHECKING:
+    from jeba_sales.models import Sale
+# ----------------------------------------------
 
 # --- CONFIGURATION ---
 # We now pull these from settings.py, which pulls from .env
-API_KEY = settings.STEADFAST_API_KEY
-SECRET_KEY = settings.STEADFAST_SECRET_KEY
-BASE_URL = settings.STEADFAST_BASE_URL
+API_KEY = getattr(settings, 'STEADFAST_API_KEY', '')
+SECRET_KEY = getattr(settings, 'STEADFAST_SECRET_KEY', '')
+BASE_URL = getattr(settings, 'STEADFAST_BASE_URL', 'https://portal.steadfast.com.bd/api/v1')
 
-def make_payload(sale):
+def make_payload(sale: 'Sale'):
     """
     Extracts data from a Sale object to prep the form.
     """
@@ -60,7 +65,7 @@ def submit_steadfast_order(payload):
 
 
 # For the "Bulk Action" (uses default data)
-def create_steadfast_order(sale):
+def create_steadfast_order(sale: 'Sale'):
     payload = make_payload(sale)
     return submit_steadfast_order(payload)
 
@@ -74,8 +79,10 @@ def check_delivery_status(consignment_id):
     try:
         # --- FIX: Added timeout=5 (shorter timeout for status checks) ---
         response = requests.get(url, headers=headers, timeout=5)
-        if response.status_code == 200 and 'delivery_status' in response.json():
-            return response.json()['delivery_status']
+        data = response.json()
+        
+        if response.status_code == 200 and 'delivery_status' in data:
+            return data['delivery_status'] # e.g. "delivered", "cancelled"
     except:
         pass
     return None

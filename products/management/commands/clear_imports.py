@@ -1,8 +1,10 @@
 from django.core.management.base import BaseCommand
-from products.models import Product, Category
+# --- MODULAR IMPORT FIX ---
+from jeba_inventory.models import Product, Category
+# --------------------------
 
 class Command(BaseCommand):
-    help = 'Deletes all products in the "Imported New" category'
+    help = 'Deletes all products in the "Imported Products" category'
 
     def handle(self, *args, **kwargs):
         target_category = "Imported Products"

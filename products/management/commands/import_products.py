@@ -9,7 +9,7 @@ from django.core.management.base import BaseCommand
 from django.core.files.base import ContentFile
 from django.db import connection, transaction
 from django.db.utils import OperationalError
-from products.models import Product, Category, ProductImage
+from jeba_inventory.models import Product, Category, ProductImage
 
 # --- LOGGING SETUP ---
 logging.basicConfig(

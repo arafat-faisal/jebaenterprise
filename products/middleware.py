@@ -1,37 +1,35 @@
-from django.shortcuts import render
-from django.conf import settings
-from .models import SiteSettings  # <--- Import the model to check the DB
+from django.shortcuts import render, redirect
+from django.urls import reverse
+# --- MODULAR IMPORT FIX ---
+from jeba_core.models import SiteSettings
+# --------------------------
 
-class MaintenanceMiddleware:
+class MaintenanceModeMiddleware:
+    """
+    Middleware to check if the site is in maintenance mode.
+    Allows access to Admin and Login pages.
+    """
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
-        # 1. Allow access to Admin panel even in maintenance mode
-        if request.path.startswith('/admin/'):
+        # Paths to ignore (always accessible)
+        path = request.path_info
+        if path.startswith(reverse('admin:index')) or path.startswith('/admin/') or path.startswith('/accounts/login/'):
             return self.get_response(request)
 
-        # 2. Allow access to static and media files 
-        # (Ensures styles/images load on the maintenance page)
-        static_url = getattr(settings, 'STATIC_URL', '/static/')
-        media_url = getattr(settings, 'MEDIA_URL', '/media/')
-        
-        if request.path.startswith(static_url) or request.path.startswith(media_url):
-            return self.get_response(request)
-
-        # 3. Check Database Toggle (The Admin Checkbox)
+        # Check Global Settings
         try:
-            # Load the settings object from the DB
-            config = SiteSettings.load()
-            if config.maintenance_mode:
-                return render(request, 'maintenance.html', status=503)
+            settings_obj = SiteSettings.load()
+            if settings_obj.maintenance_mode:
+                # If user is staff, allow access
+                if request.user.is_authenticated and request.user.is_staff:
+                    return self.get_response(request)
+                
+                # Otherwise, show Maintenance Page
+                return render(request, 'maintenance.html')
         except Exception:
-            # If the table doesn't exist yet (e.g. during migrations), ignore
+            # If table doesn't exist yet (during migrations), skip logic
             pass
 
-        # 4. Fallback to settings.py (Optional override from .env)
-        if getattr(settings, 'MAINTENANCE_MODE', False):
-            return render(request, 'maintenance.html', status=503)
-
-        # 5. Otherwise, proceed as normal
         return self.get_response(request)

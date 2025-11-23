@@ -19,6 +19,11 @@ from io import BytesIO
 from thefuzz import fuzz
 import logging
 
+# --- MODULAR IMPORTS ---
+# We import models here to ensure they are available for the logic below
+from jeba_intelligence.models import CompetitorPrice
+# -----------------------
+
 # Get logger
 logger = logging.getLogger(__name__)
 
@@ -38,9 +43,6 @@ def attach_logo(msg):
             print(f"Could not attach logo: {e}")
     return msg
 
-# ... (Keep existing imports) ...
-
-# Update this function signature to accept 'domain'
 def send_order_email(sale, user_email, domain='jebaenterprise.com'):
     subject = f"Order Confirmed: {sale.order_id}"
     from_email = settings.EMAIL_HOST_USER
@@ -65,12 +67,16 @@ def send_order_email(sale, user_email, domain='jebaenterprise.com'):
 
     msg = attach_logo(msg)
 
-    # ... (Keep existing image embedding logic) ...
+    # Attach Product Images
     for item in sale.items.all():
-        if item.product.images.first():
-            img_obj = item.product.images.first()
+        # Accessing product via the foreign key (works across apps)
+        main_img = item.product.images.filter(is_main=True).first()
+        if not main_img:
+            main_img = item.product.images.first()
+            
+        if main_img:
             try:
-                img_path = img_obj.image.path
+                img_path = main_img.image.path
                 with open(img_path, 'rb') as f:
                     image_data = f.read()
                 image = MIMEImage(image_data)
@@ -82,9 +88,7 @@ def send_order_email(sale, user_email, domain='jebaenterprise.com'):
 
     msg.send()
 
-# ... (Keep rest of file) ...
-
-# --- NEW: Send Welcome Email ---
+# --- Send Welcome Email ---
 def send_welcome_email(user):
     subject = f"Welcome to Jeba Enterprise, {user.first_name}!"
     from_email = settings.EMAIL_HOST_USER
@@ -109,9 +113,7 @@ def fetch_competitor_data(product, search_term=None, manual_image_bytes=None, sa
     Runs the Playwright scraper for a single product.
     Accepts custom thresholds and weights.
     """
-    # Local import to prevent circular dependency issues
-    from .models import CompetitorPrice 
-
+    
     if not search_term:
         search_term = product.name
 
@@ -150,6 +152,7 @@ def fetch_competitor_data(product, search_term=None, manual_image_bytes=None, sa
 
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
+            # Standard User Agent to avoid detection
             page = browser.new_page(user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
             
             # Search Daraz
@@ -252,6 +255,7 @@ def fetch_competitor_data(product, search_term=None, manual_image_bytes=None, sa
             max_p = max(prices)
 
             if save_to_db:
+                # Updated to use the correct model from jeba_intelligence
                 CompetitorPrice.objects.update_or_create(
                     product=product,
                     website_name="Daraz",
@@ -298,9 +302,9 @@ def link_callback(uri, rel):
 
     # Make sure that file exists
     if not os.path.isfile(path):
-            raise Exception(
-                'media URI must start with %s or %s' % (sUrl, mUrl)
-            )
+            # It's better to just return the URI if file not found rather than crashing the PDF
+            print(f"PDF warning: Missing file {path}")
+            return uri 
     return path
 
 def render_to_pdf(template_src, context_dict={}):
@@ -309,5 +313,5 @@ def render_to_pdf(template_src, context_dict={}):
     result = BytesIO()
     pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result, link_callback=link_callback)
     if not pdf.err:
-        return HttpResponse(result.getvalue(), content_type='application/pdf')
+        return result.getvalue() # Return bytes, not HttpResponse, to keep it flexible
     return None

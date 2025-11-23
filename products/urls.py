@@ -1,64 +1,66 @@
 from django.urls import path
-from . import views  # We will import 'views' from our app
+from django.contrib.auth import views as auth_views
 
-# This list defines all the pages for the 'products' app
+# --- MODULAR VIEW IMPORTS ---
+from jeba_inventory import views as inventory_views
+from jeba_sales import views as sales_views
+from jeba_accounts import views as account_views
+from jeba_intelligence import views as intelligence_views
+from jeba_engagement import views as engagement_views
+from jeba_analytics import views as analytics_views
+from jeba_core import views as core_views
+# ----------------------------
+
 urlpatterns = [
-    # CHANGE THIS LINE:
-    path("dashboard/", views.user_dashboard, name="user_dashboard"),
+    # --- Inventory & Catalog ---
+    path('', inventory_views.pricing_sheet, name='pricing_sheet'),
+    path('catalog/', inventory_views.product_catalog, name='product_catalog'),
+    path('product/<int:pk>/', inventory_views.product_detail, name='product_detail'),
+    path('search/', inventory_views.search_view, name='search'),
     
-    # You can redirect 'profile' to dashboard if you want to keep the old link working
-    path("profile/", views.user_dashboard, name="profile"),
-    # This matches the "homepage" (e.g., http://127.0.0.1:8001/)
-    # and tells it to run the 'pricing_sheet' function from views.py
-    path("", views.pricing_sheet, name="pricing_sheet"),
-    path("products/", views.product_catalog, name="product_catalog"), # <--- NEW LINE
+    # --- FIX: Renamed to 'print_products_page' to match your template ---
+    path('print-products/', inventory_views.print_products_page, name='print_products_page'),
 
-    # --- ADD THIS NEW LINE ---
-    # This creates a dynamic URL. <int:pk> is a "path converter"
-    # that captures an integer (the product's ID, or "Primary Key")
-    # and sends it to the view as a variable named 'pk'.
-    # e.g., /product/1/  or /product/2/
-    path("product/<int:pk>/", views.product_detail, name="product_detail"),
-    # --- ADD THIS NEW LINE ---
-    # This will be the "action" for our add-to-cart button
-    path("add-to-cart/<int:product_id>/", views.add_to_cart, name="add_to_cart"),
+    # --- Sales & Cart ---
+    path('cart/', sales_views.view_cart, name='view_cart'),
+    path('add-to-cart/<int:product_id>/', sales_views.add_to_cart, name='add_to_cart'),
+    path('add-to-cart-variation/<int:variation_id>/', sales_views.add_to_cart_variation, name='add_to_cart_variation'),
+    path('update-cart/<str:item_id>/<str:action>/', sales_views.update_cart, name='update_cart'),
+    path('checkout/', sales_views.checkout, name='checkout'),
+    path('order-success/', sales_views.order_success, name='order_success'),
+    path('track-order/<uuid:token>/', sales_views.guest_order_track, name='guest_order_track'),
+    path('invoice/<uuid:token>/', sales_views.download_invoice_pdf, name='download_invoice'),
+    path('receipt/<uuid:token>/', sales_views.order_receipt, name='order_receipt'),
 
-    # --- ADD THIS NEW LINE ---
-    # This will handle adding a specific variation
-    path("add-to-cart/var/<int:variation_id>/", views.add_to_cart_variation, name="add_to_cart_variation"),
-
-    path("cart/", views.view_cart, name="view_cart"),
-    # --- ADD THESE TWO NEW LINES ---
-    path("checkout/", views.checkout, name="checkout"),
-    path("order-success/", views.order_success, name="order_success"),
-    # --- ADD THIS NEW LINE ---
-    path("print-products/", views.print_products_page, name="print_products_page"),
-    # --- ADD THIS NEW LINE ---
-    path("admin-scraper/", views.admin_scraper_view, name="admin_scraper"),
-    # --- ADD THIS NEW LINE ---
-    path("register/", views.register_view, name="register"),
-    # --- ADD THIS NEW LINE ---
-    path("my-orders/", views.my_orders_view, name="my_orders"),
-
-    path("order/<int:pk>/", views.order_detail, name="order_detail"),
-    path("search/", views.search_view, name="search"),
-    # ... inside urlpatterns ...
-    path("user-logout/", views.user_logout, name="user_logout"),
-    # ... inside urlpatterns ...
-    path("add-review/<int:product_id>/", views.add_review, name="add_review"),
-    path("wishlist/toggle/<int:product_id>/", views.toggle_wishlist, name="toggle_wishlist"),
-    path("wishlist/", views.wishlist_view, name="wishlist"),
-    path("profile/", views.profile_view, name="profile"),
-    path("update-cart/<str:item_id>/<str:action>/", views.update_cart, name="update_cart"),
-    path("about/", views.about_us, name="about_us"),
-    path("contact/", views.contact_us, name="contact_us"),
+    # --- User Accounts ---
+    path('register/', account_views.register_view, name='register'),
+    path('profile/', account_views.profile_view, name='profile'),
+    path('dashboard/', account_views.user_dashboard, name='user_dashboard'),
+    path('my-orders/', sales_views.my_orders_view, name='my_orders'),
+    path('order/<int:pk>/', sales_views.order_detail, name='order_detail'),
     
-    # --- NEW: SHARE TRACKING ---
-    path("track-share/<int:product_id>/", views.track_share, name="track_share"),
-    # NEW PDF DOWNLOAD PATH
-    path("invoice-pdf/<uuid:token>/", views.download_invoice_pdf, name="download_invoice_pdf"),
-    # --- FIX: Added these missing paths ---
-    path("track-order/<uuid:token>/", views.guest_order_track, name="guest_order_track"),
-    path("receipt/<uuid:token>/", views.order_receipt, name="order_receipt"),
-    # --------------------------------------
+    # Auth (Standard Django Views)
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('logout/', account_views.user_logout, name='user_logout'),
+    
+    # Password Reset
+    path('password-reset/', auth_views.PasswordResetView.as_view(template_name='registration/password_reset_form.html'), name='password_reset'),
+    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
+
+    # --- Engagement (Reviews & Wishlist) ---
+    path('add-review/<int:product_id>/', engagement_views.add_review, name='add_review'),
+    path('toggle-wishlist/<int:product_id>/', engagement_views.toggle_wishlist, name='toggle_wishlist'),
+    path('wishlist/', engagement_views.wishlist_view, name='wishlist'),
+
+    # --- Analytics (Track Share) ---
+    path('track-share/<int:product_id>/', analytics_views.track_share, name='track_share'),
+
+    # --- Intelligence (Admin) ---
+    path('admin-tools/scraper/', intelligence_views.admin_scraper_view, name='admin_scraper'),
+
+    # --- Core / Static ---
+    path('about/', core_views.about_us, name='about_us'),
+    path('contact/', core_views.contact_us, name='contact_us'),
 ]

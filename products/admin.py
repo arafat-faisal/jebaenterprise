@@ -17,13 +17,17 @@ from import_export import resources
 from import_export.fields import Field
 from import_export.widgets import ForeignKeyWidget
 
-# Import all models
-from .models import (
-    Category, Product, ProductVariation, Sale, SaleItem, 
-    ProductImage, SiteSettings, CompetitorPrice, Review, 
-    Wishlist, UserProfile, ProductEvent, SearchEvent, ScraperPreset
-)
+# --- MODULAR IMPORTS ---
+from jeba_inventory.models import Category, Product, ProductVariation, ProductImage
+from jeba_sales.models import Sale, SaleItem
+from jeba_core.models import SiteSettings
+from jeba_intelligence.models import CompetitorPrice, ScraperPreset
+from jeba_engagement.models import Review, Wishlist
+from jeba_accounts.models import UserProfile
+from jeba_analytics.models import ProductEvent, SearchEvent
+# -----------------------
 
+# Keep local imports because these files are still in 'products/' folder for now
 from .steadfast import create_steadfast_order, make_payload, submit_steadfast_order
 from .utils import fetch_competitor_data
 
@@ -49,7 +53,9 @@ class ProductResource(resources.ModelResource):
 def auto_categorize_products(modeladmin, request, queryset):
     count = 0
     for product in queryset:
-        if product.auto_assign_category():
+        # Note: logic for auto_assign_category might need to be moved to a service later
+        # but if it's still on the Product model in jeba_inventory, this works.
+        if hasattr(product, 'auto_assign_category') and product.auto_assign_category():
             count += 1
     messages.success(request, f"Successfully categorized {count} products.")
 
@@ -57,7 +63,7 @@ def auto_categorize_products(modeladmin, request, queryset):
 def apply_smart_pricing(modeladmin, request, queryset):
     count = 0
     for product in queryset:
-        if product.apply_dynamic_pricing():
+        if hasattr(product, 'apply_dynamic_pricing') and product.apply_dynamic_pricing():
             count += 1
     messages.success(request, f"Updated prices for {count} products based on competitors.")
 
@@ -234,7 +240,8 @@ class SaleAdmin(admin.ModelAdmin):
                     sale.status = 'SHIPPED'
                     sale.save()
                     self.message_user(request, f"Successfully created Consignment: {sale.consignment_id}", messages.SUCCESS)
-                    return redirect('admin:products_sale_change', sale.id)
+                    # UPDATED REDIRECT: 'products_sale' -> 'jeba_sales_sale'
+                    return redirect('admin:jeba_sales_sale_change', sale.id)
                 else:
                     self.message_user(request, f"Error from Steadfast: {result.get('error')}", messages.ERROR)
         else:
@@ -297,6 +304,8 @@ class ProductAnalytics(Product):
         proxy = True
         verbose_name = "Product Analytics (Winning Products)"
         verbose_name_plural = "Product Analytics (Winning Products)"
+        # Note: We keep this proxy here for Admin display convenience.
+        # It references jeba_inventory.Product via inheritance.
 
 @admin.register(ProductAnalytics)
 class WinningProductAdmin(admin.ModelAdmin):

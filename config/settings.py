@@ -50,6 +50,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # --- NEW MODULAR APPS ---
+    'jeba_core',
+    'jeba_inventory',
+    'jeba_sales',
+    'jeba_accounts',
+    'jeba_engagement',
+    'jeba_intelligence',
+    'jeba_analytics',
+    
+    # --- EXISTING APP (Do not remove) ---
     'products', 
     'import_export',    
 ]
@@ -65,7 +76,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # --- NEW: Maintenance Mode Middleware ---
-    'products.middleware.MaintenanceMiddleware',
+    'products.middleware.MaintenanceModeMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
