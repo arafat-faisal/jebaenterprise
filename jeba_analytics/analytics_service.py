@@ -1,4 +1,5 @@
 import json
+import os
 from django.conf import settings
 
 class AnalyticsService:
@@ -20,37 +21,36 @@ class AnalyticsService:
     def get_device_info(request):
         """
         Parses User-Agent to determine device type.
-        For production, consider using 'django-user_agents' for deeper parsing.
         """
         ua_string = request.META.get('HTTP_USER_AGENT', '').lower()
         
         device_type = 'desktop'
         
-        # 1. Tablets (iPad often doesn't say "mobile")
+        # 1. Tablets
         if 'tablet' in ua_string or 'ipad' in ua_string:
             device_type = 'tablet'
-        # 2. Mobile (Check for 'mobile' OR specific phone identifiers)
+        # 2. Mobile
         elif 'mobile' in ua_string or 'iphone' in ua_string or 'android' in ua_string:
             device_type = 'mobile'
             
         # Basic OS detection
-        os = 'unknown'
-        if 'android' in ua_string: os = 'android'
-        elif 'iphone' in ua_string or 'ipad' in ua_string: os = 'ios'
-        elif 'windows' in ua_string: os = 'windows'
-        elif 'macintosh' in ua_string: os = 'mac'
-        elif 'linux' in ua_string: os = 'linux'
+        os_name = 'unknown'
+        if 'android' in ua_string: os_name = 'android'
+        elif 'iphone' in ua_string or 'ipad' in ua_string: os_name = 'ios'
+        elif 'windows' in ua_string: os_name = 'windows'
+        elif 'macintosh' in ua_string: os_name = 'mac'
+        elif 'linux' in ua_string: os_name = 'linux'
 
         return {
             'raw_ua': ua_string,
             'type': device_type,
-            'os': os,
-            'browser_width': None, # Requires JS to capture
+            'os': os_name,
+            'browser_width': None, 
         }
 
     @staticmethod
     def get_traffic_source(request):
-        """Captures UTM parameters and Referrer for marketing attribution."""
+        """Captures UTM parameters and Referrer."""
         return {
             'referrer': request.META.get('HTTP_REFERER', ''),
             'utm_source': request.GET.get('utm_source', ''),
@@ -60,25 +60,53 @@ class AnalyticsService:
         }
 
     @classmethod
+    def get_location_from_ip(cls, ip):
+        """
+        Resolves IP to Location using local GeoIP2 Database.
+        """
+        # Skip localhost
+        if ip in ['127.0.0.1', '::1']:
+            return {'city': 'Localhost', 'country': 'Localhost'}
+
+        try:
+            import geoip2.database
+            
+            # Look for DB in 'geoip' folder in project root
+            db_path = os.path.join(settings.BASE_DIR, 'geoip', 'GeoLite2-City.mmdb')
+            
+            if not os.path.exists(db_path):
+                return {'city': None, 'country': None, 'error': 'DB missing'}
+
+            with geoip2.database.Reader(db_path) as reader:
+                response = reader.city(ip)
+                return {
+                    'city': response.city.name,
+                    'country': response.country.name,
+                    'iso_code': response.country.iso_code
+                }
+        except ImportError:
+            return {'city': None, 'country': None, 'error': 'Install geoip2'}
+        except Exception:
+            return {'city': None, 'country': None}
+
+    @classmethod
     def get_context(cls, request):
         """
         Master method to aggregate all context data.
-        Call this from your views to populate the 'metadata' field.
         """
         if not request:
             return {}
 
         ip = cls.get_client_ip(request)
         
-        # Location Logic (Placeholder)
-        # In production, you would use GeoIP2 database here using the IP
-        location_data = {
-            'ip': ip,
-            'city': None,     # Requires GeoIP
-            'country': None,  # Requires GeoIP
-        }
+        # if ip == '127.0.0.1':
+        #     ip = '103.72.212.247'  # Default IP for local testing
 
-        # Safe Session Key Access (Handle cases where middleware is missing)
+        # Enhanced Location Logic
+        location_data = {'ip': ip}
+        location_data.update(cls.get_location_from_ip(ip))
+
+        # Safe Session Key
         session_key = 'anonymous'
         if hasattr(request, 'session') and request.session.session_key:
             session_key = request.session.session_key
