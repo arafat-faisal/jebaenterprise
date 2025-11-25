@@ -23,7 +23,7 @@ class AnalyticsService:
         Parses User-Agent to determine device type.
         """
         ua_string = request.META.get('HTTP_USER_AGENT', '').lower()
-        
+        is_bot = 'bot' in ua_string or 'crawl' in ua_string or 'slurp' in ua_string or 'spider' in ua_string
         device_type = 'desktop'
         
         # 1. Tablets
@@ -44,6 +44,7 @@ class AnalyticsService:
         return {
             'raw_ua': ua_string,
             'type': device_type,
+            'is_bot': is_bot,
             'os': os_name,
             'browser_width': None, 
         }
