@@ -10,9 +10,10 @@ from jeba_inventory.models import Product, ProductVariation
 from jeba_sales.models import Sale, SaleItem
 from jeba_analytics.models import ProductEvent
 from jeba_core.models import SiteSettings
+# --- NEW IMPORT ---
+from jeba_analytics.analytics_service import AnalyticsService
 # -----------------------
 
-# --- LEGACY IMPORTS (Will move later) ---
 from products.forms import CheckoutForm
 from products.utils import send_order_email, render_to_pdf
 from products.steadfast import check_delivery_status
@@ -47,13 +48,14 @@ def add_to_cart(request: HttpRequest, product_id):
 
     request.session['cart'] = cart
     
-    # TRACK CART EVENT
+    # TRACK CART EVENT WITH CONTEXT
     if not request.session.session_key: request.session.save()
     ProductEvent.objects.create(
         product=product,
         user=request.user if request.user.is_authenticated else None,
         session_id=request.session.session_key,
-        event_type='CART'
+        event_type='CART',
+        metadata=AnalyticsService.get_context(request) # <--- NEW
     )
 
     if action == 'buy_now':
@@ -86,11 +88,13 @@ def add_to_cart_variation(request: HttpRequest, variation_id):
     if not request.session.session_key:
         request.session.save()
         
+    # TRACK VARIATION CART EVENT
     ProductEvent.objects.create(
         product=product,
         user=request.user if request.user.is_authenticated else None,
         session_id=request.session.session_key,
-        event_type='CART'
+        event_type='CART',
+        metadata=AnalyticsService.get_context(request) # <--- NEW
     )
 
     if action == 'buy_now':
@@ -106,7 +110,6 @@ def view_cart(request):
     for key, item_data in cart.items():
         try:
             product = Product.objects.get(id=item_data['product_id'])
-            # Check if price is 0 or less (Call for Price logic)
             is_call_for_price = product.call_for_price or product.selling_price <= 0
         except Product.DoesNotExist:
             continue
@@ -184,7 +187,6 @@ def checkout(request):
         form = CheckoutForm(request.POST)
         if form.is_valid():
             try:
-                # ATOMIC TRANSACTION
                 with transaction.atomic():
                     # 1. Lock & Check Stock
                     for key, item_data in cart.items():
@@ -215,7 +217,7 @@ def checkout(request):
                     
                     new_sale.save()
 
-                    # 3. Create Items
+                    # 3. Create Items & Track Event
                     for key, item_data in cart.items():
                         product = Product.objects.get(id=item_data['product_id'])
                         variation = None
@@ -231,19 +233,19 @@ def checkout(request):
                             buying_cost=product.buying_cost 
                         )
                         
+                        # TRACK PURCHASE EVENT
                         ProductEvent.objects.create(
                             product=product,
                             user=request.user if request.user.is_authenticated else None,
                             session_id=request.session.session_key,
-                            event_type='PURCHASE'
+                            event_type='PURCHASE',
+                            metadata=AnalyticsService.get_context(request) # <--- NEW
                         )
                 
-                # Server-Side Tracking (CAPI)
                 threading.Thread(target=send_purchase_event, args=(new_sale, request)).start()
                 
                 request.session['last_order_id'] = new_sale.id
 
-                # Send Email
                 if request.user.is_authenticated and request.user.email:
                     current_domain = request.get_host() 
                     email_thread = threading.Thread(
@@ -302,10 +304,8 @@ def order_success(request):
 
 @login_required
 def my_orders_view(request):
-    """Shows list of past orders with Steadfast sync"""
     user_orders = Sale.objects.filter(user=request.user).order_by('-created_at')
 
-    # Sync Status with Steadfast
     for order in user_orders:
         if order.consignment_id and order.status not in ['DELIVERED', 'CANCELLED']:
             try:
@@ -328,7 +328,6 @@ def my_orders_view(request):
 
 @login_required
 def order_detail(request, pk):
-    """User viewing their own order detail"""
     sale = get_object_or_404(Sale, pk=pk)
     
     if sale.user != request.user:
@@ -345,7 +344,6 @@ def order_detail(request, pk):
     return render(request, 'products/order_detail.html', context)
 
 def guest_order_track(request, token):
-    """Public tracking page"""
     sale = get_object_or_404(Sale, access_token=token)
     
     live_status = None
@@ -370,7 +368,6 @@ def guest_order_track(request, token):
     return render(request, 'products/order_detail.html', context)
 
 def order_receipt(request, token):
-    """Printable Receipt"""
     sale = get_object_or_404(Sale, access_token=token)
     domain = request.build_absolute_uri('/')[:-1]
     tracking_url = f"{domain}/track-order/{sale.access_token}/"
@@ -383,7 +380,6 @@ def order_receipt(request, token):
     return render(request, 'products/receipt.html', context)
 
 def download_invoice_pdf(request, token):
-    """Generates PDF Invoice"""
     sale = get_object_or_404(Sale, access_token=token)
     domain = request.build_absolute_uri('/')[:-1]
     tracking_url = f"{domain}/track-order/{sale.access_token}/"

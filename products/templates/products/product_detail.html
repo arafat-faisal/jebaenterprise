@@ -634,7 +634,6 @@
         if (nextIndex >= thumbs.length) nextIndex = 0; 
         if (nextIndex < 0) nextIndex = thumbs.length - 1; 
         
-        // Get data-src if available, otherwise image src inside
         const nextThumb = thumbs[nextIndex];
         const nextSrc = nextThumb.getAttribute('data-src') || nextThumb.querySelector('img').src;
         
@@ -642,7 +641,7 @@
         nextThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
-    // --- 4. MODAL (Zoom) LOGIC ---
+    // --- 3. MODAL (Zoom) LOGIC ---
     function openModal() {
         const modal = document.getElementById('image-modal');
         const fullImage = document.getElementById('full-image');
@@ -657,6 +656,30 @@
         const modal = document.getElementById('image-modal');
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
+    }
+
+    // --- 4. TRACKING ENGINE (NEW) ---
+    async function trackInteraction(eventType, extraData={}) {
+        try {
+            const payload = {
+                product_id: "{{ product.id }}",
+                event_type: eventType,
+                extra: extraData
+            };
+            
+            // Fire and forget (don't wait for response)
+            fetch("{% url 'track_interaction' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify(payload)
+            });
+            console.log(`Tracking: ${eventType}`);
+        } catch (e) {
+            console.error("Tracking failed", e);
+        }
     }
 
     // --- 5. INITIALIZATION ---
@@ -691,7 +714,7 @@
         }
     });
 
-    // --- CONTACT LOGIC FIX ---
+    // --- CONTACT LOGIC & TRACKING ---
     function initializeContactButtons() {
         const popup = document.getElementById('contact-popup');
         const triggerBtn = document.getElementById('contact-trigger-btn');
@@ -702,7 +725,7 @@
         if (!whatsappBtn || !triggerBtn) return; 
 
         try {
-            const template = '{{ site_settings.contact_message_template|default:"আমি [PRODUCT_NAME] সম্পর্কে বিস্তারিত তথ্য জানতে আগ্রহী। প্রোডাক্ট লিংক: [PRODUCT_LINK]"|escapejs }}';
+            const template = '{{ site_settings.contact_message_template|default:"Info about [PRODUCT_NAME]"|escapejs }}';
             const productName = '{{ product.name|escapejs }}';
             const productLink = window.location.href;
             const whatsappNum = '{{ site_settings.whatsapp_number }}';
@@ -712,18 +735,24 @@
                 .replace('[PRODUCT_NAME]', productName)
                 .replace('[PRODUCT_LINK]', productLink);
 
-            if (preparedMessageBox) {
-                preparedMessageBox.innerText = finalMessage;
-            }
+            if (preparedMessageBox) preparedMessageBox.innerText = finalMessage;
 
             const encodedMessage = encodeURIComponent(finalMessage);
             whatsappBtn.href = `https://wa.me/${whatsappNum}?text=${encodedMessage}`;
             messengerBtn.href = `https://m.me/${messengerUser}`;
             
-            // EVENT LISTENER FIX
             triggerBtn.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent any form submit
+                e.preventDefault(); 
                 popup.classList.toggle('active');
+            });
+
+            // --- ATTACH TRACKERS ---
+            whatsappBtn.addEventListener('click', () => {
+                trackInteraction('CONTACT', { channel: 'WhatsApp' });
+            });
+            
+            messengerBtn.addEventListener('click', () => {
+                trackInteraction('CONTACT', { channel: 'Messenger' });
             });
 
         } catch (e) {
@@ -749,7 +778,7 @@
         }
     });
 
-    // --- NEW: SHARE LOGIC ---
+    // --- SHARE LOGIC ---
     async function handleShare() {
         const shareData = {
             title: '{{ product.name|escapejs }}',
@@ -757,18 +786,13 @@
             url: window.location.href
         };
 
-        // Track Event Immediately
-        fetch("{% url 'track_share' product.id %}", {
-            method: 'POST',
-            headers: { 'X-CSRFToken': '{{ csrf_token }}' }
-        });
+        // Track Event
+        trackInteraction('SHARE', { method: navigator.share ? 'Native' : 'Clipboard' });
 
         try {
-            // Use Native Share if available (Mobile)
             if (navigator.share) {
                 await navigator.share(shareData);
             } else {
-                // Fallback for Desktop
                 await navigator.clipboard.writeText(shareData.url);
                 alert('Link copied to clipboard!');
             }
@@ -780,7 +804,7 @@
 
 {% if site_settings.meta_pixel_id %}
 <script>
-    // 2. Track ViewContent (Runs immediately)
+    // Facebook Pixel Tracking
     fbq('track', 'ViewContent', {
         content_name: "{{ product.name }}",
         content_ids: ["{{ product.id }}"],

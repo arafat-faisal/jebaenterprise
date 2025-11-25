@@ -55,8 +55,10 @@ urlpatterns = [
     path('toggle-wishlist/<int:product_id>/', engagement_views.toggle_wishlist, name='toggle_wishlist'),
     path('wishlist/', engagement_views.wishlist_view, name='wishlist'),
 
-    # --- Analytics (Track Share) ---
+    # --- Analytics (Track Share & Interactions) ---
     path('track-share/<int:product_id>/', analytics_views.track_share, name='track_share'),
+    # NEW: General interaction tracking
+    path('track-interaction/', analytics_views.track_interaction, name='track_interaction'),
 
     # --- Intelligence (Admin) ---
     path('admin-tools/scraper/', intelligence_views.admin_scraper_view, name='admin_scraper'),

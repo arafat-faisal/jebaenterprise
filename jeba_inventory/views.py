@@ -6,7 +6,9 @@ from django.http import HttpResponse
 from jeba_inventory.models import Product, Category
 from jeba_engagement.models import Wishlist
 from jeba_analytics.models import ProductEvent, SearchEvent
-from products.forms import ReviewForm # We will move forms later
+# --- NEW IMPORT ---
+from jeba_analytics.analytics_service import AnalyticsService
+from products.forms import ReviewForm 
 # -----------------------
 
 # --- HELPER: Get Recommendations ---
@@ -100,14 +102,16 @@ def product_catalog(request):
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     
-    # TRACK VIEW
+    # TRACK VIEW WITH CONTEXT
     if not request.session.session_key:
         request.session.save()
+        
     ProductEvent.objects.create(
         product=product,
         user=request.user if request.user.is_authenticated else None,
         session_id=request.session.session_key,
-        event_type='VIEW'
+        event_type='VIEW',
+        metadata=AnalyticsService.get_context(request)  # <--- NEW: Context Capture
     )
 
     variations = product.variations.filter(is_active=True)
@@ -164,10 +168,13 @@ def search_view(request):
             Q(category__name__icontains=query)
         )
         if not request.session.session_key: request.session.save()
+        
+        # TRACK SEARCH WITH CONTEXT
         SearchEvent.objects.create(
             query=query,
             user=request.user if request.user.is_authenticated else None,
-            session_id=request.session.session_key
+            session_id=request.session.session_key,
+            metadata=AnalyticsService.get_context(request)  # <--- NEW: Context Capture
         )
 
     category_id = request.GET.get('category')

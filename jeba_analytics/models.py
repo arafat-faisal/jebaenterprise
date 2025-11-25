@@ -7,6 +7,10 @@ class SearchEvent(models.Model):
     query = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     session_id = models.CharField(max_length=100, null=True, blank=True)
+    
+    # NEW: Stores IP, Location, Device Info, Result Count
+    metadata = models.JSONField(default=dict, blank=True, verbose_name=_("Event Metadata"))
+    
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -21,12 +25,19 @@ class ProductEvent(models.Model):
         ('CART', _('Added to Cart')),
         ('PURCHASE', _('Purchased')),
         ('SHARE', _('Shared')),
+        # NEW: Track high-intent actions
+        ('CONTACT', _('Contact Click')), 
+        ('CHECKOUT', _('Initiated Checkout')),
     ]
     
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='events')
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     session_id = models.CharField(max_length=100, null=True, blank=True)
     event_type = models.CharField(max_length=20, choices=EVENT_CHOICES)
+    
+    # NEW: Stores Price at time of view, Source (FB/Google), Device
+    metadata = models.JSONField(default=dict, blank=True, verbose_name=_("Event Metadata"))
+    
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
