@@ -1,16 +1,16 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.db.models import Q, Sum, Avg, Case, When, Value, IntegerField
+# --- UPDATED IMPORTS ---
+from django.db.models import Q, Sum, Avg, Count, Min, Max, Case, When, Value, IntegerField
 from django.http import HttpResponse
 
 # --- MODULAR IMPORTS ---
-from jeba_inventory.models import Product, Category
+from jeba_inventory.models import Product, Category, Tag
 from jeba_engagement.models import Wishlist
 from jeba_analytics.models import ProductEvent, SearchEvent
 from jeba_core.models import SiteSettings 
 from jeba_analytics.analytics_service import AnalyticsService
 from products.forms import ReviewForm 
 # -----------------------
-
 # --- HELPER: Get Recommendations ---
 def get_recommendations(request, limit=8):
     user = request.user if request.user.is_authenticated else None
@@ -82,18 +82,35 @@ def home(request):
     return render(request, "products/home.html", context)
 
 def product_catalog(request):
-    # Base Query: Active Products only
-    products = Product.objects.filter(is_active=True).prefetch_related('images')
+    # Start with all Active products
+    products = Product.objects.filter(is_active=True).prefetch_related('images', 'variations')
     
+    # --- FILTERS ---
     category_id = request.GET.get('category')
+    tag_slug = request.GET.get('tag')
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
     sort_by = request.GET.get('sort')
 
+    # 1. Category Filter
     if category_id:
         products = products.filter(category_id=category_id)
-    
+
+    # 2. Tag Filter (NEW)
+    if tag_slug:
+        products = products.filter(tags__slug=tag_slug)
+
+    # 3. Price Filter (NEW)
+    if min_price:
+        products = products.filter(selling_price__gte=min_price)
+    if max_price:
+        products = products.filter(selling_price__lte=max_price)
+
+    # --- SORTING ---
+    # Priority: Show products with price/stock first (custom logic)
     products = products.annotate(
         sort_priority=Case(
-            When(Q(call_for_price=True) | Q(selling_price__lte=0), then=Value(1)),
+            When(Q(call_for_price=True) | Q(selling_price__lte=0) | Q(stock_quantity=0), then=Value(1)),
             default=Value(0),
             output_field=IntegerField(),
         )
@@ -105,21 +122,31 @@ def product_catalog(request):
         products = products.order_by('sort_priority', 'selling_price')
     elif sort_by == 'price-high':
         products = products.order_by('sort_priority', '-selling_price')
+    elif sort_by == 'popularity':
+        products = products.annotate(total_sold=Sum('saleitem__quantity')).order_by('-total_sold')
     else:
-        products = products.order_by('sort_priority', '-created_at')
+        products = products.order_by('sort_priority', '-created_at') # Default
         
-    all_categories = Category.objects.all()
+    # --- CONTEXT DATA ---
+    all_categories = Category.objects.annotate(prod_count=Count('products', filter=Q(products__is_active=True))).filter(prod_count__gt=0)
+    all_tags = Tag.objects.all()[:15] # Show top 15 tags
     
-    # Hero product must also be active
-    hero_product = Product.objects.filter(is_featured=True, is_active=True).first()
-    if not hero_product:
-        hero_product = Product.objects.filter(is_active=True).order_by('-created_at').first()
+    # Calculate global min/max price for the slider inputs
+    price_agg = Product.objects.filter(is_active=True).aggregate(Min('selling_price'), Max('selling_price'))
+    global_min = int(price_agg['selling_price__min'] or 0)
+    global_max = int(price_agg['selling_price__max'] or 10000)
 
     context = {
         'products': products,
         'all_categories': all_categories,
-        'active_category': category_id,
-        'hero_product': hero_product,
+        'all_tags': all_tags,
+        'active_category': int(category_id) if category_id else None,
+        'active_tag': tag_slug,
+        'active_sort': sort_by,
+        'global_min': global_min,
+        'global_max': global_max,
+        'current_min': min_price or global_min,
+        'current_max': max_price or global_max,
     }
     return render(request, 'products/catalog.html', context)
 
