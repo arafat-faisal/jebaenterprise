@@ -4629,3 +4629,510 @@ INFO 2025-11-26 19:14:57,789 basehttp "GET /my-orders/ HTTP/1.1" 200 40466
 INFO 2025-11-26 19:15:02,353 basehttp "GET /dashboard/ HTTP/1.1" 200 44268
 INFO 2025-11-26 19:15:07,135 basehttp "GET /my-orders/ HTTP/1.1" 200 40466
 INFO 2025-11-26 19:15:18,149 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:24:54,191 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:25:03,597 basehttp "GET /catalog/ HTTP/1.1" 200 411256
+INFO 2025-11-26 19:25:03,816 basehttp "GET /media/products/gallery/prod_1625_0.jpg HTTP/1.1" 200 89097
+INFO 2025-11-26 19:25:03,843 basehttp "GET /media/products/gallery/prod_1597_0.jpg HTTP/1.1" 200 227441
+INFO 2025-11-26 19:25:03,867 basehttp "GET /media/products/gallery/prod_1596_0.jpg HTTP/1.1" 200 49983
+INFO 2025-11-26 19:25:03,885 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-11-26 19:25:03,891 basehttp "GET /media/products/gallery/prod_1590_0.jpg HTTP/1.1" 200 41993
+INFO 2025-11-26 19:25:03,897 basehttp "GET /media/products/gallery/prod_1624_0.webp HTTP/1.1" 200 32692
+INFO 2025-11-26 19:25:03,902 basehttp "GET /media/products/gallery/prod_1630_0.jpg HTTP/1.1" 200 37692
+INFO 2025-11-26 19:25:03,905 basehttp "GET /media/products/gallery/prod_1626_0.jpg HTTP/1.1" 200 28364
+INFO 2025-11-26 19:25:03,917 basehttp "GET /media/products/gallery/prod_1582_0.jpg HTTP/1.1" 200 64454
+INFO 2025-11-26 19:25:03,925 basehttp "GET /media/products/gallery/prod_1556_0.jpeg HTTP/1.1" 200 164288
+INFO 2025-11-26 19:25:03,932 basehttp "GET /media/products/gallery/prod_1552_0.jpg HTTP/1.1" 200 33320
+INFO 2025-11-26 19:25:03,936 basehttp "GET /media/products/gallery/prod_1550_0.jpg HTTP/1.1" 200 23942
+INFO 2025-11-26 19:25:03,939 basehttp "GET /media/products/gallery/prod_1545_0.jpg HTTP/1.1" 200 43117
+INFO 2025-11-26 19:25:03,947 basehttp "GET /media/products/gallery/prod_1612_0.jpg HTTP/1.1" 200 37261
+INFO 2025-11-26 19:25:03,952 basehttp "GET /media/products/gallery/prod_1544_0.png HTTP/1.1" 200 201159
+INFO 2025-11-26 19:25:03,956 basehttp "GET /media/products/gallery/prod_1542_0.jpg HTTP/1.1" 200 73916
+INFO 2025-11-26 19:25:03,965 basehttp "GET /media/products/gallery/prod_1538_0.jpg HTTP/1.1" 200 38078
+INFO 2025-11-26 19:25:03,978 basehttp "GET /media/products/gallery/prod_1529_0.jpg HTTP/1.1" 200 26872
+INFO 2025-11-26 19:25:03,981 basehttp "GET /media/products/gallery/prod_1526_0.jpg HTTP/1.1" 200 25898
+INFO 2025-11-26 19:25:03,989 basehttp "GET /media/products/gallery/prod_1524_0.jpg HTTP/1.1" 200 35721
+INFO 2025-11-26 19:25:03,994 basehttp "GET /media/products/gallery/prod_1523_0.jpeg HTTP/1.1" 200 101088
+INFO 2025-11-26 19:25:04,012 basehttp "GET /media/products/gallery/prod_1509_0.jpg HTTP/1.1" 200 38458
+INFO 2025-11-26 19:25:04,015 basehttp "GET /media/products/gallery/prod_1519_0.jpg HTTP/1.1" 200 957584
+INFO 2025-11-26 19:25:04,041 basehttp "GET /media/products/gallery/prod_1502_0.jpg HTTP/1.1" 200 42722
+INFO 2025-11-26 19:25:04,043 basehttp "GET /media/products/gallery/prod_1499_0.jpg HTTP/1.1" 200 36573
+INFO 2025-11-26 19:25:04,078 basehttp "GET /media/products/gallery/prod_1497_0.jpg HTTP/1.1" 200 41370
+INFO 2025-11-26 19:25:04,082 basehttp "GET /media/products/gallery/prod_1536_0.jpg HTTP/1.1" 200 52748
+INFO 2025-11-26 19:25:04,085 basehttp "GET /media/products/gallery/prod_1541_0.webp HTTP/1.1" 200 24272
+INFO 2025-11-26 19:25:04,121 basehttp "GET /media/products/gallery/prod_1488_0.jpg HTTP/1.1" 200 59794
+INFO 2025-11-26 19:25:04,122 basehttp "GET /media/products/gallery/prod_1487_0.jpg HTTP/1.1" 200 61852
+INFO 2025-11-26 19:25:04,123 basehttp "GET /media/products/gallery/prod_1492_0.jpg HTTP/1.1" 200 39709
+INFO 2025-11-26 19:25:04,128 basehttp "GET /media/products/gallery/prod_1505_0.jpg HTTP/1.1" 200 51368
+INFO 2025-11-26 19:25:04,140 basehttp "GET /media/products/gallery/prod_1504_0.jpg HTTP/1.1" 200 373508
+INFO 2025-11-26 19:25:04,156 basehttp "GET /media/products/gallery/prod_1486_0.jpg HTTP/1.1" 200 270811
+INFO 2025-11-26 19:25:04,162 basehttp "GET /media/products/gallery/prod_1485_0.jpg HTTP/1.1" 200 139953
+INFO 2025-11-26 19:25:04,165 basehttp "GET /media/products/gallery/prod_1484_0.jpg HTTP/1.1" 200 24622
+INFO 2025-11-26 19:25:04,170 basehttp "GET /media/products/gallery/prod_1478_0.jpg HTTP/1.1" 200 30677
+INFO 2025-11-26 19:25:04,178 basehttp "GET /media/products/gallery/prod_1477_0.jpg HTTP/1.1" 200 25679
+INFO 2025-11-26 19:25:04,186 basehttp "GET /media/products/gallery/prod_1493_0.jpg HTTP/1.1" 200 67353
+INFO 2025-11-26 19:25:04,197 basehttp "GET /media/products/gallery/prod_1472_0.jpg HTTP/1.1" 200 37506
+INFO 2025-11-26 19:25:04,207 basehttp "GET /media/products/gallery/prod_1469_0.jpg HTTP/1.1" 200 42994
+INFO 2025-11-26 19:25:04,211 basehttp "GET /media/products/gallery/prod_1467_0.jpg HTTP/1.1" 200 66218
+INFO 2025-11-26 19:25:04,212 basehttp "GET /media/products/gallery/prod_1463_0.jpg HTTP/1.1" 200 82109
+INFO 2025-11-26 19:25:04,218 basehttp "GET /media/products/gallery/prod_1460_0.jpg HTTP/1.1" 200 136842
+INFO 2025-11-26 19:25:04,221 basehttp "GET /media/products/gallery/prod_1455_0.jpg HTTP/1.1" 200 59195
+INFO 2025-11-26 19:25:04,236 basehttp "GET /media/products/gallery/prod_1454_0.jpg HTTP/1.1" 200 36526
+INFO 2025-11-26 19:25:04,246 basehttp "GET /media/products/gallery/prod_1452_0.jpeg HTTP/1.1" 200 20595
+INFO 2025-11-26 19:25:04,263 basehttp "GET /media/products/gallery/prod_1446_0.jpg HTTP/1.1" 200 48329
+INFO 2025-11-26 19:25:04,264 basehttp "GET /media/products/gallery/prod_1437_0.jpg HTTP/1.1" 200 11796
+INFO 2025-11-26 19:25:04,268 basehttp "GET /media/products/gallery/prod_1433_0.jpg HTTP/1.1" 200 52261
+INFO 2025-11-26 19:25:04,273 basehttp "GET /media/products/gallery/prod_1432_0.jpg HTTP/1.1" 200 851135
+INFO 2025-11-26 19:25:04,312 basehttp "GET /media/products/gallery/prod_1419_0.jpg HTTP/1.1" 200 54447
+INFO 2025-11-26 19:25:04,315 basehttp "GET /media/products/gallery/prod_1420_0.jpg HTTP/1.1" 200 50968
+INFO 2025-11-26 19:25:04,316 basehttp "GET /media/products/gallery/prod_1414_0.jpg HTTP/1.1" 200 138366
+INFO 2025-11-26 19:25:04,319 basehttp "GET /media/products/gallery/prod_1410_0.jpg HTTP/1.1" 200 67551
+INFO 2025-11-26 19:25:04,354 basehttp "GET /media/products/gallery/prod_1407_0.jpg HTTP/1.1" 200 58294
+INFO 2025-11-26 19:25:04,358 basehttp "GET /media/products/gallery/prod_1408_0.jpg HTTP/1.1" 200 16795
+INFO 2025-11-26 19:25:04,358 basehttp "GET /media/products/gallery/prod_1406_0.jpg HTTP/1.1" 200 33922
+INFO 2025-11-26 19:25:04,360 basehttp "GET /media/products/gallery/prod_1405_0.jpg HTTP/1.1" 200 54999
+INFO 2025-11-26 19:25:04,369 basehttp "GET /media/products/gallery/prod_1423_0.jpg HTTP/1.1" 200 41695
+INFO 2025-11-26 19:25:04,393 basehttp "GET /media/products/gallery/prod_1403_0.webp HTTP/1.1" 200 19464
+INFO 2025-11-26 19:25:04,398 basehttp "GET /media/products/gallery/prod_1402_0.jpeg HTTP/1.1" 200 239643
+INFO 2025-11-26 19:25:04,402 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 200 22018
+INFO 2025-11-26 19:25:04,403 basehttp "GET /media/products/gallery/prod_1398_0.jpg HTTP/1.1" 200 45790
+INFO 2025-11-26 19:25:04,406 basehttp "GET /media/products/gallery/prod_1395_0.jpg HTTP/1.1" 200 276359
+INFO 2025-11-26 19:25:04,406 basehttp "GET /media/products/gallery/prod_1394_0.jpeg HTTP/1.1" 200 232515
+INFO 2025-11-26 19:25:04,427 basehttp "GET /media/products/gallery/prod_1387_0.jpg HTTP/1.1" 200 25023
+INFO 2025-11-26 19:25:04,434 basehttp "GET /media/products/gallery/prod_1386_0.jpg HTTP/1.1" 200 29615
+INFO 2025-11-26 19:25:04,441 basehttp "GET /media/products/gallery/prod_1383_0.jpg HTTP/1.1" 200 38193
+INFO 2025-11-26 19:25:04,445 basehttp "GET /media/products/gallery/prod_1379_0.jpg HTTP/1.1" 200 42490
+INFO 2025-11-26 19:25:04,447 basehttp "GET /media/products/gallery/prod_1374_0.jpg HTTP/1.1" 200 42582
+INFO 2025-11-26 19:25:04,449 basehttp "GET /media/products/gallery/prod_1375_0.jpg HTTP/1.1" 200 62294
+INFO 2025-11-26 19:25:04,458 basehttp "GET /media/products/gallery/prod_1372_0.jpg HTTP/1.1" 200 76276
+INFO 2025-11-26 19:25:04,468 basehttp "GET /media/products/gallery/prod_1369_0.jpg HTTP/1.1" 200 56889
+INFO 2025-11-26 19:25:04,484 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 200 181972
+INFO 2025-11-26 19:25:04,487 basehttp "GET /media/products/gallery/prod_1343_0.jpg HTTP/1.1" 200 17724
+INFO 2025-11-26 19:25:04,488 basehttp "GET /media/products/gallery/prod_1355_0.jpg HTTP/1.1" 200 21028
+INFO 2025-11-26 19:25:04,499 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-11-26 19:25:04,502 basehttp "GET /media/products/gallery/prod_1632_0.jpg HTTP/1.1" 200 25956
+INFO 2025-11-26 19:25:04,519 basehttp "GET /media/products/gallery/prod_1621_0.jpg HTTP/1.1" 200 121975
+INFO 2025-11-26 19:25:04,523 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 200 39513
+INFO 2025-11-26 19:25:04,532 basehttp "GET /media/products/gallery/prod_1619_0.jpg HTTP/1.1" 200 57985
+INFO 2025-11-26 19:25:04,535 basehttp "GET /media/products/gallery/prod_1618_0.jpg HTTP/1.1" 200 36758
+INFO 2025-11-26 19:25:04,546 basehttp "GET /media/products/gallery/prod_1617_0.jpg HTTP/1.1" 200 183160
+INFO 2025-11-26 19:25:04,555 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 200 60115
+INFO 2025-11-26 19:25:04,565 basehttp "GET /media/products/gallery/prod_1611_0.jpg HTTP/1.1" 200 82986
+INFO 2025-11-26 19:25:04,569 basehttp "GET /media/products/gallery/prod_1610_0.jpg HTTP/1.1" 200 79435
+INFO 2025-11-26 19:25:04,579 basehttp "GET /media/products/gallery/prod_1608_0.jpg HTTP/1.1" 200 17814
+INFO 2025-11-26 19:25:04,579 basehttp "GET /media/products/gallery/prod_1365_0.jpg HTTP/1.1" 200 57492
+INFO 2025-11-26 19:25:04,604 basehttp "GET /media/products/gallery/prod_1599_0.jpg HTTP/1.1" 200 52927
+INFO 2025-11-26 19:25:04,618 basehttp "GET /media/products/gallery/prod_1628_0.jpg HTTP/1.1" 200 28476
+INFO 2025-11-26 19:25:04,628 basehttp "GET /media/products/gallery/prod_1598_0.jpg HTTP/1.1" 200 29886
+INFO 2025-11-26 19:25:04,644 basehttp "GET /media/products/gallery/prod_1595_0.jpg HTTP/1.1" 200 105228
+INFO 2025-11-26 19:25:04,652 basehttp "GET /media/products/gallery/prod_1594_0.jpg HTTP/1.1" 200 33999
+INFO 2025-11-26 19:25:04,683 basehttp "GET /media/products/gallery/prod_1607_0.jpg HTTP/1.1" 200 47482
+INFO 2025-11-26 19:25:04,686 basehttp "GET /media/products/gallery/prod_1592_0.jpg HTTP/1.1" 200 443080
+INFO 2025-11-26 19:25:04,701 basehttp "GET /media/products/gallery/prod_1603_0.jpg HTTP/1.1" 200 129691
+INFO 2025-11-26 19:25:04,705 basehttp "GET /media/products/gallery/prod_1604_0.jpg HTTP/1.1" 200 63550
+INFO 2025-11-26 19:25:04,717 basehttp "GET /media/products/gallery/prod_1591_0.jpg HTTP/1.1" 200 41954
+INFO 2025-11-26 19:25:04,719 basehttp "GET /media/products/gallery/prod_1602_0.jpg HTTP/1.1" 200 30159
+INFO 2025-11-26 19:25:04,722 basehttp "GET /media/products/gallery/prod_1587_5.jpg HTTP/1.1" 200 27774
+INFO 2025-11-26 19:25:04,730 basehttp "GET /media/products/gallery/prod_1586_0.jpg HTTP/1.1" 200 129524
+INFO 2025-11-26 19:25:04,757 basehttp "GET /media/products/gallery/prod_1583_0.jpg HTTP/1.1" 200 14552
+INFO 2025-11-26 19:25:04,759 basehttp "GET /media/products/gallery/prod_1580_0.jpg HTTP/1.1" 200 22593
+INFO 2025-11-26 19:25:04,760 basehttp "GET /media/products/gallery/prod_1584_0.jpg HTTP/1.1" 200 49589
+INFO 2025-11-26 19:25:04,763 basehttp "GET /media/products/gallery/prod_1578_0.jpg HTTP/1.1" 200 45996
+INFO 2025-11-26 19:25:04,782 basehttp "GET /media/products/gallery/prod_1593_0.jpg HTTP/1.1" 200 19986
+INFO 2025-11-26 19:25:04,804 basehttp "GET /media/products/gallery/prod_1575_0.jpg HTTP/1.1" 200 24002
+INFO 2025-11-26 19:25:04,805 basehttp "GET /media/products/gallery/prod_1574_0.jpg HTTP/1.1" 200 22301
+INFO 2025-11-26 19:25:04,809 basehttp "GET /media/products/gallery/prod_1577_0.jpg HTTP/1.1" 200 236232
+INFO 2025-11-26 19:25:04,810 basehttp "GET /media/products/gallery/prod_1573_0.jpg HTTP/1.1" 200 42106
+INFO 2025-11-26 19:25:04,821 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 200 34316
+INFO 2025-11-26 19:25:04,851 basehttp "GET /media/products/gallery/prod_1569_0.jpg HTTP/1.1" 200 48166
+INFO 2025-11-26 19:25:04,851 basehttp "GET /media/products/gallery/prod_1567_0.jpg HTTP/1.1" 200 54654
+INFO 2025-11-26 19:25:04,856 basehttp "GET /media/products/gallery/prod_1564_0.jpg HTTP/1.1" 200 31343
+INFO 2025-11-26 19:25:04,856 basehttp "GET /media/products/gallery/prod_1585_0.jpg HTTP/1.1" 200 69803
+INFO 2025-11-26 19:25:04,863 basehttp "GET /media/products/gallery/prod_1563_0.jpg HTTP/1.1" 200 56567
+INFO 2025-11-26 19:25:04,892 basehttp "GET /media/products/gallery/prod_1562_0.jpg HTTP/1.1" 200 43985
+INFO 2025-11-26 19:25:04,896 basehttp "GET /media/products/gallery/prod_1561_0.jpg HTTP/1.1" 200 14092
+INFO 2025-11-26 19:25:04,897 basehttp "GET /media/products/gallery/prod_1559_0.jpg HTTP/1.1" 200 49584
+INFO 2025-11-26 19:25:04,902 basehttp "GET /media/products/gallery/prod_1557_0.jpg HTTP/1.1" 200 34852
+INFO 2025-11-26 19:25:04,935 basehttp "GET /media/products/gallery/prod_1555_0.jpg HTTP/1.1" 200 67784
+INFO 2025-11-26 19:25:04,944 basehttp "GET /media/products/gallery/prod_1554_0.jpg HTTP/1.1" 200 22394
+INFO 2025-11-26 19:25:04,946 basehttp "GET /media/products/gallery/prod_1553_0.jpg HTTP/1.1" 200 109863
+INFO 2025-11-26 19:25:04,948 basehttp "GET /media/products/gallery/prod_1551_0.jpg HTTP/1.1" 200 39127
+INFO 2025-11-26 19:25:04,959 basehttp "GET /media/products/gallery/prod_1565_0.jpg HTTP/1.1" 200 52354
+INFO 2025-11-26 19:25:04,985 basehttp "GET /media/products/gallery/prod_1549_0.jpg HTTP/1.1" 200 32836
+INFO 2025-11-26 19:25:04,997 basehttp "GET /media/products/gallery/prod_1547_0.jpg HTTP/1.1" 200 57752
+INFO 2025-11-26 19:25:04,997 basehttp "GET /media/products/gallery/prod_1548_0.jpg HTTP/1.1" 200 12892
+INFO 2025-11-26 19:25:04,997 basehttp "GET /media/products/gallery/prod_1546_0.jpg HTTP/1.1" 200 79741
+INFO 2025-11-26 19:25:05,013 basehttp "GET /media/products/gallery/prod_1558_0.jpg HTTP/1.1" 200 93012
+INFO 2025-11-26 19:25:05,040 basehttp "GET /media/products/gallery/prod_1539_0.jpg HTTP/1.1" 200 27488
+INFO 2025-11-26 19:25:05,044 basehttp "GET /media/products/gallery/prod_1537_0.jpg HTTP/1.1" 200 39078
+INFO 2025-11-26 19:25:05,046 basehttp "GET /media/products/gallery/prod_1535_0.jpg HTTP/1.1" 200 35158
+INFO 2025-11-26 19:25:05,055 basehttp "GET /media/products/gallery/prod_1534_0.jpg HTTP/1.1" 200 43853
+INFO 2025-11-26 19:25:05,084 basehttp "GET /media/products/gallery/prod_1533_0.jpg HTTP/1.1" 200 17702
+INFO 2025-11-26 19:25:05,093 basehttp "GET /media/products/gallery/prod_1532_0.jpg HTTP/1.1" 200 134235
+INFO 2025-11-26 19:25:05,095 basehttp "GET /media/products/gallery/prod_1531_0.jpg HTTP/1.1" 200 46852
+INFO 2025-11-26 19:25:05,096 basehttp "GET /media/products/gallery/prod_1530_0.jpg HTTP/1.1" 200 27979
+INFO 2025-11-26 19:25:05,107 basehttp "GET /media/products/gallery/prod_1543_0.jpg HTTP/1.1" 200 33152
+INFO 2025-11-26 19:25:05,118 basehttp "GET /media/products/gallery/prod_1527_0.jpg HTTP/1.1" 200 67112
+INFO 2025-11-26 19:25:05,127 basehttp "GET /media/products/gallery/prod_1525_0.jpg HTTP/1.1" 200 23357
+INFO 2025-11-26 19:25:05,128 basehttp "GET /media/products/gallery/prod_1521_0.jpg HTTP/1.1" 200 95212
+INFO 2025-11-26 19:25:05,131 basehttp "GET /media/products/gallery/prod_1520_0.jpg HTTP/1.1" 200 22728
+INFO 2025-11-26 19:25:05,139 basehttp "GET /media/products/gallery/prod_1518_0.jpg HTTP/1.1" 200 46874
+INFO 2025-11-26 19:25:05,159 basehttp "GET /media/products/gallery/prod_1513_0.webp HTTP/1.1" 200 9892
+INFO 2025-11-26 19:25:05,164 basehttp "GET /media/products/gallery/prod_1512_0.jpg HTTP/1.1" 200 42813
+INFO 2025-11-26 19:25:05,166 basehttp "GET /media/products/gallery/prod_1511_0.jpg HTTP/1.1" 200 63911
+INFO 2025-11-26 19:25:05,189 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 200 52115
+INFO 2025-11-26 19:25:05,199 basehttp "GET /media/products/gallery/prod_1506_0.jpg HTTP/1.1" 200 41414
+INFO 2025-11-26 19:25:05,207 basehttp "GET /media/products/gallery/prod_1507_0.jpg HTTP/1.1" 200 1037208
+INFO 2025-11-26 19:25:05,224 basehttp "GET /media/products/gallery/prod_1501_0.jpg HTTP/1.1" 200 59897
+INFO 2025-11-26 19:25:05,234 basehttp "GET /media/products/gallery/prod_1500_0.jpg HTTP/1.1" 200 37529
+INFO 2025-11-26 19:25:05,238 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 200 56780
+INFO 2025-11-26 19:25:05,261 basehttp "GET /media/products/gallery/prod_1495_0.jpg HTTP/1.1" 200 76018
+INFO 2025-11-26 19:25:05,265 basehttp "GET /media/products/gallery/prod_1515_0.jpg HTTP/1.1" 200 64083
+INFO 2025-11-26 19:25:05,276 basehttp "GET /media/products/gallery/prod_1491_0.jpg HTTP/1.1" 200 32928
+INFO 2025-11-26 19:25:05,278 basehttp "GET /media/products/gallery/prod_1494_0.jpg HTTP/1.1" 200 44529
+INFO 2025-11-26 19:25:05,285 basehttp "GET /media/products/gallery/prod_1510_0.jpg HTTP/1.1" 200 71817
+INFO 2025-11-26 19:25:05,295 basehttp "GET /media/products/gallery/prod_1489_0.jpg HTTP/1.1" 200 96713
+INFO 2025-11-26 19:25:05,309 basehttp "GET /media/products/gallery/prod_1481_0.jpg HTTP/1.1" 200 265393
+INFO 2025-11-26 19:25:05,321 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 200 54556
+INFO 2025-11-26 19:25:05,323 basehttp "GET /media/products/gallery/prod_1480_0.jpg HTTP/1.1" 200 49886
+INFO 2025-11-26 19:25:05,328 basehttp "GET /media/products/gallery/prod_1475_0.jpg HTTP/1.1" 200 67091
+INFO 2025-11-26 19:25:05,337 basehttp "GET /media/products/gallery/prod_1474_0.jpg HTTP/1.1" 200 18391
+INFO 2025-11-26 19:25:05,366 basehttp "GET /media/products/gallery/prod_1470_0.jpg HTTP/1.1" 200 72763
+INFO 2025-11-26 19:25:05,368 basehttp "GET /media/products/gallery/prod_1471_0.jpg HTTP/1.1" 200 41298
+INFO 2025-11-26 19:25:05,370 basehttp "GET /media/products/gallery/prod_1466_0.jpg HTTP/1.1" 200 16876
+INFO 2025-11-26 19:25:05,382 basehttp "GET /media/products/gallery/prod_1465_0.jpg HTTP/1.1" 200 50338
+INFO 2025-11-26 19:25:05,410 basehttp "GET /media/products/gallery/prod_1461_0.jpg HTTP/1.1" 200 68657
+INFO 2025-11-26 19:25:05,411 basehttp "GET /media/products/gallery/prod_1459_0.jpg HTTP/1.1" 200 48127
+INFO 2025-11-26 19:25:05,412 basehttp "GET /media/products/gallery/prod_1462_0.jpg HTTP/1.1" 200 129504
+INFO 2025-11-26 19:25:05,415 basehttp "GET /media/products/gallery/prod_1458_0.jpg HTTP/1.1" 200 50863
+INFO 2025-11-26 19:25:05,448 basehttp "GET /media/products/gallery/prod_1456_0.jpg HTTP/1.1" 200 30818
+INFO 2025-11-26 19:25:05,450 basehttp "GET /media/products/gallery/prod_1457_0.jpg HTTP/1.1" 200 54782
+INFO 2025-11-26 19:25:05,452 basehttp "GET /media/products/gallery/prod_1453_0.jpg HTTP/1.1" 200 57952
+INFO 2025-11-26 19:25:05,455 basehttp "GET /media/products/gallery/prod_1473_0.webp HTTP/1.1" 200 33126
+INFO 2025-11-26 19:25:05,457 basehttp "GET /media/products/gallery/prod_1448_0.jpg HTTP/1.1" 200 247681
+INFO 2025-11-26 19:25:05,479 basehttp "GET /media/products/gallery/prod_1445_0.jpg HTTP/1.1" 200 66648
+INFO 2025-11-26 19:25:05,482 basehttp "GET /media/products/gallery/prod_1444_0.jpg HTTP/1.1" 200 38513
+INFO 2025-11-26 19:25:05,484 basehttp "GET /media/products/gallery/prod_1443_0.jpg HTTP/1.1" 200 56795
+INFO 2025-11-26 19:25:05,508 basehttp "GET /media/products/gallery/prod_1440_0.jpg HTTP/1.1" 200 55678
+INFO 2025-11-26 19:25:05,509 basehttp "GET /media/products/gallery/prod_1439_0.jpg HTTP/1.1" 200 36259
+INFO 2025-11-26 19:25:05,526 basehttp "GET /my-orders/ HTTP/1.1" 200 40466
+INFO 2025-11-26 19:25:05,537 basehttp "GET /media/products/gallery/prod_1434_0.jpg HTTP/1.1" 200 54819
+INFO 2025-11-26 19:25:05,538 basehttp "GET /media/products/gallery/prod_1435_0.jpg HTTP/1.1" 200 51873
+INFO 2025-11-26 19:25:05,569 basehttp "GET /media/products/gallery/prod_1428_0.jpg HTTP/1.1" 200 61664
+INFO 2025-11-26 19:25:05,573 basehttp "GET /media/products/gallery/prod_1427_0.jpg HTTP/1.1" 200 34313
+INFO 2025-11-26 19:25:05,590 basehttp "GET /media/products/gallery/prod_1441_0.jpg HTTP/1.1" 200 31834
+INFO 2025-11-26 19:25:05,591 basehttp "GET /media/products/gallery/prod_1442_0.jpg HTTP/1.1" 200 77960
+INFO 2025-11-26 19:25:05,597 basehttp "GET /media/products/gallery/prod_1426_0.jpg HTTP/1.1" 200 62710
+INFO 2025-11-26 19:25:05,601 basehttp "GET /media/products/gallery/prod_1422_0.jpg HTTP/1.1" 200 48828
+INFO 2025-11-26 19:25:05,627 basehttp "GET /media/products/gallery/prod_1415_0.jpg HTTP/1.1" 200 36042
+INFO 2025-11-26 19:25:05,627 basehttp "GET /media/products/gallery/prod_1418_0.jpg HTTP/1.1" 200 43714
+INFO 2025-11-26 19:25:05,627 basehttp "GET /media/products/gallery/prod_1438_0.jpg HTTP/1.1" 200 60293
+INFO 2025-11-26 19:25:05,632 basehttp "GET /media/products/gallery/prod_1413_0.webp HTTP/1.1" 200 9892
+INFO 2025-11-26 19:25:05,633 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 200 47474
+INFO 2025-11-26 19:25:05,664 basehttp "GET /media/products/gallery/prod_1409_0.jpg HTTP/1.1" 200 46546
+INFO 2025-11-26 19:25:05,666 basehttp "GET /media/products/gallery/prod_1401_0.webp HTTP/1.1" 200 18328
+INFO 2025-11-26 19:25:05,668 basehttp "GET /media/products/gallery/prod_1400_0.jpg HTTP/1.1" 200 119967
+INFO 2025-11-26 19:25:05,673 basehttp "GET /media/products/gallery/prod_1397_0.webp HTTP/1.1" 200 9892
+INFO 2025-11-26 19:25:05,673 basehttp "GET /media/products/gallery/prod_1399_0.jpg HTTP/1.1" 200 52532
+INFO 2025-11-26 19:25:05,676 basehttp - Broken pipe from ('127.0.0.1', 60809)
+INFO 2025-11-26 19:25:05,698 basehttp - Broken pipe from ('127.0.0.1', 56722)
+INFO 2025-11-26 19:25:05,704 basehttp - Broken pipe from ('127.0.0.1', 51682)
+INFO 2025-11-26 19:25:05,709 basehttp - Broken pipe from ('127.0.0.1', 62490)
+INFO 2025-11-26 19:25:05,712 basehttp - Broken pipe from ('127.0.0.1', 58196)
+INFO 2025-11-26 19:25:05,801 basehttp - Broken pipe from ('127.0.0.1', 49913)
+INFO 2025-11-26 19:25:07,142 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:26:08,529 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:26:12,851 basehttp "GET /invoice/15e63b69-6092-4744-990b-1c7efedd71f8/ HTTP/1.1" 200 4132
+INFO 2025-11-26 19:26:12,933 basehttp "GET /invoice/15e63b69-6092-4744-990b-1c7efedd71f8/ HTTP/1.1" 200 4132
+INFO 2025-11-26 19:26:31,959 basehttp - Broken pipe from ('127.0.0.1', 60514)
+INFO 2025-11-26 19:27:31,402 basehttp "GET /dashboard/ HTTP/1.1" 200 44268
+INFO 2025-11-26 19:27:33,959 basehttp "GET /my-orders/ HTTP/1.1" 200 40466
+INFO 2025-11-26 19:27:40,735 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:27:58,393 basehttp "GET /admin/jeba_sales/sale/10/change/ HTTP/1.1" 200 88168
+INFO 2025-11-26 19:27:58,561 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:28:00,241 basehttp "GET /admin/jeba_sales/sale/ HTTP/1.1" 200 46484
+INFO 2025-11-26 19:28:14,549 basehttp "GET /admin/jeba_sales/sale/10/change/ HTTP/1.1" 200 88168
+INFO 2025-11-26 19:28:14,593 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:28:23,505 basehttp "POST /admin/jeba_sales/sale/10/change/ HTTP/1.1" 302 0
+INFO 2025-11-26 19:28:23,571 basehttp "GET /admin/jeba_sales/sale/ HTTP/1.1" 200 47059
+INFO 2025-11-26 19:28:23,623 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:28:28,596 basehttp "GET /my-orders/ HTTP/1.1" 200 40470
+INFO 2025-11-26 19:28:34,662 basehttp "GET /admin/jeba_sales/sale/10/change/ HTTP/1.1" 200 88167
+INFO 2025-11-26 19:28:34,718 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:28:41,329 basehttp "POST /admin/jeba_sales/sale/10/change/ HTTP/1.1" 302 0
+INFO 2025-11-26 19:28:41,384 basehttp "GET /admin/jeba_sales/sale/ HTTP/1.1" 200 47059
+INFO 2025-11-26 19:28:41,539 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:28:48,468 basehttp "GET /my-orders/ HTTP/1.1" 200 40470
+INFO 2025-11-26 19:28:56,837 basehttp "GET /admin/jeba_sales/sale/10/change/ HTTP/1.1" 200 88167
+INFO 2025-11-26 19:28:56,879 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:29:11,729 basehttp "POST /admin/jeba_sales/sale/10/change/ HTTP/1.1" 302 0
+INFO 2025-11-26 19:29:11,787 basehttp "GET /admin/jeba_sales/sale/ HTTP/1.1" 200 47062
+INFO 2025-11-26 19:29:11,837 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:29:22,328 basehttp "GET /my-orders/ HTTP/1.1" 200 40466
+INFO 2025-11-26 19:29:23,874 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:30:20,140 autoreload E:\WebProjects\jebaenterprise\products\steadfast.py changed, reloading.
+INFO 2025-11-26 19:30:20,872 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:32:29,531 basehttp "GET /admin/jeba_sales/sale/ HTTP/1.1" 200 46484
+INFO 2025-11-26 19:32:29,573 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:32:33,616 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:32:35,804 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:33:37,842 autoreload E:\WebProjects\jebaenterprise\products\steadfast.py changed, reloading.
+INFO 2025-11-26 19:33:38,581 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:33:41,935 steadfast STEADFAST CHECK [CID: 192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:33:42,392 steadfast STEADFAST STATUS RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:33:42,392 steadfast Normalized Status: unknown
+INFO 2025-11-26 19:33:42,412 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:33:46,747 steadfast STEADFAST CHECK [CID: 192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:33:47,149 steadfast STEADFAST STATUS RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:33:47,151 steadfast Normalized Status: unknown
+INFO 2025-11-26 19:33:47,159 basehttp "GET /my-orders/ HTTP/1.1" 200 40466
+INFO 2025-11-26 19:33:48,358 steadfast STEADFAST CHECK [CID: 192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:33:48,804 steadfast STEADFAST STATUS RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:33:48,804 steadfast Normalized Status: unknown
+INFO 2025-11-26 19:33:48,810 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:37:40,668 autoreload E:\WebProjects\jebaenterprise\products\steadfast.py changed, reloading.
+INFO 2025-11-26 19:37:41,538 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:38:30,139 autoreload E:\WebProjects\jebaenterprise\jeba_sales\views.py changed, reloading.
+INFO 2025-11-26 19:38:30,858 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:39:09,185 autoreload E:\WebProjects\jebaenterprise\jeba_sales\views.py changed, reloading.
+INFO 2025-11-26 19:39:09,895 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:39:25,703 autoreload E:\WebProjects\jebaenterprise\jeba_sales\views.py changed, reloading.
+INFO 2025-11-26 19:39:26,412 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:39:41,310 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:39:46,010 steadfast STEADFAST CHECK CID [192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:39:46,475 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:39:46,485 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:39:49,501 steadfast STEADFAST CHECK CID [192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:39:49,907 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+WARNING 2025-11-26 19:39:49,908 steadfast Steadfast CID returned 'unknown'. Retrying with Invoice: JEBA-8010
+INFO 2025-11-26 19:39:50,305 steadfast STEADFAST INVOICE RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:39:50,311 basehttp "GET /my-orders/ HTTP/1.1" 200 40472
+INFO 2025-11-26 19:39:52,773 steadfast STEADFAST CHECK CID [192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:39:53,192 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:39:53,197 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:42:58,299 autoreload E:\WebProjects\jebaenterprise\products\steadfast.py changed, reloading.
+INFO 2025-11-26 19:42:59,052 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:43:03,985 steadfast STEADFAST CHECK CID [192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:43:04,425 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:43:04,426 steadfast Normalized Status: unknown
+INFO 2025-11-26 19:43:04,453 basehttp "GET /order/10/ HTTP/1.1" 200 39458
+INFO 2025-11-26 19:44:31,168 basehttp "GET /catalog/ HTTP/1.1" 200 411256
+INFO 2025-11-26 19:44:31,557 basehttp "GET /media/products/gallery/prod_1390_0.jpg HTTP/1.1" 200 37036
+INFO 2025-11-26 19:44:31,569 basehttp "GET /media/products/gallery/prod_1392_0.jpg HTTP/1.1" 200 75072
+INFO 2025-11-26 19:44:31,582 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 200 79832
+INFO 2025-11-26 19:44:31,594 basehttp "GET /media/products/gallery/prod_1384_0.jpg HTTP/1.1" 200 61736
+INFO 2025-11-26 19:44:31,595 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+INFO 2025-11-26 19:44:31,598 basehttp "GET /media/products/gallery/prod_1431_0.jpg HTTP/1.1" 200 28368
+INFO 2025-11-26 19:44:31,611 basehttp "GET /media/products/gallery/prod_1389_0.jpg HTTP/1.1" 200 73862
+INFO 2025-11-26 19:44:31,614 basehttp "GET /media/products/gallery/prod_1391_0.jpg HTTP/1.1" 200 66338
+INFO 2025-11-26 19:44:31,626 basehttp "GET /media/products/gallery/prod_1381_0.jpg HTTP/1.1" 200 19132
+INFO 2025-11-26 19:44:31,627 basehttp "GET /media/products/gallery/prod_1380_0.jpg HTTP/1.1" 200 39871
+INFO 2025-11-26 19:44:31,629 basehttp "GET /media/products/gallery/prod_1377_0.jpg HTTP/1.1" 200 33451
+INFO 2025-11-26 19:44:31,637 basehttp "GET /media/products/gallery/prod_1371_0.jpg HTTP/1.1" 200 39297
+INFO 2025-11-26 19:44:31,652 basehttp "GET /media/products/gallery/prod_1370_0.jpg HTTP/1.1" 200 51548
+INFO 2025-11-26 19:44:31,657 basehttp "GET /media/products/gallery/prod_1366_0.jpg HTTP/1.1" 200 57129
+INFO 2025-11-26 19:44:31,667 basehttp "GET /media/products/gallery/prod_1364_0.jpg HTTP/1.1" 200 53072
+INFO 2025-11-26 19:44:31,681 basehttp "GET /media/products/gallery/prod_1363_0.webp HTTP/1.1" 200 9892
+INFO 2025-11-26 19:44:31,684 basehttp "GET /media/products/gallery/prod_1362_0.jpg HTTP/1.1" 200 51085
+INFO 2025-11-26 19:44:31,692 basehttp "GET /media/products/gallery/prod_1360_0.jpg HTTP/1.1" 200 55742
+INFO 2025-11-26 19:44:31,715 basehttp "GET /media/products/gallery/prod_1358_0.jpg HTTP/1.1" 200 55612
+INFO 2025-11-26 19:44:31,718 basehttp "GET /media/products/gallery/prod_1354_0.jpg HTTP/1.1" 200 45738
+INFO 2025-11-26 19:44:31,726 basehttp "GET /media/products/gallery/prod_1382_0.jpg HTTP/1.1" 200 41652
+INFO 2025-11-26 19:44:31,731 basehttp "GET /media/products/gallery/prod_1353_0.jpeg HTTP/1.1" 200 44199
+INFO 2025-11-26 19:44:31,759 basehttp "GET /media/products/gallery/prod_1352_0.jpg HTTP/1.1" 200 13597
+INFO 2025-11-26 19:44:31,759 basehttp "GET /media/products/gallery/prod_1351_0.jpg HTTP/1.1" 200 26204
+INFO 2025-11-26 19:44:31,766 basehttp "GET /media/products/gallery/prod_1373_0.jpg HTTP/1.1" 200 47603
+INFO 2025-11-26 19:44:31,770 basehttp "GET /media/products/gallery/prod_1350_0.jpg HTTP/1.1" 200 30404
+INFO 2025-11-26 19:44:31,771 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 200 56424
+INFO 2025-11-26 19:44:31,772 basehttp "GET /media/products/gallery/prod_1368_0.jpg HTTP/1.1" 200 62638
+INFO 2025-11-26 19:44:31,787 basehttp "GET /media/products/gallery/prod_1345_0.jpg HTTP/1.1" 200 32465
+INFO 2025-11-26 19:44:31,886 basehttp "GET /media/products/gallery/prod_1349_0.jpg HTTP/1.1" 200 53388
+INFO 2025-11-26 19:44:33,229 basehttp "POST /add-to-cart/1626/ HTTP/1.1" 302 0
+INFO 2025-11-26 19:44:33,304 basehttp "GET /product/1626/ HTTP/1.1" 200 82379
+INFO 2025-11-26 19:44:37,179 basehttp "GET /cart/ HTTP/1.1" 200 43035
+INFO 2025-11-26 19:44:40,487 basehttp "GET /checkout/ HTTP/1.1" 200 50603
+INFO 2025-11-26 19:44:40,528 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2188
+INFO 2025-11-26 19:44:48,545 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-11-26 19:44:48,686 basehttp "GET /order-success/ HTTP/1.1" 200 36245
+INFO 2025-11-26 19:44:57,062 steadfast STEADFAST CHECK CID [192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:44:57,460 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:44:57,460 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:44:57,461 steadfast Steadfast CID returned 'unknown'. Retrying with Invoice: JEBA-8010
+INFO 2025-11-26 19:44:57,898 steadfast STEADFAST INVOICE RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:44:57,898 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:44:57,900 steadfast Invoice lookup failed or also returned 'unknown'.
+INFO 2025-11-26 19:44:57,904 basehttp "GET /my-orders/ HTTP/1.1" 200 41627
+INFO 2025-11-26 19:44:59,243 basehttp "GET /order/19/ HTTP/1.1" 200 39203
+INFO 2025-11-26 19:45:00,694 basehttp "GET /order/19/ HTTP/1.1" 200 39203
+INFO 2025-11-26 19:47:38,923 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:47:41,734 basehttp "GET /admin/jeba_sales/sale/ HTTP/1.1" 200 47733
+INFO 2025-11-26 19:47:41,789 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:48:00,622 basehttp "GET /admin/jeba_sales/sale/20/change/ HTTP/1.1" 200 88249
+INFO 2025-11-26 19:48:00,661 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:49:47,055 basehttp "GET /admin/jeba_sales/sale/ HTTP/1.1" 200 47733
+INFO 2025-11-26 19:49:48,941 basehttp "GET /admin/jeba_sales/sale/19/change/ HTTP/1.1" 200 88231
+INFO 2025-11-26 19:49:49,089 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:49:55,181 basehttp "GET /order/19/ HTTP/1.1" 200 39203
+INFO 2025-11-26 19:50:01,210 basehttp "POST /admin/jeba_sales/sale/19/change/ HTTP/1.1" 302 0
+INFO 2025-11-26 19:50:01,257 basehttp "GET /admin/jeba_sales/sale/ HTTP/1.1" 200 48317
+INFO 2025-11-26 19:50:01,410 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:50:06,024 basehttp "GET /order/19/ HTTP/1.1" 200 39210
+INFO 2025-11-26 19:50:08,199 steadfast STEADFAST CHECK CID [192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:50:08,684 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:50:08,685 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:50:08,686 steadfast Steadfast CID returned 'unknown'. Retrying with Invoice: JEBA-8010
+INFO 2025-11-26 19:50:09,108 steadfast STEADFAST INVOICE RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:50:09,109 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:50:09,109 steadfast Invoice lookup failed or also returned 'unknown'.
+INFO 2025-11-26 19:50:09,115 basehttp "GET /my-orders/ HTTP/1.1" 200 41633
+INFO 2025-11-26 19:50:11,713 basehttp "GET /order/19/ HTTP/1.1" 200 39210
+INFO 2025-11-26 19:50:20,404 basehttp "GET /admin/jeba_sales/sale/19/change/ HTTP/1.1" 200 88234
+INFO 2025-11-26 19:50:20,561 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:50:23,220 basehttp "GET /admin/jeba_sales/sale/19/send-steadfast/ HTTP/1.1" 200 25969
+ERROR 2025-11-26 19:51:06,149 log Internal Server Error: /admin/jeba_sales/sale/19/send-steadfast/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\admin.py", line 83, in send_to_steadfast_view
+    result = submit_steadfast_order(payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\steadfast.py", line 44, in submit_steadfast_order
+    logger.info(f"STEADFAST CREATE REQUEST: {url} | Payload: {json.dumps(payload)}")
+                                                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Faisal\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Faisal\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Faisal\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Faisal\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Decimal is not JSON serializable
+ERROR 2025-11-26 19:51:06,152 basehttp "POST /admin/jeba_sales/sale/19/send-steadfast/ HTTP/1.1" 500 125206
+INFO 2025-11-26 19:52:34,050 basehttp "GET /admin/jeba_sales/sale/19/send-steadfast/ HTTP/1.1" 200 25969
+ERROR 2025-11-26 19:52:40,381 log Internal Server Error: /admin/jeba_sales/sale/19/send-steadfast/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\admin.py", line 83, in send_to_steadfast_view
+    result = submit_steadfast_order(payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\products\steadfast.py", line 44, in submit_steadfast_order
+    logger.info(f"STEADFAST CREATE REQUEST: {url} | Payload: {json.dumps(payload)}")
+                                                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Faisal\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Faisal\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Faisal\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Faisal\AppData\Local\Programs\Python\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Decimal is not JSON serializable
+ERROR 2025-11-26 19:52:40,382 basehttp "POST /admin/jeba_sales/sale/19/send-steadfast/ HTTP/1.1" 500 125206
+INFO 2025-11-26 19:52:41,764 basehttp "GET /admin/jeba_sales/sale/19/send-steadfast/ HTTP/1.1" 200 25969
+INFO 2025-11-26 19:53:08,204 autoreload E:\WebProjects\jebaenterprise\products\steadfast.py changed, reloading.
+INFO 2025-11-26 19:53:08,962 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:53:39,122 autoreload E:\WebProjects\jebaenterprise\products\steadfast.py changed, reloading.
+INFO 2025-11-26 19:53:39,819 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 19:53:43,874 steadfast STEADFAST CREATE REQUEST: https://portal.packzy.com/api/v1/create_order | Payload: {"invoice": "JEBA-8019", "recipient_name": "Test Order", "recipient_phone": "01722222222", "recipient_address": "Test Order", "cod_amount": 360.0, "note": "Test Order Do Not Prooceed"}
+INFO 2025-11-26 19:53:44,330 steadfast STEADFAST CREATE RESPONSE [200]: {"status":200,"message":"Consignment has been created successfully.","consignment":{"consignment_id":193310378,"invoice":"JEBA-8019","tracking_code":"SFR251126ST5663295BD","recipient_name":"Test Order","recipient_phone":"01722222222","recipient_address":"Test Order","recipient_email":null,"alternative_phone":null,"item_description":null,"total_lot":1,"cod_amount":360,"status":"in_review","note":"Test Order Do Not Prooceed","created_at":"2025-11-26T13:53:43.000000Z","updated_at":"2025-11-26T13:53:43.000000Z"}}
+INFO 2025-11-26 19:53:44,342 basehttp "POST /admin/jeba_sales/sale/19/send-steadfast/ HTTP/1.1" 302 0
+INFO 2025-11-26 19:53:44,623 basehttp "GET /admin/jeba_sales/sale/19/change/ HTTP/1.1" 200 88798
+INFO 2025-11-26 19:53:44,671 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 19:53:57,292 steadfast STEADFAST CHECK CID [193310378]: https://portal.packzy.com/api/v1/status_by_cid/193310378
+INFO 2025-11-26 19:53:57,732 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"in_review"}
+INFO 2025-11-26 19:53:57,732 steadfast Normalized Status: in_review
+INFO 2025-11-26 19:53:57,741 basehttp "GET /order/19/ HTTP/1.1" 200 39473
+INFO 2025-11-26 19:54:03,502 steadfast STEADFAST CHECK CID [193310378]: https://portal.packzy.com/api/v1/status_by_cid/193310378
+INFO 2025-11-26 19:54:04,288 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"in_review"}
+INFO 2025-11-26 19:54:04,288 steadfast Normalized Status: in_review
+INFO 2025-11-26 19:54:04,289 steadfast STEADFAST CHECK CID [192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:54:04,718 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:54:04,719 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:54:04,721 steadfast Steadfast CID returned 'unknown'. Retrying with Invoice: JEBA-8010
+INFO 2025-11-26 19:54:05,255 steadfast STEADFAST INVOICE RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:54:05,255 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:54:05,256 steadfast Invoice lookup failed or also returned 'unknown'.
+INFO 2025-11-26 19:54:05,263 basehttp "GET /my-orders/ HTTP/1.1" 200 41631
+INFO 2025-11-26 19:54:11,176 steadfast STEADFAST CHECK CID [193310378]: https://portal.packzy.com/api/v1/status_by_cid/193310378
+INFO 2025-11-26 19:54:11,609 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"in_review"}
+INFO 2025-11-26 19:54:11,610 steadfast Normalized Status: in_review
+INFO 2025-11-26 19:54:11,616 basehttp "GET /order/19/ HTTP/1.1" 200 39473
+INFO 2025-11-26 19:55:06,721 steadfast STEADFAST CHECK CID [193310378]: https://portal.packzy.com/api/v1/status_by_cid/193310378
+INFO 2025-11-26 19:55:07,126 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:07,126 steadfast Normalized Status: unknown
+INFO 2025-11-26 19:55:07,132 basehttp "GET /order/19/ HTTP/1.1" 200 39471
+INFO 2025-11-26 19:55:08,034 steadfast STEADFAST CHECK CID [193310378]: https://portal.packzy.com/api/v1/status_by_cid/193310378
+INFO 2025-11-26 19:55:08,467 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:08,467 steadfast Normalized Status: unknown
+INFO 2025-11-26 19:55:08,471 basehttp "GET /order/19/ HTTP/1.1" 200 39471
+INFO 2025-11-26 19:55:10,491 steadfast STEADFAST CHECK CID [193310378]: https://portal.packzy.com/api/v1/status_by_cid/193310378
+INFO 2025-11-26 19:55:10,912 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:10,912 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:55:10,914 steadfast Steadfast CID returned 'unknown'. Retrying with Invoice: JEBA-8019
+INFO 2025-11-26 19:55:11,331 steadfast STEADFAST INVOICE RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:11,331 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:55:11,332 steadfast Invoice lookup failed or also returned 'unknown'.
+INFO 2025-11-26 19:55:11,332 steadfast STEADFAST CHECK CID [192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:55:11,744 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:11,745 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:55:11,746 steadfast Steadfast CID returned 'unknown'. Retrying with Invoice: JEBA-8010
+INFO 2025-11-26 19:55:12,166 steadfast STEADFAST INVOICE RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:12,166 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:55:12,167 steadfast Invoice lookup failed or also returned 'unknown'.
+INFO 2025-11-26 19:55:12,173 basehttp "GET /my-orders/ HTTP/1.1" 200 41627
+INFO 2025-11-26 19:55:17,581 steadfast STEADFAST CHECK CID [193310378]: https://portal.packzy.com/api/v1/status_by_cid/193310378
+INFO 2025-11-26 19:55:17,949 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:17,949 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:55:17,951 steadfast Steadfast CID returned 'unknown'. Retrying with Invoice: JEBA-8019
+INFO 2025-11-26 19:55:18,358 steadfast STEADFAST INVOICE RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:18,359 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:55:18,361 steadfast Invoice lookup failed or also returned 'unknown'.
+INFO 2025-11-26 19:55:18,361 steadfast STEADFAST CHECK CID [192490039]: https://portal.packzy.com/api/v1/status_by_cid/192490039
+INFO 2025-11-26 19:55:18,759 steadfast STEADFAST CID RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:18,759 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:55:18,761 steadfast Steadfast CID returned 'unknown'. Retrying with Invoice: JEBA-8010
+INFO 2025-11-26 19:55:19,178 steadfast STEADFAST INVOICE RESPONSE: {"status":200,"delivery_status":"unknown"}
+INFO 2025-11-26 19:55:19,178 steadfast Normalized Status: unknown
+WARNING 2025-11-26 19:55:19,180 steadfast Invoice lookup failed or also returned 'unknown'.
+INFO 2025-11-26 19:55:19,186 basehttp "GET /my-orders/ HTTP/1.1" 200 41627
+INFO 2025-11-26 19:55:23,719 basehttp "GET /admin/jeba_sales/sale/19/change/ HTTP/1.1" 200 88287
+INFO 2025-11-26 19:55:23,761 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342

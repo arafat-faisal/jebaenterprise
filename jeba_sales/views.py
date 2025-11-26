@@ -20,6 +20,12 @@ from products.steadfast import check_delivery_status
 from products.marketing import send_purchase_event
 
 
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+
+
 # --- CART VIEWS ---
 
 def add_to_cart(request: HttpRequest, product_id):
@@ -335,15 +341,20 @@ def my_orders_view(request):
     for order in user_orders:
         if order.consignment_id and order.status not in ['DELIVERED', 'CANCELLED']:
             try:
-                api_status = check_delivery_status(order.consignment_id)
-                if api_status:
+                # PASS INVOICE NUMBER HERE FOR FALLBACK
+                api_status = check_delivery_status(order.consignment_id, invoice_number=order.invoice_number)
+                
+                if api_status and api_status != 'unknown':
                     order.live_status_display = api_status
-                    if api_status == 'delivered':
-                        order.status = 'DELIVERED'
-                        order.save(update_fields=['status'])
+                    
+                    if api_status in ['delivered', 'partial_delivered']:
+                        if order.status != 'DELIVERED':
+                            order.status = 'DELIVERED'
+                            order.save(update_fields=['status'])
                     elif api_status == 'cancelled':
-                        order.status = 'CANCELLED'
-                        order.save(update_fields=['status'])
+                        if order.status != 'CANCELLED':
+                            order.status = 'CANCELLED'
+                            order.save(update_fields=['status'])
             except Exception as e:
                 print(f"Error syncing order {order.id}: {e}")
 
@@ -361,7 +372,7 @@ def order_detail(request, pk):
 
     live_status = None
     if sale.consignment_id:
-        live_status = check_delivery_status(sale.consignment_id)
+        live_status = check_delivery_status(sale.consignment_id, invoice_number=sale.invoice_number)
     
     context = {
         'sale': sale,
@@ -375,7 +386,7 @@ def guest_order_track(request, token):
     live_status = None
     if sale.consignment_id:
         try:
-            live_status = check_delivery_status(sale.consignment_id)
+            live_status = check_delivery_status(sale.consignment_id, invoice_number=sale.invoice_number)
             if live_status:
                 if live_status == 'delivered' and sale.status != 'DELIVERED':
                     sale.status = 'DELIVERED'
@@ -453,3 +464,66 @@ def order_detail(request, pk):
     }
     return render(request, 'products/order_detail.html', context)
 
+@csrf_exempt
+def steadfast_webhook(request):
+    """
+    Webhook to receive real-time order updates from Steadfast Courier.
+    Documentation: Option A - Delivery Status & Tracking Updates.
+    """
+    if request.method != 'POST':
+        return JsonResponse({'status': 'error', 'message': 'Method not allowed'}, status=405)
+
+    # 1. Security Check: Verify API Key
+    auth_header = request.headers.get('Authorization', '')
+    expected_header = f"Bearer {settings.STEADFAST_API_KEY}"
+    
+    if auth_header != expected_header:
+        return JsonResponse({'status': 'error', 'message': 'Unauthorized access'}, status=401)
+
+    try:
+        # 2. Parse Payload
+        payload = json.loads(request.body)
+        notification_type = payload.get('notification_type')
+        consignment_id = payload.get('consignment_id')
+        
+        if not consignment_id:
+            return JsonResponse({'status': 'error', 'message': 'Missing consignment_id'}, status=400)
+
+        # 3. Find the Order
+        try:
+            sale = Sale.objects.get(consignment_id=consignment_id)
+        except Sale.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Invalid consignment ID.'}, status=404)
+
+        # 4. Handle Updates
+        if notification_type == 'delivery_status':
+            new_status = payload.get('status', '').lower()
+            
+            # Map Steadfast status to our internal choices
+            status_map = {
+                'delivered': 'DELIVERED',
+                'partial_delivered': 'DELIVERED', # Treat partial as delivered or handle separately
+                'cancelled': 'CANCELLED',
+                'pending': 'PENDING',
+                'in_review': 'PROCESSING'
+            }
+            
+            if new_status in status_map:
+                sale.status = status_map[new_status]
+                sale.save(update_fields=['status'])
+                
+                # Optional: Trigger email if delivered
+                # if sale.status == 'DELIVERED':
+                #     send_delivery_email(sale)
+
+        elif notification_type == 'tracking_update':
+            # Logic to store tracking history could go here
+            # For now, we just acknowledge receipt as per requirements
+            pass
+
+        return JsonResponse({'status': 'success', 'message': 'Webhook received successfully.'})
+
+    except json.JSONDecodeError:
+        return JsonResponse({'status': 'error', 'message': 'Invalid JSON payload'}, status=400)
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)

@@ -17,6 +17,7 @@ urlpatterns = [
     # The main router remains in products.urls
     path("", include("products.urls")),
     path('blog/', include('jeba_blog.urls')),
+    path('sales/', include('jeba_sales.urls')),
 ]
 
 # Serve media files in development
