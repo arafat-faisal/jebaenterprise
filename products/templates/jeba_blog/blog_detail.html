@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto;">
+    <header style="text-align: center; margin: 40px 0;">
+        <div style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 15px;">
+            {{ post.created_at|date:"F d, Y" }}
+        </div>
+        <h1 style="font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 30px;">
+            {{ post.title }}
+        </h1>
+        {% if post.featured_image %}
+        <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); margin-bottom: 40px;">
+            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" style="width: 100%; height: auto; display: block;">
+        </div>
+        {% endif %}
+    </header>
+
+    <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-main); margin-bottom: 60px;">
+        {{ post.content|safe|linebreaks }}
+    </div>
+
+    {% if attached_products %}
+    <div style="background: #F8F9FB; padding: 40px; border-radius: var(--radius-xl); margin-bottom: 40px;">
+        <h3 style="text-align: center; margin-bottom: 30px; font-weight: 800;">Featured Products</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+            {% for prod in attached_products %}
+            <div style="background: white; padding: 15px; border-radius: var(--radius-lg); text-align: center;">
+                <a href="{% url 'product_detail' prod.id %}">
+                    {% if prod.images.first %}
+                    <img src="{{ prod.images.first.image.url }}" style="width: 100%; height: 150px; object-fit: contain; margin-bottom: 10px;">
+                    {% endif %}
+                    <h4 style="margin: 10px 0; font-size: 1rem;">{{ prod.name }}</h4>
+                    <div style="font-weight: 700;">৳{{ prod.selling_price|floatformat:0 }}</div>
+                </a>
+                <a href="{% url 'product_detail' prod.id %}" class="btn" style="margin-top: 10px; font-size: 0.8rem; padding: 8px 15px;">View Product</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'jeba_engagement',
     'jeba_intelligence',
     'jeba_analytics',
+    'jeba_blog',
     
     # --- EXISTING APP (Do not remove) ---
     'products', 

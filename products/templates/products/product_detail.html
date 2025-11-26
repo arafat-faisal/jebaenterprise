@@ -567,6 +567,36 @@
 {% endif %}
 
 <div class="related-section">
+{% if related_posts %}
+<div class="related-section" style="margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 40px;">
+    <h2 class="related-header">Related Articles & Guides</h2>
+    <div class="related-grid">
+        {% for post in related_posts %}
+            <div class="related-card" style="height: auto;">
+                <a href="{% url 'blog_detail' post.slug %}" class="related-img-box" style="height: 180px;">
+                    {% if post.featured_image %}
+                        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                    {% else %}
+                        <div style="width:100%; height:100%; background:#eee; display:flex; align-items:center; justify-content:center; color:#999;">No Image</div>
+                    {% endif %}
+                </a>
+                <div style="padding: 0 5px 10px 5px;">
+                    <span style="font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">
+                        {{ post.created_at|date:"M d, Y" }}
+                    </span>
+                    <h3 class="related-title" style="font-size: 1.1rem; margin-top: 5px;">{{ post.title }}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-sub); line-height: 1.5; margin-bottom: 15px;">
+                        {{ post.excerpt|truncatechars:80 }}
+                    </p>
+                    <a href="{% url 'blog_detail' post.slug %}" style="color: #3F51B5; font-weight: 700; text-decoration: none; font-size: 0.9rem;">
+                        Read Article &rarr;
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
     <h2 class="related-header">You Might Also Like</h2>
     <div class="related-grid">
         {% for rel in related_products %}

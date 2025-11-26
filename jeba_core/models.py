@@ -5,6 +5,16 @@ class SiteSettings(models.Model):
     """
     Singleton model to store global configuration.
     """
+    # --- HERO SECTION CONTROL ---
+    featured_products = models.ManyToManyField(
+        'jeba_inventory.Product',
+        blank=True,
+        related_name='featured_in_hero',
+        verbose_name=_("Hero Section Products"),
+        help_text=_("Select specific products to display in the Homepage Hero Slider. If empty, the system will use products marked 'Is Featured'.")
+    )
+    # ----------------------------
+
     bkash_number = models.CharField(
         max_length=15, 
         default="017XXXXXXXX", 

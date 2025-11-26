@@ -16,6 +16,7 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     # The main router remains in products.urls
     path("", include("products.urls")),
+    path('blog/', include('jeba_blog.urls')),
 ]
 
 # Serve media files in development

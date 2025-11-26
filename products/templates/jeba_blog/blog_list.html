@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - Jeba Enterprise{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: 0 auto; padding: 40px 0;">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 10px;">Latest Stories</h1>
+        <p style="color: var(--text-sub);">News, guides, and updates from Jeba Enterprise</p>
+    </div>
+
+    <div style="display: grid; gap: 40px;">
+        {% for post in posts %}
+        <article style="background: var(--bg-card); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; md-flex-direction: row;">
+            {% if post.featured_image %}
+            <a href="{% url 'blog_detail' post.slug %}" style="width: 100%; height: 250px; display: block; overflow: hidden;">
+                <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+            </a>
+            {% endif %}
+            
+            <div style="padding: 30px;">
+                <div style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 10px;">
+                    {{ post.created_at|date:"F d, Y" }} • {{ post.views }} Views
+                </div>
+                <a href="{% url 'blog_detail' post.slug %}" style="text-decoration: none; color: var(--text-main);">
+                    <h2 style="font-size: 1.8rem; font-weight: 700; margin: 0 0 15px 0;">{{ post.title }}</h2>
+                </a>
+                <p style="color: var(--text-sub); line-height: 1.6; margin-bottom: 20px;">
+                    {{ post.excerpt }}
+                </p>
+                <a href="{% url 'blog_detail' post.slug %}" class="btn" style="background: transparent; border: 2px solid var(--text-main); color: var(--text-main); padding: 8px 20px;">
+                    Read More
+                </a>
+            </div>
+        </article>
+        {% empty %}
+        <div style="text-align: center; padding: 60px;">
+            <h3>No posts yet. Stay tuned!</h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

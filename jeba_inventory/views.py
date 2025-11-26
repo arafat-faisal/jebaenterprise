@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from jeba_inventory.models import Product, Category
 from jeba_engagement.models import Wishlist
 from jeba_analytics.models import ProductEvent, SearchEvent
-# --- NEW IMPORT ---
+from jeba_core.models import SiteSettings 
 from jeba_analytics.analytics_service import AnalyticsService
 from products.forms import ReviewForm 
 # -----------------------
@@ -35,24 +35,45 @@ def get_recommendations(request, limit=8):
         return Product.objects.none()
 
     viewed_ids = recent_events.values_list('product_id', flat=True)
-    recommendations = Product.objects.filter(category__id__in=recent_category_ids).exclude(id__in=viewed_ids).order_by('?')[:limit]
+    
+    # Filter by is_active=True
+    recommendations = Product.objects.filter(
+        is_active=True,
+        category__id__in=recent_category_ids
+    ).exclude(id__in=viewed_ids).order_by('?')[:limit]
+    
     return recommendations
 
 # --- VIEWS ---
 
 def home(request):
     """Homepage View"""
-    featured_product = Product.objects.filter(is_featured=True).order_by('-created_at').first()
-    if not featured_product:
-        featured_product = Product.objects.order_by('-created_at').first()
+    settings = SiteSettings.load()
+    
+    # 1. Try Manual Selection
+    featured_products = settings.featured_products.filter(is_active=True)
+    
+    # 2. Fallback: Use 'is_featured' flag + is_active
+    if not featured_products.exists():
+        featured_products = Product.objects.filter(is_featured=True, is_active=True).order_by('-created_at')[:5]
+        
+    # 3. Fallback: Just show latest active products
+    if not featured_products.exists():
+        featured_products = Product.objects.filter(is_active=True).order_by('-created_at')[:5]
 
-    new_arrivals = Product.objects.order_by('-created_at')[:4]
-    best_sellers = Product.objects.annotate(total_sold=Sum('saleitem__quantity')).order_by('-total_sold')[:4]
+    # Filter all lists by is_active=True
+    new_arrivals = Product.objects.filter(is_active=True).order_by('-created_at')[:4]
+    
+    best_sellers = Product.objects.filter(is_active=True).annotate(
+        total_sold=Sum('saleitem__quantity')
+    ).order_by('-total_sold')[:4]
+    
     recommendations = get_recommendations(request, limit=4)
-    all_products = Product.objects.all().order_by('?')[:30]
+    
+    all_products = Product.objects.filter(is_active=True).order_by('?')[:30]
 
     context = {
-        'featured_product': featured_product,
+        'featured_products': featured_products, 
         'new_arrivals': new_arrivals,
         'best_sellers': best_sellers,
         'recommendations': recommendations,
@@ -61,7 +82,8 @@ def home(request):
     return render(request, "products/home.html", context)
 
 def product_catalog(request):
-    products = Product.objects.all().prefetch_related('images')
+    # Base Query: Active Products only
+    products = Product.objects.filter(is_active=True).prefetch_related('images')
     
     category_id = request.GET.get('category')
     sort_by = request.GET.get('sort')
@@ -87,9 +109,11 @@ def product_catalog(request):
         products = products.order_by('sort_priority', '-created_at')
         
     all_categories = Category.objects.all()
-    hero_product = Product.objects.filter(is_featured=True).first()
+    
+    # Hero product must also be active
+    hero_product = Product.objects.filter(is_featured=True, is_active=True).first()
     if not hero_product:
-        hero_product = Product.objects.order_by('-created_at').first()
+        hero_product = Product.objects.filter(is_active=True).order_by('-created_at').first()
 
     context = {
         'products': products,
@@ -100,9 +124,9 @@ def product_catalog(request):
     return render(request, 'products/catalog.html', context)
 
 def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk)
+    # Only allow viewing if active
+    product = get_object_or_404(Product, pk=pk, is_active=True)
     
-    # TRACK VIEW WITH CONTEXT
     if not request.session.session_key:
         request.session.save()
         
@@ -111,14 +135,15 @@ def product_detail(request, pk):
         user=request.user if request.user.is_authenticated else None,
         session_id=request.session.session_key,
         event_type='VIEW',
-        metadata=AnalyticsService.get_context(request)  # <--- NEW: Context Capture
+        metadata=AnalyticsService.get_context(request) 
     )
 
     variations = product.variations.filter(is_active=True)
     
-    related_products = Product.objects.filter(category=product.category).exclude(id=pk)[:12]
+    # Related products: Same category + Active
+    related_products = Product.objects.filter(category=product.category, is_active=True).exclude(id=pk)[:12]
     if not related_products:
-        related_products = Product.objects.exclude(id=pk).order_by('-created_at')[:12]
+        related_products = Product.objects.filter(is_active=True).exclude(id=pk).order_by('-created_at')[:12]
 
     reviews = product.reviews.all().order_by('-created_at')
     avg_rating = reviews.aggregate(Avg('rating'))['rating__avg'] or 0
@@ -127,7 +152,7 @@ def product_detail(request, pk):
     if request.user.is_authenticated:
         in_wishlist = Wishlist.objects.filter(user=request.user, product=product).exists()
     
-    # Recently Viewed Logic
+    # Recently Viewed
     session_id = request.session.session_key
     user = request.user if request.user.is_authenticated else None
     history_qs = ProductEvent.objects.filter(event_type='VIEW').exclude(product_id=pk)
@@ -140,10 +165,14 @@ def product_detail(request, pk):
     seen_ids = set()
     recently_viewed = []
     for event in recent_events:
-        if event.product.id not in seen_ids:
+        # Check if product is still active before showing in history
+        if event.product.id not in seen_ids and event.product.is_active:
             recently_viewed.append(event.product)
             seen_ids.add(event.product.id)
         if len(recently_viewed) >= 5: break
+
+    # Fetch related blog posts
+    related_posts = product.blog_posts.filter(is_published=True)
 
     context = {
         'product': product,
@@ -154,27 +183,29 @@ def product_detail(request, pk):
         'avg_rating': round(avg_rating, 1),
         'review_form': ReviewForm(),
         'in_wishlist': in_wishlist,
+        'related_posts': related_posts,
     }
     return render(request, "products/product_detail.html", context)
 
 def search_view(request):
     query = request.GET.get('q')
-    products = Product.objects.all()
+    products = Product.objects.filter(is_active=True) # Filter base queryset
     
     if request.method == 'GET' and query:
         products = products.filter(
             Q(name__icontains=query) | 
             Q(description__icontains=query) |
-            Q(category__name__icontains=query)
-        )
+            Q(category__name__icontains=query) |
+            Q(tags__name__icontains=query) # <--- NEW: Search by Tags
+        ).distinct() # distinct() is important when filtering by M2M (tags)
+        
         if not request.session.session_key: request.session.save()
         
-        # TRACK SEARCH WITH CONTEXT
         SearchEvent.objects.create(
             query=query,
             user=request.user if request.user.is_authenticated else None,
             session_id=request.session.session_key,
-            metadata=AnalyticsService.get_context(request)  # <--- NEW: Context Capture
+            metadata=AnalyticsService.get_context(request) 
         )
 
     category_id = request.GET.get('category')

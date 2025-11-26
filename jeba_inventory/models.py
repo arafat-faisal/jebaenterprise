@@ -1,5 +1,24 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils.text import slugify
+
+# --- NEW: Tag Model ---
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True, verbose_name=_("Tag Name"))
+    slug = models.SlugField(max_length=50, unique=True, blank=True)
+
+    class Meta:
+        verbose_name = _("Product Tag")
+        verbose_name_plural = _("Product Tags")
+        db_table = 'jeba_inventory_tag'
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 # --- Category Model ---
 class Category(models.Model):
@@ -29,6 +48,21 @@ class Product(models.Model):
         verbose_name=_("Category")
     )
     
+    # --- NEW: Visibility & SEO ---
+    is_active = models.BooleanField(
+        default=True, 
+        verbose_name=_("Visible in Store"),
+        help_text=_("Uncheck to hide this product from the frontend without deleting it.")
+    )
+    tags = models.ManyToManyField(
+        Tag, 
+        blank=True, 
+        related_name='products',
+        verbose_name=_("SEO Tags"),
+        help_text=_("Add tags for better search visibility (e.g., 'Summer', 'Gift', 'Office').")
+    )
+    # -----------------------------
+
     call_for_price = models.BooleanField(
         default=False, 
         help_text=_("If checked, price will be hidden and 'Call for Price' shown."),
@@ -58,14 +92,12 @@ class Product(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        # If a valid price is set, ensure 'Call for Price' is OFF
         if self.selling_price > 0 and self.call_for_price:
             self.call_for_price = False
         super().save(*args, **kwargs)
 
     @property
     def main_image_obj(self):
-        """Returns the ProductImage object that is main, or the first one as fallback."""
         main = self.images.filter(is_main=True).first()
         if main:
             return main
@@ -73,11 +105,9 @@ class Product(models.Model):
 
     @property
     def thumbnail(self):
-        """Returns the image file of the main image."""
         img_obj = self.main_image_obj
         return img_obj.image if img_obj else None
 
-    # --- RESTORED: AUTO CATEGORY LOGIC ---
     def auto_assign_category(self):
         CATEGORY_KEYWORDS = {
             'Electronics': ['phone', 'mobile', 'laptop', 'camera', 'earphone', 'headphone', 'charger', 'cable', 'usb', 'speaker', 'watch', 'smart', 'tv', 'gadget', 'wireless', 'bluetooth'],
@@ -108,9 +138,7 @@ class Product(models.Model):
             return True
         return False
 
-    # --- RESTORED: DYNAMIC PRICING MATH ---
     def apply_dynamic_pricing(self):
-        # Local import to avoid circular dependency with jeba_intelligence
         from jeba_intelligence.models import CompetitorPrice
         
         comp_prices = self.competitor_prices.all()

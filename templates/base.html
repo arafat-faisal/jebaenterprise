@@ -586,7 +586,7 @@
         </form>
         
         <nav class="nav-links">
-            
+            <a href="{% url 'blog_list' %}" style="margin-right: 15px;">Blog</a>
             {% if user.is_authenticated %}
                 {# --- NEW ADMIN BUTTON --- #}
                 {% if user.is_superuser %}
