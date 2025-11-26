@@ -8,9 +8,9 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('jeba_inventory', '0001_initial'),
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('products', '0035_alter_sale_access_token'), # Force wait
+        # --- FIX: Removed dependency on 'products' app ---
+        ('jeba_inventory', '0001_initial'), # Dependency on Product
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL), # Dependency on User
     ]
 
     operations = [
@@ -44,6 +44,15 @@ class Migration(migrations.Migration):
                     },
                 ),
             ],
-            database_operations=[],
+            database_operations=[
+                migrations.AlterModelTable(
+                    name='Review',
+                    table='products_review',
+                ),
+                migrations.AlterModelTable(
+                    name='Wishlist',
+                    table='products_wishlist',
+                ),
+            ],
         ),
     ]

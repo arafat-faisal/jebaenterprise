@@ -4,9 +4,10 @@ class Migration(migrations.Migration):
 
     initial = True
 
+    # --- FIX: REMOVED DEPENDENCY ON DEFUNCT 'PRODUCTS' APP ---
     dependencies = [
-        ('products', '0035_alter_sale_access_token'), # Force wait
     ]
+    # --------------------------------------------------------
 
     operations = [
         migrations.SeparateDatabaseAndState(

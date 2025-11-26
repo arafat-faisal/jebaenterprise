@@ -9,7 +9,7 @@ from jeba_engagement.models import Wishlist
 
 # --- LEGACY IMPORTS ---
 # We are still using the form from the old location for now
-from products.forms import ReviewForm 
+from jeba_engagement.forms import ReviewForm 
 
 @login_required
 def add_review(request, product_id):
@@ -42,4 +42,4 @@ def toggle_wishlist(request, product_id):
 @login_required
 def wishlist_view(request):
     items = Wishlist.objects.filter(user=request.user)
-    return render(request, 'products/wishlist.html', {'items': items})
+    return render(request, 'wishlist.html', {'items': items})

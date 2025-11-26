@@ -1,0 +1,340 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Invoice #{{ sale.invoice_number }}{% endblock %}
+
+{% block content %}
+<style>
+    /*
+     * Professional Receipt Styling for Jeba Enterprise
+     * Brand Color: #3F51B5 (Indigo 500)
+     */
+    :root {
+        --brand-primary: #3F51B5;
+        --brand-text: #333;
+        --color-success: #2e7d32;
+        --color-border-light: #eee;
+        --color-border-medium: #ddd;
+        --color-bg-subtle: #f8f9fb;
+    }
+    body {
+        background-color: #f4f7f6; /* Subtle background for better contrast */
+    }
+    .receipt-container {
+        max-width: 850px;
+        margin: 40px auto;
+        padding: 40px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--brand-text);
+    }
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 3px solid var(--brand-primary);
+        padding-bottom: 25px;
+        margin-bottom: 30px;
+    }
+    .company-logo { 
+        max-width: 180px; 
+        height: auto;
+    }
+    .company-info p {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.5;
+    }
+    .invoice-details { text-align: right; }
+    .invoice-details h1 { 
+        margin: 0; 
+        font-size: 2.5rem; 
+        color: var(--brand-primary); 
+        letter-spacing: 1px;
+    }
+    .invoice-details p { 
+        margin: 5px 0; 
+        font-size: 1rem; 
+    }
+    .invoice-details strong { font-weight: 700; color: #333; }
+    
+    .status-badge {
+        color: var(--color-success); 
+        font-weight: 700; 
+        background: rgba(46, 125, 50, 0.1);
+        padding: 3px 8px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+    .address-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    .address-box {
+        padding: 20px;
+        background: var(--color-bg-subtle);
+        border: 1px solid var(--color-border-medium);
+        border-left: 4px solid var(--brand-primary);
+        border-radius: 8px;
+        font-size: 0.9rem;
+    }
+    .address-box h4 { 
+        margin-top: 0; 
+        font-size: 0.95rem; 
+        text-transform: uppercase; 
+        color: var(--brand-primary);
+        font-weight: 700;
+        border-bottom: 1px solid var(--color-border-medium); 
+        padding-bottom: 8px; 
+        margin-bottom: 15px;
+        letter-spacing: 0.5px;
+    }
+    .address-box p {
+        margin: 5px 0;
+        line-height: 1.4;
+    }
+
+    .items-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 40px;
+        border: 1px solid var(--color-border-medium);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .items-table thead {
+        background: var(--brand-primary);
+        color: white;
+    }
+    .items-table th, .items-table td {
+        padding: 15px 18px;
+        text-align: left;
+        font-size: 1rem;
+        border: none;
+    }
+    .items-table th { 
+        font-weight: 600; 
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+    }
+    .items-table tr:nth-child(even) {
+        background-color: #fcfcfc;
+    }
+    .items-table tbody tr {
+        border-bottom: 1px solid var(--color-border-light);
+    }
+    .items-table tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    /* Styles for the new product image inclusion */
+    .item-details {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .product-img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        border-radius: 4px;
+        border: 1px solid var(--color-border-light);
+        flex-shrink: 0;
+    }
+    
+    .item-link {
+        text-decoration: none; 
+        color: var(--brand-primary); 
+        font-weight: 600;
+        display: block; /* Ensures name takes full width */
+        margin-bottom: 3px;
+        transition: color 0.2s;
+    }
+    .item-link:hover {
+        color: #5C6BC0;
+    }
+    .item-variation {
+        font-size: 0.8rem; 
+        color: #777;
+    }
+
+    .summary-grid {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .summary-box {
+        width: 100%;
+        max-width: 380px;
+        padding: 20px;
+        border: 3px solid var(--brand-primary);
+        background-color: var(--color-bg-subtle);
+        border-radius: 8px;
+    }
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        font-size: 1rem;
+    }
+    .summary-total {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--brand-primary);
+        padding-top: 15px;
+        border-top: 2px solid var(--color-border-medium);
+        margin-top: 15px;
+    }
+    
+    .footer {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 0.9rem;
+        color: #777;
+    }
+    .footer a {
+        color: var(--brand-primary);
+        text-decoration: underline;
+    }
+    
+    .btn-print {
+        background: var(--brand-primary) !important; 
+        color: white !important; 
+        margin-top: 20px !important; 
+        padding: 12px 25px !important; 
+        border-radius: 8px !important; 
+        border: none !important; 
+        cursor: pointer !important;
+        font-size: 1rem;
+        transition: background 0.3s;
+    }
+    .btn-print:hover {
+        background: #5C6BC0 !important;
+    }
+    
+    /* Print Styles */
+    @media print {
+        body { background-color: white; }
+        .receipt-container { box-shadow: none; border: none; margin: 0; padding: 0; }
+        .header-row { border-bottom: 2px solid black !important; padding-bottom: 15px; margin-bottom: 20px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .address-box { 
+            background: none; 
+            border: 1px solid #ccc; 
+            border-left: 3px solid black; 
+            -webkit-print-color-adjust: exact; 
+            print-color-adjust: exact; 
+        }
+        .address-box h4 { color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .items-table { border: 1px solid #ccc; }
+        .items-table thead { background: #eee !important; color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .summary-box { border: 2px solid black !important; background: #eee !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .summary-total { color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .btn-print { display: none; }
+    }
+</style>
+
+<div class="receipt-container">
+    <div class="header-row">
+        <div class="company-info">
+            {% comment %} Ensure your logo is accessible via the static tag {% endcomment %}
+            <img src="{% static 'logo.svg' %}" alt="Jeba Enterprise Logo" class="company-logo">
+            <p style="margin-top: 10px;">{{ settings.contact_address|linebreaksbr }}</p>
+            <p>Phone: {{ settings.contact_phone }}</p>
+            <p>Email: {{ settings.contact_email }}</p>
+        </div>
+        <div class="invoice-details">
+            <h1>INVOICE</h1>
+            <p><strong>Invoice ID:</strong> {{ sale.invoice_number }}</p>
+            <p><strong>Order Date:</strong> {{ sale.created_at|date:"F j, Y" }}</p>
+            <p><strong>Status:</strong> <span class="status-badge">{{ sale.get_status_display|upper }}</span></p>
+        </div>
+    </div>
+    
+    <div class="address-grid">
+        <div class="address-box">
+            <h4>BILLING & PAYMENT</h4>
+            <p>Method: <strong>{{ sale.get_payment_method_display }}</strong></p>
+            {% if sale.transaction_id %}
+                <p>TrxID: <strong>{{ sale.transaction_id }}</strong></p>
+            {% endif %}
+        </div>
+        <div class="address-box">
+            <h4>SHIPPING ADDRESS</h4>
+            <p>Name: <strong>{{ sale.customer_name }}</strong></p>
+            <p>Phone: <strong>{{ sale.phone_number }}</strong></p>
+            <p>{{ sale.shipping_address|linebreaksbr }}</p>
+        </div>
+    </div>
+
+    <table class="items-table">
+        <thead>
+            <tr>
+                <th style="width: 50%;">Product Details</th>
+                <th style="text-align: left;">Unit Price</th>
+                <th style="text-align: center;">Quantity</th>
+                <th style="text-align: right;">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in sale.items.all %}
+            <tr>
+                <td>
+                    <div class="item-details">
+                        {% comment %} 
+                            ASSUMPTION: 'item.product.main_image.url' is the path to the product image. 
+                            If this path is incorrect, you may need to update it based on your ProductImage model's retrieval logic. 
+                        {% endcomment %}
+                        {% if item.product.main_image.url %}
+                            <img src="{{ item.product.main_image.url }}" alt="{{ item.product.name }} Image" class="product-img">
+                        {% endif %}
+                        <div class="product-info-text">
+                            <a href="{% url 'product_detail' item.product.id %}" class="item-link">
+                                {{ item.product.name }}
+                            </a>
+                            {% if item.variation %}
+                                <div class="item-variation">({{ item.variation.name }})</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </td>
+                <td style="text-align: left;">৳{{ item.sold_price|floatformat:2 }}</td>
+                <td style="text-align: center;">{{ item.quantity }}</td>
+                <td style="text-align: right;">৳{{ item.sold_price|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="summary-grid">
+        <div class="summary-box">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span>৳{{ sale.subtotal|floatformat:2 }}</span>
+            </div>
+            <div class="summary-row">
+                <span>Delivery Charge:</span>
+                <span>৳{{ sale.delivery_charge|floatformat:2 }}</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Grand Total:</span>
+                <span>৳{{ sale.total_amount|floatformat:2 }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Thank you for shopping with Jeba Enterprise.
+        <br>
+        Track your delivery here: <a href="{{ tracking_url }}">{{ tracking_url }}</a>
+        <br>
+        <button class="btn btn-print" onclick="window.print()">
+            Print / Save as PDF
+        </button>
+    </div>
+</div>
+{% endblock %}

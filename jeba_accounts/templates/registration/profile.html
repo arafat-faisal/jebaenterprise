@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}My Profile{% endblock %}
+{% block content %}
+<div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+    <h1 style="text-align: center; margin-bottom: 30px;">Edit Profile</h1>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <h3 style="border-bottom: 1px solid #eee; padding-bottom: 10px;">Account Info</h3>
+        {{ user_form.as_p }}
+        
+        <h3 style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 30px;">Shipping Details</h3>
+        {{ profile_form.as_p }}
+        
+        <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">Save Changes</button>
+    </form>
+</div>
+{% endblock %}

@@ -7,8 +7,8 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        # --- FIX: Removed defunct dependency on 'products' app ---
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('products', '0035_alter_sale_access_token'), # Force wait
     ]
 
     operations = [

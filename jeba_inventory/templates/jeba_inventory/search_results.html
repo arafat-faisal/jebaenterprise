@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Search: {{ query|default:"Visual Search" }}{% endblock %}
+
+{% block content %}
+
+<style>
+    /* --- Reuse Layout Styles --- */
+    .catalog-layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 40px;
+        margin-top: 20px;
+    }
+    .sidebar { background: transparent; }
+    .filter-group {
+        background: var(--bg-card);
+        border-radius: var(--radius-lg);
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow-soft);
+    }
+    .filter-title { font-size: 1rem; font-weight: 700; margin-bottom: 15px; }
+    .filter-list { list-style: none; padding: 0; margin: 0; }
+    .filter-item { margin-bottom: 10px; }
+    .filter-link {
+        text-decoration: none;
+        color: var(--text-sub);
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: 0.2s;
+    }
+    .filter-link:hover, .filter-link.active { color: var(--text-main); font-weight: 600; }
+    .filter-checkbox { width: 18px; height: 18px; border: 2px solid #eee; border-radius: 6px; display: inline-block; }
+    .filter-link.active .filter-checkbox { background-color: var(--text-main); border-color: var(--text-main); }
+
+    .search-hero {
+        background: var(--bg-card);
+        border-radius: var(--radius-xl);
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 30px;
+    }
+    .search-title { font-size: 1.8rem; font-weight: 800; margin: 0; }
+    .search-meta { color: var(--text-sub); margin-top: 5px; }
+
+    .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+    .cat-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 15px; box-shadow: var(--shadow-soft); transition: transform 0.2s; display: flex; flex-direction: column; position: relative; }
+    .cat-card:hover { transform: translateY(-5px); }
+    .cat-img-box { height: 140px; background: #F8F9FB; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: 15px; position: relative; }
+    .cat-img-box img { width: 80%; height: 80%; object-fit: contain; mix-blend-mode: multiply; }
+    .cat-title { font-size: 0.95rem; font-weight: 700; margin: 0 0 5px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cat-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+    .cat-price { font-size: 1.1rem; font-weight: 800; }
+    .btn-pill-sm { background: var(--accent-black); color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.8rem; font-weight: 600; }
+
+    /* Mobile Toggle */
+    .filter-toggle-btn {
+        display: none;
+        width: 100%;
+        padding: 12px;
+        background: var(--bg-card);
+        border: 1px solid #eee;
+        border-radius: var(--radius-lg);
+        font-family: inherit;
+        font-weight: 700;
+        margin-bottom: 20px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: var(--shadow-soft);
+        color: var(--text-main);
+    }
+
+    @media (max-width: 900px) {
+        .catalog-layout { grid-template-columns: 1fr; gap: 20px; }
+        .sidebar { display: none; }
+        .sidebar.active { display: block; animation: fadeIn 0.3s ease; }
+        .filter-toggle-btn { display: flex; }
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+
+<button class="filter-toggle-btn" onclick="toggleSidebar()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+    Show Filters
+</button>
+
+<div class="catalog-layout">
+    
+    <aside class="sidebar" id="search-sidebar">
+        <h2 style="margin-bottom: 20px;">Filters</h2>
+        
+        <div class="filter-group">
+            <div class="filter-title">Categories</div>
+            <ul class="filter-list">
+                <li class="filter-item">
+                    <a href="?q={{ query }}" class="filter-link {% if not active_category %}active{% endif %}">
+                        <span class="filter-checkbox"></span> All
+                    </a>
+                </li>
+                {% for cat in all_categories %}
+                <li class="filter-item">
+                    <a href="?q={{ query }}&category={{ cat.id }}" class="filter-link {% if active_category|add:'0' == cat.id %}active{% endif %}">
+                        <span class="filter-checkbox"></span> {{ cat.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="filter-group">
+            <div class="filter-title">Sort By</div>
+            <ul class="filter-list">
+                <li class="filter-item"><a href="?q={{ query }}&sort=new" class="filter-link {% if active_sort == 'new' %}active{% endif %}">Newest</a></li>
+                <li class="filter-item"><a href="?q={{ query }}&sort=price-low" class="filter-link {% if active_sort == 'price-low' %}active{% endif %}">Price: Low to High</a></li>
+                <li class="filter-item"><a href="?q={{ query }}&sort=price-high" class="filter-link {% if active_sort == 'price-high' %}active{% endif %}">Price: High to Low</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main>
+        <div class="search-hero">
+            <div>
+                <h1 class="search-title">
+                    {% if is_image_search %}
+                        📸 Visual Search Results
+                    {% else %}
+                        Results for "{{ query }}"
+                    {% endif %}
+                </h1>
+                <p class="search-meta">
+                    Found {{ products|length }} items
+                    {% if active_category %} in {{ all_categories|first }} {% endif %}
+                </p>
+            </div>
+            
+            {% if not products %}
+                <a href="{% url 'home' %}" class="btn">Clear Search</a>
+            {% endif %}
+        </div>
+
+        {% if products %}
+            <div class="catalog-grid">
+                {% for product in products %}
+                    <div class="cat-card">
+                        <a href="{% url 'product_detail' product.id %}" class="cat-img-box">
+                            {% if product.images.first %}
+                                <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                            {% else %}
+                                <img src="https://via.placeholder.com/300" alt="No Image">
+                            {% endif %}
+                        </a>
+                        
+                        <div class="cat-title">{{ product.name }}</div>
+                        <div style="color: #FFC107; font-size: 0.8rem; margin-bottom: 10px;">★★★★☆</div>
+                        
+                        <div class="cat-footer">
+                            <div style="display: flex; flex-direction: column;">
+                                {% if product.call_for_price %}
+                                    <span style="font-size: 0.85rem; font-weight: 700; color: #0084FF; background: #e3f2fd; padding: 2px 8px; border-radius: 4px;">Contact for Price</span>
+                                {% else %}
+                                    <span class="cat-price">৳{{ product.selling_price|floatformat:0 }}</span>
+                                    
+                                    {% if product.stock_quantity <= 0 %}
+                                        <small style="color: #d32f2f; font-weight: 700; font-size: 0.75rem;">Out of Stock</small>
+                                    {% elif product.stock_quantity <= 5 %}
+                                        <small style="color: #e65100; font-weight: 700; font-size: 0.75rem;">Only {{ product.stock_quantity }} left!</small>
+                                    {% else %}
+                                        <small style="color: #2e7d32; font-weight: 600; font-size: 0.75rem;">In Stock</small>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                            
+                            <a href="{% url 'product_detail' product.id %}" class="btn-pill-sm">View</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div style="text-align: center; padding: 80px 20px;">
+                <div style="font-size: 4rem; margin-bottom: 10px;">🔍</div>
+                <h3>No matches found.</h3>
+                <p style="color: var(--text-sub);">Try checking your spelling or use a general term.</p>
+            </div>
+        {% endif %}
+    </main>
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('search-sidebar');
+        sidebar.classList.toggle('active');
+    }
+</script>
+{% if site_settings.meta_pixel_id %}
+<script>
+    fbq('track', 'Search', {
+        search_string: "{{ query|escapejs }}"
+    });
+</script>
+{% endif %}
+{% endblock %}

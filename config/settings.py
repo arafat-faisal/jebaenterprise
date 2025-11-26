@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'jeba_blog',
     
     # --- EXISTING APP (Do not remove) ---
-    'products', 
+    # 'products', 
     'import_export',    
 ]
 
@@ -78,7 +78,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # --- NEW: Maintenance Mode Middleware ---
-    'products.middleware.MaintenanceModeMiddleware',
+    'jeba_core.middleware.MaintenanceModeMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'

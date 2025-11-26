@@ -1,0 +1,54 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_modify %}
+
+{% block content %}
+<div id="content-main">
+    <div class="module" style="max-width: 600px; margin: 0 auto;">
+        <h2 style="background: #3F51B5; color: white; padding: 15px; margin: 0;">Review Courier Details</h2>
+        
+        <div style="padding: 20px; background: white;">
+            <p style="color: #666; margin-bottom: 20px;">
+                Verify the information below before creating the consignment. Changes made here will be sent to the courier but <strong>will not</strong> change the original order record.
+            </p>
+
+            <form method="post">
+                {% csrf_token %}
+                
+                {% for field in form %}
+                    <div class="form-row" style="margin-bottom: 15px;">
+                        <div style="font-weight: bold; margin-bottom: 5px; color: #333;">
+                            {{ field.label_tag }}
+                        </div>
+                        <div>
+                            {{ field }}
+                            {% if field.errors %}
+                                <div style="color: red; font-size: 0.9em;">{{ field.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <style>
+                    /* Style inputs to look like Django Admin */
+                    input[type=text], input[type=number], textarea {
+                        width: 100%;
+                        padding: 8px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        box-sizing: border-box;
+                    }
+                    input[readonly] {
+                        background-color: #f0f0f0;
+                        color: #666;
+                    }
+                </style>
+
+                <div class="submit-row" style="margin-top: 20px; text-align: right;">
+                    <a href="{% url 'admin:jeba_sales_sale_change' sale.id %}" class="button" style="background: #666 !important; text-decoration: none; display: inline-block; margin-right: 10px;">Cancel</a>
+                    <input type="submit" value="Create Consignment" class="default" style="background: #3F51B5 !important;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-# --- UPDATED IMPORTS ---
 from django.db.models import Q, Sum, Avg, Count, Min, Max, Case, When, Value, IntegerField
 from django.http import HttpResponse
 
@@ -9,8 +8,9 @@ from jeba_engagement.models import Wishlist
 from jeba_analytics.models import ProductEvent, SearchEvent
 from jeba_core.models import SiteSettings 
 from jeba_analytics.analytics_service import AnalyticsService
-from products.forms import ReviewForm 
+from jeba_engagement.forms import ReviewForm # Corrected import location
 # -----------------------
+
 # --- HELPER: Get Recommendations ---
 def get_recommendations(request, limit=8):
     user = request.user if request.user.is_authenticated else None
@@ -79,7 +79,8 @@ def home(request):
         'recommendations': recommendations,
         'products': all_products,
     }
-    return render(request, "products/home.html", context)
+    # --- FIX: Changed template path from "products/home.html" to "jeba_inventory/home.html" ---
+    return render(request, "jeba_inventory/home.html", context)
 
 def product_catalog(request):
     # Start with all Active products
@@ -148,7 +149,8 @@ def product_catalog(request):
         'current_min': min_price or global_min,
         'current_max': max_price or global_max,
     }
-    return render(request, 'products/catalog.html', context)
+    # --- FIX: Changed template path ---
+    return render(request, 'jeba_inventory/catalog.html', context)
 
 def product_detail(request, pk):
     # Only allow viewing if active
@@ -212,7 +214,8 @@ def product_detail(request, pk):
         'in_wishlist': in_wishlist,
         'related_posts': related_posts,
     }
-    return render(request, "products/product_detail.html", context)
+    # --- FIX: Changed template path ---
+    return render(request, "jeba_inventory/product_detail.html", context)
 
 def search_view(request):
     query = request.GET.get('q')
@@ -223,8 +226,8 @@ def search_view(request):
             Q(name__icontains=query) | 
             Q(description__icontains=query) |
             Q(category__name__icontains=query) |
-            Q(tags__name__icontains=query) # <--- NEW: Search by Tags
-        ).distinct() # distinct() is important when filtering by M2M (tags)
+            Q(tags__name__icontains=query) # Search by Tags
+        ).distinct()
         
         if not request.session.session_key: request.session.save()
         
@@ -257,9 +260,11 @@ def search_view(request):
         'active_category': category_id,
         'active_sort': sort_by
     }
-    return render(request, 'products/search_results.html', context)
+    # --- FIX: Changed template path ---
+    return render(request, 'jeba_inventory/search_results.html', context)
 
 def print_products_page(request):
+    # This logic is likely okay to leave here, but the template path needs fixing
     product_ids_str = request.GET.get('ids', '')
     product_ids = [int(id) for id in product_ids_str.split(',') if id.isdigit()]
     products = Product.objects.filter(id__in=product_ids).prefetch_related('variations')
@@ -290,4 +295,5 @@ def print_products_page(request):
         'blank_cols_keys': blank_cols_keys,
         'all_cols': all_cols,
     }
-    return render(request, 'products/print_page.html', context)
+    # --- FIX: Changed template path ---
+    return render(request, 'jeba_inventory/print_page.html', context)

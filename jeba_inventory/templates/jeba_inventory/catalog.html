@@ -1,0 +1,543 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Shop All Products{% endblock %}
+
+{% block content %}
+
+<style>
+    /* --- LAYOUT & STRUCTURE --- */
+    .catalog-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+
+    .catalog-layout {
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        gap: 30px;
+        position: relative;
+        transition: grid-template-columns 0.3s ease;
+    }
+    
+    /* When filters are hidden (Default State now) */
+    .catalog-layout.filters-hidden {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- SIDEBAR (DESKTOP) --- */
+    .catalog-sidebar {
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+        padding-right: 10px;
+        max-height: 90vh;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    /* --- SMARTCODER FIX: DESKTOP ONLY HIDING --- */
+    @media (min-width: 993px) {
+        /* Only hide on desktop when the class is present */
+        .catalog-layout.filters-hidden .catalog-sidebar {
+            display: none;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+    }
+    
+    .filter-section {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+    .filter-section:last-child { border-bottom: none; }
+
+    .filter-title {
+        font-size: 0.9rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--text-main);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Category List - Compact */
+    .cat-list { list-style: none; padding: 0; margin: 0; }
+    .cat-item { margin-bottom: 4px; }
+    .cat-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text-sub);
+        font-size: 0.9rem;
+        padding: 6px 10px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+    }
+    .cat-link:hover { background: #F3F5F9; color: var(--text-main); }
+    .cat-link.active { 
+        background: var(--text-main); 
+        color: white; 
+        font-weight: 600; 
+    }
+    .cat-count { 
+        font-size: 0.7rem; 
+        background: #eee; 
+        padding: 2px 6px; 
+        border-radius: 8px; 
+        color: #666; 
+    }
+    .cat-link.active .cat-count { background: rgba(255,255,255,0.2); color: white; }
+
+    /* Tag Cloud - Compact */
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill {
+        text-decoration: none;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 15px;
+        border: 1px solid #eee;
+        color: var(--text-sub);
+        transition: 0.2s;
+        background: white;
+    }
+    .tag-pill:hover { border-color: var(--text-main); color: var(--text-main); }
+    .tag-pill.active { background: var(--accent-lime); border-color: var(--accent-lime); color: var(--text-main); font-weight: 700; }
+
+    /* Price Inputs */
+    .price-inputs { display: flex; gap: 8px; align-items: center; }
+    .p-input { width: 100%; padding: 6px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; }
+    .btn-filter { width: 100%; margin-top: 8px; background: var(--text-main); color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.85rem; }
+
+    /* --- TOP BAR --- */
+    .catalog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        background: white;
+        padding: 10px 20px;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-soft);
+        border: 1px solid #f0f0f0;
+    }
+    
+    .header-left { display: flex; gap: 15px; align-items: center; }
+    
+    /* Filter Toggles */
+    .desktop-filter-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        border: 1px solid #ddd;
+        padding: 6px 14px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--text-main);
+        transition: 0.2s;
+    }
+    .desktop-filter-toggle:hover { background: #f5f5f5; border-color: #ccc; }
+    .desktop-filter-toggle svg { width: 16px; height: 16px; }
+
+    .result-count { font-weight: 600; color: var(--text-sub); font-size: 0.85rem; }
+    
+    .sort-wrap select {
+        padding: 6px 12px;
+        border-radius: 30px;
+        border: 1px solid #ddd;
+        background: white;
+        cursor: pointer;
+        font-weight: 600;
+        outline: none;
+        font-size: 0.85rem;
+        color: var(--text-main);
+    }
+
+    /* --- PRODUCT GRID --- */
+    .product-grid {
+        display: grid;
+        /* Responsive columns: Defaults to ~220px wide cards */
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    
+    .prod-card {
+        background: white;
+        border-radius: 12px;
+        padding: 10px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: 1px solid transparent;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .prod-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.06); border-color: #eee; }
+    
+    .pc-img-box {
+        height: 180px;
+        background: #F8F9FB;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .pc-img-box img { max-width: 90%; max-height: 90%; mix-blend-mode: multiply; }
+    
+    /* Badges */
+    .badge { position: absolute; top: 8px; left: 8px; padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 800; z-index: 2; text-transform: uppercase; letter-spacing: 0.5px; }
+    .badge.sale { background: #FFC107; color: #000; }
+    .badge.new { background: var(--accent-lime); color: #000; }
+    
+    .pc-details { display: flex; flex-direction: column; flex-grow: 1; }
+    .pc-cat { font-size: 0.7rem; color: #999; font-weight: 600; text-transform: uppercase; margin-bottom: 3px; }
+    .pc-title { font-size: 0.95rem; font-weight: 700; color: var(--text-main); text-decoration: none; line-height: 1.3; margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    
+    .pc-bottom { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+    .pc-price { font-size: 1rem; font-weight: 800; }
+    .btn-add-sm { width: 32px; height: 32px; border-radius: 50%; background: #F3F5F9; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; transition: 0.2s; color: var(--text-main); }
+    .btn-add-sm:hover { background: var(--accent-lime); color: black; transform: scale(1.1); }
+
+    /* --- STICKY CART POPUP --- */
+    .home-sticky-cart {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1A1C1E;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        display: none; /* Hidden by default */
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        z-index: 9990;
+        width: 90%;
+        max-width: 400px;
+        animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes slideUp { from { transform: translate(-50%, 50px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+    
+    .hsc-info { display: flex; gap: 10px; align-items: center; }
+    .hsc-count { font-weight: 800; background: var(--accent-lime); color: var(--text-main); padding: 2px 8px; border-radius: 10px; font-size: 0.8rem; }
+    .hsc-text { font-size: 0.9rem; font-weight: 600; }
+    .hsc-btn { color: white; text-decoration: none; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; }
+
+    /* Desktop Popup Position */
+    @media (min-width: 769px) {
+        .home-sticky-cart {
+            left: auto;
+            right: 30px;
+            transform: none;
+            bottom: 30px;
+            animation: slideUpRight 0.3s ease;
+        }
+        @keyframes slideUpRight { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    }
+
+    /* --- MOBILE STYLES & TOGGLES --- */
+    .mobile-filter-btn { display: none; }
+
+    @media (max-width: 992px) {
+        .catalog-layout { grid-template-columns: 1fr; gap: 0; }
+        
+        .catalog-sidebar {
+            display: none; 
+            position: fixed; top: 0; left: 0; width: 280px; height: 100vh;
+            background: white; z-index: 1000; padding: 20px;
+            box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+            transform: translateX(-100%);
+        }
+        /* --- FIX: Ensure mobile active class is stronger/works --- */
+        .catalog-sidebar.mobile-active {
+            display: block;
+            transform: translateX(0);
+            opacity: 1 !important; /* Force opacity if hidden logic bleeds */
+        }
+        
+        .desktop-filter-toggle { display: none; }
+        .mobile-filter-btn { display: flex; gap: 8px; align-items: center; background: #1A1C1E; color: white; border: none; padding: 8px 16px; border-radius: 50px; font-weight: 600; cursor: pointer; font-size: 0.85rem; }
+        
+        .sidebar-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 999; }
+        .sidebar-overlay.active { display: block; }
+        
+        .home-sticky-cart {
+            bottom: 80px; /* Sit above bottom nav */
+        }
+    }
+
+    /* --- 2-COLUMN MOBILE GRID OVERRIDE --- */
+    @media (max-width: 768px) {
+        .product-grid {
+            /* FORCE 2 COLUMNS */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px; /* Tighter gap */
+        }
+        
+        .prod-card {
+            padding: 8px; /* Less padding */
+        }
+        
+        .pc-img-box {
+            height: 140px; /* Smaller image box */
+        }
+        
+        .pc-title {
+            font-size: 0.85rem; /* Slightly smaller text */
+            margin-bottom: 4px;
+        }
+        
+        .pc-cat {
+            font-size: 0.65rem;
+        }
+        
+        .pc-price {
+            font-size: 0.9rem;
+        }
+        
+        .btn-add-sm {
+            width: 28px;
+            height: 28px;
+        }
+    }
+</style>
+
+<div class="catalog-container">
+    <div class="catalog-header">
+        <div class="header-left">
+            <button class="desktop-filter-toggle" id="desktop-toggle-btn" onclick="toggleDesktopSidebar()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                <span id="toggle-text">Show Filters</span>
+            </button>
+
+            <button class="mobile-filter-btn" onclick="toggleMobileSidebar()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                Filters
+            </button>
+            
+            <span class="result-count">{{ products.count }} Products</span>
+        </div>
+        
+        <div class="sort-wrap">
+            <form id="sortForm" method="GET">
+                {% if active_category %}<input type="hidden" name="category" value="{{ active_category }}">{% endif %}
+                {% if active_tag %}<input type="hidden" name="tag" value="{{ active_tag }}">{% endif %}
+                {% if request.GET.min_price %}<input type="hidden" name="min_price" value="{{ request.GET.min_price }}">{% endif %}
+                {% if request.GET.max_price %}<input type="hidden" name="max_price" value="{{ request.GET.max_price }}">{% endif %}
+                
+                <select name="sort" onchange="document.getElementById('sortForm').submit()">
+                    <option value="new" {% if active_sort == 'new' %}selected{% endif %}>Newest Arrivals</option>
+                    <option value="popularity" {% if active_sort == 'popularity' %}selected{% endif %}>Best Sellers</option>
+                    <option value="price-low" {% if active_sort == 'price-low' %}selected{% endif %}>Price: Low to High</option>
+                    <option value="price-high" {% if active_sort == 'price-high' %}selected{% endif %}>Price: High to Low</option>
+                </select>
+            </form>
+        </div>
+    </div>
+
+    <div class="catalog-layout filters-hidden" id="catalog-layout">
+        <div class="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+        <aside class="catalog-sidebar" id="sidebar">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;" class="mobile-only">
+                <h3 style="margin:0;">Filters</h3>
+                <button onclick="toggleMobileSidebar()" style="background:none; border:none; font-size:1.5rem;">&times;</button>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">Categories</div>
+                <ul class="cat-list">
+                    <li class="cat-item">
+                        <a href="{% url 'product_catalog' %}" class="cat-link {% if not active_category %}active{% endif %}">
+                            <span>All Products</span>
+                        </a>
+                    </li>
+                    {% for cat in all_categories %}
+                    <li class="cat-item">
+                        <a href="?category={{ cat.id }}{% if active_tag %}&tag={{ active_tag }}{% endif %}" class="cat-link {% if active_category == cat.id %}active{% endif %}">
+                            <span>{{ cat.name }}</span>
+                            <span class="cat-count">{{ cat.prod_count }}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-title">Price Range</div>
+                <form method="GET">
+                    {% if active_category %}<input type="hidden" name="category" value="{{ active_category }}">{% endif %}
+                    {% if active_tag %}<input type="hidden" name="tag" value="{{ active_tag }}">{% endif %}
+                    
+                    <div class="price-inputs">
+                        <input type="number" name="min_price" class="p-input" placeholder="Min" value="{{ current_min }}">
+                        <span style="font-weight:bold; color:#999;">-</span>
+                        <input type="number" name="max_price" class="p-input" placeholder="Max" value="{{ current_max }}">
+                    </div>
+                    <button type="submit" class="btn-filter">Update</button>
+                </form>
+            </div>
+
+            {% if all_tags %}
+            <div class="filter-section">
+                <div class="filter-title">Tags</div>
+                <div class="tag-cloud">
+                    {% for tag in all_tags %}
+                        <a href="?tag={{ tag.slug }}{% if active_category %}&category={{ active_category }}{% endif %}" 
+                           class="tag-pill {% if active_tag == tag.slug %}active{% endif %}">
+                            {{ tag.name }}
+                        </a>
+                    {% endfor %}
+                    {% if active_tag %}
+                        <a href="{% url 'product_catalog' %}" class="tag-pill" style="background:#ffebee; color:red; border-color:red;">× Clear</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </aside>
+
+        <main>
+            <div class="product-grid">
+                {% for product in products %}
+                <div class="prod-card">
+                    {% if product.stock_quantity <= 0 %}
+                        <span class="badge" style="background:#ffebee; color:red;">Sold Out</span>
+                    {% elif product.stock_quantity <= 5 %}
+                        <span class="badge sale">Low Stock</span>
+                    {% elif forloop.counter <= 3 and active_sort == 'new' %}
+                        <span class="badge new">New</span>
+                    {% endif %}
+
+                    <a href="{% url 'product_detail' product.id %}" class="pc-img-box">
+                        {% if product.thumbnail %}
+                            <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}">
+                        {% else %}
+                            <img src="https://via.placeholder.com/300" alt="No Image">
+                        {% endif %}
+                    </a>
+
+                    <div class="pc-details">
+                        <span class="pc-cat">{{ product.category.name|default:"General" }}</span>
+                        <a href="{% url 'product_detail' product.id %}" class="pc-title">{{ product.name }}</a>
+                        
+                        <div class="pc-bottom">
+                            {% if product.call_for_price %}
+                                <span style="font-size:0.85rem; color:#0084FF; font-weight:700; background:#e3f2fd; padding:4px 8px; border-radius:4px;">Contact</span>
+                            {% else %}
+                                <span class="pc-price">৳{{ product.selling_price|floatformat:0 }}</span>
+                            {% endif %}
+
+                            {% if not product.call_for_price and product.stock_quantity > 0 %}
+                                <form action="{% url 'add_to_cart' product.id %}" method="POST" class="ajax-add-to-cart"
+                                      data-id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.selling_price }}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="quantity" value="1">
+                                    <button type="submit" class="btn-add-sm" title="Add to Cart">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    </button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div style="grid-column: 1/-1; text-align: center; padding: 60px; background: #f9f9f9; border-radius: 12px;">
+                    <h3 style="color: #999; margin-bottom: 15px;">No products found.</h3>
+                    <a href="{% url 'product_catalog' %}" class="btn-filter" style="display:inline-block; width:auto; padding:10px 25px;">Clear All Filters</a>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+</div>
+
+<div class="home-sticky-cart" {% if not request.session.cart %}style="display:none;"{% endif %}>
+    <div class="hsc-info">
+        <span class="hsc-count" id="cart-count-badge">{{ request.session.cart|length }} Items</span>
+        <span class="hsc-text">in your cart</span>
+    </div>
+    <a href="{% url 'view_cart' %}" class="hsc-btn">
+        View Cart
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+</div>
+
+<script>
+    function toggleDesktopSidebar() {
+        const layout = document.getElementById('catalog-layout');
+        const btnText = document.getElementById('toggle-text');
+        
+        layout.classList.toggle('filters-hidden');
+        
+        if (layout.classList.contains('filters-hidden')) {
+            btnText.innerText = "Show Filters";
+        } else {
+            btnText.innerText = "Hide Filters";
+        }
+    }
+
+    function toggleMobileSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+        sidebar.classList.toggle('mobile-active');
+        overlay.classList.toggle('active');
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const forms = document.querySelectorAll('.ajax-add-to-cart');
+        const cartBar = document.querySelector('.home-sticky-cart');
+        const countBadge = document.getElementById('cart-count-badge');
+
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = this.querySelector('button');
+                const originalHTML = btn.innerHTML;
+                
+                // UI Feedback
+                btn.innerHTML = '✓';
+                btn.style.background = '#2e7d32';
+                btn.style.color = 'white';
+                
+                const formData = new FormData(this);
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                }).then(res => {
+                    // Reset Button
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.style.background = '';
+                        btn.style.color = '';
+                    }, 2000);
+
+                    // Show Cart Popup
+                    if (cartBar) {
+                        cartBar.style.display = 'flex';
+                        let currentText = countBadge.innerText;
+                        let currentCount = parseInt(currentText) || 0;
+                        countBadge.innerText = (currentCount + 1) + " Items";
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+{% endblock %}

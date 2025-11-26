@@ -11,8 +11,8 @@ from jeba_sales.models import Sale
 
 # --- LEGACY IMPORTS (Forms & Utils) ---
 # We still pull forms/utils from the old location until we move them in Phase 3
-from products.forms import SignUpForm, UserForm, ProfileForm
-from products.utils import send_welcome_email
+from jeba_accounts.forms import SignUpForm, UserForm, ProfileForm
+from jeba_accounts.utils import send_welcome_email
 
 def register_view(request):
     if request.method == 'POST':

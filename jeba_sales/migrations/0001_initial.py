@@ -1,3 +1,5 @@
+# jeba_sales/migrations/0001_initial.py
+
 import django.db.models.deletion
 import uuid
 from django.conf import settings
@@ -8,9 +10,9 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        # --- FIX: REMOVED DEFUNCT DEPENDENCY ON 'PRODUCTS' APP ---
         ('jeba_inventory', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('products', '0035_alter_sale_access_token'), # Force wait
     ]
 
     operations = [
@@ -53,6 +55,15 @@ class Migration(migrations.Migration):
                     },
                 ),
             ],
-            database_operations=[],
+            database_operations=[
+                migrations.AlterModelTable(
+                    name='Sale',
+                    table='products_sale',
+                ),
+                migrations.AlterModelTable(
+                    name='SaleItem',
+                    table='products_saleitem',
+                ),
+            ],
         ),
     ]

@@ -14,10 +14,10 @@ from jeba_core.models import SiteSettings
 from jeba_analytics.analytics_service import AnalyticsService
 # -----------------------
 
-from products.forms import CheckoutForm
-from products.utils import send_order_email, render_to_pdf
+from jeba_sales.forms import CheckoutForm
+from jeba_sales.utils import send_order_email, render_to_pdf
 from products.steadfast import check_delivery_status
-from products.marketing import send_purchase_event
+from jeba_analytics.utils import send_purchase_event
 
 
 import json
@@ -148,7 +148,7 @@ def view_cart(request):
         'cart_items': cart_items,
         'total_price': total_price,
     }
-    return render(request, 'products/view_cart.html', context)
+    return render(request, 'view_cart.html', context)
 
 
 def update_cart(request, item_id, action):
@@ -324,7 +324,7 @@ def checkout(request):
         'form': form,
         'settings': settings_obj,
     }
-    return render(request, 'products/checkout.html', context)
+    return render(request, 'checkout.html', context)
 
 def order_success(request):
     last_order_id = request.session.get('last_order_id')
@@ -332,7 +332,7 @@ def order_success(request):
     if last_order_id:
         sale = Sale.objects.filter(id=last_order_id).first()
         
-    return render(request, 'products/order_success.html', {'sale': sale})
+    return render(request, 'order_success.html', {'sale': sale})
 
 @login_required
 def my_orders_view(request):
@@ -378,7 +378,7 @@ def order_detail(request, pk):
         'sale': sale,
         'live_status': live_status 
     }
-    return render(request, 'products/order_detail.html', context)
+    return render(request, 'order_detail.html', context)
 
 def guest_order_track(request, token):
     sale = get_object_or_404(Sale, access_token=token)
@@ -403,7 +403,9 @@ def guest_order_track(request, token):
         'is_guest_view': True,
         'progress_width': get_progress_width(sale.status) # <--- ADDED
     }
-    return render(request, 'products/order_detail.html', context)
+    return render(request, 'order_detail.html', context)
+
+# --- In jeba_sales/views.py ---
 
 def order_receipt(request, token):
     sale = get_object_or_404(Sale, access_token=token)
@@ -415,7 +417,8 @@ def order_receipt(request, token):
         'tracking_url': tracking_url,
         'settings': SiteSettings.load()
     }
-    return render(request, 'products/receipt.html', context)
+    # --- FIX: Render the file using the correct app-specific path ---
+    return render(request, 'jeba_sales/receipt.html', context) # Corrected path
 
 def download_invoice_pdf(request, token):
     sale = get_object_or_404(Sale, access_token=token)
@@ -428,7 +431,7 @@ def download_invoice_pdf(request, token):
         'settings': SiteSettings.load(),
     }
     
-    pdf_bytes = render_to_pdf('products/invoice_pdf.html', data)
+    pdf_bytes = render_to_pdf('invoice_pdf.html', data)
     
     if pdf_bytes:
         response = HttpResponse(pdf_bytes, content_type='application/pdf')
@@ -462,7 +465,7 @@ def order_detail(request, pk):
         'live_status': live_status,
         'progress_width': get_progress_width(sale.status)  # <--- ADDED
     }
-    return render(request, 'products/order_detail.html', context)
+    return render(request, 'order_detail.html', context)
 
 @csrf_exempt
 def steadfast_webhook(request):

@@ -10,7 +10,8 @@ from import_export.widgets import ForeignKeyWidget
 
 from .models import Category, Product, ProductVariation, ProductImage, Tag
 from jeba_intelligence.models import CompetitorPrice
-from products.utils import fetch_competitor_data
+# Fix: Import the utility from its new modular home
+from jeba_intelligence.utils import fetch_competitor_data
 
 # --- BULK ACTIONS ---
 

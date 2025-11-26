@@ -1,0 +1,39 @@
+{% extends "admin/change_list.html" %}
+{% load i18n admin_urls static %}
+
+{% block title %}Advanced Product Analytics{% endblock %}
+
+{% block content_title %}
+    <h1>Advanced Product Analytics (Profit & Conversions)</h1>
+{% endblock %}
+
+{% block object-tools-items %}{% endblock %}
+
+{% block content %}
+    <div id="content-main" style="max-width: 1300px; margin: 0 auto;">
+
+        {% comment %} --- CUSTOM KPI CARDS (Placeholder: Replace with real data in Step 3) --- {% endcomment %}
+        <div style="display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px; padding: 20px; background: #e8f5e9; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <h3 style="margin-top:0; color:#2e7d32; font-size: 1rem;">Total Gross Profit (Estimate)</h3>
+                <p style="font-size: 2rem; font-weight: 800;">৳3,54,000</p>
+                <p style="color: #666; margin: 0;">Last 30 days estimate</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; padding: 20px; background: #fff3e0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <h3 style="margin-top:0; color:#e65100; font-size: 1rem;">Overall Sales Conversion</h3>
+                <p style="font-size: 2rem; font-weight: 800;">1.8%</p>
+                <p style="color: #666; margin: 0;">Views to Purchase</p>
+            </div>
+        </div>
+
+        {% comment %} --- MAIN PRODUCT DATA TABLE --- {% endcomment %}
+        <h2 style="margin-top: 0; margin-bottom: 20px;">Winning Products List</h2>
+
+        {{ block.super }} 
+        {% comment %} This renders the standard list display (now with Profit/Revenue) {% endcomment %}
+    </div>
+
+    <div style="margin-top: 40px; text-align: center;">
+        <p style="color: #666;">Data is calculated based on Sales and Product Events (Views/Carts).</p>
+    </div>
+{% endblock %}

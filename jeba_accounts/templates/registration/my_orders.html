@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+    <style>
+        /* --- RESPONSIVE TABLE STYLES --- */
+        .order-list-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        
+        .orders-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px; /* Spacing between rows */
+        }
+        
+        .orders-table thead th {
+            text-align: left;
+            padding: 10px 20px;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .order-row {
+            background: var(--bg-card);
+            box-shadow: var(--shadow-soft);
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+        .order-row:hover { transform: translateY(-2px); }
+        
+        .order-row td {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .order-row td:first-child {
+            border-left: 1px solid #eee;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
+        .order-row td:last-child {
+            border-right: 1px solid #eee;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            text-align: right;
+        }
+
+        /* Status Badges */
+        .status-pill {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .st-pending { background: #fff3e0; color: #e65100; }
+        .st-processing { background: #e3f2fd; color: #1565c0; }
+        .st-shipped { background: #e8f5e9; color: #2e7d32; }
+        .st-delivered { background: #2e7d32; color: white; }
+        .st-cancelled { background: #ffebee; color: #c62828; }
+
+        /* --- MOBILE CARD VIEW --- */
+        @media (max-width: 768px) {
+            .orders-table thead { display: none; } /* Hide headers */
+            .orders-table, .orders-table tbody, .orders-table tr, .orders-table td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .order-row {
+                margin-bottom: 20px;
+                border: 1px solid #eee;
+                border-radius: 12px;
+                box-shadow: var(--shadow-soft);
+            }
+            
+            .order-row td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px;
+                border: none;
+                border-bottom: 1px solid #f0f0f0;
+                text-align: right;
+            }
+            
+            .order-row td:last-child { 
+                border-bottom: none; 
+                text-align: center;
+                display: block;
+                padding-top: 15px;
+            }
+            
+            /* Add Labels via CSS for Mobile */
+            .order-row td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: var(--text-sub);
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                float: left;
+            }
+        }
+    </style>
+
+    <div class="order-list-container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 style="margin-bottom: 10px;">Order History</h1>
+            <p style="color: var(--text-sub);">Track your past and current orders.</p>
+        </div>
+
+        {% if orders %}
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                        <th style="text-align: right;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr class="order-row">
+                        <td data-label="Order ID">
+                            <span style="font-weight: 700; color: var(--text-main);">{{ order.order_id }}</span>
+                        </td>
+                        
+                        <td data-label="Date">
+                            {{ order.created_at|date:"M d, Y" }}
+                        </td>
+                        
+                        <td data-label="Status">
+                            {% if order.live_status_display %}
+                                <span class="status-pill st-{{ order.live_status_display|lower }}">
+                                    {{ order.live_status_display|upper }}
+                                </span>
+                            {% else %}
+                                <span class="status-pill st-{{ order.status|lower }}">
+                                    {{ order.get_status_display }}
+                                </span>
+                            {% endif %}
+                        </td>
+
+                        <td data-label="Total">
+                            <strong>৳{{ order.total_amount|floatformat:0 }}</strong>
+                        </td>
+
+                        <td data-label="">
+                            <a href="{% url 'order_detail' order.id %}" class="btn" style="padding: 8px 20px; font-size: 0.85rem; background: #1A1C1E; color: white;">
+                                View Details
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div style="text-align: center; padding: 60px; background: var(--bg-card); border-radius: 20px; box-shadow: var(--shadow-soft);">
+                <div style="font-size: 3rem; margin-bottom: 20px;">🛍️</div>
+                <h3 style="margin-bottom: 10px;">No orders yet</h3>
+                <p style="color: var(--text-sub); margin-bottom: 25px;">Looks like you haven't bought anything from us yet.</p>
+                <a href="{% url 'home' %}" class="btn" style="background: var(--accent-lime); color: black;">Start Shopping</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

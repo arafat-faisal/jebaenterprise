@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Wishlist{% endblock %}
+
+{% block content %}
+
+<style>
+    /* --- Wishlist Specific Styles --- */
+    .wishlist-header {
+        margin-bottom: 40px;
+    }
+    .wishlist-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    /* The "Sequoia" Card Grid */
+    .wishlist-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .wish-card {
+        background: var(--bg-card);
+        border-radius: var(--radius-xl); /* Large rounded corners (28px) */
+        padding: 25px;
+        box-shadow: var(--shadow-soft);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+        border: 1px solid transparent;
+    }
+    .wish-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    /* Image Area */
+    .wish-img-box {
+        height: 220px;
+        background: #F8F9FB;
+        border-radius: var(--radius-lg);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative; /* For the heart icon overlay */
+    }
+    .wish-img-box img {
+        width: 85%;
+        height: 85%;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+
+    /* The Blue Heart Badge (Like image) */
+    .heart-badge {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        color: #3F51B5; /* Indigo Heart */
+    }
+
+    /* Info Area */
+    .wish-info h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+        /* Truncate to 1 line */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .wish-price {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--text-main);
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    /* Action Buttons Row */
+    .wish-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: auto; /* Push to bottom */
+    }
+
+    .btn-cart-sm {
+        background-color: #3F51B5; /* Indigo Button */
+        color: white;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        flex-grow: 1;
+        text-align: center;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+    .btn-cart-sm:hover { background-color: #303F9F; }
+
+    .btn-remove-sm {
+        background-color: #F3F5F9; /* Light Grey */
+        color: var(--text-sub);
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+    .btn-remove-sm:hover {
+        background-color: #ffebee;
+        color: #d32f2f;
+    }
+
+    /* Empty State */
+    .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        background: var(--bg-card);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-soft);
+    }
+
+    @media (max-width: 768px) {
+        .wishlist-grid {
+            grid-template-columns: 1fr; /* 1 column on mobile */
+            gap: 20px;
+        }
+        .wish-img-box { height: 250px; }
+    }
+</style>
+
+<div class="wishlist-header">
+    <h1 class="wishlist-title">Your Wishlist</h1>
+    <p style="color: var(--text-sub);">{{ items.count }} items saved for later</p>
+</div>
+
+{% if items %}
+    <div class="wishlist-grid">
+        {% for item in items %}
+            <div class="wish-card">
+                
+                <!-- Image Area -->
+                <a href="{% url 'product_detail' item.product.id %}" class="wish-img-box">
+                    {% if item.product.images.first %}
+                        <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}">
+                    {% else %}
+                        <img src="https://via.placeholder.com/300" alt="No Image">
+                    {% endif %}
+                    
+                    <!-- Little Heart Badge -->
+                    <div class="heart-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                </a>
+
+                <!-- Info Area -->
+                <div class="wish-info">
+                    <h3>{{ item.product.name }}</h3>
+                    <span class="wish-price">৳{{ item.product.selling_price|floatformat:0 }}</span>
+                </div>
+
+                <!-- Buttons Area -->
+                <div class="wish-actions">
+                    <!-- Add to Cart Logic -->
+                    <!-- We use a small form to POST to the add-to-cart URL -->
+                    <form action="{% url 'add_to_cart' item.product.id %}" method="POST" style="flex-grow: 1;">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" name="action" value="add" class="btn-cart-sm" style="width: 100%;">
+                            Add to Cart
+                        </button>
+                    </form>
+
+                    <a href="{% url 'toggle_wishlist' item.product.id %}" class="btn-remove-sm">
+                        Remove
+                    </a>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        <div style="font-size: 4rem; margin-bottom: 20px;">💔</div>
+        <h2 style="margin-bottom: 10px;">Your wishlist is empty</h2>
+        <p style="color: var(--text-sub); margin-bottom: 30px;">Seems like you haven't found anything you like yet.</p>
+        <a href="{% url 'home' %}" class="btn" style="padding: 15px 30px;">Explore Products</a>
+    </div>
+{% endif %}
+
+{% endblock %}

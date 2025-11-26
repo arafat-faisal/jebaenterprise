@@ -10,7 +10,7 @@ from jeba_intelligence.models import CompetitorPrice, ScraperPreset
 # --- UTILS IMPORT ---
 # Ideally, this utility function should move to this app later, 
 # but for now we import it from the central utils file.
-from products.utils import fetch_competitor_data
+from jeba_intelligence.utils import fetch_competitor_data
 
 @staff_member_required
 def admin_scraper_view(request):
@@ -22,7 +22,7 @@ def admin_scraper_view(request):
             'all_products': all_products,
             'presets': presets
         }
-        return render(request, 'products/admin_scraper.html', context)
+        return render(request, 'jeba_intelligence/admin_scraper.html', context)
 
     # --- POST Request Logic ---
     if request.method == 'POST':

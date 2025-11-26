@@ -1,0 +1,544 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+
+<style>
+    /* --- SMARTCODER: LAYOUT & GRID --- */
+    .checkout-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 0.9fr; /* More space for form */
+        gap: 40px;
+        align-items: start;
+        /* Removed padding-bottom here, using dedicated spacer instead */
+    }
+    
+    /* --- LEFT: FORM STYLES --- */
+    .checkout-card {
+        background-color: var(--bg-card);
+        padding: 35px;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-soft);
+        border: 1px solid transparent;
+        margin-bottom: 25px; /* Ensure spacing between cards */
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .form-group { margin-bottom: 20px; }
+    .form-group label { 
+        display: block; 
+        font-weight: 700; 
+        margin-bottom: 8px; 
+        color: var(--text-main); 
+        font-size: 0.9rem; 
+    }
+    
+    .form-control { 
+        width: 100%; 
+        padding: 14px 20px; /* Larger touch target */
+        border: 1px solid #ddd; 
+        border-radius: 50px; /* Pill shape matching site */
+        background: #F8F9FB; 
+        box-sizing: border-box; 
+        font-family: inherit;
+        font-size: 1rem;
+        transition: 0.2s;
+    }
+    .form-control:focus {
+        background: #fff;
+        border-color: #3F51B5;
+        box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.1);
+        outline: none;
+    }
+    textarea.form-control {
+        border-radius: 20px; /* Standard radius for text area */
+        resize: vertical;
+        min-height: 80px;
+    }
+
+    /* --- SELECTION CARDS (Radio Replacements) --- */
+    .selection-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .selection-card {
+        position: relative;
+    }
+    
+    .selection-card input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .selection-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 20px;
+        background: #fff;
+        border: 2px solid #eee;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-weight: 600;
+        user-select: none;
+    }
+    
+    .selection-label:hover { background: #F8F9FB; }
+    
+    /* Checked State */
+    .selection-card input[type="radio"]:checked + .selection-label {
+        border-color: #3F51B5;
+        background: #eef0ff;
+        color: #3F51B5;
+    }
+    
+    .radio-circle {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        margin-right: 12px;
+        position: relative;
+        flex-shrink: 0;
+    }
+    
+    .selection-card input[type="radio"]:checked + .selection-label .radio-circle {
+        border-color: #3F51B5;
+        background: #3F51B5;
+    }
+    
+    .price-badge {
+        font-weight: 800;
+        font-size: 0.95rem;
+    }
+
+    /* --- RIGHT: ORDER SUMMARY --- */
+    .summary-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-soft);
+        border: 1px solid #eee;
+        position: sticky;
+        top: 100px; /* Sticky on Desktop */
+    }
+    
+    .order-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f5f5f5;
+        align-items: center;
+    }
+    
+    /* Thumbnail Styles */
+    .item-thumb-container {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #f0f0f0;
+        flex-shrink: 0; /* Prevent squashing */
+        border: 1px solid #eee;
+    }
+    .item-thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Ensure entire image is visible */
+        mix-blend-mode: multiply;
+        display: block;
+    }
+    
+    .item-info { flex-grow: 1; min-width: 0; /* Allow text truncate */ }
+    .item-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; display: block; line-height: 1.3; }
+    .item-meta { font-size: 0.85rem; color: var(--text-sub); }
+    
+    .cost-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+        color: var(--text-sub);
+    }
+    .cost-row.total {
+        color: var(--text-main);
+        font-weight: 800;
+        font-size: 1.4rem;
+        border-top: 2px solid #eee;
+        padding-top: 15px;
+        margin-top: 10px;
+    }
+
+    .btn-checkout {
+        width: 100%;
+        padding: 16px;
+        background: var(--text-main);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+        margin-top: 20px;
+    }
+    .btn-checkout:hover { transform: translateY(-2px); opacity: 0.95; }
+
+    /* --- SMARTCODER: MOBILE STICKY CHECKOUT BAR --- */
+    .sticky-checkout-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 15px 20px;
+        box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
+        z-index: 9999; /* Above global nav */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #eee;
+    }
+    
+    .scb-info { display: flex; flex-direction: column; }
+    .scb-label { font-size: 0.8rem; color: var(--text-sub); }
+    .scb-total { font-size: 1.3rem; font-weight: 800; color: var(--text-main); }
+    
+    .scb-btn {
+        background: var(--accent-lime);
+        color: var(--text-main);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    /* --- FIX 2: Mobile Spacer & bKash Visibility --- */
+    .mobile-spacer {
+        height: 0;
+    }
+    
+    .bkash-box {
+        display: none; 
+        margin-top: 20px; 
+        padding: 20px; 
+        background: #fff0f5; 
+        border-radius: 12px; 
+        border: 1px solid #ffc0cb;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    /* UPDATED: Better Instructions */
+    .bkash-instructions {
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+        color: #333;
+    }
+    .bkash-instructions ol {
+        padding-left: 20px;
+        margin: 10px 0;
+    }
+    .bkash-instructions li {
+        margin-bottom: 8px;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 900px) {
+        .checkout-grid { grid-template-columns: 1fr; gap: 20px; }
+        .summary-card { position: static; order: -1; margin-bottom: 20px; }
+        .btn-checkout.desktop-only { display: none; }
+        
+        /* Ensure content isn't hidden behind sticky bar */
+        .mobile-spacer { height: 100px; } 
+    }
+    @media (min-width: 901px) {
+        .sticky-checkout-bar { display: none; }
+    }
+    
+    /* Guest Link */
+    .auth-nudge {
+        background: #e3f2fd;
+        color: #1565c0;
+        padding: 12px 20px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    .auth-nudge a { text-decoration: underline; color: inherit; font-weight: 800; }
+</style>
+
+<div class="container" style="max-width: 1100px; margin: 0 auto;">
+    
+    <h1 style="font-size: 2rem; margin-bottom: 30px; font-weight: 800;">Checkout</h1>
+
+    {% if cart_items %}
+    
+    {% if not user.is_authenticated %}
+        <div class="auth-nudge">
+            Already have an account? <a href="{% url 'login' %}?next={% url 'checkout' %}">Login here</a> for faster checkout.
+        </div>
+    {% endif %}
+
+    <form method="POST" action="" id="checkout-form" class="checkout-grid">
+        {% csrf_token %}
+        
+        <div class="left-col">
+            <div class="checkout-card">
+                <div class="section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Shipping Info
+                </div>
+                
+                <div class="form-group">
+                    <label>Full Name <span style="color:red">*</span></label>
+                    <input type="text" name="customer_name" class="form-control" required 
+                           value="{{ user.first_name }} {{ user.last_name }}" placeholder="Enter your name">
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number <span style="color:red">*</span></label>
+                    <input type="tel" name="phone_number" class="form-control" required 
+                           pattern="^01[3-9]\d{8}$" 
+                           title="Please enter a valid 11-digit Bangladeshi mobile number (e.g., 017XXXXXXXX)"
+                           value="{{ user.userprofile.phone_number }}" placeholder="017XXXXXXXX">
+                </div>
+                
+                <div class="form-group">
+                    <label>Detailed Address <span style="color:red">*</span></label>
+                    <textarea name="shipping_address" class="form-control" required placeholder="House, Road, Area, City">{{ user.userprofile.address }}</textarea>
+                </div>
+            </div>
+
+            <div class="checkout-card">
+                <div class="section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 14"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    Delivery Area
+                </div>
+                
+                <div class="selection-grid">
+                    <div class="selection-card">
+                        <input type="radio" name="delivery_area" id="area_inside" value="INSIDE" checked onchange="updateTotal('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}')">
+                        <label class="selection-label" for="area_inside">
+                            <div style="display:flex; align-items:center;">
+                                <span class="radio-circle"></span> Inside Dhaka
+                            </div>
+                            <span class="price-badge">৳{{ settings.delivery_charge_inside|default:60 }}</span>
+                        </label>
+                    </div>
+                    
+                    <div class="selection-card">
+                        <input type="radio" name="delivery_area" id="area_outside" value="OUTSIDE" onchange="updateTotal('OUTSIDE', '{{ settings.delivery_charge_outside|default:120 }}')">
+                        <label class="selection-label" for="area_outside">
+                            <div style="display:flex; align-items:center;">
+                                <span class="radio-circle"></span> Outside Dhaka
+                            </div>
+                            <span class="price-badge">৳{{ settings.delivery_charge_outside|default:120 }}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-card">
+                <div class="section-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    Payment Method
+                </div>
+                
+                <div class="selection-grid">
+                    <div class="selection-card">
+                        <input type="radio" name="payment_method" id="pay_cod" value="COD" checked onclick="togglePayment('COD')">
+                        <label class="selection-label" for="pay_cod">
+                            <div style="display:flex; align-items:center;">
+                                <span class="radio-circle"></span> Cash on Delivery
+                            </div>
+                            <span>💵</span>
+                        </label>
+                    </div>
+                    
+                    <div class="selection-card">
+                        <input type="radio" name="payment_method" id="pay_bkash" value="BKASH" onclick="togglePayment('BKASH')">
+                        <label class="selection-label" for="pay_bkash">
+                            <div style="display:flex; align-items:center;">
+                                <span class="radio-circle"></span> bKash Payment
+                            </div>
+                            <span><img src="/media/bkash_logo.svg" style="height:20px;"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="bkash-section" class="bkash-box">
+                    <div class="bkash-instructions">
+                        <h4 style="margin-top:0; color:#D81B60;">How to Pay with bKash:</h4>
+                        <ol>
+                            <li>Go to your bKash App or Dial <strong>*247#</strong></li>
+                            <li>Choose <strong>"Send Money"</strong></li>
+                            <li>Enter Number: <strong style="font-size:1.1em;">01XXXXXXXXX</strong> (Personal)</li>
+                            <li>Enter Amount: <strong>৳<span id="bkash-amount-display">{{ total_price|floatformat:0 }}</span></strong></li>
+                            <li>Reference: <strong>Your Name</strong></li>
+                            <li>Enter PIN to confirm transaction</li>
+                            <li>Copy the <strong>Transaction ID (TrxID)</strong> and paste it below</li>
+                        </ol>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label>Transaction ID (TrxID) <span style="color:red">*</span></label>
+                        <input type="text" name="transaction_id" id="trx_id_input" class="form-control" placeholder="e.g. 8JHS72...">
+                        <small style="color: #666;">This field is required for bKash payment</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-col">
+            <div class="summary-card">
+                <div class="section-title">Order Summary</div>
+                
+                {% for item in cart_items %}
+                <div class="order-item">
+                    <div class="item-thumb-container">
+                        {% if item.product.images.first %}
+                            <img src="{{ item.product.images.first.image.url }}" class="item-thumb" alt="{{ item.product.name }}">
+                        {% elif item.product.main_image_obj %}
+                            <img src="{{ item.product.main_image_obj.image.url }}" class="item-thumb" alt="{{ item.product.name }}">
+                        {% else %}
+                            <img src="https://via.placeholder.com/60/eeeeee/cccccc?text=No+Img" class="item-thumb" alt="No Image">
+                        {% endif %}
+                    </div>
+                    
+                    <div class="item-info">
+                        <span class="item-title">{{ item.product.name }}</span>
+                        <div class="item-meta">
+                            {% if item.variation %}Var: {{ item.variation.name }} <br>{% endif %}
+                            {{ item.quantity }} x ৳{{ item.price|floatformat:0 }}
+                        </div>
+                    </div>
+                    <div style="font-weight: 700;">
+                        ৳{{ item.subtotal|floatformat:0 }}
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="cost-row">
+                    <span>Subtotal</span>
+                    <span>৳{{ total_price|floatformat:0 }}</span>
+                </div>
+                <div class="cost-row">
+                    <span>Delivery</span>
+                    <span id="delivery-display">৳0</span>
+                </div>
+                <div class="cost-row total">
+                    <span>Total</span>
+                    <span id="grand-total-display">৳{{ total_price|floatformat:0 }}</span>
+                </div>
+
+                <button type="submit" class="btn-checkout desktop-only">
+                    Confirm Order
+                </button>
+            </div>
+        </div>
+    </form>
+    
+    <div class="mobile-spacer"></div>
+
+    <div class="sticky-checkout-bar">
+        <div class="scb-info">
+            <span class="scb-label">Total to Pay</span>
+            <span class="scb-total" id="sticky-total-display">৳{{ total_price|floatformat:0 }}</span>
+        </div>
+        <button type="submit" form="checkout-form" class="scb-btn">
+            Place Order
+        </button>
+    </div>
+
+    <script>
+        let baseTotal = parseFloat("{{ total_price }}");
+
+        function updateTotal(area, cost) {
+            let deliveryCost = parseFloat(cost);
+            let grandTotal = baseTotal + deliveryCost;
+
+            // Update Desktop Summary
+            document.getElementById('delivery-display').innerText = '৳' + deliveryCost;
+            document.getElementById('grand-total-display').innerText = '৳' + grandTotal;
+            
+            // Update Mobile Sticky Bar
+            document.getElementById('sticky-total-display').innerText = '৳' + grandTotal;
+            
+            // Update bKash Amount Instruction
+            const bkashDisplay = document.getElementById('bkash-amount-display');
+            if(bkashDisplay) bkashDisplay.innerText = grandTotal;
+        }
+
+        function togglePayment(method) {
+            const bkashSection = document.getElementById('bkash-section');
+            const trxInput = document.getElementById('trx_id_input');
+            
+            if (method === 'BKASH') {
+                bkashSection.style.display = 'block';
+                trxInput.required = true; // SMARTCODER: Make TrxID mandatory
+            } else {
+                bkashSection.style.display = 'none';
+                trxInput.required = false; // Not mandatory for COD
+                trxInput.value = ''; // Clear it
+            }
+        }
+
+        // --- INITIALIZATION ON LOAD ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Default to Inside Dhaka
+            const insideCost = parseFloat('{{ settings.delivery_charge_inside|default:60 }}') || 60;
+            updateTotal('INSIDE', insideCost);
+            
+            // Auto-hide global nav on mobile to prevent double bars
+            const globalNav = document.querySelector('.mobile-bottom-nav');
+            if(globalNav && window.innerWidth < 900) {
+                globalNav.style.display = 'none';
+            }
+        });
+    </script>
+
+    {% else %}
+        <div style="text-align: center; padding: 60px;">
+            <h2>Your cart is empty 🛒</h2>
+            <p><a href="{% url 'pricing_sheet' %}" class="btn">Go Shopping</a></p>
+        </div>
+    {% endif %}
+
+</div>
+
+{% if site_settings.meta_pixel_id %}
+<script>
+    // Track InitiateCheckout
+    var raw_ids = "{% for item in cart_items %}{{ item.product_id }},{% endfor %}";
+    var content_ids = raw_ids.split(',').filter(el => el.length > 0);
+
+    fbq('track', 'InitiateCheckout', {
+        value: parseFloat("{{ total_price|default:0 }}"),
+        currency: 'BDT',
+        content_ids: content_ids,
+        content_type: 'product'
+    });
+</script>
+{% endif %}
+
+{% endblock %}
