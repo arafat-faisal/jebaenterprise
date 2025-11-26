@@ -93,7 +93,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'products.context_processors.global_settings',
+                # Updated to use new modular app's context processor for SiteSettings
+                'jeba_core.context_processors.global_settings',
             ],
         },
     },
@@ -238,7 +239,7 @@ LOGIN_REDIRECT_URL = '/'          # Redirect to the homepage after successful lo
 LOGOUT_REDIRECT_URL = '/'         # Redirect to the homepage after logging out
 
 
-# --- JAZZMIN MODERN THEME SETTINGS ---
+# --- JAZZMIN WORLD-CLASS DARK THEME SETTINGS ---
 
 JAZZMIN_SETTINGS = {
     # Title on the login screen
@@ -249,7 +250,7 @@ JAZZMIN_SETTINGS = {
     
     # Logo to use for your site, must be present in static files, used for brand on top left
     # You can put your logo.png in your static folder and reference it here
-    "site_logo": None, 
+    "site_logo": "logo.svg", # Assuming you move logo.svg to your static files
     
     # CSS classes that are applied to the logo above
     "site_logo_classes": "img-circle",
@@ -260,8 +261,8 @@ JAZZMIN_SETTINGS = {
     # Copyright on the footer
     "copyright": "Jeba Enterprise Ltd",
 
-    # The model admin to search from the search bar, search bar omitted if excluded
-    "search_model": ["products.Product", "products.Sale"],
+    # The model admin to search from the search bar (Updated for Modular Apps)
+    "search_model": ["jeba_inventory.Product", "jeba_sales.Sale"],
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
     "user_avatar": None,
@@ -296,25 +297,44 @@ JAZZMIN_SETTINGS = {
     # Whether to aut expand the menu
     "navigation_expanded": True,
     
-    # Custom icons for side menu apps/models
+    # Custom icons for side menu apps/models (Updated for Modular Apps)
     # Use FontAwesome icons (e.g. "fas fa-shopping-bag")
     "icons": {
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
         
-        "products.Product": "fas fa-box-open",
+        # Core Models
+        "jeba_core.SiteSettings": "fas fa-cogs",
+        # Inventory Models
+        "jeba_inventory.Product": "fas fa-box-open",
+        "jeba_inventory.Category": "fas fa-tags",
+        "jeba_inventory.ProductVariation": "fas fa-sliders-h",
+        # Sales Models
+        "jeba_sales.Sale": "fas fa-shopping-cart",
+        # Accounts Model
+        "jeba_accounts.UserProfile": "fas fa-address-card",
+        # Engagement Models
+        "jeba_engagement.Review": "fas fa-star",
+        "jeba_engagement.Wishlist": "fas fa-heart",
+        # Intelligence/Analytics Apps
+        "jeba_intelligence": "fas fa-brain",
+        "jeba_analytics": "fas fa-chart-line",
+        # Blog App
+        "jeba_blog": "fas fa-newspaper",
+
+        # Fallback mappings (in case old app still exists)
+        "products.Product": "fas fa-box-open", 
         "products.Sale": "fas fa-shopping-cart",
         "products.Category": "fas fa-tags",
-        "products.ProductVariation": "fas fa-sliders-h",
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
     
-    # --- Custom Link for Competitor Analysis ---
+    # --- Custom Link for Competitor Analysis (Moved to relevant app) ---
     "custom_links": {
-        "products": [{
+        "jeba_intelligence": [{
             "name": "Competitor Analysis", 
             "url": "admin_scraper", 
             "icon": "fas fa-search-dollar",
@@ -322,25 +342,25 @@ JAZZMIN_SETTINGS = {
     },
 }
 
-# --- UI TWEAKS TO MATCH "PRODY" IMAGE ---
+# --- UI TWEAKS FOR WORLD-CLASS DARK THEME ---
 JAZZMIN_UI_TWEAKS = {
     "navbar_small_text": False,
     "footer_small_text": False,
     "body_small_text": False,
     "brand_small_text": False,
     
-    # The "Prody" look is clean white/light grey
-    "brand_colour": "navbar-white",
-    "accent": "accent-primary",
-    "navbar": "navbar-white navbar-light",
+    # Dark Theme with Sharp Accent Colors
+    "brand_colour": "navbar-dark",
+    "accent": "accent-info", # A vibrant blue for highlights and interactive elements
+    "navbar": "navbar-dark navbar-primary", # Dark navbar with a subtle primary color strip
     "no_navbar_border": True,
-    "navbar_fixed": False,
+    "navbar_fixed": True, # Fixed navbar for improved access to links
     "layout_boxed": False,
     "footer_fixed": False,
-    "sidebar_fixed": True,
+    "sidebar_fixed": True, # Fixed sidebar for always-present navigation
     
-    # Sidebar colors (Light/White style)
-    "sidebar": "sidebar-light-primary",
+    # Dark Sidebar with Primary accent (for active links)
+    "sidebar": "sidebar-dark-primary", 
     "sidebar_nav_small_text": False,
     "sidebar_disable_expand": False,
     "sidebar_nav_child_indent": True,
@@ -348,7 +368,7 @@ JAZZMIN_UI_TWEAKS = {
     "sidebar_nav_legacy_style": False,
     "sidebar_nav_flat_style": False,
     
-    "theme": "flatly", # Clean, modern font style
+    "theme": "darkly", # Using Darkly Bootswatch theme for a professional, high-contrast dark look
     "dark_mode_theme": None,
     "button_classes": {
         "primary": "btn-primary",
@@ -357,7 +377,10 @@ JAZZMIN_UI_TWEAKS = {
         "warning": "btn-warning",
         "danger": "btn-danger",
         "success": "btn-success"
-    }
+    },
+    # Optional: Apply brand and logo to the login page
+    "login_logo_classes": "text-center",
+    "login_logo": "media/logo.svg" # Using the SVG logo provided in the media folder
 }
 
 # Email Configuration
