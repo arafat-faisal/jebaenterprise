@@ -28,7 +28,7 @@ class CatalogFeatureTest(TestCase):
 
     def test_homepage_loads(self):
         """Feature: Homepage Hero"""
-        response = self.client.get(reverse('pricing_sheet'))
+        response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Phone")
 

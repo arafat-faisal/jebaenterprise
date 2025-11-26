@@ -13,7 +13,7 @@ from jeba_core import views as core_views
 
 urlpatterns = [
     # --- Inventory & Catalog ---
-    path('', inventory_views.pricing_sheet, name='pricing_sheet'),
+    path('', inventory_views.home, name='home'),
     path('catalog/', inventory_views.product_catalog, name='product_catalog'),
     path('product/<int:pk>/', inventory_views.product_detail, name='product_detail'),
     path('search/', inventory_views.search_view, name='search'),

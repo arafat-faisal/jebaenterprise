@@ -1304,3 +1304,77 @@ INFO 2025-11-25 15:11:05,063 basehttp "GET /admin/jeba_analytics/productevent/20
 INFO 2025-11-25 15:11:05,101 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 INFO 2025-11-25 15:11:21,959 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\analytics_service.py changed, reloading.
 INFO 2025-11-25 15:11:22,715 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 12:33:36,720 autoreload Watching for file changes with StatReloader
+INFO 2025-11-26 12:33:57,866 basehttp "GET / HTTP/1.1" 200 65804
+INFO 2025-11-26 12:34:07,196 basehttp "GET / HTTP/1.1" 200 65641
+INFO 2025-11-26 12:34:12,522 basehttp "GET /product/1378/ HTTP/1.1" 200 72824
+INFO 2025-11-26 12:34:12,611 basehttp "GET /media/products/gallery/prod_1378_2.jpg HTTP/1.1" 200 33722
+INFO 2025-11-26 12:34:12,668 basehttp "GET /media/products/gallery/prod_1378_7.jpg HTTP/1.1" 200 5354
+INFO 2025-11-26 12:34:12,684 basehttp "GET /media/products/gallery/prod_1378_1.jpg HTTP/1.1" 200 44949
+INFO 2025-11-26 12:34:12,769 basehttp "GET /media/products/gallery/prod_1378_4.jpg HTTP/1.1" 200 164523
+INFO 2025-11-26 12:34:12,771 basehttp "GET /media/products/gallery/prod_1378_5.jpg HTTP/1.1" 200 130094
+INFO 2025-11-26 12:34:12,824 basehttp "GET /media/products/gallery/prod_1378_3.jpg HTTP/1.1" 200 390363
+INFO 2025-11-26 12:34:12,842 basehttp "GET /media/products/gallery/prod_1378_6.jpg HTTP/1.1" 200 307935
+INFO 2025-11-26 12:34:17,474 basehttp "POST /track-interaction/ HTTP/1.1" 200 40
+ERROR 2025-11-26 12:35:08,448 log Internal Server Error: /order-success/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 303, in order_success
+    return render(request, 'products/order_success.html', {'sale': sale})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\test\utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\test\utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'pricing_sheet' not found. 'pricing_sheet' is not a valid view function or pattern name.

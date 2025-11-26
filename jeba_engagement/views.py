@@ -37,7 +37,7 @@ def toggle_wishlist(request, product_id):
         messages.success(request, 'Added to Wishlist')
         
     # Redirect to wherever the user clicked from (or home if unknown)
-    return redirect(request.META.get('HTTP_REFERER', 'pricing_sheet'))
+    return redirect(request.META.get('HTTP_REFERER', 'home'))
 
 @login_required
 def wishlist_view(request):

@@ -40,7 +40,7 @@ def get_recommendations(request, limit=8):
 
 # --- VIEWS ---
 
-def pricing_sheet(request):
+def home(request):
     """Homepage View"""
     featured_product = Product.objects.filter(is_featured=True).order_by('-created_at').first()
     if not featured_product:
@@ -58,7 +58,7 @@ def pricing_sheet(request):
         'recommendations': recommendations,
         'products': all_products,
     }
-    return render(request, "products/pricing_sheet.html", context)
+    return render(request, "products/home.html", context)
 
 def product_catalog(request):
     products = Product.objects.all().prefetch_related('images')

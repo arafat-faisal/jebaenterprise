@@ -39,7 +39,7 @@ def register_view(request):
 def user_logout(request):
     logout(request)
     # Redirect to homepage (pricing_sheet is the view name for home)
-    return redirect('pricing_sheet')
+    return redirect('home')
 
 @login_required
 def profile_view(request):
