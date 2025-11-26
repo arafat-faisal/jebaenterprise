@@ -116,8 +116,18 @@ def view_cart(request):
 
         item_total = item_data['price'] * item_data['quantity']
         
+        # --- FIX: Check for variation to be safe ---
+        variation = None
+        if item_data.get('variation_id'):
+            try:
+                variation = ProductVariation.objects.get(id=item_data['variation_id'])
+            except ProductVariation.DoesNotExist:
+                pass
+
         cart_items.append({
             'id': key,
+            'product': product,   # <--- Added Object for Template access
+            'variation': variation, # <--- Added Object
             'name': item_data['name'],
             'price': item_data['price'],
             'quantity': item_data['quantity'],
@@ -273,11 +283,27 @@ def checkout(request):
                 initial_data['shipping_address'] = request.user.profile.address
         form = CheckoutForm(initial=initial_data)
 
+    # --- SMARTCODER FIX: Populate Cart Items with Real Product Objects ---
     cart_items = []
     total_price = 0
     for key, item_data in cart.items():
+        try:
+            product = Product.objects.get(id=item_data['product_id'])
+        except Product.DoesNotExist:
+            continue # Skip invalid products
+            
+        variation = None
+        if item_data.get('variation_id'):
+            try:
+                variation = ProductVariation.objects.get(id=item_data['variation_id'])
+            except ProductVariation.DoesNotExist:
+                pass
+
         item_total = item_data['price'] * item_data['quantity']
+        
         cart_items.append({
+            'product': product,       # <--- CRITICAL FIX: Passing the object
+            'variation': variation,   # <--- CRITICAL FIX: Passing the object
             'product_id': item_data['product_id'],
             'name': item_data['name'],
             'price': item_data['price'],

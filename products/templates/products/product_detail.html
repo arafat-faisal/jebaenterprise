@@ -164,6 +164,85 @@
     .btn-buy-now { background-color: #1A1C1E; color: #ffffff; }
     .btn-buy-now:hover { opacity: 0.9; transform: translateY(-2px); }
 
+    /* --- SMARTCODER: TRUST SIGNALS (New) --- */
+    .trust-row {
+        display: flex;
+        gap: 20px;
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #f0f0f0;
+        flex-wrap: wrap;
+    }
+    .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-sub);
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    .trust-item svg { width: 18px; height: 18px; stroke: #3F51B5; }
+
+    /* --- SMARTCODER: MOBILE STICKY BUY BAR (New) --- */
+    .sticky-product-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 12px 20px;
+        box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
+        z-index: 10000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transform: translateY(110%); /* Hidden by default */
+        transition: transform 0.3s ease;
+        border-top: 1px solid #eee;
+    }
+    .sticky-product-bar.active {
+        transform: translateY(0);
+    }
+    .spb-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .spb-title {
+        font-size: 0.8rem;
+        color: var(--text-sub);
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .spb-price {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--text-main);
+    }
+    .spb-btn {
+        background: var(--text-main);
+        background-color: var(--accent-lime); 
+        color: var(--text-main);
+        border: none;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+    }
+    .spb-btn-buy {
+        background: var(--text-main);
+        background-color: #1A1C1E; 
+        color: #ffffff;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+    }
+
     /* Wishlist Button */
     .btn-icon-only {
         width: 48px;
@@ -287,6 +366,14 @@
         .thumb-btn.active { box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2); }
         .related-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
         .related-img-box { height: 130px; }
+        
+        /* Ensure Sticky Bar is Visible on Mobile Only */
+        .sticky-product-bar { display: flex; }
+    }
+    
+    @media (min-width: 769px) {
+        .sticky-product-bar { display: none !important; }
+        
     }
 </style>
 
@@ -426,15 +513,9 @@
                 <div class="action-row">
                     <input type="number" name="quantity" value="1" min="1" class="quantity-input">
                     
-                    {% if site_settings.meta_pixel_id %}
-                    <button type="submit" name="action" value="add" class="btn-add-cart">
+                    <button type="submit" name="action" value="add" class="btn-add-cart" id="main-add-btn">
                         Add to Cart
                     </button>
-                    {% else %}
-                    <button type="submit" name="action" value="add" class="btn-add-cart">
-                        Add to Cart
-                    </button>
-                    {% endif %}
 
                      <button type="submit" name="action" value="buy_now" class="btn-buy-now">
                         Buy Now
@@ -445,6 +526,21 @@
                     <button type="button" class="btn-share-icon" onclick="handleShare()" title="Share Product">
                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
                     </button>
+                </div>
+
+                <div class="trust-row">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 14"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        <span>Fast Delivery</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <span>Authentic</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <span>Secure Payment</span>
+                    </div>
                 </div>
 
             {% else %}
@@ -581,6 +677,19 @@
     </div>
 </div>
 
+<div class="sticky-product-bar" id="sticky-bar">
+    <div class="spb-info">
+         <span class="spb-title">{{ product.name }}</span>
+         <span class="spb-price" id="spb-price">৳{{ product.selling_price|floatformat:0 }}</span>
+    </div>
+    <button type="submit" form="add-to-cart-form" name="action" value="add" class="spb-btn">
+        Add to Cart
+    </button>
+    <button type="submit" name="action" value="buy_now" class="spb-btn-buy">
+        Buy Now
+    </button>
+</div>
+
 {% endblock %}
 
 {% block scripts %}
@@ -687,12 +796,17 @@
         const variationSelect = document.getElementById('variation-select');
         if (variationSelect) {
             const priceDisplay = document.getElementById('product-price');
+            const spbPrice = document.getElementById('spb-price'); // Sticky Bar Price
             const stockDisplay = document.getElementById('product-stock');
             const cartForm = document.getElementById('add-to-cart-form');
 
             variationSelect.addEventListener('change', function() {
                 const selectedOption = this.options[this.selectedIndex];
-                if(priceDisplay) priceDisplay.textContent = '৳' + selectedOption.dataset.price; 
+                const newPrice = '৳' + selectedOption.dataset.price;
+                
+                if(priceDisplay) priceDisplay.textContent = newPrice; 
+                if(spbPrice) spbPrice.textContent = newPrice; // Update Sticky Bar too
+                
                 if(stockDisplay) stockDisplay.textContent = 'In Stock: ' + selectedOption.dataset.stock;
                 cartForm.action = selectedOption.dataset.url;
             });
@@ -711,6 +825,30 @@
                 touchEndX = e.changedTouches[0].screenX;
                 handleSwipe();
             });
+        }
+
+        // --- SMARTCODER: STICKY BAR OBSERVER ---
+        const mainBtn = document.getElementById('main-add-btn');
+        const stickyBar = document.getElementById('sticky-bar');
+        const mobileNav = document.querySelector('.mobile-bottom-nav'); // From base.html
+
+        if (mainBtn && stickyBar) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Check if scrolled PAST the button (not just invisible)
+                    // We check if the button is above the viewport (top < 0)
+                    if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+                        stickyBar.classList.add('active');
+                        // Hide global nav to prevent overlap/clutter
+                        if (mobileNav) mobileNav.style.display = 'none';
+                    } else {
+                        stickyBar.classList.remove('active');
+                        // Restore global nav
+                        if (mobileNav) mobileNav.style.display = 'flex';
+                    }
+                });
+            }, { threshold: 0 });
+            observer.observe(mainBtn);
         }
     });
 

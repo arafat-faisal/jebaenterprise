@@ -3,44 +3,157 @@
 {% block title %}Order Confirmed{% endblock %}
 
 {% block content %}
-<div style="max-width: 600px; margin: 60px auto; padding: 20px;">
+<style>
+    .success-container {
+        max-width: 600px; 
+        margin: 40px auto; 
+        padding: 20px;
+        text-align: center;
+    }
     
-    <div style="text-align: center; margin-bottom: 30px;">
-        <div style="width: 80px; height: 80px; background: #e8f5e9; color: #2e7d32; font-size: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-            ✓
+    .success-icon-box {
+        width: 80px; 
+        height: 80px; 
+        background: #e8f5e9; 
+        color: #2e7d32; 
+        border-radius: 50%; 
+        display: inline-flex; 
+        align-items: center; 
+        justify-content: center; 
+        margin-bottom: 20px;
+        animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .success-icon-box svg { width: 40px; height: 40px; stroke-width: 3px; }
+
+    @keyframes popIn {
+        0% { transform: scale(0); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .order-card {
+        background: white; 
+        border: 1px solid #eee; 
+        border-radius: 16px; 
+        padding: 25px; 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+        margin-bottom: 30px;
+        text-align: left;
+    }
+    
+    .order-row {
+        display: flex; 
+        justify-content: space-between; 
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+    }
+    .order-row.divider {
+        border-bottom: 1px dashed #ddd; 
+        padding-bottom: 15px; 
+        margin-bottom: 15px;
+    }
+    .label { color: #888; }
+    .value { font-weight: 600; color: var(--text-main); }
+    
+    .btn-receipt {
+        background: #1A1C1E; 
+        color: white; 
+        padding: 15px; 
+        border-radius: 50px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        gap: 10px; 
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.2s;
+    }
+    .btn-receipt:hover { transform: translateY(-2px); opacity: 0.9; }
+    
+    .link-home {
+        display: inline-block;
+        margin-top: 15px;
+        color: #666;
+        text-decoration: none;
+        font-weight: 600;
+    }
+</style>
+
+<div class="success-container">
+    
+    <div class="success-icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    
+    <h1 style="color: #1A1C1E; font-weight: 800; margin: 0 0 10px 0;">Order Placed!</h1>
+    <p style="color: #666; margin-bottom: 30px;">Thank you, {{ sale.customer_name|default:"Customer" }}</p>
+
+    <div class="order-card">
+        <div class="order-row divider">
+            <span class="label">Order ID</span>
+            <span class="value" style="color: #3F51B5;">{{ sale.order_id }}</span>
         </div>
-        <h1 style="color: #1A1C1E; font-weight: 800; margin: 0;">Order Placed!</h1>
-        <p style="color: #666; font-size: 1.1rem;">Thank you, {{ sale.customer_name }}</p>
+        <div class="order-row">
+            <span class="label">Total Amount</span>
+            <span class="value">৳{{ sale.total_amount|floatformat:0 }}</span>
+        </div>
+        <div class="order-row">
+            <span class="label">Payment Method</span>
+            <span class="value">{{ sale.get_payment_method_display }}</span>
+        </div>
+        {% if sale.payment_method == 'BKASH' %}
+        <div class="order-row">
+            <span class="label">Transaction ID</span>
+            <span class="value">{{ sale.transaction_id }}</span>
+        </div>
+        {% endif %}
     </div>
 
-    <div style="background: white; border: 1px solid #eee; border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 30px;">
-        <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding-bottom: 15px; margin-bottom: 15px;">
-            <span style="color: #888;">Order ID</span>
-            <span style="font-weight: 700; color: #3F51B5;">{{ sale.order_id }}</span>
-        </div>
-        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-            <span style="color: #888;">Total Amount</span>
-            <span style="font-weight: 700;">৳{{ sale.total_amount|floatformat:0 }}</span>
-        </div>
-        <div style="display: flex; justify-content: space-between;">
-            <span style="color: #888;">Payment Method</span>
-            <span style="font-weight: 600;">{{ sale.get_payment_method_display }}</span>
-        </div>
-    </div>
-
-    <div style="display: flex; flex-direction: column; gap: 15px;">
-        
+    <div style="display: flex; flex-direction: column; gap: 10px;">
         {% if sale.access_token %}
-        <a href="{% url 'download_invoice_pdf' sale.access_token %}" class="btn" style="background: #1A1C1E; color: white; text-align: center; padding: 15px; border-radius: 50px; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1rem;">
+        <a href="{% url 'download_invoice_pdf' sale.access_token %}" class="btn-receipt">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             Download Receipt (PDF)
         </a>
         {% endif %}
 
-        <a href="{% url 'home' %}" style="text-align: center; color: #666; text-decoration: none; font-weight: 600; padding: 10px;">
+        <a href="{% url 'home' %}" class="link-home">
             Continue Shopping
         </a>
     </div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Fire confetti
+        var duration = 3000;
+        var end = Date.now() + duration;
+
+        (function frame() {
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: ['#D4F759', '#3F51B5', '#ffffff'] // Brand colors
+            });
+            confetti({
+                particleCount: 5,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: ['#D4F759', '#3F51B5', '#ffffff']
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+        
+        // Restore global nav if hidden
+        const globalNav = document.querySelector('.mobile-bottom-nav');
+        if(globalNav) globalNav.style.display = 'flex';
+    });
+</script>
 {% endblock %}

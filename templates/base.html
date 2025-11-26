@@ -456,6 +456,87 @@
         .search-input {
             padding-left: 45px; /* Make room for the icon/button */
         }
+        /* --- SMARTCODER: Mobile Sticky Bottom Menu --- */
+        .mobile-bottom-nav {
+            display: none; /* Hidden by default (Desktop) */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            border-top: 1px solid #eee;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+            z-index: 9999;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            height: 60px; /* Fixed height for calculations */
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-sub);
+            font-size: 0.75rem;
+            font-weight: 600;
+            gap: 4px;
+            position: relative;
+            width: 20%; /* Equal width distribution */
+            transition: color 0.2s;
+        }
+
+        .bottom-nav-item svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 2px;
+        }
+
+        .bottom-nav-item.active, 
+        .bottom-nav-item:hover {
+            color: var(--text-main);
+        }
+        
+        .cart-badge-mobile {
+            position: absolute;
+            top: -2px;
+            right: 25%; /* Center-ish relative to icon */
+            width: 8px;
+            height: 8px;
+            background: var(--accent-lime);
+            border: 2px solid var(--bg-card);
+            border-radius: 50%;
+        }
+
+        /* Mobile Specific Overrides */
+        @media (max-width: 768px) {
+            .mobile-bottom-nav {
+                display: flex;
+                padding-bottom: env(safe-area-inset-bottom); /* iOS Safe Area */
+            }
+            
+            /* Push content up so it's not hidden behind the menu */
+            body {
+                padding-bottom: 80px !important;
+            }
+            
+            /* Move the Sequoia Footer up visually if needed, or just let body padding handle it */
+            
+            /* Move Floating Messenger Icon UP so it doesn't overlap menu */
+            .messenger-float {
+                bottom: 85px !important; 
+                width: 45px;
+                height: 45px;
+                right: 20px;
+            }
+        }
+        /* SMARTCODER FIX: Force hide the floating cart on Desktop */
+    @media (min-width: 769px) {
+        .mobile-bottom-nav {
+            display: none !important;
+        }
+    }
     </style>
     <link rel="icon" href="/media/logo.svg" type="image/svg+xml">
     <title>{% block title %}Jeba Enterprise{% endblock %}</title>
@@ -703,5 +784,34 @@
     </script>
 {% block scripts %}
 {% endblock %}
+<nav class="mobile-bottom-nav">
+        <a href="{% url 'home' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Home</span>
+        </a>
+
+        <a href="{% url 'product_catalog' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'product_catalog' %}active{% endif %}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Shop</span>
+        </a>
+
+        <a href="{% url 'wishlist' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'wishlist' %}active{% endif %}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>Wishlist</span>
+        </a>
+
+        <a href="{% url 'view_cart' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'view_cart' %}active{% endif %}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <span>Cart</span>
+            {% if request.session.cart %}
+                <span class="cart-badge-mobile"></span>
+            {% endif %}
+        </a>
+
+        <a href="{% if user.is_authenticated %}{% url 'user_dashboard' %}{% else %}{% url 'login' %}{% endif %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'user_dashboard' or request.resolver_match.url_name == 'login' %}active{% endif %}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Account</span>
+        </a>
+    </nav>
 </body>
 </html>
