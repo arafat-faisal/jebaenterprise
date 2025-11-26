@@ -389,7 +389,8 @@ def guest_order_track(request, token):
     context = {
         'sale': sale,
         'live_status': live_status,
-        'is_guest_view': True
+        'is_guest_view': True,
+        'progress_width': get_progress_width(sale.status) # <--- ADDED
     }
     return render(request, 'products/order_detail.html', context)
 
@@ -425,3 +426,30 @@ def download_invoice_pdf(request, token):
         return response
     
     return HttpResponse("Not found", status=404)
+
+
+# --- Helper for Progress Bar ---
+def get_progress_width(status):
+    if status == 'DELIVERED': return 100
+    if status == 'SHIPPED': return 66
+    if status == 'PROCESSING': return 33
+    return 0
+
+@login_required
+def order_detail(request, pk):
+    sale = get_object_or_404(Sale, pk=pk)
+    
+    if sale.user != request.user:
+        return redirect('my_orders')
+
+    live_status = None
+    if sale.consignment_id:
+        live_status = check_delivery_status(sale.consignment_id)
+    
+    context = {
+        'sale': sale,
+        'live_status': live_status,
+        'progress_width': get_progress_width(sale.status)  # <--- ADDED
+    }
+    return render(request, 'products/order_detail.html', context)
+

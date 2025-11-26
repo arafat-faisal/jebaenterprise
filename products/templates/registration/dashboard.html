@@ -191,7 +191,12 @@
                             <div style="font-weight: 700;">{{ order.order_id }}</div>
                             <div style="font-size: 0.8rem; color: var(--text-sub);">{{ order.created_at|date:"M d" }} • ৳{{ order.total_amount|floatformat:0 }}</div>
                         </div>
-                        <a href="{% url 'order_detail' order.id %}" class="btn" style="padding: 5px 12px; font-size: 0.8rem;">View</a>
+                            <div style="display: flex; gap: 10px;">
+                                {% if order.status != 'DELIVERED' and order.status != 'CANCELLED' %}
+                                    <a href="{% url 'order_detail' order.id %}" class="btn" style="padding: 5px 12px; font-size: 0.75rem; background: #e3f2fd; color: #1565c0;">Track</a>
+                                {% endif %}
+                                <a href="{% url 'order_detail' order.id %}" class="btn" style="padding: 5px 12px; font-size: 0.75rem; border: 1px solid #eee; background: white; color: #333;">View</a>
+                            </div>
                     </div>
                 {% endfor %}
                 <a href="{% url 'my_orders' %}" style="display: block; text-align: center; margin-top: 15px; font-weight: 600; color: var(--text-main); text-decoration: none;">View All History →</a>
