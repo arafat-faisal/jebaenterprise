@@ -14,7 +14,7 @@ from jeba_intelligence.models import CompetitorPrice
 from jeba_intelligence.utils import fetch_competitor_data
 
 # --- BULK ACTIONS ---
-
+# ... (Bulk actions remain unchanged, they are robust) ...
 @admin.action(description='👁️ Hide Selected Products')
 def hide_products(modeladmin, request, queryset):
     """Bulk hide products from the storefront."""
@@ -65,8 +65,8 @@ def scrape_selected_products(modeladmin, request, queryset):
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
-    fields = ('image', 'transparent_image')
-
+    fields = ('image', 'transparent_image', 'is_main') # Added is_main for better control
+    
 class ProductVariationInline(admin.TabularInline):
     model = ProductVariation
     extra = 1
@@ -95,7 +95,8 @@ class ProductAdmin(ImportExportModelAdmin):
     resource_class = ProductResource
     inlines = [ProductImageInline, ProductVariationInline, CompetitorPriceInline]
     
-    list_display = ('name', 'selling_price', 'stock_quantity', 'category', 'is_featured', 'is_active', 'call_for_price', 'open_scraper_button')
+    # FIX: Added get_tags_display for visibility of SEO tags
+    list_display = ('name', 'selling_price', 'stock_quantity', 'category', 'is_featured', 'is_active', 'call_for_price', 'get_tags_display', 'open_scraper_button')
     list_editable = ('selling_price', 'stock_quantity', 'is_featured', 'is_active', 'call_for_price')
     list_filter = ('is_active', 'is_featured', 'category', 'tags')
     search_fields = ('name', 'description')
@@ -118,6 +119,12 @@ class ProductAdmin(ImportExportModelAdmin):
         ('Pricing', {'fields': ('buying_cost', 'selling_price')}),
         ('Stock', {'fields': ('stock_quantity', 'box_quantity')}),
     )
+    
+    # FIX: Helper function to display tags nicely in the changelist
+    def get_tags_display(self, obj):
+        return ", ".join([tag.name for tag in obj.tags.all()])
+    get_tags_display.short_description = "Tags"
+
 
     def open_scraper_button(self, obj):
         url = reverse('admin_scraper') + f'?product_id={obj.id}'

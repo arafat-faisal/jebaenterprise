@@ -26,7 +26,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 
 
-# --- CART VIEWS ---
+# --- CART VIEWS (No change) ---
 
 def add_to_cart(request: HttpRequest, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -263,10 +263,13 @@ def checkout(request):
                 request.session['last_order_id'] = new_sale.id
 
                 if request.user.is_authenticated and request.user.email:
-                    current_domain = request.get_host() 
+                    # FIX: Use full absolute URL for email links to prevent broken links
+                    domain_base = request.build_absolute_uri('/')[:-1]
+                    tracking_url = f"{domain_base}/track-order/{new_sale.access_token}/"
+                    
                     email_thread = threading.Thread(
                         target=send_order_email, 
-                        args=(new_sale, request.user.email, current_domain)
+                        args=(new_sale, request.user.email, tracking_url) # Pass full tracking_url
                     )
                     email_thread.start()
 
@@ -330,13 +333,15 @@ def order_success(request):
     last_order_id = request.session.get('last_order_id')
     sale = None
     if last_order_id:
-        sale = Sale.objects.filter(id=last_order_id).first()
+        # FIX: Add prefetch_related for consistency
+        sale = Sale.objects.filter(id=last_order_id).prefetch_related('items').first()
         
     return render(request, 'order_success.html', {'sale': sale})
 
 @login_required
 def my_orders_view(request):
-    user_orders = Sale.objects.filter(user=request.user).order_by('-created_at')
+    # FIX: Add prefetch_related for performance (N+1 fix)
+    user_orders = Sale.objects.filter(user=request.user).order_by('-created_at').prefetch_related('items')
 
     for order in user_orders:
         if order.consignment_id and order.status not in ['DELIVERED', 'CANCELLED']:
@@ -365,7 +370,8 @@ def my_orders_view(request):
 
 @login_required
 def order_detail(request, pk):
-    sale = get_object_or_404(Sale, pk=pk)
+    # FIX: Add prefetch_related for performance (N+1 fix)
+    sale = get_object_or_404(Sale.objects.prefetch_related('items'), pk=pk)
     
     if sale.user != request.user:
         return redirect('my_orders')
@@ -381,7 +387,8 @@ def order_detail(request, pk):
     return render(request, 'order_detail.html', context)
 
 def guest_order_track(request, token):
-    sale = get_object_or_404(Sale, access_token=token)
+    # FIX: Add prefetch_related for performance (N+1 fix)
+    sale = get_object_or_404(Sale.objects.prefetch_related('items'), access_token=token)
     
     live_status = None
     if sale.consignment_id:
@@ -451,7 +458,8 @@ def get_progress_width(status):
 
 @login_required
 def order_detail(request, pk):
-    sale = get_object_or_404(Sale, pk=pk)
+    # FIX: Add prefetch_related for performance (N+1 fix)
+    sale = get_object_or_404(Sale.objects.prefetch_related('items'), pk=pk)
     
     if sale.user != request.user:
         return redirect('my_orders')

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 import uuid
+from decimal import Decimal
 
 # Import Product from the OTHER app
 from jeba_inventory.models import Product, ProductVariation
@@ -36,6 +37,18 @@ class Sale(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING', verbose_name=_("Status"))
     created_at = models.DateTimeField(auto_now_add=True)
 
+    # NEW FIELDS: These are editable and will hold the manual value.
+    manual_subtotal = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True, blank=True, 
+        verbose_name=_("Subtotal Override"),
+        help_text=_("Manually set the subtotal. Leave blank to use sum of items.")
+    )
+    manual_total_amount = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True, blank=True, 
+        verbose_name=_("Total Amount Override"),
+        help_text=_("Manually set the final total. Leave blank to use Subtotal + Delivery Charge.")
+    )
+
     class Meta:
         db_table = 'products_sale'
 
@@ -50,14 +63,25 @@ class Sale(models.Model):
     def order_id(self):
         return f"#{self.id + 8000}"
     
+    # RENAME: Internal method to calculate the subtotal from line items (always reliable source)
     @property
-    def total_amount(self):
-        item_total = sum(item.sold_price * item.quantity for item in self.items.all())
-        return item_total + self.delivery_charge
+    def _calculated_subtotal(self):
+        return sum(item.total_price for item in self.items.all()) 
     
+    # RENAME: Internal method to calculate the total amount from line items + delivery charge
+    @property
+    def _calculated_total_amount(self):
+        return self._calculated_subtotal + self.delivery_charge
+
+    # PUBLIC ACCESSOR: Subtotal (PRIORITIZES editable field if available, else calculates)
     @property
     def subtotal(self):
-        return sum(item.sold_price * item.quantity for item in self.items.all())
+        return self.manual_subtotal if self.manual_subtotal is not None else self._calculated_subtotal
+
+    # PUBLIC ACCESSOR: Total Amount (PRIORITIZES editable field if available, else calculates)
+    @property
+    def total_amount(self):
+        return self.manual_total_amount if self.manual_total_amount is not None else self._calculated_total_amount
 
     @property
     def total_profit(self):
@@ -80,16 +104,12 @@ class SaleItem(models.Model):
         return f"{self.quantity}x {self.product.name}"
 
     @property
-    def profit(self):
-        return (self.sold_price - self.buying_cost) * self.quantity
+    def total_price(self):
+        price = self.sold_price if self.sold_price is not None else Decimal(0)
+        return price * self.quantity
 
-    def save(self, *args, **kwargs):
-        # NOTE: Logic to deduct stock should be moved to a Service or Signals. 
-        # But keeping it here for now to ensure continuity.
-        if not self.pk: 
-            if self.variation:
-                self.variation.stock_quantity -= self.quantity
-                self.variation.save()
-            self.product.stock_quantity -= self.quantity
-            self.product.save()
-        super().save(*args, **kwargs)
+    @property
+    def profit(self):
+        sold = self.sold_price if self.sold_price is not None else Decimal(0)
+        cost = self.buying_cost if self.buying_cost is not None else Decimal(0)
+        return (sold - cost) * self.quantity
