@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q, Sum, Avg, Count, Min, Max, Case, When, Value, IntegerField
 from django.http import HttpResponse
+from django.http import JsonResponse
 
 # --- MODULAR IMPORTS ---
 from jeba_inventory.models import Product, Category, Tag
@@ -288,3 +289,37 @@ def print_products_page(request):
         'all_cols': all_cols,
     }
     return render(request, 'jeba_inventory/print_page.html', context)
+
+def search_suggestions_api(request):
+    query = request.GET.get('q', '').strip()
+    suggestions = []
+
+    if query:
+        # 1. AUTOSUGGEST: User is typing (e.g., "Sam")
+        # Search active products, limit to 5
+        products = Product.objects.filter(
+            name__icontains=query, 
+            is_active=True
+        ).values('id', 'name', 'slug')[:5]
+        
+        for p in products:
+            suggestions.append({
+                'type': 'product',
+                'text': p['name'],
+                'url': f"/product/{p['slug']}/" # Adjust URL structure if needed
+            })
+    else:
+        # 2. TRENDING: User just clicked (Focus)
+        # Get top 5 most searched terms from Analytics
+        top_searches = SearchEvent.objects.values('query').annotate(
+            count=Count('query')
+        ).order_by('-count')[:5]
+        
+        for s in top_searches:
+            suggestions.append({
+                'type': 'trending',
+                'text': s['query'],
+                'url': f"/search/?q={s['query']}"
+            })
+
+    return JsonResponse({'suggestions': suggestions})

@@ -1793,3 +1793,44 @@ INFO 2025-11-27 20:03:11,951 basehttp "GET / HTTP/1.1" 200 92657
 INFO 2025-11-27 20:04:18,007 basehttp "GET / HTTP/1.1" 200 93194
 INFO 2025-11-27 20:04:37,462 basehttp "GET / HTTP/1.1" 200 91797
 INFO 2025-11-27 20:04:57,918 basehttp "GET / HTTP/1.1" 200 90017
+INFO 2025-11-27 20:05:41,857 basehttp "GET / HTTP/1.1" 200 90156
+INFO 2025-11-27 20:06:51,032 basehttp "GET / HTTP/1.1" 200 87620
+INFO 2025-11-27 20:07:00,537 basehttp "GET / HTTP/1.1" 200 93985
+INFO 2025-11-27 20:12:25,309 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-11-27 20:12:25,664 autoreload Watching for file changes with StatReloader
+INFO 2025-11-27 20:12:44,624 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-11-27 20:12:44,954 autoreload Watching for file changes with StatReloader
+INFO 2025-11-27 20:12:55,744 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-11-27 20:12:56,062 autoreload Watching for file changes with StatReloader
+INFO 2025-11-27 20:14:35,298 basehttp "GET / HTTP/1.1" 200 90596
+INFO 2025-11-27 20:14:56,768 basehttp "GET / HTTP/1.1" 200 90699
+INFO 2025-11-27 20:15:09,258 basehttp "GET / HTTP/1.1" 200 89275
+INFO 2025-11-27 20:15:58,402 basehttp "GET / HTTP/1.1" 200 91196
+INFO 2025-11-27 20:17:21,724 basehttp "GET / HTTP/1.1" 200 92968
+INFO 2025-11-27 20:17:33,370 basehttp "GET / HTTP/1.1" 200 95177
+INFO 2025-11-27 20:19:39,072 basehttp "GET / HTTP/1.1" 200 97497
+INFO 2025-11-27 20:19:55,423 basehttp "GET / HTTP/1.1" 200 95457
+WARNING 2025-11-27 20:19:55,464 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-27 20:19:55,465 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 11999
+INFO 2025-11-27 20:20:03,252 basehttp "GET / HTTP/1.1" 200 96887
+INFO 2025-11-27 20:20:33,839 basehttp "POST /add-to-cart/1468/ HTTP/1.1" 302 0
+INFO 2025-11-27 20:20:33,900 basehttp "GET /product/1468/ HTTP/1.1" 200 86171
+INFO 2025-11-27 20:20:36,686 basehttp "POST /add-to-cart/1544/ HTTP/1.1" 302 0
+INFO 2025-11-27 20:20:36,902 basehttp "GET /product/1544/ HTTP/1.1" 200 78903
+INFO 2025-11-27 20:20:37,819 basehttp "GET /cart/ HTTP/1.1" 200 45544
+INFO 2025-11-27 20:20:39,803 basehttp "GET /update-cart/1544/remove/ HTTP/1.1" 302 0
+INFO 2025-11-27 20:20:39,850 basehttp "GET /cart/ HTTP/1.1" 200 43477
+INFO 2025-11-27 20:20:41,151 basehttp "GET /update-cart/1468/remove/ HTTP/1.1" 302 0
+INFO 2025-11-27 20:20:41,189 basehttp "GET /cart/ HTTP/1.1" 200 40429
+INFO 2025-11-27 20:20:42,912 basehttp "GET / HTTP/1.1" 200 94677
+INFO 2025-11-27 20:20:47,738 basehttp "GET /product/1499/ HTTP/1.1" 200 85624
+INFO 2025-11-27 20:20:48,031 basehttp "GET /media/products/gallery/prod_1499_7.jpg HTTP/1.1" 200 20118
+INFO 2025-11-27 20:20:48,096 basehttp "GET /media/products/gallery/prod_1499_6.jpg HTTP/1.1" 200 36295
+INFO 2025-11-27 20:20:48,099 basehttp "GET /media/products/gallery/prod_1499_9.jpg HTTP/1.1" 200 24605
+INFO 2025-11-27 20:20:48,121 basehttp "GET /media/products/gallery/prod_1499_8.jpg HTTP/1.1" 200 18617
+INFO 2025-11-27 20:20:48,136 basehttp "GET /media/products/gallery/prod_1499_1.jpg HTTP/1.1" 200 18378
+INFO 2025-11-27 20:20:48,138 basehttp "GET /media/products/gallery/prod_1499_3.jpg HTTP/1.1" 200 16650
+INFO 2025-11-27 20:20:48,155 basehttp "GET /media/products/gallery/prod_1499_4.jpg HTTP/1.1" 200 14611
+INFO 2025-11-27 20:20:48,160 basehttp "GET /media/products/gallery/prod_1499_5.jpg HTTP/1.1" 200 34775
+INFO 2025-11-27 20:20:48,176 basehttp "GET /media/products/gallery/prod_1499_2.jpg HTTP/1.1" 200 18333
+INFO 2025-11-27 20:20:48,184 basehttp "GET /media/products/gallery/prod_1499_10.jpg HTTP/1.1" 200 43546
