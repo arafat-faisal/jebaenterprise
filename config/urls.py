@@ -13,7 +13,10 @@ handler500 = 'jeba_core.views.custom_500'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls")),
+    
+    # Replaced standard auth urls with our custom modular app urls
+    path("accounts/", include("jeba_accounts.urls")),
+    
     # The main router remains in products.urls
     path("", include("products.urls")),
     path('blog/', include('jeba_blog.urls')),

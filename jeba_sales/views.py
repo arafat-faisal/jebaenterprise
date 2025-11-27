@@ -180,7 +180,7 @@ def update_cart(request, item_id, action):
 
 # --- CHECKOUT & ORDERS ---
 
-@login_required
+
 def checkout(request):
     cart = request.session.get('cart', {})
     if not cart:

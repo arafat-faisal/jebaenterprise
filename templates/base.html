@@ -12,97 +12,150 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
 
         :root {
-            /* 1. The Palette from your Image */
-            --bg-body: #F3F5F9;       /* The soft background grey */
-            --bg-card: #FFFFFF;       /* Pure white cards */
-            --text-main: #1A1C1E;     /* Dark, nearly black text */
-            --text-sub: #8E94A3;      /* Soft grey text */
+            /* 1. The Palette */
+            --bg-body: #F3F5F9;       
+            --bg-card: #FFFFFF;       
+            --text-main: #1A1C1E;     
+            --text-sub: #8E94A3;      
             
-            --accent-lime: #D4F759;   /* That "View All Products" button color */
-            --accent-black: #000000;  /* For primary buttons */
+            --accent-lime: #D4F759;   
+            --accent-black: #000000;  
             
             /* 2. The Shapes */
-            --radius-xl: 28px;        /* For the big hero card */
-            --radius-lg: 20px;        /* For product cards */
-            --radius-pill: 50px;      /* For buttons/search bar */
+            --radius-xl: 28px;        
+            --radius-lg: 20px;        
+            --radius-pill: 50px;      
             
-            /* 3. The "Soft" Depth */
+            /* 3. The Depth */
             --shadow-soft: 0 10px 40px rgba(0,0,0,0.04);
             --shadow-hover: 0 15px 50px rgba(0,0,0,0.08);
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif; /* Modern geometric sans */
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
             margin: 0;
             padding: 20px;
-            /* We remove the top padding because the header will be part of the flow now */
         }
 
-        /* --- The New Floating Header --- */
-        /* --- The New Floating Header --- */
+        /* --- Site Header --- */
         .site-header {
             background-color: var(--bg-card);
-            padding: 15px 20px; /* Reduced padding */
-            border-radius: var(--radius-lg); /* Smaller radius on mobile */
+            padding: 15px 20px;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-soft);
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping for mobile */
+            flex-wrap: wrap;
             gap: 15px;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto 20px auto;
             position: relative;
+            transition: all 0.3s ease;
         }
 
         .logo {
             font-weight: 800;
-            font-size: 1.3rem; /* Slightly smaller */
+            font-size: 1.3rem;
             color: var(--text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-right: auto; /* Pushes icons to the right */
+            margin-right: auto;
         }
 
-        /* The Search Bar */
+        /* --- Search Bar --- */
         .search-container {
             flex-grow: 1;
             max-width: 500px;
             position: relative;
-            /* Mobile Default: Order 3 (Bottom) */
             order: 3; 
-            width: 100%; /* Full width on mobile */
+            width: 100%;
             margin: 0;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 55px 12px 20px; 
+            border-radius: var(--radius-pill);
+            border: 1px solid #E0E0E0;
+            background: #F8F9FB;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+            box-sizing: border-box; 
+            height: 48px;
+        }
+        .search-input:focus {
+            background: #fff;
+            border-color: var(--text-main);
+            box-shadow: 0 0 0 4px rgba(0,0,0,0.03);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 6px; 
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--text-main);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 2;
+        }
+        .search-btn svg {
+            stroke: white;
+            width: 18px;
+            height: 18px;
+        }
+        .search-btn:hover {
+            background: var(--accent-lime);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .search-btn:hover svg {
+            stroke: var(--text-main);
+        }
+
+        input[type="search"]::-webkit-search-decoration,
+        input[type="search"]::-webkit-search-cancel-button,
+        input[type="search"]::-webkit-search-results-button,
+        input[type="search"]::-webkit-search-results-decoration {
+            display: none;
         }
         
         /* Navigation */
         .nav-links {
             display: flex;
             align-items: center;
-            order: 2; /* Top Right on mobile */
+            order: 2; 
         }
 
-        /* --- DESKTOP OVERRIDES (Screens wider than 768px) --- */
-        /* --- NEW: Catalog Button Style --- */
         .catalog-btn {
             text-decoration: none;
             color: var(--text-main);
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 8px; /* Space between icon and text */
+            gap: 8px;
             padding: 8px 16px;
-            border-radius: 50px; /* Pill shape */
+            border-radius: 50px;
             background-color: transparent;
             transition: all 0.2s ease;
-            white-space: nowrap; /* Prevent text wrapping */
+            white-space: nowrap;
         }
         .catalog-btn:hover {
-            background-color: #F3F5F9; /* Light grey hover */
-            color: #3F51B5; /* Indigo text on hover */
+            background-color: #F3F5F9;
+            color: #3F51B5;
         }
 
         /* --- DESKTOP OVERRIDES --- */
@@ -112,10 +165,7 @@
                 border-radius: var(--radius-pill);
                 flex-wrap: nowrap;
             }
-            /* REDUCED MARGIN: changed from 40px to 20px to fit the new button */
             .logo { font-size: 1.5rem; margin-right: 20px; } 
-            
-            /* Add spacing after the catalog button */
             .catalog-btn { margin-right: 20px; }
 
             .search-container { 
@@ -129,36 +179,6 @@
                 order: 0; 
                 margin-left: auto; 
             }
-        }
-        .search-input {
-            width: 100%;
-            /* We combine the padding here to ensure it works */
-            padding: 12px 20px 12px 50px; /* Top Right Bottom Left */
-            border-radius: var(--radius-pill);
-            border: 1px solid #eee;
-            background: #F8F9FB;
-            font-family: inherit;
-            outline: none;
-            transition: 0.2s;
-            box-sizing: border-box; /* Ensures padding doesn't break width */
-        }
-        .search-input:focus {
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
-        }
-        /* --- FIX: Remove Default Browser "X" Button --- */
-        /* Chrome, Safari, Edge */
-        input[type="search"]::-webkit-search-decoration,
-        input[type="search"]::-webkit-search-cancel-button,
-        input[type="search"]::-webkit-search-results-button,
-        input[type="search"]::-webkit-search-results-decoration {
-            display: none;
-            -webkit-appearance: none;
-        }
-        
-        /* Firefox (rarely needed but good practice) */
-        input[type="search"] {
-            -moz-appearance: textfield;
         }
 
         .nav-links a {
@@ -178,24 +198,22 @@
             justify-content: center;
             margin-left: 10px;
             transition: 0.2s;
-            position: relative; /* <--- ADD THIS LINE */
+            position: relative; 
         }
         .nav-icon:hover {
             background: #eee;
         }
 
-        /* --- Global Layout --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: transparent; /* Remove old white box */
+            background: transparent;
             padding: 0;
             box-shadow: none;
         }
 
         h1, h2, h3 { color: var(--text-main); margin-top: 0; }
 
-        /* --- The "Lime" Button Style --- */
         .btn {
             background-color: var(--accent-lime);
             color: var(--text-main);
@@ -213,27 +231,13 @@
             opacity: 0.9;
         }
         
-        /* Footer */
         .site-footer {
             text-align: center;
             color: var(--text-sub);
             margin-top: 50px;
             padding-bottom: 20px;
         }
-        .camera-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-45%);
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .camera-icon:hover svg {
-            stroke: var(--text-main);
-        }
-        /* ... existing styles ... */
-
-        /* --- NEW: SEQUOIA FOOTER --- */
+        
         .sequoia-footer {
             background-color: var(--bg-card);
             margin-top: 80px;
@@ -247,12 +251,11 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.5fr 2fr; /* Newsletter takes less space than links */
+            grid-template-columns: 1.5fr 2fr; 
             gap: 60px;
             margin-bottom: 60px;
         }
 
-        /* Newsletter Section */
         .footer-brand h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; }
         .footer-brand p { color: var(--text-sub); margin-bottom: 25px; line-height: 1.6; max-width: 350px; }
         
@@ -282,7 +285,6 @@
         }
         .btn-subscribe:hover { transform: translateY(-2px); opacity: 0.9; }
 
-        /* Link Columns */
         .footer-links {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -300,7 +302,6 @@
         }
         .footer-link-list a:hover { color: var(--text-main); }
 
-        /* Bottom Bar */
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
@@ -314,37 +315,20 @@
         }
         .social-links a { color: var(--text-main); margin-left: 20px; text-decoration: none; }
 
-        /* Mobile Responsive */
         @media (max-width: 900px) {
             .footer-content { grid-template-columns: 1fr; gap: 40px; }
-            .footer-links { grid-template-columns: 1fr 1fr; } /* Stack differently on mobile */
+            .footer-links { grid-template-columns: 1fr 1fr; } 
             .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
             .social-links a { margin: 0 10px; }
         }
-        .delivery-card {
-            flex: 1;
-            border: 2px solid #eee;
-            border-radius: 12px;
-            padding: 15px;
-            cursor: pointer;
-            text-align: center;
-            transition: 0.2s;
-        }
-        .delivery-card:hover { border-color: #ccc; }
-        .delivery-card.selected { 
-            border-color: #1A1C1E; 
-            background-color: #F8F9FB;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        /* --- Floating Messenger Button --- */
-        /* --- Floating Messenger Button (Refined) --- */
+        
         .messenger-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #0084FF; /* Messenger Blue */
+            background-color: #0084FF; 
             color: white;
-            width: 48px; /* Smaller size (was 60px) */
+            width: 48px; 
             height: 48px;
             border-radius: 50%;
             display: flex;
@@ -352,18 +336,13 @@
             justify-content: center;
             z-index: 1000;
             text-decoration: none;
-            
-            /* Default State: Subtle & Semi-Transparent */
             opacity: 0.6;
             transform: scale(0.9);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            
-            /* Smooth "Sweet" Animation */
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
         }
 
         .messenger-float:hover {
-            /* Hover State: Big, Vibrant & Glowing */
             opacity: 1;
             transform: scale(1.15) translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 132, 255, 0.5);
@@ -377,88 +356,115 @@
         }
         
         .messenger-float:hover .messenger-icon {
-            transform: rotate(-10deg); /* Playful tilt on hover */
+            transform: rotate(-10deg); 
         }
 
-        /* --- MOBILE HEADER CONSOLIDATION --- */
+        /* --- SMARTCODER: DYNAMIC MOBILE HEADER (Perfect Fit) --- */
         @media (max-width: 768px) {
-            /* GLOBAL FIX: Remove padding from the body element */
-            /* Tighten up icon spacing */
-            .nav-links a {
-                margin-left: 8px; 
-            }
-
-            /* Global Body Padding Fix */
-            body {
-                padding: 0 !important;
-            }
-            /* FIX: Full Bleed Header (Navbar) */
-            /* Global Site Header Adjustments (from previous fix) */
+            body { padding: 0 !important; padding-bottom: 80px !important; }
+            
+            /* 1. Header Layout */
             .site-header {
-                padding: 10px 15px !important;
+                padding: 10px 10px !important;
                 max-width: 100% !important; 
                 margin: 0 !important; 
                 border-radius: 0 !important;
-                box-shadow: none !important;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
+                background: #fff;
+                display: flex;
+                flex-wrap: nowrap !important;
+                align-items: center;
+                justify-content: space-between;
+                gap: 5px; /* The gap caused the overflow before */
             }
-            .container {
-                max-width: 100% !important;
-                padding: 20px 15px !important; /* Add internal padding to content */
-            }
-            .catalog-btn {
-                display: none; /* Keep 'All Products' link hidden on mobile */
-            }
-            /* FIX: Ensure Footer is flush */
-            .sequoia-footer {
-                border-radius: 0 !important; /* Remove top rounding */
-                padding: 40px 15px 20px !important; /* Adjust internal padding */
-            }
-            .search-container {
-                /* Ensures search bar always wraps to the next line and takes full width */
-                order: 3;
-                width: 100% !important; 
-                max-width: 100% !important;
-            }
-            .nav-links {
-                /* CRITICAL FIX: Pushes icons to the far right */
-                margin-left: auto !important; 
-                order: 2; 
-                flex-shrink: 0; /* Prevents icons from shrinking */
-            }
-            /* Logo and Icons must be order 1 and 2 to stay on top */
-            .logo {
-                margin-right: 0 !important; /* Remove auto-margin to control flow */
-                flex-shrink: 0; /* Prevents logo image from shrinking */
-            }
-            /* The search bar should still wrap below (order: 3) */
-        }
 
+            /* 2. Logo - Fixed 20% */
+            .logo {
+                width: 20%; 
+                margin: 0 !important;
+                flex-shrink: 0;
+                overflow: hidden;
+                /* SPEED CONTROL: Change 0.25s to make it faster/slower */
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
+                opacity: 1;
+                display: flex;
+                justify-content: center;
+            }
+            .logo img {
+                max-height: 50px !important; 
+                width: auto;
+                max-width: 100%;
+                object-fit: contain;
+            }
+
+            /* 3. Catalog Button - Fixed 20% */
+            .catalog-btn {
+                display: flex !important;
+                width: 20%;
+                margin: 0 !important;
+                padding: 6px 2px !important;
+                font-size: 10px !important;
+                line-height: 1.2;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                justify-content: center;
+                align-items: center;
+                background: #F3F5F9;
+                flex-shrink: 0;
+                border-radius: 8px !important;
+                /* SPEED CONTROL */
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                opacity: 1;
+                gap: 2px;
+            }
+            .catalog-btn svg { 
+                width: 14px; height: 14px; flex-shrink: 0; margin: 0; 
+            }
+
+            /* 4. Search Bar - SMART FILL (Fixes Overflow) */
+            .search-container {
+                /* Changed from width: 60% to flex: 1 to absorb gap space automatically */
+                flex: 1; 
+                margin: 0;
+                min-width: 0; /* Prevents flexbox overflow */
+                /* SPEED CONTROL: Match this with others */
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .search-input {
+                padding-left: 12px;
+                padding-right: 35px;
+                height: 38px;
+                border-radius: 50px;
+                font-size: 16px; 
+                width: 100%; /* Ensure input fills the flex container */
+            }
+            .search-btn {
+                width: 28px; height: 28px; right: 5px;
+            }
+            
+            /* --- EXPANSION MAGIC --- */
+            body.search-active .logo {
+                width: 0 !important; opacity: 0; margin: 0 !important; padding: 0 !important;
+            }
+            body.search-active .catalog-btn {
+                width: 0 !important; padding: 0 !important; opacity: 0; margin: 0 !important; border: none;
+            }
+            body.search-active .search-container {
+                width: 100% !important; /* Force full width on active */
+            }
+
+            .nav-links { display: none !important; }
+            .container { max-width: 100% !important; padding: 20px 15px !important; }
+            .sequoia-footer { border-radius: 0 !important; padding: 40px 15px 20px !important; }
+            .messenger-float { bottom: 85px !important; width: 45px; height: 45px; right: 20px; }
+        }
     </style>
+    
     <style>
-        /* --- NEW: Search Button Style (Replacing Search Icon) --- */
-        .search-btn {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 2;
-            padding: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .search-btn:hover svg {
-            stroke: var(--text-main);
-        }
-        .search-input {
-            padding-left: 45px; /* Make room for the icon/button */
-        }
-        /* --- SMARTCODER: Mobile Sticky Bottom Menu --- */
+        /* Mobile Sticky Bottom Menu */
         .mobile-bottom-nav {
-            display: none; /* Hidden by default (Desktop) */
+            display: none; 
             position: fixed;
             bottom: 0;
             left: 0;
@@ -470,7 +476,7 @@
             justify-content: space-around;
             align-items: center;
             padding: 10px 0;
-            height: 60px; /* Fixed height for calculations */
+            height: 60px; 
         }
 
         .bottom-nav-item {
@@ -483,7 +489,7 @@
             font-weight: 600;
             gap: 4px;
             position: relative;
-            width: 20%; /* Equal width distribution */
+            width: 20%; 
             transition: color 0.2s;
         }
 
@@ -501,7 +507,7 @@
         .cart-badge-mobile {
             position: absolute;
             top: -2px;
-            right: 25%; /* Center-ish relative to icon */
+            right: 25%; 
             width: 8px;
             height: 8px;
             background: var(--accent-lime);
@@ -509,34 +515,16 @@
             border-radius: 50%;
         }
 
-        /* Mobile Specific Overrides */
         @media (max-width: 768px) {
             .mobile-bottom-nav {
                 display: flex;
-                padding-bottom: env(safe-area-inset-bottom); /* iOS Safe Area */
+                padding-bottom: env(safe-area-inset-bottom);
             }
-            
-            /* Push content up so it's not hidden behind the menu */
-            body {
-                padding-bottom: 80px !important;
-            }
-            
-            /* Move the Sequoia Footer up visually if needed, or just let body padding handle it */
-            
-            /* Move Floating Messenger Icon UP so it doesn't overlap menu */
-            .messenger-float {
-                bottom: 85px !important; 
-                width: 45px;
-                height: 45px;
-                right: 20px;
-            }
+            body { padding-bottom: 80px !important; }
         }
-        /* SMARTCODER FIX: Force hide the floating cart on Desktop */
-    @media (min-width: 769px) {
-        .mobile-bottom-nav {
-            display: none !important;
+        @media (min-width: 769px) {
+            .mobile-bottom-nav { display: none !important; }
         }
-    }
     </style>
     <link rel="icon" href="/media/logo.svg" type="image/svg+xml">
     <title>{% block title %}Jeba Enterprise{% endblock %}</title>
@@ -551,7 +539,6 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         
-        // Init with Dynamic ID
         fbq('init', '{{ site_settings.meta_pixel_id }}');
         fbq('track', 'PageView');
     </script>
@@ -571,24 +558,19 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
             All Products
         </a>
-        <form method="GET" action="{% url 'search' %}" class="search-container" id="search-form" enctype="multipart/form-data">
-            
-            <button type="submit" class="search-btn" title="Search">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8E94A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            </button>
-            
+        
+        <form method="GET" action="{% url 'search' %}" class="search-container">
             <input type="search" name="q" placeholder="Search products..." class="search-input" value="{{ request.GET.q|default:'' }}">
-            
-            <label for="image-upload" class="camera-icon" title="Search by Image">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8E94A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            </label>
-            <input type="file" name="image" id="image-upload" style="display: none;" accept="image/*">
+            <button type="submit" class="search-btn" title="Search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
         </form>
         
         <nav class="nav-links">
-            <a href="{% url 'blog_list' %}" style="margin-right: 15px;">Blog</a>
             {% if user.is_authenticated %}
-                {# --- NEW ADMIN BUTTON --- #}
                 {% if user.is_superuser %}
                     <a href="/admin/" target="_blank" style="color: #212121; background-color: var(--accent-lime); padding: 8px 15px; border-radius: 4px; font-weight: bold; display: inline-flex; align-items: center; gap: 7px;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -600,15 +582,12 @@
                         Admin Panel
                     </a>
                 {% endif %}
-                {# --- END NEW BUTTON --- #}
-                {# --- 2. NEW: DASHBOARD ICON (User Profile) --- #}
                 <a href="{% url 'user_dashboard' %}" class="nav-icon" title="My Dashboard">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                 </a>
-
                 <a href="{% url 'my_orders' %}" class="nav-icon" title="My Orders">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                 </a>
@@ -659,11 +638,9 @@
 
     <footer class="sequoia-footer">
         <div class="footer-content">
-            
             <div class="footer-brand">
                 <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 35px; margin-bottom: 5px;">
                 <p>Making modern lifestyle products accessible to everyone. Join our newsletter for exclusive offers.</p>
-                
                 <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
                     <input type="email" class="newsletter-input" placeholder="Enter your email" required>
                     <button type="submit" class="btn-subscribe">Join</button>
@@ -692,8 +669,10 @@
                 <div>
                     <div class="col-title">Company</div>
                     <ul class="footer-link-list">
-                        <li><a href="{% url 'about_us' %}">About Us</a></li> <li><a href="#">Careers</a></li>
-                        <li><a href="{% url 'contact_us' %}">Contact</a></li> </ul>
+                        <li><a href="{% url 'blog_list' %}">Our Blog</a></li>
+                        <li><a href="{% url 'about_us' %}">About Us</a></li> 
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="{% url 'contact_us' %}">Contact</a></li> 
                     </ul>
                 </div>
             </div>
@@ -715,19 +694,13 @@
 
         <script>
             function playPopSound() {
-                // A short "Pop" sound encoded in Base64 (No external file needed)
-                const audio = new Audio("data:audio/wav;base64,UklGRl9vT1BXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU");
-                // Note: The above string is shortened for brevity. 
-                // Let's use a real hosted URL or a proper short generated beep to be safe.
-                
-                // ALTERNATIVE: Create a pleasant "beep" using pure JavaScript (No download needed)
                 const ctx = new (window.AudioContext || window.webkitAudioContext)();
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
 
-                osc.type = 'sine'; // Smooth sine wave
-                osc.frequency.setValueAtTime(800, ctx.currentTime); // Start at 800Hz
-                osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.1); // Drop quickly (Pop effect)
+                osc.type = 'sine'; 
+                osc.frequency.setValueAtTime(800, ctx.currentTime); 
+                osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.1); 
                 
                 gain.gain.setValueAtTime(0.1, ctx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
@@ -741,44 +714,61 @@
         </script>
     {% endif %}
     <script>
-        document.getElementById('image-upload').addEventListener('change', function() {
-            if (this.files && this.files[0]) {
-                // Change form method to POST for file upload
-                const form = document.getElementById('search-form');
-                form.method = 'POST'; 
-                // We also need to change the encoding type dynamically
-                form.enctype = 'multipart/form-data';
-                
-                // Add CSRF token if not present (Django needs this for POST)
-                if (!form.querySelector('[name=csrfmiddlewaretoken]')) {
-                    const csrfInput = document.createElement('input');
-                    csrfInput.type = 'hidden';
-                    csrfInput.name = 'csrfmiddlewaretoken';
-                    csrfInput.value = '{{ csrf_token }}';
-                    form.appendChild(csrfInput);
-                }
-                
-                form.submit();
-            }
-        });
-    </script>
-    <script>
         document.addEventListener('submit', function(e) {
             const form = e.target;
             const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
-            
             if (submitBtn) {
-                // Change text to "Processing..."
                 const originalText = submitBtn.innerText;
                 submitBtn.innerText = "Processing...";
                 submitBtn.style.opacity = "0.7";
                 submitBtn.style.cursor = "not-allowed";
-                
-                // Disable the button to prevent double-clicks
-                // We use a tiny timeout to allow the form data to actually submit first
-                setTimeout(() => {
-                    submitBtn.disabled = true;
-                }, 10);
+                setTimeout(() => { submitBtn.disabled = true; }, 10);
+            }
+        });
+
+        // --- SMARTCODER: Glitch-Free Search Expansion ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.search-input');
+            const body = document.body;
+            let isKeyboardOpening = false; // The magic flag
+
+            if(searchInput) {
+                // 1. Expand on Focus (Tap)
+                searchInput.addEventListener('focus', () => {
+                    if(window.innerWidth < 769) {
+                        body.classList.add('search-active');
+                        
+                        // FIX: Mark keyboard as "opening" for 500ms.
+                        // This tells the resize listener to IGNORE any screen resizing 
+                        // that happens while the keyboard is sliding up.
+                        isKeyboardOpening = true;
+                        setTimeout(() => {
+                            isKeyboardOpening = false;
+                        }, 500);
+                    }
+                });
+
+                // 2. Collapse on Blur (Clicking away)
+                searchInput.addEventListener('blur', () => {
+                    setTimeout(() => {
+                        body.classList.remove('search-active');
+                    }, 200);
+                });
+
+                // 3. Auto-Collapse when Keyboard is Hidden
+                if (window.visualViewport) {
+                    window.visualViewport.addEventListener('resize', () => {
+                        // Only run if search is active AND keyboard is done opening
+                        if (window.innerWidth < 769 && body.classList.contains('search-active') && !isKeyboardOpening) {
+                            
+                            // If height is > 85% of screen, keyboard is gone.
+                            // We blur the input, which triggers the collapse logic above.
+                            if (window.visualViewport.height > window.innerHeight * 0.85) {
+                                searchInput.blur(); 
+                            }
+                        }
+                    });
+                }
             }
         });
     </script>

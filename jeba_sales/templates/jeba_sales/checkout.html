@@ -10,8 +10,8 @@
         display: grid;
         grid-template-columns: 1.3fr 0.9fr; /* More space for form */
         gap: 40px;
-        align-items: start;
-        /* Removed padding-bottom here, using dedicated spacer instead */
+        /* FIXED: Removed 'align-items: start' so columns stretch. 
+           This allows the sticky sidebar to have a track to float on. */
     }
     
     /* --- LEFT: FORM STYLES --- */
@@ -21,7 +21,7 @@
         border-radius: var(--radius-xl);
         box-shadow: var(--shadow-soft);
         border: 1px solid transparent;
-        margin-bottom: 25px; /* Ensure spacing between cards */
+        margin-bottom: 25px; 
     }
     
     .section-title {
@@ -44,11 +44,12 @@
         font-size: 0.9rem; 
     }
     
+    /* Input Styling */
     .form-control { 
         width: 100%; 
-        padding: 14px 20px; /* Larger touch target */
+        padding: 14px 20px; 
         border: 1px solid #ddd; 
-        border-radius: 50px; /* Pill shape matching site */
+        border-radius: 50px; 
         background: #F8F9FB; 
         box-sizing: border-box; 
         font-family: inherit;
@@ -62,9 +63,22 @@
         outline: none;
     }
     textarea.form-control {
-        border-radius: 20px; /* Standard radius for text area */
+        border-radius: 20px; 
         resize: vertical;
         min-height: 80px;
+    }
+
+    /* Error Styling */
+    .error-msg {
+        color: #d32f2f;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        font-weight: 600;
+        display: block;
+    }
+    .form-control.is-invalid {
+        border-color: #d32f2f;
+        background-color: #fff8f8;
     }
 
     /* --- SELECTION CARDS (Radio Replacements) --- */
@@ -136,7 +150,7 @@
         box-shadow: var(--shadow-soft);
         border: 1px solid #eee;
         position: sticky;
-        top: 100px; /* Sticky on Desktop */
+        top: 20px; /* Reduced top spacing for better sticky fit */
     }
     
     .order-item {
@@ -148,25 +162,24 @@
         align-items: center;
     }
     
-    /* Thumbnail Styles */
     .item-thumb-container {
         width: 60px;
         height: 60px;
         border-radius: 8px;
         overflow: hidden;
         background: #f0f0f0;
-        flex-shrink: 0; /* Prevent squashing */
+        flex-shrink: 0; 
         border: 1px solid #eee;
     }
     .item-thumb {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* Ensure entire image is visible */
+        object-fit: contain; 
         mix-blend-mode: multiply;
         display: block;
     }
     
-    .item-info { flex-grow: 1; min-width: 0; /* Allow text truncate */ }
+    .item-info { flex-grow: 1; min-width: 0; }
     .item-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; display: block; line-height: 1.3; }
     .item-meta { font-size: 0.85rem; color: var(--text-sub); }
     
@@ -210,7 +223,7 @@
         background: white;
         padding: 15px 20px;
         box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
-        z-index: 9999; /* Above global nav */
+        z-index: 9999; 
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -232,10 +245,7 @@
         cursor: pointer;
     }
 
-    /* --- FIX 2: Mobile Spacer & bKash Visibility --- */
-    .mobile-spacer {
-        height: 0;
-    }
+    .mobile-spacer { height: 0; }
     
     .bkash-box {
         display: none; 
@@ -247,27 +257,20 @@
         width: 100%;
         box-sizing: border-box;
     }
-    /* UPDATED: Better Instructions */
+    
     .bkash-instructions {
         margin-bottom: 15px;
         font-size: 0.95rem;
         color: #333;
     }
-    .bkash-instructions ol {
-        padding-left: 20px;
-        margin: 10px 0;
-    }
-    .bkash-instructions li {
-        margin-bottom: 8px;
-    }
+    .bkash-instructions ol { padding-left: 20px; margin: 10px 0; }
+    .bkash-instructions li { margin-bottom: 8px; }
 
     /* --- RESPONSIVE --- */
     @media (max-width: 900px) {
         .checkout-grid { grid-template-columns: 1fr; gap: 20px; }
         .summary-card { position: static; order: -1; margin-bottom: 20px; }
         .btn-checkout.desktop-only { display: none; }
-        
-        /* Ensure content isn't hidden behind sticky bar */
         .mobile-spacer { height: 100px; } 
     }
     @media (min-width: 901px) {
@@ -300,7 +303,15 @@
         </div>
     {% endif %}
 
-    <form method="POST" action="" id="checkout-form" class="checkout-grid">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" style="padding: 15px; margin-bottom: 20px; border-radius: 8px; background: #ffebee; color: #c62828;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" action="" id="checkout-form" class="checkout-grid" novalidate>
         {% csrf_token %}
         
         <div class="left-col">
@@ -312,33 +323,40 @@
                 
                 <div class="form-group">
                     <label>Full Name <span style="color:red">*</span></label>
-                    <input type="text" name="customer_name" class="form-control" required 
-                           value="{{ user.first_name }} {{ user.last_name }}" placeholder="Enter your name">
+                    {{ form.customer_name }}
+                    {% if form.customer_name.errors %}
+                        <div class="error-msg">{{ form.customer_name.errors.0 }}</div>
+                    {% endif %}
                 </div>
                 
                 <div class="form-group">
                     <label>Phone Number <span style="color:red">*</span></label>
-                    <input type="tel" name="phone_number" class="form-control" required 
-                           pattern="^01[3-9]\d{8}$" 
-                           title="Please enter a valid 11-digit Bangladeshi mobile number (e.g., 017XXXXXXXX)"
-                           value="{{ user.userprofile.phone_number }}" placeholder="017XXXXXXXX">
+                    {{ form.phone_number }}
+                    {% if form.phone_number.errors %}
+                        <div class="error-msg">{{ form.phone_number.errors.0 }}</div>
+                    {% endif %}
                 </div>
                 
                 <div class="form-group">
                     <label>Detailed Address <span style="color:red">*</span></label>
-                    <textarea name="shipping_address" class="form-control" required placeholder="House, Road, Area, City">{{ user.userprofile.address }}</textarea>
+                    {{ form.shipping_address }}
+                    {% if form.shipping_address.errors %}
+                        <div class="error-msg">{{ form.shipping_address.errors.0 }}</div>
+                    {% endif %}
                 </div>
             </div>
 
             <div class="checkout-card">
                 <div class="section-title">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 14"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                    Delivery Area
+                    Delivery Area <span style="color:red; margin-left:5px;">*</span>
                 </div>
                 
                 <div class="selection-grid">
                     <div class="selection-card">
-                        <input type="radio" name="delivery_area" id="area_inside" value="INSIDE" checked onchange="updateTotal('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}')">
+                        <input type="radio" name="delivery_area" id="area_inside" value="INSIDE" required 
+                               {% if form.delivery_area.value == 'INSIDE' %}checked{% endif %}
+                               onchange="updateTotal('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}')">
                         <label class="selection-label" for="area_inside">
                             <div style="display:flex; align-items:center;">
                                 <span class="radio-circle"></span> Inside Dhaka
@@ -348,7 +366,9 @@
                     </div>
                     
                     <div class="selection-card">
-                        <input type="radio" name="delivery_area" id="area_outside" value="OUTSIDE" onchange="updateTotal('OUTSIDE', '{{ settings.delivery_charge_outside|default:120 }}')">
+                        <input type="radio" name="delivery_area" id="area_outside" value="OUTSIDE" required 
+                               {% if form.delivery_area.value == 'OUTSIDE' %}checked{% endif %}
+                               onchange="updateTotal('OUTSIDE', '{{ settings.delivery_charge_outside|default:120 }}')">
                         <label class="selection-label" for="area_outside">
                             <div style="display:flex; align-items:center;">
                                 <span class="radio-circle"></span> Outside Dhaka
@@ -357,6 +377,13 @@
                         </label>
                     </div>
                 </div>
+                {% if form.delivery_area.errors %}
+                    <div class="error-msg">{{ form.delivery_area.errors.0 }}</div>
+                {% else %}
+                    <small style="color: var(--text-sub); display: block; margin-top: 10px;">
+                        Please select your delivery area to calculate shipping.
+                    </small>
+                {% endif %}
             </div>
 
             <div class="checkout-card">
@@ -367,7 +394,9 @@
                 
                 <div class="selection-grid">
                     <div class="selection-card">
-                        <input type="radio" name="payment_method" id="pay_cod" value="COD" checked onclick="togglePayment('COD')">
+                        <input type="radio" name="payment_method" id="pay_cod" value="COD" 
+                               {% if form.payment_method.value == 'COD' or not form.payment_method.value %}checked{% endif %}
+                               onclick="togglePayment('COD')">
                         <label class="selection-label" for="pay_cod">
                             <div style="display:flex; align-items:center;">
                                 <span class="radio-circle"></span> Cash on Delivery
@@ -377,7 +406,9 @@
                     </div>
                     
                     <div class="selection-card">
-                        <input type="radio" name="payment_method" id="pay_bkash" value="BKASH" onclick="togglePayment('BKASH')">
+                        <input type="radio" name="payment_method" id="pay_bkash" value="BKASH" 
+                               {% if form.payment_method.value == 'BKASH' %}checked{% endif %}
+                               onclick="togglePayment('BKASH')">
                         <label class="selection-label" for="pay_bkash">
                             <div style="display:flex; align-items:center;">
                                 <span class="radio-circle"></span> bKash Payment
@@ -387,7 +418,7 @@
                     </div>
                 </div>
 
-                <div id="bkash-section" class="bkash-box">
+                <div id="bkash-section" class="bkash-box" {% if form.payment_method.value == 'BKASH' %}style="display:block;"{% endif %}>
                     <div class="bkash-instructions">
                         <h4 style="margin-top:0; color:#D81B60;">How to Pay with bKash:</h4>
                         <ol>
@@ -402,8 +433,18 @@
                     </div>
                     <div class="form-group" style="margin-bottom: 0;">
                         <label>Transaction ID (TrxID) <span style="color:red">*</span></label>
-                        <input type="text" name="transaction_id" id="trx_id_input" class="form-control" placeholder="e.g. 8JHS72...">
+                        
+                        <input type="text" 
+                               name="transaction_id" 
+                               id="id_transaction_id" 
+                               class="form-control" 
+                               placeholder="e.g. 9G7H6K" 
+                               value="{{ form.transaction_id.value|default:'' }}">
+                               
                         <small style="color: #666;">This field is required for bKash payment</small>
+                        {% if form.transaction_id.errors %}
+                            <div class="error-msg">{{ form.transaction_id.errors.0 }}</div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -444,7 +485,7 @@
                 </div>
                 <div class="cost-row">
                     <span>Delivery</span>
-                    <span id="delivery-display">৳0</span>
+                    <span id="delivery-display">--</span> 
                 </div>
                 <div class="cost-row total">
                     <span>Total</span>
@@ -472,44 +513,43 @@
 
     <script>
         let baseTotal = parseFloat("{{ total_price }}");
+        let initialDeliveryArea = "{{ form.delivery_area.value|default:'' }}";
 
         function updateTotal(area, cost) {
             let deliveryCost = parseFloat(cost);
             let grandTotal = baseTotal + deliveryCost;
 
-            // Update Desktop Summary
             document.getElementById('delivery-display').innerText = '৳' + deliveryCost;
             document.getElementById('grand-total-display').innerText = '৳' + grandTotal;
-            
-            // Update Mobile Sticky Bar
             document.getElementById('sticky-total-display').innerText = '৳' + grandTotal;
             
-            // Update bKash Amount Instruction
             const bkashDisplay = document.getElementById('bkash-amount-display');
             if(bkashDisplay) bkashDisplay.innerText = grandTotal;
         }
 
         function togglePayment(method) {
             const bkashSection = document.getElementById('bkash-section');
-            const trxInput = document.getElementById('trx_id_input');
+            const trxInput = document.getElementById('id_transaction_id'); 
             
             if (method === 'BKASH') {
                 bkashSection.style.display = 'block';
-                trxInput.required = true; // SMARTCODER: Make TrxID mandatory
+                if(trxInput) trxInput.required = true; 
             } else {
                 bkashSection.style.display = 'none';
-                trxInput.required = false; // Not mandatory for COD
-                trxInput.value = ''; // Clear it
+                if(trxInput) {
+                    trxInput.required = false; 
+                    trxInput.value = ''; 
+                }
             }
         }
 
-        // --- INITIALIZATION ON LOAD ---
         document.addEventListener('DOMContentLoaded', function() {
-            // Default to Inside Dhaka
-            const insideCost = parseFloat('{{ settings.delivery_charge_inside|default:60 }}') || 60;
-            updateTotal('INSIDE', insideCost);
-            
-            // Auto-hide global nav on mobile to prevent double bars
+            if (initialDeliveryArea === 'INSIDE') {
+                updateTotal('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}');
+            } else if (initialDeliveryArea === 'OUTSIDE') {
+                updateTotal('OUTSIDE', '{{ settings.delivery_charge_outside|default:120 }}');
+            }
+
             const globalNav = document.querySelector('.mobile-bottom-nav');
             if(globalNav && window.innerWidth < 900) {
                 globalNav.style.display = 'none';
@@ -528,7 +568,6 @@
 
 {% if site_settings.meta_pixel_id %}
 <script>
-    // Track InitiateCheckout
     var raw_ids = "{% for item in cart_items %}{{ item.product_id }},{% endfor %}";
     var content_ids = raw_ids.split(',').filter(el => el.length > 0);
 

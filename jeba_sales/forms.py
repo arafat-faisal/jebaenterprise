@@ -3,14 +3,33 @@ from django.core.validators import RegexValidator
 from jeba_sales.models import Sale
 
 class CheckoutForm(forms.ModelForm):
+    # --- Enforce Required Fields ---
+    customer_name = forms.CharField(
+        required=True,
+        label="Full Name",
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your full name'})
+    )
+    phone_number = forms.CharField(
+        required=True,
+        label="Phone Number",
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your phone number'})
+    )
+    shipping_address = forms.CharField(
+        required=True,
+        label="Shipping Address",
+        widget=forms.Textarea(attrs={'rows': 3, 'class': 'form-control', 'placeholder': 'Enter full address'})
+    )
+    # -------------------------------
+
     DELIVERY_OPTIONS = [
         ('INSIDE', 'Inside Dhaka (৳60)'),
         ('OUTSIDE', 'Outside Dhaka (৳120)'),
     ]
+    
+    # MODIFIED: Removed initial='INSIDE' to force user selection
     delivery_area = forms.ChoiceField(
         choices=DELIVERY_OPTIONS, 
         widget=forms.RadioSelect(attrs={'class': 'delivery-radio'}),
-        initial='INSIDE',
         label="Delivery Area"
     )
 
@@ -35,12 +54,7 @@ class CheckoutForm(forms.ModelForm):
 
     class Meta:
         model = Sale
-        fields = ['customer_name', 'phone_number', 'shipping_address', 'payment_method', 'transaction_id']
-        widgets = {
-            'shipping_address': forms.Textarea(attrs={'rows': 3, 'class': 'form-control'}),
-            'customer_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
-        }
+        fields = ['customer_name', 'phone_number', 'shipping_address', 'payment_method', 'transaction_id', 'delivery_area']
 
     def clean(self):
         cleaned_data = super().clean()
