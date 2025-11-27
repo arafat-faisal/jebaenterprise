@@ -220,8 +220,11 @@ class ProductEventAdmin(admin.ModelAdmin):
     search_fields = ('product__name', 'session_id')
     
     def user_or_guest(self, obj):
-        if obj.user: return obj.user.username
-        return f"Guest ({obj.session_id[:8]}...)"
+        if obj.user:
+            return obj.user.username
+        if obj.session_id:
+            return f"Guest ({obj.session_id[:8]}...)"
+        return "Guest (No Session ID)"
     user_or_guest.short_description = "User"
 
     def price_captured(self, obj):
