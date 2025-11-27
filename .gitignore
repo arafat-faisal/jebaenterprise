@@ -21,6 +21,7 @@ media/temp/
 # Database (only if using local SQLite, which your file list suggests)
 db.sqlite3
 staticfiles/
+sessions/
 
 # Editor/OS Files
 .idea/
