@@ -1,3 +1,7 @@
+# Django / Python generated files
+__pycache__/
+*.pyc
+
 # Environment
 .env
 venv/
@@ -13,3 +17,12 @@ media/products/gallery/*
 media/products/
 media/temp/
 *.log
+
+# Database (only if using local SQLite, which your file list suggests)
+db.sqlite3
+staticfiles/
+
+# Editor/OS Files
+.idea/
+.vscode/
+.DS_Store
