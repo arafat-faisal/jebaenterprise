@@ -1,85 +1,95 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
 
 <style>
-    /* --- DESKTOP DEFAULTS --- */
+    /* --- CORE VARIABLES --- */
+    :root {
+        --gap-md: 20px;
+        --gap-lg: 40px;
+        --radius-std: 12px;
+        --radius-pill: 50px;
+        --color-gold: #FFC107;
+        --color-success: #2e7d32;
+        --color-danger: #c62828;
+        --color-bg-light: #F8F9FB;
+        --bottom-nav-height: 70px; /* Aligns with base.html bottom nav */
+        --sticky-bar-height: 70px;
+    }
+
+    /* Prevent Horizontal Scroll on Mobile */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* --- LAYOUT GRID (Desktop) --- */
     .product-container {
         background: var(--bg-card);
         border-radius: var(--radius-xl);
         box-shadow: var(--shadow-soft);
         padding: 40px;
         display: grid;
-        grid-template-columns: 1.2fr 1fr;
+        grid-template-columns: 1.2fr 1fr; /* Gallery vs Details */
         gap: 60px;
         margin-bottom: 40px;
         width: 100%;
-        box-sizing: border-box;
-        overflow: hidden;
+        box-sizing: border-box; /* Critical for sizing */
     }
 
-    /* Gallery Layout */
+    /* --- 1. GALLERY STYLES --- */
     .gallery-wrapper {
         display: flex;
-        flex-direction: row; 
         gap: 20px;
-        width: 100%;
-        height: 450px; 
+        height: 500px;
+        position: relative;
+        max-width: 100%;
     }
-    
-    /* Vertical Scrollable Strip */
+
     .thumbnail-list {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        overflow-y: auto;
-        height: 100%;
         width: 80px;
-        padding-right: 5px;
-        scrollbar-width: none; 
-        flex-shrink: 0;
+        height: 100%;
+        overflow-y: auto;
+        scrollbar-width: none;
     }
     .thumbnail-list::-webkit-scrollbar { display: none; }
 
     .thumb-btn {
         width: 70px;
         height: 70px;
-        border-radius: 12px;
+        border-radius: var(--radius-std);
         background: #fff;
         border: 2px solid transparent;
         cursor: pointer;
-        padding: 5px;
-        transition: 0.2s;
-        box-shadow: var(--shadow-soft);
-        flex-shrink: 0; 
+        padding: 4px;
         opacity: 0.7;
+        transition: all 0.2s;
+        box-shadow: var(--shadow-soft);
+        flex-shrink: 0;
     }
-    .thumb-btn:hover {
+    .thumb-btn.active, .thumb-btn:hover {
         opacity: 1;
-        transform: translateY(-2px);
-    }
-    .thumb-btn.active { 
-        border-color: #3F51B5; /* Active Color */
-        opacity: 1;
-        transform: scale(0.95); /* Slight inset effect */
-        box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.1); /* Soft glow */
+        border-color: #3F51B5;
+        transform: scale(0.98);
     }
     .thumb-btn img { width: 100%; height: 100%; object-fit: contain; }
 
-    /* Main Image Box */
     .main-image-box {
-        background: #F8F9FB;
+        background: var(--color-bg-light);
         border-radius: var(--radius-lg);
-        height: 100%; 
-        flex-grow: 1; 
+        flex-grow: 1;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        position: relative; /* Required for absolute positioning of buttons */
-        cursor: zoom-in; 
+        position: relative;
+        cursor: zoom-in;
     }
     .main-image-box img {
         max-width: 95%;
@@ -89,335 +99,569 @@
         transition: transform 0.3s ease;
     }
 
-    /* Image Navigation Buttons */
-    .img-nav-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.8);
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
+    .mobile-dots { display: none; }
+
+    /* --- 2. DETAILS & TYPOGRAPHY --- */
+    .product-details { display: flex; flex-direction: column;}
+    
+    .breadcrumbs { 
+        font-size: 0.9rem; 
+        color: var(--text-sub); 
+        margin-bottom: 15px; 
+        font-weight: 500; 
+    }
+
+    .product-title-lg { 
+        font-size: 2.2rem; 
+        font-weight: 800; 
+        line-height: 1.2; 
+        margin: 0 0 10px 0; 
+        color: var(--text-main);
+    }
+
+    .rating-row { 
+        display: flex; 
+        align-items: center; 
+        gap: 8px; 
+        margin-bottom: 15px; 
+        font-size: 0.95rem; 
+        color: var(--text-sub); 
+    }
+    .star-gold { color: var(--color-gold); }
+
+    .price-wrapper {
         display: flex;
         align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        transition: background 0.2s, opacity 0.2s;
-        z-index: 5;
-        opacity: 0; /* Hidden by default on desktop */
-    }
-    .main-image-box:hover .img-nav-btn { opacity: 1; }
-    .img-nav-prev { left: 10px; }
-    .img-nav-next { right: 10px; }
-    .img-nav-btn:hover { background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-
-    /* Right: Info & Layout Basics */
-    .product-details { display: flex; flex-direction: column; width: 100%; }
-    .breadcrumbs { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 15px; font-weight: 600; }
-    .product-title-lg { font-size: 2.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 10px; letter-spacing: -0.02em; word-wrap: break-word; }
-    
-    /* UPDATED RATING ROW STYLE */
-    .rating-row { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; font-size: 0.95rem; color: var(--text-sub); flex-wrap: wrap; }
-    .star-gold { color: #FFC107; }
-    .star-grey { color: #e0e0e0; }
-
-    .price-tag { font-size: 2rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-
-    /* Form Elements */
-    .form-group { margin-bottom: 25px; }
-    .form-label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 10px; color: var(--text-sub); }
-    .custom-select { width: 100%; padding: 15px 20px; border-radius: 50px; border: 1px solid #eee; background: #F8F9FB; font-weight: 600; font-size: 1rem; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231A1C1E%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 20px center; background-size: 12px; }
-    
-    /* Action Row Layout */
-    .action-row {
-        display: flex;
         gap: 15px;
-        align-items: center;
-        margin-top: 25px;
-    }
-    .quantity-input {
-        width: 60px;
-        padding: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        text-align: center;
-        font-size: 1rem;
-        height: 48px;
-        box-sizing: border-box;
-    }
-    .btn-add-cart, .btn-buy-now {
-        flex-grow: 1;
-        font-weight: 700;
-        padding: 15px 25px;
-        border-radius: 50px;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: background-color 0.2s;
-        text-decoration: none;
-        display: block;
-        text-align: center;
-    }
-    .btn-add-cart { background-color: var(--accent-lime); color: var(--text-main); }
-    .btn-buy-now { background-color: #1A1C1E; color: #ffffff; }
-    .btn-buy-now:hover { opacity: 0.9; transform: translateY(-2px); }
-
-    /* --- SMARTCODER: TRUST SIGNALS (New) --- */
-    .trust-row {
-        display: flex;
-        gap: 20px;
-        margin-top: 25px;
-        padding-top: 20px;
-        border-top: 1px solid #f0f0f0;
+        margin-bottom: 25px;
         flex-wrap: wrap;
+    }
+    .price-tag { 
+        font-size: 2.4rem; 
+        font-weight: 800; 
+        color: var(--text-main); 
+        letter-spacing: -1px;
+    }
+    
+    .badge-stock {
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 6px 14px;
+        border-radius: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .stock-in { background: #e8f5e9; color: var(--color-success); }
+    .stock-low { background: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+    .stock-out { background: #ffebee; color: var(--color-danger); }
+    .badge-contact { background: #e3f2fd; color: #1565c0; }
+    
+    @keyframes pulse-red {
+        0% { box-shadow: 0 0 0 0 rgba(230, 81, 0, 0.4); }
+        70% { box-shadow: 0 0 0 6px rgba(230, 81, 0, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(230, 81, 0, 0); }
+    }
+    .pulse-anim { animation: pulse-red 2s infinite; }
+
+    /* --- 3. TRUST SIGNALS --- */
+    .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 30px;
+        padding: 15px;
+        background: #fdfdfd;
+        border: 1px solid #f0f0f0;
+        border-radius: var(--radius-std);
     }
     .trust-item {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 8px;
-        color: var(--text-sub);
-        font-size: 0.85rem;
+        text-align: center;
+        gap: 5px;
+        font-size: 0.8rem;
         font-weight: 600;
+        color: var(--text-sub);
     }
-    .trust-item svg { width: 18px; height: 18px; stroke: #3F51B5; }
+    .trust-item svg {
+        width: 24px;
+        height: 24px;
+        stroke: #3F51B5;
+        stroke-width: 1.5;
+    }
 
-    /* --- SMARTCODER: MOBILE STICKY BUY BAR (New) --- */
-    .sticky-product-bar {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 12px 20px;
-        box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
-        z-index: 10000;
+    /* --- 4. FORM & ACTIONS --- */
+    .form-group { margin-bottom: 20px; }
+    .custom-select {
+        width: 100%;
+        padding: 14px 20px;
+        border-radius: var(--radius-pill);
+        border: 1px solid #ddd;
+        background: #fff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .action-row {
         display: flex;
-        justify-content: space-between;
+        gap: 12px;
         align-items: center;
-        transform: translateY(110%); /* Hidden by default */
-        transition: transform 0.3s ease;
-        border-top: 1px solid #eee;
+        margin-top: 15px;
     }
-    .sticky-product-bar.active {
-        transform: translateY(0);
+    .qty-input {
+        width: 70px;
+        height: 55px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        font-weight: 700;
     }
-    .spb-info {
+    .btn-main {
+        flex-grow: 1;
+        height: 55px;
+        border-radius: var(--radius-pill);
+        font-weight: 700;
+        font-size: 1.1rem;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+    }
+    .btn-cart { 
+        background-color: var(--accent-lime); 
+        color: var(--text-main); 
+    }
+    .btn-buy { 
+        background-color: #1A1C1E; 
+        color: #fff; 
+    }
+    .btn-contact {
+        background-color: #3F51B5;
+        color: white;
+    }
+    .btn-main:active { transform: scale(0.96); }
+
+    .icon-actions { display: flex; gap: 10px; margin-top: 15px; }
+    .btn-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid #eee;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--text-sub);
+    }
+    .btn-icon.active { color: #ff1744; background: #ffebee; border-color: #ffcdd2; }
+
+    /* --- 5. RELATED SECTIONS --- */
+    .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--text-main);
+    }
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+    
+    .related-card {
+        background: #fff;
+        border-radius: var(--radius-std);
+        padding: 10px;
+        border: 1px solid #eee;
         display: flex;
         flex-direction: column;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
     }
-    .spb-title {
-        font-size: 0.8rem;
-        color: var(--text-sub);
-        max-width: 150px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .spb-price {
-        font-size: 1.1rem;
-        font-weight: 800;
-        color: var(--text-main);
-    }
-    .spb-btn {
-        background: var(--text-main);
-        background-color: var(--accent-lime); 
-        color: var(--text-main);
-        border: none;
-        padding: 10px 24px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 0.95rem;
-        cursor: pointer;
-    }
-    .spb-btn-buy {
-        background: var(--text-main);
-        background-color: #1A1C1E; 
-        color: #ffffff;
-        border: none;
-        padding: 10px 24px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 0.95rem;
-        cursor: pointer;
+    .related-img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        background-color: #f8f9fa;
     }
 
-    /* Wishlist Button */
-    .btn-icon-only {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border: 1px solid #ccc;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        background: white;
-        cursor: pointer;
-    }
-    .btn-icon-only.in-wishlist { background-color: #ffebee; border-color: #ff1744; }
-    
-    /* Share Button Style */
-    .btn-share-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border: 1px solid #ccc;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        background: #f0f0f0;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-    .btn-share-icon:hover { background: #e0e0e0; }
-
-    /* Related Products */
-    .related-section { margin-top: 50px; }
-    .related-header { margin-bottom: 25px; font-size: 1.5rem; font-weight: 700; }
-    .related-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-        gap: 20px; 
-    }
-    .related-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 15px; box-shadow: var(--shadow-soft); border: 1px solid transparent; display: flex; flex-direction: column; }
-    .related-img-box { height: 160px; width: 100%; background-color: #F8F9FB; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; }
-    .related-img-box img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
-    .related-title { font-size: 1rem; font-weight: 600; margin: 0 0 5px 0; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .related-price { font-weight: 700; color: var(--text-main); margin-top: auto; }
-
-    /* Contact Buttons & Popup */
-    .contact-popup-wrapper { position: relative; display: block; margin-top: 10px; width: 100%; text-align: center; }
-    .contact-trigger-btn { width: 100%; max-width: 450px; background-color: #3F51B5; color: white; font-weight: 700; padding: 16px 30px; border-radius: 50px; border: none; cursor: pointer; font-size: 1rem; transition: transform 0.2s, background-color 0.2s; }
-    .contact-trigger-btn:hover { background-color: #303F9F; transform: translateY(-2px); }
-    .contact-popup { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(10px); width: 100%; max-width: 450px; background: var(--bg-card); border-radius: var(--radius-lg); box-shadow: 0 -8px 20px rgba(0,0,0,0.1); padding: 20px; margin-bottom: 10px; z-index: 10; opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; border: 1px solid #eee; text-align: left; }
-    .contact-popup.active { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
-    .message-box { background: #F8F9FB; border-radius: 8px; padding: 15px; margin-bottom: 15px; white-space: pre-wrap; font-size: 0.9rem; color: var(--text-main); max-height: 100px; overflow-y: auto; font-family: inherit; border: 1px solid #eee; }
-    .popup-buttons-row { display: flex; gap: 10px; }
-    .btn-copy { background-color: #3F51B5; color: white; padding: 8px 15px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }
-    .popup-buttons-row a { padding: 8px 15px; border-radius: 8px; font-weight: 600; text-decoration: none; flex-grow: 1; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
-    .btn-whatsapp-popup { background-color: #25D366; color: white; }
-    .btn-messenger-popup { background-color: #0084FF; color: white; }
-
-    /* Status Labels */
-    .badge-status { padding: 6px 15px; border-radius: 50px; font-size: 0.9rem; font-weight: 700; display: inline-block; }
-    .badge-contact { background: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; white-space: nowrap; }
-    .badge-stock { background: #ffebee; color: #c62828; border: 1px solid #ffcdd2; }
-
-    /* Short Description */
-    .short-desc { font-size: 1rem; color: var(--text-sub); line-height: 1.6; margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid #eee; }
-
-    /* Long Description Section */
-    .long-desc-section { margin-top: 40px; background: var(--bg-card); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-soft); position: relative; }
-    .long-desc-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px; }
-    .long-desc-title { font-size: 1.5rem; font-weight: 800; margin: 0; color: var(--text-main); }
-    .long-desc-content { color: var(--text-main); line-height: 1.8; font-size: 1rem; overflow: hidden; transition: max-height 0.5s ease; }
-    .long-desc-content.collapsed { max-height: 250px; mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%); }
-    .long-desc-content.expanded { max-height: 10000px; mask-image: none; -webkit-mask-image: none; }
-    .btn-desc-toggle { background: none; border: none; color: #3F51B5; font-weight: 700; font-size: 0.9rem; cursor: pointer; padding: 5px 10px; text-decoration: underline; }
-    .btn-desc-bottom { display: block; width: 100%; text-align: center; margin-top: 15px; padding: 10px; background: #F8F9FB; border-radius: 8px; text-decoration: none; }
-    .long-desc-content img { max-width: 100%; height: auto; border-radius: 10px; margin: 20px 0; display: block; }
-
-    /* NEW: Review Section Styling */
-    .review-section { margin-top: 50px; border-top: 1px solid #eee; padding-top: 40px; }
-    .review-grid { display: grid; grid-template-columns: 1fr 350px; gap: 40px; margin-top: 20px; }
-    
-    .review-list { display: flex; flex-direction: column; gap: 20px; }
-    .review-card { background: #fff; padding: 20px; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); border: 1px solid #f0f0f0; }
-    .review-header { display: flex; justify-content: space-between; margin-bottom: 10px; align-items: flex-start; }
-    .reviewer-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
-    .review-date { font-size: 0.8rem; color: var(--text-sub); }
-    .review-stars { color: #FFC107; letter-spacing: 2px; font-size: 0.9rem; }
-    .review-body { color: var(--text-main); line-height: 1.6; font-size: 0.95rem; }
-
-    .review-form-box { background: var(--bg-card); padding: 25px; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); height: fit-content; border: 1px solid #eee; position: sticky; top: 20px; }
-    .review-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; margin-bottom: 15px; box-sizing: border-box; background: #fff; font-size: 0.95rem; }
-    .review-input:focus { border-color: #3F51B5; outline: none; }
-    .review-input textarea { min-height: 100px; resize: vertical; }
-
-    /* Image Modal */
-    .image-modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); overflow: auto; align-items: center; justify-content: center; touch-action: none; }
-    .image-modal.active { display: flex; }
-    .modal-content { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.2s ease; cursor: zoom-out; }
-    .close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10001; }
-
-    /* --- MOBILE FIXES (Screens < 768px) --- */
+    /* --- 6. MOBILE OPTIMIZATIONS --- */
     @media (max-width: 768px) {
-        .container { padding: 0 10px !important; }
-        .product-container { display: flex !important; flex-direction: column; width: 100% !important; border-radius: 0 !important; box-shadow: none !important; padding: 20px 15px !important; gap: 25px !important; margin: 0; grid-template-columns: 1fr !important; }
-        .gallery-wrapper { flex-direction: column !important; height: auto !important; gap: 15px !important; }
-        .main-image-box { width: 100% !important; height: auto !important; aspect-ratio: 1 / 1; flex-grow: 1; order: 1; }
-        .thumbnail-list { width: 100% !important; height: 70px !important; flex-direction: row !important; overflow-x: auto; overflow-y: hidden; padding: 0 5px; order: 2; scrollbar-width: none; }
+        .container { padding: 0 !important; max-width: 100%; }
         
-        .action-row { flex-direction: column; width: 100%; }
-        .btn-add-cart, .btn-buy-now, .quantity-input { width: 100%; }
-        .contact-popup-wrapper { margin: 0 auto; width: 95%; max-width: 100%; }
-        .contact-trigger-btn { max-width: 100%; }
-        .contact-popup { width: 95vw; left: 50%; transform: translateX(-50%) translateY(10px); }
-        .contact-popup.active { transform: translateX(-50%) translateY(0); }
-        .long-desc-section { border-radius: 0 !important; box-shadow: none !important; padding: 30px 20px !important; margin-left: -15px !important; margin-right: -15px !important; width: calc(100% + 30px) !important; border-top: 1px solid #eee; box-sizing: border-box; }
-        .review-grid { grid-template-columns: 1fr; gap: 30px; }
-        .review-form-box { position: static; order: -1; }
-        .product-title-lg { font-size: 1.6rem !important; }
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            gap: 0;
+            background: #fff;
+            width: 100%; /* Force width */
+        }
+
+        /* Gallery: Full Width Swipe */
+        .gallery-wrapper {
+            width: 100%;
+            height: 400px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 0;
+            display: flex;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .gallery-wrapper::-webkit-scrollbar { display: none; }
         
-        .img-nav-btn { opacity: 1 !important; background: rgba(255, 255, 255, 0.9); width: 35px; height: 35px; }
-        .thumb-btn.active { box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2); }
-        .related-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
-        .related-img-box { height: 130px; }
+        .thumbnail-list, .img-nav-btn { display: none !important; }
+
+        .main-image-box {
+            min-width: 100%;
+            border-radius: 0;
+            scroll-snap-align: center;
+            background: #fff;
+        }
+
+        /* Mobile Dots */
+        .mobile-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 15px 0;
+            background: #fff;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+        .dot.active { background: #1A1C1E; width: 20px; border-radius: 10px; }
+
+        /* Details Section */
+        .product-details {
+            padding: 25px 20px 40px 20px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            background: #fff;
+            position: relative;
+            top: -20px;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.03);
+            margin-bottom: 0px; /* Space for sticky bar */
+        }
+
+        .product-title-lg { font-size: 1.8rem; }
+        .price-tag { font-size: 2.2rem; }
         
-        /* Ensure Sticky Bar is Visible on Mobile Only */
-        .sticky-product-bar { display: flex; }
+        /* Hide Default Action Row on Mobile */
+        .action-row { display: none; }
+        .icon-actions { width: 100%; justify-content: center; margin-bottom: 10px; }
+        
+        /* Mobile Horizontal Scroll for Related Items */
+        .related-grid {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 15px;
+            gap: 15px;
+            margin-bottom: 150px;
+        }
+        .related-card {
+            min-width: 160px;
+            scroll-snap-align: start;
+        }
+
+        /* --- MESSENGER ICON LIFT --- 
+           Forces Facebook Chat Plugin to sit ABOVE the sticky bar + nav 
+           70px (nav) + 70px (bar) + 20px (gap) = 160px
+        */
+        iframe[data-testid="dialog_iframe"], .fb_dialog, .fb-customerchat {
+            bottom: 160px !important;
+            right: 20px !important;
+        }
+        .messenger-float { display: none; }
+    }
+
+    /* --- 7. STICKY BAR (MOBILE) --- */
+    .sticky-bar {
+        position: fixed;
+        bottom: var(--bottom-nav-height, 70px); 
+        left: 0; 
+        right: 0;
+        background: #fff;
+        padding: 10px 15px;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        z-index: 990; 
+        border-top: 1px solid #f0f0f0;
+        height: var(--sticky-bar-height, 70px);
+        box-sizing: border-box;
+        width: 100%; /* Ensure it fits */
+    }
+
+    /* Hide sticky bar on desktop */
+    @media (min-width: 769px) {
+        .sticky-bar { display: none; }
+        .action-row { display: flex !important; }
+    }
+
+    /* Sticky Components */
+    .sb-qty-wrapper {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        height: 45px;
+        flex-shrink: 0;
+        background: #fff;
+    }
+    .sb-qty-btn {
+        width: 35px;
+        height: 100%;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-main);
+        cursor: pointer;
+    }
+    .sb-qty-input {
+        width: 30px;
+        height: 100%;
+        border: none;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    .sb-action-btn {
+        flex-grow: 1;
+        height: 45px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+    .sb-cart-btn {
+        background: var(--color-bg-light);
+        color: var(--text-main);
+        width: 50px;
+        flex-grow: 0; 
+        border: 1px solid #eee;
+    }
+    .sb-buy-btn {
+        background: var(--accent-lime, #D4F759); /* The "Line" color */
+        color: #000; /* Black text creates better contrast on Lime than white */
+        border: 2px solid #fff; /* The "White" element you asked for */
+        box-shadow: 0 4px 15px rgba(212, 247, 89, 0.4); /* Lime glow */
+        animation: pulse-green 2s infinite; /* Adds the "Pop" animation */
     }
     
-    @media (min-width: 769px) {
-        .sticky-product-bar { display: none !important; }
-        
+    /* Contact for Price Sticky Bar */
+    .contact-sticky-btn {
+        width: 100%;
+        background: #3F51B5;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+    }
+
+    /* --- 8. CONTACT MODAL --- */
+    .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 10000; /* FIXED: Higher z-index than everything else */
+        display: none;
+        align-items: flex-end; /* Bottom sheet on mobile */
+        justify-content: center;
+    }
+    .modal-overlay.active { display: flex; }
+    
+    .contact-modal {
+        background: #fff;
+        width: 100%;
+        max-width: 500px;
+        border-radius: 20px 20px 0 0;
+        padding: 25px;
+        box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
+        animation: slideUp 0.3s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    
+    .contact-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .contact-opt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        border-radius: 12px;
+        background: #F8F9FB;
+        border: 1px solid #eee;
+        text-decoration: none;
+        color: var(--text-main);
+        font-weight: 600;
+        gap: 8px;
+    }
+    .contact-opt:hover { background: #e3f2fd; border-color: #bbdefb; }
+    
+    /* --- 9. EXPANDABLE DESCRIPTION --- */
+    /* FIXED: Override grid for description so it fills full width on desktop */
+    .product-container.desc-section {
+        display: block; 
+        margin-top: 20px;
+        margin-top: 20px; background: var(--bg-card); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-soft); position: relative;
+    }
+    .desc-content {
+        max-height: 150px;
+        overflow: hidden;
+        position: relative;
+        transition: max-height 0.4s ease;
+    }
+    .desc-content.expanded { max-height: none; }
+    .desc-content:not(.expanded)::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 80px;
+        background: linear-gradient(transparent, #fff);
+        pointer-events: none;
+    }
+    .desc-toggle {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #3F51B5;
+        font-weight: 700;
+        padding: 15px;
+        cursor: pointer;
+        background: #f8f9fa;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+    /* --- BUTTON ANIMATIONS --- */
+    @keyframes pulse-green {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 247, 89, 0.7); }
+        70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(212, 247, 89, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 247, 89, 0); }
+    }
+
+    /* Add a click effect to all main buttons */
+    .btn-main:active, .sb-action-btn:active {
+        transform: scale(0.95) !important; /* Shrink slightly on click */
+        transition: transform 0.1s;
     }
 </style>
 
-<div id="image-modal" class="image-modal" onclick="closeModal()">
-    <span class="close-modal">&times;</span>
-    <img class="modal-content" id="full-image">
+<div id="image-modal" class="image-modal" onclick="closeModal()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center;">
+    <span style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer;">&times;</span>
+    <img id="full-image" style="max-width:90%; max-height:90%; object-fit:contain;">
+</div>
+
+<div id="contact-modal" class="modal-overlay" onclick="if(event.target === this) toggleContactModal(false)">
+    <div class="contact-modal">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h3 style="margin:0;">Contact Us</h3>
+            <button onclick="toggleContactModal(false)" style="border:none; background:none; font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+        <p style="color:#666; margin-top:5px; font-size:0.9rem;">Choose how you'd like to get in touch for <b>{{ product.name }}</b></p>
+        
+        <div class="contact-options">
+            <a href="tel:{{ site_settings.phone }}" class="contact-opt">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Call Now
+            </a>
+            <a href="https://wa.me/{{ site_settings.whatsapp_number }}?text=Hi, I am interested in {{ product.name }}. Link: {{ request.build_absolute_uri }}" target="_blank" class="contact-opt" style="color:#25D366; border-color:#25D366;">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                WhatsApp
+            </a>
+            <a href="{{ site_settings.facebook_page_url }}" target="_blank" class="contact-opt" style="color:#0084FF; border-color:#0084FF;">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.145 2 11.257c0 2.91 1.455 5.515 3.738 7.202V22l3.417-1.875c1.196.331 2.47.532 3.845.532 5.523 0 10-4.145 10-9.257S18.523 2 12 2zm1.023 11.838l-2.56-2.733-4.996 2.733 5.493-5.83 2.593 2.732 4.963-2.732-5.493 5.83z"/></svg>
+                Messenger
+            </a>
+            <button onclick="copyToClipboard()" class="contact-opt">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                Copy Info
+            </button>
+        </div>
+    </div>
 </div>
 
 <div class="product-container">
-    <div class="gallery-wrapper">
-        <div class="thumbnail-list" id="thumbnail-list">
-            {% for img in product.images.all %}
-                <div class="thumb-btn {% if forloop.first %}active{% endif %}" data-src="{{ img.image.url }}" onclick="switchImage(this, '{{ img.image.url }}')">
-                    <img src="{{ img.image.url }}" alt="Thumb">
+    
+    <div style="position: relative;">
+        <div class="gallery-wrapper" id="mobile-gallery">
+            <div class="thumbnail-list">
+                {% for img in product.images.all %}
+                    <div class="thumb-btn {% if forloop.first %}active{% endif %}" 
+                         onclick="desktopSwitchImage('{{ img.image.url }}', this)">
+                        <img src="{{ img.image.url }}" alt="Thumbnail">
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if product.images.all %}
+                {% for img in product.images.all %}
+                    <div class="main-image-box" {% if not forloop.first %}style="display:none;"{% endif %}>
+                        <img src="{{ img.image.url }}" class="zoomable-img" alt="{{ product.name }}" onclick="openModal(this.src)">
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="main-image-box">
+                    <img src="https://via.placeholder.com/400" alt="No Image">
                 </div>
-            {% endfor %}
+            {% endif %}
         </div>
 
-        <div class="main-image-box" id="main-image-container">
-            <button class="img-nav-btn img-nav-prev" onclick="moveGallery(-1)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-            
-            {% if product.images.first %}
-                <img src="{{ product.images.first.image.url }}" id="main-image" alt="{{ product.name }}" onclick="openModal()">
-            {% else %}
-                <img src="https://via.placeholder.com/400" id="main-image" alt="No Image">
-            {% endif %}
-            
-            <button class="img-nav-btn img-nav-next" onclick="moveGallery(1)">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
+        <div class="mobile-dots" id="gallery-dots">
+            {% for img in product.images.all %}
+                <div class="dot {% if forloop.first %}active{% endif %}"></div>
+            {% endfor %}
         </div>
     </div>
 
     <div class="product-details">
         <div class="breadcrumbs">
-            Home &rsaquo; {{ product.category.name|default:"Products" }} &rsaquo; Details
+            Home / {{ product.category.name|default:"Shop" }}
         </div>
         
         <h1 class="product-title-lg">{{ product.name }}</h1>
-        
+
         <div class="rating-row">
-            <span class="star-icon">
+            <div>
                 {% with ''|center:5 as range %}
                 {% for _ in range %}
                     {% if forloop.counter <= avg_rating %}
@@ -427,572 +671,293 @@
                     {% endif %}
                 {% endfor %}
                 {% endwith %}
-            </span>
-            <span style="font-weight: 700; color: var(--text-main); margin-left: 5px;">{{ avg_rating|default:"0.0" }}</span>
-            <span style="border-left: 1px solid #ccc; padding-left: 10px; margin-left: 5px;">
-                {% if reviews.count > 0 %}
-                    {{ reviews.count }} Review{{ reviews.count|pluralize }}
-                {% else %}
-                    No Reviews Yet
-                {% endif %}
-            </span>
+            </div>
+            <span>({{ reviews.count }} Reviews)</span>
         </div>
 
-        <div class="price-tag">
+        <div class="price-wrapper">
             {% if product.call_for_price %}
-                <span class="badge-status badge-contact">Contact for Price</span>
+                <span class="badge-stock badge-contact">Call for Price</span>
             {% else %}
-                <span id="product-price">৳{{ product.selling_price|floatformat:2 }}</span>
+                <span class="price-tag" id="display-price">৳{{ product.selling_price|floatformat:0 }}</span>
                 
                 {% if product.stock_quantity <= 0 %}
-                    <span class="badge-status badge-stock">Out of Stock</span>
+                    <span class="badge-stock stock-out">Out of Stock</span>
                 {% elif product.stock_quantity <= 5 %}
-                    <span style="font-size: 0.9rem; font-weight: 700; color: #e65100; background: #fff3e0; padding: 5px 15px; border-radius: 20px; border: 1px solid #ffe0b2;">
-                        Hurry! Only {{ product.stock_quantity }} left
+                    <span class="badge-stock stock-low pulse-anim">
+                        🔥 Only {{ product.stock_quantity }} Left
                     </span>
                 {% else %}
-                    <span style="font-size: 0.9rem; font-weight: 600; color: #2e7d32; background: #e8f5e9; padding: 5px 15px; border-radius: 20px;">
-                        In Stock
-                    </span>
+                    <span class="badge-stock stock-in">In Stock</span>
                 {% endif %}
             {% endif %}
         </div>
 
-        {% if product.short_description %}
-            <div class="short-desc">
-                {{ product.short_description|linebreaks }}
+        <div class="trust-grid">
+            <div class="trust-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <span>Fast<br>Delivery</span>
             </div>
-        {% endif %}
+            <div class="trust-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>100%<br>Authentic</span>
+            </div>
+            <div class="trust-item">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                <span>Secure<br>Checkout</span>
+            </div>
+        </div>
 
         {% if product.variations.all %}
-            <form id="add-to-cart-form" action="{% url 'add_to_cart_variation' product.variations.first.id %}" method="POST">
-                {% csrf_token %}
+            <form id="cart-form" action="{% url 'add_to_cart_variation' product.variations.first.id %}" method="POST">
+        {% else %}
+            <form id="cart-form" action="{% url 'add_to_cart' product.id %}" method="POST">
+        {% endif %}
+            {% csrf_token %}
+
+            {% if product.variations.all %}
                 <div class="form-group">
-                    <label class="form-label">Select Option</label>
+                    <label style="font-weight:700; font-size:0.9rem; color:var(--text-sub); margin-bottom:8px; display:block;">Select Version</label>
                     <select id="variation-select" name="variation_id" class="custom-select">
                         {% for var in product.variations.all %}
-                            <option 
-                                value="{{ var.id }}"
-                                data-price="{{ var.selling_price|floatformat:2 }}"
-                                data-stock="{{ var.stock_quantity }}"
-                                data-url="{% url 'add_to_cart_variation' var.id %}"
-                            >
+                            <option value="{{ var.id }}" 
+                                    data-price="{{ var.selling_price|floatformat:0 }}"
+                                    data-url="{% url 'add_to_cart_variation' var.id %}">
                                 {{ var.name }}
                             </option>
                         {% endfor %}
                     </select>
                 </div>
-        {% else %}
-            <form id="add-to-cart-form" action="{% url 'add_to_cart' product.id %}" method="POST">
-                {% csrf_token %}
-        {% endif %}
+            {% endif %}
 
-            {% if product.call_for_price %}
-                <div class="contact-popup-wrapper">
-                    <div class="contact-popup" id="contact-popup">
-                        <div style="font-weight: 700; margin-bottom: 10px;">Message Ready! Choose how to send:</div>
-                        <div class="message-box" id="prepared-message"></div>
-                        <div class="popup-buttons-row">
-                            <button type="button" class="btn-copy" onclick="copyMessage()">
-                                Copy
-                            </button>
-                            <a href="#" class="btn-whatsapp-popup" id="whatsapp-popup-link" target="_blank">
-                                WhatsApp
-                            </a>
-                            <a href="#" class="btn-messenger-popup" id="messenger-popup-link" target="_blank">
-                                Messenger
-                            </a>
-                        </div>
+            <input type="hidden" name="quantity" id="main-qty-input" value="1">
+
+            {% if product.stock_quantity > 0 and not product.call_for_price %}
+                <div class="action-row">
+                    <div class="sb-qty-wrapper">
+                        <button type="button" class="sb-qty-btn" onclick="updateQty(-1)">-</button>
+                        <input type="number" value="1" min="1" class="sb-qty-input" id="desktop-qty-display" readonly>
+                        <button type="button" class="sb-qty-btn" onclick="updateQty(1)">+</button>
                     </div>
-                    <button type="button" class="contact-trigger-btn" id="contact-trigger-btn">
+                    
+                    <button type="submit" name="action" value="add" class="btn-main btn-cart" style="margin-right:10px;">
+                        Add to Cart
+                    </button>
+                    <button type="submit" name="action" value="buy_now" class="btn-main btn-buy">
+                        Buy Now
+                    </button>
+                </div>
+            {% elif product.call_for_price %}
+                <div class="action-row">
+                    <button type="button" onclick="toggleContactModal(true)" class="btn-main btn-contact">
                         Contact for Price
                     </button>
                 </div>
-
-            {% elif product.stock_quantity > 0 %}
-                <div class="action-row">
-                    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
-                    
-                    <button type="submit" name="action" value="add" class="btn-add-cart" id="main-add-btn">
-                        Add to Cart
-                    </button>
-
-                     <button type="submit" name="action" value="buy_now" class="btn-buy-now">
-                        Buy Now
-                    </button>
-                    <a href="{% url 'toggle_wishlist' product.id %}" class="btn-icon-only {% if in_wishlist %}in-wishlist{% endif %}" title="Wishlist">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="{% if in_wishlist %}#ff1744{% else %}none{% endif %}" stroke="{% if in_wishlist %}#ff1744{% else %}currentColor{% endif %}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                    </a>
-                    <button type="button" class="btn-share-icon" onclick="handleShare()" title="Share Product">
-                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-                    </button>
-                </div>
-
-                <div class="trust-row">
-                    <div class="trust-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 14"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                        <span>Fast Delivery</span>
-                    </div>
-                    <div class="trust-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <span>Authentic</span>
-                    </div>
-                    <div class="trust-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                        <span>Secure Payment</span>
-                    </div>
-                </div>
-
             {% else %}
-                <div style="margin-top: 20px; padding: 15px; background: #fff3cd; color: #856404; border-radius: 8px; font-weight: bold; text-align: center; border: 1px solid #ffeeba;">
-                    🚫 Currently Out of Stock
+                <div style="background:#fff3cd; color:#856404; padding:15px; border-radius:8px; text-align:center; margin-top:15px; font-weight:600;">
+                    Currently Unavailable
                 </div>
             {% endif %}
         </form>
     </div>
 </div>
 
+<div class="sticky-bar">
+    {% if product.call_for_price %}
+        <button onclick="toggleContactModal(true)" class="sb-action-btn sb-buy-btn contact-sticky-btn">
+            Contact for Price
+        </button>
+    {% else %}
+        <div class="sb-qty-wrapper">
+            <button type="button" class="sb-qty-btn" onclick="updateQty(-1)">-</button>
+            <input type="number" value="1" min="1" class="sb-qty-input" id="mobile-qty-display" readonly>
+            <button type="button" class="sb-qty-btn" onclick="updateQty(1)">+</button>
+        </div>
+        
+        <button type="submit" form="cart-form" name="action" value="add" class="sb-action-btn sb-cart-btn">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        </button>
+        
+        <button type="submit" form="cart-form" name="action" value="buy_now" class="sb-action-btn sb-buy-btn">
+            Buy Now
+        </button>
+    {% endif %}
+</div>
+
 {% if product.description %}
-<div class="long-desc-section">
-    <div class="long-desc-header">
-        <h2 class="long-desc-title">Product Details</h2>
+<div class="product-container desc-section">
+    <h2 style="font-size:1.4rem; font-weight:700; margin-bottom:15px;">Product Details</h2>
+    <div class="desc-content" id="desc-content">
+        {{ product.description|safe }}
     </div>
-    <div class="long-desc-content collapsed" id="long-desc-content">
-        {{ product.description|safe }} 
+    <div class="desc-toggle" onclick="toggleDescription()" id="desc-toggle-btn">
+        View Full Details ↓
     </div>
-    <button class="btn-desc-toggle btn-desc-bottom" id="bottom-toggle-btn" onclick="toggleLongDescription()">
-        Read More ↓
-    </button>
 </div>
 {% endif %}
 
-<div class="related-section">
-{% if related_posts %}
-<div class="related-section" style="margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 40px;">
-    <h2 class="related-header">Related Articles & Guides</h2>
-    <div class="related-grid">
-        {% for post in related_posts %}
-            <div class="related-card" style="height: auto;">
-                <a href="{% url 'blog_detail' post.slug %}" class="related-img-box" style="height: 180px;">
-                    {% if post.featured_image %}
-                        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
-                    {% else %}
-                        <div style="width:100%; height:100%; background:#eee; display:flex; align-items:center; justify-content:center; color:#999;">No Image</div>
-                    {% endif %}
-                </a>
-                <div style="padding: 0 5px 10px 5px;">
-                    <span style="font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">
-                        {{ post.created_at|date:"M d, Y" }}
-                    </span>
-                    <h3 class="related-title" style="font-size: 1.1rem; margin-top: 5px;">{{ post.title }}</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-sub); line-height: 1.5; margin-bottom: 15px;">
-                        {{ post.excerpt|truncatechars:80 }}
-                    </p>
-                    <a href="{% url 'blog_detail' post.slug %}" style="color: #3F51B5; font-weight: 700; text-decoration: none; font-size: 0.9rem;">
-                        Read Article &rarr;
-                    </a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
-{% endif %}
-    <h2 class="related-header">You Might Also Like</h2>
-    <div class="related-grid">
-        {% for rel in related_products %}
-            <div class="related-card">
-                <a href="{% url 'product_detail' rel.id %}" class="related-img-box">
-                    {% if rel.images.first %}
-                        <img src="{{ rel.images.first.image.url }}" alt="{{ rel.name }}">
-                    {% else %}
-                        <img src="https://via.placeholder.com/200" alt="No Image">
-                    {% endif %}
-                </a>
-                <h3 class="related-title">{{ rel.name }}</h3>
-                
-                {% if rel.call_for_price %}
-                    <div class="related-price" style="color: #0084FF; font-size: 0.9rem;">Contact for Price</div>
+<div class="product-container" style="display:block; padding:30px; margin-bottom: 160px;">
+    {% if related_products %}
+        <h2 class="section-title">You May Also Like</h2>
+        <div class="related-grid">
+            {% for rel in related_products %}
+            <a href="{% url 'product_detail' rel.pk %}" class="related-card">
+                {% if rel.thumbnail %}
+                    <img src="{{ rel.thumbnail.url }}" class="related-img" alt="{{ rel.name }}">
                 {% else %}
-                    <div class="related-price">৳{{ rel.selling_price|floatformat:0 }}</div>
+                    <img src="https://via.placeholder.com/200x140?text=No+Image" class="related-img" alt="No Image">
                 {% endif %}
-            </div>
-        {% endfor %}
-    </div>
-</div>
-
-{% if recently_viewed %}
-<div class="related-section" style="margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px;">
-    <h2 class="related-header">Recently Viewed</h2>
-    <div class="related-grid">
-        {% for recent in recently_viewed %}
-            <div class="related-card" style="opacity: 0.8; transition: opacity 0.2s;">
-                <a href="{% url 'product_detail' recent.id %}" class="related-img-box" style="height: 120px;">
-                    {% if recent.images.first %}
-                        <img src="{{ recent.images.first.image.url }}" alt="{{ recent.name }}">
-                    {% endif %}
-                </a>
-                <h3 class="related-title" style="font-size: 0.9rem;">{{ recent.name }}</h3>
-                <div class="related-price" style="font-size: 0.9rem;">৳{{ recent.selling_price|floatformat:0 }}</div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
-<style>
-    .related-card:hover { opacity: 1; }
-</style>
-{% endif %}
-
-<div class="review-section">
-    <h2 class="related-header">Customer Reviews</h2>
-    <div class="review-grid">
-        <div class="review-list">
-            {% for review in reviews %}
-                <div class="review-card">
-                    <div class="review-header">
-                        <div>
-                            <div class="reviewer-name">{{ review.user.first_name|default:review.user.username }}</div>
-                            <div class="review-date">{{ review.created_at|date:"M d, Y" }}</div>
-                        </div>
-                        <div class="review-stars">
-                            {% with ''|center:5 as range %}
-                            {% for _ in range %}
-                                {% if forloop.counter <= review.rating %}★{% else %}☆{% endif %}
-                            {% endfor %}
-                            {% endwith %}
-                        </div>
-                    </div>
-                    <div class="review-body">
-                        {{ review.comment }}
-                    </div>
-                </div>
-            {% empty %}
-                <div style="text-align: center; padding: 40px; color: var(--text-sub); background: #f9f9f9; border-radius: 20px;">
-                    <p>No reviews yet. Be the first to share your thoughts!</p>
-                </div>
+                <div style="font-weight:700; font-size:0.9rem;">{{ rel.name|truncatechars:30 }}</div>
+                <div style="color:var(--text-main); font-weight:800;">৳{{ rel.selling_price|floatformat:0 }}</div>
+            </a>
             {% endfor %}
         </div>
-        
-        <div class="review-form-box">
-            <h3 style="margin-top: 0; margin-bottom: 20px;">Write a Review</h3>
-            {% if user.is_authenticated %}
-                <form method="POST" action="{% url 'add_review' product.id %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label class="form-label">Rating</label>
-                        <select name="rating" class="review-input" style="background-image: none;">
-                            <option value="5">★★★★★ (5/5)</option>
-                            <option value="4">★★★★☆ (4/5)</option>
-                            <option value="3">★★★☆☆ (3/5)</option>
-                            <option value="2">★★☆☆☆ (2/5)</option>
-                            <option value="1">★☆☆☆☆ (1/5)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Your Experience</label>
-                        <textarea name="comment" class="review-input" rows="4" placeholder="What did you like or dislike?"></textarea>
-                    </div>
-                    <button type="submit" class="btn-add-cart" style="width: 100%; justify-content: center;">
-                        Submit Review
-                    </button>
-                </form>
-            {% else %}
-                <div style="text-align: center;">
-                    <p style="color: var(--text-sub); margin-bottom: 20px;">Please log in to leave a review.</p>
-                    <a href="{% url 'login' %}?next={{ request.path }}" class="btn" style="width: 100%; box-sizing: border-box; display: block; text-align: center; padding: 12px; background: #1A1C1E; color: white; border-radius: 8px; text-decoration: none;">
-                        Log In
-                    </a>
-                </div>
-            {% endif %}
+    {% endif %}
+
+    {% if related_posts %}
+        <h2 class="section-title">Related Articles</h2>
+        <div class="related-grid">
+            {% for article in related_posts %}
+            <a href="{% url 'blog_detail' article.slug %}" class="related-card">
+                {% if article.featured_image %}
+                    <img src="{{ article.featured_image.url }}" class="related-img" alt="{{ article.title }}">
+                {% else %}
+                    <img src="https://via.placeholder.com/200x140?text=Read+Article" class="related-img" alt="{{ article.title }}">
+                {% endif %}
+                <div style="font-weight:700; font-size:0.9rem;">{{ article.title|truncatechars:40 }}</div>
+                <div style="font-size:0.8rem; color:#888;">Read More →</div>
+            </a>
+            {% endfor %}
         </div>
-    </div>
-</div>
-
-<div class="sticky-product-bar" id="sticky-bar">
-    <div class="spb-info">
-         <span class="spb-title">{{ product.name }}</span>
-         <span class="spb-price" id="spb-price">৳{{ product.selling_price|floatformat:0 }}</span>
-    </div>
-    <button type="submit" form="add-to-cart-form" name="action" value="add" class="spb-btn">
-        Add to Cart
-    </button>
-    <button type="submit" name="action" value="buy_now" class="spb-btn-buy">
-        Buy Now
-    </button>
-</div>
-
-{% endblock %}
-
-{% block scripts %}
-<script>
-    // --- 1. DESCRIPTION TOGGLE ---
-    function toggleLongDescription() {
-        const content = document.getElementById('long-desc-content');
-        const bottomBtn = document.getElementById('bottom-toggle-btn');
-        
-        if (content.classList.contains('collapsed')) {
-            content.classList.remove('collapsed');
-            content.classList.add('expanded');
-            bottomBtn.innerText = "Read Less ↑";
-        } else {
-            content.classList.remove('expanded');
-            content.classList.add('collapsed');
-            bottomBtn.innerText = "Read More ↓";
-            document.querySelector('.long-desc-title').scrollIntoView({behavior: 'smooth', block: 'center'});
-        }
-    }
-
-    // --- 2. GALLERY LOGIC (Switch & Swipe & Nav) ---
-    function switchImage(thumb, url) {
-        document.getElementById('main-image').src = url;
-        document.querySelectorAll('.thumb-btn').forEach(t => t.classList.remove('active'));
-        if(thumb) thumb.classList.add('active');
-    }
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    function handleSwipe() {
-        const sensitivity = 50; 
-        if (touchStartX - touchEndX > sensitivity) {
-            moveGallery(1);
-        }
-        if (touchEndX - touchStartX > sensitivity) {
-            moveGallery(-1);
-        }
-    }
-
-    function moveGallery(direction) {
-        const thumbs = document.querySelectorAll('.thumb-btn');
-        let currentIndex = -1;
-        
-        thumbs.forEach((t, i) => {
-            if (t.classList.contains('active')) currentIndex = i;
-        });
-
-        let nextIndex = currentIndex + direction;
-        if (nextIndex >= thumbs.length) nextIndex = 0; 
-        if (nextIndex < 0) nextIndex = thumbs.length - 1; 
-        
-        const nextThumb = thumbs[nextIndex];
-        const nextSrc = nextThumb.getAttribute('data-src') || nextThumb.querySelector('img').src;
-        
-        switchImage(nextThumb, nextSrc);
-        nextThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }
-
-    // --- 3. MODAL (Zoom) LOGIC ---
-    function openModal() {
-        const modal = document.getElementById('image-modal');
-        const fullImage = document.getElementById('full-image');
-        const currentSrc = document.getElementById('main-image').src;
-        
-        fullImage.src = currentSrc;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; 
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('image-modal');
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    // --- 4. TRACKING ENGINE (NEW) ---
-    async function trackInteraction(eventType, extraData={}) {
-        try {
-            const payload = {
-                product_id: "{{ product.id }}",
-                event_type: eventType,
-                extra: extraData
-            };
-            
-            // Fire and forget (don't wait for response)
-            fetch("{% url 'track_interaction' %}", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': '{{ csrf_token }}'
-                },
-                body: JSON.stringify(payload)
-            });
-            console.log(`Tracking: ${eventType}`);
-        } catch (e) {
-            console.error("Tracking failed", e);
-        }
-    }
-
-    // --- 5. INITIALIZATION ---
-    document.addEventListener('DOMContentLoaded', function() {
-        const variationSelect = document.getElementById('variation-select');
-        if (variationSelect) {
-            const priceDisplay = document.getElementById('product-price');
-            const spbPrice = document.getElementById('spb-price'); // Sticky Bar Price
-            const stockDisplay = document.getElementById('product-stock');
-            const cartForm = document.getElementById('add-to-cart-form');
-
-            variationSelect.addEventListener('change', function() {
-                const selectedOption = this.options[this.selectedIndex];
-                const newPrice = '৳' + selectedOption.dataset.price;
-                
-                if(priceDisplay) priceDisplay.textContent = newPrice; 
-                if(spbPrice) spbPrice.textContent = newPrice; // Update Sticky Bar too
-                
-                if(stockDisplay) stockDisplay.textContent = 'In Stock: ' + selectedOption.dataset.stock;
-                cartForm.action = selectedOption.dataset.url;
-            });
-            variationSelect.dispatchEvent(new Event('change'));
-        }
-        
-        initializeContactButtons();
-        
-        // Add Swipe Listeners
-        const mainImgContainer = document.getElementById('main-image-container');
-        if (mainImgContainer) {
-            mainImgContainer.addEventListener('touchstart', e => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-            mainImgContainer.addEventListener('touchend', e => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
-        }
-
-        // --- SMARTCODER: STICKY BAR OBSERVER ---
-        const mainBtn = document.getElementById('main-add-btn');
-        const stickyBar = document.getElementById('sticky-bar');
-        const mobileNav = document.querySelector('.mobile-bottom-nav'); // From base.html
-
-        if (mainBtn && stickyBar) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    // Check if scrolled PAST the button (not just invisible)
-                    // We check if the button is above the viewport (top < 0)
-                    if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
-                        stickyBar.classList.add('active');
-                        // Hide global nav to prevent overlap/clutter
-                        if (mobileNav) mobileNav.style.display = 'none';
-                    } else {
-                        stickyBar.classList.remove('active');
-                        // Restore global nav
-                        if (mobileNav) mobileNav.style.display = 'flex';
-                    }
-                });
-            }, { threshold: 0 });
-            observer.observe(mainBtn);
-        }
-    });
-
-    // --- CONTACT LOGIC & TRACKING ---
-    function initializeContactButtons() {
-        const popup = document.getElementById('contact-popup');
-        const triggerBtn = document.getElementById('contact-trigger-btn');
-        const whatsappBtn = document.getElementById('whatsapp-popup-link');
-        const messengerBtn = document.getElementById('messenger-popup-link');
-        const preparedMessageBox = document.getElementById('prepared-message');
-
-        if (!whatsappBtn || !triggerBtn) return; 
-
-        try {
-            const template = '{{ site_settings.contact_message_template|default:"Info about [PRODUCT_NAME]"|escapejs }}';
-            const productName = '{{ product.name|escapejs }}';
-            const productLink = window.location.href;
-            const whatsappNum = '{{ site_settings.whatsapp_number }}';
-            const messengerUser = '{{ site_settings.messenger_username }}';
-
-            const finalMessage = template
-                .replace('[PRODUCT_NAME]', productName)
-                .replace('[PRODUCT_LINK]', productLink);
-
-            if (preparedMessageBox) preparedMessageBox.innerText = finalMessage;
-
-            const encodedMessage = encodeURIComponent(finalMessage);
-            whatsappBtn.href = `https://wa.me/${whatsappNum}?text=${encodedMessage}`;
-            messengerBtn.href = `https://m.me/${messengerUser}`;
-            
-            triggerBtn.addEventListener('click', function(e) {
-                e.preventDefault(); 
-                popup.classList.toggle('active');
-            });
-
-            // --- ATTACH TRACKERS ---
-            whatsappBtn.addEventListener('click', () => {
-                trackInteraction('CONTACT', { channel: 'WhatsApp' });
-            });
-            
-            messengerBtn.addEventListener('click', () => {
-                trackInteraction('CONTACT', { channel: 'Messenger' });
-            });
-
-        } catch (e) {
-            console.error("Contact init failed:", e);
-        }
-    }
-
-    function copyMessage() {
-        const messageBox = document.getElementById('prepared-message');
-        if (!messageBox) return; 
-        navigator.clipboard.writeText(messageBox.innerText)
-            .then(() => { alert("Message copied!"); })
-            .catch(err => { alert("Failed copy."); });
-    }
+    {% endif %}
     
-    document.addEventListener('click', function(event) {
-        const popup = document.getElementById('contact-popup');
-        const trigger = document.getElementById('contact-trigger-btn');
-        if (!popup || !trigger) return;
-        
-        if (popup.classList.contains('active') && !popup.contains(event.target) && !trigger.contains(event.target)) {
-            popup.classList.remove('active');
-        }
-    });
+    <h2 style="font-size:1.4rem; font-weight:700; margin-bottom:20px; margin-top:40px;">Customer Reviews</h2>
+    {% if reviews %}
+        {% for review in reviews %}
+            <div style="padding:15px; border-bottom:1px solid #eee; margin-bottom:15px;">
+                <div style="font-weight:700;">{{ review.user.first_name }} <span style="font-weight:400; color:#888; font-size:0.8rem;">- {{ review.created_at|date:"M d" }}</span></div>
+                <div style="color:var(--color-gold); font-size:0.8rem;">
+                    {% with ''|center:5 as range %}{% for _ in range %}{% if forloop.counter <= review.rating %}★{% else %}☆{% endif %}{% endfor %}{% endwith %}
+                </div>
+                <div style="margin-top:5px; color:var(--text-main);">{{ review.comment }}</div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p style="color:#888;">No reviews yet.</p>
+    {% endif %}
+    
+    {% if user.is_authenticated %}
+        <a href="#write-review" onclick="document.querySelector('.review-form-box').scrollIntoView()" style="display:inline-block; margin-top:10px; color:#3F51B5; font-weight:700;">Write a Review</a>
+    {% endif %}
+</div>
 
-    // --- SHARE LOGIC ---
-    async function handleShare() {
-        const shareData = {
-            title: '{{ product.name|escapejs }}',
-            text: 'Check out this amazing product from Jeba Enterprise!',
-            url: window.location.href
-        };
-
-        // Track Event
-        trackInteraction('SHARE', { method: navigator.share ? 'Native' : 'Clipboard' });
-
-        try {
-            if (navigator.share) {
-                await navigator.share(shareData);
-            } else {
-                await navigator.clipboard.writeText(shareData.url);
-                alert('Link copied to clipboard!');
-            }
-        } catch (err) {
-            console.log('Share cancelled');
-        }
-    }
-</script>
-
-{% if site_settings.meta_pixel_id %}
 <script>
-    // Facebook Pixel Tracking
-    fbq('track', 'ViewContent', {
-        content_name: "{{ product.name }}",
-        content_ids: ["{{ product.id }}"],
-        content_type: 'product',
-        value: parseFloat("{{ product.selling_price }}"),
-        currency: 'BDT'
-    });
+    // --- 1. QUANTITY LOGIC ---
+    function updateQty(change) {
+        const input = document.getElementById('main-qty-input');
+        const displayMobile = document.getElementById('mobile-qty-display');
+        const displayDesktop = document.getElementById('desktop-qty-display');
+        
+        let newVal = parseInt(input.value) + change;
+        if(newVal < 1) newVal = 1;
+        
+        input.value = newVal;
+        if(displayMobile) displayMobile.value = newVal;
+        if(displayDesktop) displayDesktop.value = newVal;
+    }
 
-    const addBtn = document.querySelector('.btn-add-cart');
-    if(addBtn) {
-        addBtn.addEventListener('click', function() {
-            fbq('track', 'AddToCart', {
-                content_name: "{{ product.name }}",
-                content_ids: ["{{ product.id }}"],
-                content_type: 'product',
-                value: parseFloat("{{ product.selling_price }}"),
-                currency: 'BDT'
-            });
+    // --- 2. MOBILE GALLERY LOGIC ---
+    const gallery = document.getElementById('mobile-gallery');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (window.innerWidth <= 768 && gallery) {
+        gallery.addEventListener('scroll', () => {
+            const scrollLeft = gallery.scrollLeft;
+            const width = gallery.offsetWidth;
+            const index = Math.round(scrollLeft / width);
+            
+            dots.forEach(d => d.classList.remove('active'));
+            if(dots[index]) dots[index].classList.add('active');
+        });
+        
+        document.querySelectorAll('.main-image-box').forEach(box => {
+            box.style.display = 'flex'; 
         });
     }
+
+    // --- 3. DESKTOP GALLERY LOGIC ---
+    function desktopSwitchImage(src, thumb) {
+        if(window.innerWidth <= 768) return; 
+        const mainBoxes = document.querySelectorAll('.main-image-box');
+        mainBoxes.forEach(box => {
+            const img = box.querySelector('img');
+            if(img.src.includes(src)) {
+                box.style.display = 'flex';
+            } else {
+                box.style.display = 'none';
+            }
+        });
+        document.querySelectorAll('.thumb-btn').forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+    }
+
+    // --- 4. DESCRIPTION TOGGLE ---
+    function toggleDescription() {
+        const content = document.getElementById('desc-content');
+        const btn = document.getElementById('desc-toggle-btn');
+        
+        if (content.classList.contains('expanded')) {
+            content.classList.remove('expanded');
+            btn.innerHTML = "View Full Details ↓";
+            content.scrollIntoView({behavior:'smooth', block:'center'});
+        } else {
+            content.classList.add('expanded');
+            btn.innerHTML = "Show Less ↑";
+        }
+    }
+
+    // --- 5. CONTACT MODAL & CLIPBOARD ---
+    function toggleContactModal(show) {
+        const modal = document.getElementById('contact-modal');
+        if(show) modal.classList.add('active');
+        else modal.classList.remove('active');
+    }
+
+    async function copyToClipboard() {
+        const text = "Hi, I'm interested in {{ product.name|escapejs }}. Link: " + window.location.href;
+        try {
+            await navigator.clipboard.writeText(text);
+            alert("Product info copied to clipboard!");
+        } catch (err) {
+            console.error('Failed to copy', err);
+        }
+    }
+
+    // --- 6. VARIATION LOGIC ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const varSelect = document.getElementById('variation-select');
+        const priceDisplay = document.getElementById('display-price');
+        const form = document.getElementById('cart-form');
+
+        if(varSelect) {
+            varSelect.addEventListener('change', function() {
+                const opt = this.options[this.selectedIndex];
+                const newPrice = '৳' + opt.dataset.price;
+                if(priceDisplay) priceDisplay.innerText = newPrice;
+                form.action = opt.dataset.url;
+            });
+        }
+    });
+
+    // --- 7. MODAL (Enabled for All Devices) ---
+    function openModal(src) {
+        // Just open it directly, no size check
+        document.getElementById('full-image').src = src;
+        document.getElementById('image-modal').style.display = 'flex';
+    }
+    function closeModal() {
+        document.getElementById('image-modal').style.display = 'none';
+    }
 </script>
-{% endif %}
+
 {% endblock %}
