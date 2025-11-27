@@ -16,6 +16,7 @@ __pycache__/
 media/products/gallery/*
 media/products/
 media/temp/
+media/
 *.log
 
 # Database (only if using local SQLite, which your file list suggests)
