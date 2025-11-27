@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import dj_database_url
-
 import os
 from dotenv import load_dotenv
 
@@ -61,12 +60,10 @@ INSTALLED_APPS = [
     'jeba_analytics',
     'jeba_blog',
     
-    # --- EXISTING APP (Do not remove) ---
+    # --- EXISTING APP (Deprecated/Hidden) ---
     # 'products', 
     'import_export',    
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,7 +74,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # --- NEW: Maintenance Mode Middleware ---
+    # --- Maintenance Mode Middleware ---
     'jeba_core.middleware.MaintenanceModeMiddleware',
 ]
 
@@ -93,7 +90,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # Updated to use new modular app's context processor for SiteSettings
+                # Updated to use new modular app's context processor
                 'jeba_core.context_processors.global_settings',
             ],
         },
@@ -105,25 +102,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# This one line reads your Supabase URL and configures Django
-# In config/settings.py
-
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.getenv('DATABASE_URL'),
-#         conn_max_age=0, # <--- CHANGE THIS TO 0
-#         conn_health_checks=True,
-#     )
-# }
-
 
 DATABASES = {
     'default': {
@@ -139,20 +117,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    # {
-    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    # },
-    # {
-    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    # },
-    # {
-    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    # },
-    # {
-    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    # },
-]
+AUTH_PASSWORD_VALIDATORS = []
 
 
 # Internationalization
@@ -171,11 +136,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# This tells Django where to dump files when you run 'collectstatic'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-# --- ADD THIS LINE ---
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -184,13 +145,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-# --- ADD THIS ENTIRE BLOCK AT THE BOTTOM OF settings.py ---
 
+# --- LOGGING ---
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    
-    # How to format the log messages
     'formatters': {
         'verbose': {
             'format': '{levelname} {asctime} {module} {message}',
@@ -201,15 +160,12 @@ LOGGING = {
             'style': '{',
         },
     },
-    
-    # Where to send the logs (to a file, to the console)
     'handlers': {
         'file': {
-            'level': 'INFO', # Capture INFO, WARNING, ERROR, CRITICAL
+            'level': 'INFO', 
             'class': 'logging.FileHandler',
-            # This is the new file! It will be in your root folder.
             'filename': BASE_DIR / 'jebaenterprise.log', 
-            'formatter': 'verbose', # Use the "verbose" format
+            'formatter': 'verbose', 
         },
         'console': {
             'level': 'INFO',
@@ -217,16 +173,13 @@ LOGGING = {
             'formatter': 'simple',
         },
     },
-    
-    # Which loggers to use
     'loggers': {
         'django': {
             'handlers': ['console', 'file'],
             'level': 'INFO',
             'propagate': True,
         },
-        # This is OUR app. We're telling it to use the 'file' handler
-        'products': {
+        'jeba_inventory': { # Updated logger name
             'handlers': ['console', 'file'],
             'level': 'INFO',
             'propagate': True,
@@ -235,104 +188,59 @@ LOGGING = {
 }
 
 # --- AUTHENTICATION SETTINGS ---
-LOGIN_REDIRECT_URL = '/'          # Redirect to the homepage after successful login
-LOGOUT_REDIRECT_URL = '/'         # Redirect to the homepage after logging out
+LOGIN_REDIRECT_URL = '/'          
+LOGOUT_REDIRECT_URL = '/'         
 
 
 # --- JAZZMIN WORLD-CLASS DARK THEME SETTINGS ---
 
 JAZZMIN_SETTINGS = {
-    # Title on the login screen
     "site_header": "Jeba Enterprise",
-    
-    # Title on the brand (top left)
     "site_brand": "Jeba Admin",
-    
-    # Logo to use for your site, must be present in static files, used for brand on top left
-    # You can put your logo.png in your static folder and reference it here
-    "site_logo": "logo.svg", # Assuming you move logo.svg to your static files
-    
-    # CSS classes that are applied to the logo above
+    "site_logo": "logo.svg", 
     "site_logo_classes": "img-circle",
-
-    # Welcome text on the login screen
     "welcome_sign": "Welcome to Jeba Enterprise HQ",
-
-    # Copyright on the footer
     "copyright": "Jeba Enterprise Ltd",
-
-    # The model admin to search from the search bar (Updated for Modular Apps)
     "search_model": ["jeba_inventory.Product", "jeba_sales.Sale"],
-
-    # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
     "user_avatar": None,
 
-    ############
-    # Top Menu #
-    ############
-
-    # Links to put along the top menu
+    # Top Menu
     "topmenu_links": [
         {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
         {"name": "View Site", "url": "/", "new_window": True},
     ],
 
-    #############
-    # User Menu #
-    #############
-
-    # Additional links to include in the user menu on the top right
+    # User Menu
     "usermenu_links": [
         {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
         {"model": "auth.user"}
     ],
 
-    #############
-    # Side Menu #
-    #############
-
-    # Whether to display the side menu
+    # Side Menu
     "show_sidebar": True,
-
-    # Whether to aut expand the menu
     "navigation_expanded": True,
     
-    # Custom icons for side menu apps/models (Updated for Modular Apps)
-    # Use FontAwesome icons (e.g. "fas fa-shopping-bag")
+    # Icons (Updated for Modular Apps)
     "icons": {
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
         
-        # Core Models
         "jeba_core.SiteSettings": "fas fa-cogs",
-        # Inventory Models
         "jeba_inventory.Product": "fas fa-box-open",
         "jeba_inventory.Category": "fas fa-tags",
         "jeba_inventory.ProductVariation": "fas fa-sliders-h",
-        # Sales Models
         "jeba_sales.Sale": "fas fa-shopping-cart",
-        # Accounts Model
         "jeba_accounts.UserProfile": "fas fa-address-card",
-        # Engagement Models
         "jeba_engagement.Review": "fas fa-star",
         "jeba_engagement.Wishlist": "fas fa-heart",
-        # Intelligence/Analytics Apps
         "jeba_intelligence": "fas fa-brain",
         "jeba_analytics": "fas fa-chart-line",
-        # Blog App
         "jeba_blog": "fas fa-newspaper",
-
-        # Fallback mappings (in case old app still exists)
-        "products.Product": "fas fa-box-open", 
-        "products.Sale": "fas fa-shopping-cart",
-        "products.Category": "fas fa-tags",
     },
-    # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
     
-    # --- Custom Link for Competitor Analysis (Moved to relevant app) ---
     "custom_links": {
         "jeba_intelligence": [{
             "name": "Competitor Analysis", 
@@ -349,17 +257,17 @@ JAZZMIN_UI_TWEAKS = {
     "body_small_text": False,
     "brand_small_text": False,
     
-    # Dark Theme with Sharp Accent Colors
+    # Dark Theme Colors
     "brand_colour": "navbar-dark",
-    "accent": "accent-info", # A vibrant blue for highlights and interactive elements
-    "navbar": "navbar-dark navbar-primary", # Dark navbar with a subtle primary color strip
+    "accent": "accent-info", 
+    "navbar": "navbar-dark navbar-primary", 
     "no_navbar_border": True,
-    "navbar_fixed": True, # Fixed navbar for improved access to links
+    "navbar_fixed": True, 
     "layout_boxed": False,
     "footer_fixed": False,
-    "sidebar_fixed": True, # Fixed sidebar for always-present navigation
+    "sidebar_fixed": True, 
     
-    # Dark Sidebar with Primary accent (for active links)
+    # Dark Sidebar
     "sidebar": "sidebar-dark-primary", 
     "sidebar_nav_small_text": False,
     "sidebar_disable_expand": False,
@@ -368,7 +276,7 @@ JAZZMIN_UI_TWEAKS = {
     "sidebar_nav_legacy_style": False,
     "sidebar_nav_flat_style": False,
     
-    "theme": "darkly", # Using Darkly Bootswatch theme for a professional, high-contrast dark look
+    "theme": "darkly", 
     "dark_mode_theme": None,
     "button_classes": {
         "primary": "btn-primary",
@@ -378,9 +286,8 @@ JAZZMIN_UI_TWEAKS = {
         "danger": "btn-danger",
         "success": "btn-success"
     },
-    # Optional: Apply brand and logo to the login page
     "login_logo_classes": "text-center",
-    "login_logo": "media/logo.svg" # Using the SVG logo provided in the media folder
+    "login_logo": "media/logo.svg" 
 }
 
 # Email Configuration
@@ -391,19 +298,17 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-
-# Switch to File-based sessions to save DB connections
+# Sessions
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
 SESSION_FILE_PATH = BASE_DIR / "sessions"
 
-# --- STEADFAST CONFIGURATION ---
+# Steadfast API
 STEADFAST_API_KEY = os.getenv('STEADFAST_API_KEY')
 STEADFAST_SECRET_KEY = os.getenv('STEADFAST_SECRET_KEY')
 STEADFAST_BASE_URL = 'https://portal.packzy.com/api/v1'
 
-# Add this to configure import settings (optional but good)
+# Import Export
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
-# --- MAINTENANCE MODE ---
-# Set this to 'True' in your .env file to enable maintenance page
+# Maintenance Mode
 MAINTENANCE_MODE = os.getenv('MAINTENANCE_MODE', 'False') == 'True'

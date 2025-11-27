@@ -1,45 +1,76 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}{{ post.title }}{% endblock %}
+{% block extra_head %}
+    {% comment %} --- SMARTCODER: SEO INJECTION --- {% endcomment %}
+    <meta name="description" content="{{ post.meta_description|default:post.excerpt }}">
+    <meta property="og:title" content="{{ post.meta_title|default:post.title }}">
+    <meta property="og:description" content="{{ post.meta_description|default:post.excerpt }}">
+    {% if post.featured_image %}
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ post.featured_image.url }}">
+    {% endif %}
+{% endblock %}
+
+{% block title %}{{ post.meta_title|default:post.title }}{% endblock %}
 
 {% block content %}
-<div style="max-width: 800px; margin: 0 auto;">
-    <header style="text-align: center; margin: 40px 0;">
-        <div style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 15px;">
-            {{ post.created_at|date:"F d, Y" }}
+<div style="max-width: 800px; margin: 0 auto; padding: 20px 0;">
+    <header style="text-align: center; margin: 30px 0;">
+        <div style="font-size: 0.9rem; color: var(--text-sub); margin-bottom: 10px;">
+            <span style="background: #e0e0e0; padding: 3px 8px; border-radius: 4px;">{{ post.created_at|date:"F d, Y" }}</span> 
         </div>
-        <h1 style="font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 30px;">
+        <h1 style="font-size: 2.5rem; font-weight: 900; line-height: 1.2; margin-bottom: 25px;">
             {{ post.title }}
         </h1>
-        {% if post.featured_image %}
-        <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); margin-bottom: 40px;">
-            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" style="width: 100%; height: auto; display: block;">
-        </div>
-        {% endif %}
     </header>
+    
+    {% if post.featured_image %}
+    <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-soft); margin-bottom: 40px; border: 1px solid #eee;">
+        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" style="width: 100%; height: auto; display: block; object-fit: cover;">
+    </div>
+    {% endif %}
 
     <div style="font-size: 1.1rem; line-height: 1.8; color: var(--text-main); margin-bottom: 60px;">
-        {{ post.content|safe|linebreaks }}
+        {% comment %} Assuming content already uses linebreaks from the |linebreaks filter if applied {% endcomment %}
+        {{ post.content|safe }} 
     </div>
 
     {% if attached_products %}
-    <div style="background: #F8F9FB; padding: 40px; border-radius: var(--radius-xl); margin-bottom: 40px;">
-        <h3 style="text-align: center; margin-bottom: 30px; font-weight: 800;">Featured Products</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+    <div style="background: #fff; padding: 40px; border-radius: var(--radius-xl); margin-bottom: 40px; border: 2px solid #eee; box-shadow: var(--shadow-soft);">
+        <h3 style="text-align: center; margin-bottom: 30px; font-weight: 800; font-size: 1.6rem;">Featured Products Mentioned</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 25px;">
             {% for prod in attached_products %}
-            <div style="background: white; padding: 15px; border-radius: var(--radius-lg); text-align: center;">
-                <a href="{% url 'product_detail' prod.id %}">
-                    {% if prod.images.first %}
-                    <img src="{{ prod.images.first.image.url }}" style="width: 100%; height: 150px; object-fit: contain; margin-bottom: 10px;">
+            <a href="{% url 'product_detail' prod.id %}" style="text-decoration: none; color: var(--text-main);">
+                <div style="background: #F8F9FB; padding: 15px; border-radius: var(--radius-lg); text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s;">
+                    
+                    {% comment %} Use main_image_obj for best compatibility {% endcomment %}
+                    {% if prod.main_image_obj %}
+                    <img src="{{ prod.main_image_obj.image.url }}" style="width: 100%; height: 140px; object-fit: contain; margin-bottom: 10px;">
                     {% endif %}
-                    <h4 style="margin: 10px 0; font-size: 1rem;">{{ prod.name }}</h4>
-                    <div style="font-weight: 700;">৳{{ prod.selling_price|floatformat:0 }}</div>
-                </a>
-                <a href="{% url 'product_detail' prod.id %}" class="btn" style="margin-top: 10px; font-size: 0.8rem; padding: 8px 15px;">View Product</a>
-            </div>
+                    
+                    <h4 style="margin: 10px 0 5px 0; font-size: 1rem; font-weight: 700;">{{ prod.name }}</h4>
+                    
+                    {% if not prod.call_for_price %}
+                        <div style="font-weight: 800; color: #3F51B5; font-size: 1.1rem;">
+                            ৳{{ prod.selling_price|floatformat:0 }}
+                        </div>
+                    {% else %}
+                        <div style="font-weight: 800; color: #FF9800; font-size: 1.1rem;">
+                            Call for Price
+                        </div>
+                    {% endif %}
+                    
+                </div>
+            </a>
             {% endfor %}
         </div>
     </div>
     {% endif %}
+    
+    <div style="text-align: center; margin-top: 50px;">
+        <a href="{% url 'blog_list' %}" style="color: var(--text-sub); text-decoration: none; font-weight: 600;">← Back to All Posts</a>
+    </div>
+
 </div>
 {% endblock %}

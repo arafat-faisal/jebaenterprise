@@ -34,7 +34,7 @@ def register_view(request):
         form = SignUpForm()
 
     context = {'form': form}
-    return render(request, 'registration/register.html', context)
+    return render(request, 'jeba_accounts/registration/register.html', context)
 
 def user_logout(request):
     logout(request)
@@ -57,7 +57,7 @@ def profile_view(request):
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
     
-    return render(request, 'registration/profile.html', {
+    return render(request, 'jeba_accounts/registration/profile.html', {
         'user_form': user_form,
         'profile_form': profile_form
     })
@@ -101,4 +101,4 @@ def user_dashboard(request):
         'password_form': password_form,
         'recent_orders': recent_orders
     }
-    return render(request, 'registration/dashboard.html', context)
+    return render(request, 'jeba_accounts/registration/dashboard.html', context)

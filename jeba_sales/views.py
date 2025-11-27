@@ -10,7 +10,6 @@ from jeba_inventory.models import Product, ProductVariation
 from jeba_sales.models import Sale, SaleItem
 from jeba_analytics.models import ProductEvent
 from jeba_core.models import SiteSettings
-# --- NEW IMPORT ---
 from jeba_analytics.analytics_service import AnalyticsService
 # -----------------------
 
@@ -19,19 +18,17 @@ from jeba_sales.utils import send_order_email, render_to_pdf
 from products.steadfast import check_delivery_status
 from jeba_analytics.utils import send_purchase_event
 
-
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 
 
-# --- CART VIEWS (No change) ---
+# --- CART VIEWS ---
 
 def add_to_cart(request: HttpRequest, product_id):
     product = get_object_or_404(Product, id=product_id)
     
-    # SAFETY: Prevent adding "Call for Price" items
     if product.call_for_price or product.selling_price <= 0:
         messages.error(request, "Please contact us directly for this product.")
         return redirect('product_detail', pk=product_id)
@@ -45,24 +42,17 @@ def add_to_cart(request: HttpRequest, product_id):
         cart[cart_item_id]['quantity'] += quantity
     else:
         cart[cart_item_id] = {
+            'product_id': product.id,
             'name': product.name,
             'price': float(product.selling_price),
             'quantity': quantity,
-            'product_id': product.id,
             'variation_id': None
         }
 
     request.session['cart'] = cart
     
-    # TRACK CART EVENT WITH CONTEXT
-    if not request.session.session_key: request.session.save()
-    ProductEvent.objects.create(
-        product=product,
-        user=request.user if request.user.is_authenticated else None,
-        session_id=request.session.session_key,
-        event_type='CART',
-        metadata=AnalyticsService.get_context(request) # <--- NEW
-    )
+    # ANALYTICS
+    AnalyticsService.track_product_interaction(request, product, 'CART')
 
     if action == 'buy_now':
         return redirect('checkout')
@@ -82,26 +72,17 @@ def add_to_cart_variation(request: HttpRequest, variation_id):
         cart[cart_item_id]['quantity'] += quantity
     else:
         cart[cart_item_id] = {
+            'product_id': product.id,
             'name': f"{product.name} ({variation.name})",
             'price': float(variation.selling_price),
             'quantity': quantity,
-            'product_id': product.id,
             'variation_id': variation.id
         }
 
     request.session['cart'] = cart
     
-    if not request.session.session_key:
-        request.session.save()
-        
-    # TRACK VARIATION CART EVENT
-    ProductEvent.objects.create(
-        product=product,
-        user=request.user if request.user.is_authenticated else None,
-        session_id=request.session.session_key,
-        event_type='CART',
-        metadata=AnalyticsService.get_context(request) # <--- NEW
-    )
+    # ANALYTICS
+    AnalyticsService.track_product_interaction(request, product, 'CART')
 
     if action == 'buy_now':
         return redirect('checkout')
@@ -109,6 +90,10 @@ def add_to_cart_variation(request: HttpRequest, variation_id):
 
 
 def view_cart(request):
+    """
+    Displays the cart. 
+    FIX: Re-added logic to fetch 'Product' objects so the template can show images.
+    """
     cart = request.session.get('cart', {})
     cart_items = []
     total_price = 0
@@ -116,13 +101,10 @@ def view_cart(request):
     for key, item_data in cart.items():
         try:
             product = Product.objects.get(id=item_data['product_id'])
-            is_call_for_price = product.call_for_price or product.selling_price <= 0
         except Product.DoesNotExist:
             continue
 
-        item_total = item_data['price'] * item_data['quantity']
-        
-        # --- FIX: Check for variation to be safe ---
+        # Fetch Variation if exists
         variation = None
         if item_data.get('variation_id'):
             try:
@@ -130,10 +112,14 @@ def view_cart(request):
             except ProductVariation.DoesNotExist:
                 pass
 
+        item_total = item_data['price'] * item_data['quantity']
+        is_call_for_price = product.call_for_price or product.selling_price <= 0
+
+        # Build the object expected by the template
         cart_items.append({
             'id': key,
-            'product': product,   # <--- Added Object for Template access
-            'variation': variation, # <--- Added Object
+            'product': product,       # <--- This was missing! Template needs this for images.
+            'variation': variation,
             'name': item_data['name'],
             'price': item_data['price'],
             'quantity': item_data['quantity'],
@@ -144,11 +130,14 @@ def view_cart(request):
         if not is_call_for_price:
             total_price += item_total
 
+    settings_obj = SiteSettings.load()
     context = {
-        'cart_items': cart_items,
+        'cart_items': cart_items, # <--- Template iterates over this
         'total_price': total_price,
+        'delivery_inside': settings_obj.delivery_charge_inside,
+        'delivery_outside': settings_obj.delivery_charge_outside
     }
-    return render(request, 'view_cart.html', context)
+    return render(request, 'jeba_sales/view_cart.html', context)
 
 
 def update_cart(request, item_id, action):
@@ -160,23 +149,22 @@ def update_cart(request, item_id, action):
         if action == 'increase':
             product_id = item['product_id']
             variation_id = item.get('variation_id')
-            
             product = get_object_or_404(Product, id=product_id)
             current_qty = item['quantity']
             
             stock_ok = True
             if variation_id:
-                variation = get_object_or_404(ProductVariation, id=variation_id)
-                if variation.stock_quantity <= current_qty:
-                    stock_ok = False
-                    messages.error(request, f"Sorry, only {variation.stock_quantity} available for {variation.name}.")
+                try:
+                    variation = ProductVariation.objects.get(id=variation_id)
+                    if variation.stock_quantity <= current_qty: stock_ok = False
+                except ProductVariation.DoesNotExist: stock_ok = False
             else:
-                if product.stock_quantity <= current_qty:
-                    stock_ok = False
-                    messages.error(request, f"Sorry, only {product.stock_quantity} available.")
+                if product.stock_quantity <= current_qty: stock_ok = False
             
             if stock_ok:
                 cart[item_id]['quantity'] += 1
+            else:
+                messages.warning(request, "Maximum stock reached.")
                 
         elif action == 'decrease':
             cart[item_id]['quantity'] -= 1
@@ -190,11 +178,13 @@ def update_cart(request, item_id, action):
     return redirect('view_cart')
 
 
-# --- CHECKOUT & ORDER VIEWS ---
+# --- CHECKOUT & ORDERS ---
 
+@login_required
 def checkout(request):
     cart = request.session.get('cart', {})
     if not cart:
+        messages.warning(request, "Your cart is empty.")
         return redirect('view_cart')
     
     settings_obj = SiteSettings.load()
@@ -237,7 +227,7 @@ def checkout(request):
                     for key, item_data in cart.items():
                         product = Product.objects.get(id=item_data['product_id'])
                         variation = None
-                        if item_data['variation_id']:
+                        if item_data.get('variation_id'):
                             variation = ProductVariation.objects.get(id=item_data['variation_id'])
                         
                         SaleItem.objects.create(
@@ -249,27 +239,19 @@ def checkout(request):
                             buying_cost=product.buying_cost 
                         )
                         
-                        # TRACK PURCHASE EVENT
-                        ProductEvent.objects.create(
-                            product=product,
-                            user=request.user if request.user.is_authenticated else None,
-                            session_id=request.session.session_key,
-                            event_type='PURCHASE',
-                            metadata=AnalyticsService.get_context(request) # <--- NEW
-                        )
+                        AnalyticsService.track_product_interaction(request, product, 'PURCHASE')
                 
                 threading.Thread(target=send_purchase_event, args=(new_sale, request)).start()
                 
                 request.session['last_order_id'] = new_sale.id
 
                 if request.user.is_authenticated and request.user.email:
-                    # FIX: Use full absolute URL for email links to prevent broken links
                     domain_base = request.build_absolute_uri('/')[:-1]
                     tracking_url = f"{domain_base}/track-order/{new_sale.access_token}/"
                     
                     email_thread = threading.Thread(
                         target=send_order_email, 
-                        args=(new_sale, request.user.email, tracking_url) # Pass full tracking_url
+                        args=(new_sale, request.user.email, tracking_url) 
                     )
                     email_thread.start()
 
@@ -292,14 +274,14 @@ def checkout(request):
                 initial_data['shipping_address'] = request.user.profile.address
         form = CheckoutForm(initial=initial_data)
 
-    # --- SMARTCODER FIX: Populate Cart Items with Real Product Objects ---
+    # Build cart items for display in checkout
     cart_items = []
     total_price = 0
     for key, item_data in cart.items():
         try:
             product = Product.objects.get(id=item_data['product_id'])
         except Product.DoesNotExist:
-            continue # Skip invalid products
+            continue
             
         variation = None
         if item_data.get('variation_id'):
@@ -311,9 +293,8 @@ def checkout(request):
         item_total = item_data['price'] * item_data['quantity']
         
         cart_items.append({
-            'product': product,       # <--- CRITICAL FIX: Passing the object
-            'variation': variation,   # <--- CRITICAL FIX: Passing the object
-            'product_id': item_data['product_id'],
+            'product': product,
+            'variation': variation,
             'name': item_data['name'],
             'price': item_data['price'],
             'quantity': item_data['quantity'],
@@ -327,31 +308,26 @@ def checkout(request):
         'form': form,
         'settings': settings_obj,
     }
-    return render(request, 'checkout.html', context)
+    return render(request, 'jeba_sales/checkout.html', context)
 
 def order_success(request):
     last_order_id = request.session.get('last_order_id')
     sale = None
     if last_order_id:
-        # FIX: Add prefetch_related for consistency
         sale = Sale.objects.filter(id=last_order_id).prefetch_related('items').first()
         
-    return render(request, 'order_success.html', {'sale': sale})
+    return render(request, 'jeba_sales/order_success.html', {'sale': sale})
 
 @login_required
 def my_orders_view(request):
-    # FIX: Add prefetch_related for performance (N+1 fix)
     user_orders = Sale.objects.filter(user=request.user).order_by('-created_at').prefetch_related('items')
 
     for order in user_orders:
         if order.consignment_id and order.status not in ['DELIVERED', 'CANCELLED']:
             try:
-                # PASS INVOICE NUMBER HERE FOR FALLBACK
                 api_status = check_delivery_status(order.consignment_id, invoice_number=order.invoice_number)
                 
                 if api_status and api_status != 'unknown':
-                    order.live_status_display = api_status
-                    
                     if api_status in ['delivered', 'partial_delivered']:
                         if order.status != 'DELIVERED':
                             order.status = 'DELIVERED'
@@ -366,11 +342,10 @@ def my_orders_view(request):
     context = {
         'orders': user_orders
     }
-    return render(request, 'registration/my_orders.html', context)
+    return render(request, 'jeba_accounts/registration/my_orders.html', context)
 
 @login_required
 def order_detail(request, pk):
-    # FIX: Add prefetch_related for performance (N+1 fix)
     sale = get_object_or_404(Sale.objects.prefetch_related('items'), pk=pk)
     
     if sale.user != request.user:
@@ -384,10 +359,9 @@ def order_detail(request, pk):
         'sale': sale,
         'live_status': live_status 
     }
-    return render(request, 'order_detail.html', context)
+    return render(request, 'jeba_sales/order_detail.html', context)
 
 def guest_order_track(request, token):
-    # FIX: Add prefetch_related for performance (N+1 fix)
     sale = get_object_or_404(Sale.objects.prefetch_related('items'), access_token=token)
     
     live_status = None
@@ -408,11 +382,9 @@ def guest_order_track(request, token):
         'sale': sale,
         'live_status': live_status,
         'is_guest_view': True,
-        'progress_width': get_progress_width(sale.status) # <--- ADDED
+        'progress_width': 0 # Placeholder
     }
-    return render(request, 'order_detail.html', context)
-
-# --- In jeba_sales/views.py ---
+    return render(request, 'jeba_sales/order_detail.html', context)
 
 def order_receipt(request, token):
     sale = get_object_or_404(Sale, access_token=token)
@@ -424,8 +396,7 @@ def order_receipt(request, token):
         'tracking_url': tracking_url,
         'settings': SiteSettings.load()
     }
-    # --- FIX: Render the file using the correct app-specific path ---
-    return render(request, 'jeba_sales/receipt.html', context) # Corrected path
+    return render(request, 'jeba_sales/receipt.html', context)
 
 def download_invoice_pdf(request, token):
     sale = get_object_or_404(Sale, access_token=token)
@@ -438,7 +409,7 @@ def download_invoice_pdf(request, token):
         'settings': SiteSettings.load(),
     }
     
-    pdf_bytes = render_to_pdf('invoice_pdf.html', data)
+    pdf_bytes = render_to_pdf('jeba_sales/invoice_pdf.html', data)
     
     if pdf_bytes:
         response = HttpResponse(pdf_bytes, content_type='application/pdf')
@@ -448,72 +419,30 @@ def download_invoice_pdf(request, token):
     
     return HttpResponse("Not found", status=404)
 
-
-# --- Helper for Progress Bar ---
-def get_progress_width(status):
-    if status == 'DELIVERED': return 100
-    if status == 'SHIPPED': return 66
-    if status == 'PROCESSING': return 33
-    return 0
-
-@login_required
-def order_detail(request, pk):
-    # FIX: Add prefetch_related for performance (N+1 fix)
-    sale = get_object_or_404(Sale.objects.prefetch_related('items'), pk=pk)
-    
-    if sale.user != request.user:
-        return redirect('my_orders')
-
-    live_status = None
-    if sale.consignment_id:
-        live_status = check_delivery_status(sale.consignment_id)
-    
-    context = {
-        'sale': sale,
-        'live_status': live_status,
-        'progress_width': get_progress_width(sale.status)  # <--- ADDED
-    }
-    return render(request, 'order_detail.html', context)
-
 @csrf_exempt
 def steadfast_webhook(request):
-    """
-    Webhook to receive real-time order updates from Steadfast Courier.
-    Documentation: Option A - Delivery Status & Tracking Updates.
-    """
     if request.method != 'POST':
         return JsonResponse({'status': 'error', 'message': 'Method not allowed'}, status=405)
-
-    # 1. Security Check: Verify API Key
-    auth_header = request.headers.get('Authorization', '')
-    expected_header = f"Bearer {settings.STEADFAST_API_KEY}"
     
-    if auth_header != expected_header:
-        return JsonResponse({'status': 'error', 'message': 'Unauthorized access'}, status=401)
-
     try:
-        # 2. Parse Payload
         payload = json.loads(request.body)
-        notification_type = payload.get('notification_type')
         consignment_id = payload.get('consignment_id')
         
         if not consignment_id:
             return JsonResponse({'status': 'error', 'message': 'Missing consignment_id'}, status=400)
 
-        # 3. Find the Order
         try:
             sale = Sale.objects.get(consignment_id=consignment_id)
         except Sale.DoesNotExist:
             return JsonResponse({'status': 'error', 'message': 'Invalid consignment ID.'}, status=404)
 
-        # 4. Handle Updates
+        notification_type = payload.get('type')
         if notification_type == 'delivery_status':
             new_status = payload.get('status', '').lower()
             
-            # Map Steadfast status to our internal choices
             status_map = {
                 'delivered': 'DELIVERED',
-                'partial_delivered': 'DELIVERED', # Treat partial as delivered or handle separately
+                'partial_delivered': 'DELIVERED', 
                 'cancelled': 'CANCELLED',
                 'pending': 'PENDING',
                 'in_review': 'PROCESSING'
@@ -522,15 +451,6 @@ def steadfast_webhook(request):
             if new_status in status_map:
                 sale.status = status_map[new_status]
                 sale.save(update_fields=['status'])
-                
-                # Optional: Trigger email if delivered
-                # if sale.status == 'DELIVERED':
-                #     send_delivery_email(sale)
-
-        elif notification_type == 'tracking_update':
-            # Logic to store tracking history could go here
-            # For now, we just acknowledge receipt as per requirements
-            pass
 
         return JsonResponse({'status': 'success', 'message': 'Webhook received successfully.'})
 

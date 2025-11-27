@@ -15,13 +15,26 @@ class BlogPost(models.Model):
         help_text=_("URL-friendly version of the title (auto-generated). Essential for SEO.")
     )
     
+    # --- NEW: SEO Fields ---
+    meta_title = models.CharField(
+        max_length=150, 
+        blank=True, 
+        help_text=_("Custom title tag for search results (max 60 chars recommended).")
+    )
+    meta_description = models.CharField(
+        max_length=255, 
+        blank=True, 
+        help_text=_("Custom meta description for search results (max 155 chars recommended).")
+    )
+    # -----------------------
+    
     # --- CONTENT ---
     featured_image = models.ImageField(upload_to='blog/featured/', blank=True, null=True)
     content = models.TextField(verbose_name=_("Post Content"))
     excerpt = models.TextField(
         max_length=500, 
         blank=True, 
-        help_text=_("Short summary for SEO meta descriptions and list views.")
+        help_text=_("Short summary for SEO meta descriptions and list views. Will auto-fill if empty.")
     )
 
     # --- INTELLIGENT LINKING ---
@@ -51,7 +64,16 @@ class BlogPost(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
+        
+        # NEW: Auto-fill meta title if blank
+        if not self.meta_title:
+            self.meta_title = self.title
+        
+        # NEW: Auto-fill excerpt from content if blank
+        if not self.excerpt and self.content:
+            self.excerpt = self.content[:160] # Use a shorter length for a safer meta description fallback
+            
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('blog_detail', kwargs={'slug': self.slug})
+        return reverse('blog_detail', args=[self.slug])

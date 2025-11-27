@@ -8,7 +8,7 @@ from jeba_engagement.models import Wishlist
 from jeba_analytics.models import ProductEvent, SearchEvent
 from jeba_core.models import SiteSettings 
 from jeba_analytics.analytics_service import AnalyticsService
-from jeba_engagement.forms import ReviewForm # Corrected import location
+from jeba_engagement.forms import ReviewForm
 # -----------------------
 
 # --- HELPER: Get Recommendations ---
@@ -79,7 +79,6 @@ def home(request):
         'recommendations': recommendations,
         'products': all_products,
     }
-    # --- FIX: Changed template path from "products/home.html" to "jeba_inventory/home.html" ---
     return render(request, "jeba_inventory/home.html", context)
 
 def product_catalog(request):
@@ -97,18 +96,18 @@ def product_catalog(request):
     if category_id:
         products = products.filter(category_id=category_id)
 
-    # 2. Tag Filter (NEW)
+    # 2. Tag Filter
     if tag_slug:
         products = products.filter(tags__slug=tag_slug)
 
-    # 3. Price Filter (NEW)
+    # 3. Price Filter
     if min_price:
         products = products.filter(selling_price__gte=min_price)
     if max_price:
         products = products.filter(selling_price__lte=max_price)
 
     # --- SORTING ---
-    # Priority: Show products with price/stock first (custom logic)
+    # Priority: Show products with price/stock first
     products = products.annotate(
         sort_priority=Case(
             When(Q(call_for_price=True) | Q(selling_price__lte=0) | Q(stock_quantity=0), then=Value(1)),
@@ -130,7 +129,7 @@ def product_catalog(request):
         
     # --- CONTEXT DATA ---
     all_categories = Category.objects.annotate(prod_count=Count('products', filter=Q(products__is_active=True))).filter(prod_count__gt=0)
-    all_tags = Tag.objects.all()[:15] # Show top 15 tags
+    all_tags = Tag.objects.all()[:15]
     
     # Calculate global min/max price for the slider inputs
     price_agg = Product.objects.filter(is_active=True).aggregate(Min('selling_price'), Max('selling_price'))
@@ -149,7 +148,6 @@ def product_catalog(request):
         'current_min': min_price or global_min,
         'current_max': max_price or global_max,
     }
-    # --- FIX: Changed template path ---
     return render(request, 'jeba_inventory/catalog.html', context)
 
 def product_detail(request, pk):
@@ -158,14 +156,11 @@ def product_detail(request, pk):
     
     if not request.session.session_key:
         request.session.save()
-        
-    ProductEvent.objects.create(
-        product=product,
-        user=request.user if request.user.is_authenticated else None,
-        session_id=request.session.session_key,
-        event_type='VIEW',
-        metadata=AnalyticsService.get_context(request) 
-    )
+    
+    # --- ANALYTICS UPGRADE: Use new Service ---
+    # This replaces the old manual SearchEvent creation
+    AnalyticsService.track_product_interaction(request, product, 'VIEW')
+    # ------------------------------------------
 
     variations = product.variations.filter(is_active=True)
     
@@ -184,6 +179,7 @@ def product_detail(request, pk):
     # Recently Viewed
     session_id = request.session.session_key
     user = request.user if request.user.is_authenticated else None
+    
     history_qs = ProductEvent.objects.filter(event_type='VIEW').exclude(product_id=pk)
     if user:
         history_qs = history_qs.filter(user=user)
@@ -194,14 +190,15 @@ def product_detail(request, pk):
     seen_ids = set()
     recently_viewed = []
     for event in recent_events:
-        # Check if product is still active before showing in history
         if event.product.id not in seen_ids and event.product.is_active:
             recently_viewed.append(event.product)
             seen_ids.add(event.product.id)
         if len(recently_viewed) >= 5: break
 
     # Fetch related blog posts
-    related_posts = product.blog_posts.filter(is_published=True)
+    related_posts = []
+    if hasattr(product, 'blog_posts'):
+        related_posts = product.blog_posts.filter(is_published=True)
 
     context = {
         'product': product,
@@ -214,29 +211,26 @@ def product_detail(request, pk):
         'in_wishlist': in_wishlist,
         'related_posts': related_posts,
     }
-    # --- FIX: Changed template path ---
     return render(request, "jeba_inventory/product_detail.html", context)
 
 def search_view(request):
     query = request.GET.get('q')
-    products = Product.objects.filter(is_active=True) # Filter base queryset
+    products = Product.objects.filter(is_active=True)
     
     if request.method == 'GET' and query:
         products = products.filter(
             Q(name__icontains=query) | 
             Q(description__icontains=query) |
             Q(category__name__icontains=query) |
-            Q(tags__name__icontains=query) # Search by Tags
+            Q(tags__name__icontains=query) 
         ).distinct()
         
         if not request.session.session_key: request.session.save()
         
-        SearchEvent.objects.create(
-            query=query,
-            user=request.user if request.user.is_authenticated else None,
-            session_id=request.session.session_key,
-            metadata=AnalyticsService.get_context(request) 
-        )
+        # --- ANALYTICS UPGRADE: Use new Service ---
+        # This fixes the AttributeError
+        AnalyticsService.track_search(request, query, result_count=products.count())
+        # ------------------------------------------
 
     category_id = request.GET.get('category')
     sort_by = request.GET.get('sort')
@@ -257,14 +251,12 @@ def search_view(request):
         'products': products,
         'query': query,
         'all_categories': all_categories,
-        'active_category': category_id,
+        'active_category': int(category_id) if category_id else None,
         'active_sort': sort_by
     }
-    # --- FIX: Changed template path ---
     return render(request, 'jeba_inventory/search_results.html', context)
 
 def print_products_page(request):
-    # This logic is likely okay to leave here, but the template path needs fixing
     product_ids_str = request.GET.get('ids', '')
     product_ids = [int(id) for id in product_ids_str.split(',') if id.isdigit()]
     products = Product.objects.filter(id__in=product_ids).prefetch_related('variations')
@@ -295,5 +287,4 @@ def print_products_page(request):
         'blank_cols_keys': blank_cols_keys,
         'all_cols': all_cols,
     }
-    # --- FIX: Changed template path ---
     return render(request, 'jeba_inventory/print_page.html', context)

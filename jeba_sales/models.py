@@ -14,6 +14,7 @@ class Sale(models.Model):
         ('SHIPPED', _('Shipped')),
         ('DELIVERED', _('Delivered')),
         ('CANCELLED', _('Cancelled')),
+        ('RETURNED', _('Returned')), # Added RETURNED for better analytics
     ]
     PAYMENT_METHODS = [
         ('COD', _('Cash on Delivery')),
@@ -51,6 +52,7 @@ class Sale(models.Model):
 
     class Meta:
         db_table = 'products_sale'
+        ordering = ['-created_at']
 
     def __str__(self):
         return f"Sale #{self.id} - {self.status}"
@@ -94,6 +96,8 @@ class SaleItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     variation = models.ForeignKey(ProductVariation, on_delete=models.SET_NULL, blank=True, null=True)
     quantity = models.PositiveIntegerField(default=1, verbose_name=_("Quantity"))
+    
+    # CRITICAL: These record the financial state AT THE TIME OF SALE
     buying_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     sold_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Sold Price"))
 
@@ -113,3 +117,28 @@ class SaleItem(models.Model):
         sold = self.sold_price if self.sold_price is not None else Decimal(0)
         cost = self.buying_cost if self.buying_cost is not None else Decimal(0)
         return (sold - cost) * self.quantity
+
+    def save(self, *args, **kwargs):
+        # 1. Capture Buying Cost from Product (or Variation) if not set
+        if self.buying_cost == 0:
+            if self.product.buying_cost:
+                self.buying_cost = self.product.buying_cost
+        
+        # 2. Capture Sold Price from Product (or Variation) if not set
+        if self.sold_price is None or self.sold_price == 0:
+            if self.variation and self.variation.selling_price > 0:
+                self.sold_price = self.variation.selling_price
+            else:
+                self.sold_price = self.product.selling_price
+
+        # 3. Handle Stock Deduction (Only on creation)
+        if not self.pk: 
+            if self.variation:
+                self.variation.stock_quantity -= self.quantity
+                self.variation.save()
+            
+            # Reduce parent product stock as well
+            self.product.stock_quantity -= self.quantity
+            self.product.save()
+            
+        super().save(*args, **kwargs)

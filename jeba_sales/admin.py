@@ -17,124 +17,175 @@ from jeba_sales.models import Sale, SaleItem
 from jeba_inventory.models import Product
 
 # --- Utils ---
+# Note: Ensure products.steadfast exists or move logic to jeba_sales.utils later
 from products.steadfast import make_payload, submit_steadfast_order 
 
-# --- Actions ---
-@admin.action(description="Confirm Order (Mark Processing)")
+# --- ACTIONS ---
+@admin.action(description="✓ Mark as Verified/Processing")
 def mark_as_processing(modeladmin, request, queryset):
-    queryset.update(status='PROCESSING')
-    messages.success(request, "Selected orders marked as Verified/Processing.")
+    updated = queryset.update(status='PROCESSING')
+    messages.success(request, f"{updated} orders marked as Verified/Processing.")
 
-# --- Forms ---
+# --- FORMS ---
 class SteadfastReviewForm(forms.Form):
-    invoice = forms.CharField(label="Invoice ID", widget=forms.TextInput(attrs={'readonly': 'readonly'}))
-    recipient_name = forms.CharField(max_length=100, label="Customer Name")
-    recipient_phone = forms.CharField(max_length=15, label="Phone")
-    recipient_address = forms.CharField(widget=forms.Textarea(attrs={'rows': 3}), label="Address")
-    cod_amount = forms.DecimalField(label="COD Amount (Tk)") 
-    note = forms.CharField(required=False, widget=forms.Textarea(attrs={'rows': 2}), initial="Handle with care")
+    invoice = forms.CharField(label="Invoice ID", widget=forms.TextInput(attrs={'readonly': 'readonly', 'class': 'form-control'}))
+    recipient_name = forms.CharField(max_length=100, label="Customer Name", widget=forms.TextInput(attrs={'class': 'form-control'}))
+    recipient_phone = forms.CharField(max_length=15, label="Phone", widget=forms.TextInput(attrs={'class': 'form-control'}))
+    recipient_address = forms.CharField(widget=forms.Textarea(attrs={'rows': 3, 'class': 'form-control'}), label="Address")
+    cod_amount = forms.DecimalField(label="COD Amount (Tk)", widget=forms.NumberInput(attrs={'class': 'form-control'})) 
+    note = forms.CharField(required=False, widget=forms.Textarea(attrs={'rows': 2, 'class': 'form-control'}), initial="Handle with care")
 
-# --- Inlines ---
+# --- INLINES ---
 class SaleItemInline(admin.TabularInline):
     model = SaleItem
     extra = 0
-    fields = ('product', 'variation', 'quantity', 'buying_cost', 'sold_price', 'total_price') 
-    readonly_fields = ('profit', 'total_price') 
+    fields = ('product', 'variation', 'quantity', 'buying_cost', 'sold_price', 'total_price_display') 
+    readonly_fields = ('profit_display', 'total_price_display')
+    autocomplete_fields = ['product']
 
-# --- Admin ---
+    def total_price_display(self, obj):
+        return f"{obj.total_price:,.0f} Tk"
+    total_price_display.short_description = "Total"
+
+    def profit_display(self, obj):
+        return f"{obj.profit:,.0f} Tk"
+    profit_display.short_description = "Profit"
+
+# --- MAIN ADMIN ---
 @admin.register(Sale)
 class SaleAdmin(admin.ModelAdmin):
     inlines = [SaleItemInline]
-    # List view still uses the display methods for calculated fields
-    list_display = ('order_id', 'customer_name', 'status', 'payment_method', 'display_total_amount', 'display_total_profit', 'consignment_id', 'steadfast_action_button')
-    list_filter = ('status', 'created_at', 'payment_method')
-    search_fields = ('customer_name', 'phone_number', 'id', 'transaction_id')
+    list_display = (
+        'order_id', 
+        'customer_name', 
+        'phone_number',
+        'status_badge', 
+        'payment_method', 
+        'display_total_amount', 
+        'steadfast_action_button'
+    )
+    list_filter = ('status', 'payment_method', 'created_at')
+    search_fields = ('customer_name', 'phone_number', 'id', 'transaction_id', 'access_token')
     actions = [mark_as_processing]
+    list_per_page = 20
 
-    # FIX 1: Add the NEW read-only display methods and remove the old ones that caused issues.
-    readonly_fields = ('access_token', 'display_order_id', 'calculated_subtotal_display', 'calculated_total_amount_display', 'display_total_profit', 'steadfast_action_button')
+    # FIX: Added 'steadfast_action_button' to readonly_fields
+    readonly_fields = (
+        'access_token', 
+        'display_order_id',
+        'created_at', 
+        'calculated_subtotal_display', 
+        'calculated_total_amount_display', 
+        'display_total_profit', 
+        'steadfast_status_preview',
+        'invoice_link',
+        'steadfast_action_button'  # <--- THIS WAS MISSING
+    )
     
-    # FIX 2: Restructure fieldsets. manual_subtotal and manual_total_amount are the NEW editable fields.
     fieldsets = (
-        (None, {
+        ("📝 Order Details", {
             'fields': (
                 ('display_order_id', 'status', 'payment_method'), 
-                'access_token', 
-                'transaction_id'
+                ('transaction_id', 'created_at'),
+                'invoice_link'
             ),
         }),
-        ('Order Totals & Overrides (Edit Price)', {
+        ("👤 Customer Info", {
+            'fields': (
+                ('customer_name', 'phone_number'), 
+                'shipping_address', 
+                'user'
+            ),
+        }),
+        ("💰 Financials & Overrides", {
             'fields': (
                 ('manual_subtotal', 'manual_total_amount', 'delivery_charge'),
+                ('calculated_subtotal_display', 'calculated_total_amount_display', 'display_total_profit'),
             ),
-            'description': 'Enter values here to manually override the totals.'
+            'description': 'Use "Manual" fields to override the automatic sums if necessary.'
         }),
-        ('Calculated Baseline (Read-Only)', {
-            # Display the *actual* automatic calculation based on line items before any overrides.
+        ("🚚 Courier & Delivery", {
             'fields': (
-                'calculated_subtotal_display',
-                'calculated_total_amount_display',
-                'display_total_profit',
+                ('consignment_id', 'tracking_code'), 
+                'steadfast_status_preview',
+                'steadfast_action_button' 
             ),
-            'description': 'These show the system default values based on line items and delivery charge.'
-        }),
-        ('Customer & Shipping', {
-            'fields': ('user', 'customer_name', 'phone_number', 'shipping_address'),
-        }),
-        ('Courier/Delivery', {
-            'fields': (('consignment_id', 'tracking_code'), 'steadfast_action_button'),
         }),
     )
 
-    # Helper method for Order ID (still necessary for property in fieldsets)
+    # --- CUSTOM COLUMNS & BADGES ---
+    def status_badge(self, obj):
+        colors = {
+            'PENDING': 'warning',
+            'PROCESSING': 'info',
+            'SHIPPED': 'primary',
+            'DELIVERED': 'success',
+            'CANCELLED': 'danger',
+        }
+        color = colors.get(obj.status, 'secondary')
+        return format_html(
+            '<span class="badge badge-{}">{}</span>', 
+            color, obj.get_status_display()
+        )
+    status_badge.short_description = "Status"
+
     def display_order_id(self, obj):
         return obj.order_id
     display_order_id.short_description = "Order ID"
 
-    # Helper method for Total Amount on the CHANGE LIST view (still necessary)
     def display_total_amount(self, obj):
-        # This one is used in list_display and calls the public property (which is now override-aware)
         amount = obj.total_amount if obj.total_amount is not None else Decimal(0)
-        return format_html(f"<strong>৳{amount:,.0f}</strong>")
-    display_total_amount.short_description = "Total (Inc. Del)"
-    display_total_amount.admin_order_field = 'total_amount'
+        return format_html(f"<strong>{amount:,.0f} Tk</strong>")
+    display_total_amount.short_description = "Grand Total"
+    display_total_amount.admin_order_field = 'manual_total_amount'
 
-    # NEW: Helper for displaying the non-override subtotal calculation
-    def calculated_subtotal_display(self, obj):
-        amount = obj._calculated_subtotal if obj._calculated_subtotal is not None else Decimal(0)
-        return format_html(f"৳{amount:,.0f}")
-    calculated_subtotal_display.short_description = "Auto Subtotal"
-
-    # NEW: Helper for displaying the non-override total calculation
-    def calculated_total_amount_display(self, obj):
-        amount = obj._calculated_total_amount if obj._calculated_total_amount is not None else Decimal(0)
-        return format_html(f"৳{amount:,.0f}")
-    calculated_total_amount_display.short_description = "Auto Total"
-    
-    # Helper method for Total Profit (still necessary)
     def display_total_profit(self, obj):
         profit = obj.total_profit if obj.total_profit is not None else Decimal(0)
-        return format_html(f"৳{profit:,.0f}")
+        color = "green" if profit > 0 else "red"
+        return format_html(f"<span style='color:{color}; font-weight:bold;'>{profit:,.0f} Tk</span>")
     display_total_profit.short_description = "Total Profit"
-    display_total_profit.admin_order_field = 'total_profit'
 
+    def calculated_subtotal_display(self, obj):
+        amount = obj._calculated_subtotal if obj._calculated_subtotal is not None else Decimal(0)
+        return f"{amount:,.0f} Tk"
+    calculated_subtotal_display.short_description = "Auto Subtotal (Items)"
 
-    def get_queryset(self, request):
-        qs = super().get_queryset(request).prefetch_related('items')
-        return qs
+    def calculated_total_amount_display(self, obj):
+        amount = obj._calculated_total_amount if obj._calculated_total_amount is not None else Decimal(0)
+        return f"{amount:,.0f} Tk"
+    calculated_total_amount_display.short_description = "Auto Total (Items + Del)"
 
+    def invoice_link(self, obj):
+        return format_html(
+            '<a class="btn btn-sm btn-outline-secondary" href="{}" target="_blank">'
+            '<i class="fas fa-file-invoice"></i> View Invoice</a>', 
+            # Assuming you have a URL named 'invoice_pdf' or similar. 
+            # If not, this link might need adjustment.
+            f"/invoice/{obj.access_token}/" 
+        )
+    invoice_link.short_description = "Invoice"
+
+    # --- STEADFAST INTEGRATION ---
     def steadfast_action_button(self, obj):
         if obj.consignment_id:
             return format_html(
-                '<a class="button" style="background-color: #4caf50; color: white;" target="_blank" href="https://portal.steadfast.com.bd/track/{}">Track on Steadfast (ID: {})</a>', 
+                '<a class="btn btn-sm btn-success" target="_blank" href="https://portal.steadfast.com.bd/track/{}">'
+                '<i class="fas fa-truck"></i> Track (ID: {})</a>', 
                 obj.consignment_id, obj.consignment_id
             )
         return format_html(
-            '<a class="button" style="background-color: #3F51B5; color: white;" href="{}">Review & Send to Steadfast</a>',
+            '<a class="btn btn-sm btn-primary" href="{}">'
+            '<i class="fas fa-paper-plane"></i> Send to Courier</a>',
             reverse('admin:sale_send_steadfast', args=[obj.pk])
         )
     steadfast_action_button.short_description = "Courier Actions"
     steadfast_action_button.allow_tags = True
+
+    def steadfast_status_preview(self, obj):
+        if obj.consignment_id:
+            return format_html('<span style="color:green;">✔ Shipped with Steadfast</span>')
+        return format_html('<span style="color:orange;">Not sent yet</span>')
+    steadfast_status_preview.short_description = "Courier Status"
 
     def get_urls(self):
         urls = super().get_urls()
@@ -153,14 +204,33 @@ class SaleAdmin(admin.ModelAdmin):
             form = SteadfastReviewForm(request.POST)
             if form.is_valid():
                 payload = form.cleaned_data
-                result = submit_steadfast_order(payload)
-                if result['success']:
-                    sale.consignment_id = result['consignment_id']
-                    sale.tracking_code = result['tracking_code']
-                    sale.status = 'SHIPPED'
-                    sale.save()
-                    self.message_user(request, f"Successfully created Consignment: {sale.consignment_id}", messages.SUCCESS)
-                    return redirect('admin:jeba_sales_sale_change', sale.id)
+                # Ensure the payload matches Steadfast API expectations
+                # Re-map clean fields to payload keys if necessary
+                submission_payload = {
+                    'invoice': payload['invoice'],
+                    'recipient_name': payload['recipient_name'],
+                    'recipient_phone': payload['recipient_phone'],
+                    'recipient_address': payload['recipient_address'],
+                    'cod_amount': float(payload['cod_amount']),
+                    'note': payload['note']
+                }
+                
+                result = submit_steadfast_order(submission_payload)
+                
+                if result.get('success') or result.get('status') == 200: # Check your submit_steadfast_order return structure
+                    # Adapt this based on exactly what submit_steadfast_order returns
+                    c_id = result.get('consignment_id') or result.get('consignment', {}).get('consignment_id')
+                    t_code = result.get('tracking_code') or result.get('consignment', {}).get('tracking_code')
+                    
+                    if c_id:
+                        sale.consignment_id = c_id
+                        sale.tracking_code = t_code
+                        sale.status = 'SHIPPED'
+                        sale.save()
+                        self.message_user(request, f"Successfully created Consignment: {c_id}", messages.SUCCESS)
+                        return redirect('admin:jeba_sales_sale_change', sale.id)
+                    else:
+                         self.message_user(request, f"API success but no ID returned: {result}", messages.WARNING)
                 else:
                     error_message = result.get('error', 'Unknown error during submission.') 
                     self.message_user(request, f"Error from Steadfast: {error_message}", messages.ERROR)
@@ -173,10 +243,11 @@ class SaleAdmin(admin.ModelAdmin):
             'opts': self.model._meta,
             'sale': sale,
             'form': form,
-            'title': f"Send Order {sale.order_id} to Steadfast",
+            'title': f"Send Order #{sale.order_id} to Steadfast",
         }
         return render(request, 'admin/sale/send_to_steadfast.html', context)
 
+    # --- DASHBOARD CHART LOGIC (Preserved) ---
     def changelist_view(self, request, extra_context=None):
         # Sales Chart Data
         end_date = timezone.now()

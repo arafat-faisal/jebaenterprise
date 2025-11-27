@@ -10,20 +10,16 @@ from import_export.widgets import ForeignKeyWidget
 
 from .models import Category, Product, ProductVariation, ProductImage, Tag
 from jeba_intelligence.models import CompetitorPrice
-# Fix: Import the utility from its new modular home
 from jeba_intelligence.utils import fetch_competitor_data
 
-# --- BULK ACTIONS ---
-# ... (Bulk actions remain unchanged, they are robust) ...
+# --- BULK ACTIONS (Preserved) ---
 @admin.action(description='👁️ Hide Selected Products')
 def hide_products(modeladmin, request, queryset):
-    """Bulk hide products from the storefront."""
     updated_count = queryset.update(is_active=False)
     messages.success(request, f"Successfully hid {updated_count} products.")
 
 @admin.action(description='👁️ Show Selected Products')
 def show_products(modeladmin, request, queryset):
-    """Bulk show products in the storefront."""
     updated_count = queryset.update(is_active=True)
     messages.success(request, f"Successfully made {updated_count} products visible.")
 
@@ -65,11 +61,19 @@ def scrape_selected_products(modeladmin, request, queryset):
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
-    fields = ('image', 'transparent_image', 'is_main') # Added is_main for better control
-    
+    fields = ('image', 'image_preview', 'transparent_image', 'is_main') 
+    readonly_fields = ('image_preview',)
+
+    def image_preview(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" style="width: 80px; height: auto; border-radius: 5px;" />', obj.image.url)
+        return "-"
+    image_preview.short_description = "Preview"
+
 class ProductVariationInline(admin.TabularInline):
     model = ProductVariation
     extra = 1
+    fields = ('name', 'selling_price', 'stock_quantity', 'is_active')
 
 class CompetitorPriceInline(admin.TabularInline):
     model = CompetitorPrice
@@ -77,12 +81,7 @@ class CompetitorPriceInline(admin.TabularInline):
     readonly_fields = ('website_name', 'min_price', 'max_price', 'last_checked')
     can_delete = True
 
-# --- REGISTRATIONS ---
-@admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
-    list_display = ('name', 'slug')
-    prepopulated_fields = {'slug': ('name',)}
-
+# --- RESOURCES ---
 class ProductResource(resources.ModelResource):
     category = Field(column_name='category', attribute='category', widget=ForeignKeyWidget(Category, 'name'))
     class Meta:
@@ -90,19 +89,46 @@ class ProductResource(resources.ModelResource):
         fields = ('id', 'name', 'description', 'short_description', 'category', 'buying_cost', 'selling_price', 'stock_quantity', 'is_featured', 'call_for_price')
         import_id_fields = ('id',)
 
+# --- ADMIN REGISTRATIONS ---
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug')
+    search_fields = ('name',)
+    prepopulated_fields = {'slug': ('name',)}
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'product_count')
+    search_fields = ('name',)
+
+    def product_count(self, obj):
+        return obj.products.count()
+    product_count.short_description = "Products"
+
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin):
     resource_class = ProductResource
     inlines = [ProductImageInline, ProductVariationInline, CompetitorPriceInline]
     
-    # FIX: Added get_tags_display for visibility of SEO tags
-    list_display = ('name', 'selling_price', 'stock_quantity', 'category', 'is_featured', 'is_active', 'call_for_price', 'get_tags_display', 'open_scraper_button')
-    list_editable = ('selling_price', 'stock_quantity', 'is_featured', 'is_active', 'call_for_price')
+    # List View Configuration
+    list_display = (
+        'thumbnail_preview', 
+        'name', 
+        'category', 
+        'selling_price', 
+        'stock_quantity', 
+        'is_active', 
+        'is_featured', 
+        'get_tags_display', 
+        'open_scraper_button'
+    )
+    list_display_links = ('thumbnail_preview', 'name')
+    list_editable = ('selling_price', 'stock_quantity', 'is_active', 'is_featured')
     list_filter = ('is_active', 'is_featured', 'category', 'tags')
-    search_fields = ('name', 'description')
+    search_fields = ('name', 'description', 'id')
     filter_horizontal = ('tags',)
+    list_per_page = 20
     
-    # Add the new actions to this list
     actions = [
         hide_products, 
         show_products, 
@@ -112,26 +138,40 @@ class ProductAdmin(ImportExportModelAdmin):
         scrape_selected_products
     ]
 
+    # Detail View Layout
     fieldsets = (
-        (None, {'fields': ('name', 'category', 'is_active', 'is_featured', 'call_for_price')}),
-        ('SEO & Searching', {'fields': ('tags',)}),
-        ('Descriptions', {'fields': ('short_description', 'description')}),
-        ('Pricing', {'fields': ('buying_cost', 'selling_price')}),
-        ('Stock', {'fields': ('stock_quantity', 'box_quantity')}),
+        ("✨ Basic Info", {
+            "fields": ('name', 'category', 'is_active', 'is_featured', 'call_for_price')
+        }),
+        ("💰 Pricing & Stock", {
+            "fields": ('buying_cost', 'selling_price', 'stock_quantity', 'box_quantity')
+        }),
+        ("🔎 SEO & Meta", {
+            "fields": ('tags', 'short_description', 'description', 'created_at', 'updated_at')
+        }),
     )
-    
-    # FIX: Helper function to display tags nicely in the changelist
-    def get_tags_display(self, obj):
-        return ", ".join([tag.name for tag in obj.tags.all()])
-    get_tags_display.short_description = "Tags"
+    readonly_fields = ('created_at', 'updated_at')
 
+    # --- CUSTOM METHODS ---
+    def thumbnail_preview(self, obj):
+        if obj.thumbnail:
+            return format_html('<img src="{}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc;" />', obj.thumbnail.url)
+        return format_html('<span style="color: #ccc;">No Image</span>')
+    thumbnail_preview.short_description = "Image"
+
+    def get_tags_display(self, obj):
+        tags = [tag.name for tag in obj.tags.all()]
+        if not tags:
+            return "-"
+        return ", ".join(tags)
+    get_tags_display.short_description = "Tags"
 
     def open_scraper_button(self, obj):
         url = reverse('admin_scraper') + f'?product_id={obj.id}'
-        return format_html('<a class="button" style="background-color: #17a2b8; color: white;" href="{}">Visual Match</a>', url)
-    open_scraper_button.short_description = "Manual Tool"
+        return format_html(
+            '<a class="button" style="background-color: #17a2b8; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none;" href="{}">'
+            '<i class="fas fa-search-dollar"></i> Check Price</a>', 
+            url
+        )
+    open_scraper_button.short_description = "Intelligence"
     open_scraper_button.allow_tags = True
-
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
