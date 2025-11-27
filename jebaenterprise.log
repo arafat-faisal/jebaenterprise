@@ -1620,3 +1620,176 @@ INFO 2025-11-27 19:52:17,384 basehttp "GET / HTTP/1.1" 200 80282
 INFO 2025-11-27 19:52:18,758 basehttp "GET / HTTP/1.1" 200 84535
 INFO 2025-11-27 19:52:20,971 basehttp "GET /accounts/login/ HTTP/1.1" 200 24909
 INFO 2025-11-27 19:52:23,531 basehttp "GET / HTTP/1.1" 200 82009
+INFO 2025-11-27 19:54:15,410 autoreload Watching for file changes with StatReloader
+INFO 2025-11-27 19:54:16,758 basehttp "GET / HTTP/1.1" 200 90289
+INFO 2025-11-27 19:54:19,721 basehttp "GET / HTTP/1.1" 200 93623
+INFO 2025-11-27 19:56:52,480 basehttp "GET / HTTP/1.1" 200 93682
+INFO 2025-11-27 19:57:08,036 basehttp "GET /product/1556/ HTTP/1.1" 200 80748
+INFO 2025-11-27 19:57:08,391 basehttp "GET /media/products/gallery/prod_1556_1.jpg HTTP/1.1" 200 24333
+INFO 2025-11-27 19:57:08,474 basehttp "GET /media/products/gallery/prod_1556_6.jpeg HTTP/1.1" 200 5623
+INFO 2025-11-27 19:57:08,508 basehttp "GET /media/products/gallery/prod_1556_2.jpeg HTTP/1.1" 200 93396
+INFO 2025-11-27 19:57:08,508 basehttp "GET /media/products/gallery/prod_1556_7.jpeg HTTP/1.1" 200 4558
+INFO 2025-11-27 19:57:08,601 basehttp "GET /media/products/gallery/prod_1556_8.jpeg HTTP/1.1" 200 6098
+INFO 2025-11-27 19:57:08,631 basehttp "GET /media/products/gallery/prod_1556_4.jpeg HTTP/1.1" 200 87590
+INFO 2025-11-27 19:57:08,744 basehttp "GET /media/products/gallery/prod_1556_5.jpeg HTTP/1.1" 200 220207
+INFO 2025-11-27 19:57:08,898 basehttp "GET /media/products/gallery/prod_1556_3.jpeg HTTP/1.1" 200 160140
+INFO 2025-11-27 19:57:22,944 basehttp "GET / HTTP/1.1" 200 87815
+INFO 2025-11-27 19:57:36,813 basehttp "GET / HTTP/1.1" 200 93038
+INFO 2025-11-27 19:57:36,843 basehttp "GET /media/logo.svg HTTP/1.1" 304 0
+INFO 2025-11-27 19:57:39,573 basehttp "GET /admin/ HTTP/1.1" 200 54796
+INFO 2025-11-27 19:57:39,592 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 304 0
+INFO 2025-11-27 19:57:39,592 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 304 0
+INFO 2025-11-27 19:57:39,593 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 304 0
+WARNING 2025-11-27 19:57:39,599 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-27 19:57:39,599 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 304 0
+INFO 2025-11-27 19:57:39,599 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-11-27 19:57:39,599 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 304 0
+INFO 2025-11-27 19:57:39,644 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-27 19:57:39,644 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+ERROR 2025-11-27 19:57:44,142 log Internal Server Error: /admin/jeba_analytics/productevent/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\options.py", line 683, in get_field
+    return self.fields_map[field_name]
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'user_or_guest'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\utils.py", line 290, in lookup_field
+    f = _get_non_gfk_field(opts, name)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\utils.py", line 330, in _get_non_gfk_field
+    field = opts.get_field(name)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\options.py", line 685, in get_field
+    raise FieldDoesNotExist(
+django.core.exceptions.FieldDoesNotExist: ProductEvent has no field named 'user_or_guest'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\library.py", line 359, in render
+    _dict = self.func(*resolved_args, **resolved_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 354, in result_list
+    "results": list(results(cl)),
+               ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 330, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 321, in __init__
+    super().__init__(*items)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_list.py", line 219, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\utils.py", line 299, in lookup_field
+    value = attr(obj)
+            ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_analytics\admin.py", line 224, in user_or_guest
+    return f"Guest ({obj.session_id[:8]}...)"
+                     ~~~~~~~~~~~~~~^^^^
+TypeError: 'NoneType' object is not subscriptable
+ERROR 2025-11-27 19:57:44,147 basehttp "GET /admin/jeba_analytics/productevent/ HTTP/1.1" 500 439073
+INFO 2025-11-27 19:57:48,735 basehttp "GET /catalog/ HTTP/1.1" 200 411314
+INFO 2025-11-27 19:57:50,590 basehttp "GET / HTTP/1.1" 200 96805
+INFO 2025-11-27 19:58:15,238 basehttp "GET /product/1506/ HTTP/1.1" 200 76333
+INFO 2025-11-27 19:58:15,320 basehttp "GET /media/products/gallery/prod_1506_1.jpg HTTP/1.1" 200 21199
+INFO 2025-11-27 19:58:15,321 basehttp "GET /media/products/gallery/prod_1506_2.jpg HTTP/1.1" 200 32998
+INFO 2025-11-27 19:58:46,772 basehttp "GET / HTTP/1.1" 200 92988
+INFO 2025-11-27 20:00:24,964 basehttp "GET / HTTP/1.1" 200 87865
+INFO 2025-11-27 20:00:34,180 basehttp "GET /product/1421/ HTTP/1.1" 200 79942
+INFO 2025-11-27 20:00:34,271 basehttp "GET /media/products/gallery/prod_1421_1.jpg HTTP/1.1" 200 55285
+INFO 2025-11-27 20:00:34,280 basehttp "GET /media/products/gallery/prod_1421_2.jpg HTTP/1.1" 200 43795
+INFO 2025-11-27 20:00:34,318 basehttp "GET /media/products/gallery/prod_1421_3.jpg HTTP/1.1" 200 50355
+INFO 2025-11-27 20:00:34,343 basehttp "GET /media/products/gallery/prod_1421_5.jpg HTTP/1.1" 200 52377
+INFO 2025-11-27 20:00:34,383 basehttp "GET /media/products/gallery/prod_1421_6.jpg HTTP/1.1" 200 77674
+INFO 2025-11-27 20:00:34,441 basehttp "GET /media/products/gallery/prod_1421_4.jpg HTTP/1.1" 200 27362
+INFO 2025-11-27 20:02:50,297 basehttp "GET /product/1421/ HTTP/1.1" 200 78793
+INFO 2025-11-27 20:02:54,207 basehttp "GET / HTTP/1.1" 200 93143
+INFO 2025-11-27 20:03:07,672 basehttp "GET /catalog/ HTTP/1.1" 200 408133
+INFO 2025-11-27 20:03:11,951 basehttp "GET / HTTP/1.1" 200 92657
+INFO 2025-11-27 20:04:18,007 basehttp "GET / HTTP/1.1" 200 93194
+INFO 2025-11-27 20:04:37,462 basehttp "GET / HTTP/1.1" 200 91797
+INFO 2025-11-27 20:04:57,918 basehttp "GET / HTTP/1.1" 200 90017

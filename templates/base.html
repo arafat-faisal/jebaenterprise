@@ -363,85 +363,60 @@
         @media (max-width: 768px) {
             body { padding: 0 !important; padding-bottom: 80px !important; }
             
-            /* 1. Header Layout */
+            /* --- OPTION 1: Streamlined (Logo + Search) --- */
             .site-header {
-                padding: 10px 10px !important;
-                max-width: 100% !important; 
-                margin: 0 !important; 
-                border-radius: 0 !important;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
-                background: #fff;
+                padding: 10px 15px !important;
                 display: flex;
                 flex-wrap: nowrap !important;
                 align-items: center;
-                justify-content: space-between;
-                gap: 5px; /* The gap caused the overflow before */
+                gap: 15px; /* Space between logo and search */
+                background: #fff;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
             }
 
-            /* 2. Logo - Fixed 20% */
+            /* 1. Hide the Catalog Button (Redundant with Bottom Nav) */
+            .catalog-btn {
+                display: none !important;
+            }
+
+            /* 2. Logo - Compact and Natural Width */
             .logo {
-                width: 20%; 
+                width: auto !important; /* Let it shrink to icon size */
+                max-width: 120px; /* Cap width to prevent takeover */
                 margin: 0 !important;
                 flex-shrink: 0;
-                overflow: hidden;
-                /* SPEED CONTROL: Change 0.25s to make it faster/slower */
-                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
-                opacity: 1;
-                display: flex;
-                justify-content: center;
             }
             .logo img {
-                max-height: 50px !important; 
+                height: 32px !important; /* Professional height */
                 width: auto;
-                max-width: 100%;
-                object-fit: contain;
             }
 
-            /* 3. Catalog Button - Fixed 20% */
-            .catalog-btn {
-                display: flex !important;
-                width: 20%;
-                margin: 0 !important;
-                padding: 6px 2px !important;
-                font-size: 10px !important;
-                line-height: 1.2;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                justify-content: center;
-                align-items: center;
-                background: #F3F5F9;
-                flex-shrink: 0;
-                border-radius: 8px !important;
-                /* SPEED CONTROL */
-                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-                opacity: 1;
-                gap: 2px;
-            }
-            .catalog-btn svg { 
-                width: 14px; height: 14px; flex-shrink: 0; margin: 0; 
-            }
-
-            /* 4. Search Bar - SMART FILL (Fixes Overflow) */
+            /* 3. Search - Takes all remaining space */
             .search-container {
-                /* Changed from width: 60% to flex: 1 to absorb gap space automatically */
-                flex: 1; 
-                margin: 0;
-                min-width: 0; /* Prevents flexbox overflow */
-                /* SPEED CONTROL: Match this with others */
-                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                flex-grow: 1;
+                width: auto !important;
+                margin: 0 !important;
             }
             .search-input {
-                padding-left: 12px;
-                padding-right: 35px;
-                height: 38px;
-                border-radius: 50px;
-                font-size: 16px; 
-                width: 100%; /* Ensure input fills the flex container */
+                width: 100%;
+                height: 40px;
+                background: #F3F5F9;
+                border: 1px solid transparent;
+                font-size: 0.95rem;
+                padding-left: 15px;
+            }
+            .search-input:focus {
+                background: #fff;
+                border-color: #e0e0e0;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             }
             .search-btn {
-                width: 28px; height: 28px; right: 5px;
+                width: 32px;
+                height: 32px;
+                right: 4px;
             }
+
+            /* ------------------------------ */
             
             /* --- EXPANSION MAGIC --- */
             body.search-active .logo {
