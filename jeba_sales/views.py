@@ -17,6 +17,8 @@ from jeba_sales.forms import CheckoutForm
 from jeba_sales.utils import send_order_email, render_to_pdf
 from products.steadfast import check_delivery_status
 from jeba_analytics.utils import send_purchase_event
+# CHANGED: Import the new/updated CAPI functions
+from jeba_analytics.utils import send_purchase_event, send_add_to_cart_event
 
 import json
 from django.http import JsonResponse
@@ -54,6 +56,21 @@ def add_to_cart(request: HttpRequest, product_id):
     # ANALYTICS
     AnalyticsService.track_product_interaction(request, product, 'CART')
 
+    # --- NEW: SEND CAPI ADD TO CART EVENT ---
+    try:
+        ip = AnalyticsService.get_client_ip(request)
+        ua = request.META.get('HTTP_USER_AGENT', '')
+        user = request.user if request.user.is_authenticated else None
+        
+        # Run in thread to not block redirect
+        threading.Thread(
+            target=send_add_to_cart_event, 
+            args=(product, ip, ua, user)
+        ).start()
+    except Exception as e:
+        print(f"Error triggering ATC Event: {e}")
+    # ----------------------------------------
+
     if action == 'buy_now':
         return redirect('checkout')
     return redirect('product_detail', pk=product_id)
@@ -83,7 +100,20 @@ def add_to_cart_variation(request: HttpRequest, variation_id):
     
     # ANALYTICS
     AnalyticsService.track_product_interaction(request, product, 'CART')
-
+    # --- NEW: SEND CAPI ADD TO CART EVENT ---
+    try:
+        ip = AnalyticsService.get_client_ip(request)
+        ua = request.META.get('HTTP_USER_AGENT', '')
+        user = request.user if request.user.is_authenticated else None
+        
+        # Use the main product for the event, value is from variation
+        threading.Thread(
+            target=send_add_to_cart_event, 
+            args=(product, ip, ua, user)
+        ).start()
+    except Exception as e:
+        print(f"Error triggering ATC Event: {e}")
+    # ----------------------------------------
     if action == 'buy_now':
         return redirect('checkout')
     return redirect('product_detail', pk=product.id)
@@ -241,7 +271,19 @@ def checkout(request):
                         
                         AnalyticsService.track_product_interaction(request, product, 'PURCHASE')
                 
-                threading.Thread(target=send_purchase_event, args=(new_sale, request)).start()
+                # --- UPDATED: SEND PURCHASE EVENT CORRECTLY ---
+                try:
+                    ip = AnalyticsService.get_client_ip(request)
+                    ua = request.META.get('HTTP_USER_AGENT', '')
+                    
+                    # Pass strings (IP, UA) instead of request object to avoid threading issues
+                    threading.Thread(
+                        target=send_purchase_event, 
+                        args=(new_sale, ip, ua)
+                    ).start()
+                except Exception as e:
+                    print(f"Error starting CAPI thread: {e}")
+                # ----------------------------------------------
                 
                 request.session['last_order_id'] = new_sale.id
 

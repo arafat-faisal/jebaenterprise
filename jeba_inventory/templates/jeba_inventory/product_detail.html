@@ -959,5 +959,51 @@
         document.getElementById('image-modal').style.display = 'none';
     }
 </script>
+{% if site_settings.meta_pixel_id %}
+<script>
+    // 1. ViewContent (Standard Page Load Event)
+    fbq('track', 'ViewContent', {
+        content_name: "{{ product.name }}",
+        content_ids: ["{{ product.id }}"],
+        content_type: 'product',
+        value: parseFloat("{{ product.selling_price }}"),
+        currency: 'BDT'
+    });
 
+    // 2. AddToCart (Button Click with Delay)
+    // We intercept the form submission to ensure the pixel fires
+    const addBtns = document.querySelectorAll('.btn-add-cart, .spb-btn'); // Main + Sticky buttons
+    const cartForm = document.getElementById('add-to-cart-form');
+
+    addBtns.forEach(btn => {
+        if(btn && cartForm) {
+            btn.addEventListener('click', function(e) {
+                // Only intercept if we are "adding to cart", not "buying now"
+                if(this.value === 'add') {
+                    e.preventDefault(); // Stop form
+                    
+                    fbq('track', 'AddToCart', {
+                        content_name: "{{ product.name }}",
+                        content_ids: ["{{ product.id }}"],
+                        content_type: 'product',
+                        value: parseFloat("{{ product.selling_price }}"),
+                        currency: 'BDT'
+                    });
+
+                    // Wait 300ms then submit
+                    setTimeout(() => {
+                        // Create a hidden input to pass the 'action=add' since we prevented default
+                        const hiddenInput = document.createElement('input');
+                        hiddenInput.type = 'hidden';
+                        hiddenInput.name = 'action';
+                        hiddenInput.value = 'add';
+                        cartForm.appendChild(hiddenInput);
+                        cartForm.submit();
+                    }, 300);
+                }
+            });
+        }
+    });
+</script>
+{% endif %}
 {% endblock %}
