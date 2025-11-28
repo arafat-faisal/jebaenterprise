@@ -5067,3 +5067,41 @@ INFO 2025-11-28 18:50:08,676 basehttp "GET /media/products/gallery/prod_1633_0.j
 INFO 2025-11-28 18:50:08,712 basehttp "GET /media/landing/images/hero__bdntboqignj6_small_2x.jpg HTTP/1.1" 304 0
 INFO 2025-11-28 18:56:25,432 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61134
 INFO 2025-11-28 19:00:23,122 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61400
+INFO 2025-11-28 19:07:02,316 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 19:07:07,966 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61400
+INFO 2025-11-28 19:07:08,137 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-11-28 19:07:08,270 basehttp "GET /media/landing/images/prod_1333_0.jpg HTTP/1.1" 200 17724
+INFO 2025-11-28 19:07:08,270 basehttp "GET /media/landing/images/design_endframe__ckynsj4a5lua_small_2x.jpg HTTP/1.1" 200 28796
+INFO 2025-11-28 19:07:08,297 basehttp "GET /media/landing/images/prod_1333_1.jpg HTTP/1.1" 200 52327
+INFO 2025-11-28 19:07:08,297 basehttp "GET /media/landing/images/prod_1333_2.jpg HTTP/1.1" 200 51717
+INFO 2025-11-28 19:07:08,297 basehttp "GET /media/landing/images/prod_1333_3.jpg HTTP/1.1" 200 62605
+INFO 2025-11-28 19:07:09,050 basehttp "GET /media/landing/images/performance__f3753fjhjoii_small_2x.jpg HTTP/1.1" 200 172101
+INFO 2025-11-28 19:07:09,076 basehttp "GET /media/landing/images/prod_1333_7.jpg HTTP/1.1" 200 48903
+INFO 2025-11-28 19:07:09,946 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-11-28 19:07:10,422 basehttp "GET /media/landing/images/hero__bdntboqignj6_small_2x.jpg HTTP/1.1" 200 335865
+INFO 2025-11-28 19:07:11,075 basehttp "GET /media/landing/videos/business-arrow-growth-2025-10-17-02-19-45-utc.mp4 HTTP/1.1" 200 1684457
+INFO 2025-11-28 19:07:11,575 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61745
+INFO 2025-11-28 19:07:11,789 basehttp - Broken pipe from ('192.168.1.3', 59766)
+INFO 2025-11-28 19:07:13,321 basehttp "GET /media/landing/videos/business-arrow-growth-2025-10-17-02-19-45-utc.mp4 HTTP/1.1" 200 1684457
+INFO 2025-11-28 19:07:38,929 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61754
+INFO 2025-11-28 19:08:33,931 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61753
+INFO 2025-11-28 19:08:50,762 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61771
+INFO 2025-11-28 19:11:14,655 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61833
+INFO 2025-11-28 19:17:32,020 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61833
+INFO 2025-11-28 19:17:53,721 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 63590
+WARNING 2025-11-28 19:17:53,791 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 19:17:53,792 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 19:17:53,817 basehttp "GET /media/landing/images/design_endframe__ckynsj4a5lua_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 19:17:53,817 basehttp "GET /media/landing/images/prod_1333_2.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 19:17:53,817 basehttp "GET /media/landing/images/performance__f3753fjhjoii_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 19:17:53,817 basehttp "GET /media/landing/images/prod_1333_1.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 19:17:53,819 basehttp "GET /media/landing/images/prod_1333_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 19:17:53,839 basehttp "GET /media/landing/images/hero__bdntboqignj6_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 19:17:53,859 basehttp "GET /media/landing/images/prod_1333_7.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 19:17:53,862 basehttp "GET /media/landing/videos/business-arrow-growth-2025-10-17-02-19-45-utc.mp4 HTTP/1.1" 304 0
+INFO 2025-11-28 19:17:53,867 basehttp "GET /media/landing/images/prod_1333_3.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 19:19:17,687 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 63157
+INFO 2025-11-28 19:20:43,302 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 63590
+INFO 2025-11-28 19:20:50,130 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 63590
+INFO 2025-11-28 19:20:58,102 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61833
+INFO 2025-11-28 19:21:06,611 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 63590

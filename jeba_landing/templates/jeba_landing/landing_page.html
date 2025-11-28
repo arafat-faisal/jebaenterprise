@@ -12,7 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
-    /* --- 1. FULL SCREEN & NAV FIXES --- */
+    /* --- 1. FULL SCREEN & NAV OVERRIDES --- */
     body .container {
         max-width: 100% !important;
         padding: 0 !important;
@@ -73,6 +73,7 @@
         transition: transform 0.2s;
     }
     
+    /* Placeholder for the hero button */
     .hero-btn-placeholder {
         display: inline-block;
         width: 180px; 
@@ -137,7 +138,7 @@
     .subhead-pro { font-size: 28px; line-height: 1.15; font-weight: 400; color: var(--app-subtext); margin-bottom: 30px; }
     .text-body-pro { font-size: 19px; line-height: 1.5; font-weight: 400; color: #cecece; }
     
-    /* NEW: Custom Curved Red Strikethrough */
+    /* Curved Red Strikethrough */
     .price-strike { 
         position: relative;
         display: inline-block;
@@ -145,18 +146,18 @@
         font-size: 0.9em; 
         margin-right: 8px; 
         font-weight: 500;
-        text-decoration: none; /* Remove default line */
+        text-decoration: none;
     }
     .price-strike::after {
         content: '';
-        position:absolute;
+        position: absolute;
         left: -5%;
         top: 50%;
         width: 110%;
-        height: 5px; /* Height for the arc calculation */
-        border-top: 2px solid #ff3b30; /* Apple Red */
-        border-radius: 50%; /* Creates the curve */
-        transform: translateY(-50%) rotate(-12deg); /* Diagonal Tilt */
+        height: 5px;
+        border-top: 2px solid #ff3b30;
+        border-radius: 50%;
+        transform: translateY(-50%) rotate(-12deg);
         pointer-events: none;
     }
 
@@ -203,11 +204,13 @@
     #island-bar {
         position: fixed; 
         z-index: 9999;
+        /* Initial State */
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(212, 247, 89, 0.4);
+        /* Default left position if JS fails */
         left: 50%;
         transform: translate(-50%, 0);
     }
@@ -437,7 +440,7 @@
                         <span class="price-strike">৳{{ product.original_price|floatformat:0 }}</span>
                         <span class="price-highlight">৳{{ product.selling_price|floatformat:0 }}</span>
                     {% else %}
-                        <span style="color:#cecece">৳{{ product.selling_price|default:0|floatformat:0 }}</span>
+                        <span style="color:#cecece">৳{{ product.selling_price|default:0|floatformat:0  }}</span>
                     {% endif %}
                 </div>
             </div>
@@ -447,7 +450,7 @@
             <form action="{% if product.id %}{% url 'add_to_cart' product.id %}{% else %}#{% endif %}" method="POST" style="margin:0;">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="buy_now">
-                <button type="submit" class="btn-island-primary btn-action-trigger">Buy Now</button>
+                <button type="submit" class="btn-island-primary btn-lucrative-style" style="animation: shimmer-gold 3s infinite linear, gentle-pulse 2s infinite ease-out;">Buy Now</button>
             </form>
         </div>
     </div>
@@ -528,17 +531,15 @@
         const fullContent = document.querySelector('.island-content-full');
         
         if (island && heroPlaceholder) {
-            // --- ADD THIS LINE HERE ---
-            // Move popup to body to ensure perfect centering on all screens
+            // FIX: Use appendChild to body to ensure centering on all devices
             document.body.appendChild(island);
-            // --------------------------
 
-            // Setup Initial State (Matches Placeholder)
+            // Setup Initial State (Matches Placeholder EXACTLY)
             const rect = heroPlaceholder.getBoundingClientRect();
             gsap.set(island, { 
                 top: rect.top + window.scrollY, 
-                left: "50%", 
-                xPercent: -50,
+                left: rect.left, // Use EXACT pixels to prevent left alignment bug
+                xPercent: 0, // Reset centering since we use exact left
                 width: rect.width,
                 height: rect.height,
                 padding: "0",
@@ -560,6 +561,8 @@
                     onLeaveBack: () => {
                         island.style.position = "absolute";
                         island.style.top = (rect.top + window.scrollY) + "px";
+                        island.style.left = rect.left + "px"; // Reset to exact left
+                        island.style.transform = "translate(0, 0)"; // Reset any centering
                     },
                     onLeave: () => {
                         island.classList.remove('btn-lucrative-style');
@@ -576,6 +579,11 @@
 
             tl.to(island, {
                 top: window.innerHeight - 80, 
+                
+                // CENTER IT NOW (Switching to 50% left centering)
+                left: "50%",
+                xPercent: -50,
+                
                 width: Math.min(window.innerWidth * 0.9, 480), 
                 height: 72, 
                 padding: "0 15px",
