@@ -5121,3 +5121,491 @@ INFO 2025-11-28 19:33:14,503 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 
 INFO 2025-11-28 19:33:23,810 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 63609
 INFO 2025-11-28 19:33:42,846 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 63609
 INFO 2025-11-28 19:34:29,163 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61914
+INFO 2025-11-28 20:58:31,500 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 20:58:35,920 basehttp "GET / HTTP/1.1" 200 95244
+INFO 2025-11-28 20:58:36,272 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 200 47474
+INFO 2025-11-28 20:58:36,273 basehttp "GET /media/products/gallery/prod_1362_0.jpg HTTP/1.1" 200 51085
+INFO 2025-11-28 20:58:36,274 basehttp "GET /media/products/gallery/prod_1400_0.jpg HTTP/1.1" 200 119967
+INFO 2025-11-28 20:58:36,283 basehttp "GET /media/products/gallery/prod_1353_0.jpeg HTTP/1.1" 200 44199
+INFO 2025-11-28 20:58:36,289 basehttp "GET /media/products/gallery/prod_1367_0.jpg HTTP/1.1" 200 59307
+INFO 2025-11-28 20:58:36,300 basehttp "GET /media/products/gallery/prod_1357_0.jpg HTTP/1.1" 200 34040
+INFO 2025-11-28 20:58:36,301 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 200 79832
+INFO 2025-11-28 20:58:37,443 basehttp "GET /admin/ HTTP/1.1" 200 57607
+WARNING 2025-11-28 20:58:37,470 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 20:58:39,765 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 32975
+WARNING 2025-11-28 20:58:39,791 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 20:58:39,814 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-11-28 20:58:41,529 log Internal Server Error: /offers/iphone-17-pro/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column jeba_landing_landingsection.button_text does not exist
+LINE 1: ...ng", "jeba_landing_landingsection"."description", "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 21, in landing_page_detail
+    return render(request, 'jeba_landing/landing_page.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column jeba_landing_landingsection.button_text does not exist
+LINE 1: ...ng", "jeba_landing_landingsection"."description", "jeba_land...
+                                                             ^
+
+ERROR 2025-11-28 20:58:41,536 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 500 224244
+WARNING 2025-11-28 20:58:41,770 log Not Found: /favicon.ico
+WARNING 2025-11-28 20:58:41,770 basehttp "GET /favicon.ico HTTP/1.1" 404 12452
+ERROR 2025-11-28 20:58:53,772 log Internal Server Error: /offers/iphone-17-pro/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column jeba_landing_landingsection.button_text does not exist
+LINE 1: ...ng", "jeba_landing_landingsection"."description", "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 21, in landing_page_detail
+    return render(request, 'jeba_landing/landing_page.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column jeba_landing_landingsection.button_text does not exist
+LINE 1: ...ng", "jeba_landing_landingsection"."description", "jeba_land...
+                                                             ^
+
+ERROR 2025-11-28 20:58:53,774 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 500 224244
+INFO 2025-11-28 20:59:31,922 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 20:59:34,772 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64226
+INFO 2025-11-28 20:59:34,829 basehttp "GET /media/landing/images/performance__f3753fjhjoii_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 20:59:34,833 basehttp "GET /media/landing/images/design_endframe__ckynsj4a5lua_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 20:59:34,833 basehttp "GET /media/landing/images/prod_1333_1.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 20:59:34,833 basehttp "GET /media/landing/images/prod_1333_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 20:59:34,834 basehttp "GET /media/landing/images/prod_1333_3.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 20:59:34,870 basehttp "GET /media/landing/images/prod_1333_7.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 20:59:34,870 basehttp "GET /media/landing/images/hero__bdntboqignj6_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 20:59:34,872 basehttp "GET /media/landing/videos/business-arrow-growth-2025-10-17-02-19-45-utc.mp4 HTTP/1.1" 304 0
+INFO 2025-11-28 20:59:34,928 basehttp "GET /media/landing/images/prod_1333_2.jpg HTTP/1.1" 304 0
+WARNING 2025-11-28 20:59:47,582 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 20:59:47,582 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 20:59:53,392 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64226
+WARNING 2025-11-28 20:59:53,440 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 20:59:53,440 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:00:17,991 basehttp "GET / HTTP/1.1" 200 95778
+WARNING 2025-11-28 21:00:18,051 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:18,052 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:00:18,258 basehttp "GET /media/products/gallery/prod_1368_0.jpg HTTP/1.1" 200 62638
+INFO 2025-11-28 21:00:18,307 basehttp "GET /media/products/gallery/prod_1364_0.jpg HTTP/1.1" 200 53072
+INFO 2025-11-28 21:00:18,330 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-11-28 21:00:18,331 basehttp "GET /media/products/gallery/prod_1519_0.jpg HTTP/1.1" 200 957584
+WARNING 2025-11-28 21:00:20,681 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:20,682 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 21:00:20,711 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:20,712 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 21:00:21,695 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:21,695 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 21:00:21,838 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:21,839 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:00:26,935 basehttp "GET /dashboard/ HTTP/1.1" 200 46695
+WARNING 2025-11-28 21:00:26,981 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:26,981 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:00:32,029 basehttp "GET /admin/ HTTP/1.1" 200 57607
+WARNING 2025-11-28 21:00:32,054 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+WARNING 2025-11-28 21:00:32,080 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:32,080 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:00:32,133 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js.map HTTP/1.1" 200 129651
+INFO 2025-11-28 21:00:32,133 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 200 187646
+INFO 2025-11-28 21:00:32,140 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css.map HTTP/1.1" 200 3783134
+INFO 2025-11-28 21:00:38,117 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 32975
+WARNING 2025-11-28 21:00:38,151 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+WARNING 2025-11-28 21:00:38,186 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:38,187 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:00:38,269 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:00:40,078 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64226
+WARNING 2025-11-28 21:00:44,246 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:44,247 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:00:46,687 basehttp "GET / HTTP/1.1" 200 96854
+INFO 2025-11-28 21:00:46,774 basehttp "GET /media/products/gallery/prod_1428_0.jpg HTTP/1.1" 200 61664
+INFO 2025-11-28 21:00:46,782 basehttp "GET /media/products/gallery/prod_1381_0.jpg HTTP/1.1" 200 19132
+INFO 2025-11-28 21:00:46,782 basehttp "GET /media/products/gallery/prod_1430_0.jpg HTTP/1.1" 200 32653
+WARNING 2025-11-28 21:00:46,843 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:46,843 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 21:00:47,837 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:47,837 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 21:00:47,868 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:47,868 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 21:00:47,894 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:47,895 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:00:49,185 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64226
+WARNING 2025-11-28 21:00:49,237 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:00:49,238 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:01:16,952 basehttp "GET / HTTP/1.1" 200 98437
+INFO 2025-11-28 21:01:17,160 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,219 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,256 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,269 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,754 basehttp "GET /media/products/gallery/prod_1483_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,757 basehttp "GET /media/products/gallery/prod_1575_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,757 basehttp "GET /media/products/gallery/prod_1479_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,821 basehttp "GET /media/products/gallery/prod_1488_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,823 basehttp "GET /media/products/gallery/prod_1417_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,823 basehttp "GET /media/products/gallery/prod_1433_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,937 basehttp "GET /media/products/gallery/prod_1500_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,939 basehttp "GET /media/products/gallery/prod_1360_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:17,939 basehttp "GET /media/products/gallery/prod_1603_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,040 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,041 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,148 basehttp "GET /media/products/gallery/prod_1344_0.jpg HTTP/1.1" 200 517783
+INFO 2025-11-28 21:01:18,206 basehttp "GET /media/products/gallery/prod_1535_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,236 basehttp "GET /media/products/gallery/prod_1621_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,236 basehttp "GET /media/products/gallery/prod_1592_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,243 basehttp "GET /media/products/gallery/prod_1387_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,282 basehttp "GET /media/products/gallery/prod_1591_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,367 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,411 basehttp "GET /media/products/gallery/prod_1584_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,504 basehttp "GET /media/products/gallery/prod_1534_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,521 basehttp "GET /media/products/gallery/prod_1375_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,530 basehttp "GET /media/products/gallery/prod_1345_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,692 basehttp "GET /media/products/gallery/prod_1353_0.jpeg HTTP/1.1" 200 44199
+INFO 2025-11-28 21:01:18,839 basehttp "GET /media/products/gallery/prod_1589_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:18,977 basehttp "GET /media/products/gallery/prod_1405_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:19,076 basehttp "GET /media/products/gallery/prod_1437_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:19,077 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:19,078 basehttp "GET /media/products/gallery/prod_1624_0.webp HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:19,164 basehttp "GET /media/products/gallery/prod_1465_0.jpg HTTP/1.1" 200 50338
+INFO 2025-11-28 21:01:27,138 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 62469
+INFO 2025-11-28 21:01:27,404 basehttp "GET /media/landing/images/performance__f3753fjhjoii_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:27,405 basehttp "GET /media/landing/images/design_endframe__ckynsj4a5lua_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:27,410 basehttp "GET /media/landing/images/prod_1333_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:27,423 basehttp "GET /media/landing/images/prod_1333_1.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:27,423 basehttp "GET /media/landing/images/prod_1333_2.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:27,423 basehttp "GET /media/landing/images/prod_1333_3.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:27,535 basehttp "GET /media/landing/images/prod_1333_7.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:27,669 basehttp "GET /media/landing/images/hero__bdntboqignj6_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:01:28,011 basehttp "GET /media/landing/videos/business-arrow-growth-2025-10-17-02-19-45-utc.mp4 HTTP/1.1" 304 0
+INFO 2025-11-28 21:02:43,856 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 21:02:50,660 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 187798
+WARNING 2025-11-28 21:02:50,690 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:02:50,705 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:02:51,286 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 63483
+INFO 2025-11-28 21:03:51,530 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 63483
+INFO 2025-11-28 21:05:13,703 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64218
+WARNING 2025-11-28 21:05:13,776 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:05:13,777 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:05:21,055 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64218
+WARNING 2025-11-28 21:05:21,105 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:05:21,106 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:05:29,485 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 62461
+INFO 2025-11-28 21:08:40,529 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-11-28 21:08:40,893 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 21:08:56,671 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-11-28 21:08:57,002 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 21:09:27,224 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 58076
+INFO 2025-11-28 21:10:14,668 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 21:10:16,112 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 58076
+INFO 2025-11-28 21:10:17,007 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 32975
+WARNING 2025-11-28 21:10:17,072 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:10:17,192 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:10:17,752 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 58076
+INFO 2025-11-28 21:10:26,999 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 187966
+WARNING 2025-11-28 21:10:27,021 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:10:27,042 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:10:27,601 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 59086
+INFO 2025-11-28 21:10:54,953 basehttp "POST /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-28 21:10:55,006 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 33584
+WARNING 2025-11-28 21:10:55,030 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:10:55,052 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:10:56,598 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 187984
+WARNING 2025-11-28 21:10:56,622 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:10:56,649 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:10:57,204 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 59086
+INFO 2025-11-28 21:11:03,424 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 58080
+INFO 2025-11-28 21:11:07,176 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 59086
+INFO 2025-11-28 21:11:12,105 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 59086
+INFO 2025-11-28 21:11:14,761 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 58080
+INFO 2025-11-28 21:11:21,752 basehttp "POST /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-28 21:11:21,793 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 33584
+WARNING 2025-11-28 21:11:21,820 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:11:21,962 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:11:23,350 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 58078
+INFO 2025-11-28 21:11:49,150 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 187984
+WARNING 2025-11-28 21:11:49,179 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:11:49,204 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:11:49,784 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 59086
+INFO 2025-11-28 21:12:39,892 basehttp "GET / HTTP/1.1" 200 98204
+INFO 2025-11-28 21:12:40,083 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,089 basehttp "GET /media/products/gallery/prod_1363_0.webp HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,091 basehttp "GET /media/products/gallery/prod_1445_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,094 basehttp "GET /media/products/gallery/prod_1549_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,099 basehttp "GET /media/products/gallery/prod_1558_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,149 basehttp "GET /media/products/gallery/prod_1449_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,160 basehttp "GET /media/products/gallery/prod_1452_0.jpeg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,161 basehttp "GET /media/products/gallery/prod_1471_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,258 basehttp "GET /media/products/gallery/prod_1573_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,259 basehttp "GET /media/products/gallery/prod_1369_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,319 basehttp "GET /media/products/gallery/prod_1474_0.jpg HTTP/1.1" 200 18391
+INFO 2025-11-28 21:12:40,325 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 200 181972
+INFO 2025-11-28 21:12:40,327 basehttp "GET /media/products/gallery/prod_1350_0.jpg HTTP/1.1" 200 30404
+INFO 2025-11-28 21:12:40,355 basehttp "GET /media/products/gallery/prod_1506_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,372 basehttp "GET /media/products/gallery/prod_1561_0.jpg HTTP/1.1" 200 14092
+INFO 2025-11-28 21:12:40,394 basehttp "GET /media/products/gallery/prod_1429_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,402 basehttp "GET /media/products/gallery/prod_1519_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,438 basehttp "GET /media/products/gallery/prod_1540_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,440 basehttp "GET /media/products/gallery/prod_1378_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,442 basehttp "GET /media/products/gallery/prod_1513_0.webp HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,486 basehttp "GET /media/products/gallery/prod_1502_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,522 basehttp "GET /media/products/gallery/prod_1376_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,531 basehttp "GET /media/products/gallery/prod_1576_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:40,532 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:46,433 basehttp "GET / HTTP/1.1" 200 97436
+INFO 2025-11-28 21:12:46,552 basehttp "GET /media/products/gallery/prod_1383_0.jpg HTTP/1.1" 200 38193
+INFO 2025-11-28 21:12:46,553 basehttp "GET /media/products/gallery/prod_1547_0.jpg HTTP/1.1" 200 57752
+INFO 2025-11-28 21:12:46,602 basehttp "GET /media/products/gallery/prod_1374_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:46,602 basehttp "GET /media/products/gallery/prod_1469_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:46,894 basehttp "GET /media/products/gallery/prod_1438_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:46,962 basehttp "GET /media/products/gallery/prod_1541_0.webp HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:46,964 basehttp "GET /media/products/gallery/prod_1362_0.jpg HTTP/1.1" 200 51085
+INFO 2025-11-28 21:12:46,965 basehttp "GET /media/products/gallery/prod_1631_0.jpg HTTP/1.1" 200 40208
+INFO 2025-11-28 21:12:47,046 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 200 52115
+INFO 2025-11-28 21:12:47,047 basehttp "GET /media/products/gallery/prod_1478_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:47,145 basehttp "GET /media/products/gallery/prod_1600_0.webp HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:47,162 basehttp "GET /media/products/gallery/prod_1511_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:47,205 basehttp "GET /media/products/gallery/prod_1364_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:47,206 basehttp "GET /media/products/gallery/prod_1426_0.jpg HTTP/1.1" 200 62710
+INFO 2025-11-28 21:12:47,212 basehttp "GET /media/products/gallery/prod_1570_0.jpg HTTP/1.1" 200 59213
+INFO 2025-11-28 21:12:47,287 basehttp "GET /media/products/gallery/prod_1371_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:47,317 basehttp "GET /media/products/gallery/prod_1477_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:47,336 basehttp "GET /media/products/gallery/prod_1440_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:47,395 basehttp "GET /media/products/gallery/prod_1505_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:12:47,441 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 200 34316
+INFO 2025-11-28 21:12:50,394 basehttp "GET /accounts/login/ HTTP/1.1" 200 37155
+INFO 2025-11-28 21:13:09,404 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 59943
+WARNING 2025-11-28 21:13:09,455 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:13:09,455 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:13:15,750 basehttp "GET /admin/ HTTP/1.1" 200 57223
+WARNING 2025-11-28 21:13:15,774 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:13:17,488 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 32975
+WARNING 2025-11-28 21:13:17,512 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:13:17,534 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:13:18,831 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 187984
+WARNING 2025-11-28 21:13:18,853 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:13:18,875 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:13:19,431 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 59193
+INFO 2025-11-28 21:13:32,075 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 58186
+INFO 2025-11-28 21:13:40,446 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 58186
+INFO 2025-11-28 21:13:45,196 basehttp "POST /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-28 21:13:45,238 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 33584
+WARNING 2025-11-28 21:13:45,265 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:13:45,285 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:13:46,234 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 58184
+INFO 2025-11-28 21:13:57,532 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 187984
+WARNING 2025-11-28 21:13:57,554 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:13:57,574 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:13:58,129 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 59193
+INFO 2025-11-28 21:14:01,917 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 59193
+INFO 2025-11-28 21:14:33,779 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61914
+INFO 2025-11-28 21:15:03,391 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61914
+INFO 2025-11-28 21:15:57,762 basehttp "GET /add-to-cart/1633/?action=buy_now HTTP/1.1" 302 0
+INFO 2025-11-28 21:15:57,900 basehttp "GET /product/1633/ HTTP/1.1" 200 73320
+INFO 2025-11-28 21:15:58,065 basehttp "GET /media/products/gallery/prod_1599_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:15:58,069 basehttp "GET /media/products/gallery/prod_1487_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:15:58,069 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:15:58,070 basehttp "GET /media/products/gallery/prod_1527_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:15:58,071 basehttp "GET /media/products/gallery/prod_1610_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:15:58,075 basehttp "GET /media/products/gallery/prod_1537_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:15:58,226 basehttp "GET /media/products/gallery/prod_1486_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:15:58,226 basehttp "GET /media/products/gallery/prod_1454_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:15:58,321 basehttp "GET /media/products/gallery/prod_1492_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 21:18:30,280 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61914
+INFO 2025-11-28 21:18:35,631 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61914
+INFO 2025-11-28 21:18:58,596 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 62414
+INFO 2025-11-28 21:19:27,723 basehttp "GET /product/1633/ HTTP/1.1" 200 73320
+INFO 2025-11-28 21:20:52,697 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64171
+WARNING 2025-11-28 21:20:52,750 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:20:52,751 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:22:11,112 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 62333
+INFO 2025-11-28 21:27:02,335 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64090
+WARNING 2025-11-28 21:27:02,391 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 21:27:02,391 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 21:28:06,667 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 63354
+INFO 2025-11-28 21:28:21,700 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 21:28:25,412 basehttp "GET /admin/ HTTP/1.1" 200 57221
+WARNING 2025-11-28 21:28:25,436 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:28:28,918 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 32975
+WARNING 2025-11-28 21:28:28,946 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:28:28,967 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:28:31,130 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 187984
+WARNING 2025-11-28 21:28:31,154 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:28:31,287 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:28:31,851 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 63354
+INFO 2025-11-28 21:32:48,155 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-11-28 21:32:48,509 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 21:32:53,011 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 187984
+WARNING 2025-11-28 21:32:53,040 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 21:32:53,057 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 21:32:53,745 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 64082
+INFO 2025-11-28 21:35:27,164 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 64082
+INFO 2025-11-28 21:35:33,130 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 64082
+INFO 2025-11-28 21:35:41,891 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 64082
+INFO 2025-11-28 21:35:54,501 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 64082
+INFO 2025-11-28 21:35:58,965 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 64082
+INFO 2025-11-28 21:36:23,160 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 64082
+INFO 2025-11-28 21:36:36,010 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 64084

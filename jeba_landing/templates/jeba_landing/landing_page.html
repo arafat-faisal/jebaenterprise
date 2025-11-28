@@ -124,7 +124,7 @@
     }
 
     /* Sections */
-    .hero-container { position: relative; height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 20px; overflow: hidden; }
+    .hero-container { position: relative; height: 90vh; display: flex; flex-direction: column; justify-content: center; padding: 60px 40px; overflow: hidden; }
     .hero-bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 0; }
     .hero-media { width: 100%; max-width: 1000px; height: auto; object-fit: contain; margin-top: 20px; opacity: 0; transform: translateY(30px); }
     .bento-section { padding: 100px 0; }
@@ -173,6 +173,7 @@
 
     .dynamic-section { background-color: var(--sec-bg, transparent); color: var(--sec-text, inherit); }
     .dynamic-section .headline-pro, .dynamic-section .subhead-pro { color: var(--sec-text, inherit); }
+    /* Fix for dynamic background layer z-index */
     .dynamic-bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; background-image: var(--sec-bg-img, none); }
 </style>
 
@@ -187,18 +188,24 @@
         {% with bg=section.background_color|default:'transparent' txt=section.text_color|default:'inherit' %}
         
         {% if section.section_type == 'HERO' %}
-        <section class="hero-container dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
+        <section class="hero-container dynamic-section" 
+                 style="--sec-bg: {{ bg }}; --sec-text: {{ txt }}; --sec-align: {{ section.text_alignment }}; align-items: var(--sec-align); text-align: var(--sec-align);">
+            
             {% if section.image and not section.video_file %}
-            <div class="dynamic-bg-layer" style="--sec-bg-img: url('{{ section.image.url }}');"></div>
-            {% endif %}
-            {% if section.video_file %}
-            <div class="dynamic-bg-layer">
-                <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
-                    <source src="{{ section.video_file.url }}" type="video/mp4">
-                </video>
-                <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), #000);"></div>
+            <div class="dynamic-bg-layer" style="background-image: url('{{ section.image.url }}'); --overlay-op: {{ section.overlay_opacity }};">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0, var(--overlay-op));"></div>
             </div>
             {% endif %}
+            
+            {% if section.video_file %}
+            <div class="dynamic-bg-layer" style="--overlay-op: {{ section.overlay_opacity }};">
+                <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 1;">
+                    <source src="{{ section.video_file.url }}" type="video/mp4">
+                </video>
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0, var(--overlay-op));"></div>
+            </div>
+            {% endif %}
+            
             <div class="container" style="position: relative; z-index: 2;">
                 <h1 class="headline-pro gs-fade-up">{{ section.heading }}</h1>
                 <p class="subhead-pro gs-fade-up">{{ section.subheading }}</p>
@@ -206,8 +213,7 @@
                 <div id="hero-btn-placeholder" class="hero-btn-placeholder" style="margin-top: 25px;"></div>
 
                 {% if section.image and section.video_file == None %}
-                    <img src="{{ section.image.url }}" class="hero-media gs-scale-up" alt="Hero Image">
-                {% endif %}
+                    {% endif %}
             </div>
         </section>
 
@@ -215,13 +221,19 @@
         <section class="split-section dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
             <div class="container" style="padding: 0 20px !important;">
                 <div class="row align-items-center g-5">
-                    <div class="col-md-6 order-2 order-md-1">
-                        <div class="split-text gs-fade-right">
+                    <div class="col-md-6 order-2 {% if section.text_alignment == 'end' %}order-md-2{% else %}order-md-1{% endif %}">
+                        <div class="split-text gs-fade-right" style="--text-align: {{ section.text_alignment }}; text-align: var(--text-align);">
                             <h2 class="headline-pro" style="font-size: 48px;">{{ section.heading }}</h2>
                             <div class="text-body-pro mt-4">{{ section.description|linebreaks }}</div>
+                            
+                            {% if section.button_text %}
+                            <a href="#island-bar" class="btn btn-light rounded-pill px-4 py-2 mt-4" style="font-weight:700;">
+                                {{ section.button_text }}
+                            </a>
+                            {% endif %}
                         </div>
                     </div>
-                    <div class="col-md-6 order-1 order-md-2">
+                    <div class="col-md-6 order-1 {% if section.text_alignment == 'end' %}order-md-1{% else %}order-md-2{% endif %}">
                         <div class="split-media gs-fade-left">
                             {% if section.image %}
                                 <img src="{{ section.image.url }}" alt="{{ section.heading }}">
@@ -347,8 +359,9 @@
 <div id="island-bar" class="btn-lucrative-style">
     
     <a href="{% if product.id %}{% url 'add_to_cart' product.id %}?action=buy_now{% else %}#{% endif %}" class="island-content-hero">
-        Buy Now
-        <!-- {% if product.has_discount %}<span style="font-weight:400; font-size:0.8em; margin-left:5px;">(Save ৳{{ product.discount_amount }})</span>{% endif %} -->
+        {% with first_sec=sections.first %}
+            {{ first_sec.button_text|default:"Buy Now" }}
+        {% endwith %}
     </a>
 
     <div class="island-content-full">
@@ -375,7 +388,11 @@
             <form action="{% if product.id %}{% url 'add_to_cart' product.id %}{% else %}#{% endif %}" method="POST" style="margin:0;">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="buy_now">
-                <button type="submit" class="btn-island-primary btn-lucrative-style" style="animation: shimmer-gold 3s infinite linear, gentle-pulse 2s infinite ease-out;">Buy Now</button>
+                <button type="submit" class="btn-island-primary btn-lucrative-style" style="animation: shimmer-gold 3s infinite linear, gentle-pulse 2s infinite ease-out;">
+                    {% with first_sec=sections.first %}
+                        {{ first_sec.button_text|default:"Buy Now" }}
+                    {% endwith %}
+                </button>
             </form>
         </div>
     </div>

@@ -10,7 +10,6 @@ class LandingSectionForm(forms.ModelForm):
         model = LandingSection
         fields = '__all__'
         widgets = {
-            # This turns the text input into a color picker
             'background_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
             'text_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
         }
@@ -18,7 +17,7 @@ class LandingSectionForm(forms.ModelForm):
 # --- Inline Section Editor ---
 class LandingSectionInline(admin.StackedInline):
     model = LandingSection
-    form = LandingSectionForm # Attach the custom form
+    form = LandingSectionForm
     extra = 0
     min_num = 1
     fieldsets = (
@@ -26,21 +25,21 @@ class LandingSectionInline(admin.StackedInline):
             'fields': (('order', 'section_type', 'animation_effect'),)
         }),
         ('Content', {
-            'fields': ('heading', 'subheading', 'description')
+            'fields': ('heading', 'subheading', 'description', 'button_text')
+        }),
+        ('Design & Positioning', {
+            'fields': (('text_alignment', 'overlay_opacity'), ('background_color', 'text_color')),
+            'description': "Control text alignment and image overlay darkness."
         }),
         ('Media (Main)', {
             'fields': ('image', 'video_file', 'video_url')
         }),
-        ('Carousel Gallery (Only for Carousel Type)', {
+        ('Carousel Gallery', {
             'fields': (('image_2', 'image_3'), ('image_4', 'image_5')),
             'classes': ('collapse',),
         }),
-        ('Colors', {
-            'fields': (('background_color', 'text_color'),)
-        }),
     )
 
-# --- Main Page Admin ---
 @admin.register(LandingPage)
 class LandingPageAdmin(admin.ModelAdmin):
     list_display = ('title', 'product_link', 'status_badge', 'visit_page_link', 'created_at')

@@ -35,33 +35,23 @@ def admin_preview(request):
     page = LandingPage(
         title=request.POST.get('title', 'Preview Title'),
         meta_pixel_id=request.POST.get('meta_pixel_id', ''),
+        # We need a dummy product to prevent template errors if product is accessed
+        # In a real scenario, we might try to fetch the actual product if 'product' ID is passed
     )
-    
-    # 2. Resolve Product (Real or Mock)
+
+    # 2. Try to fetch the real Linked Product to show real prices/images in preview
     product_id = request.POST.get('product')
-    product = None
-    
     if product_id:
         from jeba_inventory.models import Product
         try:
-            product = Product.objects.get(pk=product_id)
-        except (Product.DoesNotExist, ValueError):
+            page.product = Product.objects.get(pk=product_id)
+        except Product.DoesNotExist:
             pass
-            
-    # CRITICAL FIX: If no product is selected yet, create a Dummy Product
-    # This prevents 'NoReverseMatch' errors in the template
-    if not product:
-        class MockProduct:
-            id = 1  # Dummy ID to satisfy URL patterns
-            name = "Select a Product..."
-            selling_price = 0.00
-            main_image_obj = None
-        product = MockProduct()
 
-    # 3. Mock the Sections
-    sections = []
+    # 3. Reconstruct Sections from Inline Form Data
     total_forms = int(request.POST.get('sections-TOTAL_FORMS', 0))
-    
+    sections = []
+
     for i in range(total_forms):
         # Skip deleted forms
         if request.POST.get(f'sections-{i}-DELETE') == 'on':
@@ -69,35 +59,51 @@ def admin_preview(request):
             
         sec_type = request.POST.get(f'sections-{i}-section_type', 'TEXT_IMAGE_SPLIT')
         
+        # --- UPDATED: Now capturing the new fields ---
         section = LandingSection(
+            id=request.POST.get(f'sections-{i}-id'), # Keep ID to find images later
             section_type=sec_type,
             heading=request.POST.get(f'sections-{i}-heading'),
             subheading=request.POST.get(f'sections-{i}-subheading'),
             description=request.POST.get(f'sections-{i}-description'),
+            
+            # New Content Fields
+            button_text=request.POST.get(f'sections-{i}-button_text'),
+            
+            # New Design Fields
+            text_alignment=request.POST.get(f'sections-{i}-text_alignment', 'center'),
+            overlay_opacity=request.POST.get(f'sections-{i}-overlay_opacity', '0.4'),
+            
+            # Colors
             background_color=request.POST.get(f'sections-{i}-background_color'),
             text_color=request.POST.get(f'sections-{i}-text_color'),
+            
+            # Media Links
             video_url=request.POST.get(f'sections-{i}-video_url'),
         )
         
-        # Try to restore existing image from DB if available
-        # (Browsers don't send file content via JS preview fetch for security)
+        # 4. Handle Images (Browsers don't send file content via JS preview fetch security)
+        # We try to load the existing image from the DB if the section already exists.
         section_id = request.POST.get(f'sections-{i}-id')
         if section_id:
             try:
                 original = LandingSection.objects.get(pk=section_id)
                 section.image = original.image
                 section.video_file = original.video_file
+                # Restore Carousel Images
+                section.image_2 = original.image_2
+                section.image_3 = original.image_3
+                section.image_4 = original.image_4
+                section.image_5 = original.image_5
             except:
                 pass
                 
         sections.append(section)
 
-    # 4. Render
+    # 5. Render using the same template as the live site
     context = {
         'page': page,
         'sections': sections,
-        'product': product,
-        'is_preview': True
+        'product': getattr(page, 'product', None),
     }
-    
     return render(request, 'jeba_landing/landing_page.html', context)
