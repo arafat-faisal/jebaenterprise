@@ -12,26 +12,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
-    /* --- 1. FULL SCREEN & NAV OVERRIDES --- */
+    /* --- 0. PRELOADER --- */
+    #site-loader {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: #000; z-index: 99999;
+        display: flex; justify-content: center; align-items: center; flex-direction: column;
+        transition: opacity 0.5s ease;
+    }
+    .loader-spinner {
+        width: 40px; height: 40px;
+        border: 4px solid rgba(212, 247, 89, 0.3);
+        border-top: 4px solid #D4F759;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-top: 15px;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    /* --- 1. CORE STYLES --- */
     body .container {
         max-width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
     }
 
-    body.immersive-mode .site-header {
-        transform: translateY(-150%) !important;
-        pointer-events: none;
-    }
-    body.immersive-mode .mobile-bottom-nav {
-        transform: translateY(200%) !important;
-        pointer-events: none;
-    }
-    .site-header, .mobile-bottom-nav {
-        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    }
+    /* Hide navs on scroll */
+    body.immersive-mode .site-header { transform: translateY(-150%) !important; pointer-events: none; }
+    body.immersive-mode .mobile-bottom-nav { transform: translateY(200%) !important; pointer-events: none; }
+    .site-header, .mobile-bottom-nav { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important; }
 
-    /* --- 2. THEME ENGINE --- */
     :root {
         --app-bg: #000000;
         --app-text: #f5f5f7;
@@ -50,9 +59,11 @@
         overflow-x: hidden;
         padding-bottom: 150px;
         min-height: 100vh;
+        opacity: 0; /* Hidden until loaded */
+        transition: opacity 0.5s;
     }
 
-    /* --- 3. ANIMATIONS & BUTTONS --- */
+    /* --- 2. BUTTON ANIMATIONS --- */
     @keyframes shimmer-gold {
         0% { background-position: -200% 0; }
         100% { background-position: 200% 0; }
@@ -70,10 +81,8 @@
         font-weight: 800;
         border: none;
         animation: shimmer-gold 3s infinite linear, gentle-pulse 2s infinite ease-out;
-        transition: transform 0.2s;
     }
     
-    /* Placeholder for the hero button */
     .hero-btn-placeholder {
         display: inline-block;
         width: 180px; 
@@ -82,85 +91,30 @@
         pointer-events: none;
     }
 
-    /* --- 4. VIDEO PLAYER UI --- */
-    .custom-video-wrapper {
-        position: relative;
-        border-radius: 20px;
-        overflow: hidden;
-        width: 100%;
-        background: #000;
-        cursor: pointer;
-        touch-action: manipulation;
-    }
+    /* --- 3. VIDEO PLAYER --- */
+    .custom-video-wrapper { position: relative; border-radius: 20px; overflow: hidden; width: 100%; background: #000; cursor: pointer; touch-action: manipulation; }
     .custom-video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
-    
-    .video-overlay {
-        position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-        background: rgba(0,0,0,0.3); transition: opacity 0.3s; z-index: 2;
-    }
-    .video-overlay.hidden { opacity: 0; pointer-events: none; }
-    
-    .play-icon-circle {
-        width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);
-        border-radius: 50%; display: flex; align-items: center; justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.4); transition: transform 0.2s;
-    }
+    .video-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); transition: opacity 0.3s; z-index: 2; pointer-events: none; }
+    .video-overlay.hidden { opacity: 0; }
+    .play-icon-circle { width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.4); }
     .play-icon-circle i { font-size: 24px; color: #fff; margin-left: 4px; }
-
-    .video-controls-bar {
-        position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 20px 15px 20px;
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-        display: flex; align-items: center; gap: 15px; z-index: 3; opacity: 0; transition: opacity 0.3s;
-    }
+    .video-controls-bar { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: center; gap: 15px; z-index: 3; opacity: 0; transition: opacity 0.3s; }
     .custom-video-wrapper:hover .video-controls-bar, .custom-video-wrapper.active .video-controls-bar { opacity: 1; }
-
-    .video-progress {
-        flex-grow: 1; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; position: relative;
-    }
-    .video-progress-fill {
-        height: 100%; background: var(--brand-lime); width: 0%; border-radius: 2px; position: relative;
-    }
-    .video-progress-fill::after {
-        content: ''; position: absolute; right: -6px; top: -4px; width: 12px; height: 12px; background: #fff; border-radius: 50%;
-        transform: scale(0); transition: transform 0.2s;
-    }
-    .video-controls-bar:hover .video-progress-fill::after { transform: scale(1); }
+    .video-progress { flex-grow: 1; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; position: relative; }
+    .video-progress-fill { height: 100%; background: var(--brand-lime); width: 0%; border-radius: 2px; }
     .video-mute-btn { background: none; border: none; color: #fff; width: 24px; cursor: pointer; }
-
     .tap-zone { position: absolute; top: 0; bottom: 0; width: 30%; z-index: 5; display: flex; align-items: center; justify-content: center; }
     .tap-zone-left { left: 0; }
     .tap-zone-right { right: 0; }
     .skip-indicator { background: rgba(0,0,0,0.6); color: #fff; padding: 10px 15px; border-radius: 20px; font-weight: bold; opacity: 0; transform: scale(0.5); transition: 0.2s; pointer-events: none; }
     .skip-indicator.animate { opacity: 1; transform: scale(1); }
 
-    /* --- 5. TYPOGRAPHY & SECTIONS --- */
+    /* --- 4. TYPOGRAPHY --- */
     .headline-pro { font-size: 56px; line-height: 1.08; font-weight: 600; letter-spacing: -0.005em; margin-bottom: 0.2em; }
     .subhead-pro { font-size: 28px; line-height: 1.15; font-weight: 400; color: var(--app-subtext); margin-bottom: 30px; }
     .text-body-pro { font-size: 19px; line-height: 1.5; font-weight: 400; color: #cecece; }
-    
-    /* Curved Red Strikethrough */
-    .price-strike { 
-        position: relative;
-        display: inline-block;
-        color: #999; 
-        font-size: 0.9em; 
-        margin-right: 8px; 
-        font-weight: 500;
-        text-decoration: none;
-    }
-    .price-strike::after {
-        content: '';
-        position: absolute;
-        left: -5%;
-        top: 50%;
-        width: 110%;
-        height: 5px;
-        border-top: 2px solid #ff3b30;
-        border-radius: 50%;
-        transform: translateY(-50%) rotate(-12deg);
-        pointer-events: none;
-    }
-
+    .price-strike { position: relative; display: inline-block; color: #999; font-size: 0.9em; margin-right: 8px; font-weight: 500; text-decoration: none; }
+    .price-strike::after { content: ''; position: absolute; left: -5%; top: 50%; width: 110%; height: 5px; border-top: 2px solid #ff3b30; border-radius: 50%; transform: translateY(-50%) rotate(-12deg); }
     .price-highlight { color: var(--brand-lime); font-weight: 700; font-size: larger;}
 
     @media (max-width: 768px) {
@@ -169,29 +123,22 @@
         .text-body-pro { font-size: 17px; }
     }
 
+    /* Sections */
     .hero-container { position: relative; height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 20px; overflow: hidden; }
     .hero-bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 0; }
     .hero-media { width: 100%; max-width: 1000px; height: auto; object-fit: contain; margin-top: 20px; opacity: 0; transform: translateY(30px); }
-    
     .bento-section { padding: 100px 0; }
-    .bento-card { background-color: var(--app-card-bg); border-radius: var(--app-radius); padding: 50px; height: 100%; overflow: hidden; position: relative; transition: transform 0.5s ease; }
-    .bento-card:hover { transform: scale(1.02); }
+    .bento-card { background-color: var(--app-card-bg); border-radius: var(--app-radius); padding: 50px; height: 100%; overflow: hidden; position: relative; }
     .bento-img { width: 100%; height: auto; border-radius: 12px; margin-top: 20px; }
-
     .split-section { padding: 80px 0; }
     .split-media { border-radius: var(--app-radius); overflow: hidden; height: 100%; min-height: 400px; }
     .split-media img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* --- 6. CAROUSEL PRO --- */
+    /* Carousel */
     .carousel-pro { border-radius: var(--app-radius); overflow: hidden; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
     .carousel-item { height: 650px; background: #000; transition: transform 0.6s ease-in-out; }
     .carousel-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
-    .carousel-controls-pill {
-        position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-        background: rgba(20, 20, 20, 0.65); backdrop-filter: blur(15px);
-        padding: 8px 20px; border-radius: 100px; display: flex; align-items: center; gap: 15px;
-        border: 1px solid rgba(255,255,255,0.15); z-index: 20;
-    }
+    .carousel-controls-pill { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); background: rgba(20, 20, 20, 0.65); backdrop-filter: blur(15px); padding: 8px 20px; border-radius: 100px; display: flex; align-items: center; gap: 15px; border: 1px solid rgba(255,255,255,0.15); z-index: 20; }
     .carousel-play-btn { background: none; border: none; color: #fff; cursor: pointer; opacity: 0.8; }
     .carousel-indicators-custom { display: flex; gap: 8px; margin: 0; padding: 0; list-style: none; }
     .carousel-indicators-custom button { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; padding: 0; transition: all 0.3s; }
@@ -200,69 +147,47 @@
     .carousel-pro:hover .carousel-control-prev, .carousel-pro:hover .carousel-control-next { opacity: 0.8; }
     @media (max-width: 768px) { .carousel-item { height: 450px; } }
 
-    /* --- 7. MORPHING BAR --- */
+    /* --- 5. MORPHING BAR --- */
     #island-bar {
         position: fixed; 
         z-index: 9999;
-        /* Initial State */
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(212, 247, 89, 0.4);
-        /* Default left position if JS fails */
-        left: 50%;
-        transform: translate(-50%, 0);
+        /* Hidden until JS positions it */
+        opacity: 0; 
+        visibility: hidden;
     }
 
-    .island-content-full {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
-        opacity: 0;
-    }
-    
-    .island-content-hero {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        text-align: center;
-        color: #000;
-        font-weight: 800;
-        font-size: 18px;
-        white-space: nowrap;
-        opacity: 1;
-        text-decoration: none;
-    }
-
+    .island-content-full { width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 15px; opacity: 0; }
+    .island-content-hero { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; text-align: center; color: #000; font-weight: 800; font-size: 18px; white-space: nowrap; opacity: 1; text-decoration: none; }
     .island-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
     .island-thumb { width: 45px; height: 45px; border-radius: 10px; object-fit: cover; background: #fff; border: 1px solid rgba(255,255,255,0.1); }
     .island-info { display: flex; flex-direction: column; line-height: 1.2; overflow: hidden; }
     .island-name { font-size: 15px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    
     .island-actions { display: flex; align-items: center; gap: 10px; }
     .btn-island-secondary { background: rgba(255,255,255,0.1); color: #fff; border: none; padding: 8px 16px; border-radius: 99px; font-size: 14px; font-weight: 600; text-decoration: none; }
-    
-    .btn-island-primary { 
-        background: var(--brand-lime); color: #000; font-weight: 700; border: none; padding: 10px 24px; border-radius: 99px; font-size: 14px; cursor: pointer;
-    }
+    .btn-island-primary { background: var(--brand-lime); color: #000; font-weight: 700; border: none; padding: 10px 24px; border-radius: 99px; font-size: 14px; cursor: pointer; }
 
     .dynamic-section { background-color: var(--sec-bg, transparent); color: var(--sec-text, inherit); }
     .dynamic-section .headline-pro, .dynamic-section .subhead-pro { color: var(--sec-text, inherit); }
     .dynamic-bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; background-image: var(--sec-bg-img, none); }
 </style>
 
-<div class="landing-wrapper">
+<div id="site-loader">
+    <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 60px;">
+    <div class="loader-spinner"></div>
+</div>
+
+<div class="landing-wrapper" id="landing-wrapper">
 
     {% for section in sections %}
         {% with bg=section.background_color|default:'transparent' txt=section.text_color|default:'inherit' %}
         
         {% if section.section_type == 'HERO' %}
-        <section class="hero-container dynamic-section" id="hero-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
+        <section class="hero-container dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
             {% if section.image and not section.video_file %}
             <div class="dynamic-bg-layer" style="--sec-bg-img: url('{{ section.image.url }}');"></div>
             {% endif %}
@@ -440,7 +365,7 @@
                         <span class="price-strike">৳{{ product.original_price|floatformat:0 }}</span>
                         <span class="price-highlight">৳{{ product.selling_price|floatformat:0 }}</span>
                     {% else %}
-                        <span style="color:#cecece">৳{{ product.selling_price|default:0|floatformat:0  }}</span>
+                        <span style="color:#cecece">৳{{ product.selling_price|default:0|floatformat:0 }}</span>
                     {% endif %}
                 </div>
             </div>
@@ -507,39 +432,33 @@
         setTimeout(() => indicator.classList.remove('animate'), 500);
     }
 
-    // --- CAROUSEL LOGIC ---
-    document.addEventListener("DOMContentLoaded", () => {
+    // --- MAIN INITIALIZATION (Wait for Window Load) ---
+    window.addEventListener("load", () => {
         gsap.registerPlugin(ScrollTrigger);
 
-        document.querySelectorAll('.carousel').forEach(carousel => {
-            const id = carousel.id.split('-')[1];
-            const indicators = document.getElementById(`indicators-${id}`);
-            if(indicators) {
-                carousel.addEventListener('slide.bs.carousel', event => {
-                    const index = event.to;
-                    const buttons = indicators.querySelectorAll('button');
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    if(buttons[index]) buttons[index].classList.add('active');
-                });
-            }
-        });
-
-        // 2. MORPH ANIMATION (Smoothed)
+        const loader = document.getElementById('site-loader');
+        const wrapper = document.getElementById('landing-wrapper');
         const island = document.getElementById('island-bar');
         const heroPlaceholder = document.getElementById('hero-btn-placeholder');
         const heroContent = document.querySelector('.island-content-hero');
         const fullContent = document.querySelector('.island-content-full');
-        
-        if (island && heroPlaceholder) {
-            // FIX: Use appendChild to body to ensure centering on all devices
-            document.body.appendChild(island);
 
-            // Setup Initial State (Matches Placeholder EXACTLY)
+        // 1. REVEAL SITE
+        if(loader) loader.style.opacity = '0';
+        if(wrapper) wrapper.style.opacity = '1';
+        setTimeout(() => { if(loader) loader.style.display = 'none'; }, 500);
+
+        // 2. SETUP MORPH BUTTON
+        if (island && heroPlaceholder) {
+            document.body.appendChild(island); // Safe Move
+            
             const rect = heroPlaceholder.getBoundingClientRect();
+            // Pixel-Perfect Positioning relative to page (handles scroll offset)
+            const absoluteTop = rect.top + window.scrollY;
+            
             gsap.set(island, { 
-                top: rect.top + window.scrollY, 
-                left: rect.left, // Use EXACT pixels to prevent left alignment bug
-                xPercent: 0, // Reset centering since we use exact left
+                top: absoluteTop, 
+                left: rect.left, 
                 width: rect.width,
                 height: rect.height,
                 padding: "0",
@@ -548,9 +467,15 @@
                 backgroundImage: "linear-gradient(110deg, #D4F759 0%, #f0ffc2 20%, #D4F759 40%)", 
                 boxShadow: "0 0 0 0 rgba(212, 247, 89, 0.6)", 
                 position: "absolute",
-                zIndex: 9999
+                zIndex: 9999,
+                opacity: 1, 
+                visibility: "visible"
             });
 
+            // 3. MORPH TIMELINE (Smooth Interpolation)
+            const isMobile = window.innerWidth < 768;
+            const targetWidth = isMobile ? window.innerWidth * 0.92 : Math.min(window.innerWidth * 0.9, 480);
+            
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: "body",
@@ -561,8 +486,7 @@
                     onLeaveBack: () => {
                         island.style.position = "absolute";
                         island.style.top = (rect.top + window.scrollY) + "px";
-                        island.style.left = rect.left + "px"; // Reset to exact left
-                        island.style.transform = "translate(0, 0)"; // Reset any centering
+                        island.style.left = rect.left + "px";
                     },
                     onLeave: () => {
                         island.classList.remove('btn-lucrative-style');
@@ -579,16 +503,15 @@
 
             tl.to(island, {
                 top: window.innerHeight - 80, 
-                
-                // CENTER IT NOW (Switching to 50% left centering)
-                left: "50%",
-                xPercent: -50,
-                
-                width: Math.min(window.innerWidth * 0.9, 480), 
+                left: isMobile ? (window.innerWidth - targetWidth)/2 : "50%",
+                x: isMobile ? 0 : "-50%",
+                width: targetWidth, 
                 height: 72, 
                 padding: "0 15px",
                 borderRadius: "99px",
                 backgroundColor: "rgba(20, 20, 22, 0.95)", 
+                
+                // Color Morph Logic
                 backgroundImage: "linear-gradient(110deg, rgba(20,20,22,0.95) 0%, rgba(20,20,22,0.95) 20%, rgba(20,20,22,0.95) 40%)",
                 boxShadow: "0 15px 50px rgba(0,0,0,0.6)",
                 border: "1px solid rgba(255,255,255,0.1)",
@@ -597,6 +520,7 @@
             .to(heroContent, { opacity: 0, duration: 0.2 }, 0) 
             .to(fullContent, { opacity: 1, display: "flex", duration: 0.4 }, 0.2); 
 
+            // 4. IMMERSIVE MODE
             ScrollTrigger.create({
                 start: 50,
                 onUpdate: (self) => {
@@ -606,11 +530,25 @@
             });
         }
 
-        // 3. Section Animations
+        // 5. SECTION ANIMATIONS
         gsap.utils.toArray('.gs-fade-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 85%" }, y: 40, opacity: 0, duration: 1 }));
         gsap.utils.toArray('.gs-scale-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, scale: 0.92, opacity: 0, duration: 1.2 }));
         gsap.utils.toArray('.gs-fade-right').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: -30, opacity: 0, duration: 1 }));
         gsap.utils.toArray('.gs-fade-left').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 30, opacity: 0, duration: 1 }));
+        
+        // 6. CAROUSEL DOTS SYNC
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            const id = carousel.id.split('-')[1];
+            const indicators = document.getElementById(`indicators-${id}`);
+            if(indicators) {
+                carousel.addEventListener('slide.bs.carousel', event => {
+                    const index = event.to;
+                    const buttons = indicators.querySelectorAll('button');
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    if(buttons[index]) buttons[index].classList.add('active');
+                });
+            }
+        });
     });
 
     function toggleCarousel(carouselId, btn) {
