@@ -5726,3 +5726,124 @@ INFO 2025-11-28 21:56:29,162 basehttp "GET /product/1348/ HTTP/1.1" 200 72682
 INFO 2025-11-28 21:56:29,202 basehttp "GET /media/products/gallery/prod_1348_3.jpg HTTP/1.1" 200 18405
 INFO 2025-11-28 21:56:29,202 basehttp "GET /media/products/gallery/prod_1348_2.jpg HTTP/1.1" 200 19622
 INFO 2025-11-28 21:56:29,306 basehttp "GET /media/products/gallery/prod_1348_1.jpg HTTP/1.1" 200 32500
+INFO 2025-11-28 22:01:47,422 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 22:01:53,468 basehttp "GET / HTTP/1.1" 200 96645
+INFO 2025-11-28 22:01:53,528 basehttp "GET /media/products/gallery/prod_1451_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,528 basehttp "GET /media/products/gallery/prod_1552_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,528 basehttp "GET /media/products/gallery/prod_1470_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,530 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,533 basehttp "GET /media/products/gallery/prod_1528_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,535 basehttp "GET /media/products/gallery/prod_1374_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,574 basehttp "GET /media/products/gallery/prod_1530_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,575 basehttp "GET /media/products/gallery/prod_1628_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,578 basehttp "GET /media/products/gallery/prod_1577_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,582 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,582 basehttp "GET /media/products/gallery/prod_1563_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,618 basehttp "GET /media/products/gallery/prod_1496_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,621 basehttp "GET /media/products/gallery/prod_1533_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,624 basehttp "GET /media/products/gallery/prod_1414_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,627 basehttp "GET /media/products/gallery/prod_1513_0.webp HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,628 basehttp "GET /media/products/gallery/prod_1427_0.jpg HTTP/1.1" 200 34313
+INFO 2025-11-28 22:01:53,630 basehttp "GET /media/products/gallery/prod_1346_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,658 basehttp "GET /media/products/gallery/prod_1615_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,658 basehttp "GET /media/products/gallery/prod_1630_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:01:53,660 basehttp "GET /media/products/gallery/prod_1466_0.jpg HTTP/1.1" 200 16876
+INFO 2025-11-28 22:01:53,660 basehttp "GET /media/products/gallery/prod_1377_0.jpg HTTP/1.1" 200 33451
+INFO 2025-11-28 22:01:53,763 basehttp "GET /media/products/gallery/prod_1430_0.jpg HTTP/1.1" 200 32653
+INFO 2025-11-28 22:01:55,736 basehttp "GET /product/1451/ HTTP/1.1" 200 78880
+INFO 2025-11-28 22:01:55,790 basehttp "GET /media/products/gallery/prod_1451_2.jpg HTTP/1.1" 200 30666
+INFO 2025-11-28 22:01:55,793 basehttp "GET /media/products/gallery/prod_1451_3.jpg HTTP/1.1" 200 47847
+INFO 2025-11-28 22:01:55,794 basehttp "GET /media/products/gallery/prod_1451_1.jpg HTTP/1.1" 200 30504
+INFO 2025-11-28 22:01:55,796 basehttp "GET /media/products/gallery/prod_1451_4.jpg HTTP/1.1" 200 43587
+INFO 2025-11-28 22:01:55,797 basehttp "GET /media/products/gallery/prod_1451_5.jpg HTTP/1.1" 200 30733
+INFO 2025-11-28 22:01:55,797 basehttp "GET /media/products/gallery/prod_1451_6.jpg HTTP/1.1" 200 5932
+INFO 2025-11-28 22:01:55,829 basehttp "GET /media/products/gallery/prod_1451_7.jpg HTTP/1.1" 200 5656
+INFO 2025-11-28 22:01:55,829 basehttp "GET /media/products/gallery/prod_1451_8.jpg HTTP/1.1" 200 9574
+INFO 2025-11-28 22:02:27,114 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64090
+INFO 2025-11-28 22:02:27,199 basehttp "GET /media/landing/images/performance__f3753fjhjoii_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:02:27,202 basehttp "GET /media/landing/images/design_endframe__ckynsj4a5lua_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:02:27,204 basehttp "GET /media/landing/images/prod_1333_2.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:02:27,206 basehttp "GET /media/landing/images/prod_1333_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:02:27,208 basehttp "GET /media/landing/images/prod_1333_1.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:02:27,247 basehttp "GET /media/landing/images/prod_1333_3.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:02:27,247 basehttp "GET /media/landing/images/hero__bdntboqignj6_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:02:27,250 basehttp "GET /media/landing/images/prod_1333_7.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 22:02:27,250 basehttp "GET /media/landing/videos/business-arrow-growth-2025-10-17-02-19-45-utc.mp4 HTTP/1.1" 304 0
+WARNING 2025-11-28 22:02:27,265 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:02:27,265 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:02:29,199 basehttp "GET /product/1633/ HTTP/1.1" 200 77089
+WARNING 2025-11-28 22:02:29,243 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:02:29,244 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:02:33,297 basehttp "GET /product/1633/ HTTP/1.1" 200 77089
+WARNING 2025-11-28 22:02:33,340 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:02:33,341 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:02:36,678 basehttp "POST /add-to-cart/1633/ HTTP/1.1" 302 0
+INFO 2025-11-28 22:02:36,845 basehttp "GET /product/1633/ HTTP/1.1" 200 77364
+WARNING 2025-11-28 22:02:36,893 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:02:36,893 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:02:38,696 basehttp "GET /cart/ HTTP/1.1" 200 45508
+WARNING 2025-11-28 22:02:38,740 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:02:38,741 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:02:40,829 basehttp "GET /update-cart/1633/remove/ HTTP/1.1" 302 0
+INFO 2025-11-28 22:02:40,859 basehttp "GET /cart/ HTTP/1.1" 200 42461
+WARNING 2025-11-28 22:02:40,911 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:02:40,911 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:03:04,258 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-28 22:03:09,145 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:09,145 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:10,474 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:10,474 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:10,504 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:10,504 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:11,047 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:11,048 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:11,577 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:11,578 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:11,611 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:11,611 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:03:13,521 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64090
+WARNING 2025-11-28 22:03:13,568 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:13,569 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:03:15,980 basehttp "POST /add-to-cart/1633/ HTTP/1.1" 302 0
+INFO 2025-11-28 22:03:16,024 basehttp "GET /checkout/ HTTP/1.1" 200 53527
+WARNING 2025-11-28 22:03:16,076 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:16,076 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:03:16,150 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2188
+WARNING 2025-11-28 22:03:18,012 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:18,013 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:18,045 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:18,046 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:03:22,974 basehttp "GET /product/1633/ HTTP/1.1" 200 77364
+WARNING 2025-11-28 22:03:23,025 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:23,025 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:25,961 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:25,962 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:25,987 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:25,988 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:03:31,234 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64365
+WARNING 2025-11-28 22:03:31,285 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:31,286 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:03:34,414 basehttp "GET /add-to-cart/1633/?action=buy_now HTTP/1.1" 302 0
+INFO 2025-11-28 22:03:34,555 basehttp "GET /checkout/ HTTP/1.1" 200 53533
+WARNING 2025-11-28 22:03:34,611 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:34,612 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:36,060 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:36,061 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:36,087 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:36,087 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:03:39,806 basehttp "POST /add-to-cart/1633/ HTTP/1.1" 302 0
+INFO 2025-11-28 22:03:39,845 basehttp "GET /checkout/ HTTP/1.1" 200 53533
+WARNING 2025-11-28 22:03:39,915 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:39,915 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:41,873 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:41,874 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 22:03:41,919 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 22:03:41,919 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 22:03:47,927 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 64365
+INFO 2025-11-28 22:04:01,735 basehttp "GET /cart/ HTTP/1.1" 200 45511
+INFO 2025-11-28 22:04:03,106 basehttp "GET /update-cart/1633/remove/ HTTP/1.1" 302 0
+INFO 2025-11-28 22:04:03,138 basehttp "GET /cart/ HTTP/1.1" 200 42461
+INFO 2025-11-28 22:04:04,827 basehttp "GET / HTTP/1.1" 200 95021
+INFO 2025-11-28 22:04:04,905 basehttp "GET /media/products/gallery/prod_1389_0.jpg HTTP/1.1" 200 73862
+INFO 2025-11-28 22:04:04,906 basehttp "GET /media/products/gallery/prod_1371_0.jpg HTTP/1.1" 200 39297
+INFO 2025-11-28 22:04:04,907 basehttp "GET /media/products/gallery/prod_1360_0.jpg HTTP/1.1" 200 55742

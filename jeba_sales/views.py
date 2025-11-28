@@ -39,7 +39,11 @@ def add_to_cart(request: HttpRequest, product_id):
     quantity = int(request.POST.get('quantity', 1))
     action = request.POST.get('action')
     cart_item_id = str(product_id)
-
+    
+    # --- FIX: Check both POST (Form) and GET (Link) for action ---
+    action = request.POST.get('action') or request.GET.get('action')
+    # -------------------------------------------------------------
+    
     if cart_item_id in cart:
         cart[cart_item_id]['quantity'] += quantity
     else:
@@ -81,7 +85,9 @@ def add_to_cart_variation(request: HttpRequest, variation_id):
     product = variation.product
     cart = request.session.get('cart', {})
     quantity = int(request.POST.get('quantity', 1))
-    action = request.POST.get('action')
+    # --- FIX: Check both POST (Form) and GET (Link) for action ---
+    action = request.POST.get('action') or request.GET.get('action')
+    # -------------------------------------------------------------
 
     cart_item_id = f"var_{variation_id}"
 
