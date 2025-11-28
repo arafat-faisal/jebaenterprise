@@ -7,75 +7,196 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+{% with h_font=page.font_heading b_font=page.font_body %}
+    {% if 'Montserrat' in h_font or 'Montserrat' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">{% endif %}
+    {% if 'Open Sans' in h_font or 'Open Sans' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">{% endif %}
+    {% if 'Roboto' in h_font or 'Roboto' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">{% endif %}
+    {% if 'Playfair' in h_font or 'Playfair' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">{% endif %}
+    {% if 'Lato' in h_font or 'Lato' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">{% endif %}
+    {% if 'Oswald' in h_font or 'Oswald' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">{% endif %}
+    {% if 'Raleway' in h_font or 'Raleway' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">{% endif %}
+{% endwith %}
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
+    /* --- 1. DYNAMIC THEME ENGINE --- */
+    :root {
+        /* Colors from Database */
+        --app-bg: {{ page.primary_color|default:'#000000' }};
+        --app-card-bg: {{ page.secondary_color|default:'#1d1d1f' }};
+        --app-accent: {{ page.accent_color|default:'#D4F759' }};
+        --app-text: {{ page.text_color|default:'#f5f5f7' }};
+        --app-subtext: #86868b;
+        --app-radius: 28px;
+        --brand-lime: var(--app-accent);
+
+        /* Fonts from Database */
+        --font-heading: '{{ page.font_heading }}', sans-serif;
+        --font-body: '{{ page.font_body }}', sans-serif;
+    }
+
     /* --- 0. PRELOADER --- */
     #site-loader {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: #000; z-index: 99999;
+        background: var(--app-bg); z-index: 99999;
         display: flex; justify-content: center; align-items: center; flex-direction: column;
         transition: opacity 0.5s ease;
     }
     .loader-spinner {
         width: 40px; height: 40px;
-        border: 4px solid rgba(212, 247, 89, 0.3);
-        border-top: 4px solid #D4F759;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-top: 4px solid var(--app-accent);
         border-radius: 50%;
         animation: spin 1s linear infinite;
         margin-top: 15px;
     }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-    /* --- 1. CORE STYLES --- */
+    /* --- 1. CORE STYLES (RESTORED FULL WIDTH) --- */
     body .container {
         max-width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
     }
 
-    /* Hide navs on scroll */
+    /* Hide navs on scroll (Immersive Mode) */
     body.immersive-mode .site-header { transform: translateY(-150%) !important; pointer-events: none; }
     body.immersive-mode .mobile-bottom-nav { transform: translateY(200%) !important; pointer-events: none; }
     .site-header, .mobile-bottom-nav { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important; }
 
-    :root {
-        --app-bg: #000000;
-        --app-text: #f5f5f7;
-        --app-subtext: #86868b;
-        --app-card-bg: #1d1d1f;
-        --app-accent: #2997ff;
-        --app-radius: 28px;
-        --brand-lime: #D4F759;
-    }
-
     .landing-wrapper {
         background-color: var(--app-bg);
         color: var(--app-text);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: var(--font-body);
         width: 100%;
         overflow-x: hidden;
+        /* Padding bottom for mobile nav space */
         padding-bottom: 150px;
         min-height: 100vh;
         opacity: 0; /* Hidden until loaded */
         transition: opacity 0.5s;
     }
 
-    /* --- 2. BUTTON ANIMATIONS --- */
-    @keyframes shimmer-gold {
-        0% { background-position: -200% 0; }
-        100% { background-position: 200% 0; }
+    /* --- 2. TYPOGRAPHY --- */
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+    
+    .headline-pro { 
+        font-size: 56px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.3em; 
+        color: inherit;
     }
-    @keyframes gentle-pulse {
-        0% { box-shadow: 0 0 0 0 rgba(212, 247, 89, 0.6); }
-        70% { box-shadow: 0 0 0 10px rgba(212, 247, 89, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(212, 247, 89, 0); }
+    .subhead-pro { 
+        font-size: 24px; line-height: 1.4; font-weight: 400; opacity: 0.8; margin-bottom: 30px; 
+    }
+    .text-body-pro { 
+        font-size: 18px; line-height: 1.6; font-weight: 400; opacity: 0.9; 
     }
 
+    /* RESTORED: Red Line Strike-Through */
+    .price-strike { 
+        position: relative; 
+        display: inline-block; 
+        color: #999; 
+        font-size: 0.9em; 
+        margin-right: 8px; 
+        font-weight: 500; 
+        text-decoration: none; 
+    }
+    .price-strike::after { 
+        content: ''; 
+        position: absolute; 
+        left: -5%; 
+        top: 50%; 
+        width: 110%; 
+        height: 2px; 
+        background: #ff3b30; /* Red Line */
+        transform: translateY(-50%) rotate(-12deg); 
+        border-radius: 2px;
+    }
+    .price-highlight { color: var(--app-accent); font-weight: 700; font-size: larger;}
+
+    @media (max-width: 768px) {
+        .headline-pro { font-size: 36px; }
+        .subhead-pro { font-size: 18px; }
+        .text-body-pro { font-size: 16px; }
+    }
+
+    /* --- 3. DYNAMIC SECTIONS UTILS --- */
+    .dynamic-section {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        
+        /* Consume Variables (Safe for Linter) */
+        padding-top: var(--sec-pt, 80px);
+        padding-bottom: var(--sec-pb, 80px);
+        background: var(--sec-bg, transparent);
+        color: var(--sec-color, inherit);
+        text-align: var(--sec-align, center);
+    }
+
+    /* FIX: Hero specific full screen */
+    .hero-full-screen {
+        min-height: 100vh; /* Force full screen height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .dynamic-radius {
+        border-radius: var(--sec-radius, 0px);
+        overflow: hidden;
+    }
+
+    /* Background Image Helper (Absolute for layering) */
+    .section-bg-image {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        z-index: 0; 
+    }
+
+    /* Shape Dividers */
+    .shape-divider {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+    .shape-divider svg {
+        display: block;
+        width: calc(130% + 1.3px);
+        height: 60px;
+    }
+    @media (min-width: 768px) { .shape-divider svg { height: 120px; } }
+    
+    .divider-top { top: 0; transform: rotate(180deg); }
+    .divider-bottom { bottom: 0; }
+    .divider-fill { fill: var(--app-bg); }
+
+    /* Content Styling */
+    .section-icon {
+        font-size: 40px;
+        color: var(--app-accent);
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    /* --- 4. BUTTONS --- */
+    @keyframes shimmer-gold { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+    @keyframes gentle-pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 247, 89, 0.6); } 70% { box-shadow: 0 0 0 10px rgba(212, 247, 89, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 247, 89, 0); } }
+
     .btn-lucrative-style {
-        background: linear-gradient(110deg, var(--brand-lime) 0%, #f0ffc2 20%, var(--brand-lime) 40%);
+        background: linear-gradient(110deg, var(--app-accent) 0%, #ffffff 20%, var(--app-accent) 40%);
         background-size: 200% 100%;
         color: #000 !important;
         font-weight: 800;
@@ -83,84 +204,36 @@
         animation: shimmer-gold 3s infinite linear, gentle-pulse 2s infinite ease-out;
     }
     
-    .hero-btn-placeholder {
-        display: inline-block;
-        width: 180px; 
-        height: 54px; 
-        opacity: 0;   
-        pointer-events: none;
+    .btn-custom-outline {
+        border: 2px solid rgba(255,255,255,0.2);
+        color: var(--app-text);
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
     }
+    .btn-custom-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; color: #fff; }
 
-    /* --- 3. VIDEO PLAYER --- */
+    /* --- 5. VIDEO & MEDIA --- */
     .custom-video-wrapper { position: relative; border-radius: 20px; overflow: hidden; width: 100%; background: #000; cursor: pointer; touch-action: manipulation; }
     .custom-video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .video-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); transition: opacity 0.3s; z-index: 2; pointer-events: none; }
     .video-overlay.hidden { opacity: 0; }
     .play-icon-circle { width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.4); }
     .play-icon-circle i { font-size: 24px; color: #fff; margin-left: 4px; }
-    .video-controls-bar { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; align-items: center; gap: 15px; z-index: 3; opacity: 0; transition: opacity 0.3s; }
-    .custom-video-wrapper:hover .video-controls-bar, .custom-video-wrapper.active .video-controls-bar { opacity: 1; }
-    .video-progress { flex-grow: 1; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; position: relative; }
-    .video-progress-fill { height: 100%; background: var(--brand-lime); width: 0%; border-radius: 2px; }
-    .video-mute-btn { background: none; border: none; color: #fff; width: 24px; cursor: pointer; }
-    .tap-zone { position: absolute; top: 0; bottom: 0; width: 30%; z-index: 5; display: flex; align-items: center; justify-content: center; }
-    .tap-zone-left { left: 0; }
-    .tap-zone-right { right: 0; }
-    .skip-indicator { background: rgba(0,0,0,0.6); color: #fff; padding: 10px 15px; border-radius: 20px; font-weight: bold; opacity: 0; transform: scale(0.5); transition: 0.2s; pointer-events: none; }
-    .skip-indicator.animate { opacity: 1; transform: scale(1); }
+    
+    /* --- 6. CAROUSEL --- */
+    .carousel-pro { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+    .carousel-item { height: 600px; background: #000; }
+    .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 768px) { .carousel-item { height: 400px; } }
 
-    /* --- 4. TYPOGRAPHY --- */
-    .headline-pro { font-size: 56px; line-height: 1.08; font-weight: 600; letter-spacing: -0.005em; margin-bottom: 0.2em; }
-    .subhead-pro { font-size: 28px; line-height: 1.15; font-weight: 400; color: var(--app-subtext); margin-bottom: 30px; }
-    .text-body-pro { font-size: 19px; line-height: 1.5; font-weight: 400; color: #cecece; }
-    .price-strike { position: relative; display: inline-block; color: #999; font-size: 0.9em; margin-right: 8px; font-weight: 500; text-decoration: none; }
-    .price-strike::after { content: ''; position: absolute; left: -5%; top: 50%; width: 110%; height: 5px; border-top: 2px solid #ff3b30; border-radius: 50%; transform: translateY(-50%) rotate(-12deg); }
-    .price-highlight { color: var(--brand-lime); font-weight: 700; font-size: larger;}
-
-    @media (max-width: 768px) {
-        .headline-pro { font-size: 40px; }
-        .subhead-pro { font-size: 21px; }
-        .text-body-pro { font-size: 17px; }
-    }
-
-    /* Sections */
-    .hero-container { position: relative; height: 90vh; display: flex; flex-direction: column; justify-content: center; padding: 60px 40px; overflow: hidden; }
-    .hero-bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 0; }
-    .hero-media { width: 100%; max-width: 1000px; height: auto; object-fit: contain; margin-top: 20px; opacity: 0; transform: translateY(30px); }
-    .bento-section { padding: 100px 0; }
-    .bento-card { background-color: var(--app-card-bg); border-radius: var(--app-radius); padding: 50px; height: 100%; overflow: hidden; position: relative; }
-    .bento-img { width: 100%; height: auto; border-radius: 12px; margin-top: 20px; }
-    .split-section { padding: 80px 0; }
-    .split-media { border-radius: var(--app-radius); overflow: hidden; height: 100%; min-height: 400px; }
-    .split-media img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* Carousel */
-    .carousel-pro { border-radius: var(--app-radius); overflow: hidden; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-    .carousel-item { height: 650px; background: #000; transition: transform 0.6s ease-in-out; }
-    .carousel-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
-    .carousel-controls-pill { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); background: rgba(20, 20, 20, 0.65); backdrop-filter: blur(15px); padding: 8px 20px; border-radius: 100px; display: flex; align-items: center; gap: 15px; border: 1px solid rgba(255,255,255,0.15); z-index: 20; }
-    .carousel-play-btn { background: none; border: none; color: #fff; cursor: pointer; opacity: 0.8; }
-    .carousel-indicators-custom { display: flex; gap: 8px; margin: 0; padding: 0; list-style: none; }
-    .carousel-indicators-custom button { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; padding: 0; transition: all 0.3s; }
-    .carousel-indicators-custom button.active { background: #fff; transform: scale(1.2); }
-    .carousel-control-prev, .carousel-control-next { width: 8%; opacity: 0; transition: opacity 0.3s; }
-    .carousel-pro:hover .carousel-control-prev, .carousel-pro:hover .carousel-control-next { opacity: 0.8; }
-    @media (max-width: 768px) { .carousel-item { height: 450px; } }
-
-    /* --- 5. MORPHING BAR --- */
+    /* --- 7. ISLAND BAR (Sticky Button) --- */
     #island-bar {
-        position: fixed; 
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(212, 247, 89, 0.4);
-        /* Hidden until JS positions it */
-        opacity: 0; 
-        visibility: hidden;
+        position: fixed; z-index: 9999; display: flex; align-items: center; justify-content: center;
+        overflow: hidden; opacity: 0; visibility: hidden;
     }
-
     .island-content-full { width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 15px; opacity: 0; }
     .island-content-hero { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; text-align: center; color: #000; font-weight: 800; font-size: 18px; white-space: nowrap; opacity: 1; text-decoration: none; }
     .island-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
@@ -169,12 +242,8 @@
     .island-name { font-size: 15px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .island-actions { display: flex; align-items: center; gap: 10px; }
     .btn-island-secondary { background: rgba(255,255,255,0.1); color: #fff; border: none; padding: 8px 16px; border-radius: 99px; font-size: 14px; font-weight: 600; text-decoration: none; }
-    .btn-island-primary { background: var(--brand-lime); color: #000; font-weight: 700; border: none; padding: 10px 24px; border-radius: 99px; font-size: 14px; cursor: pointer; }
+    .btn-island-primary { background: var(--app-accent); color: #000; font-weight: 700; border: none; padding: 10px 24px; border-radius: 99px; font-size: 14px; cursor: pointer; }
 
-    .dynamic-section { background-color: var(--sec-bg, transparent); color: var(--sec-text, inherit); }
-    .dynamic-section .headline-pro, .dynamic-section .subhead-pro { color: var(--sec-text, inherit); }
-    /* Fix for dynamic background layer z-index */
-    .dynamic-bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; background-image: var(--sec-bg-img, none); }
 </style>
 
 <div id="site-loader">
@@ -185,185 +254,166 @@
 <div class="landing-wrapper" id="landing-wrapper">
 
     {% for section in sections %}
-        {% with bg=section.background_color|default:'transparent' txt=section.text_color|default:'inherit' %}
+        {% with bg=section.background_gradient|default:section.background_color|default:'transparent' txt=section.text_color|default:'inherit' %}
         
-        {% if section.section_type == 'HERO' %}
-        <section class="hero-container dynamic-section" 
-                 style="--sec-bg: {{ bg }}; --sec-text: {{ txt }}; --sec-align: {{ section.text_alignment }}; align-items: var(--sec-align); text-align: var(--sec-align);">
+        <section class="dynamic-section {% if section.section_type == 'HERO' %}hero-full-screen{% endif %}" 
+                 id="section-{{ section.id }}"
+                 style="
+                    --sec-pt: {{ section.padding_top }}px; 
+                    --sec-pb: {{ section.padding_bottom }}px;
+                    --sec-bg: {{ bg }};
+                    --sec-color: {{ txt }};
+                    --sec-align: {{ section.text_alignment }};
+                    --sec-radius: {{ section.border_radius }}px;
+                    --sec-overlay: {{ section.overlay_opacity }};
+                    
+                    /* FIX: Allow Description Cards to inherit Section Color */
+                    --card-bg: {% if section.background_color %}{{ section.background_color }}{% else %}var(--app-card-bg){% endif %};
+                 ">
             
-            {% if section.image and not section.video_file %}
-            <div class="dynamic-bg-layer" style="background-image: url('{{ section.image.url }}'); --overlay-op: {{ section.overlay_opacity }};">
-                <div style="position: absolute; inset: 0; background: rgba(0,0,0, var(--overlay-op));"></div>
+            {% if section.image and section.section_type == 'HERO' %}
+                <div class="section-bg-image" style="background-image: url('{{ section.image.url }}');"></div>
+            {% endif %}
+
+            {% if section.divider_top != 'NONE' %}
+            <div class="shape-divider divider-top">
+                {% if section.divider_top == 'WAVE' %}
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="divider-fill"></path></svg>
+                {% elif section.divider_top == 'SLANT_RIGHT' %}
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="divider-fill"></path></svg>
+                {% elif section.divider_top == 'CURVE' %}
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="divider-fill"></path><path d="M0,0V15.81C13,36.92,46,62.34,98.58,81.55c58.72,21.47,117.49,4.9,139.52-6.36C296.34,58.34,334.68,17.47,419.66,35c82.33,16.94,86.83,72.88,143.72,81.71C633.27,127.48,674,83.55,754,64.21c37.07-9,102.39-14.73,149.33,12.72,48.27,28.23,94.27,14,138.31-7.86,51.64-25.64,103-34.79,158.36-13.88V0Z" class="divider-fill"></path></svg>
+                {% endif %}
             </div>
             {% endif %}
-            
-            {% if section.video_file %}
-            <div class="dynamic-bg-layer" style="--overlay-op: {{ section.overlay_opacity }};">
-                <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 1;">
-                    <source src="{{ section.video_file.url }}" type="video/mp4">
-                </video>
-                <div style="position: absolute; inset: 0; background: rgba(0,0,0, var(--overlay-op));"></div>
-            </div>
-            {% endif %}
-            
-            <div class="container" style="position: relative; z-index: 2;">
-                <h1 class="headline-pro gs-fade-up">{{ section.heading }}</h1>
-                <p class="subhead-pro gs-fade-up">{{ section.subheading }}</p>
+
+            {% if section.section_type == 'HERO' %}
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0, var(--sec-overlay)); z-index: 0;"></div>
                 
-                <div id="hero-btn-placeholder" class="hero-btn-placeholder" style="margin-top: 25px;"></div>
-
-                {% if section.image and section.video_file == None %}
-                    {% endif %}
-            </div>
-        </section>
-
-        {% elif section.section_type == 'TEXT_IMAGE_SPLIT' %}
-        <section class="split-section dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
-            <div class="container" style="padding: 0 20px !important;">
-                <div class="row align-items-center g-5">
-                    <div class="col-md-6 order-2 {% if section.text_alignment == 'end' %}order-md-2{% else %}order-md-1{% endif %}">
-                        <div class="split-text gs-fade-right" style="--text-align: {{ section.text_alignment }}; text-align: var(--text-align);">
-                            <h2 class="headline-pro" style="font-size: 48px;">{{ section.heading }}</h2>
-                            <div class="text-body-pro mt-4">{{ section.description|linebreaks }}</div>
-                            
-                            {% if section.button_text %}
-                            <a href="#island-bar" class="btn btn-light rounded-pill px-4 py-2 mt-4" style="font-weight:700;">
-                                {{ section.button_text }}
-                            </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="col-md-6 order-1 {% if section.text_alignment == 'end' %}order-md-1{% else %}order-md-2{% endif %}">
-                        <div class="split-media gs-fade-left">
-                            {% if section.image %}
-                                <img src="{{ section.image.url }}" alt="{{ section.heading }}">
-                            {% elif section.video_file %}
-                                <div class="custom-video-wrapper" onclick="togglePlay('video-split-{{ section.id }}', this)">
-                                    <video loop playsinline id="video-split-{{ section.id }}"><source src="{{ section.video_file.url }}" type="video/mp4"></video>
-                                    <div class="tap-zone tap-zone-left" ondblclick="skipVideo('video-split-{{ section.id }}', -10, this)"><div class="skip-indicator">-10s</div></div>
-                                    <div class="tap-zone tap-zone-right" ondblclick="skipVideo('video-split-{{ section.id }}', 10, this)"><div class="skip-indicator">+10s</div></div>
-                                    <div class="video-overlay"><div class="play-icon-circle"><i class="fas fa-play"></i></div></div>
-                                    <div class="video-controls-bar" onclick="event.stopPropagation()">
-                                        <button class="video-control-btn" onclick="togglePlay('video-split-{{ section.id }}', this.closest('.custom-video-wrapper'))"><i class="fas fa-play"></i></button>
-                                        <div class="video-progress" onclick="seekVideo(event, 'video-split-{{ section.id }}')"><div class="video-progress-fill"></div></div>
-                                        <button class="video-control-btn" onclick="toggleMute('video-split-{{ section.id }}', this)"><i class="fas fa-volume-mute"></i></button>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        </div>
-                    </div>
+                <div class="container" style="position: relative; z-index: 2;">
+                    {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon gs-fade-up"></i>{% endif %}
+                    <h1 class="headline-pro gs-fade-up">{{ section.heading }}</h1>
+                    <p class="subhead-pro gs-fade-up">{{ section.subheading }}</p>
+                    
+                    <div id="hero-btn-placeholder" style="display:inline-block; width:180px; height:54px; margin-top:25px;"></div>
                 </div>
-            </div>
-        </section>
 
-        {% elif section.section_type == 'FEATURES_GRID' %}
-        <section class="bento-section dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
-            <div class="container" style="padding: 0 20px !important;">
-                <div class="text-center mb-5 gs-fade-up">
-                    <h2 class="headline-pro">{{ section.heading }}</h2>
-                    <p class="subhead-pro">{{ section.subheading }}</p>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-8">
-                        <div class="bento-card gs-fade-up">
-                            <div class="text-center">
-                                <i class="fas fa-star fa-2x mb-4" style="color: var(--app-accent);"></i>
-                                <div class="text-body-pro">{{ section.description|linebreaks }}</div>
+            {% elif section.section_type == 'TEXT_IMAGE_SPLIT' %}
+                <div class="container" style="padding: 0 20px !important;">
+                    <div class="row align-items-center g-5">
+                        <div class="col-md-6 order-2 {% if section.text_alignment == 'end' %}order-md-2{% else %}order-md-1{% endif %}">
+                            <div class="split-text gs-fade-right">
+                                {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon"></i>{% endif %}
+                                <h2 class="headline-pro" style="font-size: 42px;">{{ section.heading }}</h2>
+                                <h3 class="subhead-pro">{{ section.subheading }}</h3>
+                                <div class="text-body-pro mt-4">{{ section.description|linebreaks }}</div>
+                                
+                                {% if section.button_text %}
+                                <a href="#island-bar" class="btn-custom-outline mt-4 d-inline-block">{{ section.button_text }}</a>
+                                {% endif %}
                             </div>
-                            {% if section.image %}<img src="{{ section.image.url }}" class="bento-img mt-5" alt="Feature">{% endif %}
+                        </div>
+                        <div class="col-md-6 order-1 {% if section.text_alignment == 'end' %}order-md-1{% else %}order-md-2{% endif %}">
+                            <div class="split-media gs-fade-left dynamic-radius" style="box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
+                                {% if section.image %}
+                                    <img src="{{ section.image.url }}" alt="{{ section.heading }}" style="width:100%; height:auto;">
+                                {% elif section.video_file %}
+                                    <div class="custom-video-wrapper" onclick="togglePlay('video-{{ section.id }}', this)">
+                                        <video loop playsinline id="video-{{ section.id }}"><source src="{{ section.video_file.url }}" type="video/mp4"></video>
+                                        <div class="video-overlay"><div class="play-icon-circle"><i class="fas fa-play"></i></div></div>
+                                    </div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        {% elif section.section_type == 'VIDEO' %}
-        <section class="py-5 dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
-            <div class="container" style="padding: 0 20px !important;">
-                <div class="row justify-content-center">
-                    <div class="col-12 text-center mb-4 gs-fade-up">
+            {% elif section.section_type == 'FEATURES_GRID' %}
+                <div class="container" style="padding: 0 20px !important;">
+                    <div class="text-center mb-5 gs-fade-up">
+                        {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon"></i>{% endif %}
+                        <h2 class="headline-pro">{{ section.heading }}</h2>
+                        <p class="subhead-pro">{{ section.subheading }}</p>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-8">
+                            <div class="bento-card gs-fade-up dynamic-radius" style="background: var(--card-bg); padding: 50px;">
+                                <div class="text-body-pro text-center">{{ section.description|linebreaks }}</div>
+                                {% if section.image %}<img src="{{ section.image.url }}" class="img-fluid mt-4 rounded" alt="Feature">{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% elif section.section_type == 'RICH_TEXT' %}
+                 <div class="container" style="padding: 0 20px !important;">
+                     <div class="row justify-content-center">
+                         <div class="col-lg-8">
+                             {% if section.icon_class %}<div class="text-center"><i class="{{ section.icon_class }} section-icon"></i></div>{% endif %}
+                             <div class="text-body-pro">{{ section.description|safe }}</div>
+                         </div>
+                     </div>
+                 </div>
+
+            {% elif section.section_type == 'VIDEO' %}
+                <div class="container" style="padding: 0 20px !important;">
+                    <div class="text-center mb-4 gs-fade-up">
                          <h2 class="headline-pro" style="font-size: 40px;">{{ section.heading }}</h2>
                     </div>
-                    <div class="col-12 col-lg-10">
-                        <div class="split-media shadow-lg gs-scale-up" style="border-radius: 20px;">
-                             {% if section.video_file %}
-                                <div class="custom-video-wrapper" onclick="togglePlay('video-{{ section.id }}', this)">
-                                    <video loop playsinline id="video-{{ section.id }}"><source src="{{ section.video_file.url }}" type="video/mp4"></video>
-                                    <div class="tap-zone tap-zone-left" ondblclick="skipVideo('video-{{ section.id }}', -10, this)"><div class="skip-indicator">-10s</div></div>
-                                    <div class="tap-zone tap-zone-right" ondblclick="skipVideo('video-{{ section.id }}', 10, this)"><div class="skip-indicator">+10s</div></div>
-                                    <div class="video-overlay"><div class="play-icon-circle"><i class="fas fa-play"></i></div></div>
-                                    <div class="video-controls-bar" onclick="event.stopPropagation()">
-                                        <button class="video-control-btn" onclick="togglePlay('video-{{ section.id }}', this.closest('.custom-video-wrapper'))"><i class="fas fa-play"></i></button>
-                                        <div class="video-progress" onclick="seekVideo(event, 'video-{{ section.id }}')">
-                                            <div class="video-progress-fill" id="progress-{{ section.id }}"></div>
-                                        </div>
-                                        <button class="video-control-btn" onclick="toggleMute('video-{{ section.id }}', this)"><i class="fas fa-volume-mute"></i></button>
-                                    </div>
-                                </div>
-                             {% elif section.video_url %}
-                                <div class="ratio ratio-16x9"><iframe src="{{ section.video_url }}" allowfullscreen></iframe></div>
-                             {% endif %}
-                        </div>
+                    <div class="shadow-lg gs-scale-up dynamic-radius">
+                         {% if section.video_file %}
+                            <div class="custom-video-wrapper" onclick="togglePlay('video-{{ section.id }}', this)">
+                                <video loop playsinline id="video-{{ section.id }}" style="width:100%;"><source src="{{ section.video_file.url }}" type="video/mp4"></video>
+                                <div class="video-overlay"><div class="play-icon-circle"><i class="fas fa-play"></i></div></div>
+                            </div>
+                         {% elif section.video_url %}
+                            <div class="ratio ratio-16x9"><iframe src="{{ section.video_url }}" allowfullscreen></iframe></div>
+                         {% endif %}
                     </div>
                 </div>
-            </div>
-        </section>
 
-        {% elif section.section_type == 'CAROUSEL' %}
-        <section class="py-5 dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
-            <div class="container" style="padding: 0 20px !important;">
-                {% if section.heading %}
-                <div class="text-center mb-5 gs-fade-up">
-                    <h2 class="headline-pro">{{ section.heading }}</h2>
-                    <p class="subhead-pro">{{ section.subheading }}</p>
+            {% elif section.section_type == 'CAROUSEL' %}
+                <div class="container" style="padding: 0 20px !important;">
+                    {% if section.heading %}
+                    <div class="text-center mb-5 gs-fade-up">
+                        <h2 class="headline-pro">{{ section.heading }}</h2>
+                        <p class="subhead-pro">{{ section.subheading }}</p>
+                    </div>
+                    {% endif %}
+                    <div id="carousel-{{ section.id }}" class="carousel slide carousel-fade carousel-pro gs-scale-up" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {% if section.image %}<div class="carousel-item active"><img src="{{ section.image.url }}" class="d-block w-100" alt="1"></div>{% endif %}
+                            {% if section.image_2 %}<div class="carousel-item"><img src="{{ section.image_2.url }}" class="d-block w-100" alt="2"></div>{% endif %}
+                            {% if section.image_3 %}<div class="carousel-item"><img src="{{ section.image_3.url }}" class="d-block w-100" alt="3"></div>{% endif %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                    </div>
                 </div>
+            {% endif %}
+
+            {% if section.divider_bottom != 'NONE' %}
+            <div class="shape-divider divider-bottom">
+                {% if section.divider_bottom == 'WAVE' %}
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="divider-fill"></path></svg>
+                {% elif section.divider_bottom == 'SLANT_RIGHT' %}
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" transform="scale(1, -1) translate(0, -120)" class="divider-fill"></path></svg>
+                {% elif section.divider_bottom == 'CURVE' %}
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" transform="scale(1, -1) translate(0, -120)" class="divider-fill"></path></svg>
                 {% endif %}
-
-                <div id="carousel-{{ section.id }}" class="carousel slide carousel-fade carousel-pro gs-scale-up" 
-                     data-bs-ride="carousel" data-bs-interval="3000" data-bs-touch="true">
-                    
-                    <div class="carousel-inner">
-                        {% if section.image %}<div class="carousel-item active"><img src="{{ section.image.url }}" class="d-block w-100" alt="1"></div>{% endif %}
-                        {% if section.image_2 %}<div class="carousel-item {% if not section.image %}active{% endif %}"><img src="{{ section.image_2.url }}" class="d-block w-100" alt="2"></div>{% endif %}
-                        {% if section.image_3 %}<div class="carousel-item"><img src="{{ section.image_3.url }}" class="d-block w-100" alt="3"></div>{% endif %}
-                        {% if section.image_4 %}<div class="carousel-item"><img src="{{ section.image_4.url }}" class="d-block w-100" alt="4"></div>{% endif %}
-                        {% if section.image_5 %}<div class="carousel-item"><img src="{{ section.image_5.url }}" class="d-block w-100" alt="5"></div>{% endif %}
-                    </div>
-
-                    <div class="carousel-controls-pill">
-                        <button class="carousel-play-btn" onclick="toggleCarousel('carousel-{{ section.id }}', this)" title="Pause">
-                            <i class="fas fa-pause"></i>
-                        </button>
-                        <div style="width:1px; height:12px; background:rgba(255,255,255,0.2);"></div>
-                        <div class="carousel-indicators-custom" id="indicators-{{ section.id }}">
-                            {% if section.image %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="0" class="active"></button>{% endif %}
-                            {% if section.image_2 %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="1"></button>{% endif %}
-                            {% if section.image_3 %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="2"></button>{% endif %}
-                            {% if section.image_4 %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="3"></button>{% endif %}
-                            {% if section.image_5 %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="4"></button>{% endif %}
-                        </div>
-                    </div>
-                    
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
-                </div>
             </div>
-        </section>
+            {% endif %}
 
-        {% endif %}
+        </section>
         {% endwith %}
     {% endfor %}
 
 </div>
 
 <div id="island-bar" class="btn-lucrative-style">
-    
     <a href="{% if product.id %}{% url 'add_to_cart' product.id %}?action=buy_now{% else %}#{% endif %}" class="island-content-hero">
-        {% with first_sec=sections.first %}
-            {{ first_sec.button_text|default:"Buy Now" }}
-        {% endwith %}
+        {% with first_sec=sections.first %}{{ first_sec.button_text|default:"Buy Now" }}{% endwith %}
     </a>
-
     <div class="island-content-full">
         <div class="island-left">
             {% if product.main_image_obj %}
@@ -384,14 +434,12 @@
             </div>
         </div>
         <div class="island-actions">
-            <a href="{% if product.id %}{% url 'product_detail' product.id %}{% else %}#{% endif %}" class="btn-island-secondary" style="text-decoration: none; color: #fff;">View</a>
+            <a href="{% if product.id %}{% url 'product_detail' product.id %}{% else %}#{% endif %}" class="btn-island-secondary">View</a>
             <form action="{% if product.id %}{% url 'add_to_cart' product.id %}{% else %}#{% endif %}" method="POST" style="margin:0;">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="buy_now">
-                <button type="submit" class="btn-island-primary btn-lucrative-style" style="animation: shimmer-gold 3s infinite linear, gentle-pulse 2s infinite ease-out;">
-                    {% with first_sec=sections.first %}
-                        {{ first_sec.button_text|default:"Buy Now" }}
-                    {% endwith %}
+                <button type="submit" class="btn-island-primary btn-lucrative-style">
+                    {% with first_sec=sections.first %}{{ first_sec.button_text|default:"Buy Now" }}{% endwith %}
                 </button>
             </form>
         </div>
@@ -399,60 +447,16 @@
 </div>
 
 <script>
-    // --- VIDEO LOGIC ---
+    // --- JS: RESTORED NAVBAR TOGGLE & ANIMATIONS ---
     function togglePlay(vidId, wrapper) {
         const vid = document.getElementById(vidId);
         const overlay = wrapper.querySelector('.video-overlay');
-        const playBtn = wrapper.querySelector('.video-control-btn i');
-        if(vid.paused) {
-            vid.play();
-            overlay.classList.add('hidden');
-            if(playBtn) playBtn.className = 'fas fa-pause';
-            vid.addEventListener('timeupdate', () => updateProgress(vidId, wrapper));
-        } else {
-            vid.pause();
-            overlay.classList.remove('hidden');
-            if(playBtn) playBtn.className = 'fas fa-play';
-        }
+        if(vid.paused) { vid.play(); overlay.classList.add('hidden'); } 
+        else { vid.pause(); overlay.classList.remove('hidden'); }
     }
 
-    function toggleMute(vidId, btn) {
-        const vid = document.getElementById(vidId);
-        const icon = btn.querySelector('i');
-        vid.muted = !vid.muted;
-        icon.className = vid.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
-    }
-
-    function updateProgress(vidId, wrapper) {
-        const vid = document.getElementById(vidId);
-        const bar = wrapper.querySelector('.video-progress-fill');
-        if(vid.duration && bar) {
-            const pct = (vid.currentTime / vid.duration) * 100;
-            bar.style.width = pct + '%';
-        }
-    }
-
-    function seekVideo(e, vidId) {
-        const vid = document.getElementById(vidId);
-        const rect = e.currentTarget.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const width = rect.width;
-        if(vid.duration) vid.currentTime = (clickX / width) * vid.duration;
-        e.stopPropagation();
-    }
-
-    function skipVideo(vidId, amount, zone) {
-        const vid = document.getElementById(vidId);
-        vid.currentTime += amount;
-        const indicator = zone.querySelector('.skip-indicator');
-        indicator.classList.add('animate');
-        setTimeout(() => indicator.classList.remove('animate'), 500);
-    }
-
-    // --- MAIN INITIALIZATION (Wait for Window Load) ---
     window.addEventListener("load", () => {
         gsap.registerPlugin(ScrollTrigger);
-
         const loader = document.getElementById('site-loader');
         const wrapper = document.getElementById('landing-wrapper');
         const island = document.getElementById('island-bar');
@@ -460,127 +464,85 @@
         const heroContent = document.querySelector('.island-content-hero');
         const fullContent = document.querySelector('.island-content-full');
 
-        // 1. REVEAL SITE
+        // Reveal
         if(loader) loader.style.opacity = '0';
         if(wrapper) wrapper.style.opacity = '1';
         setTimeout(() => { if(loader) loader.style.display = 'none'; }, 500);
 
-        // 2. SETUP MORPH BUTTON
+        // RESTORED: Immersive Mode (Hide Navbar on Scroll)
+        ScrollTrigger.create({
+            start: 50,
+            onUpdate: (self) => {
+                if (self.direction === 1 || self.scroll() > 50) {
+                    document.body.classList.add('immersive-mode');
+                } else if (self.scroll() < 50) {
+                    document.body.classList.remove('immersive-mode');
+                }
+            }
+        });
+
+        // Morphing Bar Logic (Only if Hero Button Exists)
         if (island && heroPlaceholder) {
-            document.body.appendChild(island); // Safe Move
-            
+            document.body.appendChild(island);
             const rect = heroPlaceholder.getBoundingClientRect();
-            // Pixel-Perfect Positioning relative to page (handles scroll offset)
             const absoluteTop = rect.top + window.scrollY;
             
+            // FIX: Get the actual Hex/RGB value of the accent color
+            // This ensures GSAP can interpolate from "Gold" to "Dark" without snapping.
+            let accentColor = getComputedStyle(document.documentElement).getPropertyValue('--app-accent').trim();
+            if (!accentColor) accentColor = '#D4F759'; // Fallback if variable is missing
+
+            // 1. Initial State: Force it to look like the Hero Button
             gsap.set(island, { 
-                top: absoluteTop, 
-                left: rect.left, 
-                width: rect.width,
-                height: rect.height,
-                padding: "0",
-                borderRadius: "50px",
-                backgroundColor: "var(--brand-lime)", 
-                backgroundImage: "linear-gradient(110deg, #D4F759 0%, #f0ffc2 20%, #D4F759 40%)", 
-                boxShadow: "0 0 0 0 rgba(212, 247, 89, 0.6)", 
-                position: "absolute",
-                zIndex: 9999,
-                opacity: 1, 
-                visibility: "visible"
+                top: absoluteTop, left: rect.left, width: rect.width, height: rect.height,
+                padding: "0", borderRadius: "50px", 
+                backgroundColor: accentColor, 
+                // We use the explicit color value here instead of var(--app-accent)
+                backgroundImage: `linear-gradient(110deg, ${accentColor} 0%, #ffffff 20%, ${accentColor} 40%)`, 
+                position: "absolute", zIndex: 9999, opacity: 1, visibility: "visible"
             });
 
-            // 3. MORPH TIMELINE (Smooth Interpolation)
             const isMobile = window.innerWidth < 768;
             const targetWidth = isMobile ? window.innerWidth * 0.92 : Math.min(window.innerWidth * 0.9, 480);
             
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: "body",
-                    start: "top top",
-                    end: "400px top", 
-                    scrub: 0.5, 
+                    trigger: "body", start: "top top", end: "400px top", scrub: 0.5, 
                     onEnter: () => island.style.position = "fixed",
                     onLeaveBack: () => {
                         island.style.position = "absolute";
                         island.style.top = (rect.top + window.scrollY) + "px";
                         island.style.left = rect.left + "px";
-                    },
-                    onLeave: () => {
-                        island.classList.remove('btn-lucrative-style');
-                        const innerBtn = island.querySelector('.btn-island-primary');
-                        if(innerBtn) innerBtn.classList.add('btn-lucrative-style');
-                    },
-                    onEnterBack: () => {
-                        island.classList.add('btn-lucrative-style');
-                        const innerBtn = island.querySelector('.btn-island-primary');
-                        if(innerBtn) innerBtn.classList.remove('btn-lucrative-style');
                     }
                 }
             });
 
+            // 2. Animation: Morph into the Dark Sticky Bar
             tl.to(island, {
                 top: window.innerHeight - 80, 
                 left: isMobile ? (window.innerWidth - targetWidth)/2 : "50%",
                 x: isMobile ? 0 : "-50%",
-                width: targetWidth, 
-                height: 72, 
-                padding: "0 15px",
-                borderRadius: "99px",
-                backgroundColor: "rgba(20, 20, 22, 0.95)", 
+                width: targetWidth, height: 72, padding: "0 15px", borderRadius: "99px",
                 
-                // Color Morph Logic
+                // GRADUAL COLOR TRANSITION:
+                // We transition the gradient colors to the Dark Popup color (rgba(20, 20, 22, 0.95))
+                // effectively "fading out" the shimmer and gold color smoothly.
+                backgroundColor: "rgba(20, 20, 22, 0.95)", 
                 backgroundImage: "linear-gradient(110deg, rgba(20,20,22,0.95) 0%, rgba(20,20,22,0.95) 20%, rgba(20,20,22,0.95) 40%)",
-                boxShadow: "0 15px 50px rgba(0,0,0,0.6)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                
+                boxShadow: "0 15px 50px rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.1)",
                 ease: "power1.inOut"
             }, 0)
             .to(heroContent, { opacity: 0, duration: 0.2 }, 0) 
             .to(fullContent, { opacity: 1, display: "flex", duration: 0.4 }, 0.2); 
-
-            // 4. IMMERSIVE MODE
-            ScrollTrigger.create({
-                start: 50,
-                onUpdate: (self) => {
-                    if (self.direction === 1 || self.scroll() > 50) document.body.classList.add('immersive-mode');
-                    else if (self.scroll() < 50) document.body.classList.remove('immersive-mode');
-                }
-            });
         }
 
-        // 5. SECTION ANIMATIONS
+        // Section Animations
         gsap.utils.toArray('.gs-fade-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 85%" }, y: 40, opacity: 0, duration: 1 }));
         gsap.utils.toArray('.gs-scale-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, scale: 0.92, opacity: 0, duration: 1.2 }));
         gsap.utils.toArray('.gs-fade-right').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: -30, opacity: 0, duration: 1 }));
         gsap.utils.toArray('.gs-fade-left').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 30, opacity: 0, duration: 1 }));
-        
-        // 6. CAROUSEL DOTS SYNC
-        document.querySelectorAll('.carousel').forEach(carousel => {
-            const id = carousel.id.split('-')[1];
-            const indicators = document.getElementById(`indicators-${id}`);
-            if(indicators) {
-                carousel.addEventListener('slide.bs.carousel', event => {
-                    const index = event.to;
-                    const buttons = indicators.querySelectorAll('button');
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    if(buttons[index]) buttons[index].classList.add('active');
-                });
-            }
-        });
     });
-
-    function toggleCarousel(carouselId, btn) {
-        const carouselEl = document.getElementById(carouselId);
-        const icon = btn.querySelector('i');
-        if (btn.classList.contains('paused')) {
-            bootstrap.Carousel.getOrCreateInstance(carouselEl).cycle();
-            btn.classList.remove('paused');
-            icon.classList.remove('fa-play'); icon.classList.add('fa-pause');
-        } else {
-            bootstrap.Carousel.getOrCreateInstance(carouselEl).pause();
-            btn.classList.add('paused');
-            icon.classList.remove('fa-pause'); icon.classList.add('fa-play');
-        }
-    }
 </script>
 
 {% if page.meta_pixel_id %}
@@ -588,20 +550,18 @@
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     
     fbq('init', '{{ page.meta_pixel_id }}');
     fbq('track', 'PageView');
     
-    var priceStr = "{{ product.selling_price|default:0 }}";
-    var productName = "{{ product.name|escapejs }}";
+    // JS Logic Safe Quoting
     fbq('track', 'ViewContent', {
-        content_name: productName, 
-        content_ids: ['{{ product.id }}'],
-        content_type: 'product',
-        value: parseFloat(priceStr),
-        currency: 'BDT'
+        'content_name': "{{ product.name|escapejs }}", 
+        'content_ids': ['{{ product.id }}'],
+        'content_type': 'product',
+        'value': Number("{{ product.selling_price|default:0 }}"),
+        'currency': 'BDT'
     });
 </script>
 {% endif %}

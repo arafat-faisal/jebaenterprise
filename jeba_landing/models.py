@@ -4,8 +4,18 @@ from django.utils.text import slugify
 class LandingPage(models.Model):
     """
     A standalone landing page linked to a specific product.
-    Designed for high-conversion ad campaigns.
+    Acts as the 'Theme Controller' for the entire page.
     """
+    FONT_CHOICES = [
+        ('Montserrat', 'Montserrat (Modern & Bold)'),
+        ('Open Sans', 'Open Sans (Clean & Neutral)'),
+        ('Roboto', 'Roboto (Tech & Sharp)'),
+        ('Playfair Display', 'Playfair Display (Luxury & Serif)'),
+        ('Lato', 'Lato (Friendly)'),
+        ('Oswald', 'Oswald (Strong Headers)'),
+        ('Raleway', 'Raleway (Elegant)'),
+    ]
+
     title = models.CharField(max_length=255, help_text="Internal title for this campaign page")
     slug = models.SlugField(unique=True, max_length=255, help_text="URL path, e.g., 'super-sale-watch'")
     
@@ -16,6 +26,16 @@ class LandingPage(models.Model):
         related_name='landing_pages'
     )
     
+    # --- GLOBAL THEME SETTINGS ---
+    font_heading = models.CharField(max_length=50, choices=FONT_CHOICES, default='Montserrat', help_text="Font for Headlines")
+    font_body = models.CharField(max_length=50, choices=FONT_CHOICES, default='Open Sans', help_text="Font for regular text")
+    
+    # Color Palette
+    primary_color = models.CharField(max_length=20, default="#000000", help_text="Main Background Color")
+    secondary_color = models.CharField(max_length=20, default="#1d1d1f", help_text="Card/Section Background Color")
+    accent_color = models.CharField(max_length=20, default="#D4F759", help_text="Buttons, Icons, and Highlights")
+    text_color = models.CharField(max_length=20, default="#FFFFFF", help_text="Global Text Color")
+
     # Marketing & Analytics
     meta_pixel_id = models.CharField(
         max_length=50, 
@@ -40,8 +60,7 @@ class LandingPage(models.Model):
 
 class LandingSection(models.Model):
     """
-    Modular sections that build up the landing page.
-    Reorderable and highly visual.
+    Modular sections with high-level design customization.
     """
     SECTION_TYPES = [
         ('HERO', 'Hero Section (Full Screen)'),
@@ -49,6 +68,7 @@ class LandingSection(models.Model):
         ('FEATURES_GRID', 'Features Grid (Icons)'),
         ('TEXT_IMAGE_SPLIT', 'Split Content (Text + Image)'),
         ('CAROUSEL', 'Image Carousel (Slider)'),
+        ('RICH_TEXT', 'Rich Text / HTML Block'),
     ]
 
     ANIMATION_EFFECTS = [
@@ -60,20 +80,20 @@ class LandingSection(models.Model):
         ('SLIDE_RIGHT', 'Slide In from Right'),
     ]
 
-    # --- NEW: Alignment Options ---
     ALIGNMENT_CHOICES = [
         ('center', 'Center (Default)'),
         ('start', 'Left Aligned'),
         ('end', 'Right Aligned'),
     ]
-
-    # --- NEW: Overlay Opacity Options ---
-    OVERLAY_CHOICES = [
-        ('0.0', 'No Overlay (Original Image)'),
-        ('0.2', 'Light Shadow (20%)'),
-        ('0.4', 'Medium Shadow (40% - Recommended)'),
-        ('0.6', 'Dark Shadow (60%)'),
-        ('0.8', 'Deep Shadow (80% - For Light Text)'),
+    
+    # New: Shape Dividers for visual flow
+    SHAPE_DIVIDERS = [
+        ('NONE', 'None'),
+        ('WAVE', 'Organic Wave'),
+        ('SLANT_RIGHT', 'Sharp Slant (Right)'),
+        ('SLANT_LEFT', 'Sharp Slant (Left)'),
+        ('CURVE', 'Smooth Curve'),
+        ('ARROW', 'Arrow Down'),
     ]
 
     page = models.ForeignKey(
@@ -86,56 +106,51 @@ class LandingSection(models.Model):
     section_type = models.CharField(max_length=50, choices=SECTION_TYPES, default='TEXT_IMAGE_SPLIT')
     order = models.PositiveIntegerField(default=0, help_text="Order of appearance (0 is top)")
     
-    # Content
+    # --- CONTENT ---
+    icon_class = models.CharField(max_length=100, blank=True, null=True, help_text="FontAwesome class (e.g., 'fa-solid fa-rocket')")
     heading = models.CharField(max_length=255, blank=True, null=True)
     subheading = models.CharField(max_length=500, blank=True, null=True)
     description = models.TextField(blank=True, null=True, help_text="Main text content for this section")
-    
-    # --- NEW: Button Control ---
     button_text = models.CharField(
         max_length=50, 
         blank=True, 
         null=True, 
-        help_text="Override the default button text (e.g. 'Get 50% Off'). Leave empty for default."
+        help_text="Override button text (e.g. 'Get 50% Off'). Leave empty for default."
     )
 
-    # --- NEW: Styling Controls ---
-    text_alignment = models.CharField(
-        max_length=20, 
-        choices=ALIGNMENT_CHOICES, 
-        default='center',
-        help_text="Where should the text be positioned?"
-    )
+    # --- DESIGN FREEDOM ---
+    # Layout
+    text_alignment = models.CharField(max_length=20, choices=ALIGNMENT_CHOICES, default='center')
+    padding_top = models.IntegerField(default=80, help_text="Padding Top (px)")
+    padding_bottom = models.IntegerField(default=80, help_text="Padding Bottom (px)")
+    
+    # Colors & Backgrounds
+    background_color = models.CharField(max_length=20, blank=True, null=True, help_text="Hex Color (Overrides Global)")
+    background_gradient = models.CharField(max_length=200, blank=True, null=True, help_text="CSS Gradient (e.g., 'linear-gradient(45deg, #ff0000, #0000ff)')")
+    text_color = models.CharField(max_length=20, blank=True, null=True, help_text="Text Color (Overrides Global)")
     overlay_opacity = models.CharField(
         max_length=5, 
-        choices=OVERLAY_CHOICES, 
         default='0.4',
-        help_text="Darkens the background image to make text readable."
+        choices=[('0.0','0%'),('0.2','20%'),('0.4','40%'),('0.6','60%'),('0.8','80%'),('0.9','90%')],
+        help_text="Darkens background image for readability."
     )
+    
+    # Shapes & Visuals
+    divider_top = models.CharField(max_length=20, choices=SHAPE_DIVIDERS, default='NONE', help_text="Shape separator at the top")
+    divider_bottom = models.CharField(max_length=20, choices=SHAPE_DIVIDERS, default='NONE', help_text="Shape separator at the bottom")
+    border_radius = models.IntegerField(default=0, help_text="Round corners for inner cards/images (px)")
     
     # Media (Main)
-    image = models.ImageField(
-        upload_to='landing/images/', 
-        blank=True, 
-        null=True,
-        help_text=(
-            "<b>HERO GUIDE:</b> Recommended 1920x1080px (Landscape). "
-            "If using 'Left Aligned' text, pick an image with space on the left. "
-            "Use 'Overlay Opacity' to fix readability issues."
-        )
-    )
-    video_file = models.FileField(upload_to='landing/videos/', blank=True, null=True, help_text="Upload MP4 for background or player")
-    video_url = models.URLField(blank=True, null=True, help_text="YouTube/Vimeo link if not uploading file")
+    image = models.ImageField(upload_to='landing/images/', blank=True, null=True)
+    video_file = models.FileField(upload_to='landing/videos/', blank=True, null=True, help_text="Upload MP4")
+    video_url = models.URLField(blank=True, null=True, help_text="YouTube/Vimeo link")
     
-    # Extra Images for Carousel
+    # Carousel Images
     image_2 = models.ImageField(upload_to='landing/images/', blank=True, null=True, verbose_name="Carousel Image 2")
     image_3 = models.ImageField(upload_to='landing/images/', blank=True, null=True, verbose_name="Carousel Image 3")
     image_4 = models.ImageField(upload_to='landing/images/', blank=True, null=True, verbose_name="Carousel Image 4")
     image_5 = models.ImageField(upload_to='landing/images/', blank=True, null=True, verbose_name="Carousel Image 5")
     
-    # Visuals
-    background_color = models.CharField(max_length=20, default="#000000", help_text="Hex code (e.g. #000000)")
-    text_color = models.CharField(max_length=20, default="#FFFFFF", help_text="Hex code (e.g. #FFFFFF)")
     animation_effect = models.CharField(max_length=20, choices=ANIMATION_EFFECTS, default='FADE_UP')
 
     class Meta:
