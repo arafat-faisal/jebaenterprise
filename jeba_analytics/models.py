@@ -9,10 +9,15 @@ class SearchEvent(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     session_id = models.CharField(max_length=100, null=True, blank=True)
     
+    # --- Attribution (New) ---
+    utm_source = models.CharField(max_length=50, null=True, blank=True, help_text=_("Source (e.g. facebook, google)"))
+    utm_medium = models.CharField(max_length=50, null=True, blank=True, help_text=_("Medium (e.g. cpc, email)"))
+    utm_campaign = models.CharField(max_length=100, null=True, blank=True, help_text=_("Campaign Name"))
+
     # Stores IP, Location, Device Info
     metadata = models.JSONField(default=dict, blank=True, verbose_name=_("Event Metadata"))
     
-    # NEW: Store result count explicitly for "Zero Result" analysis
+    # Store result count explicitly for "Zero Result" analysis
     result_count = models.PositiveIntegerField(default=0, verbose_name=_("Results Found"))
     
     created_at = models.DateTimeField(auto_now_add=True)
@@ -40,13 +45,39 @@ class ProductEvent(models.Model):
     session_id = models.CharField(max_length=100, null=True, blank=True)
     event_type = models.CharField(max_length=20, choices=EVENT_CHOICES)
     
-    # NEW: Capture price at the time of event (Crucial for historic Cart Value analysis)
+    # --- Financial Context ---
+    # Capture price at the time of event (Crucial for historic Cart Value analysis)
     value_at_event = models.DecimalField(
         max_digits=10, decimal_places=2, null=True, blank=True,
         help_text=_("Product selling price at the moment of this event.")
     )
+    
+    # --- Inventory Context (New) ---
+    stock_status_at_view = models.BooleanField(
+        default=True, 
+        help_text=_("Was the product in stock when viewed?")
+    )
 
-    # Stores Source (FB/Google), Campaign ID, etc.
+    # --- Attribution (New) ---
+    utm_source = models.CharField(max_length=50, null=True, blank=True)
+    utm_medium = models.CharField(max_length=50, null=True, blank=True)
+    utm_campaign = models.CharField(max_length=100, null=True, blank=True)
+
+    # --- Behavioral Metrics (New) ---
+    time_on_page = models.PositiveIntegerField(
+        default=0, 
+        help_text=_("Time spent on page in seconds")
+    )
+    scroll_depth = models.PositiveIntegerField(
+        default=0, 
+        help_text=_("Max scroll percentage (0-100)")
+    )
+    load_time = models.FloatField(
+        null=True, blank=True, 
+        help_text=_("Page load time in milliseconds")
+    )
+
+    # Stores specific tech details (Browser version, etc.)
     metadata = models.JSONField(default=dict, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -61,10 +92,18 @@ class ProductEvent(models.Model):
         # Auto-fill value from product if not set
         if self.value_at_event is None and self.product:
             self.value_at_event = self.product.selling_price
+        
+        # Auto-track stock status if this is a new event
+        if not self.pk and self.product:
+            # Assuming product has 'stock_quantity' or similar. 
+            # Adjust 'stock_quantity' if your field name is different.
+            if hasattr(self.product, 'stock_quantity'):
+                 self.stock_status_at_view = self.product.stock_quantity > 0
+
         super().save(*args, **kwargs)
 
 
-# --- NEW: PROFIT & ROI ANALYTICS ---
+# --- PROFIT & ROI ANALYTICS ---
 class DailyAdSpend(models.Model):
     """
     Tracks daily marketing costs to calculate ROI and Net Profit.

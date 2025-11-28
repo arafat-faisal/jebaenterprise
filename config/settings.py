@@ -63,12 +63,18 @@ INSTALLED_APPS = [
     # --- EXISTING APP (Deprecated/Hidden) ---
     # 'products', 
     'import_export',    
+    # --- ADD THIS LINE ---
+    'django.contrib.humanize', 
+    # ---------------------
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # --- ADD THIS LINE HERE ---
+    'jeba_analytics.middleware.AnalyticsMiddleware',
+    # --------------------------
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

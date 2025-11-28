@@ -48,7 +48,6 @@ class AnalyticsService:
         if not geoip2:
             return {'city': None, 'country': None}
         
-        # Adjust path to your actual GeoLite2 file location if different
         db_path = os.path.join(settings.BASE_DIR, 'geoip', 'GeoLite2-City.mmdb')
         
         try:
@@ -67,63 +66,87 @@ class AnalyticsService:
 
     # --- 2. EVENT TRACKING ---
     @classmethod
-    def track_product_interaction(cls, request, product, event_type):
+    def track_product_interaction(cls, request, product, event_type, **kwargs):
         """
-        Records a product interaction (View, Cart, Purchase) with context.
+        Records a product interaction with deep context and attribution.
+        Now supports optional kwargs for time_on_page, scroll_depth, etc.
         """
         ip = cls.get_client_ip(request)
         device = cls.get_device_info(request)
         
-        # Capture context metadata
+        # 1. Retrieve Attribution Data from Session (Set by Middleware)
+        utm_data = request.session.get('utm_data', {})
+        
+        # 2. Context Metadata
         meta = {
             'ip': ip,
             'device': device,
             'referer': request.META.get('HTTP_REFERER', ''),
-            'user_agent': request.META.get('HTTP_USER_AGENT', '')[:200]
+            'user_agent': request.META.get('HTTP_USER_AGENT', '')[:200],
+            **kwargs.get('metadata', {}) # Merge extra metadata if passed
         }
 
+        # 3. Create Event
         ProductEvent.objects.create(
             product=product,
             user=request.user if request.user.is_authenticated else None,
             session_id=request.session.session_key,
             event_type=event_type,
-            value_at_event=product.selling_price, # Capture price at this moment
+            
+            # Financials
+            value_at_event=product.selling_price,
+            
+            # Attribution
+            utm_source=utm_data.get('utm_source'),
+            utm_medium=utm_data.get('utm_medium'),
+            utm_campaign=utm_data.get('utm_campaign'),
+            
+            # Behavioral Metrics (Passed via kwargs from AJAX/Frontend)
+            time_on_page=kwargs.get('time_on_page', 0),
+            scroll_depth=kwargs.get('scroll_depth', 0),
+            load_time=kwargs.get('load_time', None),
+            
             metadata=meta
         )
 
     @classmethod
     def track_search(cls, request, query, result_count=0):
         """
-        Records internal search queries to analyze user intent.
+        Records internal search queries with attribution.
         """
         if not query:
             return
+            
+        utm_data = request.session.get('utm_data', {})
             
         SearchEvent.objects.create(
             query=query[:255],
             user=request.user if request.user.is_authenticated else None,
             session_id=request.session.session_key,
             result_count=result_count,
+            
+            # Attribution
+            utm_source=utm_data.get('utm_source'),
+            utm_medium=utm_data.get('utm_medium'),
+            utm_campaign=utm_data.get('utm_campaign'),
+            
             metadata={'ip': cls.get_client_ip(request)}
         )
 
-    # --- 3. FINANCIAL INTELLIGENCE (The Brain) ---
+    # --- 3. FINANCIAL INTELLIGENCE ---
     @staticmethod
     def calculate_profit_kpis(days=30):
         """
         Generates the 'True Profit' report by merging Sales Data with Ad Spend.
-        Returns a summary dictionary and a daily breakdown list.
         """
         end_date = timezone.now().date()
         start_date = end_date - timedelta(days=days)
 
-        # 1. Fetch Ad Spend for the period
+        # 1. Fetch Ad Spend
         ad_spends = DailyAdSpend.objects.filter(date__range=(start_date, end_date))
         spend_map = {obj.date: obj for obj in ad_spends}
 
-        # 2. Aggregate Sales Data by Date
-        # Only count valid sales (Processing, Shipped, Delivered)
-        # Exclude Pending/Cancelled to avoid false profit reporting
+        # 2. Aggregate Sales Data
         sales_data = (
             SaleItem.objects
             .filter(
@@ -140,34 +163,27 @@ class AnalyticsService:
             .order_by('-date')
         )
 
-        # 3. Merge & Calculate Net Profit
         daily_stats = []
         total_revenue = Decimal(0)
-        total_cogs = Decimal(0) # Cost of Goods Sold
+        total_cogs = Decimal(0)
         total_ad_spend = Decimal(0)
 
-        # Iterate backwards from today
         current_date = end_date
         while current_date >= start_date:
-            # Get sales data for this date (if any)
             day_sales = next((item for item in sales_data if item['date'] == current_date), {})
             
             revenue = day_sales.get('revenue', Decimal(0))
             cogs = day_sales.get('cost', Decimal(0))
             items = day_sales.get('items_sold', 0)
             
-            # Get ad spend for this date (if any)
             spend_obj = spend_map.get(current_date)
             ad_spend = spend_obj.total_spend if spend_obj else Decimal(0)
 
-            # --- THE CORE FORMULA ---
             gross_profit = revenue - cogs
             net_profit = gross_profit - ad_spend
             
-            # Return on Ad Spend (ROAS)
             roas = round((revenue / ad_spend), 2) if ad_spend > 0 else 0
             
-            # Update Grand Totals
             total_revenue += revenue
             total_cogs += cogs
             total_ad_spend += ad_spend
@@ -184,7 +200,6 @@ class AnalyticsService:
             
             current_date -= timedelta(days=1)
 
-        # 4. Final Aggregates
         grand_gross_profit = total_revenue - total_cogs
         grand_net_profit = grand_gross_profit - total_ad_spend
         

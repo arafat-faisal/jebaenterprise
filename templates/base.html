@@ -566,7 +566,7 @@
     </noscript>
     {% endif %}
 </head>
-<body>
+<body {% if product %}data-product-id="{{ product.id }}"{% endif %}>
 
     <header class="site-header">
         <a href="{% url 'home' %}" class="logo">
@@ -794,6 +794,9 @@
         const searchInput = document.getElementById('main-search-input');
         const suggestionBox = document.getElementById('search-suggestions-box');
         let debounceTimer;
+        
+        // Safety check for search elements
+        if (!searchInput || !suggestionBox) return;
 
         // 1. Function to Fetch and Render
         function fetchSuggestions(query) {
@@ -866,6 +869,9 @@
         });
     });
     </script>
+    
+    <script src="/static/js/analytics.js"></script>
+
 {% block scripts %}
 {% endblock %}
 <nav class="mobile-bottom-nav">

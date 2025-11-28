@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.db.models import Count, Q, Sum, F, ExpressionWrapper, DecimalField
+from django.db.models import Count, Q, Sum, F, ExpressionWrapper, DecimalField, Avg
 from django.utils.html import format_html
 from django.utils import timezone
 from datetime import timedelta
@@ -25,7 +25,9 @@ class DailyAdSpendAdmin(admin.ModelAdmin):
     list_editable = ('facebook_spend', 'google_spend', 'tiktok_spend')
     list_per_page = 31 
     ordering = ('-date',)
-    
+    # --- ADD THIS LINE TO FIX THE ERROR ---
+    readonly_fields = ('total_revenue', 'total_profit', 'total_orders')
+    # --------------------------------------
     fieldsets = (
         ("📅 Date & Spend", {
             'fields': ('date', 'facebook_spend', 'google_spend', 'tiktok_spend')
@@ -95,13 +97,13 @@ class ProductAnalytics(Product):
 class WinningProductAdmin(admin.ModelAdmin):
     change_list_template = "admin/jeba_analytics/productanalytics/change_list.html" 
     
-    # Updated columns to focus on the "Funnel"
     list_display = (
         'name', 
-        'funnel_visual',       # Visual bar showing View -> Cart -> Order
-        'view_to_cart_rate',   # "Add to Cart Rate"
-        'cart_abandonment',    # "Added but not bought"
-        'sales_conversion',    # Overall success
+        'funnel_visual',
+        'engagement_stats',
+        'view_to_cart_rate',
+        'cart_abandonment', 
+        'sales_conversion', 
         'product_profit_display'
     )
     search_fields = ('name',)
@@ -118,7 +120,8 @@ class WinningProductAdmin(admin.ModelAdmin):
             views=Count('events', filter=Q(events__event_type='VIEW')),
             carts=Count('events', filter=Q(events__event_type='CART')),
             orders=Count('events', filter=Q(events__event_type='PURCHASE')),
-            
+            avg_time=Avg('events__time_on_page', filter=Q(events__event_type='VIEW')),
+            avg_scroll=Avg('events__scroll_depth', filter=Q(events__event_type='VIEW')),
             total_revenue=Sum(
                 F('saleitem__sold_price') * F('saleitem__quantity'),
                 filter=Q(saleitem__sale__status__in=['PROCESSING', 'SHIPPED', 'DELIVERED'])
@@ -128,34 +131,72 @@ class WinningProductAdmin(admin.ModelAdmin):
                 filter=Q(saleitem__sale__status__in=['PROCESSING', 'SHIPPED', 'DELIVERED'])
             ),
         )
-        
         qs = qs.annotate(
             calculated_profit=ExpressionWrapper(
                 F('total_revenue') - F('total_cost'),
                 output_field=DecimalField()
             )
         ).distinct()
-
         return qs.order_by(F('calculated_profit').desc(nulls_last=True))
 
-    # --- FUNNEL METRICS ---
+    # --- NEW: CALCULATE GRAND TOTALS FOR TOP CARDS ---
+    def changelist_view(self, request, extra_context=None):
+        response = super().changelist_view(request, extra_context)
+        
+        # Only calculate if we are returning a TemplateResponse (not a redirect/JSON)
+        if hasattr(response, 'context_data'):
+            qs = self.get_queryset(request)
+            
+            # Aggregate data across ALL products
+            metrics = qs.aggregate(
+                grand_revenue=Sum('total_revenue'),
+                grand_cost=Sum('total_cost'),
+                grand_views=Sum('views'),
+                grand_orders=Sum('orders')
+            )
+            
+            grand_revenue = metrics['grand_revenue'] or 0
+            grand_cost = metrics['grand_cost'] or 0
+            grand_profit = grand_revenue - grand_cost
+            
+            grand_views = metrics['grand_views'] or 0
+            grand_orders = metrics['grand_orders'] or 0
+            
+            global_conversion = 0
+            if grand_views > 0:
+                global_conversion = (grand_orders / grand_views) * 100
+
+            # Pass to template
+            response.context_data['summary_metrics'] = {
+                'total_profit': grand_profit,
+                'conversion_rate': round(global_conversion, 2),
+                'total_revenue': grand_revenue,
+                'total_views': grand_views
+            }
+            
+        return response
+
+    # --- METRICS DISPLAY (Same as before) ---
+    def engagement_stats(self, obj):
+        time_sec = int(obj.avg_time or 0)
+        scroll_pct = int(obj.avg_scroll or 0)
+        scroll_color = "green" if scroll_pct > 50 else "orange" if scroll_pct > 25 else "red"
+        return format_html(
+            '''<div style="font-size: 12px;">⏱️ <b>{m}m {s}s</b><br>
+            📜 <span style="color:{sc}">{scroll}% Read</span></div>''',
+            m=time_sec // 60, s=time_sec % 60, scroll=scroll_pct, sc=scroll_color
+        )
+    engagement_stats.short_description = "Avg Engagement"
 
     def funnel_visual(self, obj):
-        """Visualizes the drop-off from View to Order."""
         views = obj.views or 0
         carts = obj.carts or 0
         orders = obj.orders or 0
-        
-        # Prevent division by zero
         if views == 0: return "-"
-        
-        # Calculate percentages relative to Views
         cart_pct = min(100, int((carts / views) * 100))
         order_pct = min(100, int((orders / views) * 100))
-        
         return format_html(
-            '''
-            <div style="min-width: 150px;">
+            '''<div style="min-width: 150px;">
                 <div style="font-size: 10px; color: #666; margin-bottom: 2px;">
                     👁️ {v} &nbsp; 🛒 {c} &nbsp; 💰 {o}
                 </div>
@@ -168,37 +209,27 @@ class WinningProductAdmin(admin.ModelAdmin):
                 <div style="width: 100%; background: #eee; height: 6px; border-radius: 3px;">
                     <div style="width: {op}%; background: #28a745; height: 100%; border-radius: 3px;"></div>
                 </div>
-            </div>
-            ''',
-            v=views, c=carts, o=orders, cp=cart_pct, op=order_pct
+            </div>''', v=views, c=carts, o=orders, cp=cart_pct, op=order_pct
         )
-    funnel_visual.short_description = "Funnel (View > Cart > Buy)"
+    funnel_visual.short_description = "Funnel"
 
     def view_to_cart_rate(self, obj):
-        """High View, Low Cart = People don't like the price/offer."""
         if obj.views == 0: return "-"
         rate = (obj.carts / obj.views) * 100
-        
         color = "red" if rate < 2 else "green"
         return format_html(f"<span style='color:{color}; font-weight:bold;'>{rate:.1f}%</span>")
     view_to_cart_rate.short_description = "Add-to-Cart %"
     view_to_cart_rate.admin_order_field = 'carts'
 
     def cart_abandonment(self, obj):
-        """High Cart, Low Order = Checkout Issue or Shipping Cost."""
         if obj.carts == 0: return "-"
-        
-        # Abandoned = Carts that did NOT become orders
         abandoned_carts = obj.carts - obj.orders
         rate = (abandoned_carts / obj.carts) * 100
-        
-        # High abandonment is BAD (Red)
         color = "red" if rate > 70 else "orange" if rate > 50 else "green"
         return format_html(f"<span style='color:{color}; font-weight:bold;'>{rate:.1f}%</span>")
     cart_abandonment.short_description = "Abandonment %"
 
     def sales_conversion(self, obj):
-        """Overall Views to Orders."""
         if obj.views == 0: return "-"
         rate = (obj.orders / obj.views) * 100
         return f"{rate:.2f}%"
@@ -215,32 +246,66 @@ class WinningProductAdmin(admin.ModelAdmin):
 # --- 3. RAW EVENT LOGS ---
 @admin.register(ProductEvent)
 class ProductEventAdmin(admin.ModelAdmin):
-    list_display = ('product', 'event_type', 'user_or_guest', 'price_captured', 'created_at')
-    list_filter = ('event_type', 'created_at')
-    search_fields = ('product__name', 'session_id')
+    list_display = (
+        'product', 
+        'event_type', 
+        'attribution_display', # NEW
+        'behavior_display',    # NEW
+        'user_or_guest', 
+        'created_at'
+    )
+    list_filter = (
+        'event_type', 
+        'utm_source',     # NEW: Filter by Ad Source
+        'stock_status_at_view', 
+        'created_at'
+    )
+    search_fields = ('product__name', 'session_id', 'utm_source', 'utm_campaign')
+    readonly_fields = ('created_at', 'session_id', 'metadata')
     
     def user_or_guest(self, obj):
         if obj.user:
             return obj.user.username
         if obj.session_id:
             return f"Guest ({obj.session_id[:8]}...)"
-        return "Guest (No Session ID)"
+        return "Guest"
     user_or_guest.short_description = "User"
 
-    def price_captured(self, obj):
-        if obj.value_at_event:
-            return f"৳{obj.value_at_event}"
-        return "-"
-    price_captured.short_description = "Value"
+    def attribution_display(self, obj):
+        """Shows marketing source."""
+        source = obj.utm_source or "-"
+        medium = obj.utm_medium or ""
+        if source == "-": return "-"
+        return f"{source} / {medium}"
+    attribution_display.short_description = "Source / Medium"
+
+    def behavior_display(self, obj):
+        """Shows Time & Scroll."""
+        if obj.event_type != 'VIEW': return "-"
+        
+        time_str = f"{obj.time_on_page}s" if obj.time_on_page else "0s"
+        scroll_str = f"{obj.scroll_depth}%" if obj.scroll_depth else "0%"
+        
+        # Highlight high engagement
+        if obj.time_on_page > 60:
+            return format_html(f"<span style='color:green; font-weight:bold'>{time_str} | {scroll_str}</span>")
+        return f"{time_str} | {scroll_str}"
+    behavior_display.short_description = "Time | Scroll"
+
 
 @admin.register(SearchEvent)
 class SearchEventAdmin(admin.ModelAdmin):
-    list_display = ('query', 'result_count_badge', 'user', 'created_at')
-    list_filter = ('created_at',)
-    search_fields = ('query',)
+    list_display = ('query', 'result_count_badge', 'attribution_display', 'user', 'created_at')
+    list_filter = ('created_at', 'utm_source')
+    search_fields = ('query', 'utm_source')
 
     def result_count_badge(self, obj):
         if obj.result_count == 0:
-            return format_html('<span class="badge badge-danger">0 Results</span>')
+            return format_html('<span class="badge badge-danger" style="color:red; font-weight:bold;">0 Results</span>')
         return obj.result_count
     result_count_badge.short_description = "Found"
+
+    def attribution_display(self, obj):
+        if not obj.utm_source: return "-"
+        return f"{obj.utm_source}"
+    attribution_display.short_description = "Source"

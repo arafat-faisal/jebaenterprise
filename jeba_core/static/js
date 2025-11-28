@@ -1,0 +1,90 @@
+/* Jeba Enterprise - Advanced Analytics Tracker 
+  Tracks User Behavior (Time, Scroll, Performance) on Product Pages
+*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Check if we are on a product page (Look for data attribute)
+    // We will add data-product-id to the <body> tag in the template
+    const bodyElement = document.querySelector('body');
+    const productId = bodyElement.getAttribute('data-product-id');
+
+    if (!productId) {
+        // Not a product page, stop tracking to save resources
+        return; 
+    }
+
+    // --- VARIABLES ---
+    let startTime = Date.now();
+    let maxScroll = 0;
+    let hasSentData = false;
+
+    // --- 2. TRACK PERFORMANCE (Load Time) ---
+    // Calculate how long the page took to load (Navigation Timing API)
+    const getLoadTime = () => {
+        if (window.performance && window.performance.timing) {
+            return window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+        }
+        return 0;
+    };
+
+    // --- 3. TRACK SCROLL DEPTH ---
+    // Update maxScroll whenever user scrolls
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        
+        if (docHeight > 0) {
+            const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+            if (scrollPercent > maxScroll) {
+                maxScroll = scrollPercent;
+            }
+        }
+    });
+
+    // --- 4. SEND DATA FUNCTION ---
+    const sendAnalyticsData = (eventType) => {
+        if (hasSentData && eventType === 'VIEW') return; // Prevent double sending for view if logic changes
+        
+        const timeSpent = Math.round((Date.now() - startTime) / 1000); // Seconds
+        const loadTime = getLoadTime();
+
+        // Payload matching track_interaction view
+        const data = {
+            product_id: productId,
+            event_type: 'VIEW', // We treat the session summary as a 'VIEW' event update
+            extra: {
+                time_on_page: timeSpent,
+                scroll_depth: maxScroll,
+                load_time: loadTime
+            }
+        };
+
+        // Use sendBeacon for reliability on page exit, fallback to fetch
+        const url = '/analytics/track-interaction/';
+        const blob = new Blob([JSON.stringify(data)], {type: 'application/json'});
+
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon(url, blob);
+        } else {
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' },
+                keepalive: true
+            });
+        }
+    };
+
+    // --- 5. TRIGGER ON EXIT ---
+    // Send data when user hides tab, closes window, or clicks a link
+    window.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            sendAnalyticsData('EXIT');
+        }
+    });
+
+    // Mobile Safari/iOS compatibility
+    window.addEventListener('pagehide', () => {
+        sendAnalyticsData('EXIT');
+    });
+});

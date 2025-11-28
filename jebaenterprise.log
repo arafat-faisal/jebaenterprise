@@ -6052,3 +6052,521 @@ INFO 2025-11-28 23:20:26,566 basehttp "GET /cart/ HTTP/1.1" 200 45508
 INFO 2025-11-28 23:20:27,004 basehttp "GET /update-cart/1633/decrease/ HTTP/1.1" 302 0
 INFO 2025-11-28 23:20:27,143 basehttp "GET /cart/ HTTP/1.1" 200 42461
 INFO 2025-11-28 23:20:28,544 basehttp "GET / HTTP/1.1" 200 100200
+INFO 2025-11-28 23:33:40,510 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 23:33:44,773 basehttp "GET / HTTP/1.1" 200 100886
+INFO 2025-11-28 23:33:44,928 basehttp "GET /media/products/gallery/prod_1347_0.jpg HTTP/1.1" 200 60892
+ERROR 2025-11-28 23:33:45,556 log Internal Server Error: /product/1436/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column "stock_status_at_view" of relation "products_productevent" does not exist
+LINE 1: ...d", "session_id", "event_type", "value_at_event", "stock_sta...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 163, in product_detail
+    AnalyticsService.track_product_interaction(request, product, 'VIEW')
+  File "E:\WebProjects\jebaenterprise\jeba_analytics\analytics_service.py", line 90, in track_product_interaction
+    ProductEvent.objects.create(
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\WebProjects\jebaenterprise\jeba_analytics\models.py", line 103, in save
+    super().save(*args, **kwargs)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column "stock_status_at_view" of relation "products_productevent" does not exist
+LINE 1: ...d", "session_id", "event_type", "value_at_event", "stock_sta...
+                                                             ^
+
+ERROR 2025-11-28 23:33:45,559 basehttp "GET /product/1436/ HTTP/1.1" 500 180890
+INFO 2025-11-28 23:40:08,869 autoreload E:\WebProjects\jebaenterprise\config\urls.py changed, reloading.
+INFO 2025-11-28 23:40:09,212 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 23:40:35,658 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 23:40:54,554 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 23:41:03,538 basehttp "GET / HTTP/1.1" 200 100051
+WARNING 2025-11-28 23:41:03,564 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-11-28 23:41:03,667 basehttp "GET /media/products/gallery/prod_1380_0.jpg HTTP/1.1" 200 39871
+WARNING 2025-11-28 23:41:08,873 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:08,874 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:41:16,592 basehttp "GET / HTTP/1.1" 200 96184
+WARNING 2025-11-28 23:41:16,629 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:41:16,639 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:16,639 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:41:16,684 basehttp "GET /media/products/gallery/prod_1344_0.jpg HTTP/1.1" 200 517783
+INFO 2025-11-28 23:41:16,699 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 200 56424
+INFO 2025-11-28 23:41:16,699 basehttp "GET /media/products/gallery/prod_1422_0.jpg HTTP/1.1" 200 48828
+INFO 2025-11-28 23:41:17,898 basehttp "GET /catalog/ HTTP/1.1" 200 415047
+WARNING 2025-11-28 23:41:17,961 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:17,962 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+WARNING 2025-11-28 23:41:17,986 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-11-28 23:41:18,149 basehttp "GET /media/products/gallery/prod_1453_0.jpg HTTP/1.1" 200 57952
+INFO 2025-11-28 23:41:18,153 basehttp "GET /media/products/gallery/prod_1431_0.jpg HTTP/1.1" 200 28368
+INFO 2025-11-28 23:41:18,156 basehttp "GET /media/products/gallery/prod_1399_0.jpg HTTP/1.1" 200 52532
+INFO 2025-11-28 23:41:18,206 basehttp "GET /media/products/gallery/prod_1377_0.jpg HTTP/1.1" 200 33451
+INFO 2025-11-28 23:41:18,206 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+INFO 2025-11-28 23:41:18,209 basehttp "GET /media/products/gallery/prod_1366_0.jpg HTTP/1.1" 200 57129
+INFO 2025-11-28 23:41:18,242 basehttp "GET /media/products/gallery/prod_1363_0.webp HTTP/1.1" 200 9892
+INFO 2025-11-28 23:41:18,245 basehttp "GET /media/products/gallery/prod_1418_0.jpg HTTP/1.1" 200 43714
+INFO 2025-11-28 23:41:18,245 basehttp "GET /media/products/gallery/prod_1434_0.jpg HTTP/1.1" 200 54819
+INFO 2025-11-28 23:41:18,249 basehttp "GET /media/products/gallery/prod_1349_0.jpg HTTP/1.1" 200 53388
+INFO 2025-11-28 23:41:18,251 basehttp "GET /media/products/gallery/prod_1345_0.jpg HTTP/1.1" 200 32465
+INFO 2025-11-28 23:41:18,255 basehttp "GET /media/products/gallery/prod_1413_0.webp HTTP/1.1" 200 9892
+INFO 2025-11-28 23:41:20,879 basehttp "GET /product/1630/ HTTP/1.1" 200 79061
+WARNING 2025-11-28 23:41:20,914 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:41:20,955 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:20,957 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:41:20,959 basehttp "GET /media/products/gallery/prod_1630_1.jpg HTTP/1.1" 200 47743
+INFO 2025-11-28 23:41:20,959 basehttp "GET /media/products/gallery/prod_1630_2.jpg HTTP/1.1" 200 35293
+INFO 2025-11-28 23:41:20,960 basehttp "GET /media/products/gallery/prod_1630_3.jpg HTTP/1.1" 200 60632
+INFO 2025-11-28 23:41:20,963 basehttp "GET /media/products/gallery/prod_1630_4.jpg HTTP/1.1" 200 26007
+INFO 2025-11-28 23:41:20,964 basehttp "GET /media/products/gallery/prod_1630_5.jpg HTTP/1.1" 200 73788
+INFO 2025-11-28 23:41:32,027 basehttp "GET /product/1536/ HTTP/1.1" 200 78103
+WARNING 2025-11-28 23:41:32,059 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-11-28 23:41:32,090 basehttp "GET /media/products/gallery/prod_1536_2.jpg HTTP/1.1" 200 47945
+INFO 2025-11-28 23:41:32,091 basehttp "GET /media/products/gallery/prod_1536_1.jpg HTTP/1.1" 200 87196
+INFO 2025-11-28 23:41:32,102 basehttp "GET /media/products/gallery/prod_1536_4.jpg HTTP/1.1" 200 36890
+INFO 2025-11-28 23:41:32,102 basehttp "GET /media/products/gallery/prod_1536_3.jpg HTTP/1.1" 200 75612
+WARNING 2025-11-28 23:41:32,174 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:32,175 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:41:37,491 basehttp "GET /product/1534/ HTTP/1.1" 200 73193
+WARNING 2025-11-28 23:41:37,514 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:41:37,545 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:37,546 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:41:41,383 basehttp "GET / HTTP/1.1" 200 96868
+WARNING 2025-11-28 23:41:41,411 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:41:41,432 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:41,432 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:41:48,158 basehttp "GET /cart/ HTTP/1.1" 200 42625
+WARNING 2025-11-28 23:41:48,183 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:41:48,218 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:48,218 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:41:50,565 basehttp "GET / HTTP/1.1" 200 96137
+WARNING 2025-11-28 23:41:50,603 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:41:50,639 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:50,639 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:41:51,947 basehttp "GET /dashboard/ HTTP/1.1" 200 46859
+WARNING 2025-11-28 23:41:51,975 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:41:52,012 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:52,012 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:41:59,359 basehttp "GET /order/20/ HTTP/1.1" 200 42066
+WARNING 2025-11-28 23:41:59,390 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:41:59,414 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:41:59,415 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:42:03,274 basehttp "GET /catalog/ HTTP/1.1" 200 415047
+WARNING 2025-11-28 23:42:03,324 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:42:03,332 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:42:03,333 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:42:03,502 basehttp "GET /media/products/gallery/prod_1432_0.jpg HTTP/1.1" 200 851135
+INFO 2025-11-28 23:42:05,366 basehttp "GET / HTTP/1.1" 200 99740
+WARNING 2025-11-28 23:42:05,399 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:42:05,423 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:42:05,424 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:43:37,761 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\admin.py changed, reloading.
+INFO 2025-11-28 23:43:38,117 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 23:44:22,843 basehttp "GET /product/1412/ HTTP/1.1" 200 75788
+WARNING 2025-11-28 23:44:22,882 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:22,894 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:22,895 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:33,101 basehttp "POST /add-to-cart/1412/ HTTP/1.1" 302 0
+INFO 2025-11-28 23:44:33,288 basehttp "GET /product/1412/ HTTP/1.1" 200 76063
+WARNING 2025-11-28 23:44:33,316 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:33,339 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:33,339 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:34,629 basehttp "GET /cart/ HTTP/1.1" 200 45636
+WARNING 2025-11-28 23:44:34,649 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:34,678 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:34,678 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:37,694 basehttp "GET /update-cart/1412/increase/ HTTP/1.1" 302 0
+INFO 2025-11-28 23:44:37,727 basehttp "GET /cart/ HTTP/1.1" 200 45636
+WARNING 2025-11-28 23:44:37,753 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:37,876 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:37,876 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:38,220 basehttp "GET /update-cart/1412/increase/ HTTP/1.1" 302 0
+INFO 2025-11-28 23:44:38,255 basehttp "GET /cart/ HTTP/1.1" 200 45636
+WARNING 2025-11-28 23:44:38,279 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:38,303 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:38,304 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:38,597 basehttp "GET /update-cart/1412/increase/ HTTP/1.1" 302 0
+INFO 2025-11-28 23:44:38,633 basehttp "GET /cart/ HTTP/1.1" 200 45639
+WARNING 2025-11-28 23:44:38,661 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:38,691 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:38,691 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:39,254 basehttp "GET /update-cart/1412/decrease/ HTTP/1.1" 302 0
+INFO 2025-11-28 23:44:39,287 basehttp "GET /cart/ HTTP/1.1" 200 45636
+WARNING 2025-11-28 23:44:39,314 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:39,436 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:39,436 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:39,551 basehttp "GET /update-cart/1412/decrease/ HTTP/1.1" 302 0
+INFO 2025-11-28 23:44:39,584 basehttp "GET /cart/ HTTP/1.1" 200 45636
+WARNING 2025-11-28 23:44:39,612 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:39,733 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:39,733 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:39,951 basehttp "GET /update-cart/1412/decrease/ HTTP/1.1" 302 0
+INFO 2025-11-28 23:44:39,982 basehttp "GET /cart/ HTTP/1.1" 200 45636
+WARNING 2025-11-28 23:44:40,012 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:40,131 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:40,132 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:40,396 basehttp "GET /update-cart/1412/decrease/ HTTP/1.1" 302 0
+INFO 2025-11-28 23:44:40,431 basehttp "GET /cart/ HTTP/1.1" 200 42625
+WARNING 2025-11-28 23:44:40,463 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:40,487 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:40,487 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:41,560 basehttp "GET / HTTP/1.1" 200 99837
+WARNING 2025-11-28 23:44:41,604 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:41,626 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:41,627 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:41,821 basehttp "GET /media/products/gallery/prod_1566_0.jpg HTTP/1.1" 200 1452752
+INFO 2025-11-28 23:44:42,494 basehttp "GET /dashboard/ HTTP/1.1" 200 46859
+WARNING 2025-11-28 23:44:42,526 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:42,554 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:42,555 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:44,724 basehttp "GET /cart/ HTTP/1.1" 200 42625
+WARNING 2025-11-28 23:44:44,753 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-11-28 23:44:44,778 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 23:44:44,779 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12716
+INFO 2025-11-28 23:44:49,001 basehttp "GET /admin/ HTTP/1.1" 200 57363
+WARNING 2025-11-28 23:44:49,025 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:44:55,759 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 26355
+WARNING 2025-11-28 23:44:55,786 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:44:55,914 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:44:58,642 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 94375
+WARNING 2025-11-28 23:44:58,661 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:02,462 basehttp "GET /admin/jeba_analytics/productevent/ HTTP/1.1" 200 105147
+WARNING 2025-11-28 23:45:02,481 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:02,613 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:45:05,864 basehttp "GET /admin/jeba_analytics/productevent/888/change/ HTTP/1.1" 200 60800
+WARNING 2025-11-28 23:45:05,886 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:05,904 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:45:25,038 basehttp "GET /admin/jeba_analytics/searchevent/ HTTP/1.1" 200 54145
+WARNING 2025-11-28 23:45:25,058 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:25,077 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:45:27,259 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 94375
+WARNING 2025-11-28 23:45:27,279 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:28,501 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 26355
+WARNING 2025-11-28 23:45:28,521 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:28,545 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:45:34,417 basehttp "GET /admin/jeba_sales/sale/ HTTP/1.1" 200 52283
+WARNING 2025-11-28 23:45:34,439 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:34,459 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:45:37,572 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 26355
+WARNING 2025-11-28 23:45:37,592 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:37,717 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:45:39,285 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 94375
+WARNING 2025-11-28 23:45:39,304 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:46,885 basehttp "GET /admin/jeba_analytics/productanalytics/1630/change/ HTTP/1.1" 200 43167
+WARNING 2025-11-28 23:45:46,906 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:45:46,911 basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-11-28 23:45:46,928 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:45:56,353 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 94375
+WARNING 2025-11-28 23:45:56,372 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:49:16,069 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\admin.py changed, reloading.
+INFO 2025-11-28 23:49:16,442 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 23:51:51,684 autoreload Watching for file changes with StatReloader
+INFO 2025-11-28 23:51:56,926 basehttp "GET /admin/ HTTP/1.1" 200 57343
+WARNING 2025-11-28 23:51:56,947 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+ERROR 2025-11-28 23:52:01,666 log Internal Server Error: /admin/jeba_analytics/productanalytics/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 1035, in find_library
+    return parser.libraries[name]
+           ~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'humanize'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 74, in resolve_template
+    return get_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 1097, in load
+    lib = find_library(parser, name)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 1037, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'humanize' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+i18n
+import_export_tags
+jazzmin
+l10n
+log
+static
+tz
+ERROR 2025-11-28 23:52:01,672 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 500 194593
+INFO 2025-11-28 23:53:27,596 autoreload E:\WebProjects\jebaenterprise\config\settings.py changed, reloading.
+INFO 2025-11-28 23:53:27,945 autoreload Watching for file changes with StatReloader
+ERROR 2025-11-28 23:53:31,458 log Internal Server Error: /admin/jeba_analytics/productanalytics/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 74, in resolve_template
+    return get_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 228, in do_block
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'content' appears more than once
+ERROR 2025-11-28 23:53:31,462 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 500 183923
+INFO 2025-11-28 23:54:19,913 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 157666
+WARNING 2025-11-28 23:54:19,939 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:54:22,771 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 157666
+WARNING 2025-11-28 23:54:22,790 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:55:23,785 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 157663
+WARNING 2025-11-28 23:55:23,808 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:55:56,417 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 26355
+WARNING 2025-11-28 23:55:56,438 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:55:56,566 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:55:58,671 basehttp "GET /admin/jeba_analytics/searchevent/ HTTP/1.1" 200 54145
+WARNING 2025-11-28 23:55:58,696 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:55:58,713 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:56:02,223 basehttp "GET /admin/jeba_analytics/productevent/ HTTP/1.1" 200 105147
+WARNING 2025-11-28 23:56:02,244 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:56:02,269 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:56:32,018 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 157663
+WARNING 2025-11-28 23:56:32,036 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:56:49,027 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 26355
+WARNING 2025-11-28 23:56:49,046 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:56:49,069 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:57:16,284 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 26355
+WARNING 2025-11-28 23:57:16,304 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:57:16,326 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:57:25,502 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 157663
+WARNING 2025-11-28 23:57:25,520 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:57:39,913 basehttp "GET /admin/jeba_analytics/productevent/ HTTP/1.1" 200 105147
+WARNING 2025-11-28 23:57:39,934 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-28 23:57:39,959 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-28 23:57:45,727 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 157663
+WARNING 2025-11-28 23:57:45,745 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-29 00:00:24,522 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 26355
+WARNING 2025-11-29 00:00:24,552 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-29 00:00:24,574 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-11-29 00:00:25,860 log Internal Server Error: /admin/jeba_analytics/dailyadspend/add/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 312, in __new__
+    fields = fields_for_model(
+             ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 207, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'total_revenue' cannot be specified for DailyAdSpend model form as it is a non-editable field
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+                ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 842, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: 'total_revenue' cannot be specified for DailyAdSpend model form as it is a non-editable field. Check fields/fieldsets/exclude attributes of class DailyAdSpendAdmin.
+ERROR 2025-11-29 00:00:25,864 basehttp "GET /admin/jeba_analytics/dailyadspend/add/ HTTP/1.1" 500 165254
+INFO 2025-11-29 00:02:09,440 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\admin.py changed, reloading.
+INFO 2025-11-29 00:02:09,790 autoreload Watching for file changes with StatReloader
+INFO 2025-11-29 00:02:17,117 autoreload Watching for file changes with StatReloader
+INFO 2025-11-29 00:02:27,533 basehttp "GET /admin/jeba_analytics/dailyadspend/add/ HTTP/1.1" 200 33804
+WARNING 2025-11-29 00:02:27,562 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-29 00:02:27,590 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-29 00:02:27,676 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-11-29 00:02:27,677 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-11-29 00:02:54,817 basehttp "POST /admin/jeba_analytics/dailyadspend/add/ HTTP/1.1" 302 0
+INFO 2025-11-29 00:02:54,866 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 33410
+WARNING 2025-11-29 00:02:54,888 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-29 00:02:54,908 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-29 00:03:19,419 basehttp "POST /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 302 0
+INFO 2025-11-29 00:03:19,458 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 33327
+WARNING 2025-11-29 00:03:19,479 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-29 00:03:19,608 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-29 00:03:32,198 basehttp "GET /admin/jeba_analytics/productanalytics/ HTTP/1.1" 200 157663
+WARNING 2025-11-29 00:03:32,216 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-29 00:03:37,066 basehttp "GET /admin/jeba_analytics/productevent/ HTTP/1.1" 200 105147
+WARNING 2025-11-29 00:03:37,085 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-29 00:03:37,106 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-29 00:03:41,349 basehttp "GET /admin/jeba_analytics/dailyadspend/ HTTP/1.1" 200 32806
+WARNING 2025-11-29 00:03:41,370 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-11-29 00:03:41,394 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-29 00:03:48,682 basehttp "GET /admin/ HTTP/1.1" 200 57034
+WARNING 2025-11-29 00:03:48,700 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838

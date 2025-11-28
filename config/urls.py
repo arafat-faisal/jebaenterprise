@@ -22,6 +22,7 @@ urlpatterns = [
     path('blog/', include('jeba_blog.urls')),
     path('sales/', include('jeba_sales.urls')),
     path("", include("jeba_landing.urls")),
+    path('analytics/', include('jeba_analytics.urls')), # <--- ADD THIS
 ]
 
 # Serve media files in development
