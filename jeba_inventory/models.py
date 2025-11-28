@@ -75,7 +75,15 @@ class Product(models.Model):
     )
 
     buying_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, verbose_name=_("Buying Cost"))
+    # --- PRICING & DISCOUNTS ---
     selling_price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, verbose_name=_("Selling Price"))
+    original_price = models.DecimalField(
+        max_digits=10, decimal_places=2, 
+        null=True, blank=True, 
+        verbose_name=_("Original / Market Price"),
+        help_text=_("Set this HIGHER than Selling Price to show a discount (e.g. ~~1200~~ 1000).")
+    )
+    # ---------------------------
     stock_quantity = models.PositiveIntegerField(default=0, verbose_name=_("Stock Quantity"))
     box_quantity = models.PositiveIntegerField(
         default=1, 
@@ -107,7 +115,17 @@ class Product(models.Model):
     def thumbnail(self):
         img_obj = self.main_image_obj
         return img_obj.image if img_obj else None
+    # --- NEW: Discount Logic ---
+    @property
+    def has_discount(self):
+        return self.original_price and self.original_price > self.selling_price
 
+    @property
+    def discount_amount(self):
+        if self.has_discount:
+            return int(self.original_price - self.selling_price)
+        return 0
+    # ---------------------------
     def auto_assign_category(self):
         CATEGORY_KEYWORDS = {
             'Electronics': ['phone', 'mobile', 'laptop', 'camera', 'earphone', 'headphone', 'charger', 'cable', 'usb', 'speaker', 'watch', 'smart', 'tv', 'gadget', 'wireless', 'bluetooth'],

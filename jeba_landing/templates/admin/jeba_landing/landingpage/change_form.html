@@ -1,0 +1,199 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        /* --- SPLIT SCREEN LAYOUT --- */
+        @media (min-width: 1100px) { /* Active on most laptops & desktops */
+            #content-main {
+                display: grid !important;
+                grid-template-columns: 1fr 450px; /* Form takes space | Preview is fixed 450px or % */
+                gap: 25px;
+                align-items: start;
+                position: relative;
+            }
+            
+            /* 1. The Editor (Left) */
+            #content-main > form {
+                grid-column: 1;
+                min-width: 0;
+            }
+
+            /* 2. The Preview (Right) */
+            .preview-pane {
+                grid-column: 2;
+                position: sticky;
+                top: 20px; 
+                height: calc(100vh - 40px);
+                margin-top: 0 !important;
+                display: flex !important;
+            }
+        }
+
+        /* --- PREVIEW PANE STYLING --- */
+        .preview-pane {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: -5px 5px 20px rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .preview-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 5px;
+            background: #222;
+            border-radius: 8px;
+        }
+
+        .preview-btn {
+            background: #333;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .preview-btn:hover { background: #444; }
+        .preview-btn.active {
+            background: #007bff;
+            border-color: #007bff;
+        }
+
+        .preview-frame-wrapper {
+            flex-grow: 1;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #333;
+        }
+
+        #live-preview-frame {
+            background: #fff;
+            border: none;
+            transition: width 0.3s ease, height 0.3s ease;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Device Sizes */
+        .mode-desktop #live-preview-frame { width: 100%; height: 100%; }
+        .mode-mobile #live-preview-frame { width: 375px; height: 667px; border: 5px solid #333; border-radius: 20px; }
+    </style>
+{% endblock %}
+
+{% block after_related_objects %}
+    <div id="preview-mover-target" style="display:none;">
+        <div class="preview-pane">
+            <div class="preview-controls">
+                <button type="button" class="preview-btn active" onclick="setMode('desktop')">
+                    <i class="fas fa-desktop"></i> Desktop
+                </button>
+                <button type="button" class="preview-btn" onclick="setMode('mobile')">
+                    <i class="fas fa-mobile-alt"></i> Mobile
+                </button>
+                <button type="button" class="preview-btn" id="refresh-btn">
+                    <i class="fas fa-sync"></i> Refresh
+                </button>
+            </div>
+            <div class="preview-frame-wrapper mode-desktop" id="frame-wrapper">
+                <iframe id="live-preview-frame" src="about:blank"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. LAYOUT FIXER (Moves Preview to Right Side) ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const contentMain = document.getElementById("content-main");
+            const moverTarget = document.getElementById("preview-mover-target");
+            
+            // Move the pane OUT of the form so it becomes a sidebar
+            if (contentMain && moverTarget) {
+                const pane = moverTarget.firstElementChild; 
+                if(pane) {
+                    contentMain.appendChild(pane); 
+                }
+                moverTarget.remove(); 
+            }
+        });
+
+        // --- 2. PREVIEW LOGIC ---
+        (function($) {
+            const frame = document.getElementById('live-preview-frame');
+            const refreshBtn = document.getElementById('refresh-btn');
+            
+            function debounce(func, wait) {
+                let timeout;
+                return function() {
+                    const context = this, args = arguments;
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(context, args), wait);
+                };
+            }
+
+            function updatePreview() {
+                // Find form dynamically since we moved the preview out
+                const form = document.querySelector('#content-main > form'); 
+                if (!form) return;
+
+                const formData = new FormData(form);
+                
+                fetch("{% url 'admin_preview_render' %}", {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'X-CSRFToken': formData.get('csrfmiddlewaretoken') }
+                })
+                .then(response => response.text())
+                .then(html => {
+                    if(frame.contentWindow) {
+                        const doc = frame.contentDocument || frame.contentWindow.document;
+                        doc.open();
+                        doc.write(html);
+                        doc.close();
+                    }
+                })
+                .catch(err => console.error("Preview Error:", err));
+            }
+
+            const debouncedUpdate = debounce(updatePreview, 1000);
+            
+            // Attach listeners
+            setTimeout(() => {
+                const form = document.querySelector('#content-main > form');
+                if (form) {
+                    form.addEventListener('input', debouncedUpdate);
+                    form.addEventListener('change', debouncedUpdate);
+                    updatePreview(); // Initial Load
+                }
+            }, 500);
+            
+            if(refreshBtn) refreshBtn.addEventListener('click', updatePreview);
+
+        })(django.jQuery);
+
+        // --- 3. DEVICE TOGGLE ---
+        function setMode(mode) {
+            const wrapper = document.getElementById('frame-wrapper');
+            const buttons = document.querySelectorAll('.preview-btn');
+            wrapper.classList.remove('mode-desktop', 'mode-mobile');
+            wrapper.classList.add('mode-' + mode);
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+{% endblock %}

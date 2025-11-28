@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'jeba_intelligence',
     'jeba_analytics',
     'jeba_blog',
-    
+    'jeba_landing',
     # --- EXISTING APP (Deprecated/Hidden) ---
     # 'products', 
     'import_export',    
@@ -237,6 +237,7 @@ JAZZMIN_SETTINGS = {
         "jeba_intelligence": "fas fa-brain",
         "jeba_analytics": "fas fa-chart-line",
         "jeba_blog": "fas fa-newspaper",
+        "jeba_landing.LandingPage": "fas fa-rocket",
     },
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",

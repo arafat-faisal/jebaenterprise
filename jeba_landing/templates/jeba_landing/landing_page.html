@@ -1,0 +1,640 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page.title }} | Jeba Enterprise{% endblock %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<style>
+    /* --- 1. FULL SCREEN & NAV FIXES --- */
+    body .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    body.immersive-mode .site-header {
+        transform: translateY(-150%) !important;
+        pointer-events: none;
+    }
+    body.immersive-mode .mobile-bottom-nav {
+        transform: translateY(200%) !important;
+        pointer-events: none;
+    }
+    .site-header, .mobile-bottom-nav {
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    /* --- 2. THEME ENGINE --- */
+    :root {
+        --app-bg: #000000;
+        --app-text: #f5f5f7;
+        --app-subtext: #86868b;
+        --app-card-bg: #1d1d1f;
+        --app-accent: #2997ff;
+        --app-radius: 28px;
+        --brand-lime: #D4F759;
+    }
+
+    .landing-wrapper {
+        background-color: var(--app-bg);
+        color: var(--app-text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        width: 100%;
+        overflow-x: hidden;
+        padding-bottom: 150px;
+        min-height: 100vh;
+    }
+
+    /* --- 3. ANIMATIONS & BUTTONS --- */
+    @keyframes shimmer-gold {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+    @keyframes gentle-pulse {
+        0% { box-shadow: 0 0 0 0 rgba(212, 247, 89, 0.6); }
+        70% { box-shadow: 0 0 0 10px rgba(212, 247, 89, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(212, 247, 89, 0); }
+    }
+
+    .btn-lucrative-style {
+        background: linear-gradient(110deg, var(--brand-lime) 0%, #f0ffc2 20%, var(--brand-lime) 40%);
+        background-size: 200% 100%;
+        color: #000 !important;
+        font-weight: 800;
+        border: none;
+        animation: shimmer-gold 3s infinite linear, gentle-pulse 2s infinite ease-out;
+        transition: transform 0.2s;
+    }
+    
+    .hero-btn-placeholder {
+        display: inline-block;
+        width: 180px; 
+        height: 54px; 
+        opacity: 0;   
+        pointer-events: none;
+    }
+
+    /* --- 4. VIDEO PLAYER UI --- */
+    .custom-video-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        width: 100%;
+        background: #000;
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+    .custom-video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .video-overlay {
+        position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+        background: rgba(0,0,0,0.3); transition: opacity 0.3s; z-index: 2;
+    }
+    .video-overlay.hidden { opacity: 0; pointer-events: none; }
+    
+    .play-icon-circle {
+        width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.4); transition: transform 0.2s;
+    }
+    .play-icon-circle i { font-size: 24px; color: #fff; margin-left: 4px; }
+
+    .video-controls-bar {
+        position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 20px 15px 20px;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        display: flex; align-items: center; gap: 15px; z-index: 3; opacity: 0; transition: opacity 0.3s;
+    }
+    .custom-video-wrapper:hover .video-controls-bar, .custom-video-wrapper.active .video-controls-bar { opacity: 1; }
+
+    .video-progress {
+        flex-grow: 1; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; position: relative;
+    }
+    .video-progress-fill {
+        height: 100%; background: var(--brand-lime); width: 0%; border-radius: 2px; position: relative;
+    }
+    .video-progress-fill::after {
+        content: ''; position: absolute; right: -6px; top: -4px; width: 12px; height: 12px; background: #fff; border-radius: 50%;
+        transform: scale(0); transition: transform 0.2s;
+    }
+    .video-controls-bar:hover .video-progress-fill::after { transform: scale(1); }
+    .video-mute-btn { background: none; border: none; color: #fff; width: 24px; cursor: pointer; }
+
+    .tap-zone { position: absolute; top: 0; bottom: 0; width: 30%; z-index: 5; display: flex; align-items: center; justify-content: center; }
+    .tap-zone-left { left: 0; }
+    .tap-zone-right { right: 0; }
+    .skip-indicator { background: rgba(0,0,0,0.6); color: #fff; padding: 10px 15px; border-radius: 20px; font-weight: bold; opacity: 0; transform: scale(0.5); transition: 0.2s; pointer-events: none; }
+    .skip-indicator.animate { opacity: 1; transform: scale(1); }
+
+    /* --- 5. TYPOGRAPHY & SECTIONS --- */
+    .headline-pro { font-size: 56px; line-height: 1.08; font-weight: 600; letter-spacing: -0.005em; margin-bottom: 0.2em; }
+    .subhead-pro { font-size: 28px; line-height: 1.15; font-weight: 400; color: var(--app-subtext); margin-bottom: 30px; }
+    .text-body-pro { font-size: 19px; line-height: 1.5; font-weight: 400; color: #cecece; }
+    
+    /* NEW: Custom Curved Red Strikethrough */
+    .price-strike { 
+        position: relative;
+        display: inline-block;
+        color: #999; 
+        font-size: 0.9em; 
+        margin-right: 8px; 
+        font-weight: 500;
+        text-decoration: none; /* Remove default line */
+    }
+    .price-strike::after {
+        content: '';
+        position:absolute;
+        left: -5%;
+        top: 50%;
+        width: 110%;
+        height: 5px; /* Height for the arc calculation */
+        border-top: 2px solid #ff3b30; /* Apple Red */
+        border-radius: 50%; /* Creates the curve */
+        transform: translateY(-50%) rotate(-12deg); /* Diagonal Tilt */
+        pointer-events: none;
+    }
+
+    .price-highlight { color: var(--brand-lime); font-weight: 700; font-size: larger;}
+
+    @media (max-width: 768px) {
+        .headline-pro { font-size: 40px; }
+        .subhead-pro { font-size: 21px; }
+        .text-body-pro { font-size: 17px; }
+    }
+
+    .hero-container { position: relative; height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 20px; overflow: hidden; }
+    .hero-bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 0; }
+    .hero-media { width: 100%; max-width: 1000px; height: auto; object-fit: contain; margin-top: 20px; opacity: 0; transform: translateY(30px); }
+    
+    .bento-section { padding: 100px 0; }
+    .bento-card { background-color: var(--app-card-bg); border-radius: var(--app-radius); padding: 50px; height: 100%; overflow: hidden; position: relative; transition: transform 0.5s ease; }
+    .bento-card:hover { transform: scale(1.02); }
+    .bento-img { width: 100%; height: auto; border-radius: 12px; margin-top: 20px; }
+
+    .split-section { padding: 80px 0; }
+    .split-media { border-radius: var(--app-radius); overflow: hidden; height: 100%; min-height: 400px; }
+    .split-media img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* --- 6. CAROUSEL PRO --- */
+    .carousel-pro { border-radius: var(--app-radius); overflow: hidden; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+    .carousel-item { height: 650px; background: #000; transition: transform 0.6s ease-in-out; }
+    .carousel-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+    .carousel-controls-pill {
+        position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+        background: rgba(20, 20, 20, 0.65); backdrop-filter: blur(15px);
+        padding: 8px 20px; border-radius: 100px; display: flex; align-items: center; gap: 15px;
+        border: 1px solid rgba(255,255,255,0.15); z-index: 20;
+    }
+    .carousel-play-btn { background: none; border: none; color: #fff; cursor: pointer; opacity: 0.8; }
+    .carousel-indicators-custom { display: flex; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .carousel-indicators-custom button { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; padding: 0; transition: all 0.3s; }
+    .carousel-indicators-custom button.active { background: #fff; transform: scale(1.2); }
+    .carousel-control-prev, .carousel-control-next { width: 8%; opacity: 0; transition: opacity 0.3s; }
+    .carousel-pro:hover .carousel-control-prev, .carousel-pro:hover .carousel-control-next { opacity: 0.8; }
+    @media (max-width: 768px) { .carousel-item { height: 450px; } }
+
+    /* --- 7. MORPHING BAR --- */
+    #island-bar {
+        position: fixed; 
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(212, 247, 89, 0.4);
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .island-content-full {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        opacity: 0;
+    }
+    
+    .island-content-hero {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        color: #000;
+        font-weight: 800;
+        font-size: 18px;
+        white-space: nowrap;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+    .island-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+    .island-thumb { width: 45px; height: 45px; border-radius: 10px; object-fit: cover; background: #fff; border: 1px solid rgba(255,255,255,0.1); }
+    .island-info { display: flex; flex-direction: column; line-height: 1.2; overflow: hidden; }
+    .island-name { font-size: 15px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    
+    .island-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-island-secondary { background: rgba(255,255,255,0.1); color: #fff; border: none; padding: 8px 16px; border-radius: 99px; font-size: 14px; font-weight: 600; text-decoration: none; }
+    
+    .btn-island-primary { 
+        background: var(--brand-lime); color: #000; font-weight: 700; border: none; padding: 10px 24px; border-radius: 99px; font-size: 14px; cursor: pointer;
+    }
+
+    .dynamic-section { background-color: var(--sec-bg, transparent); color: var(--sec-text, inherit); }
+    .dynamic-section .headline-pro, .dynamic-section .subhead-pro { color: var(--sec-text, inherit); }
+    .dynamic-bg-layer { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; background-image: var(--sec-bg-img, none); }
+</style>
+
+<div class="landing-wrapper">
+
+    {% for section in sections %}
+        {% with bg=section.background_color|default:'transparent' txt=section.text_color|default:'inherit' %}
+        
+        {% if section.section_type == 'HERO' %}
+        <section class="hero-container dynamic-section" id="hero-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
+            {% if section.image and not section.video_file %}
+            <div class="dynamic-bg-layer" style="--sec-bg-img: url('{{ section.image.url }}');"></div>
+            {% endif %}
+            {% if section.video_file %}
+            <div class="dynamic-bg-layer">
+                <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+                    <source src="{{ section.video_file.url }}" type="video/mp4">
+                </video>
+                <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), #000);"></div>
+            </div>
+            {% endif %}
+            <div class="container" style="position: relative; z-index: 2;">
+                <h1 class="headline-pro gs-fade-up">{{ section.heading }}</h1>
+                <p class="subhead-pro gs-fade-up">{{ section.subheading }}</p>
+                
+                <div id="hero-btn-placeholder" class="hero-btn-placeholder" style="margin-top: 25px;"></div>
+
+                {% if section.image and section.video_file == None %}
+                    <img src="{{ section.image.url }}" class="hero-media gs-scale-up" alt="Hero Image">
+                {% endif %}
+            </div>
+        </section>
+
+        {% elif section.section_type == 'TEXT_IMAGE_SPLIT' %}
+        <section class="split-section dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
+            <div class="container" style="padding: 0 20px !important;">
+                <div class="row align-items-center g-5">
+                    <div class="col-md-6 order-2 order-md-1">
+                        <div class="split-text gs-fade-right">
+                            <h2 class="headline-pro" style="font-size: 48px;">{{ section.heading }}</h2>
+                            <div class="text-body-pro mt-4">{{ section.description|linebreaks }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-1 order-md-2">
+                        <div class="split-media gs-fade-left">
+                            {% if section.image %}
+                                <img src="{{ section.image.url }}" alt="{{ section.heading }}">
+                            {% elif section.video_file %}
+                                <div class="custom-video-wrapper" onclick="togglePlay('video-split-{{ section.id }}', this)">
+                                    <video loop playsinline id="video-split-{{ section.id }}"><source src="{{ section.video_file.url }}" type="video/mp4"></video>
+                                    <div class="tap-zone tap-zone-left" ondblclick="skipVideo('video-split-{{ section.id }}', -10, this)"><div class="skip-indicator">-10s</div></div>
+                                    <div class="tap-zone tap-zone-right" ondblclick="skipVideo('video-split-{{ section.id }}', 10, this)"><div class="skip-indicator">+10s</div></div>
+                                    <div class="video-overlay"><div class="play-icon-circle"><i class="fas fa-play"></i></div></div>
+                                    <div class="video-controls-bar" onclick="event.stopPropagation()">
+                                        <button class="video-control-btn" onclick="togglePlay('video-split-{{ section.id }}', this.closest('.custom-video-wrapper'))"><i class="fas fa-play"></i></button>
+                                        <div class="video-progress" onclick="seekVideo(event, 'video-split-{{ section.id }}')"><div class="video-progress-fill"></div></div>
+                                        <button class="video-control-btn" onclick="toggleMute('video-split-{{ section.id }}', this)"><i class="fas fa-volume-mute"></i></button>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% elif section.section_type == 'FEATURES_GRID' %}
+        <section class="bento-section dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
+            <div class="container" style="padding: 0 20px !important;">
+                <div class="text-center mb-5 gs-fade-up">
+                    <h2 class="headline-pro">{{ section.heading }}</h2>
+                    <p class="subhead-pro">{{ section.subheading }}</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8">
+                        <div class="bento-card gs-fade-up">
+                            <div class="text-center">
+                                <i class="fas fa-star fa-2x mb-4" style="color: var(--app-accent);"></i>
+                                <div class="text-body-pro">{{ section.description|linebreaks }}</div>
+                            </div>
+                            {% if section.image %}<img src="{{ section.image.url }}" class="bento-img mt-5" alt="Feature">{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% elif section.section_type == 'VIDEO' %}
+        <section class="py-5 dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
+            <div class="container" style="padding: 0 20px !important;">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center mb-4 gs-fade-up">
+                         <h2 class="headline-pro" style="font-size: 40px;">{{ section.heading }}</h2>
+                    </div>
+                    <div class="col-12 col-lg-10">
+                        <div class="split-media shadow-lg gs-scale-up" style="border-radius: 20px;">
+                             {% if section.video_file %}
+                                <div class="custom-video-wrapper" onclick="togglePlay('video-{{ section.id }}', this)">
+                                    <video loop playsinline id="video-{{ section.id }}"><source src="{{ section.video_file.url }}" type="video/mp4"></video>
+                                    <div class="tap-zone tap-zone-left" ondblclick="skipVideo('video-{{ section.id }}', -10, this)"><div class="skip-indicator">-10s</div></div>
+                                    <div class="tap-zone tap-zone-right" ondblclick="skipVideo('video-{{ section.id }}', 10, this)"><div class="skip-indicator">+10s</div></div>
+                                    <div class="video-overlay"><div class="play-icon-circle"><i class="fas fa-play"></i></div></div>
+                                    <div class="video-controls-bar" onclick="event.stopPropagation()">
+                                        <button class="video-control-btn" onclick="togglePlay('video-{{ section.id }}', this.closest('.custom-video-wrapper'))"><i class="fas fa-play"></i></button>
+                                        <div class="video-progress" onclick="seekVideo(event, 'video-{{ section.id }}')">
+                                            <div class="video-progress-fill" id="progress-{{ section.id }}"></div>
+                                        </div>
+                                        <button class="video-control-btn" onclick="toggleMute('video-{{ section.id }}', this)"><i class="fas fa-volume-mute"></i></button>
+                                    </div>
+                                </div>
+                             {% elif section.video_url %}
+                                <div class="ratio ratio-16x9"><iframe src="{{ section.video_url }}" allowfullscreen></iframe></div>
+                             {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% elif section.section_type == 'CAROUSEL' %}
+        <section class="py-5 dynamic-section" style="--sec-bg: {{ bg }}; --sec-text: {{ txt }};">
+            <div class="container" style="padding: 0 20px !important;">
+                {% if section.heading %}
+                <div class="text-center mb-5 gs-fade-up">
+                    <h2 class="headline-pro">{{ section.heading }}</h2>
+                    <p class="subhead-pro">{{ section.subheading }}</p>
+                </div>
+                {% endif %}
+
+                <div id="carousel-{{ section.id }}" class="carousel slide carousel-fade carousel-pro gs-scale-up" 
+                     data-bs-ride="carousel" data-bs-interval="3000" data-bs-touch="true">
+                    
+                    <div class="carousel-inner">
+                        {% if section.image %}<div class="carousel-item active"><img src="{{ section.image.url }}" class="d-block w-100" alt="1"></div>{% endif %}
+                        {% if section.image_2 %}<div class="carousel-item {% if not section.image %}active{% endif %}"><img src="{{ section.image_2.url }}" class="d-block w-100" alt="2"></div>{% endif %}
+                        {% if section.image_3 %}<div class="carousel-item"><img src="{{ section.image_3.url }}" class="d-block w-100" alt="3"></div>{% endif %}
+                        {% if section.image_4 %}<div class="carousel-item"><img src="{{ section.image_4.url }}" class="d-block w-100" alt="4"></div>{% endif %}
+                        {% if section.image_5 %}<div class="carousel-item"><img src="{{ section.image_5.url }}" class="d-block w-100" alt="5"></div>{% endif %}
+                    </div>
+
+                    <div class="carousel-controls-pill">
+                        <button class="carousel-play-btn" onclick="toggleCarousel('carousel-{{ section.id }}', this)" title="Pause">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <div style="width:1px; height:12px; background:rgba(255,255,255,0.2);"></div>
+                        <div class="carousel-indicators-custom" id="indicators-{{ section.id }}">
+                            {% if section.image %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="0" class="active"></button>{% endif %}
+                            {% if section.image_2 %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="1"></button>{% endif %}
+                            {% if section.image_3 %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="2"></button>{% endif %}
+                            {% if section.image_4 %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="3"></button>{% endif %}
+                            {% if section.image_5 %}<button type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide-to="4"></button>{% endif %}
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </section>
+
+        {% endif %}
+        {% endwith %}
+    {% endfor %}
+
+</div>
+
+<div id="island-bar" class="btn-lucrative-style">
+    
+    <a href="{% if product.id %}{% url 'add_to_cart' product.id %}?action=buy_now{% else %}#{% endif %}" class="island-content-hero">
+        Buy Now
+        <!-- {% if product.has_discount %}<span style="font-weight:400; font-size:0.8em; margin-left:5px;">(Save ৳{{ product.discount_amount }})</span>{% endif %} -->
+    </a>
+
+    <div class="island-content-full">
+        <div class="island-left">
+            {% if product.main_image_obj %}
+                <img src="{{ product.main_image_obj.image.url }}" alt="{{ product.name }}" class="island-thumb">
+            {% else %}
+                <div class="island-thumb" style="background: #333; display:flex; align-items:center; justify-content:center;"><i class="fas fa-box" style="color:#fff;"></i></div>
+            {% endif %}
+            <div class="island-info">
+                <span class="island-name">{{ product.name }}</span>
+                <div style="font-size: 13px; line-height: 1.1;">
+                    {% if product.has_discount %}
+                        <span class="price-strike">৳{{ product.original_price|floatformat:0 }}</span>
+                        <span class="price-highlight">৳{{ product.selling_price|floatformat:0 }}</span>
+                    {% else %}
+                        <span style="color:#cecece">৳{{ product.selling_price|default:0|floatformat:0 }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="island-actions">
+            <a href="{% if product.id %}{% url 'product_detail' product.id %}{% else %}#{% endif %}" class="btn-island-secondary" style="text-decoration: none; color: #fff;">View</a>
+            <form action="{% if product.id %}{% url 'add_to_cart' product.id %}{% else %}#{% endif %}" method="POST" style="margin:0;">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="buy_now">
+                <button type="submit" class="btn-island-primary btn-action-trigger">Buy Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- VIDEO LOGIC ---
+    function togglePlay(vidId, wrapper) {
+        const vid = document.getElementById(vidId);
+        const overlay = wrapper.querySelector('.video-overlay');
+        const playBtn = wrapper.querySelector('.video-control-btn i');
+        if(vid.paused) {
+            vid.play();
+            overlay.classList.add('hidden');
+            if(playBtn) playBtn.className = 'fas fa-pause';
+            vid.addEventListener('timeupdate', () => updateProgress(vidId, wrapper));
+        } else {
+            vid.pause();
+            overlay.classList.remove('hidden');
+            if(playBtn) playBtn.className = 'fas fa-play';
+        }
+    }
+
+    function toggleMute(vidId, btn) {
+        const vid = document.getElementById(vidId);
+        const icon = btn.querySelector('i');
+        vid.muted = !vid.muted;
+        icon.className = vid.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+    }
+
+    function updateProgress(vidId, wrapper) {
+        const vid = document.getElementById(vidId);
+        const bar = wrapper.querySelector('.video-progress-fill');
+        if(vid.duration && bar) {
+            const pct = (vid.currentTime / vid.duration) * 100;
+            bar.style.width = pct + '%';
+        }
+    }
+
+    function seekVideo(e, vidId) {
+        const vid = document.getElementById(vidId);
+        const rect = e.currentTarget.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const width = rect.width;
+        if(vid.duration) vid.currentTime = (clickX / width) * vid.duration;
+        e.stopPropagation();
+    }
+
+    function skipVideo(vidId, amount, zone) {
+        const vid = document.getElementById(vidId);
+        vid.currentTime += amount;
+        const indicator = zone.querySelector('.skip-indicator');
+        indicator.classList.add('animate');
+        setTimeout(() => indicator.classList.remove('animate'), 500);
+    }
+
+    // --- CAROUSEL LOGIC ---
+    document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            const id = carousel.id.split('-')[1];
+            const indicators = document.getElementById(`indicators-${id}`);
+            if(indicators) {
+                carousel.addEventListener('slide.bs.carousel', event => {
+                    const index = event.to;
+                    const buttons = indicators.querySelectorAll('button');
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    if(buttons[index]) buttons[index].classList.add('active');
+                });
+            }
+        });
+
+        // 2. MORPH ANIMATION (Smoothed)
+        const island = document.getElementById('island-bar');
+        const heroPlaceholder = document.getElementById('hero-btn-placeholder');
+        const heroContent = document.querySelector('.island-content-hero');
+        const fullContent = document.querySelector('.island-content-full');
+        
+        if (island && heroPlaceholder) {
+            const rect = heroPlaceholder.getBoundingClientRect();
+            gsap.set(island, { 
+                top: rect.top + window.scrollY, 
+                left: "50%", 
+                xPercent: -50,
+                width: rect.width,
+                height: rect.height,
+                padding: "0",
+                borderRadius: "50px",
+                backgroundColor: "var(--brand-lime)", 
+                backgroundImage: "linear-gradient(110deg, #D4F759 0%, #f0ffc2 20%, #D4F759 40%)", 
+                boxShadow: "0 0 0 0 rgba(212, 247, 89, 0.6)", 
+                position: "absolute",
+                zIndex: 9999
+            });
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "400px top", 
+                    scrub: 0.5, 
+                    onEnter: () => island.style.position = "fixed",
+                    onLeaveBack: () => {
+                        island.style.position = "absolute";
+                        island.style.top = (rect.top + window.scrollY) + "px";
+                    },
+                    onLeave: () => {
+                        island.classList.remove('btn-lucrative-style');
+                        const innerBtn = island.querySelector('.btn-island-primary');
+                        if(innerBtn) innerBtn.classList.add('btn-lucrative-style');
+                    },
+                    onEnterBack: () => {
+                        island.classList.add('btn-lucrative-style');
+                        const innerBtn = island.querySelector('.btn-island-primary');
+                        if(innerBtn) innerBtn.classList.remove('btn-lucrative-style');
+                    }
+                }
+            });
+
+            tl.to(island, {
+                top: window.innerHeight - 80, 
+                width: Math.min(window.innerWidth * 0.9, 480), 
+                height: 72, 
+                padding: "0 15px",
+                borderRadius: "99px",
+                backgroundColor: "rgba(20, 20, 22, 0.95)", 
+                backgroundImage: "linear-gradient(110deg, rgba(20,20,22,0.95) 0%, rgba(20,20,22,0.95) 20%, rgba(20,20,22,0.95) 40%)",
+                boxShadow: "0 15px 50px rgba(0,0,0,0.6)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                ease: "power1.inOut"
+            }, 0)
+            .to(heroContent, { opacity: 0, duration: 0.2 }, 0) 
+            .to(fullContent, { opacity: 1, display: "flex", duration: 0.4 }, 0.2); 
+
+            ScrollTrigger.create({
+                start: 50,
+                onUpdate: (self) => {
+                    if (self.direction === 1 || self.scroll() > 50) document.body.classList.add('immersive-mode');
+                    else if (self.scroll() < 50) document.body.classList.remove('immersive-mode');
+                }
+            });
+        }
+
+        // 3. Section Animations
+        gsap.utils.toArray('.gs-fade-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 85%" }, y: 40, opacity: 0, duration: 1 }));
+        gsap.utils.toArray('.gs-scale-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, scale: 0.92, opacity: 0, duration: 1.2 }));
+        gsap.utils.toArray('.gs-fade-right').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: -30, opacity: 0, duration: 1 }));
+        gsap.utils.toArray('.gs-fade-left').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 30, opacity: 0, duration: 1 }));
+    });
+
+    function toggleCarousel(carouselId, btn) {
+        const carouselEl = document.getElementById(carouselId);
+        const icon = btn.querySelector('i');
+        if (btn.classList.contains('paused')) {
+            bootstrap.Carousel.getOrCreateInstance(carouselEl).cycle();
+            btn.classList.remove('paused');
+            icon.classList.remove('fa-play'); icon.classList.add('fa-pause');
+        } else {
+            bootstrap.Carousel.getOrCreateInstance(carouselEl).pause();
+            btn.classList.add('paused');
+            icon.classList.remove('fa-pause'); icon.classList.add('fa-play');
+        }
+    }
+</script>
+
+{% if page.meta_pixel_id %}
+<script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '{{ page.meta_pixel_id }}');
+    fbq('track', 'PageView');
+    
+    var priceStr = "{{ product.selling_price|default:0 }}";
+    var productName = "{{ product.name|escapejs }}";
+    fbq('track', 'ViewContent', {
+        content_name: productName, 
+        content_ids: ['{{ product.id }}'],
+        content_type: 'product',
+        value: parseFloat(priceStr),
+        currency: 'BDT'
+    });
+</script>
+{% endif %}
+
+{% endblock %}

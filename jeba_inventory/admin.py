@@ -12,7 +12,7 @@ from .models import Category, Product, ProductVariation, ProductImage, Tag
 from jeba_intelligence.models import CompetitorPrice
 from jeba_intelligence.utils import fetch_competitor_data
 
-# --- BULK ACTIONS (Preserved) ---
+# --- BULK ACTIONS ---
 @admin.action(description='👁️ Hide Selected Products')
 def hide_products(modeladmin, request, queryset):
     updated_count = queryset.update(is_active=False)
@@ -86,7 +86,7 @@ class ProductResource(resources.ModelResource):
     category = Field(column_name='category', attribute='category', widget=ForeignKeyWidget(Category, 'name'))
     class Meta:
         model = Product
-        fields = ('id', 'name', 'description', 'short_description', 'category', 'buying_cost', 'selling_price', 'stock_quantity', 'is_featured', 'call_for_price')
+        fields = ('id', 'name', 'description', 'short_description', 'category', 'buying_cost', 'original_price', 'selling_price', 'stock_quantity', 'is_featured', 'call_for_price')
         import_id_fields = ('id',)
 
 # --- ADMIN REGISTRATIONS ---
@@ -115,6 +115,7 @@ class ProductAdmin(ImportExportModelAdmin):
         'thumbnail_preview', 
         'name', 
         'category', 
+        'original_price', # Added to list view
         'selling_price', 
         'stock_quantity', 
         'is_active', 
@@ -123,7 +124,7 @@ class ProductAdmin(ImportExportModelAdmin):
         'open_scraper_button'
     )
     list_display_links = ('thumbnail_preview', 'name')
-    list_editable = ('selling_price', 'stock_quantity', 'is_active', 'is_featured')
+    list_editable = ('selling_price', 'original_price', 'stock_quantity', 'is_active', 'is_featured')
     list_filter = ('is_active', 'is_featured', 'category', 'tags')
     search_fields = ('name', 'description', 'id')
     filter_horizontal = ('tags',)
@@ -144,7 +145,12 @@ class ProductAdmin(ImportExportModelAdmin):
             "fields": ('name', 'category', 'is_active', 'is_featured', 'call_for_price')
         }),
         ("💰 Pricing & Stock", {
-            "fields": ('buying_cost', 'selling_price', 'stock_quantity', 'box_quantity')
+            # UPDATED: Grouped pricing fields for better UX
+            "fields": (
+                'buying_cost', 
+                ('original_price', 'selling_price'), # Side-by-side
+                ('stock_quantity', 'box_quantity')
+            )
         }),
         ("🔎 SEO & Meta", {
             "fields": ('tags', 'short_description', 'description', 'created_at', 'updated_at')
