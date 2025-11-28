@@ -528,6 +528,12 @@
         const fullContent = document.querySelector('.island-content-full');
         
         if (island && heroPlaceholder) {
+            // --- ADD THIS LINE HERE ---
+            // Move popup to body to ensure perfect centering on all screens
+            document.body.appendChild(island);
+            // --------------------------
+
+            // Setup Initial State (Matches Placeholder)
             const rect = heroPlaceholder.getBoundingClientRect();
             gsap.set(island, { 
                 top: rect.top + window.scrollY, 

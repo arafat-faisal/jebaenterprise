@@ -5010,3 +5010,60 @@ INFO 2025-11-28 17:34:52,118 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 
 INFO 2025-11-28 17:35:16,053 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61135
 INFO 2025-11-28 17:35:26,643 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61135
 INFO 2025-11-28 17:35:36,184 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61134
+INFO 2025-11-28 18:22:54,790 autoreload Watching for file changes with StatReloader
+WARNING 2025-11-28 18:22:55,525 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 18:22:55,525 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 18:22:55,548 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 18:22:55,548 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 18:23:01,051 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 62891
+WARNING 2025-11-28 18:23:01,097 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 18:23:01,097 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 18:23:01,126 basehttp "GET /media/landing/images/performance__f3753fjhjoii_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:23:01,132 basehttp "GET /media/landing/images/prod_1333_1.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:23:01,136 basehttp "GET /media/landing/images/prod_1333_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:23:01,138 basehttp "GET /media/landing/images/design_endframe__ckynsj4a5lua_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:23:01,146 basehttp "GET /media/landing/images/prod_1333_3.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:23:01,169 basehttp "GET /media/landing/images/hero__bdntboqignj6_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:23:01,181 basehttp "GET /media/landing/videos/business-arrow-growth-2025-10-17-02-19-45-utc.mp4 HTTP/1.1" 304 0
+INFO 2025-11-28 18:23:01,181 basehttp "GET /media/landing/images/prod_1333_7.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:23:01,212 basehttp "GET /media/landing/images/prod_1333_2.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:23:03,202 basehttp "GET / HTTP/1.1" 200 98039
+WARNING 2025-11-28 18:23:03,252 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 18:23:03,254 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 18:23:03,487 basehttp "GET /media/products/gallery/prod_1370_0.jpg HTTP/1.1" 200 51548
+INFO 2025-11-28 18:23:03,541 basehttp "GET /media/products/gallery/prod_1397_0.webp HTTP/1.1" 200 9892
+INFO 2025-11-28 18:23:03,561 basehttp "GET /media/products/gallery/prod_1426_0.jpg HTTP/1.1" 200 62710
+INFO 2025-11-28 18:23:03,572 basehttp "GET /media/products/gallery/prod_1427_0.jpg HTTP/1.1" 200 34313
+INFO 2025-11-28 18:23:03,572 basehttp "GET /media/products/gallery/prod_1373_0.jpg HTTP/1.1" 200 47603
+INFO 2025-11-28 18:23:03,587 basehttp "GET /media/products/gallery/prod_1424_0.webp HTTP/1.1" 200 9892
+INFO 2025-11-28 18:23:04,785 basehttp "GET / HTTP/1.1" 200 97893
+WARNING 2025-11-28 18:23:04,832 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 18:23:04,832 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 18:23:04,858 basehttp "GET /media/products/gallery/prod_1384_0.jpg HTTP/1.1" 200 61736
+INFO 2025-11-28 18:23:04,865 basehttp "GET /media/products/gallery/prod_1409_0.jpg HTTP/1.1" 200 46546
+INFO 2025-11-28 18:23:04,865 basehttp "GET /media/products/gallery/prod_1358_0.jpg HTTP/1.1" 200 55612
+INFO 2025-11-28 18:23:04,873 basehttp "GET /media/products/gallery/prod_1404_0.jpg HTTP/1.1" 200 24924
+INFO 2025-11-28 18:23:04,877 basehttp "GET /media/products/gallery/prod_1342_0.jpg HTTP/1.1" 200 51882
+INFO 2025-11-28 18:23:04,895 basehttp "GET /media/products/gallery/prod_1351_0.jpg HTTP/1.1" 200 26204
+INFO 2025-11-28 18:23:04,928 basehttp "GET /media/products/gallery/prod_1390_0.jpg HTTP/1.1" 200 37036
+WARNING 2025-11-28 18:23:06,985 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 18:23:06,985 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+WARNING 2025-11-28 18:23:07,018 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 18:23:07,018 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 18:23:48,544 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 62891
+WARNING 2025-11-28 18:23:48,698 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-28 18:23:48,699 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12563
+INFO 2025-11-28 18:49:48,946 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61134
+INFO 2025-11-28 18:49:51,495 basehttp "GET /media/landing/videos/business-arrow-growth-2025-10-17-02-19-45-utc.mp4 HTTP/1.1" 304 0
+INFO 2025-11-28 18:50:08,371 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61134
+INFO 2025-11-28 18:50:08,508 basehttp "GET /media/landing/images/performance__f3753fjhjoii_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:50:08,605 basehttp "GET /media/landing/images/prod_1333_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:50:08,607 basehttp "GET /media/landing/images/prod_1333_1.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:50:08,611 basehttp "GET /media/landing/images/prod_1333_7.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:50:08,612 basehttp "GET /media/landing/images/prod_1333_2.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:50:08,614 basehttp "GET /media/landing/images/prod_1333_3.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:50:08,617 basehttp "GET /media/landing/images/design_endframe__ckynsj4a5lua_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:50:08,676 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:50:08,712 basehttp "GET /media/landing/images/hero__bdntboqignj6_small_2x.jpg HTTP/1.1" 304 0
+INFO 2025-11-28 18:56:25,432 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61134
+INFO 2025-11-28 19:00:23,122 basehttp "GET /offers/iphone-17-pro/ HTTP/1.1" 200 61400
