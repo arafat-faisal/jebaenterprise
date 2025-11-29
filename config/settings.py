@@ -50,7 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     # --- NEW MODULAR APPS ---
+    'jeba_seo',
     'jeba_core',
     'jeba_inventory',
     'jeba_sales',
@@ -319,3 +321,4 @@ IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 # Maintenance Mode
 MAINTENANCE_MODE = os.getenv('MAINTENANCE_MODE', 'False') == 'True'
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')

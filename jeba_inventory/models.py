@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 
-# --- NEW: Tag Model ---
+# --- NEW: Tag Model (Fixed Slug Generation) ---
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name=_("Tag Name"))
     slug = models.SlugField(max_length=50, unique=True, blank=True)
@@ -16,8 +16,19 @@ class Tag(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
+        # Only generate slug if it's missing
         if not self.slug:
-            self.slug = slugify(self.name)
+            base_slug = slugify(self.name)
+            slug = base_slug
+            counter = 1
+            
+            # Loop to find a unique slug: "health" -> "health-1" -> "health-2"
+            while Tag.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            
+            self.slug = slug
+            
         super().save(*args, **kwargs)
 
 # --- Category Model ---
@@ -62,6 +73,74 @@ class Product(models.Model):
         help_text=_("Add tags for better search visibility (e.g., 'Summer', 'Gift', 'Office').")
     )
     # -----------------------------
+
+    # ==================================================
+    # NEW SEO FIELDS (For AI Integration)
+    # ==================================================
+    meta_title = models.CharField(max_length=255, blank=True, null=True, help_text=_("Manual override for SEO Title"))
+    meta_description = models.TextField(blank=True, null=True, help_text=_("Manual override for SEO Description"))
+    
+    # AI Storage Fields
+    meta_title_ai = models.CharField(max_length=255, blank=True, null=True, editable=False)
+    meta_description_ai = models.TextField(blank=True, null=True, editable=False)
+    is_seo_optimized = models.BooleanField(default=False, help_text=_("True if AI has processed this."))
+    # ==================================================
+
+    # --- AI Content Management ---
+    # 1. The Suggestion Fields (Where AI stores its ideas)
+    ai_suggested_name = models.CharField(
+        max_length=255, blank=True, null=True, 
+        help_text=_("AI generated product name based on image & attributes.")
+    )
+    ai_suggested_short_description = models.TextField(blank=True, null=True, help_text="AI generated summary (HTML allowed).")
+    ai_suggested_description = models.TextField(
+        blank=True, null=True, 
+        help_text=_("AI generated description tailored for Bangladeshi audience.")
+    )
+
+    # --- NEW: AI Categorization & Tagging ---
+    ai_suggested_category = models.CharField(
+        max_length=100, blank=True, null=True,
+        help_text=_("AI suggested category name. Admin must approve to apply.")
+    )
+    ai_suggested_tags = models.TextField(
+        blank=True, null=True,
+        help_text=_("Comma-separated list of AI suggested tags (e.g. 'Summer, Cotton, Sale').")
+    )
+    # ----------------------------------------
+
+    # 2. The Toggles (You control what the customer sees)
+    use_ai_name = models.BooleanField(
+        default=False, 
+        verbose_name=_("Use AI Name on Frontend"),
+        help_text=_("If checked, the website will show 'AI Suggested Name' instead of the manual 'Name'.")
+    )
+    use_ai_short_description = models.BooleanField(default=False, verbose_name="Use AI Short Desc")
+    use_ai_description = models.BooleanField(
+        default=False, 
+        verbose_name=_("Use AI Description on Frontend"),
+        help_text=_("If checked, the website will show 'AI Suggested Description' instead of the manual 'Description'.")
+    )
+
+    # 3. Helper Properties (For easy template usage)
+    @property
+    def display_name(self):
+        """Returns AI Name if toggle is ON and AI Name exists; otherwise returns manual Name."""
+        if self.use_ai_name and self.ai_suggested_name:
+            return self.ai_suggested_name
+        return self.name
+    @property
+    def display_short_description(self):
+        # NEW: Logic for Short Description
+        if self.use_ai_short_description and self.ai_suggested_short_description:
+            return self.ai_suggested_short_description
+        return self.short_description
+    @property
+    def display_description(self):
+        """Returns AI Description if toggle is ON and AI exists; otherwise returns manual Description."""
+        if self.use_ai_description and self.ai_suggested_description:
+            return self.ai_suggested_description
+        return self.description
 
     call_for_price = models.BooleanField(
         default=False, 

@@ -12,6 +12,56 @@ from .models import Category, Product, ProductVariation, ProductImage, Tag
 from jeba_intelligence.models import CompetitorPrice
 from jeba_intelligence.utils import fetch_competitor_data
 
+
+# --- ACTION: Multiple Selected ---
+@admin.action(description='✨ Generate AI Content for Selected')
+def generate_ai_selected(modeladmin, request, queryset):
+    # This just redirects each one to our view (simplified) or loops logic
+    # Ideally, call the logic directly here for bulk, but reusing the view is easiest:
+    from jeba_seo.views import generate_ai_for_product
+    count = 0
+    for product in queryset:
+        generate_ai_for_product(request, product.id) # Reuses logic
+        count += 1
+    modeladmin.message_user(request, f"Queued AI generation for {count} products.")
+
+@admin.action(description='Apply AI Categories (Auto-Create New) & Tags')
+def apply_ai_organization(modeladmin, request, queryset):
+    applied_count = 0
+    created_categories = []
+    
+    for product in queryset:
+        # 1. Apply Category (The Intelligent Part)
+        if product.ai_suggested_category:
+            cat_name = product.ai_suggested_category.strip()
+            
+            # Try to get existing, or CREATE if missing
+            category, created = Category.objects.get_or_create(
+                name__iexact=cat_name,
+                defaults={'name': cat_name}
+            )
+            
+            if created and cat_name not in created_categories:
+                created_categories.append(cat_name)
+            
+            product.category = category
+                
+        # 2. Apply Tags
+        if product.ai_suggested_tags:
+            tag_names = [t.strip() for t in product.ai_suggested_tags.split(',')]
+            for t_name in tag_names:
+                tag, _ = Tag.objects.get_or_create(name=t_name)
+                product.tags.add(tag)
+                
+        product.save()
+        applied_count += 1
+
+    # Feedback Message
+    if created_categories:
+        modeladmin.message_user(request, f"Success! Created {len(created_categories)} new categories: {', '.join(created_categories)}.")
+    
+    modeladmin.message_user(request, f"Updated {applied_count} products with AI data.")
+
 # --- BULK ACTIONS ---
 @admin.action(description='👁️ Hide Selected Products')
 def hide_products(modeladmin, request, queryset):
@@ -119,30 +169,72 @@ class ProductAdmin(ImportExportModelAdmin):
         'selling_price', 
         'stock_quantity', 
         'is_active', 
+        'is_seo_optimized',
+        'use_ai_name',
+        'use_ai_short_description',
+        'use_ai_description',
         'is_featured', 
         'get_tags_display', 
-        'open_scraper_button'
+        'open_scraper_button',
+        'get_tags_count',
+        'ai_suggested_category',
+        'ai_status_button'
     )
     list_display_links = ('thumbnail_preview', 'name')
-    list_editable = ('selling_price', 'original_price', 'stock_quantity', 'is_active', 'is_featured')
-    list_filter = ('is_active', 'is_featured', 'category', 'tags')
-    search_fields = ('name', 'description', 'id')
+    list_editable = ('selling_price', 'original_price', 'stock_quantity', 'is_active', 'is_featured', 'use_ai_name', 'use_ai_short_description','use_ai_description')
+    list_filter = ('is_active', 'is_featured', 'category', 'tags', 'is_seo_optimized', 'use_ai_name')
+    search_fields = ('name', 'description', 'id', 'ai_suggested_name', 'meta_title_ai')
     filter_horizontal = ('tags',)
     list_per_page = 20
     
     actions = [
+        generate_ai_selected,
         hide_products, 
         show_products, 
         print_selected_products, 
         auto_categorize_products, 
         apply_smart_pricing, 
-        scrape_selected_products
+        scrape_selected_products,
+        apply_ai_organization,
+        
     ]
+    readonly_fields = ('created_at', 'updated_at', 'meta_title_ai', 'meta_description_ai', 'ai_suggested_name', 'ai_suggested_description','is_seo_optimized','generate_ai_button')
+    
+    # Column Button (For List View)
+    def ai_status_button(self, obj):
+        if obj.is_seo_optimized:
+            return format_html('<span style="color:green;">✅ Optimized</span>')
+        url = reverse('generate_ai_product', args=[obj.id])
+        return format_html(
+            '<a class="button" href="{}" style="background:#6610f2; color:white; padding:3px 8px; border-radius:4px;">✨ Auto-Fill</a>', 
+            url
+        )
+    ai_status_button.short_description = "AI Action"
+
+    # Field Button (For Edit Page)
+    def generate_ai_button(self, obj):
+        url = reverse('generate_ai_product', args=[obj.id])
+        return format_html(
+            '<a class="button" href="{}" style="background:#6610f2; color:white; padding:8px 16px; border-radius:4px; font-weight:bold;">✨ Generate All AI Content Now</a>', 
+            url
+        )
+    generate_ai_button.short_description = "AI Generator"
 
     # Detail View Layout
     fieldsets = (
         ("✨ Basic Info", {
             "fields": ('name', 'category', 'is_active', 'is_featured', 'call_for_price')
+        }),
+        # --- NEW SECTION: AI CONTENT ARCHITECT ---
+        ("AI Content Architect (Bangladesh)", {
+            "fields": (
+                "generate_ai_button",
+                "use_ai_name", "ai_suggested_name", 
+                "use_ai_short_description", "ai_suggested_short_description", # <--- Added here
+                "use_ai_description", "ai_suggested_description"
+            ),
+            "description": "Toggle the checkboxes to display the AI-generated content on the website instead of your manual content.",
+            "classes": ("collapse",), # Click to expand
         }),
         ("💰 Pricing & Stock", {
             # UPDATED: Grouped pricing fields for better UX
@@ -155,9 +247,20 @@ class ProductAdmin(ImportExportModelAdmin):
         ("🔎 SEO & Meta", {
             "fields": ('tags', 'short_description', 'description', 'created_at', 'updated_at')
         }),
+        ("SEO Settings (AI Generated)", {
+            "fields": ("is_seo_optimized", "meta_title_ai", "meta_description_ai"),
+            "classes": ("collapse",),
+        }),
+        ("AI Inventory Organizer", {
+            "fields": ("ai_suggested_category", "ai_suggested_tags"),
+            "description": "Run the 'organize_inventory' command to fill these. Then select 'Apply AI Organization' action to save them.",
+            "classes": ("collapse",),
+        }),
     )
-    readonly_fields = ('created_at', 'updated_at')
-
+    
+    def get_tags_count(self, obj):
+        return obj.tags.count()
+    get_tags_count.short_description = 'Tags'
     # --- CUSTOM METHODS ---
     def thumbnail_preview(self, obj):
         if obj.thumbnail:

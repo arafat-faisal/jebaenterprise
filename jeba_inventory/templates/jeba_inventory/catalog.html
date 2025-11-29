@@ -425,7 +425,7 @@
 
                     <a href="{% url 'product_detail' product.id %}" class="pc-img-box">
                         {% if product.thumbnail %}
-                            <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}">
+                            <img src="{{ product.thumbnail.url }}" alt="{{ product.display_name }}">
                         {% else %}
                             <img src="https://via.placeholder.com/300" alt="No Image">
                         {% endif %}
@@ -433,7 +433,7 @@
 
                     <div class="pc-details">
                         <span class="pc-cat">{{ product.category.name|default:"General" }}</span>
-                        <a href="{% url 'product_detail' product.id %}" class="pc-title">{{ product.name }}</a>
+                        <a href="{% url 'product_detail' product.id %}" class="pc-title">{{ product.display_name }}</a>
                         
                         <div class="pc-bottom">
                             {% if product.call_for_price %}
@@ -444,7 +444,7 @@
 
                             {% if not product.call_for_price and product.stock_quantity > 0 %}
                                 <form action="{% url 'add_to_cart' product.id %}" method="POST" class="ajax-add-to-cart"
-                                      data-id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.selling_price }}">
+                                      data-id="{{ product.id }}" data-name="{{ product.display_name }}" data-price="{{ product.selling_price }}">
                                     {% csrf_token %}
                                     <input type="hidden" name="quantity" value="1">
                                     <button type="submit" class="btn-add-sm" title="Add to Cart">
