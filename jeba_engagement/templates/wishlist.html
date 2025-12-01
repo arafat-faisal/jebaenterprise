@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Your Wishlist{% endblock %}
+{% block title %}{% trans "Your Wishlist" %}{% endblock %}
 
 {% block content %}
-
 <style>
     /* --- Wishlist Specific Styles --- */
     .wishlist-header {
@@ -147,10 +147,9 @@
         .wish-img-box { height: 250px; }
     }
 </style>
-
 <div class="wishlist-header">
-    <h1 class="wishlist-title">Your Wishlist</h1>
-    <p style="color: var(--text-sub);">{{ items.count }} items saved for later</p>
+    <h1 class="wishlist-title">{% trans "Your Wishlist" %}</h1>
+    <p style="color: var(--text-sub);">{{ items.count }} {% trans "items saved for later" %}</p>
 </div>
 
 {% if items %}
@@ -158,7 +157,6 @@
         {% for item in items %}
             <div class="wish-card">
                 
-                <!-- Image Area -->
                 <a href="{% url 'product_detail' item.product.id %}" class="wish-img-box">
                     {% if item.product.images.first %}
                         <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}">
@@ -166,32 +164,27 @@
                         <img src="https://via.placeholder.com/300" alt="No Image">
                     {% endif %}
                     
-                    <!-- Little Heart Badge -->
                     <div class="heart-badge">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     </div>
                 </a>
 
-                <!-- Info Area -->
                 <div class="wish-info">
                     <h3>{{ item.product.name }}</h3>
                     <span class="wish-price">৳{{ item.product.selling_price|floatformat:0 }}</span>
                 </div>
 
-                <!-- Buttons Area -->
                 <div class="wish-actions">
-                    <!-- Add to Cart Logic -->
-                    <!-- We use a small form to POST to the add-to-cart URL -->
                     <form action="{% url 'add_to_cart' item.product.id %}" method="POST" style="flex-grow: 1;">
                         {% csrf_token %}
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" name="action" value="add" class="btn-cart-sm" style="width: 100%;">
-                            Add to Cart
+                            {% trans "Add to Cart" %}
                         </button>
                     </form>
 
                     <a href="{% url 'toggle_wishlist' item.product.id %}" class="btn-remove-sm">
-                        Remove
+                        {% trans "Remove" %}
                     </a>
                 </div>
 
@@ -201,9 +194,9 @@
 {% else %}
     <div class="empty-state">
         <div style="font-size: 4rem; margin-bottom: 20px;">💔</div>
-        <h2 style="margin-bottom: 10px;">Your wishlist is empty</h2>
-        <p style="color: var(--text-sub); margin-bottom: 30px;">Seems like you haven't found anything you like yet.</p>
-        <a href="{% url 'home' %}" class="btn" style="padding: 15px 30px;">Explore Products</a>
+        <h2 style="margin-bottom: 10px;">{% trans "Your wishlist is empty" %}</h2>
+        <p style="color: var(--text-sub); margin-bottom: 30px;">{% trans "Seems like you haven't found anything you like yet." %}</p>
+        <a href="{% url 'home' %}" class="btn" style="padding: 15px 30px;">{% trans "Explore Products" %}</a>
     </div>
 {% endif %}
 

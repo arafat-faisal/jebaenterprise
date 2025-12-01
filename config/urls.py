@@ -12,6 +12,9 @@ handler404 = 'jeba_core.views.custom_404'
 handler500 = 'jeba_core.views.custom_500'
 
 urlpatterns = [
+    # --- ADD THIS LINE ---
+    path('i18n/', include('django.conf.urls.i18n')),
+    # ---------------------
     path('admin/', admin.site.urls),
     
     # Replaced standard auth urls with our custom modular app urls

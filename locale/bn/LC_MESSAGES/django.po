@@ -1,0 +1,1009 @@
+# Jeba Enterprise Translation File.
+# Copyright (C) 2025 Jeba Enterprise
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-01 19:52+0600\n"
+"PO-Revision-Date: 2025-12-01 20:45+0600\n"
+"Last-Translator: SmartCoder <admin@jebaenterprise.com>\n"
+"Language-Team: Bengali <bn@li.org>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# --- CONFIG & SETTINGS ---
+
+#: config/settings.py:148
+msgid "English"
+msgstr "ইংরেজি"
+
+#: config/settings.py:149
+msgid "Bengali"
+msgstr "বাংলা"
+
+# --- ACCOUNTS APP ---
+
+#: jeba_accounts/models.py:9 jeba_sales/models.py:27
+msgid "Phone Number"
+msgstr "ফোন নম্বর"
+
+#: jeba_accounts/models.py:10
+msgid "Address"
+msgstr "ঠিকানা"
+
+# --- ANALYTICS APP ---
+
+#: jeba_analytics/models.py:8
+msgid "Search Query"
+msgstr "অনুসন্ধান ক্যোয়ারী"
+
+#: jeba_analytics/models.py:13
+msgid "Source (e.g. facebook, google)"
+msgstr "উৎস (যেমন: facebook, google)"
+
+#: jeba_analytics/models.py:14
+msgid "Medium (e.g. cpc, email)"
+msgstr "মাধ্যম (যেমন: cpc, email)"
+
+#: jeba_analytics/models.py:15
+msgid "Campaign Name"
+msgstr "ক্যাম্পেইন নাম"
+
+#: jeba_analytics/models.py:18
+msgid "Event Metadata"
+msgstr "ইভেন্ট মেটাডেটা"
+
+#: jeba_analytics/models.py:21
+msgid "Results Found"
+msgstr "ফলাফল পাওয়া গেছে"
+
+#: jeba_analytics/models.py:27
+msgid "Search Log"
+msgstr "অনুসন্ধান লগ"
+
+#: jeba_analytics/models.py:28
+msgid "Search Logs"
+msgstr "অনুসন্ধান লগসমূহ"
+
+#: jeba_analytics/models.py:35
+msgid "Product View"
+msgstr "পণ্য দেখা"
+
+#: jeba_analytics/models.py:36
+msgid "Added to Cart"
+msgstr "কার্টে যোগ করা হয়েছে"
+
+#: jeba_analytics/models.py:37
+msgid "Purchased"
+msgstr "ক্রয় করা হয়েছে"
+
+#: jeba_analytics/models.py:38
+msgid "Shared"
+msgstr "শেয়ার করা হয়েছে"
+
+#: jeba_analytics/models.py:39
+msgid "Contact Click"
+msgstr "যোগাযোগ ক্লিক"
+
+#: jeba_analytics/models.py:40
+msgid "Initiated Checkout"
+msgstr "চেকআউট শুরু হয়েছে"
+
+#: jeba_analytics/models.py:52
+msgid "Product selling price at the moment of this event."
+msgstr "এই ইভেন্টের সময় পণ্যের বিক্রয় মূল্য।"
+
+#: jeba_analytics/models.py:58
+msgid "Was the product in stock when viewed?"
+msgstr "পণ্যটি দেখার সময় স্টকে ছিল কি?"
+
+#: jeba_analytics/models.py:69
+msgid "Time spent on page in seconds"
+msgstr "পেজে ব্যয় করা সময় (সেকেন্ডে)"
+
+#: jeba_analytics/models.py:73
+msgid "Max scroll percentage (0-100)"
+msgstr "সর্বোচ্চ স্ক্রল শতাংশ (০-১০০)"
+
+#: jeba_analytics/models.py:77
+msgid "Page load time in milliseconds"
+msgstr "পেজ লোড সময় (মিলিসেকেন্ড)"
+
+#: jeba_analytics/models.py:85
+msgid "Product Interaction"
+msgstr "পণ্য ইন্টারঅ্যাকশন"
+
+#: jeba_analytics/models.py:111
+msgid "Spend Date"
+msgstr "ব্যয়ের তারিখ"
+
+#: jeba_analytics/models.py:114
+msgid "Facebook Ads (Tk)"
+msgstr "ফেসবুক বিজ্ঞাপন (টাকা)"
+
+#: jeba_analytics/models.py:115
+msgid "Google Ads (Tk)"
+msgstr "গুগল বিজ্ঞাপন (টাকা)"
+
+#: jeba_analytics/models.py:116
+msgid "TikTok/Other (Tk)"
+msgstr "টিকটক/অন্যান্য (টাকা)"
+
+#: jeba_analytics/models.py:125 jeba_analytics/models.py:126
+msgid "Daily Marketing & ROI"
+msgstr "দৈনিক বিপণন ও আয় (ROI)"
+
+# --- BLOG APP ---
+
+#: jeba_blog/models.py:11
+msgid "Blog Title"
+msgstr "ব্লগ শিরোনাম"
+
+#: jeba_blog/models.py:15
+msgid "URL-friendly version of the title (auto-generated). Essential for SEO."
+msgstr "শিরোনামের ইউআরএল-বান্ধব সংস্করণ (স্বয়ংক্রিয়)। এসইও-এর জন্য জরুরি।"
+
+#: jeba_blog/models.py:22
+msgid "Custom title tag for search results (max 60 chars recommended)."
+msgstr "অনুসন্ধান ফলাফলের জন্য কাস্টম শিরোনাম ট্যাগ (সর্বোচ্চ ৬০ অক্ষর প্রস্তাবিত)।"
+
+#: jeba_blog/models.py:27
+msgid "Custom meta description for search results (max 155 chars recommended)."
+msgstr "অনুসন্ধান ফলাফলের জন্য কাস্টম মেটা বিবরণ (সর্বোচ্চ ১৫৫ অক্ষর প্রস্তাবিত)।"
+
+#: jeba_blog/models.py:33
+msgid "Post Content"
+msgstr "পোস্টের বিষয়বস্তু"
+
+#: jeba_blog/models.py:37
+msgid "Short summary for SEO meta descriptions and list views. Will auto-fill if empty."
+msgstr "এসইও মেটা বিবরণ এবং তালিকার জন্য সংক্ষিপ্ত সারাংশ। খালি থাকলে স্বয়ংক্রিয়ভাবে পূরণ হবে।"
+
+#: jeba_blog/models.py:45
+msgid "Attached Products"
+msgstr "সংযুক্ত পণ্য"
+
+#: jeba_blog/models.py:46
+msgid "Select products mentioned in this post to create backlinks."
+msgstr "ব্যাকলিংক তৈরি করতে এই পোস্টে উল্লিখিত পণ্যগুলি নির্বাচন করুন।"
+
+#: jeba_blog/models.py:50
+msgid "Published"
+msgstr "প্রকাশিত"
+
+#: jeba_blog/models.py:58
+msgid "Blog Post"
+msgstr "ব্লগ পোস্ট"
+
+#: jeba_blog/models.py:59
+msgid "Blog Posts"
+msgstr "ব্লগ পোস্টসমূহ"
+
+# --- CORE & SETTINGS APP ---
+
+#: jeba_core/models.py:13
+msgid "Hero Section Products"
+msgstr "হিরো সেকশন পণ্য"
+
+#: jeba_core/models.py:14
+msgid "Select specific products to display in the Homepage Hero Slider. If empty, the system will use products marked 'Is Featured'."
+msgstr "হোমপেজ হিরো স্লাইডারে প্রদর্শনের জন্য নির্দিষ্ট পণ্য নির্বাচন করুন। খালি থাকলে, সিস্টেম 'Is Featured' চিহ্নিত পণ্য ব্যবহার করবে।"
+
+#: jeba_core/models.py:21
+msgid "Personal bKash Number for manual payments"
+msgstr "ম্যানুয়াল পেমেন্টের জন্য ব্যক্তিগত বিকাশ নম্বর"
+
+#: jeba_core/models.py:27
+msgid "Delivery charge inside Dhaka"
+msgstr "ঢাকার ভিতরে ডেলিভারি চার্জ"
+
+#: jeba_core/models.py:33
+msgid "Delivery charge outside Dhaka"
+msgstr "ঢাকার বাইরে ডেলিভারি চার্জ"
+
+#: jeba_core/models.py:41
+msgid "Full URL to your Facebook Page"
+msgstr "আপনার ফেসবুক পেজের সম্পূর্ণ ইউআরএল"
+
+#: jeba_core/models.py:47
+msgid "Your Page Username or ID (e.g. 'JebaEnterprise')"
+msgstr "আপনার পেজের ইউজারনেম বা আইডি (যেমন: 'JebaEnterprise')"
+
+#: jeba_core/models.py:55
+msgid "Your Meta Pixel ID (e.g. '1234567890')"
+msgstr "আপনার মেটা পিক্সেল আইডি (যেমন: '1234567890')"
+
+#: jeba_core/models.py:60
+msgid "Long Access Token from Events Manager > Settings > Conversions API"
+msgstr "Events Manager > Settings > Conversions API থেকে লং অ্যাক্সেস টোকেন"
+
+#: jeba_core/models.py:67
+msgid "Support Phone Number"
+msgstr "সাপোর্ট ফোন নম্বর"
+
+#: jeba_core/models.py:71
+msgid "Support Email"
+msgstr "সাপোর্ট ইমেইল"
+
+#: jeba_core/models.py:75
+msgid "Physical Office Address"
+msgstr "অফিসের ঠিকানা"
+
+#: jeba_core/models.py:80
+msgid "e.g. Sat-Thu 10am-8pm"
+msgstr "যেমন: শনি-বৃহস্পতি সকাল ১০টা - রাত ৮টা"
+
+#: jeba_core/models.py:87
+msgid "WhatsApp number for direct contact (Start with country code, e.g., 88017...)."
+msgstr "সরাসরি যোগাযোগের জন্য হোয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ শুরু করুন, যেমন: ৮৮০১৭...)।"
+
+#: jeba_core/models.py:91
+msgid "Bengali message template. Use [PRODUCT_NAME] and [PRODUCT_LINK] placeholders."
+msgstr "বাংলা মেসেজ টেমপ্লেট। [PRODUCT_NAME] এবং [PRODUCT_LINK] প্লেসহোল্ডার ব্যবহার করুন।"
+
+#: jeba_core/models.py:96
+msgid "If checked, price will be hidden and 'Contact for Price' shown."
+msgstr "টিক দেওয়া থাকলে, মূল্য লুকানো থাকবে এবং 'মূল্যের জন্য যোগাযোগ করুন' দেখানো হবে।"
+
+#: jeba_core/models.py:101
+msgid "If checked, the entire site (except admin) will show the 'Under Maintenance' page."
+msgstr "টিক দেওয়া থাকলে, সম্পূর্ণ সাইট (অ্যাডমিন ছাড়া) 'রক্ষণাবেক্ষণ চলছে' পেজ দেখাবে।"
+
+#: jeba_core/models.py:117
+msgid "Site Settings"
+msgstr "সাইট সেটিংস"
+
+# --- ENGAGEMENT APP ---
+
+#: jeba_engagement/models.py:10
+msgid "Rating"
+msgstr "রেটিং"
+
+#: jeba_engagement/models.py:11
+msgid "Comment"
+msgstr "মন্তব্য"
+
+# --- INTELLIGENCE APP ---
+
+#: jeba_intelligence/models.py:7
+msgid "Website Name"
+msgstr "ওয়েবসাইটের নাম"
+
+#: jeba_intelligence/models.py:19
+msgid "Preset Name"
+msgstr "প্রিসেট নাম"
+
+# --- INVENTORY APP ---
+
+#: jeba_inventory/models.py:7
+msgid "Tag Name"
+msgstr "ট্যাগ নাম"
+
+#: jeba_inventory/models.py:11
+msgid "Product Tag"
+msgstr "পণ্য ট্যাগ"
+
+#: jeba_inventory/models.py:12
+msgid "Product Tags"
+msgstr "পণ্য ট্যাগসমূহ"
+
+#: jeba_inventory/models.py:36
+msgid "Name"
+msgstr "নাম"
+
+#: jeba_inventory/models.py:39
+msgid "Categories"
+msgstr "ক্যাটাগরি"
+
+#: jeba_inventory/models.py:47
+msgid "Product Name"
+msgstr "পণ্যের নাম"
+
+#: jeba_inventory/models.py:50
+msgid "Short summary shown beside the image"
+msgstr "ছবির পাশে দেখানো সংক্ষিপ্ত সারাংশ"
+
+#: jeba_inventory/models.py:51
+msgid "Short Description"
+msgstr "সংক্ষিপ্ত বিবরণ"
+
+#: jeba_inventory/models.py:53
+msgid "Full Description"
+msgstr "সম্পূর্ণ বিবরণ"
+
+#: jeba_inventory/models.py:59
+msgid "Category"
+msgstr "ক্যাটাগরি"
+
+#: jeba_inventory/models.py:65
+msgid "Visible in Store"
+msgstr "স্টোরে দৃশ্যমান"
+
+#: jeba_inventory/models.py:66
+msgid "Uncheck to hide this product from the frontend without deleting it."
+msgstr "ডিলিট না করে ফ্রন্টএন্ড থেকে পণ্য লুকাতে আনচেক করুন।"
+
+#: jeba_inventory/models.py:72
+msgid "SEO Tags"
+msgstr "এসইও ট্যাগ"
+
+#: jeba_inventory/models.py:73
+msgid "Add tags for better search visibility (e.g., 'Summer', 'Gift', 'Office')."
+msgstr "ভালো অনুসন্ধানের জন্য ট্যাগ যোগ করুন (যেমন: 'গ্রীষ্ম', 'উপহার', 'অফিস')।"
+
+#: jeba_inventory/models.py:80
+msgid "Manual override for SEO Title"
+msgstr "এসইও শিরোনামের জন্য ম্যানুয়াল পরিবর্তন"
+
+#: jeba_inventory/models.py:81
+msgid "Manual override for SEO Description"
+msgstr "এসইও বিবরণের জন্য ম্যানুয়াল পরিবর্তন"
+
+#: jeba_inventory/models.py:86
+msgid "True if AI has processed this."
+msgstr "এআই এটি প্রক্রিয়া করলে সত্য।"
+
+#: jeba_inventory/models.py:93
+msgid "AI generated product name based on image & attributes."
+msgstr "ছবি ও বৈশিষ্ট্যের ভিত্তিতে এআই জেনারেটেড পণ্যের নাম।"
+
+#: jeba_inventory/models.py:98
+msgid "AI generated description tailored for Bangladeshi audience."
+msgstr "বাংলাদেশি দর্শকদের জন্য তৈরি এআই জেনারেটেড বিবরণ।"
+
+#: jeba_inventory/models.py:104
+msgid "AI suggested category name. Admin must approve to apply."
+msgstr "এআই প্রস্তাবিত ক্যাটাগরি নাম। প্রয়োগ করতে অ্যাডমিনকে অনুমোদন দিতে হবে।"
+
+#: jeba_inventory/models.py:108
+msgid "Comma-separated list of AI suggested tags (e.g. 'Summer, Cotton, Sale')."
+msgstr "এআই প্রস্তাবিত ট্যাগের কমা দ্বারা পৃথক করা তালিকা (যেমন: 'গ্রীষ্ম, সুতি, সেল')।"
+
+#: jeba_inventory/models.py:115
+msgid "Use AI Name on Frontend"
+msgstr "ফ্রন্টএন্ডে এআই নাম ব্যবহার করুন"
+
+#: jeba_inventory/models.py:116
+msgid "If checked, the website will show 'AI Suggested Name' instead of the manual 'Name'."
+msgstr "টিক দেওয়া থাকলে, ওয়েবসাইট ম্যানুয়াল 'নাম'-এর পরিবর্তে 'এআই প্রস্তাবিত নাম' দেখাবে।"
+
+#: jeba_inventory/models.py:121
+msgid "Use AI Description on Frontend"
+msgstr "ফ্রন্টএন্ডে এআই বিবরণ ব্যবহার করুন"
+
+#: jeba_inventory/models.py:122
+msgid "If checked, the website will show 'AI Suggested Description' instead of the manual 'Description'."
+msgstr "টিক দেওয়া থাকলে, ওয়েবসাইট ম্যানুয়াল 'বিবরণ'-এর পরিবর্তে 'এআই প্রস্তাবিত বিবরণ' দেখাবে।"
+
+#: jeba_inventory/models.py:147
+msgid "If checked, price will be hidden and 'Call for Price' shown."
+msgstr "টিক দেওয়া থাকলে, মূল্য লুকানো থাকবে এবং 'মূল্যের জন্য কল করুন' দেখানো হবে।"
+
+#: jeba_inventory/models.py:148
+msgid "Call for Price"
+msgstr "মূল্যের জন্য কল করুন"
+
+#: jeba_inventory/models.py:152
+msgid "Check this to show on Homepage Hero section"
+msgstr "হোমপেজ হিরো সেকশনে দেখাতে এটি চেক করুন"
+
+#: jeba_inventory/models.py:153
+msgid "Is Featured"
+msgstr "ফিচারড পণ্য"
+
+#: jeba_inventory/models.py:156
+msgid "Buying Cost"
+msgstr "ক্রয় মূল্য"
+
+#: jeba_inventory/models.py:158 jeba_inventory/models.py:261
+msgid "Selling Price"
+msgstr "বিক্রয় মূল্য"
+
+#: jeba_inventory/models.py:162
+msgid "Original / Market Price"
+msgstr "আসল / বাজার মূল্য"
+
+#: jeba_inventory/models.py:163
+msgid "Set this HIGHER than Selling Price to show a discount (e.g. ~~1200~~ 1000)."
+msgstr "ডিসকাউন্ট দেখাতে এটি বিক্রয় মূল্যের চেয়ে বেশি সেট করুন (যেমন: ~~১২০০~~ ১০০০)।"
+
+#: jeba_inventory/models.py:166 jeba_inventory/models.py:263
+msgid "Stock Quantity"
+msgstr "স্টক পরিমাণ"
+
+#: jeba_inventory/models.py:169
+msgid "How many products are in a box"
+msgstr "বক্সে কয়টি পণ্য আছে"
+
+#: jeba_inventory/models.py:170
+msgid "Box Quantity"
+msgstr "বক্স পরিমাণ"
+
+#: jeba_inventory/models.py:260
+msgid "Variation Name"
+msgstr "ভেরিয়েশন নাম"
+
+#: jeba_inventory/models.py:262
+msgid "Is Active"
+msgstr "সক্রিয়"
+
+#: jeba_inventory/models.py:274
+msgid "Image"
+msgstr "ছবি"
+
+#: jeba_inventory/models.py:278
+msgid "Upload a PNG with no background here (Optional)"
+msgstr "এখানে কোনো ব্যাকগ্রাউন্ড ছাড়া একটি PNG আপলোড করুন (ঐচ্ছিক)"
+
+#: jeba_inventory/models.py:279
+msgid "Transparent Image"
+msgstr "স্বচ্ছ ছবি"
+
+#: jeba_inventory/models.py:281
+msgid "Main Thumbnail"
+msgstr "প্রধান থাম্বনেইল"
+
+# --- SALES APP ---
+
+#: jeba_sales/apps.py:7
+msgid "Sales & E-commerce"
+msgstr "বিক্রয় ও ই-কমার্স"
+
+#: jeba_sales/models.py:12
+msgid "Pending"
+msgstr "অপেক্ষমান"
+
+#: jeba_sales/models.py:13
+msgid "Processing"
+msgstr "প্রক্রিয়াধীন"
+
+#: jeba_sales/models.py:14
+msgid "Shipped"
+msgstr "শিপ করা হয়েছে"
+
+#: jeba_sales/models.py:15
+msgid "Delivered"
+msgstr "ডেলিভারি হয়েছে"
+
+#: jeba_sales/models.py:16
+msgid "Cancelled"
+msgstr "বাতিল"
+
+#: jeba_sales/models.py:17
+msgid "Returned"
+msgstr "ফেরত"
+
+#: jeba_sales/models.py:20
+msgid "Cash on Delivery"
+msgstr "ক্যাশ অন ডেলিভারি"
+
+#: jeba_sales/models.py:21
+msgid "bKash"
+msgstr "বিকাশ"
+
+#: jeba_sales/models.py:25
+msgid "Customer Name"
+msgstr "গ্রাহকের নাম"
+
+#: jeba_sales/models.py:28
+msgid "Shipping Address"
+msgstr "শিপিং ঠিকানা"
+
+#: jeba_sales/models.py:31
+msgid "Steadfast Consignment ID"
+msgstr "স্টেডফাস্ট কনসাইনমেন্ট আইডি"
+
+#: jeba_sales/models.py:32
+msgid "Steadfast Tracking Code"
+msgstr "স্টেডফাস্ট ট্র্যাকিং কোড"
+
+#: jeba_sales/models.py:34
+msgid "Payment Method"
+msgstr "পেমেন্ট পদ্ধতি"
+
+#: jeba_sales/models.py:35
+msgid "Transaction ID"
+msgstr "ট্রানজ্যাকশন আইডি"
+
+#: jeba_sales/models.py:36
+msgid "Delivery Charge"
+msgstr "ডেলিভারি চার্জ"
+
+#: jeba_sales/models.py:38
+msgid "Status"
+msgstr "অবস্থা"
+
+#: jeba_sales/models.py:44
+msgid "Subtotal Override"
+msgstr "সাবটোটাল পরিবর্তন"
+
+#: jeba_sales/models.py:45
+msgid "Manually set the subtotal. Leave blank to use sum of items."
+msgstr "সাবটোটাল ম্যানুয়ালি সেট করুন। আইটেমের যোগফল ব্যবহার করতে খালি রাখুন।"
+
+#: jeba_sales/models.py:49
+msgid "Total Amount Override"
+msgstr "মোট পরিমাণ পরিবর্তন"
+
+#: jeba_sales/models.py:50
+msgid "Manually set the final total. Leave blank to use Subtotal + Delivery Charge."
+msgstr "চূড়ান্ত মোট ম্যানুয়ালি সেট করুন। সাবটোটাল + ডেলিভারি চার্জ ব্যবহার করতে খালি রাখুন।"
+
+#: jeba_sales/models.py:98
+msgid "Quantity"
+msgstr "পরিমাণ"
+
+#: jeba_sales/models.py:102
+msgid "Sold Price"
+msgstr "বিক্রয় মূল্য"
+
+# --- TEMPLATES ---
+
+#: templates/base.html:579 templates/base.html:677
+msgid "All Products"
+msgstr "সকল পণ্য"
+
+#: templates/base.html:583
+msgid "Search products..."
+msgstr "পণ্য খুঁজুন..."
+
+#: templates/base.html:585
+msgid "Search"
+msgstr "অনুসন্ধান"
+
+#: templates/base.html:603
+msgid "Admin Panel"
+msgstr "অ্যাডমিন প্যানেল"
+
+#: templates/base.html:606
+msgid "My Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+#: templates/base.html:612
+msgid "My Orders"
+msgstr "অর্ডারসমূহ"
+
+#: templates/base.html:615
+msgid "Logout"
+msgstr "লগআউট"
+
+#: templates/base.html:619
+msgid "Login"
+msgstr "লগইন"
+
+#: templates/base.html:620
+msgid "Sign Up"
+msgstr "নিবন্ধন"
+
+#: templates/base.html:622 templates/base.html:897
+msgid "Cart"
+msgstr "কার্ট"
+
+#: templates/base.html:628 templates/base.html:892
+msgid "Wishlist"
+msgstr "উইশলিস্ট"
+
+#: templates/base.html:664
+msgid "Making modern lifestyle products accessible to everyone. Join our newsletter for exclusive offers."
+msgstr "আধুনিক লাইফস্টাইল পণ্য সবার জন্য সহজলভ্য করা। এক্সক্লুসিভ অফারের জন্য আমাদের নিউজলেটারে যোগ দিন।"
+
+#: templates/base.html:665
+msgid "Thanks for subscribing!"
+msgstr "সাবস্ক্রাইব করার জন্য ধন্যবাদ!"
+
+#: templates/base.html:666
+msgid "Enter your email"
+msgstr "আপনার ইমেইল দিন"
+
+#: templates/base.html:667
+msgid "Join"
+msgstr "যোগ দিন"
+
+#: templates/base.html:673 templates/base.html:887
+msgid "Shop"
+msgstr "দোকান"
+
+#: templates/base.html:675
+msgid "New Arrivals"
+msgstr "নতুন আগমন"
+
+#: templates/base.html:676
+msgid "Best Sellers"
+msgstr "সেরা বিক্রেতা"
+
+#: templates/base.html:682
+msgid "Support"
+msgstr "সহায়তা"
+
+#: templates/base.html:684
+msgid "Track Order"
+msgstr "অর্ডার ট্র্যাক করুন"
+
+#: templates/base.html:685
+msgid "Return Policy"
+msgstr "ফেরত নীতি"
+
+#: templates/base.html:686
+msgid "Help Center"
+msgstr "হেল্প সেন্টার"
+
+#: templates/base.html:691
+msgid "Company"
+msgstr "কোম্পানি"
+
+#: templates/base.html:693
+msgid "Our Blog"
+msgstr "আমাদের ব্লগ"
+
+#: templates/base.html:694
+msgid "About Us"
+msgstr "আমাদের সম্পর্কে"
+
+#: templates/base.html:695
+msgid "Careers"
+msgstr "ক্যারিয়ার"
+
+#: templates/base.html:696
+msgid "Contact"
+msgstr "যোগাযোগ"
+
+#: templates/base.html:703
+msgid "Jeba Enterprise. All rights reserved."
+msgstr "জেবা এন্টারপ্রাইজ। সর্বস্বত্ব সংরক্ষিত।"
+
+#: templates/base.html:710
+msgid "Chat with us"
+msgstr "চ্যাট করুন"
+
+#: templates/base.html:743
+msgid "Processing..."
+msgstr "প্রক্রিয়াধীন..."
+
+#: templates/base.html:819
+msgid "Products"
+msgstr "পণ্যসমূহ"
+
+#: templates/base.html:819
+msgid "Trending Searches"
+msgstr "জনপ্রিয় অনুসন্ধান"
+
+#: templates/base.html:882
+msgid "Home"
+msgstr "হোম"
+
+#: templates/base.html:905
+msgid "Account"
+msgstr "অ্যাকাউন্ট"
+
+#: jeba_landing/templates/jeba_landing/landing_page.html:276
+msgid "Buy Now"
+msgstr "এখনই কিনুন"
+
+#: jeba_landing/templates/jeba_landing/landing_page.html:294
+msgid "View"
+msgstr "দেখুন"
+
+# --- NEW: HOME & PRODUCT TRANSLATIONS ---
+
+msgid "Discover"
+msgstr "আবিষ্কার করুন"
+
+msgid "Hurry Up!"
+msgstr "তাড়াতাড়ি করুন!"
+
+msgid "Featured"
+msgstr "ফিচারড"
+
+msgid "Shop Now"
+msgstr "এখনই কিনুন"
+
+msgid "Fresh Drop"
+msgstr "নতুন সংগ্রহ"
+
+msgid "Trending"
+msgstr "ট্রেন্ডিং"
+
+msgid "View Top 10"
+msgstr "সেরা ১০টি দেখুন"
+
+msgid "Picked For You"
+msgstr "আপনার জন্য বাছাই করা"
+
+msgid "Based on your interests"
+msgstr "আপনার পছন্দের উপর ভিত্তি করে"
+
+msgid "Sold Out"
+msgstr "বিক্রি শেষ"
+
+msgid "Options"
+msgstr "অপশন"
+
+msgid "Add to Cart"
+msgstr "কার্টে যোগ করুন"
+
+msgid "Low Stock"
+msgstr "সীমিত স্টক"
+
+msgid "Contact for Price"
+msgstr "মূল্যের জন্য যোগাযোগ"
+
+msgid "Explore More"
+msgstr "আরও দেখুন"
+
+msgid "Find something you love"
+msgstr "আপনার পছন্দের কিছু খুঁজুন"
+
+msgid "Browse Full Catalogue"
+msgstr "সম্পূর্ণ ক্যাটালগ ব্রাউজ করুন"
+
+msgid "Items"
+msgstr "টি আইটেম"
+
+msgid "in your cart"
+msgstr "আপনার কার্টে আছে"
+
+msgid "View Cart"
+msgstr "কার্ট দেখুন"
+
+msgid "Added!"
+msgstr "যোগ হয়েছে!"
+
+msgid "Error"
+msgstr "ত্রুটি"
+
+msgid "Contact Us"
+msgstr "যোগাযোগ করুন"
+
+msgid "Choose how you'd like to get in touch for"
+msgstr "কিভাবে যোগাযোগ করতে চান তা নির্বাচন করুন:"
+
+msgid "Call Now"
+msgstr "এখনই কল করুন"
+
+msgid "WhatsApp"
+msgstr "হোয়াটসঅ্যাপ"
+
+msgid "Messenger"
+msgstr "মেসেঞ্জার"
+
+msgid "Copy Info"
+msgstr "তথ্য কপি করুন"
+
+msgid "Reviews"
+msgstr "রিভিউ"
+
+msgid "Out of Stock"
+msgstr "স্টকে নেই"
+
+msgid "Only"
+msgstr "মাত্র"
+
+msgid "Left"
+msgstr "টি বাকি"
+
+msgid "In Stock"
+msgstr "স্টকে আছে"
+
+msgid "Fast"
+msgstr "দ্রুত"
+
+msgid "Delivery"
+msgstr "ডেলিভারি"
+
+msgid "Authentic"
+msgstr "অরিজিনাল"
+
+msgid "Secure"
+msgstr "নিরাপদ"
+
+msgid "Checkout"
+msgstr "চেকআউট"
+
+msgid "Select Version"
+msgstr "ভার্সন নির্বাচন করুন"
+
+msgid "Currently Unavailable"
+msgstr "বর্তমানে অনুপলব্ধ"
+
+msgid "Product Details"
+msgstr "পণ্যের বিবরণ"
+
+msgid "View Full Details"
+msgstr "সম্পূর্ণ বিবরণ দেখুন"
+
+msgid "Show Less"
+msgstr "কম দেখান"
+
+msgid "You May Also Like"
+msgstr "আপনি পছন্দ করতে পারেন"
+
+msgid "Related Articles"
+msgstr "সম্পর্কিত নিবন্ধ"
+
+msgid "Read More"
+msgstr "আরও পড়ুন"
+
+msgid "Customer Reviews"
+msgstr "কাস্টমার রিভিউ"
+
+msgid "No reviews yet."
+msgstr "কোনো রিভিউ নেই।"
+
+msgid "Write a Review"
+msgstr "রিভিউ লিখুন"
+
+msgid "Product info copied to clipboard!"
+msgstr "পণ্যের তথ্য ক্লিপবোর্ডে কপি করা হয়েছে!"
+
+# --- CHECKOUT TRANSLATIONS ---
+
+msgid "Shipping Info"
+msgstr "শিপিং তথ্য"
+
+msgid "Full Name"
+msgstr "পূর্ণ নাম"
+
+msgid "Detailed Address"
+msgstr "বিস্তারিত ঠিকানা"
+
+msgid "Delivery Area"
+msgstr "ডেলিভারি এলাকা"
+
+msgid "Please select your delivery area to calculate shipping."
+msgstr "শিপিং চার্জ হিসাব করতে ডেলিভারি এলাকা নির্বাচন করুন।"
+
+msgid "Inside Dhaka"
+msgstr "ঢাকার ভিতরে"
+
+msgid "Outside Dhaka"
+msgstr "ঢাকার বাইরে"
+
+msgid "Payment Method"
+msgstr "পেমেন্ট পদ্ধতি"
+
+msgid "Cash on Delivery"
+msgstr "ক্যাশ অন ডেলিভারি"
+
+msgid "bKash Payment"
+msgstr "বিকাশ পেমেন্ট"
+
+msgid "How to Pay with bKash:"
+msgstr "বিকাশে পেমেন্ট করার নিয়ম:"
+
+msgid "Go to your bKash App or Dial"
+msgstr "বিকাশ অ্যাপে যান অথবা ডায়াল করুন"
+
+msgid "Choose"
+msgstr "বেছে নিন"
+
+msgid "Send Money"
+msgstr "সেন্ড মানি"
+
+msgid "Enter Number:"
+msgstr "নম্বর দিন:"
+
+msgid "Personal"
+msgstr "পার্সোনাল"
+
+msgid "Enter Amount:"
+msgstr "টাকার পরিমাণ:"
+
+msgid "Reference:"
+msgstr "রেফারেন্স:"
+
+msgid "Your Name"
+msgstr "আপনার নাম"
+
+msgid "Enter PIN to confirm transaction"
+msgstr "পিন দিয়ে লেনদেন নিশ্চিত করুন"
+
+msgid "Copy the"
+msgstr "কপি করুন"
+
+msgid "Transaction ID (TrxID)"
+msgstr "ট্রানজ্যাকশন আইডি (TrxID)"
+
+msgid "and paste it below"
+msgstr "এবং নিচে পেস্ট করুন"
+
+msgid "e.g. 9G7H6K"
+msgstr "যেমন: 9G7H6K"
+
+msgid "This field is required for bKash payment"
+msgstr "বিকাশ পেমেন্টের জন্য এই তথ্যটি আবশ্যক"
+
+msgid "Order Summary"
+msgstr "অর্ডার সারসংক্ষেপ"
+
+msgid "Var"
+msgstr "ভার্সন"
+
+msgid "Subtotal"
+msgstr "সাবটোটাল"
+
+msgid "Confirm Order"
+msgstr "অর্ডার নিশ্চিত করুন"
+
+msgid "Place Order"
+msgstr "অর্ডার করুন"
+
+msgid "Total to Pay"
+msgstr "মোট প্রদেয়"
+
+msgid "Already have an account?"
+msgstr "ইতিমধ্যে একাউন্ট আছে?"
+
+msgid "Login here"
+msgstr "লগইন করুন"
+
+msgid "for faster checkout."
+msgstr "দ্রুত চেকআউটের জন্য।"
+
+msgid "Your cart is empty"
+msgstr "আপনার কার্ট খালি"
+
+msgid "Go Shopping"
+msgstr "শপিং করুন"
+
+# --- WISHLIST TRANSLATIONS ---
+
+msgid "Your Wishlist"
+msgstr "আপনার উইশলিস্ট"
+
+msgid "items saved for later"
+msgstr "টি পণ্য সেভ করা আছে"
+
+msgid "Remove"
+msgstr "সরান"
+
+msgid "Your wishlist is empty"
+msgstr "আপনার উইশলিস্ট খালি"
+
+msgid "Seems like you haven't found anything you like yet."
+msgstr "মনে হচ্ছে আপনি এখনও পছন্দের কিছু পাননি।"
+
+msgid "Explore Products"
+msgstr "পণ্য দেখুন"
+
+# --- CART TRANSLATIONS ---
+
+msgid "Your Shopping Cart"
+msgstr "আপনার শপিং কার্ট"
+
+msgid "Your Cart"
+msgstr "আপনার কার্ট"
+
+msgid "Looks like you haven't added anything yet."
+msgstr "মনে হচ্ছে আপনি এখনও কিছু যোগ করেননি।"
+
+msgid "Start Shopping"
+msgstr "কেনাকাটা শুরু করুন"
+
+msgid "Product"
+msgstr "পণ্য"
+
+msgid "Price"
+msgstr "দাম"
+
+msgid "Action"
+msgstr "অ্যাকশন"
+
+msgid "Contact Required"
+msgstr "যোগাযোগ প্রয়োজন"
+
+msgid "Total:"
+msgstr "মোট:"
+
+msgid "(Excluding delivery charge)"
+msgstr "(ডেলিভারি চার্জ ছাড়া)"
+
+msgid "Proceed to Checkout"
+msgstr "চেকআউট করুন"
+
+msgid "Total (excl. delivery)"
+msgstr "মোট (ডেলিভারি ছাড়া)"

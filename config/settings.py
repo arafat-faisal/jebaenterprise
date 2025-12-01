@@ -14,6 +14,7 @@ from pathlib import Path
 import dj_database_url
 import os
 from dotenv import load_dotenv
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,6 +75,9 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # --- ADD THIS LINE HERE (Must be after SessionMiddleware) ---
+    'django.middleware.locale.LocaleMiddleware', 
+    # --------------------------
     # --- ADD THIS LINE HERE ---
     'jeba_analytics.middleware.AnalyticsMiddleware',
     # --------------------------
@@ -133,12 +137,22 @@ AUTH_PASSWORD_VALIDATORS = []
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
 USE_TZ = True
 
+# --- ADD THESE I18N SETTINGS ---
+LANGUAGES = [
+    ('en', _('English')),
+    ('bn', _('Bengali')),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+# -------------------------------
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/

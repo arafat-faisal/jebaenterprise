@@ -1,5 +1,6 @@
 {% load static %}
 {% load seo_tags %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -361,6 +362,11 @@
             transform: rotate(-10deg); 
         }
 
+        /* --- MOBILE LANGUAGE SWITCHER --- */
+        .mobile-lang-switcher {
+            display: none;
+        }
+
         /* --- SMARTCODER: DYNAMIC MOBILE HEADER (Streamlined Option 1) --- */
         @media (max-width: 768px) {
             body { padding: 0 !important; padding-bottom: 80px !important; }
@@ -438,6 +444,29 @@
             .container { max-width: 100% !important; padding: 20px 15px !important; }
             .sequoia-footer { border-radius: 0 !important; padding: 40px 15px 20px !important; }
             .messenger-float { bottom: 85px !important; width: 45px; height: 45px; right: 20px; }
+
+            /* --- SHOW MOBILE LANGUAGE SWITCHER --- */
+            .mobile-lang-switcher {
+                display: block;
+                margin-right: 10px;
+                flex-shrink: 0;
+            }
+            .mobile-lang-switcher select {
+                padding: 6px 10px;
+                border-radius: 20px;
+                border: 1px solid #E0E0E0;
+                background: #F8F9FB;
+                font-size: 0.8rem;
+                font-weight: 700;
+                color: var(--text-main);
+                outline: none;
+                cursor: pointer;
+            }
+            
+            /* Hide switcher when search expands to save space */
+            body.search-active .mobile-lang-switcher {
+                display: none;
+            }
         }
         /* Suggestions Dropdown */
 .suggestions-dropdown {
@@ -547,7 +576,6 @@
         }
     </style>
     <link rel="icon" href="/media/logo.svg" type="image/svg+xml">
-    <!-- <title>{% block title %}Jeba Enterprise{% endblock %}</title> -->
     {% if site_settings.meta_pixel_id %}
     <script>
         !function(f,b,e,v,n,t,s)
@@ -574,15 +602,32 @@
         <a href="{% url 'home' %}" class="logo">
             <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 40px; width: auto;">
         </a>
+
+        <div class="mobile-lang-switcher">
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select name="language" onchange="this.form.submit()">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.code|upper }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
         <a href="{% url 'product_catalog' %}" class="catalog-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-            All Products
+            {% trans "All Products" %}
         </a>
         
         <form method="GET" action="{% url 'search' %}" class="search-container">
-            <input type="search" name="q" placeholder="Search products..." class="search-input" value="{{ request.GET.q|default:'' }}">
+            <input type="search" name="q" placeholder="{% trans 'Search products...' %}" class="search-input" value="{{ request.GET.q|default:'' }}">
             <div id="search-suggestions-box" class="suggestions-dropdown"></div>
-            <button type="submit" class="search-btn" title="Search">
+            <button type="submit" class="search-btn" title="{% trans 'Search' %}">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -591,6 +636,21 @@
         </form>
         
         <nav class="nav-links">
+            <form action="{% url 'set_language' %}" method="post" style="margin-right: 15px;">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select name="language" onchange="this.form.submit()" 
+                        style="padding: 8px 12px; border-radius: 50px; border: 1px solid #E0E0E0; background: #F8F9FB; font-size: 0.85rem; font-weight: 600; color: var(--text-main); cursor: pointer; outline: none;">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.name_local }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
             {% if user.is_authenticated %}
                 {% if user.is_superuser %}
                     <a href="/admin/" target="_blank" style="color: #212121; background-color: var(--accent-lime); padding: 8px 15px; border-radius: 4px; font-weight: bold; display: inline-flex; align-items: center; gap: 7px;">
@@ -600,32 +660,32 @@
                             <line x1="8" y1="2" x2="8" y2="6"></line>
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
-                        Admin Panel
+                        {% trans "Admin Panel" %}
                     </a>
                 {% endif %}
-                <a href="{% url 'user_dashboard' %}" class="nav-icon" title="My Dashboard">
+                <a href="{% url 'user_dashboard' %}" class="nav-icon" title="{% trans 'My Dashboard' %}">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                 </a>
-                <a href="{% url 'my_orders' %}" class="nav-icon" title="My Orders">
+                <a href="{% url 'my_orders' %}" class="nav-icon" title="{% trans 'My Orders' %}">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                 </a>
-                <a href="{% url 'user_logout' %}" class="nav-icon" title="Logout">
+                <a href="{% url 'user_logout' %}" class="nav-icon" title="{% trans 'Logout' %}">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
                 </a>
             {% else %}
-                <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'register' %}" class="btn" style="padding: 8px 24px; font-size: 0.9rem;">Sign Up</a>
+                <a href="{% url 'login' %}">{% trans "Login" %}</a>
+                <a href="{% url 'register' %}" class="btn" style="padding: 8px 24px; font-size: 0.9rem;">{% trans "Sign Up" %}</a>
             {% endif %}
-            <a href="{% url 'view_cart' %}" class="nav-icon" title="Cart">
+            <a href="{% url 'view_cart' %}" class="nav-icon" title="{% trans 'Cart' %}">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                 {% if request.session.cart %}
                     <span style="position: absolute; top: -2px; right: -2px; width: 10px; height: 10px; background: var(--accent-lime); border: 2px solid #fff; border-radius: 50%;"></span>
                 {% endif %}
             </a>
-            <a href="{% url 'wishlist' %}" class="nav-icon" title="Wishlist">
+            <a href="{% url 'wishlist' %}" class="nav-icon" title="{% trans 'Wishlist' %}">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
             </a>
         </nav>
@@ -661,53 +721,53 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 35px; margin-bottom: 5px;">
-                <p>Making modern lifestyle products accessible to everyone. Join our newsletter for exclusive offers.</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email" required>
-                    <button type="submit" class="btn-subscribe">Join</button>
+                <p>{% trans "Making modern lifestyle products accessible to everyone. Join our newsletter for exclusive offers." %}</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('{% blocktrans %}Thanks for subscribing!{% endblocktrans %}');">
+                    <input type="email" class="newsletter-input" placeholder="{% trans 'Enter your email' %}" required>
+                    <button type="submit" class="btn-subscribe">{% trans "Join" %}</button>
                 </form>
             </div>
 
             <div class="footer-links">
                 <div>
-                    <div class="col-title">Shop</div>
+                    <div class="col-title">{% trans "Shop" %}</div>
                     <ul class="footer-link-list">
-                        <li><a href="{% url 'home' %}">New Arrivals</a></li>
-                        <li><a href="{% url 'product_catalog' %}">Best Sellers</a></li>
-                        <li><a href="{% url 'product_catalog' %}">All Products</a></li>
+                        <li><a href="{% url 'home' %}">{% trans "New Arrivals" %}</a></li>
+                        <li><a href="{% url 'product_catalog' %}">{% trans "Best Sellers" %}</a></li>
+                        <li><a href="{% url 'product_catalog' %}">{% trans "All Products" %}</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <div class="col-title">Support</div>
+                    <div class="col-title">{% trans "Support" %}</div>
                     <ul class="footer-link-list">
-                        <li><a href="{% url 'my_orders' %}">Track Order</a></li>
-                        <li><a href="#">Return Policy</a></li>
-                        <li><a href="#">Help Center</a></li>
+                        <li><a href="{% url 'my_orders' %}">{% trans "Track Order" %}</a></li>
+                        <li><a href="#">{% trans "Return Policy" %}</a></li>
+                        <li><a href="#">{% trans "Help Center" %}</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <div class="col-title">Company</div>
+                    <div class="col-title">{% trans "Company" %}</div>
                     <ul class="footer-link-list">
-                        <li><a href="{% url 'blog_list' %}">Our Blog</a></li>
-                        <li><a href="{% url 'about_us' %}">About Us</a></li> 
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="{% url 'contact_us' %}">Contact</a></li> 
+                        <li><a href="{% url 'blog_list' %}">{% trans "Our Blog" %}</a></li>
+                        <li><a href="{% url 'about_us' %}">{% trans "About Us" %}</a></li> 
+                        <li><a href="#">{% trans "Careers" %}</a></li>
+                        <li><a href="{% url 'contact_us' %}">{% trans "Contact" %}</a></li> 
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <div>&copy; {% now "Y" %} Jeba Enterprise. All rights reserved.</div>
+            <div>&copy; {% now "Y" %} {% trans "Jeba Enterprise. All rights reserved." %}</div>
             <div class="social-links">
                 <a href="{{ site_settings.facebook_page_url }}" target="_blank" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
             </div>
         </div>
     </footer>
     {% if site_settings.messenger_username %}
-        <a href="https://m.me/{{ site_settings.messenger_username }}" target="_blank" class="messenger-float" title="Chat with us" onclick="playPopSound()">
+        <a href="https://m.me/{{ site_settings.messenger_username }}" target="_blank" class="messenger-float" title="{% trans 'Chat with us' %}" onclick="playPopSound()">
             <svg class="messenger-icon" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.03 2 11C2 13.66 3.39 16.04 5.56 17.59C5.69 17.68 5.77 17.83 5.76 17.99L5.5 20.8C5.45 21.36 6.03 21.73 6.53 21.46L9.57 19.84C9.7 19.77 9.85 19.76 9.99 19.8C10.65 19.93 11.32 20 12 20C17.52 20 22 15.97 22 11C22 6.03 17.52 2 12 2ZM17 10.5L13.9 15.2C13.71 15.48 13.32 15.55 13.04 15.36L10.5 13.64L7.29 15.35C6.95 15.53 6.61 15.12 6.8 14.83L9.9 10.12C10.09 9.84 10.48 9.77 10.76 9.96L13.3 11.68L16.51 9.97C16.85 9.79 17.19 10.2 17 10.5Z"/>
             </svg>
@@ -740,7 +800,7 @@
             const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
             if (submitBtn) {
                 const originalText = submitBtn.innerText;
-                submitBtn.innerText = "Processing...";
+                submitBtn.innerText = "{% trans 'Processing...' %}";
                 submitBtn.style.opacity = "0.7";
                 submitBtn.style.cursor = "not-allowed";
                 setTimeout(() => { submitBtn.disabled = true; }, 10);
@@ -816,7 +876,7 @@
                     suggestionBox.innerHTML = '';
                     
                     // Header text
-                    const title = query ? 'Products' : 'Trending Searches';
+                    const title = query ? "{% trans 'Products' %}" : "{% trans 'Trending Searches' %}";
                     const header = document.createElement('div');
                     header.style.padding = '8px 15px';
                     header.style.fontSize = '0.75rem';
@@ -879,22 +939,22 @@
 <nav class="mobile-bottom-nav">
         <a href="{% url 'home' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span>Home</span>
+            <span>{% trans "Home" %}</span>
         </a>
 
         <a href="{% url 'product_catalog' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'product_catalog' %}active{% endif %}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-            <span>Shop</span>
+            <span>{% trans "Shop" %}</span>
         </a>
 
         <a href="{% url 'wishlist' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'wishlist' %}active{% endif %}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            <span>Wishlist</span>
+            <span>{% trans "Wishlist" %}</span>
         </a>
 
         <a href="{% url 'view_cart' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'view_cart' %}active{% endif %}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-            <span>Cart</span>
+            <span>{% trans "Cart" %}</span>
             {% if request.session.cart %}
                 <span class="cart-badge-mobile"></span>
             {% endif %}
@@ -902,7 +962,7 @@
 
         <a href="{% if user.is_authenticated %}{% url 'user_dashboard' %}{% else %}{% url 'login' %}{% endif %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'user_dashboard' or request.resolver_match.url_name == 'login' %}active{% endif %}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            <span>Account</span>
+            <span>{% trans "Account" %}</span>
         </a>
     </nav>
 </body>

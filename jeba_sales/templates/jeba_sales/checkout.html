@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Checkout{% endblock %}
+{% block title %}{% trans "Checkout" %}{% endblock %}
 
 {% block content %}
-
 <style>
     /* --- SMARTCODER: LAYOUT & GRID --- */
     .checkout-grid {
@@ -293,13 +293,13 @@
 
 <div class="container" style="max-width: 1100px; margin: 0 auto;">
     
-    <h1 style="font-size: 2rem; margin-bottom: 30px; font-weight: 800;">Checkout</h1>
+    <h1 style="font-size: 2rem; margin-bottom: 30px; font-weight: 800;">{% trans "Checkout" %}</h1>
 
     {% if cart_items %}
     
     {% if not user.is_authenticated %}
         <div class="auth-nudge">
-            Already have an account? <a href="{% url 'login' %}?next={% url 'checkout' %}">Login here</a> for faster checkout.
+            {% trans "Already have an account?" %} <a href="{% url 'login' %}?next={% url 'checkout' %}">{% trans "Login here" %}</a> {% trans "for faster checkout." %}
         </div>
     {% endif %}
 
@@ -318,11 +318,11 @@
             <div class="checkout-card">
                 <div class="section-title">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    Shipping Info
+                    {% trans "Shipping Info" %}
                 </div>
                 
                 <div class="form-group">
-                    <label>Full Name <span style="color:red">*</span></label>
+                    <label>{% trans "Full Name" %} <span style="color:red">*</span></label>
                     {{ form.customer_name }}
                     {% if form.customer_name.errors %}
                         <div class="error-msg">{{ form.customer_name.errors.0 }}</div>
@@ -330,7 +330,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Phone Number <span style="color:red">*</span></label>
+                    <label>{% trans "Phone Number" %} <span style="color:red">*</span></label>
                     {{ form.phone_number }}
                     {% if form.phone_number.errors %}
                         <div class="error-msg">{{ form.phone_number.errors.0 }}</div>
@@ -338,7 +338,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Detailed Address <span style="color:red">*</span></label>
+                    <label>{% trans "Detailed Address" %} <span style="color:red">*</span></label>
                     {{ form.shipping_address }}
                     {% if form.shipping_address.errors %}
                         <div class="error-msg">{{ form.shipping_address.errors.0 }}</div>
@@ -349,7 +349,7 @@
             <div class="checkout-card">
                 <div class="section-title">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 14"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                    Delivery Area <span style="color:red; margin-left:5px;">*</span>
+                    {% trans "Delivery Area" %} <span style="color:red; margin-left:5px;">*</span>
                 </div>
                 
                 <div class="selection-grid">
@@ -359,7 +359,7 @@
                                onchange="updateTotal('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}')">
                         <label class="selection-label" for="area_inside">
                             <div style="display:flex; align-items:center;">
-                                <span class="radio-circle"></span> Inside Dhaka
+                                <span class="radio-circle"></span> {% trans "Inside Dhaka" %}
                             </div>
                             <span class="price-badge">৳{{ settings.delivery_charge_inside|default:60 }}</span>
                         </label>
@@ -371,7 +371,7 @@
                                onchange="updateTotal('OUTSIDE', '{{ settings.delivery_charge_outside|default:120 }}')">
                         <label class="selection-label" for="area_outside">
                             <div style="display:flex; align-items:center;">
-                                <span class="radio-circle"></span> Outside Dhaka
+                                <span class="radio-circle"></span> {% trans "Outside Dhaka" %}
                             </div>
                             <span class="price-badge">৳{{ settings.delivery_charge_outside|default:120 }}</span>
                         </label>
@@ -381,7 +381,7 @@
                     <div class="error-msg">{{ form.delivery_area.errors.0 }}</div>
                 {% else %}
                     <small style="color: var(--text-sub); display: block; margin-top: 10px;">
-                        Please select your delivery area to calculate shipping.
+                        {% trans "Please select your delivery area to calculate shipping." %}
                     </small>
                 {% endif %}
             </div>
@@ -389,7 +389,7 @@
             <div class="checkout-card">
                 <div class="section-title">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    Payment Method
+                    {% trans "Payment Method" %}
                 </div>
                 
                 <div class="selection-grid">
@@ -399,7 +399,7 @@
                                onclick="togglePayment('COD')">
                         <label class="selection-label" for="pay_cod">
                             <div style="display:flex; align-items:center;">
-                                <span class="radio-circle"></span> Cash on Delivery
+                                <span class="radio-circle"></span> {% trans "Cash on Delivery" %}
                             </div>
                             <span>💵</span>
                         </label>
@@ -411,7 +411,7 @@
                                onclick="togglePayment('BKASH')">
                         <label class="selection-label" for="pay_bkash">
                             <div style="display:flex; align-items:center;">
-                                <span class="radio-circle"></span> bKash Payment
+                                <span class="radio-circle"></span> {% trans "bKash Payment" %}
                             </div>
                             <span><img src="/media/bkash_logo.svg" style="height:20px;"></span>
                         </label>
@@ -420,28 +420,28 @@
 
                 <div id="bkash-section" class="bkash-box" {% if form.payment_method.value == 'BKASH' %}style="display:block;"{% endif %}>
                     <div class="bkash-instructions">
-                        <h4 style="margin-top:0; color:#D81B60;">How to Pay with bKash:</h4>
+                        <h4 style="margin-top:0; color:#D81B60;">{% trans "How to Pay with bKash:" %}</h4>
                         <ol>
-                            <li>Go to your bKash App or Dial <strong>*247#</strong></li>
-                            <li>Choose <strong>"Send Money"</strong></li>
-                            <li>Enter Number: <strong style="font-size:1.1em;">{{ settings.bkash_number }}</strong> (Personal)</li>
-                            <li>Enter Amount: <strong>৳<span id="bkash-amount-display">{{ total_price|floatformat:0 }}</span></strong></li>
-                            <li>Reference: <strong>Your Name</strong></li>
-                            <li>Enter PIN to confirm transaction</li>
-                            <li>Copy the <strong>Transaction ID (TrxID)</strong> and paste it below</li>
+                            <li>{% trans "Go to your bKash App or Dial" %} <strong>*247#</strong></li>
+                            <li>{% trans "Choose" %} <strong>"{% trans 'Send Money' %}"</strong></li>
+                            <li>{% trans "Enter Number:" %} <strong style="font-size:1.1em;">{{ settings.bkash_number }}</strong> ({% trans "Personal" %})</li>
+                            <li>{% trans "Enter Amount:" %} <strong>৳<span id="bkash-amount-display">{{ total_price|floatformat:0 }}</span></strong></li>
+                            <li>{% trans "Reference:" %} <strong>{% trans "Your Name" %}</strong></li>
+                            <li>{% trans "Enter PIN to confirm transaction" %}</li>
+                            <li>{% trans "Copy the" %} <strong>{% trans "Transaction ID (TrxID)" %}</strong> {% trans "and paste it below" %}</li>
                         </ol>
                     </div>
                     <div class="form-group" style="margin-bottom: 0;">
-                        <label>Transaction ID (TrxID) <span style="color:red">*</span></label>
+                        <label>{% trans "Transaction ID (TrxID)" %} <span style="color:red">*</span></label>
                         
                         <input type="text" 
                                name="transaction_id" 
                                id="id_transaction_id" 
                                class="form-control" 
-                               placeholder="e.g. 9G7H6K" 
+                               placeholder="{% trans 'e.g. 9G7H6K' %}" 
                                value="{{ form.transaction_id.value|default:'' }}">
                                
-                        <small style="color: #666;">This field is required for bKash payment</small>
+                        <small style="color: #666;">{% trans "This field is required for bKash payment" %}</small>
                         {% if form.transaction_id.errors %}
                             <div class="error-msg">{{ form.transaction_id.errors.0 }}</div>
                         {% endif %}
@@ -452,7 +452,7 @@
 
         <div class="right-col">
             <div class="summary-card">
-                <div class="section-title">Order Summary</div>
+                <div class="section-title">{% trans "Order Summary" %}</div>
                 
                 {% for item in cart_items %}
                 <div class="order-item">
@@ -469,7 +469,7 @@
                     <div class="item-info">
                         <span class="item-title">{{ item.product.name }}</span>
                         <div class="item-meta">
-                            {% if item.variation %}Var: {{ item.variation.name }} <br>{% endif %}
+                            {% if item.variation %}{% trans "Var" %}: {{ item.variation.name }} <br>{% endif %}
                             {{ item.quantity }} x ৳{{ item.price|floatformat:0 }}
                         </div>
                     </div>
@@ -480,20 +480,20 @@
                 {% endfor %}
 
                 <div class="cost-row">
-                    <span>Subtotal</span>
+                    <span>{% trans "Subtotal" %}</span>
                     <span>৳{{ total_price|floatformat:0 }}</span>
                 </div>
                 <div class="cost-row">
-                    <span>Delivery</span>
+                    <span>{% trans "Delivery" %}</span>
                     <span id="delivery-display">--</span> 
                 </div>
                 <div class="cost-row total">
-                    <span>Total</span>
+                    <span>{% trans "Total" %}</span>
                     <span id="grand-total-display">৳{{ total_price|floatformat:0 }}</span>
                 </div>
 
                 <button type="submit" class="btn-checkout desktop-only">
-                    Confirm Order
+                    {% trans "Confirm Order" %}
                 </button>
             </div>
         </div>
@@ -503,11 +503,11 @@
 
     <div class="sticky-checkout-bar">
         <div class="scb-info">
-            <span class="scb-label">Total to Pay</span>
+            <span class="scb-label">{% trans "Total to Pay" %}</span>
             <span class="scb-total" id="sticky-total-display">৳{{ total_price|floatformat:0 }}</span>
         </div>
         <button type="submit" form="checkout-form" class="scb-btn">
-            Place Order
+            {% trans "Place Order" %}
         </button>
     </div>
 
@@ -559,8 +559,8 @@
 
     {% else %}
         <div style="text-align: center; padding: 60px;">
-            <h2>Your cart is empty 🛒</h2>
-            <p><a href="{% url 'pricing_sheet' %}" class="btn">Go Shopping</a></p>
+            <h2>{% trans "Your cart is empty" %} 🛒</h2>
+            <p><a href="{% url 'home' %}" class="btn">{% trans "Go Shopping" %}</a></p>
         </div>
     {% endif %}
 
