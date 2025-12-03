@@ -9,7 +9,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 {% with h_font=page.font_heading b_font=page.font_body %}
     {% if 'Montserrat' in h_font or 'Montserrat' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">{% endif %}
     {% if 'Open Sans' in h_font or 'Open Sans' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">{% endif %}
@@ -25,21 +24,34 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
-    /* --- 1. DYNAMIC THEME ENGINE --- */
+    /* --- 1. DYNAMIC THEME ENGINE 2.0 --- */
     :root {
-        /* Colors from Database */
-        --app-bg: {{ page.primary_color|default:'#000000' }};
-        --app-card-bg: {{ page.secondary_color|default:'#1d1d1f' }};
-        --app-accent: {{ page.accent_color|default:'#D4F759' }};
-        --app-text: {{ page.text_color|default:'#f5f5f7' }};
+        /* Default Fallbacks */
+        --app-bg: #000000;
+        --app-card-bg: #1d1d1f;
+        --app-accent: #D4F759;
+        --app-text: #f5f5f7;
         --app-subtext: #86868b;
         --app-radius: 28px;
-        --brand-lime: var(--app-accent);
 
-        /* Fonts from Database */
+        /* Fonts */
         --font-heading: '{{ page.font_heading }}', sans-serif;
         --font-body: '{{ page.font_body }}', sans-serif;
     }
+
+    /* INJECT THEME FROM DB */
+    {% if page.theme %}
+        {{ page.theme.base_css|safe }}
+    {% endif %}
+
+    /* Manual Overrides */
+    :root {
+        {% if page.override_primary_color %}--app-bg: {{ page.override_primary_color }} !important;{% endif %}
+        {% if page.override_accent_color %}--app-accent: {{ page.override_accent_color }} !important;{% endif %}
+    }
+
+    /* Page Specific CSS */
+    {{ page.custom_css|default:""|safe }}
 
     /* --- 0. PRELOADER --- */
     #site-loader {
@@ -58,14 +70,12 @@
     }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-    /* --- 1. CORE STYLES (RESTORED FULL WIDTH) --- */
+    /* --- 1. CORE STYLES --- */
     body .container {
         max-width: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
     }
-
-    /* Hide navs on scroll (Immersive Mode) */
     body.immersive-mode .site-header { transform: translateY(-150%) !important; pointer-events: none; }
     body.immersive-mode .mobile-bottom-nav { transform: translateY(200%) !important; pointer-events: none; }
     .site-header, .mobile-bottom-nav { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important; }
@@ -76,10 +86,9 @@
         font-family: var(--font-body);
         width: 100%;
         overflow-x: hidden;
-        /* Padding bottom for mobile nav space */
         padding-bottom: 150px;
         min-height: 100vh;
-        opacity: 0; /* Hidden until loaded */
+        opacity: 0;
         transition: opacity 0.5s;
     }
 
@@ -96,28 +105,27 @@
     .text-body-pro { 
         font-size: 18px; line-height: 1.6; font-weight: 400; opacity: 0.9; 
     }
+    
+    /* --- NEW: Countdown & Stock Styles --- */
+    .stock-warning-badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: #ff3b30; color: white; padding: 6px 16px; border-radius: 50px;
+        font-weight: 700; font-size: 0.9rem; margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(255, 59, 48, 0.4);
+    }
+    .countdown-wrapper {
+        margin: 20px 0;
+        padding: 15px; border: 1px solid rgba(255,255,255,0.1); border-radius: 15px;
+        display: inline-block; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
+    }
+    .countdown-timer {
+        font-family: monospace; font-size: 2rem; font-weight: 800; color: var(--app-accent); line-height: 1;
+    }
+    .countdown-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; display: block; margin-bottom: 5px; }
 
-    /* RESTORED: Red Line Strike-Through */
-    .price-strike { 
-        position: relative; 
-        display: inline-block; 
-        color: #999; 
-        font-size: 0.9em; 
-        margin-right: 8px; 
-        font-weight: 500; 
-        text-decoration: none; 
-    }
-    .price-strike::after { 
-        content: ''; 
-        position: absolute; 
-        left: -5%; 
-        top: 50%; 
-        width: 110%; 
-        height: 2px; 
-        background: #ff3b30; /* Red Line */
-        transform: translateY(-50%) rotate(-12deg); 
-        border-radius: 2px;
-    }
+    /* Strike Through Price */
+    .price-strike { position: relative; display: inline-block; color: #999; font-size: 0.9em; margin-right: 8px; font-weight: 500; text-decoration: none; }
+    .price-strike::after { content: ''; position: absolute; left: -5%; top: 50%; width: 110%; height: 2px; background: #ff3b30; transform: translateY(-50%) rotate(-12deg); border-radius: 2px; }
     .price-highlight { color: var(--app-accent); font-weight: 700; font-size: larger;}
 
     @media (max-width: 768px) {
@@ -126,72 +134,33 @@
         .text-body-pro { font-size: 16px; }
     }
 
-    /* --- 3. DYNAMIC SECTIONS UTILS --- */
+    /* --- 3. SECTIONS --- */
     .dynamic-section {
         position: relative;
         background-size: cover;
         background-position: center;
-        
-        /* Consume Variables (Safe for Linter) */
         padding-top: var(--sec-pt, 80px);
         padding-bottom: var(--sec-pb, 80px);
         background: var(--sec-bg, transparent);
         color: var(--sec-color, inherit);
         text-align: var(--sec-align, center);
     }
+    .hero-full-screen { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    .dynamic-radius { border-radius: var(--sec-radius, 0px); overflow: hidden; }
+    .section-bg-image { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; }
 
-    /* FIX: Hero specific full screen */
-    .hero-full-screen {
-        min-height: 100vh; /* Force full screen height */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .dynamic-radius {
-        border-radius: var(--sec-radius, 0px);
-        overflow: hidden;
-    }
-
-    /* Background Image Helper (Absolute for layering) */
-    .section-bg-image {
-        position: absolute;
-        inset: 0;
-        background-size: cover;
-        background-position: center;
-        z-index: 0; 
-    }
-
-    /* Shape Dividers */
-    .shape-divider {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        z-index: 1;
-        pointer-events: none;
-    }
-    .shape-divider svg {
-        display: block;
-        width: calc(130% + 1.3px);
-        height: 60px;
-    }
+    /* Dividers */
+    .shape-divider { position: absolute; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 1; pointer-events: none; }
+    .shape-divider svg { display: block; width: calc(130% + 1.3px); height: 60px; }
     @media (min-width: 768px) { .shape-divider svg { height: 120px; } }
-    
     .divider-top { top: 0; transform: rotate(180deg); }
     .divider-bottom { bottom: 0; }
     .divider-fill { fill: var(--app-bg); }
 
-    /* Content Styling */
-    .section-icon {
-        font-size: 40px;
-        color: var(--app-accent);
-        margin-bottom: 20px;
-        display: inline-block;
-    }
+    /* Icons */
+    .section-icon { font-size: 40px; color: var(--app-accent); margin-bottom: 20px; display: inline-block; }
 
-    /* --- 4. BUTTONS --- */
+    /* --- 4. BUTTONS & ISLAND --- */
     @keyframes shimmer-gold { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
     @keyframes gentle-pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 247, 89, 0.6); } 70% { box-shadow: 0 0 0 10px rgba(212, 247, 89, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 247, 89, 0); } }
 
@@ -203,7 +172,6 @@
         border: none;
         animation: shimmer-gold 3s infinite linear, gentle-pulse 2s infinite ease-out;
     }
-    
     .btn-custom-outline {
         border: 2px solid rgba(255,255,255,0.2);
         color: var(--app-text);
@@ -215,7 +183,7 @@
     }
     .btn-custom-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; color: #fff; }
 
-    /* --- 5. VIDEO & MEDIA --- */
+    /* --- 5. MEDIA --- */
     .custom-video-wrapper { position: relative; border-radius: 20px; overflow: hidden; width: 100%; background: #000; cursor: pointer; touch-action: manipulation; }
     .custom-video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .video-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); transition: opacity 0.3s; z-index: 2; pointer-events: none; }
@@ -229,7 +197,7 @@
     .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
     @media (max-width: 768px) { .carousel-item { height: 400px; } }
 
-    /* --- 7. ISLAND BAR (Sticky Button) --- */
+    /* --- 7. ISLAND BAR --- */
     #island-bar {
         position: fixed; z-index: 9999; display: flex; align-items: center; justify-content: center;
         overflow: hidden; opacity: 0; visibility: hidden;
@@ -243,10 +211,18 @@
     .island-actions { display: flex; align-items: center; gap: 10px; }
     .btn-island-secondary { background: rgba(255,255,255,0.1); color: #fff; border: none; padding: 8px 16px; border-radius: 99px; font-size: 14px; font-weight: 600; text-decoration: none; }
     .btn-island-primary { background: var(--app-accent); color: #000; font-weight: 700; border: none; padding: 10px 24px; border-radius: 99px; font-size: 14px; cursor: pointer; }
-
+    
+    /* --- PREVIEW MODE OVERRIDES (FIXED) --- */
+    {% if preview_mode %}
+        /* Force content to be visible immediately */
+        .landing-wrapper { opacity: 1 !important; }
+        
+        /* Force loader to be hidden */
+        #site-loader { display: none !important; opacity: 0 !important; pointer-events: none !important; }
+    {% endif %}
 </style>
 
-<div id="site-loader">
+<div id="site-loader" {% if preview_mode %}style="display: none !important;"{% endif %}>
     <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 60px;">
     <div class="loader-spinner"></div>
 </div>
@@ -258,6 +234,12 @@
         
         <section class="dynamic-section {% if section.section_type == 'HERO' %}hero-full-screen{% endif %}" 
                  id="section-{{ section.id }}"
+                 {% if preview_mode %}
+                    data-form-index="{{ section.form_index }}"
+                    data-desktop-pos="{{ section.desktop_media_position }}"
+                    data-mobile-pos="{{ section.mobile_media_position }}"
+                    onclick="handleClick(event, {{ section.form_index }})"
+                 {% endif %}
                  style="
                     --sec-pt: {{ section.padding_top }}px; 
                     --sec-pb: {{ section.padding_bottom }}px;
@@ -266,23 +248,32 @@
                     --sec-align: {{ section.text_alignment }};
                     --sec-radius: {{ section.border_radius }}px;
                     --sec-overlay: {{ section.overlay_opacity }};
-                    
-                    /* FIX: Allow Description Cards to inherit Section Color */
                     --card-bg: {% if section.background_color %}{{ section.background_color }}{% else %}var(--app-card-bg){% endif %};
+                    
+                    /* RESPONSIVE POSITIONING VARIABLES */
+                    --bg-pos-x: 50%; --bg-pos-y: 50%;
                  ">
             
+            <style>
+                #section-{{ section.id }} .section-bg-image { background-position: {{ section.desktop_media_position }}; }
+                @media (max-width: 768px) {
+                    #section-{{ section.id }} .section-bg-image { background-position: {{ section.mobile_media_position }}; }
+                }
+                {% if preview_mode %}
+                /* Visual Cue for Draggable Areas */
+                #section-{{ section.id }}:hover .section-bg-image { cursor: move; filter: brightness(1.1); }
+                {% endif %}
+            </style>
+
             {% if section.image and section.section_type == 'HERO' %}
                 <div class="section-bg-image" style="background-image: url('{{ section.image.url }}');"></div>
             {% endif %}
 
             {% if section.divider_top != 'NONE' %}
             <div class="shape-divider divider-top">
-                {% if section.divider_top == 'WAVE' %}
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="divider-fill"></path></svg>
-                {% elif section.divider_top == 'SLANT_RIGHT' %}
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="divider-fill"></path></svg>
-                {% elif section.divider_top == 'CURVE' %}
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="divider-fill"></path><path d="M0,0V15.81C13,36.92,46,62.34,98.58,81.55c58.72,21.47,117.49,4.9,139.52-6.36C296.34,58.34,334.68,17.47,419.66,35c82.33,16.94,86.83,72.88,143.72,81.71C633.27,127.48,674,83.55,754,64.21c37.07-9,102.39-14.73,149.33,12.72,48.27,28.23,94.27,14,138.31-7.86,51.64-25.64,103-34.79,158.36-13.88V0Z" class="divider-fill"></path></svg>
+                {% if section.divider_top == 'WAVE' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="divider-fill"></path></svg>
+                {% elif section.divider_top == 'SLANT_RIGHT' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="divider-fill"></path></svg>
+                {% elif section.divider_top == 'CURVE' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="divider-fill"></path><path d="M0,0V15.81C13,36.92,46,62.34,98.58,81.55c58.72,21.47,117.49,4.9,139.52-6.36C296.34,58.34,334.68,17.47,419.66,35c82.33,16.94,86.83,72.88,143.72,81.71C633.27,127.48,674,83.55,754,64.21c37.07-9,102.39-14.73,149.33,12.72,48.27,28.23,94.27,14,138.31-7.86,51.64-25.64,103-34.79,158.36-13.88V0Z" class="divider-fill"></path></svg>
                 {% endif %}
             </div>
             {% endif %}
@@ -291,11 +282,33 @@
                 <div style="position: absolute; inset: 0; background: rgba(0,0,0, var(--sec-overlay)); z-index: 0;"></div>
                 
                 <div class="container" style="position: relative; z-index: 2;">
+                    
+                    {% if page.stock_warning > 0 and product.stock <= page.stock_warning %}
+                        <div class="stock-warning-badge gs-fade-up">
+                            <i class="fas fa-fire-alt"></i> ONLY {{ product.stock }} LEFT IN STOCK!
+                        </div>
+                    {% endif %}
+
                     {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon gs-fade-up"></i>{% endif %}
                     <h1 class="headline-pro gs-fade-up">{{ section.heading }}</h1>
                     <p class="subhead-pro gs-fade-up">{{ section.subheading }}</p>
                     
+                    {% if page.countdown_end %}
+                        <div class="countdown-wrapper gs-fade-up">
+                            <span class="countdown-label">Offer Expires In</span>
+                            <div class="countdown-timer" id="hero-countdown" data-end="{{ page.countdown_end|date:'Y-m-d H:i:s' }}">
+                                ...
+                            </div>
+                        </div>
+                    {% endif %}
+
                     <div id="hero-btn-placeholder" style="display:inline-block; width:180px; height:54px; margin-top:25px;"></div>
+                    
+                    {% if page.trust_badge_image %}
+                        <div class="mt-4 gs-fade-up" style="opacity: 0.9;">
+                            <img src="{{ page.trust_badge_image.url }}" alt="Secure Checkout" style="height: 40px; border-radius: 4px;">
+                        </div>
+                    {% endif %}
                 </div>
 
             {% elif section.section_type == 'TEXT_IMAGE_SPLIT' %}
@@ -307,7 +320,6 @@
                                 <h2 class="headline-pro" style="font-size: 42px;">{{ section.heading }}</h2>
                                 <h3 class="subhead-pro">{{ section.subheading }}</h3>
                                 <div class="text-body-pro mt-4">{{ section.description|linebreaks }}</div>
-                                
                                 {% if section.button_text %}
                                 <a href="#island-bar" class="btn-custom-outline mt-4 d-inline-block">{{ section.button_text }}</a>
                                 {% endif %}
@@ -394,12 +406,9 @@
 
             {% if section.divider_bottom != 'NONE' %}
             <div class="shape-divider divider-bottom">
-                {% if section.divider_bottom == 'WAVE' %}
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="divider-fill"></path></svg>
-                {% elif section.divider_bottom == 'SLANT_RIGHT' %}
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" transform="scale(1, -1) translate(0, -120)" class="divider-fill"></path></svg>
-                {% elif section.divider_bottom == 'CURVE' %}
-                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" transform="scale(1, -1) translate(0, -120)" class="divider-fill"></path></svg>
+                {% if section.divider_bottom == 'WAVE' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="divider-fill"></path></svg>
+                {% elif section.divider_bottom == 'SLANT_RIGHT' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" transform="scale(1, -1) translate(0, -120)" class="divider-fill"></path></svg>
+                {% elif section.divider_bottom == 'CURVE' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" transform="scale(1, -1) translate(0, -120)" class="divider-fill"></path></svg>
                 {% endif %}
             </div>
             {% endif %}
@@ -447,29 +456,28 @@
 </div>
 
 <script>
-    // --- JS: RESTORED NAVBAR TOGGLE & ANIMATIONS ---
-    function togglePlay(vidId, wrapper) {
-        const vid = document.getElementById(vidId);
-        const overlay = wrapper.querySelector('.video-overlay');
-        if(vid.paused) { vid.play(); overlay.classList.add('hidden'); } 
-        else { vid.pause(); overlay.classList.remove('hidden'); }
-    }
-
-    window.addEventListener("load", () => {
+    // --- MAIN INITIALIZATION FUNCTION ---
+    function mainInit() {
         gsap.registerPlugin(ScrollTrigger);
+        
+        // 1. Force Reveal Content (Crucial for Preview Refresh)
         const loader = document.getElementById('site-loader');
         const wrapper = document.getElementById('landing-wrapper');
-        const island = document.getElementById('island-bar');
-        const heroPlaceholder = document.getElementById('hero-btn-placeholder');
-        const heroContent = document.querySelector('.island-content-hero');
-        const fullContent = document.querySelector('.island-content-full');
-
-        // Reveal
-        if(loader) loader.style.opacity = '0';
+        
+        if(loader) loader.style.display = 'none';
         if(wrapper) wrapper.style.opacity = '1';
-        setTimeout(() => { if(loader) loader.style.display = 'none'; }, 500);
 
-        // RESTORED: Immersive Mode (Hide Navbar on Scroll)
+        // 2. Start Logic
+        initCountdown();
+        initIslandBar();
+
+        // 3. Scroll Animations
+        gsap.utils.toArray('.gs-fade-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 85%" }, y: 40, opacity: 0, duration: 1 }));
+        gsap.utils.toArray('.gs-scale-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, scale: 0.92, opacity: 0, duration: 1.2 }));
+        gsap.utils.toArray('.gs-fade-right').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: -30, opacity: 0, duration: 1 }));
+        gsap.utils.toArray('.gs-fade-left').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 30, opacity: 0, duration: 1 }));
+        
+        // 4. RESTORED IMMERSIVE MODE (Hides/Shows Navs)
         ScrollTrigger.create({
             start: 50,
             onUpdate: (self) => {
@@ -480,90 +488,201 @@
                 }
             }
         });
+    }
 
-        // Morphing Bar Logic (Only if Hero Button Exists)
-        if (island && heroPlaceholder) {
-            document.body.appendChild(island);
-            const rect = heroPlaceholder.getBoundingClientRect();
-            const absoluteTop = rect.top + window.scrollY;
-            
-            // FIX: Get the actual Hex/RGB value of the accent color
-            // This ensures GSAP can interpolate from "Gold" to "Dark" without snapping.
-            let accentColor = getComputedStyle(document.documentElement).getPropertyValue('--app-accent').trim();
-            if (!accentColor) accentColor = '#D4F759'; // Fallback if variable is missing
+    function initIslandBar() {
+        const island = document.getElementById('island-bar');
+        const heroPlaceholder = document.getElementById('hero-btn-placeholder');
+        const heroContent = document.querySelector('.island-content-hero');
+        const fullContent = document.querySelector('.island-content-full');
 
-            // 1. Initial State: Force it to look like the Hero Button
-            gsap.set(island, { 
-                top: absoluteTop, left: rect.left, width: rect.width, height: rect.height,
-                padding: "0", borderRadius: "50px", 
-                backgroundColor: accentColor, 
-                // We use the explicit color value here instead of var(--app-accent)
-                backgroundImage: `linear-gradient(110deg, ${accentColor} 0%, #ffffff 20%, ${accentColor} 40%)`, 
-                position: "absolute", zIndex: 9999, opacity: 1, visibility: "visible"
-            });
+        if (!island || !heroPlaceholder) return;
 
-            const isMobile = window.innerWidth < 768;
-            const targetWidth = isMobile ? window.innerWidth * 0.92 : Math.min(window.innerWidth * 0.9, 480);
-            
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "body", start: "top top", end: "400px top", scrub: 0.5, 
-                    onEnter: () => island.style.position = "fixed",
-                    onLeaveBack: () => {
-                        island.style.position = "absolute";
-                        island.style.top = (rect.top + window.scrollY) + "px";
-                        island.style.left = rect.left + "px";
-                    }
+        // Clean up old triggers to prevent duplication
+        ScrollTrigger.getAll().forEach(t => t.kill());
+        gsap.set(island, { clearProps: "all" });
+        gsap.set(heroContent, { clearProps: "all" });
+        gsap.set(fullContent, { clearProps: "all" });
+
+        const rect = heroPlaceholder.getBoundingClientRect();
+        const absoluteTop = rect.top + window.scrollY;
+        let accentColor = getComputedStyle(document.documentElement).getPropertyValue('--app-accent').trim() || '#D4F759';
+
+        gsap.set(island, { 
+            top: absoluteTop, left: rect.left, width: rect.width, height: rect.height,
+            padding: "0", borderRadius: "50px", 
+            backgroundColor: accentColor, 
+            backgroundImage: `linear-gradient(110deg, ${accentColor} 0%, #ffffff 20%, ${accentColor} 40%)`, 
+            position: "absolute", zIndex: 9999, opacity: 1, visibility: "visible"
+        });
+
+        const isMobile = window.innerWidth < 768;
+        const targetWidth = isMobile ? window.innerWidth * 0.92 : Math.min(window.innerWidth * 0.9, 480);
+        
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "body", start: "top top", end: "400px top", scrub: 0.5, 
+                onEnter: () => island.style.position = "fixed",
+                onLeaveBack: () => {
+                    island.style.position = "absolute";
+                    island.style.top = (rect.top + window.scrollY) + "px";
+                    island.style.left = rect.left + "px";
                 }
-            });
+            }
+        });
 
-            // 2. Animation: Morph into the Dark Sticky Bar
-            tl.to(island, {
-                top: window.innerHeight - 80, 
-                left: isMobile ? (window.innerWidth - targetWidth)/2 : "50%",
-                x: isMobile ? 0 : "-50%",
-                width: targetWidth, height: 72, padding: "0 15px", borderRadius: "99px",
-                
-                // GRADUAL COLOR TRANSITION:
-                // We transition the gradient colors to the Dark Popup color (rgba(20, 20, 22, 0.95))
-                // effectively "fading out" the shimmer and gold color smoothly.
-                backgroundColor: "rgba(20, 20, 22, 0.95)", 
-                backgroundImage: "linear-gradient(110deg, rgba(20,20,22,0.95) 0%, rgba(20,20,22,0.95) 20%, rgba(20,20,22,0.95) 40%)",
-                
-                boxShadow: "0 15px 50px rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.1)",
-                ease: "power1.inOut"
-            }, 0)
-            .to(heroContent, { opacity: 0, duration: 0.2 }, 0) 
-            .to(fullContent, { opacity: 1, display: "flex", duration: 0.4 }, 0.2); 
+        tl.to(island, {
+            top: window.innerHeight - 80, 
+            left: isMobile ? (window.innerWidth - targetWidth)/2 : "50%",
+            x: isMobile ? 0 : "-50%",
+            width: targetWidth, height: 72, padding: "0 15px", borderRadius: "99px",
+            backgroundColor: "rgba(20, 20, 22, 0.95)", 
+            backgroundImage: "linear-gradient(110deg, rgba(20,20,22,0.95) 0%, rgba(20,20,22,0.95) 20%, rgba(20,20,22,0.95) 40%)",
+            boxShadow: "0 15px 50px rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.1)",
+            ease: "power1.inOut"
+        }, 0)
+        .to(heroContent, { opacity: 0, duration: 0.2 }, 0) 
+        .to(fullContent, { opacity: 1, display: "flex", duration: 0.4 }, 0.2); 
+    }
+
+    function togglePlay(vidId, wrapper) {
+        const vid = document.getElementById(vidId);
+        const overlay = wrapper.querySelector('.video-overlay');
+        if(vid.paused) { vid.play(); overlay.classList.add('hidden'); } 
+        else { vid.pause(); overlay.classList.remove('hidden'); }
+    }
+
+    function initCountdown() {
+        const timer = document.getElementById('hero-countdown');
+        if (!timer) return;
+        const endTime = new Date(timer.dataset.end).getTime();
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+            if (distance < 0) { timer.innerHTML = "EXPIRED"; return; }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        };
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    }
+
+    // --- EXECUTION STRATEGY (Fixed for Refresh) ---
+    // Try immediate init
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(mainInit, 100); // Slight delay for safety
+    } else {
+        window.addEventListener("load", mainInit);
+    }
+    
+    // Backup Init (Ensures content appears even if event missed)
+    setTimeout(() => {
+        if (document.getElementById('landing-wrapper').style.opacity !== '1') {
+            mainInit();
         }
+    }, 1000);
 
-        // Section Animations
-        gsap.utils.toArray('.gs-fade-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 85%" }, y: 40, opacity: 0, duration: 1 }));
-        gsap.utils.toArray('.gs-scale-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, scale: 0.92, opacity: 0, duration: 1.2 }));
-        gsap.utils.toArray('.gs-fade-right').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: -30, opacity: 0, duration: 1 }));
-        gsap.utils.toArray('.gs-fade-left').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 30, opacity: 0, duration: 1 }));
+    // Resize Handler
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            ScrollTrigger.refresh();
+            initIslandBar(); 
+        }, 200);
     });
+
+    {% if preview_mode %}
+    // --- IMPROVED DRAG LOGIC ---
+    
+    function handleClick(e, index) {
+        // Only trigger focus if NOT dragging
+        if (!isDragging) {
+            parent.focusSection(index);
+        }
+    }
+
+    let isDragging = false;
+    let startX, startY;
+    let currentSection = null;
+
+    document.addEventListener('mousedown', (e) => {
+        // 1. Find the section being clicked
+        const section = e.target.closest('.dynamic-section');
+        if (!section) return;
+
+        // 2. Check if it has a background image to move
+        const bgDiv = section.querySelector('.section-bg-image');
+        if (!bgDiv) return;
+
+        // 3. Don't drag if clicking buttons or text inputs
+        if (e.target.closest('a, button, input, textarea')) return;
+
+        // 4. Start Dragging
+        isDragging = true;
+        currentSection = section;
+        startX = e.clientX;
+        startY = e.clientY;
+        e.preventDefault(); // Stop text selection
+        
+        // Visual cue
+        section.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging || !currentSection) return;
+
+        const rect = currentSection.getBoundingClientRect();
+        
+        // Calculate position percentage
+        // Invert X/Y to make it feel like "dragging the image" naturally
+        let x = (e.clientX - rect.left) / rect.width * 100;
+        let y = (e.clientY - rect.top) / rect.height * 100;
+        
+        // Clamp values 0-100%
+        x = Math.max(0, Math.min(100, x));
+        y = Math.max(0, Math.min(100, y));
+        
+        const posString = `${x.toFixed(1)}% ${y.toFixed(1)}%`;
+        
+        // Update visual
+        const bgDiv = currentSection.querySelector('.section-bg-image');
+        if (bgDiv) {
+            bgDiv.style.backgroundPosition = posString;
+        }
+        
+        // Save for mouseup
+        currentSection.dataset.newPos = posString;
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (isDragging && currentSection) {
+            currentSection.style.cursor = 'default';
+            
+            if (currentSection.dataset.newPos) {
+                // Send new position to Admin
+                window.parent.postMessage({
+                    type: 'update_position',
+                    index: currentSection.dataset.formIndex,
+                    position: currentSection.dataset.newPos
+                }, '*');
+                
+                // Flash Success Green
+                currentSection.style.outline = "4px solid #D4F759";
+                setTimeout(() => currentSection.style.outline = "none", 300);
+            }
+        }
+        // Small delay to prevent 'click' event from firing immediately after drag
+        setTimeout(() => { isDragging = false; }, 50);
+        currentSection = null;
+    });
+    {% endif %}
 </script>
 
 {% if page.meta_pixel_id %}
-<script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '{{ page.meta_pixel_id }}');
-    fbq('track', 'PageView');
-    
-    // JS Logic Safe Quoting
-    fbq('track', 'ViewContent', {
-        'content_name': "{{ product.name|escapejs }}", 
-        'content_ids': ['{{ product.id }}'],
-        'content_type': 'product',
-        'value': Number("{{ product.selling_price|default:0 }}"),
-        'currency': 'BDT'
-    });
-</script>
 {% endif %}
 
 {% endblock %}

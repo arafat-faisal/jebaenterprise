@@ -8150,3 +8150,2278 @@ INFO 2025-12-01 21:02:05,119 basehttp "GET / HTTP/1.1" 200 107560
 WARNING 2025-12-01 21:02:05,144 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
 WARNING 2025-12-01 21:02:05,176 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
 WARNING 2025-12-01 21:02:05,176 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13011
+INFO 2025-12-03 16:56:22,413 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 16:56:33,977 basehttp "GET / HTTP/1.1" 200 102185
+INFO 2025-12-03 16:56:34,018 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-03 16:56:34,023 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-03 16:56:34,043 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-03 16:56:34,069 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+WARNING 2025-12-03 16:56:34,074 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 16:56:34,160 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+INFO 2025-12-03 16:56:34,184 basehttp "GET /media/products/gallery/prod_1428_0.jpg HTTP/1.1" 200 61664
+INFO 2025-12-03 16:56:34,185 basehttp "GET /media/products/gallery/prod_1344_0.jpg HTTP/1.1" 200 517783
+INFO 2025-12-03 16:56:34,233 basehttp "GET /media/products/gallery/prod_1452_0.jpeg HTTP/1.1" 200 20595
+INFO 2025-12-03 16:56:34,233 basehttp "GET /media/products/gallery/prod_1373_0.jpg HTTP/1.1" 200 47603
+INFO 2025-12-03 16:56:34,293 basehttp "GET /media/products/gallery/prod_1632_0.jpg HTTP/1.1" 200 25956
+INFO 2025-12-03 16:56:34,298 basehttp "GET /media/products/gallery/prod_1535_0.jpg HTTP/1.1" 200 35158
+INFO 2025-12-03 16:56:34,301 basehttp "GET /media/products/gallery/prod_1351_0.jpg HTTP/1.1" 200 26204
+INFO 2025-12-03 16:56:34,303 basehttp "GET /media/products/gallery/prod_1350_0.jpg HTTP/1.1" 200 30404
+INFO 2025-12-03 16:56:34,303 basehttp "GET /media/products/gallery/prod_1462_0.jpg HTTP/1.1" 200 129504
+INFO 2025-12-03 16:56:34,303 basehttp "GET /media/products/gallery/prod_1487_0.jpg HTTP/1.1" 200 61852
+INFO 2025-12-03 16:56:34,342 basehttp "GET /media/products/gallery/prod_1526_0.jpg HTTP/1.1" 200 25898
+INFO 2025-12-03 16:56:34,348 basehttp "GET /media/products/gallery/prod_1453_0.jpg HTTP/1.1" 200 57952
+INFO 2025-12-03 16:56:34,350 basehttp "GET /media/products/gallery/prod_1437_0.jpg HTTP/1.1" 200 11796
+INFO 2025-12-03 16:56:34,351 basehttp "GET /media/products/gallery/prod_1377_0.jpg HTTP/1.1" 200 33451
+INFO 2025-12-03 16:56:34,375 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 200 181972
+INFO 2025-12-03 16:56:34,380 basehttp "GET /media/products/gallery/prod_1387_0.jpg HTTP/1.1" 200 25023
+INFO 2025-12-03 16:56:34,399 basehttp "GET /media/products/gallery/prod_1531_0.jpg HTTP/1.1" 200 46852
+INFO 2025-12-03 16:56:34,430 basehttp "GET /media/products/gallery/prod_1360_0.jpg HTTP/1.1" 200 55742
+INFO 2025-12-03 16:56:34,431 basehttp "GET /media/products/gallery/prod_1572_0.jpg HTTP/1.1" 200 55541
+INFO 2025-12-03 16:56:34,440 basehttp "GET /media/products/gallery/prod_1363_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-03 16:56:34,462 basehttp "GET /media/products/gallery/prod_1472_0.jpg HTTP/1.1" 200 37506
+INFO 2025-12-03 16:56:34,464 basehttp "GET /media/products/gallery/prod_1390_0.jpg HTTP/1.1" 200 37036
+INFO 2025-12-03 16:56:34,473 basehttp "GET /media/products/gallery/prod_1544_0.png HTTP/1.1" 200 201159
+INFO 2025-12-03 16:56:34,477 basehttp "GET /media/products/gallery/prod_1506_0.jpg HTTP/1.1" 200 41414
+INFO 2025-12-03 16:56:34,498 basehttp "GET /media/products/gallery/prod_1493_0.jpg HTTP/1.1" 200 67353
+INFO 2025-12-03 16:56:34,508 basehttp "GET /media/products/gallery/prod_1510_0.jpg HTTP/1.1" 200 71817
+INFO 2025-12-03 16:56:34,509 basehttp "GET /media/products/gallery/prod_1496_0.jpg HTTP/1.1" 200 61782
+INFO 2025-12-03 16:56:34,520 basehttp "GET /media/products/gallery/prod_1624_0.webp HTTP/1.1" 200 32692
+INFO 2025-12-03 16:56:34,521 basehttp "GET /media/products/gallery/prod_1595_0.jpg HTTP/1.1" 200 105228
+INFO 2025-12-03 16:56:34,522 basehttp "GET /media/products/gallery/prod_1346_0.jpg HTTP/1.1" 200 496634
+INFO 2025-12-03 16:56:34,538 basehttp "GET /media/products/gallery/prod_1527_0.jpg HTTP/1.1" 200 67112
+INFO 2025-12-03 16:56:34,552 basehttp "GET /media/products/gallery/prod_1400_0.jpg HTTP/1.1" 200 119967
+INFO 2025-12-03 16:56:34,557 basehttp "GET /media/products/gallery/prod_1490_0.jpg HTTP/1.1" 200 108642
+INFO 2025-12-03 16:56:34,567 basehttp "GET /media/products/gallery/prod_1573_0.jpg HTTP/1.1" 200 42106
+INFO 2025-12-03 16:56:37,414 basehttp "GET /admin/ HTTP/1.1" 200 61250
+WARNING 2025-12-03 16:56:37,436 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 16:56:37,436 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+INFO 2025-12-03 16:56:37,440 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+INFO 2025-12-03 16:56:37,441 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+INFO 2025-12-03 16:56:37,442 basehttp "GET /static/vendor/bootswatch/darkly/bootstrap.min.css HTTP/1.1" 200 164202
+INFO 2025-12-03 16:56:37,443 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+INFO 2025-12-03 16:56:37,443 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+INFO 2025-12-03 16:56:37,443 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-12-03 16:56:37,449 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+INFO 2025-12-03 16:56:37,550 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+INFO 2025-12-03 16:56:37,550 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+WARNING 2025-12-03 16:56:37,670 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+ERROR 2025-12-03 16:56:40,525 log Internal Server Error: /admin/jeba_landing/landingpage/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "jeba_landing_landingtheme" does not exist
+LINE 1: ...s", "jeba_landing_landingtheme"."created_at" FROM "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 2024, in changelist_view
+    cl = self.get_changelist_instance(request)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 867, in get_changelist_instance
+    return ChangeList(
+           ^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\views\main.py", line 145, in __init__
+    self.queryset = self.get_queryset(request)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\views\main.py", line 545, in get_queryset
+    ) = self.get_filters(request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\views\main.py", line 216, in get_filters
+    spec = field_list_filter_class(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\filters.py", line 217, in create
+    return list_filter_class(
+           ^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\filters.py", line 232, in __init__
+    self.lookup_choices = self.field_choices(field, request, model_admin)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\filters.py", line 273, in field_choices
+    return field.get_choices(include_blank=False, ordering=ordering)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\fields\__init__.py", line 1082, in get_choices
+    return (blank_choice if include_blank else []) + [
+                                                     ^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "jeba_landing_landingtheme" does not exist
+LINE 1: ...s", "jeba_landing_landingtheme"."created_at" FROM "jeba_land...
+                                                             ^
+
+ERROR 2025-12-03 16:56:40,529 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 500 216582
+WARNING 2025-12-03 16:56:40,720 log Not Found: /favicon.ico
+WARNING 2025-12-03 16:56:40,720 basehttp "GET /favicon.ico HTTP/1.1" 404 12893
+INFO 2025-12-03 16:56:50,208 basehttp "GET /admin/ HTTP/1.1" 200 61250
+ERROR 2025-12-03 16:56:54,131 log Internal Server Error: /admin/jeba_landing/landingtheme/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "jeba_landing_landingtheme" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "jeba_landing_landingtheme...
+                                          ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 2024, in changelist_view
+    cl = self.get_changelist_instance(request)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 867, in get_changelist_instance
+    return ChangeList(
+           ^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\views\main.py", line 146, in __init__
+    self.get_results(request)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\views\main.py", line 313, in get_results
+    result_count = paginator.count
+                   ^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 606, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\query.py", line 644, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\query.py", line 626, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "jeba_landing_landingtheme" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "jeba_landing_landingtheme...
+                                          ^
+
+ERROR 2025-12-03 16:56:54,132 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 500 197389
+INFO 2025-12-03 17:05:02,301 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 17:05:06,282 basehttp "GET /admin/ HTTP/1.1" 200 61250
+INFO 2025-12-03 17:05:09,142 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 28026
+INFO 2025-12-03 17:05:09,162 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+INFO 2025-12-03 17:05:09,164 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-12-03 17:05:09,164 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-12-03 17:05:09,166 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-12-03 17:05:09,166 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-12-03 17:05:09,167 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-12-03 17:05:09,168 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+WARNING 2025-12-03 17:05:09,172 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:05:09,173 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+INFO 2025-12-03 17:05:09,175 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+INFO 2025-12-03 17:05:09,176 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-12-03 17:05:09,192 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-03 17:05:13,273 log Internal Server Error: /admin/jeba_landing/landingpage/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column jeba_landing_landingpage.font_heading does not exist
+LINE 1: ..., "jeba_landing_landingpage"."trust_badge_image", "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 2163, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column jeba_landing_landingpage.font_heading does not exist
+LINE 1: ..., "jeba_landing_landingpage"."trust_badge_image", "jeba_land...
+                                                             ^
+
+ERROR 2025-12-03 17:05:13,275 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 500 182144
+INFO 2025-12-03 17:05:16,524 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 28026
+WARNING 2025-12-03 17:05:16,538 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:05:18,745 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 28026
+WARNING 2025-12-03 17:05:18,760 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:05:18,786 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:05:19,296 basehttp "GET /admin/jeba_landing/landingtheme/add/ HTTP/1.1" 200 33498
+INFO 2025-12-03 17:05:19,312 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+WARNING 2025-12-03 17:05:19,312 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:05:19,316 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-12-03 17:05:19,317 basehttp "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+INFO 2025-12-03 17:05:19,336 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:05:32,977 basehttp "POST /admin/jeba_landing/landingtheme/add/ HTTP/1.1" 302 0
+INFO 2025-12-03 17:05:33,013 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 31899
+WARNING 2025-12-03 17:05:33,031 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:05:33,153 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-03 17:05:35,928 log Internal Server Error: /admin/jeba_landing/landingpage/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column jeba_landing_landingpage.font_heading does not exist
+LINE 1: ..., "jeba_landing_landingpage"."trust_badge_image", "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 2163, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column jeba_landing_landingpage.font_heading does not exist
+LINE 1: ..., "jeba_landing_landingpage"."trust_badge_image", "jeba_land...
+                                                             ^
+
+ERROR 2025-12-03 17:05:35,930 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 500 182144
+INFO 2025-12-03 17:08:41,456 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-03 17:08:44,611 log Internal Server Error: /admin/jeba_landing/landingpage/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column jeba_landing_landingpage.font_body does not exist
+LINE 1: ...mage", "jeba_landing_landingpage"."font_heading", "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 2163, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column jeba_landing_landingpage.font_body does not exist
+LINE 1: ...mage", "jeba_landing_landingpage"."font_heading", "jeba_land...
+                                                             ^
+
+ERROR 2025-12-03 17:08:44,615 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 500 182303
+INFO 2025-12-03 17:08:51,657 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 31316
+ERROR 2025-12-03 17:08:54,970 log Internal Server Error: /admin/jeba_landing/landingpage/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column jeba_landing_landingpage.font_body does not exist
+LINE 1: ...mage", "jeba_landing_landingpage"."font_heading", "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 2163, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column jeba_landing_landingpage.font_body does not exist
+LINE 1: ...mage", "jeba_landing_landingpage"."font_heading", "jeba_land...
+                                                             ^
+
+ERROR 2025-12-03 17:08:54,971 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 500 182166
+INFO 2025-12-03 17:10:13,889 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 30740
+WARNING 2025-12-03 17:10:13,916 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:10:13,944 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-03 17:13:04,214 log Internal Server Error: /admin/jeba_landing/landingpage/add/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'admin_preview_render' not found. 'admin_preview_render' is not a valid view function or pattern name.
+ERROR 2025-12-03 17:13:04,218 basehttp "GET /admin/jeba_landing/landingpage/add/ HTTP/1.1" 500 440969
+INFO 2025-12-03 17:21:43,701 autoreload E:\WebProjects\jebaenterprise\jeba_landing\urls.py changed, reloading.
+INFO 2025-12-03 17:21:44,127 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 17:28:58,361 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 17:29:04,145 basehttp "GET /admin/jeba_landing/landingpage/add/ HTTP/1.1" 200 96623
+INFO 2025-12-03 17:29:04,164 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-12-03 17:29:04,165 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-12-03 17:29:04,165 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+WARNING 2025-12-03 17:29:04,168 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:29:04,179 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-12-03 17:29:04,180 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-12-03 17:29:04,182 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-12-03 17:29:04,185 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-12-03 17:29:04,186 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:29:04,892 basehttp "POST /preview/render/ HTTP/1.1" 200 55091
+WARNING 2025-12-03 17:29:04,901 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:29:13,475 basehttp "POST /preview/render/ HTTP/1.1" 200 55091
+WARNING 2025-12-03 17:29:13,486 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:29:15,122 basehttp "POST /preview/render/ HTTP/1.1" 200 55091
+WARNING 2025-12-03 17:29:15,130 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:29:39,295 basehttp "POST /preview/render/ HTTP/1.1" 200 55290
+WARNING 2025-12-03 17:29:39,304 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:29:39,337 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-03 17:29:40,353 basehttp "POST /preview/render/ HTTP/1.1" 200 55290
+WARNING 2025-12-03 17:29:40,363 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:29:41,471 basehttp "POST /preview/render/ HTTP/1.1" 200 55290
+WARNING 2025-12-03 17:29:41,481 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:30:10,912 basehttp "POST /preview/render/ HTTP/1.1" 200 56851
+WARNING 2025-12-03 17:30:10,922 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:30:12,024 basehttp "POST /preview/render/ HTTP/1.1" 200 56948
+WARNING 2025-12-03 17:30:12,032 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:30:22,642 basehttp "POST /preview/render/ HTTP/1.1" 200 56948
+WARNING 2025-12-03 17:30:22,652 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+ERROR 2025-12-03 17:30:25,312 log Internal Server Error: /admin/jeba_landing/landingpage/add/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "theme_preset" of relation "jeba_landing_landingpage" violates not-null constraint
+DETAIL:  Failing row contains (43, test camp, test-camp, null, f, 2025-12-03 11:30:25.292549+00, 2025-12-03 11:30:25.292549+00, 1634, 2025-12-03 11:29:33+00, 6, null, , , #000000, #000000, 1, Montserrat, Open Sans).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1314, in save_model
+    obj.save()
+  File "E:\WebProjects\jebaenterprise\jeba_landing\models.py", line 79, in save
+    super().save(*args, **kwargs)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "theme_preset" of relation "jeba_landing_landingpage" violates not-null constraint
+DETAIL:  Failing row contains (43, test camp, test-camp, null, f, 2025-12-03 11:30:25.292549+00, 2025-12-03 11:30:25.292549+00, 1634, 2025-12-03 11:29:33+00, 6, null, , , #000000, #000000, 1, Montserrat, Open Sans).
+
+ERROR 2025-12-03 17:30:25,314 basehttp "POST /admin/jeba_landing/landingpage/add/ HTTP/1.1" 500 234476
+ERROR 2025-12-03 17:38:24,820 basehttp "POST /admin/jeba_landing/landingpage/add/ HTTP/1.1" 500 263357
+INFO 2025-12-03 17:48:39,007 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-12-03 17:48:39,413 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 17:55:07,958 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 17:55:11,313 basehttp "GET /admin/jeba_landing/landingpage/add/ HTTP/1.1" 200 94910
+INFO 2025-12-03 17:55:12,067 basehttp "POST /preview/render/ HTTP/1.1" 200 55290
+WARNING 2025-12-03 17:55:12,078 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:55:18,371 basehttp "POST /admin/jeba_landing/landingpage/add/ HTTP/1.1" 302 0
+INFO 2025-12-03 17:55:18,415 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35120
+INFO 2025-12-03 17:55:18,435 basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+WARNING 2025-12-03 17:55:18,435 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:55:18,461 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-03 17:55:20,305 log Not Found: /landing/test-camp/
+WARNING 2025-12-03 17:55:20,306 basehttp "GET /landing/test-camp/ HTTP/1.1" 404 12913
+INFO 2025-12-03 17:55:23,479 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 95713
+WARNING 2025-12-03 17:55:23,496 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:55:23,517 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:55:24,065 basehttp "POST /preview/render/ HTTP/1.1" 200 55290
+WARNING 2025-12-03 17:55:24,077 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:56:47,986 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 28026
+WARNING 2025-12-03 17:56:48,010 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:56:48,029 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:56:49,424 basehttp "GET /admin/jeba_landing/landingtheme/add/ HTTP/1.1" 200 33160
+WARNING 2025-12-03 17:56:49,447 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:56:49,474 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:57:11,300 basehttp "POST /admin/jeba_landing/landingtheme/add/ HTTP/1.1" 302 0
+INFO 2025-12-03 17:57:11,333 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 31907
+WARNING 2025-12-03 17:57:11,352 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:57:11,374 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:57:20,969 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35118
+WARNING 2025-12-03 17:57:20,988 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:57:21,010 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-03 17:57:22,223 log Not Found: /landing/test-camp/
+WARNING 2025-12-03 17:57:22,223 basehttp "GET /landing/test-camp/ HTTP/1.1" 404 12913
+INFO 2025-12-03 17:57:25,941 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 95756
+WARNING 2025-12-03 17:57:25,958 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:57:25,979 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:57:26,645 basehttp "POST /preview/render/ HTTP/1.1" 200 55290
+WARNING 2025-12-03 17:57:26,653 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:57:38,748 basehttp "POST /preview/render/ HTTP/1.1" 200 56851
+WARNING 2025-12-03 17:57:38,757 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:57:39,991 basehttp "POST /preview/render/ HTTP/1.1" 200 56948
+WARNING 2025-12-03 17:57:39,999 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:57:45,207 basehttp "POST /preview/render/ HTTP/1.1" 200 57096
+WARNING 2025-12-03 17:57:45,216 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:57:57,255 basehttp "POST /preview/render/ HTTP/1.1" 200 57096
+WARNING 2025-12-03 17:57:57,265 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:57:59,850 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 17:57:59,945 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 120465
+WARNING 2025-12-03 17:57:59,964 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:57:59,987 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:58:00,545 basehttp "POST /preview/render/ HTTP/1.1" 200 57284
+WARNING 2025-12-03 17:58:00,555 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:58:00,578 basehttp "GET /media/landing/images/Fascial-Gun-1_Ako88AE.jpg HTTP/1.1" 200 42518
+INFO 2025-12-03 17:58:27,278 basehttp "POST /preview/render/ HTTP/1.1" 200 56822
+WARNING 2025-12-03 17:58:27,287 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:58:31,080 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 119842
+WARNING 2025-12-03 17:58:31,103 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:58:31,230 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 17:58:31,910 basehttp "POST /preview/render/ HTTP/1.1" 200 56822
+WARNING 2025-12-03 17:58:31,921 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 17:58:31,939 basehttp "GET /media/landing/images/Fascial-Gun-1_Ako88AE.jpg HTTP/1.1" 304 0
+INFO 2025-12-03 17:58:49,167 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 17:58:49,213 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35712
+WARNING 2025-12-03 17:58:49,232 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 17:58:49,257 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-03 17:58:50,568 log Not Found: /landing/test-camp/
+WARNING 2025-12-03 17:58:50,568 basehttp "GET /landing/test-camp/ HTTP/1.1" 404 12913
+INFO 2025-12-03 18:03:07,014 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-03 18:03:07,421 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:04:14,644 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:06:17,085 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-03 18:06:17,451 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:06:28,429 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 117623
+WARNING 2025-12-03 18:06:28,451 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:06:28,469 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:06:29,597 basehttp "POST /preview/render/ HTTP/1.1" 200 57346
+WARNING 2025-12-03 18:06:29,606 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:06:29,627 basehttp "GET /media/landing/images/Fascial-Gun-1_Ako88AE.jpg HTTP/1.1" 304 0
+INFO 2025-12-03 18:06:36,513 basehttp "POST /preview/render/ HTTP/1.1" 200 57346
+WARNING 2025-12-03 18:06:36,522 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:07:05,852 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:07:05,952 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 118246
+WARNING 2025-12-03 18:07:05,976 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:07:05,994 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:07:07,055 basehttp "POST /preview/render/ HTTP/1.1" 200 57346
+WARNING 2025-12-03 18:07:07,062 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:08:03,616 basehttp "POST /preview/render/ HTTP/1.1" 200 59009
+WARNING 2025-12-03 18:08:03,626 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:08:29,230 basehttp "GET /add-to-cart/1634/?action=buy_now HTTP/1.1" 302 0
+INFO 2025-12-03 18:08:29,273 basehttp "GET /checkout/ HTTP/1.1" 200 57386
+INFO 2025-12-03 18:08:31,325 basehttp "POST /preview/render/ HTTP/1.1" 200 59284
+INFO 2025-12-03 18:08:33,402 basehttp "POST /preview/render/ HTTP/1.1" 200 59284
+INFO 2025-12-03 18:08:33,491 basehttp "POST /preview/render/ HTTP/1.1" 200 59284
+INFO 2025-12-03 18:08:33,629 basehttp "POST /preview/render/ HTTP/1.1" 200 59284
+INFO 2025-12-03 18:08:35,076 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 117623
+WARNING 2025-12-03 18:08:35,099 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:08:35,117 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:08:36,181 basehttp "POST /preview/render/ HTTP/1.1" 200 57621
+WARNING 2025-12-03 18:08:36,189 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:08:36,208 basehttp "GET /media/landing/images/Fascial-Gun-1_Ako88AE.jpg HTTP/1.1" 304 0
+INFO 2025-12-03 18:08:42,761 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:08:42,899 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 94160
+WARNING 2025-12-03 18:08:42,916 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:08:42,935 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:08:44,111 basehttp "POST /preview/render/ HTTP/1.1" 200 55627
+WARNING 2025-12-03 18:08:44,120 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:08:52,004 basehttp "POST /preview/render/ HTTP/1.1" 200 57235
+WARNING 2025-12-03 18:08:52,013 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:09:04,355 basehttp "POST /preview/render/ HTTP/1.1" 200 57233
+WARNING 2025-12-03 18:09:04,365 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:09:24,290 basehttp "POST /preview/render/ HTTP/1.1" 200 57235
+WARNING 2025-12-03 18:09:24,299 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:09:40,030 basehttp "POST /preview/render/ HTTP/1.1" 200 57235
+WARNING 2025-12-03 18:09:40,040 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:09:43,827 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:09:43,910 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 118098
+WARNING 2025-12-03 18:09:43,935 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:09:44,066 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:09:45,126 basehttp "POST /preview/render/ HTTP/1.1" 200 57384
+WARNING 2025-12-03 18:09:45,133 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:09:45,167 basehttp "GET /media/landing/images/Fascial-Gun-1_kEfSnWw.jpg HTTP/1.1" 200 42518
+INFO 2025-12-03 18:10:08,381 basehttp "POST /preview/render/ HTTP/1.1" 200 57384
+WARNING 2025-12-03 18:10:08,395 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:10:09,030 basehttp "POST /preview/render/ HTTP/1.1" 200 57384
+WARNING 2025-12-03 18:10:09,041 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:10:13,798 basehttp "POST /preview/render/ HTTP/1.1" 200 57384
+WARNING 2025-12-03 18:10:13,809 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:10:20,463 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:10:20,559 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 118098
+WARNING 2025-12-03 18:10:20,584 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:10:20,599 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:10:21,691 basehttp "POST /preview/render/ HTTP/1.1" 200 57384
+WARNING 2025-12-03 18:10:21,699 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:10:21,730 basehttp "GET /media/landing/images/Fascial-Gun-1_kEfSnWw.jpg HTTP/1.1" 304 0
+INFO 2025-12-03 18:10:57,522 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:10:57,588 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 118098
+WARNING 2025-12-03 18:10:57,612 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:10:57,632 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:10:58,798 basehttp "POST /preview/render/ HTTP/1.1" 200 57620
+WARNING 2025-12-03 18:10:58,807 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:10:58,835 basehttp "GET /media/landing/images/Fascial-Gun-1_kEfSnWw.jpg HTTP/1.1" 304 0
+INFO 2025-12-03 18:11:04,916 basehttp "POST /preview/render/ HTTP/1.1" 200 57620
+WARNING 2025-12-03 18:11:04,926 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:14:11,607 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-03 18:14:12,151 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:14:27,471 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-03 18:14:27,831 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:14:39,647 autoreload E:\WebProjects\jebaenterprise\jeba_landing\urls.py changed, reloading.
+INFO 2025-12-03 18:14:40,228 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:15:42,155 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35123
+WARNING 2025-12-03 18:15:42,179 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:15:42,201 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:15:44,046 basehttp "GET /admin/jeba_landing/landingpage/add/ HTTP/1.1" 200 93703
+WARNING 2025-12-03 18:15:44,063 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:15:44,084 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:15:45,173 basehttp "POST /preview/render/ HTTP/1.1" 200 55428
+WARNING 2025-12-03 18:15:45,179 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:15:55,540 basehttp "POST /preview/render/ HTTP/1.1" 200 55428
+WARNING 2025-12-03 18:15:55,557 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:16:23,139 basehttp "POST /admin/jeba_landing/landingpage/add/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:16:23,225 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 95121
+WARNING 2025-12-03 18:16:23,249 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:16:23,268 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:16:24,313 basehttp "POST /preview/render/ HTTP/1.1" 200 55546
+WARNING 2025-12-03 18:16:24,321 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 18:16:47,741 log Not Found: /landing/ai/generate/2/
+WARNING 2025-12-03 18:16:47,742 basehttp "GET /landing/ai/generate/2/ HTTP/1.1" 404 13213
+INFO 2025-12-03 18:24:08,983 autoreload E:\WebProjects\jebaenterprise\jeba_landing\urls.py changed, reloading.
+INFO 2025-12-03 18:24:09,374 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:24:20,383 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-03 18:24:20,996 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:24:27,978 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:24:34,508 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94496
+INFO 2025-12-03 18:24:35,617 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55564
+WARNING 2025-12-03 18:24:35,625 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 18:24:40,594 log Not Found: /landing/ai/generate/2/
+WARNING 2025-12-03 18:24:40,595 basehttp "GET /landing/ai/generate/2/ HTTP/1.1" 404 13226
+INFO 2025-12-03 18:27:13,951 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94308
+INFO 2025-12-03 18:27:15,056 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55564
+WARNING 2025-12-03 18:27:15,063 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:27:21,050 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35874
+WARNING 2025-12-03 18:27:21,071 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:27:21,092 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:27:23,445 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94308
+WARNING 2025-12-03 18:27:23,463 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:27:23,484 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:27:24,546 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55564
+WARNING 2025-12-03 18:27:24,553 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:27:26,311 basehttp "GET /ai/generate/2/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:27:26,380 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94857
+WARNING 2025-12-03 18:27:26,400 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:27:26,420 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:27:27,474 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55564
+WARNING 2025-12-03 18:27:27,485 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:27:37,724 basehttp "GET /admin/jeba_inventory/product/ HTTP/1.1" 200 287947
+WARNING 2025-12-03 18:27:37,743 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:27:37,744 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-12-03 18:27:37,764 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:27:37,770 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-12-03 18:27:37,803 basehttp "GET /media/products/gallery/prod_1630_0.jpg HTTP/1.1" 200 37692
+INFO 2025-12-03 18:27:37,804 basehttp "GET /media/products/gallery/prod_1628_0.jpg HTTP/1.1" 200 28476
+INFO 2025-12-03 18:27:37,808 basehttp "GET /media/products/gallery/prod_1626_0.jpg HTTP/1.1" 200 28364
+INFO 2025-12-03 18:27:37,808 basehttp "GET /media/products/gallery/prod_1625_0.jpg HTTP/1.1" 200 89097
+INFO 2025-12-03 18:27:37,833 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 200 62244
+INFO 2025-12-03 18:27:37,835 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 200 39513
+INFO 2025-12-03 18:27:37,862 basehttp "GET /media/products/gallery/prod_1619_0.jpg HTTP/1.1" 200 57985
+INFO 2025-12-03 18:27:37,891 basehttp "GET /media/products/gallery/prod_1631_0.jpg HTTP/1.1" 200 40208
+INFO 2025-12-03 18:27:37,908 basehttp "GET /media/products/gallery/prod_1627_0.jpg HTTP/1.1" 200 66592
+INFO 2025-12-03 18:27:37,917 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-12-03 18:27:37,941 basehttp "GET /media/products/gallery/prod_1623_0.jpg HTTP/1.1" 200 79056
+INFO 2025-12-03 18:27:37,941 basehttp "GET /media/products/gallery/prod_1621_0.jpg HTTP/1.1" 200 121975
+INFO 2025-12-03 18:27:37,968 basehttp "GET /media/products/gallery/prod_1618_0.jpg HTTP/1.1" 200 36758
+INFO 2025-12-03 18:27:37,999 basehttp "GET /media/products/gallery/prod_1617_0.jpg HTTP/1.1" 200 183160
+INFO 2025-12-03 18:27:39,547 basehttp "GET /admin/jeba_inventory/product/1634/change/ HTTP/1.1" 200 160600
+WARNING 2025-12-03 18:27:39,570 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:27:39,571 basehttp "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2025-12-03 18:27:39,571 basehttp "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+INFO 2025-12-03 18:27:39,591 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:27:39,597 basehttp "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+INFO 2025-12-03 18:27:39,597 basehttp "GET /media/products/gallery/prod_1634_2.jpg HTTP/1.1" 200 27780
+INFO 2025-12-03 18:27:39,704 basehttp "GET /media/products/gallery/prod_1634_1.jpg HTTP/1.1" 200 32279
+INFO 2025-12-03 18:27:54,515 basehttp "POST /admin/jeba_inventory/product/1634/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:27:54,821 basehttp "GET /admin/jeba_inventory/product/ HTTP/1.1" 200 288547
+WARNING 2025-12-03 18:27:54,843 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:27:54,866 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:28:03,746 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35874
+WARNING 2025-12-03 18:28:03,766 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:28:03,786 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:28:04,951 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94308
+WARNING 2025-12-03 18:28:04,971 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:28:04,992 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:28:06,155 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55564
+WARNING 2025-12-03 18:28:07,553 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:28:07,578 basehttp "GET /ai/generate/2/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:28:07,662 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94857
+WARNING 2025-12-03 18:28:07,684 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:28:07,703 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:28:08,756 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55564
+WARNING 2025-12-03 18:28:08,765 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:28:19,155 basehttp "POST /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:28:19,235 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94941
+WARNING 2025-12-03 18:28:19,254 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:28:19,391 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:28:20,545 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55645
+WARNING 2025-12-03 18:28:20,557 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:28:22,674 basehttp "GET /ai/generate/2/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:28:22,759 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94857
+WARNING 2025-12-03 18:28:22,779 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:28:22,800 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:28:23,854 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55645
+WARNING 2025-12-03 18:28:23,863 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:28:33,677 basehttp "GET /admin/jeba_inventory/product/ HTTP/1.1" 200 287947
+WARNING 2025-12-03 18:28:33,696 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:28:33,718 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:28:35,112 basehttp "GET /admin/jeba_inventory/product/1634/change/ HTTP/1.1" 200 160607
+WARNING 2025-12-03 18:28:35,133 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:28:35,155 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:28:56,025 basehttp "GET /admin/jeba_inventory/product/ HTTP/1.1" 200 287947
+WARNING 2025-12-03 18:28:56,044 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:28:56,176 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:28:59,479 basehttp "GET /admin/jeba_inventory/product/?q=fasc HTTP/1.1" 200 236989
+WARNING 2025-12-03 18:28:59,501 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:28:59,530 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:29:01,566 basehttp "GET /admin/jeba_inventory/product/1436/change/?_changelist_filters=q%3Dfasc HTTP/1.1" 200 165809
+WARNING 2025-12-03 18:29:01,587 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:29:01,615 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:29:01,616 basehttp "GET /media/products/gallery/prod_1436_1.jpg HTTP/1.1" 200 33734
+INFO 2025-12-03 18:29:01,617 basehttp "GET /media/products/gallery/prod_1436_2.jpg HTTP/1.1" 200 33403
+INFO 2025-12-03 18:29:01,647 basehttp "GET /media/products/gallery/prod_1436_3.jpg HTTP/1.1" 200 38003
+INFO 2025-12-03 18:29:01,647 basehttp "GET /media/products/gallery/prod_1436_4.jpg HTTP/1.1" 200 42518
+INFO 2025-12-03 18:29:36,262 basehttp "GET /static/jazzmin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO 2025-12-03 18:29:45,796 basehttp "POST /admin/jeba_inventory/product/1436/change/?_changelist_filters=q%3Dfasc HTTP/1.1" 302 0
+INFO 2025-12-03 18:29:45,982 basehttp "GET /admin/jeba_inventory/product/1436/change/?_changelist_filters=q%3Dfasc HTTP/1.1" 200 166464
+WARNING 2025-12-03 18:29:46,006 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:29:46,025 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:29:54,745 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 31322
+WARNING 2025-12-03 18:29:54,761 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:29:54,788 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:29:58,159 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35894
+WARNING 2025-12-03 18:29:58,176 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:29:58,202 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:30:00,092 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94308
+WARNING 2025-12-03 18:30:00,110 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:30:00,237 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:30:01,390 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55645
+WARNING 2025-12-03 18:30:01,398 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:30:07,238 basehttp "POST /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:30:07,335 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94941
+WARNING 2025-12-03 18:30:07,355 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:30:07,375 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:30:08,538 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55635
+WARNING 2025-12-03 18:30:08,547 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:30:17,390 basehttp "GET /ai/generate/2/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:30:17,473 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94857
+WARNING 2025-12-03 18:30:17,493 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:30:17,514 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:30:18,567 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55635
+WARNING 2025-12-03 18:30:18,576 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:30:45,269 basehttp "GET /ai/generate/2/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:30:45,346 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94857
+WARNING 2025-12-03 18:30:45,366 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:30:45,391 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:30:46,572 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55635
+WARNING 2025-12-03 18:30:46,583 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:31:29,344 basehttp "POST /admin-preview/render/ HTTP/1.1" 200 55635
+WARNING 2025-12-03 18:31:29,354 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:34:46,620 autoreload E:\WebProjects\jebaenterprise\config\urls.py changed, reloading.
+INFO 2025-12-03 18:34:47,082 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-03 18:35:22,759 log Not Found: /admin-preview/render/
+WARNING 2025-12-03 18:35:22,760 basehttp "POST /admin-preview/render/ HTTP/1.1" 404 12518
+INFO 2025-12-03 18:37:07,634 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94323
+WARNING 2025-12-03 18:37:07,656 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:37:07,674 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:37:08,788 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 55659
+WARNING 2025-12-03 18:37:08,797 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:37:12,376 basehttp "GET /landing/ai/generate/2/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:37:12,447 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94872
+WARNING 2025-12-03 18:37:12,475 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:37:12,491 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:37:13,542 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 55659
+WARNING 2025-12-03 18:37:13,549 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:42:09,027 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-12-03 18:42:09,614 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:42:14,959 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:42:20,396 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 94323
+WARNING 2025-12-03 18:42:20,423 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:42:20,445 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:42:21,562 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 55659
+WARNING 2025-12-03 18:42:21,570 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:42:42,250 basehttp "GET /landing/ai/generate/2/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:42:42,471 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 146033
+WARNING 2025-12-03 18:42:42,489 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:42:42,510 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:42:43,576 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 62322
+WARNING 2025-12-03 18:42:43,585 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:47:15,291 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-12-03 18:47:17,674 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:48:52,035 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-12-03 18:48:52,403 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 18:49:07,139 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 145499
+WARNING 2025-12-03 18:49:07,164 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:49:07,181 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:49:08,309 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 62322
+WARNING 2025-12-03 18:49:08,317 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 18:49:41,668 basehttp "GET /landing/ai/generate/2/ HTTP/1.1" 302 0
+INFO 2025-12-03 18:49:41,860 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 200384
+WARNING 2025-12-03 18:49:41,888 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 18:49:41,904 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 18:49:43,006 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 69969
+WARNING 2025-12-03 18:49:43,014 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:00:32,998 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-03 19:00:35,600 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 19:07:59,989 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 201870
+WARNING 2025-12-03 19:08:00,014 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:08:00,037 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:08:01,154 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:08:01,161 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:08:23,309 basehttp "GET /add-to-cart/1436/?action=buy_now HTTP/1.1" 302 0
+INFO 2025-12-03 19:08:23,357 basehttp "GET /checkout/ HTTP/1.1" 200 58138
+INFO 2025-12-03 19:08:28,474 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:08:28,485 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:08:53,136 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:08:53,146 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:09:05,844 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:09:05,854 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:14:14,172 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:14:14,191 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:14:38,459 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 31322
+WARNING 2025-12-03 19:14:38,503 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:14:38,636 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:14:40,212 basehttp "GET /admin/jeba_landing/landingtheme/1/change/ HTTP/1.1" 200 34124
+WARNING 2025-12-03 19:14:40,232 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:14:40,371 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:14:55,238 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:14:55,253 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:15:01,165 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:15:01,174 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:15:05,732 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:15:05,742 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:15:11,728 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:15:11,736 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:15:32,122 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:15:32,131 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:15:41,317 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:15:41,327 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:15:42,200 basehttp "POST /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 19:15:42,327 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 202691
+WARNING 2025-12-03 19:15:42,355 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:15:42,380 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:15:43,486 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:15:43,495 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:15:51,629 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 71853
+WARNING 2025-12-03 19:15:51,639 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:17:08,128 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-12-03 19:17:08,524 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 19:26:11,728 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 19:26:17,003 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 205925
+WARNING 2025-12-03 19:26:17,032 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:26:17,050 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:26:18,193 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+INFO 2025-12-03 19:26:18,193 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:26:18,201 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:26:23,882 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:26:23,892 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:26:38,331 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:26:38,342 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:26:39,205 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:26:39,216 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:26:41,564 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:26:41,574 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:26:43,773 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:26:43,781 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:28:22,125 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 205925
+WARNING 2025-12-03 19:28:22,149 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:28:22,167 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:28:23,238 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:28:23,244 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:28:23,342 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:28:23,351 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:28:29,730 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 205925
+WARNING 2025-12-03 19:28:29,749 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:28:29,767 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:28:30,835 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+INFO 2025-12-03 19:28:30,835 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:28:30,841 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 19:28:30,857 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:28:42,874 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:28:42,883 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:29:37,599 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 205925
+WARNING 2025-12-03 19:29:37,623 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:29:37,639 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:29:38,737 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:29:38,744 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:29:38,846 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75350
+WARNING 2025-12-03 19:29:38,854 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:30:51,679 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 205925
+WARNING 2025-12-03 19:30:51,707 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:30:51,723 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:30:52,835 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+INFO 2025-12-03 19:30:52,835 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+WARNING 2025-12-03 19:30:52,845 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:31:01,870 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+WARNING 2025-12-03 19:31:01,880 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:31:06,931 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+WARNING 2025-12-03 19:31:06,941 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:31:07,709 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+WARNING 2025-12-03 19:31:07,719 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:31:07,893 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+WARNING 2025-12-03 19:31:07,903 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:31:08,056 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+WARNING 2025-12-03 19:31:08,067 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:31:11,647 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 205925
+WARNING 2025-12-03 19:31:11,673 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:31:11,690 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:31:12,800 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+INFO 2025-12-03 19:31:12,800 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+WARNING 2025-12-03 19:31:12,805 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:31:16,517 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 205925
+WARNING 2025-12-03 19:31:16,535 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:31:16,558 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:31:17,636 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+INFO 2025-12-03 19:31:17,636 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75529
+WARNING 2025-12-03 19:31:17,644 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 19:31:17,657 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:42:28,630 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 206293
+WARNING 2025-12-03 19:42:28,659 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:42:28,678 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:42:29,822 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+INFO 2025-12-03 19:42:29,823 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:42:29,829 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:42:43,331 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 206293
+WARNING 2025-12-03 19:42:43,356 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:42:43,373 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:42:44,459 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:42:44,466 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:42:44,575 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:42:44,586 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:42:49,174 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:42:49,183 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:42:53,162 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:42:53,170 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:42:55,683 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:42:55,692 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:42:56,112 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:42:56,122 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:42:59,256 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:42:59,265 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:42:59,789 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:42:59,799 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:43:05,398 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 206293
+WARNING 2025-12-03 19:43:05,422 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:43:05,437 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:43:06,488 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:43:06,496 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:43:06,589 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:43:06,597 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:43:13,711 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35874
+WARNING 2025-12-03 19:43:13,727 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:43:13,748 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:43:16,093 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 206293
+WARNING 2025-12-03 19:43:16,112 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:43:16,134 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:43:17,203 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:43:17,213 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:43:17,329 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75384
+WARNING 2025-12-03 19:43:17,338 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:50:50,064 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 206338
+WARNING 2025-12-03 19:50:50,096 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:50:50,114 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:50:51,332 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+INFO 2025-12-03 19:50:51,332 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:50:51,340 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:50:57,860 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:50:57,868 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:51:01,905 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:51:01,914 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:51:20,238 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:51:20,274 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:51:23,437 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:51:23,457 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:51:32,448 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:51:32,458 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:52:04,362 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:52:04,372 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:52:05,023 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:52:05,033 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:52:07,008 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:52:07,018 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:52:07,377 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:52:07,385 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:52:10,147 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:52:10,156 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:52:18,947 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 206338
+WARNING 2025-12-03 19:52:18,977 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:52:18,994 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:52:20,068 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+INFO 2025-12-03 19:52:20,070 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:52:20,076 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:53:05,869 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75790
+WARNING 2025-12-03 19:53:05,880 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:59:36,193 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 204020
+WARNING 2025-12-03 19:59:36,216 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 19:59:36,233 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 19:59:37,307 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75288
+WARNING 2025-12-03 19:59:37,314 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:59:41,906 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75288
+WARNING 2025-12-03 19:59:41,916 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:59:43,314 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75288
+WARNING 2025-12-03 19:59:43,324 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:59:43,617 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75288
+WARNING 2025-12-03 19:59:43,626 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:59:43,792 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75288
+WARNING 2025-12-03 19:59:43,801 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:59:48,747 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75288
+WARNING 2025-12-03 19:59:48,756 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 19:59:55,833 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75288
+WARNING 2025-12-03 19:59:55,842 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:00:01,931 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75288
+WARNING 2025-12-03 20:00:01,940 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:00:55,157 basehttp "GET /search/?q=baby HTTP/1.1" 200 79112
+WARNING 2025-12-03 20:00:55,184 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:00:55,219 basehttp "GET /media/products/gallery/prod_1393_0.jpg HTTP/1.1" 200 48008
+INFO 2025-12-03 20:00:55,223 basehttp "GET /media/products/gallery/prod_1399_0.jpg HTTP/1.1" 200 52532
+INFO 2025-12-03 20:00:55,223 basehttp "GET /media/products/gallery/prod_1408_0.jpg HTTP/1.1" 200 16795
+INFO 2025-12-03 20:00:55,226 basehttp "GET /media/products/gallery/prod_1410_0.jpg HTTP/1.1" 200 67551
+INFO 2025-12-03 20:00:55,230 basehttp "GET /media/products/gallery/prod_1425_0.jpg HTTP/1.1" 200 49226
+INFO 2025-12-03 20:00:55,233 basehttp "GET /media/products/gallery/prod_1457_0.jpg HTTP/1.1" 200 54782
+INFO 2025-12-03 20:00:55,269 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 200 54556
+INFO 2025-12-03 20:00:55,270 basehttp "GET /media/products/gallery/prod_1481_0.jpg HTTP/1.1" 200 265393
+INFO 2025-12-03 20:00:55,276 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 200 56780
+INFO 2025-12-03 20:00:55,276 basehttp "GET /media/products/gallery/prod_1502_0.jpg HTTP/1.1" 200 42722
+INFO 2025-12-03 20:00:55,278 basehttp "GET /media/products/gallery/prod_1482_0.jpg HTTP/1.1" 200 221983
+INFO 2025-12-03 20:00:55,282 basehttp "GET /media/products/gallery/prod_1530_0.jpg HTTP/1.1" 200 27979
+INFO 2025-12-03 20:00:55,310 basehttp "GET /media/products/gallery/prod_1543_0.jpg HTTP/1.1" 200 33152
+INFO 2025-12-03 20:00:55,313 basehttp "GET /media/products/gallery/prod_1550_0.jpg HTTP/1.1" 200 23942
+INFO 2025-12-03 20:00:55,318 basehttp "GET /media/products/gallery/prod_1580_0.jpg HTTP/1.1" 200 22593
+INFO 2025-12-03 20:00:55,322 basehttp "GET /media/products/gallery/prod_1561_0.jpg HTTP/1.1" 200 14092
+INFO 2025-12-03 20:00:55,323 basehttp "GET /media/products/gallery/prod_1565_0.jpg HTTP/1.1" 200 52354
+INFO 2025-12-03 20:00:55,325 basehttp "GET /media/products/gallery/prod_1586_0.jpg HTTP/1.1" 200 129524
+INFO 2025-12-03 20:00:55,345 basehttp "GET /media/products/gallery/prod_1591_0.jpg HTTP/1.1" 200 41954
+INFO 2025-12-03 20:00:55,347 basehttp "GET /media/products/gallery/prod_1604_0.jpg HTTP/1.1" 200 63550
+INFO 2025-12-03 20:00:55,350 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 200 60115
+INFO 2025-12-03 20:01:05,116 basehttp "GET /product/1614/ HTTP/1.1" 200 79454
+WARNING 2025-12-03 20:01:05,138 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:01:05,171 basehttp "GET /media/products/gallery/prod_1614_1.jpg HTTP/1.1" 200 55424
+INFO 2025-12-03 20:01:05,172 basehttp "GET /media/products/gallery/prod_1614_3.jpg HTTP/1.1" 200 57976
+INFO 2025-12-03 20:01:05,175 basehttp "GET /media/products/gallery/prod_1614_4.jpg HTTP/1.1" 200 44032
+INFO 2025-12-03 20:01:05,176 basehttp "GET /media/products/gallery/prod_1614_2.jpg HTTP/1.1" 200 54496
+INFO 2025-12-03 20:01:05,182 basehttp "GET /media/products/gallery/prod_1614_6.jpg HTTP/1.1" 200 53867
+INFO 2025-12-03 20:01:05,216 basehttp "GET /media/products/gallery/prod_1614_7.jpg HTTP/1.1" 200 30319
+INFO 2025-12-03 20:01:05,216 basehttp "GET /media/products/gallery/prod_1534_0.jpg HTTP/1.1" 200 43853
+INFO 2025-12-03 20:01:05,217 basehttp "GET /media/products/gallery/prod_1614_8.jpg HTTP/1.1" 200 37043
+INFO 2025-12-03 20:01:05,221 basehttp "GET /media/products/gallery/prod_1575_0.jpg HTTP/1.1" 200 24002
+INFO 2025-12-03 20:01:05,224 basehttp "GET /media/products/gallery/prod_1521_0.jpg HTTP/1.1" 200 95212
+INFO 2025-12-03 20:01:05,256 basehttp "GET /media/products/gallery/prod_1447_0.jpg HTTP/1.1" 200 40121
+INFO 2025-12-03 20:01:05,257 basehttp "GET /media/products/gallery/prod_1489_0.jpg HTTP/1.1" 200 96713
+INFO 2025-12-03 20:01:05,260 basehttp "GET /media/products/gallery/prod_1455_0.jpg HTTP/1.1" 200 59195
+INFO 2025-12-03 20:01:05,263 basehttp "GET /media/products/gallery/prod_1612_0.jpg HTTP/1.1" 200 37261
+INFO 2025-12-03 20:01:05,263 basehttp "GET /media/products/gallery/prod_1470_0.jpg HTTP/1.1" 200 72763
+INFO 2025-12-03 20:01:05,272 basehttp "GET /media/products/gallery/prod_1614_5.jpg HTTP/1.1" 200 23180
+INFO 2025-12-03 20:01:13,352 basehttp "GET / HTTP/1.1" 200 102258
+WARNING 2025-12-03 20:01:13,376 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:01:13,414 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 200 52115
+INFO 2025-12-03 20:01:13,415 basehttp "GET /media/products/gallery/prod_1349_0.jpg HTTP/1.1" 200 53388
+INFO 2025-12-03 20:01:13,418 basehttp "GET /media/products/gallery/prod_1444_0.jpg HTTP/1.1" 200 38513
+INFO 2025-12-03 20:01:13,418 basehttp "GET /media/products/gallery/prod_1423_0.jpg HTTP/1.1" 200 41695
+INFO 2025-12-03 20:01:13,419 basehttp "GET /media/products/gallery/prod_1420_0.jpg HTTP/1.1" 200 50968
+INFO 2025-12-03 20:01:13,452 basehttp "GET /media/products/gallery/prod_1407_0.jpg HTTP/1.1" 200 58294
+INFO 2025-12-03 20:01:13,462 basehttp "GET /media/products/gallery/prod_1403_0.webp HTTP/1.1" 200 19464
+INFO 2025-12-03 20:01:13,462 basehttp "GET /media/products/gallery/prod_1355_0.jpg HTTP/1.1" 200 21028
+INFO 2025-12-03 20:01:13,462 basehttp "GET /media/products/gallery/prod_1567_0.jpg HTTP/1.1" 200 54654
+INFO 2025-12-03 20:01:13,466 basehttp "GET /media/products/gallery/prod_1395_0.jpg HTTP/1.1" 200 276359
+INFO 2025-12-03 20:01:13,499 basehttp "GET /media/products/gallery/prod_1483_0.jpg HTTP/1.1" 200 52518
+INFO 2025-12-03 20:01:13,509 basehttp "GET /media/products/gallery/prod_1401_0.webp HTTP/1.1" 200 18328
+INFO 2025-12-03 20:01:13,510 basehttp "GET /media/products/gallery/prod_1546_0.jpg HTTP/1.1" 200 79741
+INFO 2025-12-03 20:01:13,512 basehttp "GET /media/products/gallery/prod_1516_0.jpg HTTP/1.1" 200 68076
+INFO 2025-12-03 20:01:13,512 basehttp "GET /media/products/gallery/prod_1577_0.jpg HTTP/1.1" 200 236232
+INFO 2025-12-03 20:01:13,519 basehttp "GET /media/products/gallery/prod_1566_0.jpg HTTP/1.1" 200 1452752
+INFO 2025-12-03 20:01:13,530 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 200 22018
+INFO 2025-12-03 20:01:13,548 basehttp "GET /media/products/gallery/prod_1609_0.jpg HTTP/1.1" 200 82004
+INFO 2025-12-03 20:01:13,553 basehttp "GET /media/products/gallery/prod_1443_0.jpg HTTP/1.1" 200 56795
+INFO 2025-12-03 20:01:13,553 basehttp "GET /media/products/gallery/prod_1611_0.jpg HTTP/1.1" 200 82986
+INFO 2025-12-03 20:01:13,554 basehttp "GET /media/products/gallery/prod_1553_0.jpg HTTP/1.1" 200 109863
+INFO 2025-12-03 20:01:13,555 basehttp "GET /media/products/gallery/prod_1593_0.jpg HTTP/1.1" 200 19986
+INFO 2025-12-03 20:01:17,748 basehttp "GET /search/?q=winter HTTP/1.1" 200 51450
+WARNING 2025-12-03 20:01:17,766 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:01:17,884 basehttp "GET /media/products/gallery/prod_1382_0.jpg HTTP/1.1" 200 41652
+INFO 2025-12-03 20:01:17,900 basehttp "GET /media/products/gallery/prod_1459_0.jpg HTTP/1.1" 200 48127
+INFO 2025-12-03 20:01:20,511 basehttp "GET /product/1614/ HTTP/1.1" 200 79454
+WARNING 2025-12-03 20:01:20,530 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:01:27,109 basehttp "GET /admin/jeba_inventory/product/ HTTP/1.1" 200 287947
+WARNING 2025-12-03 20:01:27,157 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:01:27,174 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:01:29,775 basehttp "GET /admin/jeba_inventory/product/?q=KNITTED+BABY+WINTER+CAP HTTP/1.1" 200 234510
+WARNING 2025-12-03 20:01:29,792 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:01:29,816 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:01:31,230 basehttp "GET /admin/jeba_inventory/product/1614/change/?_changelist_filters=q%3DKNITTED%2BBABY%2BWINTER%2BCAP HTTP/1.1" 200 174771
+WARNING 2025-12-03 20:01:31,247 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:01:31,270 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:01:38,372 basehttp "GET /admin/jeba_inventory/product/?q=KNITTED+BABY+WINTER+CAP HTTP/1.1" 200 234510
+INFO 2025-12-03 20:01:38,954 basehttp "GET /admin/jeba_inventory/product/ HTTP/1.1" 200 287947
+INFO 2025-12-03 20:01:39,887 basehttp "GET /admin/jeba_inventory/product/?q=KNITTED+BABY+WINTER+CAP HTTP/1.1" 200 234510
+INFO 2025-12-03 20:01:46,449 basehttp "GET /admin-tools/scraper/?product_id=1614 HTTP/1.1" 200 125304
+WARNING 2025-12-03 20:01:46,466 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+ERROR 2025-12-03 20:01:46,629 log Internal Server Error: /admin-tools/scraper/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_intelligence\views.py", line 114, in admin_scraper_view
+    result = fetch_competitor_data(
+             ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: fetch_competitor_data() got an unexpected keyword argument 'manual_image_bytes'
+ERROR 2025-12-03 20:01:46,632 basehttp "POST /admin-tools/scraper/ HTTP/1.1" 500 84221
+ERROR 2025-12-03 20:01:53,091 log Internal Server Error: /admin-tools/scraper/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_intelligence\views.py", line 114, in admin_scraper_view
+    result = fetch_competitor_data(
+             ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: fetch_competitor_data() got an unexpected keyword argument 'manual_image_bytes'
+ERROR 2025-12-03 20:01:53,093 basehttp "POST /admin-tools/scraper/ HTTP/1.1" 500 84221
+INFO 2025-12-03 20:03:00,002 basehttp "GET /admin/ HTTP/1.1" 200 64635
+WARNING 2025-12-03 20:03:00,022 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:03:03,660 basehttp "GET /admin/jeba_inventory/product/ HTTP/1.1" 200 287947
+WARNING 2025-12-03 20:03:03,683 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:03:03,702 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:03:06,590 basehttp "GET /admin/jeba_inventory/product/?q=KNITTED+BABY+WINTER+CAP HTTP/1.1" 200 234510
+WARNING 2025-12-03 20:03:06,607 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:03:06,628 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:03:07,585 basehttp "GET /admin/jeba_inventory/product/1614/change/?_changelist_filters=q%3DKNITTED%2BBABY%2BWINTER%2BCAP HTTP/1.1" 200 174771
+WARNING 2025-12-03 20:03:07,602 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:03:07,623 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:03:25,247 basehttp "POST /admin/jeba_inventory/product/1614/change/?_changelist_filters=q%3DKNITTED%2BBABY%2BWINTER%2BCAP HTTP/1.1" 302 0
+INFO 2025-12-03 20:03:25,343 basehttp "GET /admin/jeba_inventory/product/?q=KNITTED+BABY+WINTER+CAP HTTP/1.1" 200 235119
+WARNING 2025-12-03 20:03:25,362 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:03:25,387 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:03:52,579 basehttp "POST /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 20:03:52,713 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 204653
+WARNING 2025-12-03 20:03:52,744 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:03:52,759 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:03:53,824 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75369
+WARNING 2025-12-03 20:03:53,833 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 20:03:58,840 log Not Found: /ai/generate/2/
+WARNING 2025-12-03 20:03:58,840 basehttp "GET /ai/generate/2/ HTTP/1.1" 404 12496
+INFO 2025-12-03 20:04:10,693 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 204020
+INFO 2025-12-03 20:04:11,767 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 75369
+WARNING 2025-12-03 20:04:11,778 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:04:16,440 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35886
+WARNING 2025-12-03 20:04:16,459 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:04:16,583 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:04:17,586 basehttp "GET /admin/jeba_landing/landingpage/add/ HTTP/1.1" 200 97518
+WARNING 2025-12-03 20:04:17,607 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:04:17,633 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:04:18,815 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 57581
+WARNING 2025-12-03 20:04:18,823 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:04:23,992 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 57581
+WARNING 2025-12-03 20:04:24,000 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:04:30,330 basehttp "POST /admin/jeba_landing/landingpage/add/ HTTP/1.1" 302 0
+INFO 2025-12-03 20:04:30,407 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 98906
+WARNING 2025-12-03 20:04:30,426 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:04:30,449 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:04:31,600 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 57851
+WARNING 2025-12-03 20:04:31,610 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:04:39,682 basehttp "POST /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 20:04:39,720 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 37228
+WARNING 2025-12-03 20:04:39,740 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:04:39,772 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:04:42,051 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 98285
+WARNING 2025-12-03 20:04:42,070 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:04:42,091 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:04:43,144 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 58087
+WARNING 2025-12-03 20:04:43,155 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 20:04:45,286 log Not Found: /ai/generate/3/
+WARNING 2025-12-03 20:04:45,287 basehttp "GET /ai/generate/3/ HTTP/1.1" 404 12496
+INFO 2025-12-03 20:05:23,195 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 98285
+INFO 2025-12-03 20:05:24,316 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 98285
+WARNING 2025-12-03 20:05:24,346 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:05:24,347 basehttp - Broken pipe from ('127.0.0.1', 63680)
+INFO 2025-12-03 20:05:24,352 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:05:25,405 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 58417
+WARNING 2025-12-03 20:05:25,412 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 20:05:30,740 log Not Found: /ai/generate/3/
+WARNING 2025-12-03 20:05:30,741 basehttp "GET /ai/generate/3/ HTTP/1.1" 404 12496
+INFO 2025-12-03 20:16:38,957 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 20:16:41,968 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 98475
+INFO 2025-12-03 20:16:43,083 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 58417
+WARNING 2025-12-03 20:16:43,091 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:16:51,870 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 98475
+WARNING 2025-12-03 20:16:51,894 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:16:51,912 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:16:52,972 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 58417
+WARNING 2025-12-03 20:16:52,979 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:17:14,692 basehttp "GET /landing/ai/generate/3/ HTTP/1.1" 302 0
+INFO 2025-12-03 20:17:14,824 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 201882
+WARNING 2025-12-03 20:17:14,847 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:17:14,865 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:17:16,076 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:17:16,085 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:17:20,827 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:17:20,836 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:17:22,440 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:17:22,449 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:17:24,419 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:17:24,430 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:17:24,837 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:17:24,847 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:17:27,745 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:17:27,754 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:17:35,109 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 201336
+WARNING 2025-12-03 20:17:35,130 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:17:35,148 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:17:36,212 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:17:36,223 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:17:46,173 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:17:46,183 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:18:41,031 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 201336
+WARNING 2025-12-03 20:18:41,057 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:18:41,182 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:18:42,282 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:18:42,289 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:18:58,451 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:18:58,461 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:20:11,487 basehttp "POST /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 20:20:11,677 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 202155
+INFO 2025-12-03 20:20:11,691 basehttp - Broken pipe from ('127.0.0.1', 55301)
+WARNING 2025-12-03 20:20:11,703 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:20:11,723 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:20:12,808 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73257
+WARNING 2025-12-03 20:20:12,816 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:20:14,311 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 36634
+WARNING 2025-12-03 20:20:14,358 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:20:14,380 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-03 20:20:16,663 log Not Found: /landing/ai-test-2/
+WARNING 2025-12-03 20:20:16,664 basehttp "GET /landing/ai-test-2/ HTTP/1.1" 404 13238
+WARNING 2025-12-03 20:20:25,104 log Not Found: /offers/ai-test-2/
+WARNING 2025-12-03 20:20:25,105 basehttp "GET /offers/ai-test-2/ HTTP/1.1" 404 12505
+INFO 2025-12-03 20:33:36,863 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 36634
+WARNING 2025-12-03 20:33:36,883 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:33:36,905 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:33:37,989 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 200804
+WARNING 2025-12-03 20:33:38,006 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 20:33:38,030 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 20:33:39,423 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73399
+WARNING 2025-12-03 20:33:39,444 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:33:55,830 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73399
+WARNING 2025-12-03 20:33:55,849 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:33:59,178 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73399
+WARNING 2025-12-03 20:33:59,188 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:33:59,403 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73399
+WARNING 2025-12-03 20:33:59,413 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 20:33:59,700 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73399
+WARNING 2025-12-03 20:33:59,712 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:01:55,364 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 201864
+WARNING 2025-12-03 21:01:55,387 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:01:55,416 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:01:56,548 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:01:56,555 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:11,498 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:11,508 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:17,614 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:17,624 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:17,912 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:17,920 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:18,272 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:18,280 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:21,232 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:21,241 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:21,746 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:21,756 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:21,981 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:21,990 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:22,271 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:22,284 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:24,786 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 201864
+WARNING 2025-12-03 21:02:24,808 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:02:24,829 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:02:25,885 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:25,896 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:43,260 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:43,271 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:56,845 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:02:56,856 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:02:59,234 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 201864
+WARNING 2025-12-03 21:02:59,259 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:02:59,279 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:03:00,336 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:03:00,344 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:03:28,498 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 201864
+WARNING 2025-12-03 21:03:28,518 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:03:28,538 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:03:29,595 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:03:29,605 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:03:50,895 basehttp "GET /add-to-cart/1614/?action=buy_now HTTP/1.1" 302 0
+INFO 2025-12-03 21:03:50,942 basehttp "GET /checkout/ HTTP/1.1" 200 58907
+INFO 2025-12-03 21:05:31,919 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 201864
+WARNING 2025-12-03 21:05:31,943 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:05:31,964 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:05:33,065 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:05:33,072 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:06:15,384 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:06:15,394 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:10:12,143 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:10:12,169 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:10:15,203 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 201864
+WARNING 2025-12-03 21:10:15,234 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:10:15,259 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:10:16,370 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:10:16,386 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:10:35,904 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:10:35,916 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:10:39,109 basehttp "POST /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 21:10:39,248 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 202487
+WARNING 2025-12-03 21:10:39,269 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:10:39,290 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:10:40,442 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:10:40,454 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:13:33,728 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:13:33,735 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:13:38,148 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:13:38,158 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:13:45,685 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:13:45,696 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:14:00,626 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:14:00,634 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:14:08,974 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73242
+WARNING 2025-12-03 21:14:08,984 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:14:41,638 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72552
+WARNING 2025-12-03 21:14:41,648 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:14:43,750 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72552
+WARNING 2025-12-03 21:14:43,759 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:14:45,777 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72552
+WARNING 2025-12-03 21:14:45,797 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:14:47,196 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72552
+WARNING 2025-12-03 21:14:47,205 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:14:50,615 basehttp "POST /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 21:14:50,766 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 203800
+WARNING 2025-12-03 21:14:50,794 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:14:50,813 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:14:51,872 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72552
+WARNING 2025-12-03 21:14:51,881 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:15:03,030 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72552
+WARNING 2025-12-03 21:15:03,040 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:34:29,078 basehttp "GET /product/1614/ HTTP/1.1" 200 80915
+WARNING 2025-12-03 21:34:29,102 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 21:34:29,169 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-03 21:34:38,599 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72552
+WARNING 2025-12-03 21:34:38,606 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:34:41,640 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 203177
+WARNING 2025-12-03 21:34:41,664 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:34:41,688 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:34:42,799 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72552
+WARNING 2025-12-03 21:34:42,806 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:43:22,212 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-03 21:43:24,682 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 21:44:46,148 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 220464
+WARNING 2025-12-03 21:44:46,173 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:44:46,197 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 21:44:47,308 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73885
+WARNING 2025-12-03 21:44:47,316 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 21:45:55,551 basehttp "POST /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 21:45:55,611 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 37228
+WARNING 2025-12-03 21:45:55,636 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 21:45:55,666 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-03 21:45:57,962 log Not Found: /landing/ai-test-2/
+WARNING 2025-12-03 21:45:57,962 basehttp "GET /landing/ai-test-2/ HTTP/1.1" 404 13238
+INFO 2025-12-03 21:56:16,932 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-03 21:56:17,339 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 21:57:23,316 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-03 21:57:23,703 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 21:57:35,836 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-03 21:57:36,221 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 21:57:53,431 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-03 21:57:53,806 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 21:58:20,143 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-03 21:58:20,527 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 21:59:17,366 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-03 21:59:17,741 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 22:00:09,535 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-03 22:00:09,916 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 22:00:32,222 autoreload E:\WebProjects\jebaenterprise\jeba_landing\urls.py changed, reloading.
+INFO 2025-12-03 22:00:32,598 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 22:02:13,345 basehttp "GET / HTTP/1.1" 200 101485
+WARNING 2025-12-03 22:02:13,375 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:02:13,409 basehttp "GET /media/products/gallery/prod_1466_0.jpg HTTP/1.1" 200 16876
+INFO 2025-12-03 22:02:13,414 basehttp "GET /media/products/gallery/prod_1392_0.jpg HTTP/1.1" 200 75072
+INFO 2025-12-03 22:02:13,415 basehttp "GET /media/products/gallery/prod_1555_0.jpg HTTP/1.1" 200 67784
+INFO 2025-12-03 22:02:13,423 basehttp "GET /media/products/gallery/prod_1517_0.jpg HTTP/1.1" 200 33373
+INFO 2025-12-03 22:02:13,427 basehttp "GET /media/products/gallery/prod_1563_0.jpg HTTP/1.1" 200 56567
+INFO 2025-12-03 22:02:13,429 basehttp "GET /media/products/gallery/prod_1356_0.jpg HTTP/1.1" 200 41204
+INFO 2025-12-03 22:02:13,461 basehttp "GET /media/products/gallery/prod_1398_0.jpg HTTP/1.1" 200 45790
+INFO 2025-12-03 22:02:13,465 basehttp "GET /media/products/gallery/prod_1381_0.jpg HTTP/1.1" 200 19132
+INFO 2025-12-03 22:02:13,466 basehttp "GET /media/products/gallery/prod_1461_0.jpg HTTP/1.1" 200 68657
+INFO 2025-12-03 22:02:13,478 basehttp "GET /media/products/gallery/prod_1520_0.jpg HTTP/1.1" 200 22728
+INFO 2025-12-03 22:02:13,479 basehttp "GET /media/products/gallery/prod_1480_0.jpg HTTP/1.1" 200 49886
+INFO 2025-12-03 22:02:13,483 basehttp "GET /media/products/gallery/prod_1486_0.jpg HTTP/1.1" 200 270811
+INFO 2025-12-03 22:02:13,508 basehttp "GET /media/products/gallery/prod_1505_0.jpg HTTP/1.1" 200 51368
+INFO 2025-12-03 22:02:13,511 basehttp "GET /media/products/gallery/prod_1512_0.jpg HTTP/1.1" 200 42813
+INFO 2025-12-03 22:02:13,513 basehttp "GET /media/products/gallery/prod_1433_0.jpg HTTP/1.1" 200 52261
+INFO 2025-12-03 22:02:13,527 basehttp "GET /media/products/gallery/prod_1525_0.jpg HTTP/1.1" 200 23357
+INFO 2025-12-03 22:02:13,528 basehttp "GET /media/products/gallery/prod_1386_0.jpg HTTP/1.1" 200 29615
+INFO 2025-12-03 22:02:13,531 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 200 56424
+INFO 2025-12-03 22:02:13,544 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 200 34316
+INFO 2025-12-03 22:02:13,548 basehttp "GET /media/products/gallery/prod_1467_0.jpg HTTP/1.1" 200 66218
+INFO 2025-12-03 22:02:13,559 basehttp "GET /media/products/gallery/prod_1368_0.jpg HTTP/1.1" 200 62638
+INFO 2025-12-03 22:02:13,564 basehttp "GET /media/products/gallery/prod_1518_0.jpg HTTP/1.1" 200 46874
+INFO 2025-12-03 22:02:13,638 basehttp "GET /media/products/gallery/prod_1343_0.jpg HTTP/1.1" 200 17724
+INFO 2025-12-03 22:02:13,656 basehttp "GET /media/products/gallery/prod_1416_0.jpg HTTP/1.1" 200 19912
+INFO 2025-12-03 22:02:15,021 basehttp "GET /landing/offers/ HTTP/1.1" 200 41002
+WARNING 2025-12-03 22:02:15,041 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:02:18,354 basehttp "GET /landing/offers/ HTTP/1.1" 200 41002
+WARNING 2025-12-03 22:02:18,371 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:02:20,513 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:02:20,513 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:02:28,739 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 70029
+WARNING 2025-12-03 22:02:28,771 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:02:28,804 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:02:28,805 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:02:28,811 basehttp "GET /media/landing/images/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
+INFO 2025-12-03 22:02:28,813 basehttp "GET /media/landing/images/Fascial-Gun-1_T28dir5.jpg HTTP/1.1" 200 42518
+ERROR 2025-12-03 22:02:52,116 log Internal Server Error: /admin/jeba_landing/landingpage/3/change/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 334, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (text_color, secondary_color, accent_color, primary_color) specified for LandingPage
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+                ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 842, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: Unknown field(s) (text_color, secondary_color, accent_color, primary_color) specified for LandingPage. Check fields/fieldsets/exclude attributes of class LandingPageAdmin.
+ERROR 2025-12-03 22:02:52,120 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 500 158161
+INFO 2025-12-03 22:02:59,361 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35926
+ERROR 2025-12-03 22:03:01,554 log Internal Server Error: /admin/jeba_landing/landingpage/3/change/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 334, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (text_color, secondary_color, accent_color, primary_color) specified for LandingPage
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+                ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 842, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: Unknown field(s) (text_color, secondary_color, accent_color, primary_color) specified for LandingPage. Check fields/fieldsets/exclude attributes of class LandingPageAdmin.
+ERROR 2025-12-03 22:03:01,556 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 500 158161
+INFO 2025-12-03 22:03:02,908 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35926
+ERROR 2025-12-03 22:03:08,518 log Internal Server Error: /admin/jeba_landing/landingpage/3/change/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 334, in __new__
+    raise FieldError(message)
+django.core.exceptions.FieldError: Unknown field(s) (text_color, secondary_color, accent_color, primary_color) specified for LandingPage
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+                ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 842, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: Unknown field(s) (text_color, secondary_color, accent_color, primary_color) specified for LandingPage. Check fields/fieldsets/exclude attributes of class LandingPageAdmin.
+ERROR 2025-12-03 22:03:08,519 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 500 158161
+INFO 2025-12-03 22:05:00,022 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-03 22:05:00,436 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 22:05:15,604 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-03 22:05:15,990 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 22:05:22,918 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 222753
+WARNING 2025-12-03 22:05:22,944 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 22:05:22,964 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 22:05:24,061 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74618
+WARNING 2025-12-03 22:05:24,069 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:05:38,417 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74618
+WARNING 2025-12-03 22:05:38,427 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:05:50,708 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74618
+WARNING 2025-12-03 22:05:50,718 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:05:52,319 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74999
+WARNING 2025-12-03 22:05:52,329 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:05:52,702 basehttp "POST /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 22:05:52,952 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 223414
+WARNING 2025-12-03 22:05:52,973 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 22:05:52,994 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 22:05:54,055 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74999
+WARNING 2025-12-03 22:05:54,066 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:05:55,015 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 70410
+WARNING 2025-12-03 22:05:55,052 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:05:55,064 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:05:55,064 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:06:26,011 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74999
+WARNING 2025-12-03 22:06:26,021 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:06:28,743 basehttp "POST /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 22:06:28,941 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 223398
+WARNING 2025-12-03 22:06:28,962 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 22:06:28,982 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 22:06:30,038 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 70378
+WARNING 2025-12-03 22:06:30,055 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:06:30,178 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:06:30,178 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:06:30,423 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74999
+WARNING 2025-12-03 22:06:30,447 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:08:44,986 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74618
+WARNING 2025-12-03 22:08:44,997 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:08:45,019 basehttp "GET /media/landing/images/Fascial-Gun-2.jpg HTTP/1.1" 304 0
+INFO 2025-12-03 22:08:45,116 basehttp "GET /media/landing/images/Fascial-Gun-1_T28dir5.jpg HTTP/1.1" 304 0
+INFO 2025-12-03 22:08:46,704 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74618
+WARNING 2025-12-03 22:08:46,716 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:08:47,528 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74618
+WARNING 2025-12-03 22:08:47,537 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:08:49,043 basehttp "POST /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 302 0
+INFO 2025-12-03 22:08:49,275 basehttp "GET /admin/jeba_landing/landingpage/3/change/ HTTP/1.1" 200 223362
+WARNING 2025-12-03 22:08:49,302 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-03 22:08:49,319 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-03 22:08:50,147 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 69997
+WARNING 2025-12-03 22:08:50,184 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:08:50,286 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:08:50,286 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:08:50,429 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74618
+WARNING 2025-12-03 22:08:50,451 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:09:11,658 basehttp "GET / HTTP/1.1" 200 107113
+WARNING 2025-12-03 22:09:11,691 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:09:11,724 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:09:11,725 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:09:11,752 basehttp "GET /media/products/gallery/prod_1554_0.jpg HTTP/1.1" 200 22394
+INFO 2025-12-03 22:09:11,753 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 200 79832
+INFO 2025-12-03 22:09:11,753 basehttp "GET /media/products/gallery/prod_1610_0.jpg HTTP/1.1" 200 79435
+INFO 2025-12-03 22:09:11,753 basehttp "GET /media/products/gallery/prod_1354_0.jpg HTTP/1.1" 200 45738
+INFO 2025-12-03 22:09:11,760 basehttp "GET /media/products/gallery/prod_1500_0.jpg HTTP/1.1" 200 37529
+INFO 2025-12-03 22:09:11,781 basehttp "GET /media/products/gallery/prod_1464_0.jpg HTTP/1.1" 200 43377
+INFO 2025-12-03 22:09:11,813 basehttp "GET /media/products/gallery/prod_1549_0.jpg HTTP/1.1" 200 32836
+INFO 2025-12-03 22:09:11,814 basehttp "GET /media/products/gallery/prod_1454_0.jpg HTTP/1.1" 200 36526
+INFO 2025-12-03 22:09:11,818 basehttp "GET /media/products/gallery/prod_1478_0.jpg HTTP/1.1" 200 30677
+INFO 2025-12-03 22:09:11,818 basehttp "GET /media/products/gallery/prod_1460_0.jpg HTTP/1.1" 200 136842
+INFO 2025-12-03 22:09:11,822 basehttp "GET /media/products/gallery/prod_1469_0.jpg HTTP/1.1" 200 42994
+INFO 2025-12-03 22:09:11,833 basehttp "GET /media/products/gallery/prod_1504_0.jpg HTTP/1.1" 200 373508
+INFO 2025-12-03 22:09:11,859 basehttp "GET /media/products/gallery/prod_1485_0.jpg HTTP/1.1" 200 139953
+INFO 2025-12-03 22:09:11,862 basehttp "GET /media/products/gallery/prod_1352_0.jpg HTTP/1.1" 200 13597
+INFO 2025-12-03 22:09:11,863 basehttp "GET /media/products/gallery/prod_1375_0.jpg HTTP/1.1" 200 62294
+INFO 2025-12-03 22:09:11,866 basehttp "GET /media/products/gallery/prod_1579_0.jpg HTTP/1.1" 200 35421
+INFO 2025-12-03 22:09:13,767 basehttp "GET /cart/ HTTP/1.1" 200 53964
+WARNING 2025-12-03 22:09:13,790 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:09:13,816 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:09:13,816 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:09:16,126 basehttp "GET /update-cart/1614/remove/ HTTP/1.1" 302 0
+INFO 2025-12-03 22:09:16,164 basehttp "GET /cart/ HTTP/1.1" 200 51882
+WARNING 2025-12-03 22:09:16,189 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:09:16,214 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:09:16,214 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:09:16,999 basehttp "GET /update-cart/1436/remove/ HTTP/1.1" 302 0
+INFO 2025-12-03 22:09:17,130 basehttp "GET /cart/ HTTP/1.1" 200 49832
+WARNING 2025-12-03 22:09:17,156 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:09:17,179 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:09:17,179 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:09:17,869 basehttp "GET /update-cart/1634/remove/ HTTP/1.1" 302 0
+INFO 2025-12-03 22:09:17,903 basehttp "GET /cart/ HTTP/1.1" 200 46767
+WARNING 2025-12-03 22:09:17,929 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:09:18,053 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:09:18,053 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:09:19,321 basehttp "GET / HTTP/1.1" 200 101754
+WARNING 2025-12-03 22:09:19,349 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:09:19,382 basehttp "GET /media/products/gallery/prod_1515_0.jpg HTTP/1.1" 200 64083
+INFO 2025-12-03 22:09:19,403 basehttp "GET /media/products/gallery/prod_1406_0.jpg HTTP/1.1" 200 33922
+INFO 2025-12-03 22:09:19,406 basehttp "GET /media/products/gallery/prod_1514_0.jpg HTTP/1.1" 200 63144
+INFO 2025-12-03 22:09:19,409 basehttp "GET /media/products/gallery/prod_1422_0.jpg HTTP/1.1" 200 48828
+INFO 2025-12-03 22:09:19,426 basehttp "GET /media/products/gallery/prod_1523_0.jpeg HTTP/1.1" 200 101088
+INFO 2025-12-03 22:09:19,457 basehttp "GET /media/products/gallery/prod_1359_0.jpg HTTP/1.1" 200 42611
+INFO 2025-12-03 22:09:19,457 basehttp "GET /media/products/gallery/prod_1402_0.jpeg HTTP/1.1" 200 239643
+INFO 2025-12-03 22:09:19,460 basehttp "GET /media/products/gallery/prod_1474_0.jpg HTTP/1.1" 200 18391
+INFO 2025-12-03 22:09:19,476 basehttp "GET /media/products/gallery/prod_1594_0.jpg HTTP/1.1" 200 33999
+WARNING 2025-12-03 22:09:19,499 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:09:19,500 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:09:19,502 basehttp "GET /media/products/gallery/prod_1559_0.jpg HTTP/1.1" 200 49584
+INFO 2025-12-03 22:09:19,503 basehttp "GET /media/products/gallery/prod_1357_0.jpg HTTP/1.1" 200 34040
+INFO 2025-12-03 22:09:19,507 basehttp "GET /media/products/gallery/prod_1615_0.jpg HTTP/1.1" 200 40221
+INFO 2025-12-03 22:09:19,507 basehttp "GET /media/products/gallery/prod_1588_0.jpg HTTP/1.1" 200 32122
+INFO 2025-12-03 22:09:19,529 basehttp "GET /media/products/gallery/prod_1419_0.jpg HTTP/1.1" 200 54447
+INFO 2025-12-03 22:09:19,533 basehttp "GET /media/products/gallery/prod_1556_0.jpeg HTTP/1.1" 200 164288
+INFO 2025-12-03 22:09:19,604 basehttp "GET /media/products/gallery/prod_1533_0.jpg HTTP/1.1" 200 17702
+INFO 2025-12-03 22:09:19,633 basehttp "GET /media/products/gallery/prod_1495_0.jpg HTTP/1.1" 200 76018
+WARNING 2025-12-03 22:09:26,935 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:09:26,936 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-03 22:09:26,962 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:09:26,963 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:09:31,815 basehttp "POST /add-to-cart/1614/ HTTP/1.1" 302 0
+INFO 2025-12-03 22:09:31,873 basehttp "GET /checkout/ HTTP/1.1" 200 57851
+WARNING 2025-12-03 22:09:31,894 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:09:31,928 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-03 22:09:31,928 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2188
+WARNING 2025-12-03 22:09:31,929 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-03 22:10:04,302 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:04,303 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-03 22:10:04,344 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:04,344 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:10:06,239 basehttp "GET / HTTP/1.1" 200 104736
+WARNING 2025-12-03 22:10:06,267 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:10:06,310 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:06,312 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:10:06,315 basehttp "GET /media/products/gallery/prod_1384_0.jpg HTTP/1.1" 200 61736
+INFO 2025-12-03 22:10:06,317 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 200 47474
+INFO 2025-12-03 22:10:06,326 basehttp "GET /media/products/gallery/prod_1538_0.jpg HTTP/1.1" 200 38078
+INFO 2025-12-03 22:10:06,327 basehttp "GET /media/products/gallery/prod_1427_0.jpg HTTP/1.1" 200 34313
+INFO 2025-12-03 22:10:06,329 basehttp "GET /media/products/gallery/prod_1582_0.jpg HTTP/1.1" 200 64454
+INFO 2025-12-03 22:10:06,366 basehttp "GET /media/products/gallery/prod_1585_0.jpg HTTP/1.1" 200 69803
+INFO 2025-12-03 22:10:06,370 basehttp "GET /media/products/gallery/prod_1353_0.jpeg HTTP/1.1" 200 44199
+INFO 2025-12-03 22:10:06,371 basehttp "GET /media/products/gallery/prod_1488_0.jpg HTTP/1.1" 200 59794
+INFO 2025-12-03 22:10:06,377 basehttp "GET /media/products/gallery/prod_1558_0.jpg HTTP/1.1" 200 93012
+INFO 2025-12-03 22:10:06,377 basehttp "GET /media/products/gallery/prod_1547_0.jpg HTTP/1.1" 200 57752
+INFO 2025-12-03 22:10:06,384 basehttp "GET /media/products/gallery/prod_1564_0.jpg HTTP/1.1" 200 31343
+INFO 2025-12-03 22:10:06,422 basehttp "GET /media/products/gallery/prod_1449_0.jpg HTTP/1.1" 200 45291
+INFO 2025-12-03 22:10:06,422 basehttp "GET /media/products/gallery/prod_1598_0.jpg HTTP/1.1" 200 29886
+INFO 2025-12-03 22:10:06,428 basehttp "GET /media/products/gallery/prod_1404_0.jpg HTTP/1.1" 200 24924
+INFO 2025-12-03 22:10:06,430 basehttp "GET /media/products/gallery/prod_1491_0.jpg HTTP/1.1" 200 32928
+INFO 2025-12-03 22:10:06,434 basehttp "GET /media/products/gallery/prod_1417_0.jpg HTTP/1.1" 200 31607
+INFO 2025-12-03 22:10:06,442 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-12-03 22:10:07,817 basehttp "GET /cart/ HTTP/1.1" 200 49808
+WARNING 2025-12-03 22:10:07,843 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:10:07,876 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:07,876 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:10:09,181 basehttp "GET /update-cart/1614/remove/ HTTP/1.1" 302 0
+INFO 2025-12-03 22:10:09,208 basehttp "GET /cart/ HTTP/1.1" 200 46767
+WARNING 2025-12-03 22:10:09,239 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:10:09,270 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:09,271 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-03 22:10:10,941 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:10,941 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-03 22:10:12,732 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:12,733 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-03 22:10:12,759 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:12,759 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:10:16,577 basehttp "GET / HTTP/1.1" 200 101292
+WARNING 2025-12-03 22:10:16,609 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-03 22:10:16,644 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:16,645 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:10:16,668 basehttp "GET /media/products/gallery/prod_1607_0.jpg HTTP/1.1" 200 47482
+INFO 2025-12-03 22:10:16,669 basehttp "GET /media/products/gallery/prod_1528_0.jpg HTTP/1.1" 200 75808
+INFO 2025-12-03 22:10:16,672 basehttp "GET /media/products/gallery/prod_1396_0.jpg HTTP/1.1" 200 18755
+INFO 2025-12-03 22:10:16,675 basehttp "GET /media/products/gallery/prod_1484_0.jpg HTTP/1.1" 200 24622
+INFO 2025-12-03 22:10:16,677 basehttp "GET /media/products/gallery/prod_1414_0.jpg HTTP/1.1" 200 138366
+INFO 2025-12-03 22:10:16,689 basehttp "GET /media/products/gallery/prod_1613_0.jpg HTTP/1.1" 200 64834
+INFO 2025-12-03 22:10:16,730 basehttp "GET /media/products/gallery/prod_1576_0.jpg HTTP/1.1" 200 42619
+INFO 2025-12-03 22:10:16,731 basehttp "GET /media/products/gallery/prod_1501_0.jpg HTTP/1.1" 200 59897
+INFO 2025-12-03 22:10:16,732 basehttp "GET /media/products/gallery/prod_1537_0.jpg HTTP/1.1" 200 39078
+INFO 2025-12-03 22:10:16,732 basehttp "GET /media/products/gallery/prod_1599_0.jpg HTTP/1.1" 200 52927
+INFO 2025-12-03 22:10:16,739 basehttp "GET /media/products/gallery/prod_1584_0.jpg HTTP/1.1" 200 49589
+INFO 2025-12-03 22:10:16,742 basehttp "GET /media/products/gallery/prod_1596_0.jpg HTTP/1.1" 200 49983
+INFO 2025-12-03 22:10:16,774 basehttp "GET /media/products/gallery/prod_1426_0.jpg HTTP/1.1" 200 62710
+INFO 2025-12-03 22:10:16,781 basehttp "GET /media/products/gallery/prod_1507_0.jpg HTTP/1.1" 200 1037208
+INFO 2025-12-03 22:10:16,782 basehttp "GET /media/products/gallery/prod_1557_0.jpg HTTP/1.1" 200 34852
+INFO 2025-12-03 22:10:16,783 basehttp "GET /media/products/gallery/prod_1473_0.webp HTTP/1.1" 200 33126
+INFO 2025-12-03 22:10:16,823 basehttp "GET /media/products/gallery/prod_1507_0.jpg HTTP/1.1" 200 1037208
+WARNING 2025-12-03 22:10:18,745 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:18,746 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-03 22:10:18,875 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:18,876 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-03 22:10:19,607 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:19,607 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-03 22:10:19,635 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-03 22:10:19,635 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-03 22:10:44,305 basehttp "GET /product/1414/ HTTP/1.1" 200 80742
+WARNING 2025-12-03 22:10:44,329 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:10:44,372 basehttp "GET /media/products/gallery/prod_1529_0.jpg HTTP/1.1" 200 26872
+INFO 2025-12-03 22:10:44,375 basehttp "GET /media/products/gallery/prod_1342_0.jpg HTTP/1.1" 200 51882
+INFO 2025-12-03 22:10:44,375 basehttp "GET /media/products/gallery/prod_1414_1.jpg HTTP/1.1" 200 110237
+INFO 2025-12-03 22:10:44,459 basehttp "GET /media/products/gallery/prod_1370_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-03 22:10:50,147 basehttp "GET /product/1529/ HTTP/1.1" 200 81442
+WARNING 2025-12-03 22:10:50,167 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:10:50,194 basehttp "GET /media/products/gallery/prod_1529_2.jpg HTTP/1.1" 200 53063
+INFO 2025-12-03 22:10:50,198 basehttp "GET /media/products/gallery/prod_1529_1.jpg HTTP/1.1" 200 49557
+INFO 2025-12-03 22:10:53,489 basehttp "GET /landing/offers/ HTTP/1.1" 200 40727
+WARNING 2025-12-03 22:10:53,509 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:10:57,824 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 69722
+WARNING 2025-12-03 22:10:57,848 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-03 22:12:33,647 basehttp "GET / HTTP/1.1" 200 95739
+INFO 2025-12-03 22:12:55,191 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-03 22:13:14,502 autoreload Watching for file changes with StatReloader
+INFO 2025-12-03 22:13:28,772 basehttp "GET / HTTP/1.1" 200 92383
+INFO 2025-12-03 22:13:30,230 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-03 22:13:30,230 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-03 22:13:30,232 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-03 22:13:30,241 basehttp "GET /media/products/gallery/prod_1440_0.jpg HTTP/1.1" 200 55678
+INFO 2025-12-03 22:13:31,009 basehttp "GET /media/products/gallery/prod_1510_0.jpg HTTP/1.1" 200 71817
+INFO 2025-12-03 22:13:31,053 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+WARNING 2025-12-03 22:13:32,159 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-03 22:13:32,173 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+INFO 2025-12-03 22:13:32,245 basehttp "GET /media/products/gallery/prod_1414_0.jpg HTTP/1.1" 200 138366
+INFO 2025-12-03 22:13:34,238 basehttp "GET /media/products/gallery/prod_1450_0.jpg HTTP/1.1" 200 52923
+INFO 2025-12-03 22:13:35,968 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 200 54556
+INFO 2025-12-03 22:13:36,482 basehttp "GET /media/products/gallery/prod_1600_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-03 22:13:41,531 basehttp "GET /media/products/gallery/prod_1561_0.jpg HTTP/1.1" 200 14092
+INFO 2025-12-03 22:13:41,531 basehttp "GET /media/products/gallery/prod_1557_0.jpg HTTP/1.1" 200 34852
+INFO 2025-12-03 22:13:41,531 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 200 56780
+INFO 2025-12-03 22:13:41,532 basehttp "GET /media/products/gallery/prod_1378_0.jpg HTTP/1.1" 200 62179
+INFO 2025-12-03 22:13:41,783 basehttp "GET /catalog/ HTTP/1.1" 200 425376
+INFO 2025-12-03 22:13:47,819 basehttp "GET /media/products/gallery/prod_1478_0.jpg HTTP/1.1" 200 30677
+INFO 2025-12-03 22:13:48,527 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-03 22:13:48,536 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-12-03 22:13:49,146 basehttp "GET /media/products/gallery/prod_1630_0.jpg HTTP/1.1" 200 37692
+INFO 2025-12-03 22:13:51,448 basehttp "GET /media/products/gallery/prod_1392_0.jpg HTTP/1.1" 200 75072
+WARNING 2025-12-03 22:13:51,450 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-03 22:13:51,485 basehttp "GET /media/products/gallery/prod_1553_0.jpg HTTP/1.1" 200 109863
+INFO 2025-12-03 22:13:51,487 basehttp "GET /media/products/gallery/prod_1439_0.jpg HTTP/1.1" 200 36259
+INFO 2025-12-03 22:13:51,525 basehttp "GET /media/products/gallery/prod_1384_0.jpg HTTP/1.1" 200 61736
+INFO 2025-12-03 22:13:53,156 basehttp "GET /media/products/gallery/prod_1448_0.jpg HTTP/1.1" 200 247681
+INFO 2025-12-03 22:13:53,647 basehttp "GET /media/products/gallery/prod_1626_0.jpg HTTP/1.1" 200 28364
+INFO 2025-12-03 22:13:53,648 basehttp "GET /media/products/gallery/prod_1625_0.jpg HTTP/1.1" 200 89097
+INFO 2025-12-03 22:13:55,005 basehttp "GET /media/products/gallery/prod_1468_0.jpg HTTP/1.1" 200 113216
+INFO 2025-12-03 22:13:58,444 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 200 62244
+INFO 2025-12-03 22:13:58,447 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+INFO 2025-12-03 22:13:58,505 basehttp "GET /media/products/gallery/prod_1482_0.jpg HTTP/1.1" 200 221983
+INFO 2025-12-03 22:14:02,658 basehttp "GET /media/products/gallery/prod_1624_0.webp HTTP/1.1" 200 32692
+INFO 2025-12-03 22:14:07,375 basehttp "GET /wishlist/ HTTP/1.1" 302 0
+INFO 2025-12-03 22:14:07,379 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 200 60115
+INFO 2025-12-03 22:14:07,504 basehttp "GET /cart/ HTTP/1.1" 200 44741
+INFO 2025-12-03 22:14:07,589 basehttp "GET /media/products/gallery/prod_1612_0.jpg HTTP/1.1" 200 37261
+INFO 2025-12-03 22:14:08,381 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-12-03 22:14:08,397 basehttp "GET /media/products/gallery/prod_1596_0.jpg HTTP/1.1" 200 49983
+INFO 2025-12-03 22:14:08,595 basehttp "GET /media/products/gallery/prod_1601_0.jpg HTTP/1.1" 200 72665
+INFO 2025-12-03 22:14:08,624 basehttp "GET /media/products/gallery/prod_1590_0.jpg HTTP/1.1" 200 41993
+INFO 2025-12-03 22:14:09,066 basehttp "GET /media/products/gallery/prod_1589_0.jpg HTTP/1.1" 200 45683
+INFO 2025-12-03 22:14:09,077 basehttp "GET /media/products/gallery/prod_1582_0.jpg HTTP/1.1" 200 64454
+INFO 2025-12-03 22:14:09,078 basehttp "GET /media/products/gallery/prod_1581_0.jpg HTTP/1.1" 200 80607
+WARNING 2025-12-03 22:14:09,509 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-03 22:14:09,531 basehttp "GET /media/products/gallery/prod_1572_0.jpg HTTP/1.1" 200 55541
+INFO 2025-12-03 22:14:11,038 basehttp "GET /media/products/gallery/prod_1552_0.jpg HTTP/1.1" 200 33320
+INFO 2025-12-03 22:14:11,552 basehttp - Broken pipe from ('192.168.1.4', 44042)
+INFO 2025-12-03 22:14:11,553 basehttp - Broken pipe from ('192.168.1.4', 44080)
+INFO 2025-12-03 22:14:22,653 basehttp "GET / HTTP/1.1" 200 94647
+INFO 2025-12-03 22:14:23,695 basehttp "GET /media/products/gallery/prod_1576_0.jpg HTTP/1.1" 200 42619
+INFO 2025-12-03 22:14:23,707 basehttp "GET /media/products/gallery/prod_1563_0.jpg HTTP/1.1" 200 56567
+INFO 2025-12-03 22:14:23,717 basehttp "GET /media/products/gallery/prod_1345_0.jpg HTTP/1.1" 200 32465
+INFO 2025-12-03 22:14:25,717 basehttp "GET /media/products/gallery/prod_1570_0.jpg HTTP/1.1" 200 59213
+WARNING 2025-12-03 22:14:26,036 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-03 22:14:26,082 basehttp "GET /media/products/gallery/prod_1484_0.jpg HTTP/1.1" 200 24622
+INFO 2025-12-03 22:14:27,207 basehttp "GET /media/products/gallery/prod_1393_0.jpg HTTP/1.1" 200 48008
+INFO 2025-12-03 22:14:27,702 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 200 56424
+INFO 2025-12-03 22:14:27,704 basehttp "GET /media/products/gallery/prod_1377_0.jpg HTTP/1.1" 200 33451
+INFO 2025-12-03 22:14:27,704 basehttp "GET /media/products/gallery/prod_1423_0.jpg HTTP/1.1" 200 41695
+INFO 2025-12-03 22:14:27,714 basehttp "GET /media/products/gallery/prod_1371_0.jpg HTTP/1.1" 200 39297
+INFO 2025-12-03 22:14:33,075 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 200 79832
+INFO 2025-12-03 22:14:33,119 basehttp "GET /media/products/gallery/prod_1376_0.jpg HTTP/1.1" 200 18215
+INFO 2025-12-03 22:14:33,119 basehttp "GET /media/products/gallery/prod_1524_0.jpg HTTP/1.1" 200 35721
+INFO 2025-12-03 22:14:33,176 basehttp "GET / HTTP/1.1" 200 95634
+INFO 2025-12-03 22:14:33,693 basehttp "GET /media/products/gallery/prod_1607_0.jpg HTTP/1.1" 200 47482
+INFO 2025-12-03 22:14:34,018 basehttp "GET /landing/offers/ HTTP/1.1" 200 38701
+INFO 2025-12-03 22:14:35,266 basehttp "GET /media/products/gallery/prod_1565_0.jpg HTTP/1.1" 200 52354
+INFO 2025-12-03 22:14:35,269 basehttp "GET /media/products/gallery/prod_1433_0.jpg HTTP/1.1" 200 52261
+INFO 2025-12-03 22:14:35,661 basehttp "GET /media/products/gallery/prod_1425_0.jpg HTTP/1.1" 200 49226
+INFO 2025-12-03 22:14:36,381 basehttp "GET /media/products/gallery/prod_1442_0.jpg HTTP/1.1" 200 77960
+WARNING 2025-12-03 22:14:36,384 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-03 22:14:37,305 basehttp "GET /media/products/gallery/prod_1619_0.jpg HTTP/1.1" 200 57985
+INFO 2025-12-03 22:14:42,293 basehttp "GET /media/products/gallery/prod_1581_0.jpg HTTP/1.1" 200 80607
+INFO 2025-12-03 22:14:42,311 basehttp "GET /media/products/gallery/prod_1480_0.jpg HTTP/1.1" 200 49886
+INFO 2025-12-03 22:14:42,320 basehttp "GET /media/products/gallery/prod_1362_0.jpg HTTP/1.1" 200 51085
+INFO 2025-12-03 22:14:42,958 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 67696
+INFO 2025-12-03 22:14:45,209 basehttp "GET /media/products/gallery/prod_1399_0.jpg HTTP/1.1" 200 52532
+INFO 2025-12-03 22:14:46,599 basehttp "GET /media/products/gallery/prod_1383_0.jpg HTTP/1.1" 200 38193
+INFO 2025-12-03 22:14:47,419 basehttp "GET /media/products/gallery/prod_1466_0.jpg HTTP/1.1" 200 16876
+INFO 2025-12-03 22:14:47,596 basehttp "GET /media/products/gallery/prod_1445_0.jpg HTTP/1.1" 200 66648
+INFO 2025-12-03 22:14:47,632 basehttp "GET /media/products/gallery/prod_1538_0.jpg HTTP/1.1" 200 38078
+INFO 2025-12-03 22:14:47,633 basehttp "GET /media/products/gallery/prod_1606_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-03 22:14:48,161 basehttp "GET /media/landing/images/Fascial-Gun-1_T28dir5.jpg HTTP/1.1" 200 42518
+WARNING 2025-12-03 22:14:48,264 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-03 22:14:48,282 basehttp "GET /media/landing/images/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
+INFO 2025-12-03 22:15:13,628 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 67696
+WARNING 2025-12-03 22:15:14,042 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-03 22:15:24,184 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 67696
+WARNING 2025-12-03 22:15:25,720 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861

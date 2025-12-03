@@ -651,6 +651,10 @@
                     {% endfor %}
                 </select>
             </form>
+            <a href="{% url 'landing_page_list' %}" style="color: #e53935; display: inline-flex; align-items: center; gap: 5px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-5-8-5-8S1 10.62 1 12a2.5 2.5 0 002.5 2.5c.92 0 1.75-.5 2.22-1.23.4.6.87 1.23 2.78 1.23zM18.5 2C15 2 13 6 13 6s-2 4-2 6.5a4.5 4.5 0 009 0C20 9.5 18.5 2 18.5 2z"></path></svg>
+                {% trans "Special Offers" %}
+            </a>
             {% if user.is_authenticated %}
                 {% if user.is_superuser %}
                     <a href="/admin/" target="_blank" style="color: #212121; background-color: var(--accent-lime); padding: 8px 15px; border-radius: 4px; font-weight: bold; display: inline-flex; align-items: center; gap: 7px;">

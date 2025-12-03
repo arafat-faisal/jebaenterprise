@@ -27,7 +27,7 @@ urlpatterns = [
     # --- NEW: Plug in the AI SEO App ---
     path('seo/', include('jeba_seo.urls')),  # <--- ADD THIS LINE
     # -----------------------------------
-    path("", include("jeba_landing.urls")),
+    path("landing/", include("jeba_landing.urls")),
     path('analytics/', include('jeba_analytics.urls')), # <--- ADD THIS
 ]
 

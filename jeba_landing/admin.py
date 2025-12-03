@@ -1,20 +1,27 @@
 from django.contrib import admin
 from django import forms
-from django.forms.widgets import TextInput
-from .models import LandingPage, LandingSection
+from django.forms.widgets import TextInput, Textarea
+from .models import LandingPage, LandingSection, LandingTheme
 from django.utils.html import format_html
+from django.urls import reverse
 
-# --- 1. Custom Forms for Color Pickers ---
+# --- 1. Theme Manager ---
+@admin.register(LandingTheme)
+class LandingThemeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug', 'created_at')
+    prepopulated_fields = {'slug': ('name',)}
+
+# --- 2. Custom Forms & Widgets ---
 
 class LandingPageForm(forms.ModelForm):
     class Meta:
         model = LandingPage
         fields = '__all__'
         widgets = {
-            'primary_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
-            'secondary_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
-            'accent_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
-            'text_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
+            # Corrected Field Names
+            'override_primary_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
+            'override_accent_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
+            'custom_css': Textarea(attrs={'rows': 10, 'style': 'font-family: monospace; width: 100%; background: #1e1e1e; color: #d4d4d4;'}),
         }
 
 class LandingSectionForm(forms.ModelForm):
@@ -26,35 +33,34 @@ class LandingSectionForm(forms.ModelForm):
             'text_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
         }
 
-# --- 2. Inline Section Editor ---
+# --- 3. Inline Section Editor ---
 
 class LandingSectionInline(admin.StackedInline):
     model = LandingSection
     form = LandingSectionForm
     extra = 0
     min_num = 0
-    classes = ('collapse-open',) # Optional: keeps sections open or closed by default
+    classes = ('collapse-open',)
+    sortable_field_name = "order"
     
     fieldsets = (
-        ('Layout & Type', {
+        ('Layout & Animation', {
             'fields': (
                 ('section_type', 'order'),
                 ('text_alignment', 'animation_effect'),
             ),
-            'description': "Choose the structure and how elements animate in."
         }),
-        ('Main Content', {
+        ('Content', {
             'fields': ('icon_class', 'heading', 'subheading', 'description', 'button_text'),
-            'description': "Add text and optional FontAwesome icon (e.g., 'fa-solid fa-star')."
         }),
-        ('Visuals: Shapes & Spacing', {
+        ('Visuals & Spacing', {
             'fields': (
                 ('divider_top', 'divider_bottom'),
                 ('padding_top', 'padding_bottom'),
-                ('border_radius', 'overlay_opacity')
+                ('border_radius', 'overlay_opacity'),
+                ('desktop_media_position', 'mobile_media_position'),
             ),
             'classes': ('collapse',),
-            'description': "Add wave/slant dividers, adjust vertical space, or round corners."
         }),
         ('Colors & Backgrounds', {
             'fields': (
@@ -62,19 +68,17 @@ class LandingSectionInline(admin.StackedInline):
                 'background_gradient',
             ),
             'classes': ('collapse',),
-            'description': "Override global colors. Gradient example: 'linear-gradient(135deg, #ff00cc, #333399)'"
         }),
         ('Media Assets', {
             'fields': ('image', 'video_file', 'video_url'),
-            'description': "Primary media for this section."
         }),
-        ('Carousel Gallery (If Type = Carousel)', {
+        ('Carousel Items', {
             'fields': (('image_2', 'image_3'), ('image_4', 'image_5')),
             'classes': ('collapse',),
         }),
     )
 
-# --- 3. Main Page Admin ---
+# --- 4. Main Page Admin ---
 
 @admin.register(LandingPage)
 class LandingPageAdmin(admin.ModelAdmin):
@@ -85,29 +89,42 @@ class LandingPageAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     inlines = [LandingSectionInline]
     save_on_top = True
+    change_form_template = 'admin/jeba_landing/landingpage/change_form.html'
     
     fieldsets = (
         ("Campaign Info", {
             "fields": (("title", "slug"), ("product", "is_published"))
         }),
-        ("🎨 Global Design Studio", {
+        ("🎨 Design System", {
             "fields": (
+                ("theme", "theme_preset"),
+                # Corrected Field Names
+                ("override_primary_color", "override_accent_color"),
                 ("font_heading", "font_body"),
-                ("primary_color", "secondary_color"),
-                ("accent_color", "text_color")
+                "custom_css"
             ),
-            "description": "Set the master theme. These fonts and colors apply to the whole page unless overridden in sections."
+            "description": "Select a global theme or override specific colors."
+        }),
+        ("⚡ Conversion Tools", {
+            "fields": (
+                ("countdown_end", "stock_warning"),
+                "trust_badge_image"
+            ),
         }),
         ("Marketing Settings", {
-            "fields": ("meta_pixel_id",),
+            "fields": ("meta_pixel_id", "ai_generated"),
             "classes": ("collapse",)
         }),
     )
 
     def product_link(self, obj):
-        return obj.product.name
+        return obj.product.name if obj.product else "-"
     product_link.short_description = "Product"
 
     def visit_page_link(self, obj):
-        return format_html('<a href="/offers/{}/" target="_blank" class="button" style="background:#28a745; color:white;">👁 View Page</a>', obj.slug)
+        try:
+            url = reverse('landing_page_detail', args=[obj.slug])
+            return format_html('<a href="{}" target="_blank" class="button" style="background:#28a745; color:white;">👁 View Page</a>', url)
+        except Exception:
+            return "-"
     visit_page_link.short_description = "Preview"

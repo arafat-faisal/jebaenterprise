@@ -1,199 +1,245 @@
 {% extends "admin/change_form.html" %}
-{% load static %}
+{% load i18n admin_urls static %}
 
-{% block extrahead %}
-    {{ block.super }}
-    <style>
-        /* --- SPLIT SCREEN LAYOUT --- */
-        @media (min-width: 1100px) { /* Active on most laptops & desktops */
-            #content-main {
-                display: grid !important;
-                grid-template-columns: 1fr 450px; /* Form takes space | Preview is fixed 450px or % */
-                gap: 25px;
-                align-items: start;
-                position: relative;
-            }
+{% block content %}
+<style>
+    /* Split Screen Layout */
+    #content-main { display: flex; gap: 20px; width: 100%; max-width: 100%; transition: all 0.3s ease; }
+    
+    /* Left Side: Editor */
+    .editor-column { flex: 1; min_width: 500px; max-width: 50%; overflow-y: auto; height: 85vh; padding-right: 10px; transition: all 0.3s ease; }
+    
+    /* Right Side: Preview */
+    .preview-column {
+        flex: 1; position: sticky; top: 20px; height: 85vh;
+        background: #000; border: 1px solid #333; border-radius: 8px;
+        overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 100;
+    }
+
+    /* FULLSCREEN MODE */
+    .preview-column.fullscreen {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        z-index: 99999; border-radius: 0; border: none;
+    }
+    body.preview-active { overflow: hidden; }
+
+    .preview-header {
+        background: #1a1a1a; padding: 10px 15px; border-bottom: 1px solid #333;
+        display: flex; justify-content: space-between; align-items: center; color: #fff;
+        min-height: 55px; /* Fixed height to prevent collapse */
+    }
+    
+    .preview-iframe { width: 100%; height: 100%; border: none; background: white; }
+
+    /* Action Buttons */
+    .btn-icon { background: rgba(255,255,255,0.1); border: none; color: #fff; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; margin-left: 8px; transition: 0.2s; }
+    .btn-icon:hover { background: rgba(255,255,255,0.3); transform: scale(1.1); }
+    
+    .ai-magic-btn {
+        background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+        color: white !important; border: none; padding: 8px 16px; border-radius: 30px;
+        font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 11px;
+        animation: pulse-purple 2s infinite; cursor: pointer; text-decoration: none;
+        display: inline-flex; align-items: center; gap: 6px;
+    }
+    @keyframes pulse-purple { 0% { box-shadow: 0 0 0 0 rgba(157, 50, 168, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(157, 50, 168, 0); } 100% { box-shadow: 0 0 0 0 rgba(157, 50, 168, 0); } }
+
+    /* Highlight Effect for Editor */
+    .flash-highlight { animation: flash-bg 1.5s ease; border: 2px solid #D4F759 !important; }
+    @keyframes flash-bg { 0% { background: rgba(212, 247, 89, 0.2); } 100% { background: transparent; } }
+
+    .preview-column.mobile-view iframe {
+        width: 375px; 
+        height: 667px; 
+        margin: 20px auto; 
+        border: 8px solid #333; 
+        border-radius: 30px;
+        box-shadow: 0 0 0 2px #555;
+    }
+    
+    /* --- FIX: MINIMIZED VIEW --- */
+    .preview-column.minimized {
+        flex: 0; min-width: 60px; width: 60px; overflow: hidden;
+    }
+    /* Hide Title and Actions */
+    .preview-column.minimized .preview-title,
+    .preview-column.minimized .preview-actions,
+    .preview-column.minimized iframe { display: none !important; }
+    
+    /* Center the button */
+    .preview-column.minimized .preview-header { 
+        padding: 10px 0; 
+        justify-content: center; 
+        gap: 0 !important; /* Remove gap */
+    }
+    .preview-column.minimized .preview-header button {
+        margin: 0 !important; /* Remove margin */
+    }
+
+    .editor-column.expanded { max-width: 96%; }
+    
+    /* Device Toggles */
+    .device-btn { color: #888; font-size: 14px; margin: 0 5px; cursor: pointer; }
+    .device-btn.active { color: #D4F759; }
+</style>
+
+<div id="content-main">
+    
+    <div class="editor-column" id="editorBox">
+        {{ block.super }}
+    </div>
+
+    <div class="preview-column" id="previewBox">
+        <div class="preview-header" style="gap: 10px;">
+            <button type="button" class="btn-icon" onclick="toggleMinimize()" title="Hide/Show Preview" style="min-width: 35px;">
+                <i class="fas fa-chevron-right" id="minimizeIcon"></i>
+            </button>
+
+            <span class="preview-title" style="font-weight:600; display:flex; align-items:center; gap:8px; flex:1;">
+                <i class="fas fa-eye"></i> Live Preview 
+                <span class="badge bg-secondary" style="font-size:9px; padding:3px 6px; border-radius:4px; opacity:0.7;">CLICK TO EDIT</span>
+            </span>
             
-            /* 1. The Editor (Left) */
-            #content-main > form {
-                grid-column: 1;
-                min-width: 0;
-            }
+            <div class="preview-actions" style="display:flex; align-items:center;">
+                <i class="fas fa-desktop device-btn active" id="btnDesktop" onclick="setDevice('desktop')" title="Desktop Mode"></i>
+                <i class="fas fa-mobile-alt device-btn" id="btnMobile" onclick="setDevice('mobile')" title="Mobile Mode"></i>
+                <span style="border-right: 1px solid #444; height: 20px; margin: 0 10px;"></span>
 
-            /* 2. The Preview (Right) */
-            .preview-pane {
-                grid-column: 2;
-                position: sticky;
-                top: 20px; 
-                height: calc(100vh - 40px);
-                margin-top: 0 !important;
-                display: flex !important;
-            }
-        }
-
-        /* --- PREVIEW PANE STYLING --- */
-        .preview-pane {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            box-shadow: -5px 5px 20px rgba(0,0,0,0.5);
-            z-index: 999;
-        }
-
-        .preview-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 5px;
-            background: #222;
-            border-radius: 8px;
-        }
-
-        .preview-btn {
-            background: #333;
-            color: #fff;
-            border: 1px solid #444;
-            padding: 5px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .preview-btn:hover { background: #444; }
-        .preview-btn.active {
-            background: #007bff;
-            border-color: #007bff;
-        }
-
-        .preview-frame-wrapper {
-            flex-grow: 1;
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid #333;
-        }
-
-        #live-preview-frame {
-            background: #fff;
-            border: none;
-            transition: width 0.3s ease, height 0.3s ease;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Device Sizes */
-        .mode-desktop #live-preview-frame { width: 100%; height: 100%; }
-        .mode-mobile #live-preview-frame { width: 375px; height: 667px; border: 5px solid #333; border-radius: 20px; }
-    </style>
-{% endblock %}
-
-{% block after_related_objects %}
-    <div id="preview-mover-target" style="display:none;">
-        <div class="preview-pane">
-            <div class="preview-controls">
-                <button type="button" class="preview-btn active" onclick="setMode('desktop')">
-                    <i class="fas fa-desktop"></i> Desktop
+                <a href="#" class="ai-magic-btn" onclick="triggerAI()" style="margin-right: 15px;">
+                    <i class="fas fa-magic"></i> AI Fill
+                </a>
+                
+                <button type="button" class="btn-icon" onclick="updatePreview()" title="Refresh">
+                    <i class="fas fa-sync-alt"></i>
                 </button>
-                <button type="button" class="preview-btn" onclick="setMode('mobile')">
-                    <i class="fas fa-mobile-alt"></i> Mobile
-                </button>
-                <button type="button" class="preview-btn" id="refresh-btn">
-                    <i class="fas fa-sync"></i> Refresh
+                
+                <button type="button" class="btn-icon" onclick="toggleFullscreen()" title="Fullscreen">
+                    <i class="fas fa-expand" id="fullscreenIcon"></i>
                 </button>
             </div>
-            <div class="preview-frame-wrapper mode-desktop" id="frame-wrapper">
-                <iframe id="live-preview-frame" src="about:blank"></iframe>
-            </div>
+        </div>
+        <div style="background:#111; flex:1; display:flex; align-items:center; justify-content:center; overflow:auto;">
+            <iframe id="previewFrame" class="preview-iframe" src="about:blank"></iframe>
         </div>
     </div>
 
-    <script>
-        // --- 1. LAYOUT FIXER (Moves Preview to Right Side) ---
-        document.addEventListener("DOMContentLoaded", function() {
-            const contentMain = document.getElementById("content-main");
-            const moverTarget = document.getElementById("preview-mover-target");
-            
-            // Move the pane OUT of the form so it becomes a sidebar
-            if (contentMain && moverTarget) {
-                const pane = moverTarget.firstElementChild; 
-                if(pane) {
-                    contentMain.appendChild(pane); 
-                }
-                moverTarget.remove(); 
-            }
-        });
+</div>
 
-        // --- 2. PREVIEW LOGIC ---
-        (function($) {
-            const frame = document.getElementById('live-preview-frame');
-            const refreshBtn = document.getElementById('refresh-btn');
-            
-            function debounce(func, wait) {
-                let timeout;
-                return function() {
-                    const context = this, args = arguments;
-                    clearTimeout(timeout);
-                    timeout = setTimeout(() => func.apply(context, args), wait);
-                };
-            }
+<script>
+    let currentDevice = 'desktop';
 
-            function updatePreview() {
-                // Find form dynamically since we moved the preview out
-                const form = document.querySelector('#content-main > form'); 
-                if (!form) return;
-
-                const formData = new FormData(form);
-                
-                fetch("{% url 'admin_preview_render' %}", {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'X-CSRFToken': formData.get('csrfmiddlewaretoken') }
-                })
-                .then(response => response.text())
-                .then(html => {
-                    if(frame.contentWindow) {
-                        const doc = frame.contentDocument || frame.contentWindow.document;
-                        doc.open();
-                        doc.write(html);
-                        doc.close();
-                    }
-                })
-                .catch(err => console.error("Preview Error:", err));
-            }
-
-            const debouncedUpdate = debounce(updatePreview, 1000);
-            
-            // Attach listeners
-            setTimeout(() => {
-                const form = document.querySelector('#content-main > form');
-                if (form) {
-                    form.addEventListener('input', debouncedUpdate);
-                    form.addEventListener('change', debouncedUpdate);
-                    updatePreview(); // Initial Load
-                }
-            }, 500);
-            
-            if(refreshBtn) refreshBtn.addEventListener('click', updatePreview);
-
-        })(django.jQuery);
-
-        // --- 3. DEVICE TOGGLE ---
-        function setMode(mode) {
-            const wrapper = document.getElementById('frame-wrapper');
-            const buttons = document.querySelectorAll('.preview-btn');
-            wrapper.classList.remove('mode-desktop', 'mode-mobile');
-            wrapper.classList.add('mode-' + mode);
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+    // 1. DEVICE SWITCHING
+    function setDevice(device) {
+        currentDevice = device;
+        const box = document.getElementById('previewBox');
+        
+        document.getElementById('btnDesktop').classList.toggle('active', device === 'desktop');
+        document.getElementById('btnMobile').classList.toggle('active', device === 'mobile');
+        
+        if (device === 'mobile') {
+            box.classList.add('mobile-view');
+        } else {
+            box.classList.remove('mobile-view');
         }
-    </script>
+    }
+
+    // 2. LAYOUT CONTROLS
+    function toggleMinimize() {
+        const preview = document.getElementById('previewBox');
+        const editor = document.getElementById('editorBox');
+        const icon = document.getElementById('minimizeIcon');
+        
+        preview.classList.toggle('minimized');
+        editor.classList.toggle('expanded');
+        
+        if (preview.classList.contains('minimized')) {
+            icon.classList.remove('fa-chevron-right');
+            icon.classList.add('fa-chevron-left');
+        } else {
+            icon.classList.remove('fa-chevron-left');
+            icon.classList.add('fa-chevron-right');
+        }
+    }
+
+    function toggleFullscreen() {
+        const box = document.getElementById('previewBox');
+        box.classList.toggle('fullscreen');
+        document.body.classList.toggle('preview-active');
+    }
+
+    // 3. HANDLE DRAG
+    window.addEventListener('message', function(event) {
+        if (event.data.type === 'update_position') {
+            const index = event.data.index;
+            const newPos = event.data.position;
+            
+            const fieldName = currentDevice === 'mobile' ? 'mobile_media_position' : 'desktop_media_position';
+            const inputId = `id_sections-${index}-${fieldName}`;
+            
+            const input = document.getElementById(inputId);
+            if (input) {
+                input.value = newPos;
+                input.style.backgroundColor = '#D4F759';
+                input.style.color = '#000';
+                setTimeout(() => {
+                    input.style.backgroundColor = '';
+                    input.style.color = '';
+                }, 500);
+            }
+        }
+    });
+
+    // 4. INIT
+    function updatePreview() {
+        const form = document.getElementById('landingpage_form');
+        const formData = new FormData(form);
+        fetch("{% url 'admin_preview_render' %}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+            }
+        })
+        .then(response => response.text())
+        .then(html => {
+            const frame = document.getElementById('previewFrame');
+            const doc = frame.contentDocument || frame.contentWindow.document;
+            doc.open();
+            doc.write(html);
+            doc.close();
+        });
+    }
+    setTimeout(updatePreview, 1000);
+    
+    // Auto-update
+    let timeout = null;
+    document.querySelectorAll('input, select, textarea').forEach(input => {
+        input.addEventListener('change', () => { clearTimeout(timeout); timeout = setTimeout(updatePreview, 800); });
+        input.addEventListener('keyup', () => { clearTimeout(timeout); timeout = setTimeout(updatePreview, 1500); });
+    });
+
+    window.focusSection = function(index) {
+        const rowId = `sections-${index}`;
+        const rowElement = document.getElementById(rowId);
+        if (rowElement) {
+            rowElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            rowElement.classList.add('flash-highlight');
+            setTimeout(() => rowElement.classList.remove('flash-highlight'), 1500);
+        }
+    };
+
+    function triggerAI() {
+        const path = window.location.pathname;
+        const match = path.match(/\/(\d+)\/change\//);
+        if (match && match[1]) {
+            if (confirm("✨ AI Magic Protocol\n\nExisting content will be replaced.\n\nContinue?")) {
+                window.location.href = `/landing/ai/generate/${match[1]}/`;
+            }
+        } else {
+            alert("⚠️ Please SAVE the page first!");
+        }
+    }
+</script>
 {% endblock %}
