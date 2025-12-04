@@ -202,6 +202,9 @@ class ProductAdmin(ImportExportModelAdmin):
     
     # Column Button (For List View)
     def ai_status_button(self, obj):
+        # FIX: Ensure object is saved before generating links
+        if not obj or not obj.id:
+            return "-"
         if obj.is_seo_optimized:
             return format_html('<span style="color:green;">✅ Optimized</span>')
         url = reverse('generate_ai_product', args=[obj.id])
@@ -213,6 +216,10 @@ class ProductAdmin(ImportExportModelAdmin):
 
     # Field Button (For Edit Page)
     def generate_ai_button(self, obj):
+        # FIX: Ensure object is saved before generating links
+        if not obj or not obj.id:
+            return "Save the product first to enable AI features."
+        
         url = reverse('generate_ai_product', args=[obj.id])
         return format_html(
             '<a class="button" href="{}" style="background:#6610f2; color:white; padding:8px 16px; border-radius:4px; font-weight:bold;">✨ Generate All AI Content Now</a>', 
@@ -276,6 +283,10 @@ class ProductAdmin(ImportExportModelAdmin):
     get_tags_display.short_description = "Tags"
 
     def open_scraper_button(self, obj):
+        # FIX: Ensure object is saved before generating links
+        if not obj or not obj.id:
+            return "-"
+            
         url = reverse('admin_scraper') + f'?product_id={obj.id}'
         return format_html(
             '<a class="button" style="background-color: #17a2b8; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none;" href="{}">'
