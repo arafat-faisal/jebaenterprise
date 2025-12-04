@@ -25,6 +25,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 
+from django.views.decorators.http import require_POST
 
 # --- CART VIEWS ---
 
@@ -212,6 +213,86 @@ def update_cart(request, item_id, action):
     
     request.session['cart'] = cart
     return redirect('view_cart')
+
+# --- ADD THIS NEW VIEW FUNCTION ---
+@require_POST
+def update_cart_api(request):
+    """
+    AJAX Endpoint to update cart quantity or remove items.
+    Returns JSON with new totals to update the DOM without refresh.
+    """
+    try:
+        data = json.loads(request.body)
+        item_id = data.get('item_id')
+        action = data.get('action')
+        
+        if not item_id or not action:
+            return JsonResponse({'status': 'error', 'message': 'Invalid parameters'}, status=400)
+
+        cart = request.session.get('cart', {})
+        
+        if item_id not in cart:
+             return JsonResponse({'status': 'error', 'message': 'Item not found in cart'}, status=404)
+             
+        item = cart[item_id]
+        current_qty = item['quantity']
+        
+        # Logic matches your existing update_cart checks
+        if action == 'increase':
+            product_id = item['product_id']
+            variation_id = item.get('variation_id')
+            
+            # Stock Check
+            stock_ok = True
+            product = Product.objects.get(id=product_id) # Simplify for speed, add error handling in prod
+            
+            if variation_id:
+                try:
+                    variation = ProductVariation.objects.get(id=variation_id)
+                    if variation.stock_quantity <= current_qty: stock_ok = False
+                except ProductVariation.DoesNotExist: stock_ok = False
+            else:
+                if product.stock_quantity <= current_qty: stock_ok = False
+                
+            if stock_ok:
+                cart[item_id]['quantity'] += 1
+            else:
+                return JsonResponse({'status': 'error', 'message': 'Maximum stock reached'}, status=400)
+
+        elif action == 'decrease':
+            cart[item_id]['quantity'] -= 1
+            if cart[item_id]['quantity'] < 1:
+                del cart[item_id]
+                
+        elif action == 'remove':
+            del cart[item_id]
+
+        request.session['cart'] = cart
+        
+        # Calculate new totals
+        new_cart_total = 0
+        new_item_total = 0
+        new_item_qty = 0
+        cart_count = len(cart)
+        
+        for key, val in cart.items():
+            line_total = val['price'] * val['quantity']
+            new_cart_total += line_total
+            if key == item_id:
+                new_item_total = line_total
+                new_item_qty = val['quantity']
+
+        return JsonResponse({
+            'status': 'success',
+            'cart_total': new_cart_total,
+            'item_total': new_item_total,
+            'item_qty': new_item_qty,
+            'cart_count': cart_count,
+            'action_performed': action
+        })
+
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
 
 
 # --- CHECKOUT & ORDERS ---

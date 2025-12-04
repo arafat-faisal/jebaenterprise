@@ -5,380 +5,362 @@
 
 {% block content %}
 <style>
-    /* --- DESKTOP TABLE STYLES --- */
+    :root {
+        --color-primary: #2563eb;
+        --color-danger: #ef4444;
+        --color-text: #1f2937;
+        --color-text-light: #6b7280;
+        --color-bg-light: #f9fafb;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --radius-lg: 0.75rem;
+        /* Estimate your Bottom Nav Height here (approx 65px is standard) */
+        --bottom-nav-height: 65px; 
+    }
+
+    /* --- LAYOUT --- */
     .cart-container {
         max-width: 1000px;
-        margin: 0 auto;
-        padding-bottom: 80px; /* Space for sticky bar */
+        margin: 2rem auto;
+        /* INCREASED PADDING: To prevent last item from being hidden behind the doubled-up footers */
+        padding: 0 1rem calc(var(--bottom-nav-height) + 100px) 1rem; 
+        font-family: 'Inter', system-ui, sans-serif;
     }
 
-    .cart-table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0 15px; /* Spacing between rows */
-        margin-top: 10px;
-    }
-    
-    .cart-table th {
-        text-align: left;
-        padding: 10px 20px;
-        color: var(--text-sub);
-        font-weight: 700;
-        font-size: 0.9rem;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .cart-row {
-        background: #fff;
-        box-shadow: var(--shadow-soft);
+    .cart-header { margin-bottom: 2rem; }
+    .cart-title { font-size: 1.875rem; font-weight: 800; color: var(--color-text); margin: 0; }
+    .cart-count { color: var(--color-text-light); font-size: 1.1rem; font-weight: 500; }
+
+    /* --- CART LIST --- */
+    .cart-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .cart-item {
+        display: grid;
+        grid-template-columns: 80px 1fr auto;
+        gap: 1.5rem;
+        background: white;
+        padding: 1.5rem;
         border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid #e5e7eb;
+        align-items: center;
+        position: relative;
+        transition: transform 0.2s, opacity 0.3s;
+    }
+
+    .item-image {
+        width: 80px; height: 80px;
+        object-fit: contain;
+        border-radius: 0.5rem;
+        background: var(--color-bg-light);
+        border: 1px solid #f3f4f6;
+    }
+
+    .item-details { display: flex; flex-direction: column; gap: 0.25rem; }
+    .item-name { font-weight: 700; color: var(--color-text); font-size: 1.05rem; line-height: 1.4; }
+    .item-variant { font-size: 0.875rem; color: var(--color-text-light); background: #f3f4f6; padding: 2px 8px; border-radius: 4px; width: fit-content; }
+    .item-price { font-weight: 600; color: var(--color-text-light); font-size: 0.95rem; margin-top: 4px; }
+
+    /* --- CONTROLS --- */
+    .item-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1rem;
+    }
+
+    .qty-group {
+        display: flex;
+        align-items: center;
+        border: 1px solid #e5e7eb;
+        border-radius: 999px;
+        overflow: hidden;
+    }
+    .qty-btn {
+        width: 32px; height: 32px;
+        display: flex; align-items: center; justify-content: center;
+        background: white; border: none;
+        cursor: pointer;
+        font-weight: 700; color: var(--color-text);
+        transition: background 0.2s;
+    }
+    .qty-btn:hover { background: #f9fafb; }
+    .qty-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .qty-value {
+        width: 30px; text-align: center;
+        font-weight: 600; font-size: 0.9rem;
+    }
+
+    .item-total { font-weight: 800; font-size: 1.1rem; color: var(--color-text); }
+    
+    .remove-btn {
+        color: var(--color-danger);
+        background: none; border: none;
+        font-size: 0.85rem; font-weight: 500;
+        cursor: pointer; text-decoration: underline;
+        padding: 0;
+    }
+
+    /* --- SUMMARY --- */
+    .cart-summary-desktop {
+        margin-top: 3rem;
+        background: white;
+        padding: 2rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid #e5e7eb;
+        text-align: right;
+        display: none; /* Mobile first */
+    }
+    @media (min-width: 768px) {
+        .cart-summary-desktop { display: block; }
+    }
+
+    .btn-checkout {
+        background: var(--color-text);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 99px;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-block;
         transition: transform 0.2s;
     }
-    .cart-row:hover { transform: translateY(-2px); }
+    .btn-checkout:hover { transform: translateY(-2px); opacity: 0.95; }
 
-    .cart-table td {
-        padding: 20px;
-        vertical-align: middle;
-    }
-    
-    /* Corner styling for desktop rows */
-    .cart-table td:first-child {
-        border-top-left-radius: var(--radius-lg);
-        border-bottom-left-radius: var(--radius-lg);
-    }
-    .cart-table td:last-child {
-        border-top-right-radius: var(--radius-lg);
-        border-bottom-right-radius: var(--radius-lg);
-    }
-
-    /* Product Cell */
-    .product-cell {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-    .cart-thumb {
-        width: 60px;
-        height: 60px;
-        border-radius: 8px;
-        object-fit: contain;
-        background: #F8F9FB;
-        border: 1px solid #eee;
-        flex-shrink: 0;
-    }
-    .product-info h3 {
-        margin: 0 0 5px 0;
-        font-size: 1rem;
-        color: var(--text-main);
-    }
-    .variation-badge {
-        font-size: 0.8rem;
-        color: #666;
-        background: #f0f0f0;
-        padding: 2px 8px;
-        border-radius: 4px;
-    }
-
-    /* Quantity Controls */
-    .qty-control {
-        display: inline-flex;
-        align-items: center;
-        background: #F8F9FB;
-        border-radius: 50px;
-        padding: 5px;
-        border: 1px solid #eee;
-    }
-    .qty-btn { 
-        width: 32px; 
-        height: 32px; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        text-decoration: none; 
-        color: var(--text-main); 
-        font-weight: 800;
-        transition: background 0.2s;
-        border-radius: 50%;
-    }
-    .qty-btn:hover { background: #eee; }
-    .qty-val { margin: 0 12px; font-weight: 700; min-width: 20px; text-align: center; }
-    
-    /* Remove Button */
-    .btn-remove { 
-        color: #ef5350; 
-        background: #ffebee;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.2s;
-    }
-    .btn-remove:hover { background: #ffcdd2; transform: rotate(90deg); }
-
-    /* Total Section (Desktop) */
-    .cart-summary {
-        margin-top: 30px;
-        text-align: right;
-        padding: 20px;
-        background: #fff;
-        border-radius: var(--radius-lg);
-        display: inline-block;
-        float: right;
-        box-shadow: var(--shadow-soft);
-    }
-
-    /* --- MOBILE STICKY BAR --- */
-    .sticky-cart-bar {
+    /* --- STICKY FOOTER (Mobile) --- */
+    .sticky-footer {
         position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        left: 0; right: 0;
+        
+        /* FIX: Lift it up by the height of the bottom nav + safe area */
+        bottom: var(--bottom-nav-height);
+        bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom));
+        
         background: white;
-        padding: 15px 20px;
-        box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
-        z-index: 9999;
-        display: none; /* Hidden on desktop */
-        align-items: center;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid #e5e7eb;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+        display: flex;
         justify-content: space-between;
-        border-top: 1px solid #eee;
+        align-items: center;
+        z-index: 40; /* Lower than nav (usually 50 or 100) if you want it behind, but usually we want it stacked visually */
     }
-    
-    .scb-info { display: flex; flex-direction: column; }
-    .scb-label { font-size: 0.8rem; color: var(--text-sub); }
-    .scb-total { font-size: 1.3rem; font-weight: 800; color: var(--text-main); }
-    
-    .scb-btn {
-        background: var(--accent-lime);
-        color: var(--text-main);
-        border: none;
-        padding: 12px 30px;
-        border-radius: 50px;
+
+    @media (min-width: 768px) {
+        .sticky-footer { display: none; }
+        .cart-container { padding-bottom: 2rem; } /* Reset padding for desktop */
+    }
+
+    .sticky-info span { display: block; }
+    .sticky-label { font-size: 0.8rem; color: var(--color-text-light); }
+    .sticky-price { font-size: 1.25rem; font-weight: 800; color: var(--color-text); }
+    .sticky-btn {
+        background: var(--color-text);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 99px;
         font-weight: 700;
-        font-size: 1rem;
-        cursor: pointer;
         text-decoration: none;
+        font-size: 0.95rem;
     }
 
-    /* --- MOBILE RESPONSIVE (< 768px) --- */
-    @media (max-width: 768px) {
-        .cart-container { padding-bottom: 100px; } /* More space for sticky bar */
-        
-        /* Hide Desktop Header */
-        .cart-table thead { display: none; }
-        
-        .cart-table, .cart-table tbody, .cart-table tr, .cart-table td {
-            display: block;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .cart-row {
-            margin-bottom: 20px;
-            padding: 15px;
-            position: relative;
-            display: grid !important; /* Turn row into grid */
-            grid-template-columns: 70px 1fr auto; /* Image | Info | Remove */
+    /* --- EMPTY STATE --- */
+    .empty-state {
+        text-align: center;
+        padding: 4rem 1rem;
+        background: white;
+        border-radius: var(--radius-lg);
+    }
+
+    /* --- TOAST --- */
+    .toast-container {
+        position: fixed; 
+        /* FIX: Move toast higher so it doesn't cover the new sticky bar */
+        bottom: calc(var(--bottom-nav-height) + 80px); 
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        display: flex; flex-direction: column; gap: 10px;
+    }
+    .toast {
+        background: rgba(0,0,0,0.85);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.3s;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    /* --- RESPONSIVE ADJUSTMENTS --- */
+    @media (max-width: 600px) {
+        .cart-item {
+            grid-template-columns: 70px 1fr;
             grid-template-areas: 
-                "img info remove"
-                "img controls total";
-            gap: 15px;
+                "img info"
+                "img actions";
+            gap: 1rem;
+        }
+        .item-image { grid-area: img; width: 70px; height: 70px; }
+        .item-details { grid-area: info; }
+        .item-actions { 
+            grid-area: actions; 
+            flex-direction: row; 
+            justify-content: space-between; 
             align-items: center;
+            width: 100%;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
         }
-        
-        /* Cells reset */
-        .cart-table td { 
-            padding: 0; 
-            border: none; 
-            border-radius: 0 !important;
-        }
-
-        /* 1. Image Cell */
-        .cart-table td:nth-child(1) { 
-            grid-area: img; 
-            display: block; 
-        }
-        .product-cell { display: contents; } /* Flatten flex to let grid handle it */
-        .cart-thumb { width: 70px; height: 70px; }
-        .product-info { display: none; } /* Hide desktop info structure here */
-
-        /* 2. Info Cell */
-        /* Since desktop structure puts image and info in cell 1, we handle mobile info manually below */
-        
-        .product-info-mobile {
-            grid-area: info;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .product-info-mobile h3 { margin: 0 0 5px 0; font-size: 1rem; }
-
-        /* 3. Price (Hide on mobile, show in total) */
-        .cart-table td:nth-child(2) { display: none; }
-
-        /* 4. Quantity */
-        .cart-table td:nth-child(3) { grid-area: controls; justify-self: start; }
-
-        /* 5. Total */
-        .cart-table td:nth-child(4) { 
-            grid-area: total; 
-            justify-self: end; 
-            font-weight: 800; 
-            font-size: 1.1rem;
-        }
-
-        /* 6. Remove */
-        .cart-table td:nth-child(5) { 
-            grid-area: remove; 
-            justify-self: end;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-        .btn-remove { width: 28px; height: 28px; background: transparent; color: #999; }
-        
-        /* Hide Desktop Summary */
-        .cart-summary { display: none; }
-        
-        /* Show Sticky Bar */
-        .sticky-cart-bar { display: flex; }
+        .remove-btn { order: -1; }
     }
 </style>
 
 <div class="cart-container">
-    <h1 style="margin-bottom: 25px; font-weight: 800;">{% trans "Your Cart" %} ({{ cart_items|length }})</h1>
-
-    {% if not cart_items %}
-        <div style="text-align: center; padding: 80px 20px; background: #fff; border-radius: 20px; box-shadow: var(--shadow-soft);">
-            <div style="font-size: 3rem; margin-bottom: 10px;">🛒</div>
-            <h3 style="margin-bottom: 10px;">{% trans "Your cart is empty" %}</h3>
-            <p style="color: var(--text-sub); margin-bottom: 30px;">{% trans "Looks like you haven't added anything yet." %}</p>
-            <a href="{% url 'home' %}" class="btn">{% trans "Start Shopping" %}</a>
+    <div class="cart-header">
+        <h1 class="cart-title">{% trans "Your Cart" %}</h1>
+        <div class="cart-count">
+            <span id="cart-count-display">{{ cart_items|length }}</span> {% trans "items" %}
         </div>
-    {% else %}
-        <table class="cart-table">
-            <thead>
-                <tr>
-                    <th style="width: 45%;">{% trans "Product" %}</th>
-                    <th>{% trans "Price" %}</th>
-                    <th>{% trans "Quantity" %}</th>
-                    <th>{% trans "Total" %}</th>
-                    <th>{% trans "Action" %}</th> 
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in cart_items %}
-                <tr class="cart-row">
-                    <td>
-                        <div class="product-cell">
-                            {% if item.product.images.first %}
-                                <img src="{{ item.product.images.first.image.url }}" class="cart-thumb" alt="{{ item.name }}">
-                            {% elif item.product.main_image_obj %}
-                                <img src="{{ item.product.main_image_obj.image.url }}" class="cart-thumb" alt="{{ item.name }}">
-                            {% else %}
-                                <img src="https://via.placeholder.com/60?text=No+Img" class="cart-thumb" alt="No Image">
-                            {% endif %}
-                            
-                            <div class="product-info" style="display: block;"> 
-                                <h3>{{ item.product.name }}</h3>
-                                {% if item.variation %}
-                                    <span class="variation-badge">{{ item.variation.name }}</span>
-                                {% endif %}
-                                {% if item.call_for_price %}
-                                    <div style="color: #0084FF; font-size: 0.8rem; font-weight: bold; margin-top: 4px;">{% trans "Contact Required" %}</div>
-                                {% endif %}
-                            </div>
-                            
-                            <div class="product-info-mobile" style="display: none;"> 
-                                <h3>{{ item.product.name }}</h3>
-                                {% if item.variation %}
-                                    <small style="color: #666;">{{ item.variation.name }}</small>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </td>
-                    
-                    <td>
-                        {% if item.call_for_price %}
-                            --
-                        {% else %}
-                            ৳{{ item.price|floatformat:0 }}
-                        {% endif %}
-                    </td>
+    </div>
 
-                    <td>
-                        <div class="qty-control">
-                            <a href="{% url 'update_cart' item.id 'decrease' %}" class="qty-btn">−</a>
-                            <span class="qty-val">{{ item.quantity }}</span>
-                            <a href="{% url 'update_cart' item.id 'increase' %}" class="qty-btn">+</a>
-                        </div>
-                    </td>
-
-                    <td style="font-weight: 700; color: var(--text-main);">
-                        {% if item.call_for_price %}
-                            {% trans "Contact" %}
-                        {% else %}
-                            ৳{{ item.item_total|floatformat:0 }}
-                        {% endif %}
-                    </td>
-
-                    <td>
-                        <a href="{% url 'update_cart' item.id 'remove' %}" class="btn-remove" title="{% trans 'Remove' %}">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        
-        <div class="cart-summary">
-            <h2 style="margin: 0 0 10px 0; font-size: 1.5rem;">
-                {% trans "Total:" %} ৳{{ total_price|floatformat:0 }}
-            </h2>
-            <p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 20px;">{% trans "(Excluding delivery charge)" %}</p>
+    {% if cart_items %}
+    <div class="cart-list" id="cart-list">
+        {% for item in cart_items %}
+        <div class="cart-item" id="item-{{ item.id }}" data-id="{{ item.id }}">
+            <div class="img-wrapper">
+                {% if item.product.images.first %}
+                    <img src="{{ item.product.images.first.image.url }}" class="item-image" alt="{{ item.name }}">
+                {% elif item.product.main_image_obj %}
+                    <img src="{{ item.product.main_image_obj.image.url }}" class="item-image" alt="{{ item.name }}">
+                {% else %}
+                    <img src="https://via.placeholder.com/80?text=Img" class="item-image" alt="No Image">
+                {% endif %}
+            </div>
             
-            <a href="{% url 'checkout' %}" class="btn" style="padding: 15px 40px; font-size: 1.1rem; background: var(--text-main); color: white;">
-                {% trans "Proceed to Checkout" %} →
-            </a>
+            <div class="item-details">
+                <div class="item-name">{{ item.product.name }}</div>
+                {% if item.variation %}
+                    <div class="item-variant">{{ item.variation.name }}</div>
+                {% endif %}
+                <div class="item-price">৳{{ item.price|floatformat:0 }}</div>
+            </div>
+
+            <div class="item-actions">
+                <div class="qty-group">
+                    <button class="qty-btn" onclick="updateCart('{{ item.id }}', 'decrease')">−</button>
+                    <span class="qty-value" id="qty-{{ item.id }}">{{ item.quantity }}</span>
+                    <button class="qty-btn" onclick="updateCart('{{ item.id }}', 'increase')">+</button>
+                </div>
+                
+                <div class="item-total" id="total-{{ item.id }}">
+                    ৳{{ item.item_total|floatformat:0 }}
+                </div>
+                
+                <button class="remove-btn desktop-only" onclick="updateCart('{{ item.id }}', 'remove')">
+                    {% trans "Remove" %}
+                </button>
+            </div>
         </div>
+        {% endfor %}
+    </div>
+
+    <div class="cart-summary-desktop">
+        <h2 style="font-size:1.5rem; margin-bottom:0.5rem;">{% trans "Subtotal" %}: <span id="desktop-total">৳{{ total_price|floatformat:0 }}</span></h2>
+        <p style="color:#6b7280; margin-bottom:1.5rem;">{% trans "Delivery charges calculated at checkout." %}</p>
+        <a href="{% url 'checkout' %}" class="btn-checkout">{% trans "Proceed to Checkout" %} →</a>
+    </div>
+
+    <div class="sticky-footer">
+        <div class="sticky-info">
+            <span class="sticky-label">{% trans "Total" %}</span>
+            <span class="sticky-price" id="mobile-total">৳{{ total_price|floatformat:0 }}</span>
+        </div>
+        <a href="{% url 'checkout' %}" class="sticky-btn">{% trans "Checkout" %}</a>
+    </div>
+
+    {% else %}
+    <div class="empty-state">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🛒</div>
+        <h3 style="margin-bottom: 0.5rem; font-weight:700;">{% trans "Your cart is empty" %}</h3>
+        <p style="color: #6b7280; margin-bottom: 2rem;">{% trans "Looks like you haven't added anything yet." %}</p>
+        <a href="{% url 'home' %}" class="btn-checkout">{% trans "Start Shopping" %}</a>
+    </div>
     {% endif %}
 </div>
 
-{% if cart_items %}
-<div class="sticky-cart-bar">
-    <div class="scb-info">
-        <span class="scb-label">{% trans "Total (excl. delivery)" %}</span>
-        <span class="scb-total">৳{{ total_price|floatformat:0 }}</span>
-    </div>
-    <a href="{% url 'checkout' %}" class="scb-btn">
-        {% trans "Checkout" %}
-    </a>
-</div>
-{% endif %}
+<div class="toast-container" id="toast-container"></div>
 
 <script>
-    // Simple helper to toggle display if CSS Grid fails on some browsers
-    function checkMobile() {
-        if (window.innerWidth < 768) {
-            document.querySelectorAll('.product-info-mobile').forEach(el => el.style.display = 'flex');
-            document.querySelectorAll('.product-info').forEach(el => el.style.display = 'none');
-        } else {
-            document.querySelectorAll('.product-info-mobile').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.product-info').forEach(el => el.style.display = 'block');
+    // --- API HANDLER ---
+    async function updateCart(itemId, action) {
+        const url = "{% url 'update_cart_api' %}";
+        const csrfToken = '{{ csrf_token }}';
+
+        // Optimistic UI updates could go here, but we'll rely on server response for accuracy
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({ item_id: itemId, action: action })
+            });
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+                if (action === 'remove' || data.item_qty === 0) {
+                    // Remove item from DOM
+                    const el = document.getElementById(`item-${itemId}`);
+                    el.style.opacity = '0';
+                    setTimeout(() => el.remove(), 300);
+                    showToast('Item removed');
+                } else {
+                    // Update Item DOM
+                    document.getElementById(`qty-${itemId}`).innerText = data.item_qty;
+                    document.getElementById(`total-${itemId}`).innerText = '৳' + data.item_total;
+                    if(action === 'increase') showToast('Quantity updated');
+                }
+
+                // Update Cart Globals
+                document.getElementById('cart-count-display').innerText = data.cart_count;
+                document.getElementById('desktop-total').innerText = '৳' + data.cart_total;
+                document.getElementById('mobile-total').innerText = '৳' + data.cart_total;
+                
+                // If empty, reload to show empty state (simplest way)
+                if (data.cart_count === 0) {
+                    setTimeout(() => location.reload(), 500);
+                }
+
+            } else {
+                showToast(data.message || 'Error updating cart');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            showToast('Network error. Please try again.');
         }
     }
-    window.addEventListener('resize', checkMobile);
-    document.addEventListener('DOMContentLoaded', function() {
-        checkMobile();
-        
-        // Auto-hide global nav on mobile to prevent double bars
-        const globalNav = document.querySelector('.mobile-bottom-nav');
-        if(globalNav && window.innerWidth < 900) {
-            globalNav.style.display = 'none';
-        }
-    });
-</script>
 
+    // --- TOAST HELPER ---
+    function showToast(message) {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerText = message;
+        container.appendChild(toast);
+        
+        // Trigger reflow
+        void toast.offsetWidth; 
+        toast.classList.add('show');
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+</script>
 {% endblock %}

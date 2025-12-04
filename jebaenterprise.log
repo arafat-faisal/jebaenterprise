@@ -10425,3 +10425,717 @@ INFO 2025-12-03 22:15:13,628 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 
 WARNING 2025-12-03 22:15:14,042 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
 INFO 2025-12-03 22:15:24,184 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 67696
 WARNING 2025-12-03 22:15:25,720 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-04 10:30:50,718 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 10:31:00,088 basehttp "GET / HTTP/1.1" 200 102708
+WARNING 2025-12-04 10:31:00,126 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:00,160 basehttp "GET /media/products/gallery/prod_1380_0.jpg HTTP/1.1" 200 39871
+INFO 2025-12-04 10:31:00,163 basehttp "GET /media/products/gallery/prod_1439_0.jpg HTTP/1.1" 200 36259
+INFO 2025-12-04 10:31:00,166 basehttp "GET /media/products/gallery/prod_1351_0.jpg HTTP/1.1" 200 26204
+INFO 2025-12-04 10:31:00,173 basehttp "GET /media/products/gallery/prod_1405_0.jpg HTTP/1.1" 200 54999
+INFO 2025-12-04 10:31:00,174 basehttp "GET /media/products/gallery/prod_1511_0.jpg HTTP/1.1" 200 63911
+INFO 2025-12-04 10:31:00,176 basehttp "GET /media/products/gallery/prod_1503_0.jpg HTTP/1.1" 200 53706
+INFO 2025-12-04 10:31:00,213 basehttp "GET /media/products/gallery/prod_1524_0.jpg HTTP/1.1" 200 35721
+INFO 2025-12-04 10:31:00,219 basehttp "GET /media/products/gallery/prod_1551_0.jpg HTTP/1.1" 200 39127
+INFO 2025-12-04 10:31:00,226 basehttp "GET /media/products/gallery/prod_1448_0.jpg HTTP/1.1" 200 247681
+INFO 2025-12-04 10:31:05,434 basehttp "GET / HTTP/1.1" 200 95419
+INFO 2025-12-04 10:31:05,469 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-04 10:31:05,469 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-04 10:31:05,496 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-04 10:31:05,497 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+WARNING 2025-12-04 10:31:05,501 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:05,634 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+INFO 2025-12-04 10:31:05,665 basehttp "GET /media/products/gallery/prod_1546_0.jpg HTTP/1.1" 200 79741
+INFO 2025-12-04 10:31:05,665 basehttp "GET /media/products/gallery/prod_1409_0.jpg HTTP/1.1" 200 46546
+INFO 2025-12-04 10:31:05,670 basehttp "GET /media/products/gallery/prod_1502_0.jpg HTTP/1.1" 200 42722
+INFO 2025-12-04 10:31:05,672 basehttp "GET /media/products/gallery/prod_1523_0.jpeg HTTP/1.1" 200 101088
+INFO 2025-12-04 10:31:05,674 basehttp "GET /media/products/gallery/prod_1489_0.jpg HTTP/1.1" 200 96713
+INFO 2025-12-04 10:31:05,707 basehttp "GET /media/products/gallery/prod_1587_0.jpg HTTP/1.1" 200 103716
+INFO 2025-12-04 10:31:05,710 basehttp "GET /media/products/gallery/prod_1552_0.jpg HTTP/1.1" 200 33320
+INFO 2025-12-04 10:31:05,712 basehttp "GET /media/products/gallery/prod_1591_0.jpg HTTP/1.1" 200 41954
+INFO 2025-12-04 10:31:05,715 basehttp "GET /media/products/gallery/prod_1494_0.jpg HTTP/1.1" 200 44529
+INFO 2025-12-04 10:31:05,717 basehttp "GET /media/products/gallery/prod_1432_0.jpg HTTP/1.1" 200 851135
+INFO 2025-12-04 10:31:05,745 basehttp "GET /media/products/gallery/prod_1518_0.jpg HTTP/1.1" 200 46874
+INFO 2025-12-04 10:31:05,748 basehttp "GET /media/products/gallery/prod_1588_0.jpg HTTP/1.1" 200 32122
+INFO 2025-12-04 10:31:05,755 basehttp "GET /media/products/gallery/prod_1354_0.jpg HTTP/1.1" 200 45738
+INFO 2025-12-04 10:31:05,756 basehttp "GET /media/products/gallery/prod_1450_0.jpg HTTP/1.1" 200 52923
+INFO 2025-12-04 10:31:05,757 basehttp "GET /media/products/gallery/prod_1425_0.jpg HTTP/1.1" 200 49226
+INFO 2025-12-04 10:31:05,766 basehttp "GET /media/products/gallery/prod_1561_0.jpg HTTP/1.1" 200 14092
+INFO 2025-12-04 10:31:05,785 basehttp "GET /media/products/gallery/prod_1396_0.jpg HTTP/1.1" 200 18755
+INFO 2025-12-04 10:31:05,789 basehttp "GET /media/products/gallery/prod_1595_0.jpg HTTP/1.1" 200 105228
+INFO 2025-12-04 10:31:05,792 basehttp "GET /media/products/gallery/prod_1497_0.jpg HTTP/1.1" 200 41370
+INFO 2025-12-04 10:31:05,795 basehttp "GET /media/products/gallery/prod_1623_0.jpg HTTP/1.1" 200 79056
+INFO 2025-12-04 10:31:05,798 basehttp "GET /media/products/gallery/prod_1452_0.jpeg HTTP/1.1" 200 20595
+INFO 2025-12-04 10:31:05,815 basehttp "GET /media/products/gallery/prod_1386_0.jpg HTTP/1.1" 200 29615
+INFO 2025-12-04 10:31:05,817 basehttp "GET /media/products/gallery/prod_1435_0.jpg HTTP/1.1" 200 51873
+INFO 2025-12-04 10:31:05,820 basehttp "GET /media/products/gallery/prod_1398_0.jpg HTTP/1.1" 200 45790
+INFO 2025-12-04 10:31:05,841 basehttp "GET /media/products/gallery/prod_1575_0.jpg HTTP/1.1" 200 24002
+INFO 2025-12-04 10:31:05,844 basehttp "GET /media/products/gallery/prod_1368_0.jpg HTTP/1.1" 200 62638
+INFO 2025-12-04 10:31:05,878 basehttp "GET /media/products/gallery/prod_1606_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-04 10:31:05,929 basehttp "GET /media/products/gallery/prod_1559_0.jpg HTTP/1.1" 200 49584
+INFO 2025-12-04 10:31:05,930 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 200 52115
+WARNING 2025-12-04 10:31:05,938 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-04 10:31:07,929 basehttp "GET /product/1523/ HTTP/1.1" 200 85348
+WARNING 2025-12-04 10:31:07,949 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:07,978 basehttp "GET /media/products/gallery/prod_1523_1.jpeg HTTP/1.1" 200 114120
+INFO 2025-12-04 10:31:07,983 basehttp "GET /media/products/gallery/prod_1523_3.jpeg HTTP/1.1" 200 83728
+INFO 2025-12-04 10:31:07,984 basehttp "GET /media/products/gallery/prod_1523_2.jpeg HTTP/1.1" 200 94830
+INFO 2025-12-04 10:31:07,984 basehttp "GET /media/products/gallery/prod_1342_0.jpg HTTP/1.1" 200 51882
+INFO 2025-12-04 10:31:07,986 basehttp "GET /media/products/gallery/prod_1355_0.jpg HTTP/1.1" 200 21028
+INFO 2025-12-04 10:31:08,010 basehttp "GET /media/products/gallery/prod_1529_0.jpg HTTP/1.1" 200 26872
+INFO 2025-12-04 10:31:08,021 basehttp "GET /media/products/gallery/prod_1593_0.jpg HTTP/1.1" 200 19986
+INFO 2025-12-04 10:31:08,024 basehttp "GET /media/products/gallery/prod_1517_0.jpg HTTP/1.1" 200 33373
+INFO 2025-12-04 10:31:08,046 basehttp "GET /media/products/gallery/prod_1607_0.jpg HTTP/1.1" 200 47482
+INFO 2025-12-04 10:31:08,049 basehttp "GET /media/products/gallery/prod_1370_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-04 10:31:08,051 basehttp "GET /media/products/gallery/prod_1514_0.jpg HTTP/1.1" 200 63144
+INFO 2025-12-04 10:31:08,054 basehttp "GET /media/products/gallery/prod_1384_0.jpg HTTP/1.1" 200 61736
+INFO 2025-12-04 10:31:08,077 basehttp "GET /media/products/gallery/prod_1528_0.jpg HTTP/1.1" 200 75808
+INFO 2025-12-04 10:31:08,160 basehttp "GET /media/products/gallery/prod_1599_0.jpg HTTP/1.1" 200 52927
+INFO 2025-12-04 10:31:14,980 basehttp "POST /add-to-cart/1523/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:31:15,038 basehttp "GET /product/1523/ HTTP/1.1" 200 85623
+WARNING 2025-12-04 10:31:15,052 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:18,697 basehttp "GET /cart/ HTTP/1.1" 200 47704
+WARNING 2025-12-04 10:31:18,710 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:20,670 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 119
+INFO 2025-12-04 10:31:21,222 basehttp "GET /cart/ HTTP/1.1" 200 45936
+WARNING 2025-12-04 10:31:21,237 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:22,715 basehttp "GET / HTTP/1.1" 200 94800
+WARNING 2025-12-04 10:31:22,735 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:22,776 basehttp "GET /media/products/gallery/prod_1626_0.jpg HTTP/1.1" 200 28364
+INFO 2025-12-04 10:31:22,777 basehttp "GET /media/products/gallery/prod_1417_0.jpg HTTP/1.1" 200 31607
+INFO 2025-12-04 10:31:22,778 basehttp "GET /media/products/gallery/prod_1438_0.jpg HTTP/1.1" 200 60293
+INFO 2025-12-04 10:31:22,778 basehttp "GET /media/products/gallery/prod_1433_0.jpg HTTP/1.1" 200 52261
+INFO 2025-12-04 10:31:22,781 basehttp "GET /media/products/gallery/prod_1475_0.jpg HTTP/1.1" 200 67091
+INFO 2025-12-04 10:31:22,813 basehttp "GET /media/products/gallery/prod_1592_0.jpg HTTP/1.1" 200 443080
+INFO 2025-12-04 10:31:22,817 basehttp "GET /media/products/gallery/prod_1364_0.jpg HTTP/1.1" 200 53072
+INFO 2025-12-04 10:31:22,817 basehttp "GET /media/products/gallery/prod_1583_0.jpg HTTP/1.1" 200 14552
+INFO 2025-12-04 10:31:22,817 basehttp "GET /media/products/gallery/prod_1343_0.jpg HTTP/1.1" 200 17724
+INFO 2025-12-04 10:31:22,820 basehttp "GET /media/products/gallery/prod_1604_0.jpg HTTP/1.1" 200 63550
+INFO 2025-12-04 10:31:22,851 basehttp "GET /media/products/gallery/prod_1547_0.jpg HTTP/1.1" 200 57752
+INFO 2025-12-04 10:31:22,856 basehttp "GET /media/products/gallery/prod_1363_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-04 10:31:22,860 basehttp "GET /media/products/gallery/prod_1631_0.jpg HTTP/1.1" 200 40208
+INFO 2025-12-04 10:31:22,860 basehttp "GET /media/products/gallery/prod_1560_0.jpg HTTP/1.1" 200 57819
+INFO 2025-12-04 10:31:22,861 basehttp "GET /media/products/gallery/prod_1456_0.jpg HTTP/1.1" 200 30818
+INFO 2025-12-04 10:31:22,868 basehttp "GET /media/products/gallery/prod_1399_0.jpg HTTP/1.1" 200 52532
+INFO 2025-12-04 10:31:22,882 basehttp "GET /media/products/gallery/prod_1492_0.jpg HTTP/1.1" 200 39709
+INFO 2025-12-04 10:31:22,892 basehttp "GET /media/products/gallery/prod_1586_0.jpg HTTP/1.1" 200 129524
+INFO 2025-12-04 10:31:22,895 basehttp "GET /media/products/gallery/prod_1533_0.jpg HTTP/1.1" 200 17702
+INFO 2025-12-04 10:31:22,899 basehttp "GET /media/products/gallery/prod_1630_0.jpg HTTP/1.1" 200 37692
+INFO 2025-12-04 10:31:22,900 basehttp "GET /media/products/gallery/prod_1515_0.jpg HTTP/1.1" 200 64083
+INFO 2025-12-04 10:31:22,903 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 200 181972
+INFO 2025-12-04 10:31:22,915 basehttp "GET /media/products/gallery/prod_1527_0.jpg HTTP/1.1" 200 67112
+INFO 2025-12-04 10:31:22,922 basehttp "GET /media/products/gallery/prod_1504_0.jpg HTTP/1.1" 200 373508
+INFO 2025-12-04 10:31:24,852 basehttp "GET /product/1626/ HTTP/1.1" 200 78129
+WARNING 2025-12-04 10:31:24,871 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:24,908 basehttp "GET /media/products/gallery/prod_1626_1.jpg HTTP/1.1" 200 69780
+INFO 2025-12-04 10:31:24,908 basehttp "GET /media/products/gallery/prod_1373_0.jpg HTTP/1.1" 200 47603
+INFO 2025-12-04 10:31:24,910 basehttp "GET /media/products/gallery/prod_1626_2.jpg HTTP/1.1" 200 45508
+INFO 2025-12-04 10:31:24,911 basehttp "GET /media/products/gallery/prod_1362_0.jpg HTTP/1.1" 200 51085
+INFO 2025-12-04 10:31:24,913 basehttp "GET /media/products/gallery/prod_1626_3.jpg HTTP/1.1" 200 55442
+INFO 2025-12-04 10:31:24,913 basehttp "GET /media/products/gallery/prod_1390_0.jpg HTTP/1.1" 200 37036
+INFO 2025-12-04 10:31:24,946 basehttp "GET /media/products/gallery/prod_1464_0.jpg HTTP/1.1" 200 43377
+INFO 2025-12-04 10:31:24,948 basehttp "GET /media/products/gallery/prod_1401_0.webp HTTP/1.1" 200 18328
+INFO 2025-12-04 10:31:24,949 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-12-04 10:31:24,950 basehttp "GET /media/products/gallery/prod_1461_0.jpg HTTP/1.1" 200 68657
+INFO 2025-12-04 10:31:25,055 basehttp "GET /media/products/gallery/prod_1610_0.jpg HTTP/1.1" 200 79435
+INFO 2025-12-04 10:31:26,011 basehttp "POST /add-to-cart/1626/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:31:26,064 basehttp "GET /product/1626/ HTTP/1.1" 200 78404
+WARNING 2025-12-04 10:31:26,080 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:27,364 basehttp "GET /cart/ HTTP/1.1" 200 47721
+WARNING 2025-12-04 10:31:27,376 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:28,727 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 127
+INFO 2025-12-04 10:31:30,153 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 127
+INFO 2025-12-04 10:31:31,080 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-04 10:31:31,937 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-04 10:31:32,607 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-04 10:31:33,295 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-04 10:31:34,549 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+WARNING 2025-12-04 10:31:42,136 log Bad Request: /sales/cart/api/update/
+WARNING 2025-12-04 10:31:42,136 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 400 55
+WARNING 2025-12-04 10:31:44,347 log Bad Request: /sales/cart/api/update/
+WARNING 2025-12-04 10:31:44,358 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 400 55
+INFO 2025-12-04 10:31:48,606 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-04 10:31:49,438 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-04 10:31:49,673 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-04 10:31:49,902 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-04 10:31:50,160 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 127
+INFO 2025-12-04 10:31:50,423 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 127
+INFO 2025-12-04 10:31:50,674 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 127
+INFO 2025-12-04 10:31:51,237 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 119
+INFO 2025-12-04 10:31:51,776 basehttp "GET /cart/ HTTP/1.1" 200 45936
+WARNING 2025-12-04 10:31:51,790 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:53,731 basehttp "GET / HTTP/1.1" 200 101634
+WARNING 2025-12-04 10:31:53,753 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:53,788 basehttp "GET /media/products/gallery/prod_1424_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-04 10:31:53,789 basehttp "GET /media/products/gallery/prod_1468_0.jpg HTTP/1.1" 200 113216
+INFO 2025-12-04 10:31:53,794 basehttp "GET /media/products/gallery/prod_1545_0.jpg HTTP/1.1" 200 43117
+INFO 2025-12-04 10:31:53,794 basehttp "GET /media/products/gallery/prod_1542_0.jpg HTTP/1.1" 200 73916
+INFO 2025-12-04 10:31:53,796 basehttp "GET /media/products/gallery/prod_1418_0.jpg HTTP/1.1" 200 43714
+INFO 2025-12-04 10:31:53,796 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 200 56780
+INFO 2025-12-04 10:31:53,826 basehttp "GET /media/products/gallery/prod_1612_0.jpg HTTP/1.1" 200 37261
+INFO 2025-12-04 10:31:53,828 basehttp "GET /media/products/gallery/prod_1617_0.jpg HTTP/1.1" 200 183160
+INFO 2025-12-04 10:31:53,837 basehttp "GET /media/products/gallery/prod_1513_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-04 10:31:53,838 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+INFO 2025-12-04 10:31:53,839 basehttp "GET /media/products/gallery/prod_1443_0.jpg HTTP/1.1" 200 56795
+INFO 2025-12-04 10:31:53,842 basehttp "GET /media/products/gallery/prod_1395_0.jpg HTTP/1.1" 200 276359
+INFO 2025-12-04 10:31:53,860 basehttp "GET /media/products/gallery/prod_1600_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-04 10:31:53,876 basehttp "GET /media/products/gallery/prod_1493_0.jpg HTTP/1.1" 200 67353
+INFO 2025-12-04 10:31:53,880 basehttp "GET /media/products/gallery/prod_1410_0.jpg HTTP/1.1" 200 67551
+INFO 2025-12-04 10:31:53,882 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 200 79832
+INFO 2025-12-04 10:31:53,884 basehttp "GET /media/products/gallery/prod_1482_0.jpg HTTP/1.1" 200 221983
+INFO 2025-12-04 10:31:53,894 basehttp "GET /media/products/gallery/prod_1566_0.jpg HTTP/1.1" 200 1452752
+INFO 2025-12-04 10:31:53,902 basehttp "GET /media/products/gallery/prod_1603_0.jpg HTTP/1.1" 200 129691
+INFO 2025-12-04 10:31:53,913 basehttp "GET /media/products/gallery/prod_1478_0.jpg HTTP/1.1" 200 30677
+INFO 2025-12-04 10:31:53,913 basehttp "GET /media/products/gallery/prod_1472_0.jpg HTTP/1.1" 200 37506
+INFO 2025-12-04 10:31:53,914 basehttp "GET /media/products/gallery/prod_1537_0.jpg HTTP/1.1" 200 39078
+INFO 2025-12-04 10:31:53,926 basehttp "GET /media/products/gallery/prod_1554_0.jpg HTTP/1.1" 200 22394
+INFO 2025-12-04 10:31:53,955 basehttp "GET /media/products/gallery/prod_1511_0.jpg HTTP/1.1" 200 63911
+INFO 2025-12-04 10:31:54,017 basehttp "GET /media/products/gallery/prod_1570_0.jpg HTTP/1.1" 200 59213
+INFO 2025-12-04 10:31:56,650 basehttp "GET /product/1545/ HTTP/1.1" 200 77745
+WARNING 2025-12-04 10:31:56,667 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:31:56,792 basehttp "GET /media/products/gallery/prod_1545_1.jpg HTTP/1.1" 200 37096
+WARNING 2025-12-04 10:31:58,262 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:31:58,262 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:32:12,532 basehttp "POST /add-to-cart/1545/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:32:12,588 basehttp "GET /product/1545/ HTTP/1.1" 200 78020
+WARNING 2025-12-04 10:32:12,614 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:32:12,637 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:32:12,637 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:32:19,727 basehttp "GET / HTTP/1.1" 200 101771
+WARNING 2025-12-04 10:32:19,758 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:32:19,767 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:32:19,768 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:32:19,801 basehttp "GET /media/products/gallery/prod_1397_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-04 10:32:19,802 basehttp "GET /media/products/gallery/prod_1449_0.jpg HTTP/1.1" 200 45291
+INFO 2025-12-04 10:32:19,804 basehttp "GET /media/products/gallery/prod_1572_0.jpg HTTP/1.1" 200 55541
+INFO 2025-12-04 10:32:19,806 basehttp "GET /media/products/gallery/prod_1428_0.jpg HTTP/1.1" 200 61664
+INFO 2025-12-04 10:32:19,814 basehttp "GET /media/products/gallery/prod_1602_0.jpg HTTP/1.1" 200 30159
+INFO 2025-12-04 10:32:19,839 basehttp "GET /media/products/gallery/prod_1566_0.jpg HTTP/1.1" 200 1452752
+INFO 2025-12-04 10:32:19,853 basehttp "GET /media/products/gallery/prod_1520_0.jpg HTTP/1.1" 200 22728
+INFO 2025-12-04 10:32:19,854 basehttp "GET /media/products/gallery/prod_1430_0.jpg HTTP/1.1" 200 32653
+INFO 2025-12-04 10:32:19,856 basehttp "GET /media/products/gallery/prod_1619_0.jpg HTTP/1.1" 200 57985
+INFO 2025-12-04 10:32:19,858 basehttp "GET /media/products/gallery/prod_1584_0.jpg HTTP/1.1" 200 49589
+INFO 2025-12-04 10:32:19,859 basehttp "GET /media/products/gallery/prod_1457_0.jpg HTTP/1.1" 200 54782
+INFO 2025-12-04 10:32:19,893 basehttp "GET /media/products/gallery/prod_1448_0.jpg HTTP/1.1" 200 247681
+INFO 2025-12-04 10:32:19,901 basehttp "GET /media/products/gallery/prod_1596_0.jpg HTTP/1.1" 200 49983
+INFO 2025-12-04 10:32:19,902 basehttp "GET /media/products/gallery/prod_1407_0.jpg HTTP/1.1" 200 58294
+INFO 2025-12-04 10:32:19,904 basehttp "GET /media/products/gallery/prod_1581_0.jpg HTTP/1.1" 200 80607
+INFO 2025-12-04 10:32:19,908 basehttp "GET /media/products/gallery/prod_1519_0.jpg HTTP/1.1" 200 957584
+INFO 2025-12-04 10:32:19,924 basehttp "GET /media/products/gallery/prod_1406_0.jpg HTTP/1.1" 200 33922
+INFO 2025-12-04 10:32:19,938 basehttp "GET /media/products/gallery/prod_1389_0.jpg HTTP/1.1" 200 73862
+INFO 2025-12-04 10:32:19,939 basehttp "GET /media/products/gallery/prod_1557_0.jpg HTTP/1.1" 200 34852
+INFO 2025-12-04 10:32:19,940 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 200 56424
+INFO 2025-12-04 10:32:19,989 basehttp "GET /media/products/gallery/prod_1565_0.jpg HTTP/1.1" 200 52354
+INFO 2025-12-04 10:32:20,035 basehttp "GET /media/products/gallery/prod_1582_0.jpg HTTP/1.1" 200 64454
+INFO 2025-12-04 10:32:21,292 basehttp "GET /cart/ HTTP/1.1" 200 47717
+WARNING 2025-12-04 10:32:21,311 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:32:21,350 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:32:21,351 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:32:26,649 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-04 10:32:29,685 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 127
+INFO 2025-12-04 10:32:34,728 basehttp "GET /cart/ HTTP/1.1" 200 47717
+WARNING 2025-12-04 10:32:34,744 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:32:34,771 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:32:34,771 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:34:57,380 basehttp "GET /wishlist/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:34:57,426 basehttp "GET /accounts/login/?next=/wishlist/ HTTP/1.1" 200 41552
+WARNING 2025-12-04 10:34:57,446 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:34:57,572 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:34:57,572 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:35:00,249 basehttp "GET /catalog/ HTTP/1.1" 200 425624
+WARNING 2025-12-04 10:35:00,304 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:35:00,314 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:35:00,316 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:35:00,355 basehttp "GET /media/products/gallery/prod_1624_0.webp HTTP/1.1" 200 32692
+INFO 2025-12-04 10:35:00,356 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 200 62244
+INFO 2025-12-04 10:35:00,356 basehttp "GET /media/products/gallery/prod_1625_0.jpg HTTP/1.1" 200 89097
+INFO 2025-12-04 10:35:00,363 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 200 60115
+INFO 2025-12-04 10:35:00,369 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-12-04 10:35:00,395 basehttp "GET /media/products/gallery/prod_1597_0.jpg HTTP/1.1" 200 227441
+INFO 2025-12-04 10:35:00,399 basehttp "GET /media/products/gallery/prod_1590_0.jpg HTTP/1.1" 200 41993
+INFO 2025-12-04 10:35:00,406 basehttp "GET /media/products/gallery/prod_1601_0.jpg HTTP/1.1" 200 72665
+INFO 2025-12-04 10:35:00,409 basehttp "GET /media/products/gallery/prod_1589_0.jpg HTTP/1.1" 200 45683
+INFO 2025-12-04 10:35:00,418 basehttp "GET /media/products/gallery/prod_1556_0.jpeg HTTP/1.1" 200 164288
+INFO 2025-12-04 10:35:00,429 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-04 10:35:00,441 basehttp "GET /media/products/gallery/prod_1550_0.jpg HTTP/1.1" 200 23942
+INFO 2025-12-04 10:35:00,444 basehttp "GET /media/products/gallery/prod_1544_0.png HTTP/1.1" 200 201159
+INFO 2025-12-04 10:35:00,448 basehttp "GET /media/products/gallery/prod_1541_0.webp HTTP/1.1" 200 24272
+INFO 2025-12-04 10:35:00,452 basehttp "GET /media/products/gallery/prod_1538_0.jpg HTTP/1.1" 200 38078
+INFO 2025-12-04 10:35:00,459 basehttp "GET /media/products/gallery/prod_1536_0.jpg HTTP/1.1" 200 52748
+INFO 2025-12-04 10:35:00,470 basehttp "GET /media/products/gallery/prod_1526_0.jpg HTTP/1.1" 200 25898
+INFO 2025-12-04 10:35:00,489 basehttp "GET /media/products/gallery/prod_1524_0.jpg HTTP/1.1" 200 35721
+INFO 2025-12-04 10:35:00,491 basehttp "GET /media/products/gallery/prod_1522_0.jpg HTTP/1.1" 200 123779
+INFO 2025-12-04 10:35:00,494 basehttp "GET /media/products/gallery/prod_1509_0.jpg HTTP/1.1" 200 38458
+INFO 2025-12-04 10:35:00,495 basehttp "GET /media/products/gallery/prod_1505_0.jpg HTTP/1.1" 200 51368
+INFO 2025-12-04 10:35:00,503 basehttp "GET /media/products/gallery/prod_1499_0.jpg HTTP/1.1" 200 36573
+INFO 2025-12-04 10:35:00,523 basehttp "GET /media/products/gallery/prod_1487_0.jpg HTTP/1.1" 200 61852
+INFO 2025-12-04 10:35:00,535 basehttp "GET /media/products/gallery/prod_1486_0.jpg HTTP/1.1" 200 270811
+INFO 2025-12-04 10:35:00,539 basehttp "GET /media/products/gallery/prod_1484_0.jpg HTTP/1.1" 200 24622
+INFO 2025-12-04 10:35:00,541 basehttp "GET /media/products/gallery/prod_1485_0.jpg HTTP/1.1" 200 139953
+INFO 2025-12-04 10:35:00,550 basehttp "GET /media/products/gallery/prod_1479_0.jpg HTTP/1.1" 200 28042
+INFO 2025-12-04 10:35:00,564 basehttp "GET /media/products/gallery/prod_1477_0.jpg HTTP/1.1" 200 25679
+INFO 2025-12-04 10:35:00,575 basehttp "GET /media/products/gallery/prod_1469_0.jpg HTTP/1.1" 200 42994
+INFO 2025-12-04 10:35:00,578 basehttp "GET /media/products/gallery/prod_1463_0.jpg HTTP/1.1" 200 82109
+INFO 2025-12-04 10:35:00,581 basehttp "GET /media/products/gallery/prod_1467_0.jpg HTTP/1.1" 200 66218
+INFO 2025-12-04 10:35:00,587 basehttp "GET /media/products/gallery/prod_1460_0.jpg HTTP/1.1" 200 136842
+INFO 2025-12-04 10:35:00,596 basehttp "GET /media/products/gallery/prod_1455_0.jpg HTTP/1.1" 200 59195
+INFO 2025-12-04 10:35:00,615 basehttp "GET /media/products/gallery/prod_1454_0.jpg HTTP/1.1" 200 36526
+INFO 2025-12-04 10:35:00,621 basehttp "GET /media/products/gallery/prod_1451_0.jpg HTTP/1.1" 200 43102
+INFO 2025-12-04 10:35:00,621 basehttp "GET /media/products/gallery/prod_1446_0.jpg HTTP/1.1" 200 48329
+INFO 2025-12-04 10:35:00,628 basehttp "GET /media/products/gallery/prod_1437_0.jpg HTTP/1.1" 200 11796
+INFO 2025-12-04 10:35:00,629 basehttp "GET /media/products/gallery/prod_1488_0.jpg HTTP/1.1" 200 59794
+INFO 2025-12-04 10:35:00,633 basehttp "GET /media/products/gallery/prod_1423_0.jpg HTTP/1.1" 200 41695
+INFO 2025-12-04 10:35:00,652 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 200 22018
+INFO 2025-12-04 10:35:00,659 basehttp "GET /media/products/gallery/prod_1420_0.jpg HTTP/1.1" 200 50968
+INFO 2025-12-04 10:35:00,662 basehttp "GET /media/products/gallery/prod_1419_0.jpg HTTP/1.1" 200 54447
+INFO 2025-12-04 10:35:00,668 basehttp "GET /media/products/gallery/prod_1408_0.jpg HTTP/1.1" 200 16795
+INFO 2025-12-04 10:35:00,670 basehttp "GET /media/products/gallery/prod_1414_0.jpg HTTP/1.1" 200 138366
+INFO 2025-12-04 10:35:00,672 basehttp "GET /media/products/gallery/prod_1405_0.jpg HTTP/1.1" 200 54999
+INFO 2025-12-04 10:35:00,691 basehttp "GET /media/products/gallery/prod_1403_0.webp HTTP/1.1" 200 19464
+INFO 2025-12-04 10:35:00,705 basehttp "GET /media/products/gallery/prod_1402_0.jpeg HTTP/1.1" 200 239643
+INFO 2025-12-04 10:35:00,707 basehttp "GET /media/products/gallery/prod_1394_0.jpeg HTTP/1.1" 200 232515
+INFO 2025-12-04 10:35:00,711 basehttp "GET /media/products/gallery/prod_1387_0.jpg HTTP/1.1" 200 25023
+INFO 2025-12-04 10:35:00,711 basehttp "GET /media/products/gallery/prod_1393_0.jpg HTTP/1.1" 200 48008
+INFO 2025-12-04 10:35:00,740 basehttp "GET /media/products/gallery/prod_1378_0.jpg HTTP/1.1" 200 62179
+INFO 2025-12-04 10:35:00,745 basehttp "GET /media/products/gallery/prod_1376_0.jpg HTTP/1.1" 200 18215
+INFO 2025-12-04 10:35:00,756 basehttp "GET /media/products/gallery/prod_1374_0.jpg HTTP/1.1" 200 42582
+INFO 2025-12-04 10:35:00,756 basehttp "GET /media/products/gallery/prod_1375_0.jpg HTTP/1.1" 200 62294
+INFO 2025-12-04 10:35:00,773 basehttp "GET /media/products/gallery/prod_1372_0.jpg HTTP/1.1" 200 76276
+INFO 2025-12-04 10:35:00,781 basehttp "GET /media/products/gallery/prod_1369_0.jpg HTTP/1.1" 200 56889
+INFO 2025-12-04 10:35:00,803 basehttp "GET /media/products/gallery/prod_1356_0.jpg HTTP/1.1" 200 41204
+INFO 2025-12-04 10:35:00,820 basehttp "GET /media/products/gallery/prod_1383_0.jpg HTTP/1.1" 200 38193
+INFO 2025-12-04 10:35:00,827 basehttp "GET /media/products/gallery/prod_1346_0.jpg HTTP/1.1" 200 496634
+INFO 2025-12-04 10:35:00,830 basehttp "GET /media/products/gallery/prod_1632_0.jpg HTTP/1.1" 200 25956
+INFO 2025-12-04 10:35:00,851 basehttp "GET /media/products/gallery/prod_1379_0.jpg HTTP/1.1" 200 42490
+INFO 2025-12-04 10:35:00,856 basehttp "GET /media/products/gallery/prod_1628_0.jpg HTTP/1.1" 200 28476
+INFO 2025-12-04 10:35:00,868 basehttp "GET /media/products/gallery/prod_1627_0.jpg HTTP/1.1" 200 66592
+INFO 2025-12-04 10:35:00,869 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 200 39513
+INFO 2025-12-04 10:35:00,883 basehttp "GET /media/products/gallery/prod_1618_0.jpg HTTP/1.1" 200 36758
+INFO 2025-12-04 10:35:00,887 basehttp "GET /media/products/gallery/prod_1615_0.jpg HTTP/1.1" 200 40221
+INFO 2025-12-04 10:35:00,902 basehttp "GET /media/products/gallery/prod_1613_0.jpg HTTP/1.1" 200 64834
+INFO 2025-12-04 10:35:00,902 basehttp "GET /media/products/gallery/prod_1365_0.jpg HTTP/1.1" 200 57492
+INFO 2025-12-04 10:35:00,903 basehttp "GET /media/products/gallery/prod_1611_0.jpg HTTP/1.1" 200 82986
+INFO 2025-12-04 10:35:00,913 basehttp "GET /media/products/gallery/prod_1609_0.jpg HTTP/1.1" 200 82004
+INFO 2025-12-04 10:35:00,914 basehttp "GET /media/products/gallery/prod_1608_0.jpg HTTP/1.1" 200 17814
+INFO 2025-12-04 10:35:00,941 basehttp "GET /media/products/gallery/prod_1598_0.jpg HTTP/1.1" 200 29886
+INFO 2025-12-04 10:35:00,943 basehttp "GET /media/products/gallery/prod_1594_0.jpg HTTP/1.1" 200 33999
+INFO 2025-12-04 10:35:00,943 basehttp "GET /media/products/gallery/prod_1587_5.jpg HTTP/1.1" 200 27774
+INFO 2025-12-04 10:35:00,952 basehttp "GET /media/products/gallery/prod_1585_0.jpg HTTP/1.1" 200 69803
+INFO 2025-12-04 10:35:00,955 basehttp "GET /media/products/gallery/prod_1580_0.jpg HTTP/1.1" 200 22593
+INFO 2025-12-04 10:35:00,964 basehttp "GET /media/products/gallery/prod_1621_0.jpg HTTP/1.1" 200 121975
+INFO 2025-12-04 10:35:00,981 basehttp "GET /media/products/gallery/prod_1578_0.jpg HTTP/1.1" 200 45996
+INFO 2025-12-04 10:35:00,983 basehttp "GET /media/products/gallery/prod_1577_0.jpg HTTP/1.1" 200 236232
+INFO 2025-12-04 10:35:00,993 basehttp "GET /media/products/gallery/prod_1574_0.jpg HTTP/1.1" 200 22301
+INFO 2025-12-04 10:35:00,993 basehttp "GET /media/products/gallery/prod_1576_0.jpg HTTP/1.1" 200 42619
+INFO 2025-12-04 10:35:00,998 basehttp "GET /media/products/gallery/prod_1573_0.jpg HTTP/1.1" 200 42106
+INFO 2025-12-04 10:35:01,015 basehttp "GET /media/products/gallery/prod_1569_0.jpg HTTP/1.1" 200 48166
+INFO 2025-12-04 10:35:01,019 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 200 34316
+INFO 2025-12-04 10:35:01,027 basehttp "GET /media/products/gallery/prod_1568_0.jpg HTTP/1.1" 200 50737
+INFO 2025-12-04 10:35:01,029 basehttp "GET /media/products/gallery/prod_1567_0.jpg HTTP/1.1" 200 54654
+INFO 2025-12-04 10:35:01,049 basehttp "GET /media/products/gallery/prod_1563_0.jpg HTTP/1.1" 200 56567
+INFO 2025-12-04 10:35:01,050 basehttp "GET /media/products/gallery/prod_1562_0.jpg HTTP/1.1" 200 43985
+INFO 2025-12-04 10:35:01,061 basehttp "GET /media/products/gallery/prod_1555_0.jpg HTTP/1.1" 200 67784
+INFO 2025-12-04 10:35:01,063 basehttp "GET /media/products/gallery/prod_1558_0.jpg HTTP/1.1" 200 93012
+INFO 2025-12-04 10:35:01,088 basehttp "GET /media/products/gallery/prod_1551_0.jpg HTTP/1.1" 200 39127
+INFO 2025-12-04 10:35:01,089 basehttp "GET /media/products/gallery/prod_1579_0.jpg HTTP/1.1" 200 35421
+INFO 2025-12-04 10:35:01,093 basehttp "GET /media/products/gallery/prod_1548_0.jpg HTTP/1.1" 200 12892
+INFO 2025-12-04 10:35:01,124 basehttp "GET /media/products/gallery/prod_1540_0.jpg HTTP/1.1" 200 51177
+INFO 2025-12-04 10:35:01,130 basehttp "GET /media/products/gallery/prod_1543_0.jpg HTTP/1.1" 200 33152
+INFO 2025-12-04 10:35:01,136 basehttp "GET /media/products/gallery/prod_1564_0.jpg HTTP/1.1" 200 31343
+INFO 2025-12-04 10:35:01,161 basehttp "GET /media/products/gallery/prod_1535_0.jpg HTTP/1.1" 200 35158
+INFO 2025-12-04 10:35:01,167 basehttp "GET /media/products/gallery/prod_1534_0.jpg HTTP/1.1" 200 43853
+INFO 2025-12-04 10:35:01,177 basehttp "GET /media/products/gallery/prod_1532_0.jpg HTTP/1.1" 200 134235
+INFO 2025-12-04 10:35:01,205 basehttp "GET /media/products/gallery/prod_1553_0.jpg HTTP/1.1" 200 109863
+INFO 2025-12-04 10:35:01,208 basehttp "GET /media/products/gallery/prod_1530_0.jpg HTTP/1.1" 200 27979
+INFO 2025-12-04 10:35:01,209 basehttp "GET /media/products/gallery/prod_1531_0.jpg HTTP/1.1" 200 46852
+INFO 2025-12-04 10:35:01,213 basehttp "GET /media/products/gallery/prod_1549_0.jpg HTTP/1.1" 200 32836
+INFO 2025-12-04 10:35:01,223 basehttp "GET /media/products/gallery/prod_1525_0.jpg HTTP/1.1" 200 23357
+INFO 2025-12-04 10:35:01,239 basehttp "GET /media/products/gallery/prod_1539_0.jpg HTTP/1.1" 200 27488
+INFO 2025-12-04 10:35:01,253 basehttp "GET /media/products/gallery/prod_1512_0.jpg HTTP/1.1" 200 42813
+INFO 2025-12-04 10:35:01,253 basehttp "GET /media/products/gallery/prod_1516_0.jpg HTTP/1.1" 200 68076
+INFO 2025-12-04 10:35:01,254 basehttp "GET /media/products/gallery/prod_1521_0.jpg HTTP/1.1" 200 95212
+INFO 2025-12-04 10:35:01,259 basehttp "GET /media/products/gallery/prod_1510_0.jpg HTTP/1.1" 200 71817
+INFO 2025-12-04 10:35:01,269 basehttp "GET /media/products/gallery/prod_1507_0.jpg HTTP/1.1" 200 1037208
+INFO 2025-12-04 10:35:01,276 basehttp "GET /media/products/gallery/prod_1506_0.jpg HTTP/1.1" 200 41414
+INFO 2025-12-04 10:35:01,296 basehttp "GET /media/products/gallery/prod_1503_0.jpg HTTP/1.1" 200 53706
+INFO 2025-12-04 10:35:01,300 basehttp "GET /media/products/gallery/prod_1500_0.jpg HTTP/1.1" 200 37529
+INFO 2025-12-04 10:35:01,303 basehttp "GET /media/products/gallery/prod_1501_0.jpg HTTP/1.1" 200 59897
+INFO 2025-12-04 10:35:01,304 basehttp "GET /media/products/gallery/prod_1496_0.jpg HTTP/1.1" 200 61782
+INFO 2025-12-04 10:35:01,318 basehttp "GET /media/products/gallery/prod_1491_0.jpg HTTP/1.1" 200 32928
+INFO 2025-12-04 10:35:01,319 basehttp "GET /media/products/gallery/prod_1495_0.jpg HTTP/1.1" 200 76018
+INFO 2025-12-04 10:35:01,340 basehttp "GET /media/products/gallery/prod_1490_0.jpg HTTP/1.1" 200 108642
+INFO 2025-12-04 10:35:01,350 basehttp "GET /media/products/gallery/prod_1483_0.jpg HTTP/1.1" 200 52518
+INFO 2025-12-04 10:35:01,354 basehttp "GET /media/products/gallery/prod_1481_0.jpg HTTP/1.1" 200 265393
+INFO 2025-12-04 10:35:01,356 basehttp "GET /media/products/gallery/prod_1480_0.jpg HTTP/1.1" 200 49886
+INFO 2025-12-04 10:35:01,363 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 200 54556
+INFO 2025-12-04 10:35:01,378 basehttp "GET /media/products/gallery/prod_1473_0.webp HTTP/1.1" 200 33126
+INFO 2025-12-04 10:35:01,391 basehttp "GET /media/products/gallery/prod_1471_0.jpg HTTP/1.1" 200 41298
+INFO 2025-12-04 10:35:01,395 basehttp "GET /media/products/gallery/prod_1470_0.jpg HTTP/1.1" 200 72763
+INFO 2025-12-04 10:35:01,399 basehttp "GET /media/products/gallery/prod_1466_0.jpg HTTP/1.1" 200 16876
+INFO 2025-12-04 10:35:01,421 basehttp "GET /media/products/gallery/prod_1462_0.jpg HTTP/1.1" 200 129504
+INFO 2025-12-04 10:35:01,432 basehttp "GET /media/products/gallery/prod_1459_0.jpg HTTP/1.1" 200 48127
+INFO 2025-12-04 10:35:01,441 basehttp "GET /media/products/gallery/prod_1458_0.jpg HTTP/1.1" 200 50863
+INFO 2025-12-04 10:35:01,441 basehttp "GET /media/products/gallery/prod_1453_0.jpg HTTP/1.1" 200 57952
+INFO 2025-12-04 10:35:01,460 basehttp "GET /media/products/gallery/prod_1447_0.jpg HTTP/1.1" 200 40121
+INFO 2025-12-04 10:35:01,466 basehttp "GET /media/products/gallery/prod_1474_0.jpg HTTP/1.1" 200 18391
+INFO 2025-12-04 10:35:01,473 basehttp "GET /media/products/gallery/prod_1445_0.jpg HTTP/1.1" 200 66648
+INFO 2025-12-04 10:35:01,483 basehttp "GET /media/products/gallery/prod_1444_0.jpg HTTP/1.1" 200 38513
+INFO 2025-12-04 10:35:01,487 basehttp "GET /media/products/gallery/prod_1442_0.jpg HTTP/1.1" 200 77960
+INFO 2025-12-04 10:35:01,511 basehttp "GET /media/products/gallery/prod_1439_0.jpg HTTP/1.1" 200 36259
+INFO 2025-12-04 10:35:01,512 basehttp "GET /media/products/gallery/prod_1465_0.jpg HTTP/1.1" 200 50338
+INFO 2025-12-04 10:35:01,515 basehttp "GET /media/products/gallery/prod_1440_0.jpg HTTP/1.1" 200 55678
+INFO 2025-12-04 10:35:01,523 basehttp "GET /media/products/gallery/prod_1434_0.jpg HTTP/1.1" 200 54819
+INFO 2025-12-04 10:35:01,528 basehttp "GET /media/products/gallery/prod_1431_0.jpg HTTP/1.1" 200 28368
+INFO 2025-12-04 10:35:01,563 basehttp "GET /media/products/gallery/prod_1427_0.jpg HTTP/1.1" 200 34313
+INFO 2025-12-04 10:35:01,564 basehttp "GET /media/products/gallery/prod_1429_0.jpg HTTP/1.1" 200 72784
+INFO 2025-12-04 10:35:01,564 basehttp "GET /media/products/gallery/prod_1426_0.jpg HTTP/1.1" 200 62710
+INFO 2025-12-04 10:35:01,573 basehttp "GET /media/products/gallery/prod_1422_0.jpg HTTP/1.1" 200 48828
+INFO 2025-12-04 10:35:01,576 basehttp "GET /media/products/gallery/prod_1416_0.jpg HTTP/1.1" 200 19912
+INFO 2025-12-04 10:35:01,616 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 200 47474
+INFO 2025-12-04 10:35:01,617 basehttp "GET /media/products/gallery/prod_1415_0.jpg HTTP/1.1" 200 36042
+INFO 2025-12-04 10:35:01,618 basehttp "GET /media/products/gallery/prod_1441_0.jpg HTTP/1.1" 200 31834
+INFO 2025-12-04 10:35:01,622 basehttp "GET /media/products/gallery/prod_1413_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-04 10:35:01,624 basehttp "GET /media/products/gallery/prod_1400_0.jpg HTTP/1.1" 200 119967
+INFO 2025-12-04 10:35:01,625 basehttp "GET /media/products/gallery/prod_1404_0.jpg HTTP/1.1" 200 24924
+INFO 2025-12-04 10:35:01,661 basehttp "GET /media/products/gallery/prod_1391_0.jpg HTTP/1.1" 200 66338
+INFO 2025-12-04 10:35:01,665 basehttp "GET /media/products/gallery/prod_1382_0.jpg HTTP/1.1" 200 41652
+INFO 2025-12-04 10:35:01,665 basehttp "GET /media/products/gallery/prod_1381_0.jpg HTTP/1.1" 200 19132
+INFO 2025-12-04 10:35:01,666 basehttp "GET /media/products/gallery/prod_1392_0.jpg HTTP/1.1" 200 75072
+INFO 2025-12-04 10:35:01,672 basehttp "GET /media/products/gallery/prod_1380_0.jpg HTTP/1.1" 200 39871
+INFO 2025-12-04 10:35:01,672 basehttp "GET /media/products/gallery/prod_1377_0.jpg HTTP/1.1" 200 33451
+INFO 2025-12-04 10:35:01,704 basehttp "GET /media/products/gallery/prod_1371_0.jpg HTTP/1.1" 200 39297
+INFO 2025-12-04 10:35:01,722 basehttp "GET /media/products/gallery/prod_1367_0.jpg HTTP/1.1" 200 59307
+INFO 2025-12-04 10:35:01,722 basehttp "GET /media/products/gallery/prod_1366_0.jpg HTTP/1.1" 200 57129
+INFO 2025-12-04 10:35:01,723 basehttp "GET /media/products/gallery/prod_1358_0.jpg HTTP/1.1" 200 55612
+INFO 2025-12-04 10:35:01,727 basehttp "GET /media/products/gallery/prod_1359_0.jpg HTTP/1.1" 200 42611
+INFO 2025-12-04 10:35:01,727 basehttp "GET /media/products/gallery/prod_1360_0.jpg HTTP/1.1" 200 55742
+INFO 2025-12-04 10:35:01,740 basehttp "GET /media/products/gallery/prod_1357_0.jpg HTTP/1.1" 200 34040
+INFO 2025-12-04 10:35:01,783 basehttp "GET /media/products/gallery/prod_1351_0.jpg HTTP/1.1" 200 26204
+INFO 2025-12-04 10:35:01,783 basehttp "GET /media/products/gallery/prod_1353_0.jpeg HTTP/1.1" 200 44199
+INFO 2025-12-04 10:35:01,784 basehttp "GET /media/products/gallery/prod_1352_0.jpg HTTP/1.1" 200 13597
+INFO 2025-12-04 10:35:01,786 basehttp "GET /media/products/gallery/prod_1350_0.jpg HTTP/1.1" 200 30404
+INFO 2025-12-04 10:35:01,788 basehttp "GET /media/products/gallery/prod_1349_0.jpg HTTP/1.1" 200 53388
+INFO 2025-12-04 10:35:01,793 basehttp "GET /media/products/gallery/prod_1347_0.jpg HTTP/1.1" 200 60892
+INFO 2025-12-04 10:35:01,824 basehttp "GET /media/products/gallery/prod_1345_0.jpg HTTP/1.1" 200 32465
+INFO 2025-12-04 10:35:01,826 basehttp "GET /media/products/gallery/prod_1344_0.jpg HTTP/1.1" 200 517783
+INFO 2025-12-04 10:35:04,229 basehttp "GET / HTTP/1.1" 200 104104
+WARNING 2025-12-04 10:35:04,247 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:35:04,281 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:35:04,282 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:35:04,319 basehttp "GET /media/products/gallery/prod_1519_0.jpg HTTP/1.1" 200 957584
+INFO 2025-12-04 10:35:09,691 basehttp "GET /accounts/login/ HTTP/1.1" 200 41504
+WARNING 2025-12-04 10:35:09,706 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:35:09,736 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:35:09,736 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:35:12,650 basehttp "GET / HTTP/1.1" 200 100011
+WARNING 2025-12-04 10:35:12,668 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:35:12,691 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:35:12,691 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:35:15,964 basehttp "POST /i18n/setlang/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:35:16,037 basehttp "GET / HTTP/1.1" 200 108190
+WARNING 2025-12-04 10:35:16,058 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:35:16,082 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:35:16,082 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:35:23,075 basehttp "POST /i18n/setlang/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:35:23,174 basehttp "GET / HTTP/1.1" 200 101190
+WARNING 2025-12-04 10:35:23,196 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:35:23,219 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:35:23,220 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:36:50,712 basehttp "GET / HTTP/1.1" 200 100982
+WARNING 2025-12-04 10:36:50,741 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:36:50,752 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:36:50,753 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:36:50,918 basehttp "GET /media/products/gallery/prod_1507_0.jpg HTTP/1.1" 200 1037208
+INFO 2025-12-04 10:36:51,933 basehttp "GET /cart/ HTTP/1.1" 200 48411
+WARNING 2025-12-04 10:36:51,955 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:36:51,972 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:36:51,973 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:36:57,959 basehttp "GET / HTTP/1.1" 200 99122
+WARNING 2025-12-04 10:36:57,990 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:36:58,012 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:36:58,012 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:37:02,588 basehttp "POST /add-to-cart/1355/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:37:02,665 basehttp "GET /product/1355/ HTTP/1.1" 200 86235
+INFO 2025-12-04 10:37:06,129 basehttp "POST /add-to-cart/1596/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:37:06,189 basehttp "GET /product/1596/ HTTP/1.1" 200 79382
+INFO 2025-12-04 10:37:10,027 basehttp "GET /cart/ HTTP/1.1" 200 50819
+WARNING 2025-12-04 10:37:10,052 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:37:10,067 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:37:10,067 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:37:18,322 basehttp "GET /checkout/ HTTP/1.1" 200 57572
+WARNING 2025-12-04 10:37:18,348 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:37:18,370 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-04 10:37:18,370 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2188
+WARNING 2025-12-04 10:37:18,371 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:37:30,265 basehttp "POST /checkout/ HTTP/1.1" 200 57924
+WARNING 2025-12-04 10:37:30,283 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:37:30,308 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:37:30,309 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:37:49,837 basehttp "POST /checkout/ HTTP/1.1" 200 57924
+WARNING 2025-12-04 10:37:49,853 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:37:55,989 basehttp "POST /checkout/ HTTP/1.1" 200 57540
+WARNING 2025-12-04 10:37:56,003 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:38:03,764 basehttp "POST /checkout/ HTTP/1.1" 200 57818
+WARNING 2025-12-04 10:38:03,778 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:38:11,950 basehttp "POST /checkout/ HTTP/1.1" 200 57833
+WARNING 2025-12-04 10:38:11,964 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:38:44,122 basehttp "GET /checkout/ HTTP/1.1" 200 57572
+INFO 2025-12-04 10:38:48,357 basehttp "GET /cart/ HTTP/1.1" 200 50819
+WARNING 2025-12-04 10:38:48,371 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:39:46,183 basehttp "GET /landing/offers/ HTTP/1.1" 200 38970
+WARNING 2025-12-04 10:39:46,199 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:39:47,149 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 67965
+WARNING 2025-12-04 10:39:47,168 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:39:47,192 basehttp "GET /media/landing/images/Fascial-Gun-1_T28dir5.jpg HTTP/1.1" 200 42518
+INFO 2025-12-04 10:39:47,194 basehttp "GET /media/landing/images/Fascial-Gun-2.jpg HTTP/1.1" 200 38003
+WARNING 2025-12-04 10:39:57,287 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:39:57,287 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:40:15,636 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 200 67965
+WARNING 2025-12-04 10:40:15,664 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:40:15,676 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:40:15,676 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:44:40,882 basehttp "GET / HTTP/1.1" 200 101771
+WARNING 2025-12-04 10:44:40,903 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:44:43,330 basehttp "GET /product/1347/ HTTP/1.1" 200 74995
+WARNING 2025-12-04 10:44:43,358 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:44:43,373 basehttp "GET /media/products/gallery/prod_1347_1.jpg HTTP/1.1" 200 35762
+INFO 2025-12-04 10:44:43,374 basehttp "GET /media/products/gallery/prod_1347_2.jpg HTTP/1.1" 200 47458
+INFO 2025-12-04 10:44:45,878 basehttp "GET / HTTP/1.1" 200 96895
+WARNING 2025-12-04 10:44:45,893 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:44:48,363 basehttp "GET /product/1355/ HTTP/1.1" 200 86528
+WARNING 2025-12-04 10:44:48,384 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:44:48,416 basehttp "GET /media/products/gallery/prod_1355_1.jpg HTTP/1.1" 200 24547
+INFO 2025-12-04 10:44:48,419 basehttp "GET /media/products/gallery/prod_1355_2.jpg HTTP/1.1" 200 19551
+INFO 2025-12-04 10:44:48,425 basehttp "GET /media/products/gallery/prod_1355_6.jpg HTTP/1.1" 200 6146
+INFO 2025-12-04 10:44:48,425 basehttp "GET /media/products/gallery/prod_1355_3.jpg HTTP/1.1" 200 16224
+INFO 2025-12-04 10:44:48,426 basehttp "GET /media/products/gallery/prod_1355_4.jpg HTTP/1.1" 200 13514
+INFO 2025-12-04 10:44:48,426 basehttp "GET /media/products/gallery/prod_1355_5.jpg HTTP/1.1" 200 5762
+INFO 2025-12-04 10:44:48,445 basehttp "GET /media/products/gallery/prod_1355_7.jpg HTTP/1.1" 200 5824
+INFO 2025-12-04 10:44:48,447 basehttp "GET /media/products/gallery/prod_1355_8.jpg HTTP/1.1" 200 4252
+INFO 2025-12-04 10:44:49,865 basehttp "POST /add-to-cart/1355/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:44:49,901 basehttp "GET /checkout/ HTTP/1.1" 200 43154
+WARNING 2025-12-04 10:44:49,915 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:45:09,843 basehttp "POST /checkout/ HTTP/1.1" 200 43568
+WARNING 2025-12-04 10:45:09,858 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:45:14,140 basehttp "POST /checkout/ HTTP/1.1" 200 43568
+WARNING 2025-12-04 10:45:14,155 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:55:05,219 basehttp "POST /checkout/ HTTP/1.1" 200 48615
+WARNING 2025-12-04 10:55:05,236 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:55:18,044 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:55:18,045 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:55:26,935 basehttp "POST /checkout/ HTTP/1.1" 200 48615
+WARNING 2025-12-04 10:55:26,959 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:55:26,973 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:55:26,974 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:55:33,260 basehttp "GET /checkout/ HTTP/1.1" 200 48108
+INFO 2025-12-04 10:55:36,541 basehttp "GET / HTTP/1.1" 200 97303
+WARNING 2025-12-04 10:55:36,558 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:55:37,459 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:55:37,460 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:55:42,487 basehttp "GET /cart/ HTTP/1.1" 200 51112
+WARNING 2025-12-04 10:55:42,509 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:55:42,528 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:55:42,529 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:55:44,866 basehttp "GET /checkout/ HTTP/1.1" 200 48108
+WARNING 2025-12-04 10:55:44,888 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:55:45,015 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:55:45,015 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:55:51,580 basehttp "POST /checkout/ HTTP/1.1" 200 48322
+WARNING 2025-12-04 10:55:51,597 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:55:51,621 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:55:51,622 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:56:00,619 basehttp "POST /checkout/ HTTP/1.1" 200 48076
+WARNING 2025-12-04 10:56:00,639 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:56:00,665 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:56:00,665 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:56:07,566 basehttp "POST /checkout/ HTTP/1.1" 200 48369
+WARNING 2025-12-04 10:56:07,585 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:56:07,716 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:56:07,717 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:56:16,148 basehttp "POST /checkout/ HTTP/1.1" 200 48388
+WARNING 2025-12-04 10:56:16,167 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:56:16,190 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:56:16,191 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-04 10:56:47,076 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:56:47,077 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-04 10:56:47,835 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:56:47,835 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-04 10:56:48,763 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:56:48,764 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:56:49,695 basehttp "GET /checkout/ HTTP/1.1" 200 48108
+WARNING 2025-12-04 10:56:49,737 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:56:49,738 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+WARNING 2025-12-04 10:56:50,468 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:56:50,469 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:56:53,716 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 124
+INFO 2025-12-04 10:56:54,499 basehttp "GET /checkout/ HTTP/1.1" 200 47318
+WARNING 2025-12-04 10:56:54,516 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:56:54,556 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:56:54,557 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:57:27,624 basehttp "GET / HTTP/1.1" 200 101410
+WARNING 2025-12-04 10:57:27,653 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:57:37,777 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:57:37,778 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:58:50,812 basehttp "GET /product/1361/ HTTP/1.1" 200 75834
+WARNING 2025-12-04 10:58:50,832 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:58:50,857 basehttp "GET /media/products/gallery/prod_1361_1.webp HTTP/1.1" 200 7398
+INFO 2025-12-04 10:58:55,571 basehttp "GET /cart/ HTTP/1.1" 200 49909
+WARNING 2025-12-04 10:58:55,586 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:58:58,834 basehttp "GET /checkout/ HTTP/1.1" 200 47318
+WARNING 2025-12-04 10:58:58,848 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 10:59:04,084 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-12-04 10:59:04,116 basehttp "GET /order-success/ HTTP/1.1" 200 33929
+WARNING 2025-12-04 10:59:04,132 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 10:59:18,862 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 10:59:18,862 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 10:59:54,837 basehttp "GET /invoice/b67e908a-8598-4f69-a82c-91c5211cf067/ HTTP/1.1" 200 4252
+INFO 2025-12-04 10:59:54,916 basehttp "GET /invoice/b67e908a-8598-4f69-a82c-91c5211cf067/ HTTP/1.1" 200 4252
+INFO 2025-12-04 11:00:09,994 basehttp "GET /order-success/ HTTP/1.1" 200 33929
+WARNING 2025-12-04 11:00:10,011 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:00:10,037 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:00:10,037 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:00:11,604 basehttp "GET /order-success/ HTTP/1.1" 200 33929
+WARNING 2025-12-04 11:00:11,622 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:00:11,761 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:00:11,761 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:00:12,365 basehttp "GET /order-success/ HTTP/1.1" 200 33929
+WARNING 2025-12-04 11:00:12,383 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:00:12,507 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:00:12,508 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:00:13,124 basehttp "GET /order-success/ HTTP/1.1" 200 33929
+WARNING 2025-12-04 11:00:13,141 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:00:13,170 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:00:13,171 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:00:13,722 basehttp "GET /order-success/ HTTP/1.1" 200 33929
+WARNING 2025-12-04 11:00:13,740 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:00:13,768 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:00:13,768 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:00:13,968 basehttp - Broken pipe from ('127.0.0.1', 56806)
+INFO 2025-12-04 11:00:14,446 basehttp "GET /order-success/ HTTP/1.1" 200 33929
+WARNING 2025-12-04 11:00:14,463 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:00:14,490 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:00:14,490 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:02:25,301 basehttp "GET /order-success/ HTTP/1.1" 200 45284
+WARNING 2025-12-04 11:02:25,325 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:02:25,341 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:02:25,342 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:02:34,705 basehttp "GET /order-success/ HTTP/1.1" 200 45284
+WARNING 2025-12-04 11:02:34,733 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:02:34,755 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:02:34,755 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:03:14,809 basehttp "GET / HTTP/1.1" 200 98669
+WARNING 2025-12-04 11:03:14,837 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:03:14,851 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:03:14,853 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:03:19,145 basehttp "GET /product/1421/ HTTP/1.1" 200 81404
+WARNING 2025-12-04 11:03:19,173 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:03:19,196 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:03:19,197 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:03:19,198 basehttp "GET /media/products/gallery/prod_1421_1.jpg HTTP/1.1" 200 55285
+INFO 2025-12-04 11:03:19,207 basehttp "GET /media/products/gallery/prod_1421_4.jpg HTTP/1.1" 200 27362
+INFO 2025-12-04 11:03:19,214 basehttp "GET /media/products/gallery/prod_1421_5.jpg HTTP/1.1" 200 52377
+INFO 2025-12-04 11:03:19,230 basehttp "GET /media/products/gallery/prod_1421_6.jpg HTTP/1.1" 200 77674
+INFO 2025-12-04 11:03:19,306 basehttp "GET /media/products/gallery/prod_1421_2.jpg HTTP/1.1" 200 43795
+INFO 2025-12-04 11:03:19,306 basehttp "GET /media/products/gallery/prod_1421_3.jpg HTTP/1.1" 200 50355
+INFO 2025-12-04 11:03:20,508 basehttp "POST /add-to-cart/1421/ HTTP/1.1" 302 0
+INFO 2025-12-04 11:03:20,556 basehttp "GET /checkout/ HTTP/1.1" 200 46530
+WARNING 2025-12-04 11:03:20,577 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:03:20,597 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:03:20,598 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:03:25,882 basehttp "POST /checkout/ HTTP/1.1" 200 46724
+WARNING 2025-12-04 11:03:25,900 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:03:25,923 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:03:25,924 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:03:32,539 basehttp "POST /checkout/ HTTP/1.1" 200 46781
+WARNING 2025-12-04 11:03:32,557 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:03:32,581 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:03:32,581 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:03:40,467 basehttp "POST /checkout/ HTTP/1.1" 200 46799
+WARNING 2025-12-04 11:03:40,484 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:03:40,513 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:03:40,514 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:03:45,998 basehttp "POST /checkout/ HTTP/1.1" 302 0
+INFO 2025-12-04 11:03:46,027 basehttp "GET /order-success/ HTTP/1.1" 200 45438
+WARNING 2025-12-04 11:03:46,051 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:03:46,069 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:03:46,069 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:06:28,861 autoreload E:\WebProjects\jebaenterprise\jeba_sales\utils.py changed, reloading.
+INFO 2025-12-04 11:06:29,277 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 11:06:59,681 basehttp "GET /order-success/ HTTP/1.1" 200 45438
+WARNING 2025-12-04 11:06:59,705 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:06:59,823 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:06:59,824 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:07:01,591 basehttp "GET /invoice/3afd141c-410a-4194-818f-0b9795f64d60/ HTTP/1.1" 200 12865
+INFO 2025-12-04 11:07:01,715 basehttp "GET /invoice/3afd141c-410a-4194-818f-0b9795f64d60/ HTTP/1.1" 200 12865
+INFO 2025-12-04 11:07:20,712 basehttp - Broken pipe from ('127.0.0.1', 62652)
+INFO 2025-12-04 11:08:51,933 basehttp "GET / HTTP/1.1" 200 100225
+WARNING 2025-12-04 11:08:51,960 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:08:51,983 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:08:51,984 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:08:52,036 basehttp "GET /media/products/gallery/prod_1432_0.jpg HTTP/1.1" 200 851135
+WARNING 2025-12-04 11:09:21,497 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:09:21,497 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:09:39,854 basehttp "GET /blog/ HTTP/1.1" 200 39614
+WARNING 2025-12-04 11:09:39,870 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:09:39,994 basehttp "GET /media/blog/featured/prod_1333_4.jpg HTTP/1.1" 200 38317
+INFO 2025-12-04 11:09:42,719 basehttp "GET /blog/foldable-laptop-table-features/ HTTP/1.1" 200 44164
+WARNING 2025-12-04 11:09:42,735 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:09:52,867 basehttp "GET /contact/ HTTP/1.1" 200 40107
+WARNING 2025-12-04 11:09:52,882 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:09:57,333 basehttp "GET /about/ HTTP/1.1" 200 39770
+WARNING 2025-12-04 11:09:57,348 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:10:09,035 basehttp "GET /my-orders/ HTTP/1.1" 302 0
+INFO 2025-12-04 11:10:09,062 basehttp "GET /accounts/login/?next=/my-orders/ HTTP/1.1" 200 41573
+WARNING 2025-12-04 11:10:09,078 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:10:12,934 basehttp "GET / HTTP/1.1" 200 100124
+WARNING 2025-12-04 11:10:12,953 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:41:27,522 basehttp "GET / HTTP/1.1" 200 101895
+WARNING 2025-12-04 11:41:27,553 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:41:28,504 basehttp "GET /accounts/login/ HTTP/1.1" 200 41522
+WARNING 2025-12-04 11:41:28,522 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:41:31,837 basehttp "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-12-04 11:41:32,022 basehttp "GET / HTTP/1.1" 200 103392
+WARNING 2025-12-04 11:41:32,046 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:41:33,459 basehttp "GET /dashboard/ HTTP/1.1" 200 47509
+WARNING 2025-12-04 11:41:33,481 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:41:46,840 basehttp "GET /my-orders/ HTTP/1.1" 200 64995
+WARNING 2025-12-04 11:41:46,859 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:41:54,821 basehttp "GET /my-orders/ HTTP/1.1" 200 64995
+WARNING 2025-12-04 11:41:54,841 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:41:56,244 basehttp "GET /dashboard/ HTTP/1.1" 200 47509
+WARNING 2025-12-04 11:41:56,264 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 11:41:59,166 basehttp "POST /dashboard/ HTTP/1.1" 200 47509
+WARNING 2025-12-04 11:41:59,185 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:42:09,495 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:42:09,496 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:42:16,714 basehttp "POST /dashboard/ HTTP/1.1" 200 47509
+WARNING 2025-12-04 11:42:16,739 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:42:16,871 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:42:16,872 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:42:23,336 basehttp "GET / HTTP/1.1" 200 100366
+WARNING 2025-12-04 11:42:23,370 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:42:23,517 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:42:23,517 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:42:25,492 basehttp "GET /dashboard/ HTTP/1.1" 200 47509
+WARNING 2025-12-04 11:42:25,510 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:42:25,538 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:42:25,538 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:42:40,875 basehttp "GET /my-orders/ HTTP/1.1" 200 64995
+WARNING 2025-12-04 11:42:40,901 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:42:40,928 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:42:40,929 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:45:21,219 basehttp "GET / HTTP/1.1" 200 102601
+WARNING 2025-12-04 11:45:21,255 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:45:21,395 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:45:21,396 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:45:22,221 basehttp "GET /dashboard/ HTTP/1.1" 200 50798
+WARNING 2025-12-04 11:45:22,244 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:45:22,269 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:45:22,269 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:45:54,864 basehttp "GET /dashboard/ HTTP/1.1" 200 50547
+WARNING 2025-12-04 11:45:54,898 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:45:54,921 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:45:54,921 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598
+INFO 2025-12-04 11:46:56,342 basehttp "GET /dashboard/ HTTP/1.1" 200 50567
+WARNING 2025-12-04 11:46:56,367 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-04 11:46:56,408 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 11:46:56,409 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12598

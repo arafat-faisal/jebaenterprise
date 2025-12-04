@@ -1,114 +1,212 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Invoice {{ sale.invoice_number }}</title>
     <style type="text/css">
-        body { font-weight: 200; font-size: 14px; font-family: Helvetica, sans-serif; }
-        .header { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
-        .title { font-size: 24px; font-weight: bold; color: #333; }
-        .meta { font-size: 12px; color: #666; text-align: right; }
-        
-        .section { margin-bottom: 20px; }
-        .label { font-weight: bold; color: #333; }
-        
-        /* Tables */
-        table { width: 100%; border-collapse: collapse; }
-        th { text-align: left; border-bottom: 1px solid #ccc; padding: 5px; font-size: 12px; color: #555; background-color: #f0f0f0; }
-        td { padding: 8px 5px; border-bottom: 1px solid #eee; }
-        
-        .total-row td { border-top: 2px solid #333; font-weight: bold; font-size: 16px; }
-        
-        .tracking-box { 
-            background-color: #e3f2fd; border: 1px solid #2196f3; 
-            padding: 10px; margin-top: 30px; font-size: 12px; text-align: center;
+        @page {
+            size: a4 portrait;
+            margin: 1cm;
+            @frame footer_frame {
+                -pdf-frame-content: footerContent;
+                bottom: 0cm;
+                margin-left: 1cm;
+                margin-right: 1cm;
+                height: 2cm;
+            }
         }
-        .footer { margin-top: 50px; text-align: center; font-size: 10px; color: #888; border-top: 1px solid #ccc; padding-top: 10px; }
+
+        body {
+            font-family: Helvetica, sans-serif;
+            font-size: 10pt;
+            color: #1A1C1E;
+            line-height: 1.5;
+        }
+
+        /* --- Header --- */
+        .header-table {
+            width: 100%;
+            border-bottom: 2px solid #D4F759; /* Brand Lime */
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .logo-area { text-align: left; vertical-align: top; }
+        .invoice-info { text-align: right; vertical-align: top; }
+        
+        .title { font-size: 20pt; font-weight: bold; color: #1A1C1E; text-transform: uppercase; }
+        .meta-label { color: #666; font-size: 9pt; }
+        .meta-val { font-weight: bold; font-size: 10pt; }
+
+        /* --- Addresses --- */
+        .address-table { width: 100%; margin-bottom: 30px; }
+        .addr-box { vertical-align: top; width: 50%; }
+        .section-header {
+            font-size: 9pt;
+            color: #888;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2px;
+            width: 90%;
+        }
+        .addr-text { font-size: 10pt; line-height: 1.4; }
+
+        /* --- Items Table --- */
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .items-table th {
+            background-color: #F3F5F9;
+            color: #1A1C1E;
+            font-weight: bold;
+            font-size: 9pt;
+            text-transform: uppercase;
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .items-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: middle;
+        }
+        .item-name { font-weight: bold; font-size: 10pt; }
+        .item-var { color: #666; font-size: 8pt; margin-top: 2px; }
+
+        /* --- Totals --- */
+        .totals-table { width: 100%; }
+        .empty-col { width: 60%; }
+        .total-col { width: 40%; }
+        
+        .total-row td { padding: 5px 0; text-align: right; }
+        .total-label { color: #666; padding-right: 15px; }
+        .total-val { font-weight: bold; width: 100px; display: inline-block;}
+        
+        .grand-total {
+            background-color: #D4F759; /* Brand Lime */
+            color: #1A1C1E;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 12pt;
+            margin-top: 10px;
+        }
+
+        /* --- Footer --- */
+        .footer-text {
+            color: #888;
+            font-size: 8pt;
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <table style="border: none;">
-            <tr style="border: none;">
-                <td style="border: none;">
-                    <div class="title">Jeba Enterprise</div>
-                </td>
-                <td style="border: none; text-align: right;">
-                    <div class="meta">
-                        Invoice: {{ sale.invoice_number }}<br>
-                        Date: {{ sale.created_at|date:"Y-m-d" }}<br>
-                        Status: {{ sale.get_status_display }}
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
 
-    <div class="section">
-        <table style="border: none;">
-            <tr style="border: none;">
-                <td style="border: none; vertical-align: top; width: 50%;">
-                    <div class="label">Billed To:</div>
-                    {{ sale.customer_name }}<br>
+    <table class="header-table">
+        <tr>
+            <td class="logo-area">
+                <img src="/media/logo.png" style="height: 50px;" alt="Jeba Enterprise" />
+            </td>
+            <td class="invoice-info">
+                <div class="title">INVOICE</div>
+                <br>
+                <span class="meta-label">Invoice #:</span> <span class="meta-val">{{ sale.invoice_number }}</span><br>
+                <span class="meta-label">Date:</span> <span class="meta-val">{{ sale.created_at|date:"M d, Y" }}</span><br>
+                <span class="meta-label">Status:</span> <span class="meta-val">{{ sale.get_status_display }}</span>
+            </td>
+        </tr>
+    </table>
+
+    <table class="address-table">
+        <tr>
+            <td class="addr-box">
+                <div class="section-header">Billed To</div>
+                <div class="addr-text">
+                    <strong>{{ sale.customer_name }}</strong><br>
                     {{ sale.phone_number }}<br>
                     {{ sale.shipping_address|linebreaksbr }}
-                </td>
-                <td style="border: none; vertical-align: top; width: 50%; text-align: right;">
-                    <div class="label">Payment Method:</div>
-                    {{ sale.get_payment_method_display }}
+                </div>
+            </td>
+            <td class="addr-box" style="padding-left: 20px;">
+                <div class="section-header">Payment Info</div>
+                <div class="addr-text">
+                    Method: <strong>{{ sale.get_payment_method_display }}</strong><br>
                     {% if sale.transaction_id %}
-                    <br>TrxID: {{ sale.transaction_id }}
+                    TrxID: <strong>{{ sale.transaction_id }}</strong><br>
                     {% endif %}
-                </td>
-            </tr>
-        </table>
-    </div>
+                    Order ID: #{{ sale.order_id }}
+                </div>
+            </td>
+        </tr>
+    </table>
 
-    <h3>Order Items</h3>
-    <table>
+    <table class="items-table">
         <thead>
             <tr>
-                <th style="width: 50%;">Item</th>
-                <th style="text-align: center;">Qty</th>
-                <th style="text-align: right;">Price</th>
-                <th style="text-align: right;">Total</th>
+                <th style="width: 50%;">Item Description</th>
+                <th style="width: 15%; text-align: center;">Qty</th>
+                <th style="width: 15%; text-align: right;">Unit Price</th>
+                <th style="width: 20%; text-align: right;">Total</th>
             </tr>
         </thead>
         <tbody>
             {% for item in sale.items.all %}
             <tr>
                 <td>
-                    {{ item.product.name }}
-                    {% if item.variation %} <br><small>({{ item.variation.name }})</small> {% endif %}
+                    <div class="item-name">{{ item.product.name }}</div>
+                    {% if item.variation %}
+                        <div class="item-var">Var: {{ item.variation.name }}</div>
+                    {% endif %}
                 </td>
                 <td style="text-align: center;">{{ item.quantity }}</td>
                 <td style="text-align: right;">{{ item.sold_price|floatformat:0 }}</td>
                 <td style="text-align: right;">{% widthratio item.sold_price 1 item.quantity %}</td>
             </tr>
             {% endfor %}
-            
-            <tr>
-                <td colspan="3" style="text-align: right; padding-top: 10px;">Subtotal:</td>
-                <td style="text-align: right; padding-top: 10px;">{{ sale.subtotal|floatformat:0 }}</td>
-            </tr>
-            <tr>
-                <td colspan="3" style="text-align: right;">Delivery Charge:</td>
-                <td style="text-align: right;">{{ sale.delivery_charge|floatformat:0 }}</td>
-            </tr>
-            <tr class="total-row">
-                <td colspan="3" style="text-align: right;">Grand Total:</td>
-                <td style="text-align: right;">{{ sale.total_amount|floatformat:0 }} Tk</td>
-            </tr>
         </tbody>
     </table>
 
-    <div class="tracking-box">
-        <strong>Track Your Order Online</strong><br>
-        Click the link below to check live status:<br>
-        <a href="{{ tracking_url }}" style="color: #0000EE;">{{ tracking_url }}</a>
+    <table class="totals-table">
+        <tr>
+            <td class="empty-col"></td>
+            <td class="total-col">
+                <table style="width: 100%;">
+                    <tr class="total-row">
+                        <td class="total-label">Subtotal</td>
+                        <td class="total-val">{{ sale.subtotal|floatformat:0 }}</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td class="total-label">Delivery</td>
+                        <td class="total-val">{{ sale.delivery_charge|floatformat:0 }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding-top: 5px;">
+                            <div class="grand-total" style="text-align: right;">
+                                Total: {{ sale.total_amount|floatformat:0 }} Tk
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 40px; border: 1px solid #e3f2fd; background-color: #f1f8ff; padding: 15px; border-radius: 5px; font-size: 9pt;">
+        <strong>Track this order online:</strong><br>
+        <a href="{{ tracking_url }}" style="color: #2196f3; text-decoration: none;">{{ tracking_url }}</a>
     </div>
 
-    <div class="footer">
-        Thank you for your business! | {{ settings.contact_phone }} | {{ settings.contact_email }}
+    <div id="footerContent">
+        <div class="footer-text">
+            Thank you for shopping with Jeba Enterprise!<br>
+            {{ settings.contact_phone|default:"+880 1XXX-XXXXXX" }} | {{ settings.contact_email|default:"support@jebaenterprise.com" }}<br>
+            www.jebaenterprise.com
+        </div>
     </div>
+
 </body>
 </html>

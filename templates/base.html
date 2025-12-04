@@ -469,45 +469,40 @@
             }
         }
         /* Suggestions Dropdown */
-.suggestions-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    z-index: 1001;
-    display: none; /* Hidden by default */
-    overflow: hidden;
-    border: 1px solid #eee;
-    border-top: none;
-    margin-top: 2px;
-}
-
-.suggestion-item {
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    color: var(--text-main);
-    border-bottom: 1px solid #f5f5f5;
-    transition: background 0.1s;
-}
-
-.suggestion-item:hover {
-    background: #F8F9FB;
-}
-
-.suggestion-item:last-child {
-    border-bottom: none;
-}
-
-/* Icon Styles */
-.sugg-icon { width: 16px; height: 16px; color: #8E94A3; }
-.trending-icon { color: var(--accent-lime); fill: var(--text-main); }
+        .suggestions-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 1001;
+            display: none; /* Hidden by default */
+            overflow: hidden;
+            border: 1px solid #eee;
+            border-top: none;
+            margin-top: 2px;
+        }
+        
+        .suggestion-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            border-bottom: 1px solid #f5f5f5;
+            transition: background 0.1s;
+        }
+        
+        .suggestion-item:hover { background: #F8F9FB; }
+        .suggestion-item:last-child { border-bottom: none; }
+        
+        /* Icon Styles */
+        .sugg-icon { width: 16px; height: 16px; color: #8E94A3; }
+        .trending-icon { color: var(--accent-lime); fill: var(--text-main); }
     </style>
     
     <style>
@@ -598,6 +593,7 @@
 </head>
 <body {% if product %}data-product-id="{{ product.id }}"{% endif %}>
 
+    {% block header %}
     <header class="site-header">
         <a href="{% url 'home' %}" class="logo">
             <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 40px; width: auto;">
@@ -694,6 +690,7 @@
             </a>
         </nav>
     </header>
+    {% endblock header %}
 
     {% if messages %}
         <style>
@@ -720,7 +717,7 @@
         {% endblock %}
     </div>
     
-
+    {% block footer %}
     <footer class="sequoia-footer">
         <div class="footer-content">
             <div class="footer-brand">
@@ -770,13 +767,15 @@
             </div>
         </div>
     </footer>
+    {% endblock footer %}
+
+    {% block chat_widget %}
     {% if site_settings.messenger_username %}
         <a href="https://m.me/{{ site_settings.messenger_username }}" target="_blank" class="messenger-float" title="{% trans 'Chat with us' %}" onclick="playPopSound()">
             <svg class="messenger-icon" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.03 2 11C2 13.66 3.39 16.04 5.56 17.59C5.69 17.68 5.77 17.83 5.76 17.99L5.5 20.8C5.45 21.36 6.03 21.73 6.53 21.46L9.57 19.84C9.7 19.77 9.85 19.76 9.99 19.8C10.65 19.93 11.32 20 12 20C17.52 20 22 15.97 22 11C22 6.03 17.52 2 12 2ZM17 10.5L13.9 15.2C13.71 15.48 13.32 15.55 13.04 15.36L10.5 13.64L7.29 15.35C6.95 15.53 6.61 15.12 6.8 14.83L9.9 10.12C10.09 9.84 10.48 9.77 10.76 9.96L13.3 11.68L16.51 9.97C16.85 9.79 17.19 10.2 17 10.5Z"/>
             </svg>
         </a>
-
         <script>
             function playPopSound() {
                 const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -798,6 +797,8 @@
             }
         </script>
     {% endif %}
+    {% endblock chat_widget %}
+
     <script>
         document.addEventListener('submit', function(e) {
             const form = e.target;
@@ -940,6 +941,8 @@
 
 {% block scripts %}
 {% endblock %}
+
+{% block mobile_nav %}
 <nav class="mobile-bottom-nav">
         <a href="{% url 'home' %}" class="bottom-nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
@@ -968,6 +971,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             <span>{% trans "Account" %}</span>
         </a>
-    </nav>
+</nav>
+{% endblock mobile_nav %}
+
 </body>
 </html>

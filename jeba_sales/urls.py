@@ -5,5 +5,6 @@ urlpatterns = [
     # Webhook Endpoint
     path('webhook/steadfast/', views.steadfast_webhook, name='steadfast_webhook'),
     
-    # Existing views you might want to move here later (optional for now)
+    # NEW: Cart API
+    path('cart/api/update/', views.update_cart_api, name='update_cart_api'),
 ]

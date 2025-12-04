@@ -1,26 +1,52 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
-{% block title %}{% trans "Checkout" %}{% endblock %}
+{% block title %}{% trans "Secure Checkout" %}{% endblock %}
+
+{# --- DISTRACTION-FREE: Override Header/Footer/Nav/Chat --- #}
+{# We hide standard navigation to keep users focused on purchase #}
+
+{% block header %}
+<div style="text-align: center; padding: 20px 0;">
+    <a href="{% url 'home' %}">
+        <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 40px;">
+    </a>
+</div>
+{% endblock %}
+
+{% block footer %}
+<div style="text-align: center; padding: 30px; color: #999; font-size: 0.85rem; background: #fff; border-top: 1px solid #f5f5f5;">
+    <p>&copy; {% now "Y" %} Jeba Enterprise. {% trans "100% Secure Checkout" %}</p>
+</div>
+{% endblock %}
+
+{% block mobile_nav %}{% endblock %}
+{% block chat_widget %}{% endblock %}
+
+{# --------------------------------------------------------- #}
 
 {% block content %}
 <style>
-    /* --- SMARTCODER: LAYOUT & GRID --- */
+    :root {
+        /* Define Nav Height for calculation if needed, though we hide it here */
+        --bottom-nav-height: 65px; 
+    }
+
+    /* --- LAYOUT & GRID --- */
     .checkout-grid {
         display: grid;
         grid-template-columns: 1.3fr 0.9fr; /* More space for form */
         gap: 40px;
-        /* FIXED: Removed 'align-items: start' so columns stretch. 
-           This allows the sticky sidebar to have a track to float on. */
+        margin-bottom: 50px;
     }
     
     /* --- LEFT: FORM STYLES --- */
     .checkout-card {
-        background-color: var(--bg-card);
+        background-color: var(--bg-card, #fff);
         padding: 35px;
-        border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-soft);
-        border: 1px solid transparent;
+        border-radius: var(--radius-xl, 20px);
+        box-shadow: var(--shadow-soft, 0 5px 15px rgba(0,0,0,0.05));
+        border: 1px solid #f0f0f0;
         margin-bottom: 25px; 
     }
     
@@ -40,7 +66,7 @@
         display: block; 
         font-weight: 700; 
         margin-bottom: 8px; 
-        color: var(--text-main); 
+        color: var(--text-main, #333); 
         font-size: 0.9rem; 
     }
     
@@ -68,41 +94,18 @@
         min-height: 80px;
     }
 
-    /* Error Styling */
-    .error-msg {
-        color: #d32f2f;
-        font-size: 0.85rem;
-        margin-top: 5px;
-        font-weight: 600;
-        display: block;
-    }
-    .form-control.is-invalid {
-        border-color: #d32f2f;
-        background-color: #fff8f8;
-    }
+    /* Valid/Invalid States */
+    .form-control.is-valid { border-color: #2e7d32; background: #e8f5e9; }
+    .form-control.is-invalid { border-color: #d32f2f; background: #ffebee; }
+    .error-msg { color: #d32f2f; font-size: 0.85rem; margin-top: 5px; font-weight: 600; display: block; }
 
-    /* --- SELECTION CARDS (Radio Replacements) --- */
-    .selection-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    .selection-card {
-        position: relative;
-    }
-    
-    .selection-card input[type="radio"] {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
+    /* --- SELECTION CARDS (Radio) --- */
+    .selection-grid { display: flex; flex-direction: column; gap: 12px; }
+    .selection-card { position: relative; }
+    .selection-card input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
     
     .selection-label {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: flex; align-items: center; justify-content: space-between;
         padding: 15px 20px;
         background: #fff;
         border: 2px solid #eee;
@@ -112,141 +115,29 @@
         font-weight: 600;
         user-select: none;
     }
-    
     .selection-label:hover { background: #F8F9FB; }
     
-    /* Checked State */
     .selection-card input[type="radio"]:checked + .selection-label {
         border-color: #3F51B5;
         background: #eef0ff;
         color: #3F51B5;
     }
-    
     .radio-circle {
-        width: 18px;
-        height: 18px;
+        width: 18px; height: 18px;
         border: 2px solid #ccc;
         border-radius: 50%;
         margin-right: 12px;
         position: relative;
         flex-shrink: 0;
     }
-    
     .selection-card input[type="radio"]:checked + .selection-label .radio-circle {
         border-color: #3F51B5;
         background: #3F51B5;
     }
     
-    .price-badge {
-        font-weight: 800;
-        font-size: 0.95rem;
-    }
+    .price-badge { font-weight: 800; font-size: 0.95rem; }
 
-    /* --- RIGHT: ORDER SUMMARY --- */
-    .summary-card {
-        background: #fff;
-        padding: 30px;
-        border-radius: var(--radius-xl);
-        box-shadow: var(--shadow-soft);
-        border: 1px solid #eee;
-        position: sticky;
-        top: 20px; /* Reduced top spacing for better sticky fit */
-    }
-    
-    .order-item {
-        display: flex;
-        gap: 15px;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #f5f5f5;
-        align-items: center;
-    }
-    
-    .item-thumb-container {
-        width: 60px;
-        height: 60px;
-        border-radius: 8px;
-        overflow: hidden;
-        background: #f0f0f0;
-        flex-shrink: 0; 
-        border: 1px solid #eee;
-    }
-    .item-thumb {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; 
-        mix-blend-mode: multiply;
-        display: block;
-    }
-    
-    .item-info { flex-grow: 1; min-width: 0; }
-    .item-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; display: block; line-height: 1.3; }
-    .item-meta { font-size: 0.85rem; color: var(--text-sub); }
-    
-    .cost-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
-        font-size: 0.95rem;
-        color: var(--text-sub);
-    }
-    .cost-row.total {
-        color: var(--text-main);
-        font-weight: 800;
-        font-size: 1.4rem;
-        border-top: 2px solid #eee;
-        padding-top: 15px;
-        margin-top: 10px;
-    }
-
-    .btn-checkout {
-        width: 100%;
-        padding: 16px;
-        background: var(--text-main);
-        color: white;
-        border: none;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 1.1rem;
-        cursor: pointer;
-        transition: transform 0.2s;
-        margin-top: 20px;
-    }
-    .btn-checkout:hover { transform: translateY(-2px); opacity: 0.95; }
-
-    /* --- SMARTCODER: MOBILE STICKY CHECKOUT BAR --- */
-    .sticky-checkout-bar {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 15px 20px;
-        box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
-        z-index: 9999; 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-top: 1px solid #eee;
-    }
-    
-    .scb-info { display: flex; flex-direction: column; }
-    .scb-label { font-size: 0.8rem; color: var(--text-sub); }
-    .scb-total { font-size: 1.3rem; font-weight: 800; color: var(--text-main); }
-    
-    .scb-btn {
-        background: var(--accent-lime);
-        color: var(--text-main);
-        border: none;
-        padding: 12px 30px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 1rem;
-        cursor: pointer;
-    }
-
-    .mobile-spacer { height: 0; }
-    
+    /* --- BKASH SECTION --- */
     .bkash-box {
         display: none; 
         margin-top: 20px; 
@@ -257,14 +148,72 @@
         width: 100%;
         box-sizing: border-box;
     }
-    
-    .bkash-instructions {
-        margin-bottom: 15px;
-        font-size: 0.95rem;
-        color: #333;
-    }
+    .bkash-instructions { margin-bottom: 15px; font-size: 0.95rem; color: #333; }
     .bkash-instructions ol { padding-left: 20px; margin: 10px 0; }
     .bkash-instructions li { margin-bottom: 8px; }
+
+    /* --- RIGHT: ORDER SUMMARY --- */
+    .summary-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: var(--radius-xl, 20px);
+        box-shadow: var(--shadow-soft, 0 5px 15px rgba(0,0,0,0.05));
+        border: 1px solid #eee;
+        position: sticky;
+        top: 20px; 
+    }
+    
+    .order-item {
+        display: flex; gap: 15px; margin-bottom: 20px; padding-bottom: 20px;
+        border-bottom: 1px solid #f5f5f5; align-items: center;
+    }
+    .item-thumb-container {
+        width: 60px; height: 60px; border-radius: 8px; overflow: hidden;
+        background: #f0f0f0; flex-shrink: 0; border: 1px solid #eee;
+    }
+    .item-thumb { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; }
+    
+    .item-info { flex-grow: 1; min-width: 0; }
+    .item-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; display: block; line-height: 1.3; }
+    .item-meta { font-size: 0.85rem; color: var(--text-sub, #666); }
+    
+    .cost-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.95rem; color: var(--text-sub, #666); }
+    .cost-row.total {
+        color: var(--text-main, #333); font-weight: 800; font-size: 1.4rem;
+        border-top: 2px solid #eee; padding-top: 15px; margin-top: 10px;
+    }
+
+    .btn-checkout {
+        width: 100%; padding: 16px; background: var(--text-main, #000); color: white;
+        border: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem;
+        cursor: pointer; transition: transform 0.2s; margin-top: 20px;
+    }
+    .btn-checkout:hover { transform: translateY(-2px); opacity: 0.95; }
+
+    /* --- MOBILE STICKY BAR --- */
+    .sticky-checkout-bar {
+        position: fixed; bottom: 0; left: 0; right: 0;
+        background: white; padding: 15px 20px;
+        
+        /* SAFE AREA FIX: Ensures button isn't covered by iPhone Home Bar */
+        padding-bottom: calc(15px + env(safe-area-inset-bottom));
+        
+        box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
+        z-index: 9999; 
+        display: flex; align-items: center; justify-content: space-between;
+        border-top: 1px solid #eee;
+    }
+    
+    .scb-info { display: flex; flex-direction: column; }
+    .scb-label { font-size: 0.8rem; color: var(--text-sub, #666); }
+    .scb-total { font-size: 1.3rem; font-weight: 800; color: var(--text-main, #333); }
+    
+    .scb-btn {
+        background: var(--accent-lime, #D4F759); color: var(--text-main, #000); border: none;
+        padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer;
+    }
+    
+    .mobile-spacer { height: 0; }
 
     /* --- RESPONSIVE --- */
     @media (max-width: 900px) {
@@ -277,23 +226,16 @@
         .sticky-checkout-bar { display: none; }
     }
     
-    /* Guest Link */
     .auth-nudge {
-        background: #e3f2fd;
-        color: #1565c0;
-        padding: 12px 20px;
-        border-radius: 10px;
-        margin-bottom: 25px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        text-align: center;
+        background: #e3f2fd; color: #1565c0; padding: 12px 20px;
+        border-radius: 10px; margin-bottom: 25px; font-weight: 600; font-size: 0.9rem; text-align: center;
     }
     .auth-nudge a { text-decoration: underline; color: inherit; font-weight: 800; }
 </style>
 
 <div class="container" style="max-width: 1100px; margin: 0 auto;">
     
-    <h1 style="font-size: 2rem; margin-bottom: 30px; font-weight: 800;">{% trans "Checkout" %}</h1>
+    <h1 style="font-size: 2rem; margin-bottom: 30px; font-weight: 800; text-align: center;">{% trans "Checkout" %}</h1>
 
     {% if cart_items %}
     
@@ -324,25 +266,20 @@
                 <div class="form-group">
                     <label>{% trans "Full Name" %} <span style="color:red">*</span></label>
                     {{ form.customer_name }}
-                    {% if form.customer_name.errors %}
-                        <div class="error-msg">{{ form.customer_name.errors.0 }}</div>
-                    {% endif %}
+                    {% if form.customer_name.errors %}<div class="error-msg">{{ form.customer_name.errors.0 }}</div>{% endif %}
                 </div>
                 
                 <div class="form-group">
                     <label>{% trans "Phone Number" %} <span style="color:red">*</span></label>
                     {{ form.phone_number }}
-                    {% if form.phone_number.errors %}
-                        <div class="error-msg">{{ form.phone_number.errors.0 }}</div>
-                    {% endif %}
+                    <small style="color:#666; display:block; margin-top:4px;">{% trans "We'll call you to confirm order." %}</small>
+                    {% if form.phone_number.errors %}<div class="error-msg">{{ form.phone_number.errors.0 }}</div>{% endif %}
                 </div>
                 
                 <div class="form-group">
                     <label>{% trans "Detailed Address" %} <span style="color:red">*</span></label>
                     {{ form.shipping_address }}
-                    {% if form.shipping_address.errors %}
-                        <div class="error-msg">{{ form.shipping_address.errors.0 }}</div>
-                    {% endif %}
+                    {% if form.shipping_address.errors %}<div class="error-msg">{{ form.shipping_address.errors.0 }}</div>{% endif %}
                 </div>
             </div>
 
@@ -523,6 +460,7 @@
             document.getElementById('grand-total-display').innerText = '৳' + grandTotal;
             document.getElementById('sticky-total-display').innerText = '৳' + grandTotal;
             
+            // Update bKash amount display as well
             const bkashDisplay = document.getElementById('bkash-amount-display');
             if(bkashDisplay) bkashDisplay.innerText = grandTotal;
         }
@@ -544,15 +482,33 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
+            // 1. Initialize Delivery Calculation
             if (initialDeliveryArea === 'INSIDE') {
                 updateTotal('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}');
             } else if (initialDeliveryArea === 'OUTSIDE') {
                 updateTotal('OUTSIDE', '{{ settings.delivery_charge_outside|default:120 }}');
             }
-
+            
+            // 2. Hide Mobile Nav for Distraction-Free
             const globalNav = document.querySelector('.mobile-bottom-nav');
             if(globalNav && window.innerWidth < 900) {
                 globalNav.style.display = 'none';
+            }
+
+            // 3. Smart Phone Auto-Formatting
+            const phoneInput = document.getElementById('id_phone_number');
+            if(phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,7})/);
+                    e.target.value = !x[2] ? x[1] : x[1] + (x[1].length === 4 ? '' : '') + x[2];
+                    
+                    if (e.target.value.length === 11) {
+                        e.target.classList.add('is-valid');
+                        e.target.classList.remove('is-invalid');
+                    } else {
+                        e.target.classList.remove('is-valid');
+                    }
+                });
             }
         });
     </script>
