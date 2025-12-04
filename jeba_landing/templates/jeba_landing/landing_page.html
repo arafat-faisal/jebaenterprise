@@ -291,7 +291,10 @@
 
                     {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon gs-fade-up"></i>{% endif %}
                     <h1 class="headline-pro gs-fade-up">{{ section.heading }}</h1>
-                    <p class="subhead-pro gs-fade-up">{{ section.subheading }}</p>
+                    
+                    {% if section.subheading %}
+                        <p class="subhead-pro gs-fade-up">{{ section.subheading }}</p>
+                    {% endif %}
                     
                     {% if page.countdown_end %}
                         <div class="countdown-wrapper gs-fade-up">
@@ -318,8 +321,10 @@
                             <div class="split-text gs-fade-right">
                                 {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon"></i>{% endif %}
                                 <h2 class="headline-pro" style="font-size: 42px;">{{ section.heading }}</h2>
-                                <h3 class="subhead-pro">{{ section.subheading }}</h3>
-                                <div class="text-body-pro mt-4">{{ section.description|linebreaks }}</div>
+                                {% if section.subheading %}
+                                    <h3 class="subhead-pro">{{ section.subheading }}</h3>
+                                {% endif %}
+                                <div class="text-body-pro mt-4">{{ section.description|safe }}</div>
                                 {% if section.button_text %}
                                 <a href="#island-bar" class="btn-custom-outline mt-4 d-inline-block">{{ section.button_text }}</a>
                                 {% endif %}
@@ -345,12 +350,14 @@
                     <div class="text-center mb-5 gs-fade-up">
                         {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon"></i>{% endif %}
                         <h2 class="headline-pro">{{ section.heading }}</h2>
-                        <p class="subhead-pro">{{ section.subheading }}</p>
+                        {% if section.subheading %}
+                            <p class="subhead-pro">{{ section.subheading }}</p>
+                        {% endif %}
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-8">
                             <div class="bento-card gs-fade-up dynamic-radius" style="background: var(--card-bg); padding: 50px;">
-                                <div class="text-body-pro text-center">{{ section.description|linebreaks }}</div>
+                                <div class="text-body-pro text-center">{{ section.description|safe }}</div>
                                 {% if section.image %}<img src="{{ section.image.url }}" class="img-fluid mt-4 rounded" alt="Feature">{% endif %}
                             </div>
                         </div>
@@ -389,7 +396,9 @@
                     {% if section.heading %}
                     <div class="text-center mb-5 gs-fade-up">
                         <h2 class="headline-pro">{{ section.heading }}</h2>
-                        <p class="subhead-pro">{{ section.subheading }}</p>
+                        {% if section.subheading %}
+                            <p class="subhead-pro">{{ section.subheading }}</p>
+                        {% endif %}
                     </div>
                     {% endif %}
                     <div id="carousel-{{ section.id }}" class="carousel slide carousel-fade carousel-pro gs-scale-up" data-bs-ride="carousel">
@@ -456,28 +465,46 @@
 </div>
 
 <script>
-    // --- MAIN INITIALIZATION FUNCTION ---
+    function togglePlay(vidId, wrapper) {
+        const vid = document.getElementById(vidId);
+        const overlay = wrapper.querySelector('.video-overlay');
+        if(vid.paused) { vid.play(); overlay.classList.add('hidden'); } 
+        else { vid.pause(); overlay.classList.remove('hidden'); }
+    }
+
+    function initCountdown() {
+        const timer = document.getElementById('hero-countdown');
+        if (!timer) return;
+        const endTime = new Date(timer.dataset.end).getTime();
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+            if (distance < 0) { timer.innerHTML = "EXPIRED"; return; }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        };
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    }
+
     function mainInit() {
         gsap.registerPlugin(ScrollTrigger);
-        
-        // 1. Force Reveal Content (Crucial for Preview Refresh)
         const loader = document.getElementById('site-loader');
         const wrapper = document.getElementById('landing-wrapper');
-        
         if(loader) loader.style.display = 'none';
         if(wrapper) wrapper.style.opacity = '1';
 
-        // 2. Start Logic
         initCountdown();
         initIslandBar();
 
-        // 3. Scroll Animations
         gsap.utils.toArray('.gs-fade-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 85%" }, y: 40, opacity: 0, duration: 1 }));
         gsap.utils.toArray('.gs-scale-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, scale: 0.92, opacity: 0, duration: 1.2 }));
         gsap.utils.toArray('.gs-fade-right').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: -30, opacity: 0, duration: 1 }));
         gsap.utils.toArray('.gs-fade-left').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 30, opacity: 0, duration: 1 }));
         
-        // 4. RESTORED IMMERSIVE MODE (Hides/Shows Navs)
         ScrollTrigger.create({
             start: 50,
             onUpdate: (self) => {
@@ -498,7 +525,6 @@
 
         if (!island || !heroPlaceholder) return;
 
-        // Clean up old triggers to prevent duplication
         ScrollTrigger.getAll().forEach(t => t.kill());
         gsap.set(island, { clearProps: "all" });
         gsap.set(heroContent, { clearProps: "all" });
@@ -545,47 +571,19 @@
         .to(fullContent, { opacity: 1, display: "flex", duration: 0.4 }, 0.2); 
     }
 
-    function togglePlay(vidId, wrapper) {
-        const vid = document.getElementById(vidId);
-        const overlay = wrapper.querySelector('.video-overlay');
-        if(vid.paused) { vid.play(); overlay.classList.add('hidden'); } 
-        else { vid.pause(); overlay.classList.remove('hidden'); }
-    }
-
-    function initCountdown() {
-        const timer = document.getElementById('hero-countdown');
-        if (!timer) return;
-        const endTime = new Date(timer.dataset.end).getTime();
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = endTime - now;
-            if (distance < 0) { timer.innerHTML = "EXPIRED"; return; }
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        };
-        setInterval(updateTimer, 1000);
-        updateTimer();
-    }
-
-    // --- EXECUTION STRATEGY (Fixed for Refresh) ---
-    // Try immediate init
     if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        setTimeout(mainInit, 100); // Slight delay for safety
+        setTimeout(mainInit, 100);
     } else {
         window.addEventListener("load", mainInit);
     }
     
-    // Backup Init (Ensures content appears even if event missed)
     setTimeout(() => {
-        if (document.getElementById('landing-wrapper').style.opacity !== '1') {
+        const wrapper = document.getElementById('landing-wrapper');
+        if (wrapper && getComputedStyle(wrapper).opacity === '0') {
             mainInit();
         }
     }, 1000);
 
-    // Resize Handler
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
@@ -596,86 +594,55 @@
     });
 
     {% if preview_mode %}
-    // --- IMPROVED DRAG LOGIC ---
-    
     function handleClick(e, index) {
-        // Only trigger focus if NOT dragging
-        if (!isDragging) {
-            parent.focusSection(index);
-        }
+        if (e.target.classList.contains('section-bg-image')) return;
+        parent.focusSection(index);
     }
-
     let isDragging = false;
     let startX, startY;
     let currentSection = null;
 
     document.addEventListener('mousedown', (e) => {
-        // 1. Find the section being clicked
         const section = e.target.closest('.dynamic-section');
         if (!section) return;
-
-        // 2. Check if it has a background image to move
         const bgDiv = section.querySelector('.section-bg-image');
         if (!bgDiv) return;
-
-        // 3. Don't drag if clicking buttons or text inputs
         if (e.target.closest('a, button, input, textarea')) return;
 
-        // 4. Start Dragging
         isDragging = true;
         currentSection = section;
         startX = e.clientX;
         startY = e.clientY;
-        e.preventDefault(); // Stop text selection
-        
-        // Visual cue
+        e.preventDefault(); 
         section.style.cursor = 'grabbing';
     });
 
     document.addEventListener('mousemove', (e) => {
         if (!isDragging || !currentSection) return;
-
         const rect = currentSection.getBoundingClientRect();
-        
-        // Calculate position percentage
-        // Invert X/Y to make it feel like "dragging the image" naturally
         let x = (e.clientX - rect.left) / rect.width * 100;
         let y = (e.clientY - rect.top) / rect.height * 100;
-        
-        // Clamp values 0-100%
         x = Math.max(0, Math.min(100, x));
         y = Math.max(0, Math.min(100, y));
-        
         const posString = `${x.toFixed(1)}% ${y.toFixed(1)}%`;
-        
-        // Update visual
         const bgDiv = currentSection.querySelector('.section-bg-image');
-        if (bgDiv) {
-            bgDiv.style.backgroundPosition = posString;
-        }
-        
-        // Save for mouseup
+        if (bgDiv) bgDiv.style.backgroundPosition = posString;
         currentSection.dataset.newPos = posString;
     });
 
     document.addEventListener('mouseup', () => {
         if (isDragging && currentSection) {
             currentSection.style.cursor = 'default';
-            
             if (currentSection.dataset.newPos) {
-                // Send new position to Admin
                 window.parent.postMessage({
                     type: 'update_position',
                     index: currentSection.dataset.formIndex,
                     position: currentSection.dataset.newPos
                 }, '*');
-                
-                // Flash Success Green
                 currentSection.style.outline = "4px solid #D4F759";
                 setTimeout(() => currentSection.style.outline = "none", 300);
             }
         }
-        // Small delay to prevent 'click' event from firing immediately after drag
         setTimeout(() => { isDragging = false; }, 50);
         currentSection = null;
     });
@@ -683,6 +650,23 @@
 </script>
 
 {% if page.meta_pixel_id %}
+<script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '{{ page.meta_pixel_id }}');
+    fbq('track', 'PageView');
+    
+    fbq('track', 'ViewContent', {
+        'content_name': "{{ product.name|escapejs }}", 
+        'content_ids': ['{{ product.id }}'],
+        'content_type': 'product',
+        'value': Number("{{ product.selling_price|default:0 }}"),
+        'currency': 'BDT'
+    });
+</script>
 {% endif %}
 
 {% endblock %}
