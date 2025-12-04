@@ -26,6 +26,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 
 from django.views.decorators.http import require_POST
+from jeba_sales.notifications import send_telegram_order_notification
 
 # --- CART VIEWS ---
 
@@ -38,15 +39,18 @@ def add_to_cart(request: HttpRequest, product_id):
 
     cart = request.session.get('cart', {})
     quantity = int(request.POST.get('quantity', 1))
-    action = request.POST.get('action')
-    cart_item_id = str(product_id)
     
-    # --- FIX: Check both POST (Form) and GET (Link) for action ---
+    # Check both POST (Form) and GET (Link) for action
     action = request.POST.get('action') or request.GET.get('action')
-    # -------------------------------------------------------------
     
+    cart_item_id = str(product_id)
+
     if cart_item_id in cart:
-        cart[cart_item_id]['quantity'] += quantity
+        # SMART FIX: If 'Buy Now', overwrite quantity. If 'Add to Cart', increment.
+        if action == 'buy_now':
+            cart[cart_item_id]['quantity'] = quantity
+        else:
+            cart[cart_item_id]['quantity'] += quantity
     else:
         cart[cart_item_id] = {
             'product_id': product.id,
@@ -58,42 +62,37 @@ def add_to_cart(request: HttpRequest, product_id):
 
     request.session['cart'] = cart
     
-    # ANALYTICS
+    # ANALYTICS (Keep existing code)
     AnalyticsService.track_product_interaction(request, product, 'CART')
-
-    # --- NEW: SEND CAPI ADD TO CART EVENT ---
     try:
         ip = AnalyticsService.get_client_ip(request)
         ua = request.META.get('HTTP_USER_AGENT', '')
         user = request.user if request.user.is_authenticated else None
-        
-        # Run in thread to not block redirect
-        threading.Thread(
-            target=send_add_to_cart_event, 
-            args=(product, ip, ua, user)
-        ).start()
+        threading.Thread(target=send_add_to_cart_event, args=(product, ip, ua, user)).start()
     except Exception as e:
         print(f"Error triggering ATC Event: {e}")
-    # ----------------------------------------
 
     if action == 'buy_now':
         return redirect('checkout')
     return redirect('product_detail', pk=product_id)
 
 
+# 2. UPDATE: Fix 'Buy Now' logic in add_to_cart_variation
 def add_to_cart_variation(request: HttpRequest, variation_id):
     variation = get_object_or_404(ProductVariation, id=variation_id)
     product = variation.product
     cart = request.session.get('cart', {})
     quantity = int(request.POST.get('quantity', 1))
-    # --- FIX: Check both POST (Form) and GET (Link) for action ---
     action = request.POST.get('action') or request.GET.get('action')
-    # -------------------------------------------------------------
 
     cart_item_id = f"var_{variation_id}"
 
     if cart_item_id in cart:
-        cart[cart_item_id]['quantity'] += quantity
+        # SMART FIX: Overwrite if Buy Now
+        if action == 'buy_now':
+            cart[cart_item_id]['quantity'] = quantity
+        else:
+            cart[cart_item_id]['quantity'] += quantity
     else:
         cart[cart_item_id] = {
             'product_id': product.id,
@@ -105,22 +104,16 @@ def add_to_cart_variation(request: HttpRequest, variation_id):
 
     request.session['cart'] = cart
     
-    # ANALYTICS
+    # ANALYTICS (Keep existing code)
     AnalyticsService.track_product_interaction(request, product, 'CART')
-    # --- NEW: SEND CAPI ADD TO CART EVENT ---
     try:
         ip = AnalyticsService.get_client_ip(request)
         ua = request.META.get('HTTP_USER_AGENT', '')
         user = request.user if request.user.is_authenticated else None
-        
-        # Use the main product for the event, value is from variation
-        threading.Thread(
-            target=send_add_to_cart_event, 
-            args=(product, ip, ua, user)
-        ).start()
+        threading.Thread(target=send_add_to_cart_event, args=(product, ip, ua, user)).start()
     except Exception as e:
         print(f"Error triggering ATC Event: {e}")
-    # ----------------------------------------
+
     if action == 'buy_now':
         return redirect('checkout')
     return redirect('product_detail', pk=product.id)
@@ -371,7 +364,26 @@ def checkout(request):
                 except Exception as e:
                     print(f"Error starting CAPI thread: {e}")
                 # ----------------------------------------------
-                
+                # --- ASYNC NOTIFICATIONS (Non-blocking) ---
+                try:
+                    ip = AnalyticsService.get_client_ip(request)
+                    ua = request.META.get('HTTP_USER_AGENT', '')
+                    
+                    # 1. CAPI Event
+                    threading.Thread(
+                        target=send_purchase_event, 
+                        args=(new_sale, ip, ua)
+                    ).start()
+                    
+                    # 2. Telegram Notification (NEW)
+                    threading.Thread(
+                        target=send_telegram_order_notification,
+                        args=(new_sale,)
+                    ).start()
+
+                except Exception as e:
+                    print(f"Error starting background threads: {e}")
+                # ----------------------------------------------
                 request.session['last_order_id'] = new_sale.id
 
                 if request.user.is_authenticated and request.user.email:
@@ -422,6 +434,7 @@ def checkout(request):
         item_total = item_data['price'] * item_data['quantity']
         
         cart_items.append({
+            'id': key, # <--- ADDED THIS LINE (Critical for AJAX)
             'product': product,
             'variation': variation,
             'name': item_data['name'],

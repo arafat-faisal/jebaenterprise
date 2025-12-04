@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load humanize %}
 
 {% block title %}{% trans "Secure Checkout" %}{% endblock %}
 
 {# --- DISTRACTION-FREE: Override Header/Footer/Nav/Chat --- #}
-{# We hide standard navigation to keep users focused on purchase #}
-
 {% block header %}
 <div style="text-align: center; padding: 20px 0;">
     <a href="{% url 'home' %}">
@@ -28,14 +27,13 @@
 {% block content %}
 <style>
     :root {
-        /* Define Nav Height for calculation if needed, though we hide it here */
         --bottom-nav-height: 65px; 
     }
 
     /* --- LAYOUT & GRID --- */
     .checkout-grid {
         display: grid;
-        grid-template-columns: 1.3fr 0.9fr; /* More space for form */
+        grid-template-columns: 1.3fr 0.9fr; 
         gap: 40px;
         margin-bottom: 50px;
     }
@@ -88,18 +86,13 @@
         box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.1);
         outline: none;
     }
-    textarea.form-control {
-        border-radius: 20px; 
-        resize: vertical;
-        min-height: 80px;
-    }
 
     /* Valid/Invalid States */
     .form-control.is-valid { border-color: #2e7d32; background: #e8f5e9; }
     .form-control.is-invalid { border-color: #d32f2f; background: #ffebee; }
     .error-msg { color: #d32f2f; font-size: 0.85rem; margin-top: 5px; font-weight: 600; display: block; }
 
-    /* --- SELECTION CARDS (Radio) --- */
+    /* --- SELECTION CARDS --- */
     .selection-grid { display: flex; flex-direction: column; gap: 12px; }
     .selection-card { position: relative; }
     .selection-card input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
@@ -134,10 +127,9 @@
         border-color: #3F51B5;
         background: #3F51B5;
     }
-    
     .price-badge { font-weight: 800; font-size: 0.95rem; }
 
-    /* --- BKASH SECTION --- */
+    /* --- BKASH --- */
     .bkash-box {
         display: none; 
         margin-top: 20px; 
@@ -150,7 +142,6 @@
     }
     .bkash-instructions { margin-bottom: 15px; font-size: 0.95rem; color: #333; }
     .bkash-instructions ol { padding-left: 20px; margin: 10px 0; }
-    .bkash-instructions li { margin-bottom: 8px; }
 
     /* --- RIGHT: ORDER SUMMARY --- */
     .summary-card {
@@ -190,32 +181,41 @@
     }
     .btn-checkout:hover { transform: translateY(-2px); opacity: 0.95; }
 
+    /* --- NEW QUANTITY CONTROLS --- */
+    .qty-controls {
+        display: inline-flex;
+        align-items: center;
+        background: #f1f3f5;
+        border-radius: 6px;
+        padding: 2px;
+        margin-top: 5px;
+    }
+    .qty-btn {
+        border: none; background: transparent; padding: 2px 8px;
+        font-weight: bold; cursor: pointer; color: #555;
+    }
+    .qty-btn:hover { color: #000; background: #e9ecef; border-radius: 4px; }
+    .qty-val {
+        padding: 0 8px; font-weight: 700; font-size: 0.9rem; min-width: 25px; text-align: center;
+    }
+
     /* --- MOBILE STICKY BAR --- */
     .sticky-checkout-bar {
         position: fixed; bottom: 0; left: 0; right: 0;
         background: white; padding: 15px 20px;
-        
-        /* SAFE AREA FIX: Ensures button isn't covered by iPhone Home Bar */
         padding-bottom: calc(15px + env(safe-area-inset-bottom));
-        
         box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
         z-index: 9999; 
         display: flex; align-items: center; justify-content: space-between;
         border-top: 1px solid #eee;
     }
-    
-    .scb-info { display: flex; flex-direction: column; }
-    .scb-label { font-size: 0.8rem; color: var(--text-sub, #666); }
     .scb-total { font-size: 1.3rem; font-weight: 800; color: var(--text-main, #333); }
-    
     .scb-btn {
         background: var(--accent-lime, #D4F759); color: var(--text-main, #000); border: none;
         padding: 12px 30px; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer;
     }
-    
     .mobile-spacer { height: 0; }
 
-    /* --- RESPONSIVE --- */
     @media (max-width: 900px) {
         .checkout-grid { grid-template-columns: 1fr; gap: 20px; }
         .summary-card { position: static; order: -1; margin-bottom: 20px; }
@@ -230,7 +230,6 @@
         background: #e3f2fd; color: #1565c0; padding: 12px 20px;
         border-radius: 10px; margin-bottom: 25px; font-weight: 600; font-size: 0.9rem; text-align: center;
     }
-    .auth-nudge a { text-decoration: underline; color: inherit; font-weight: 800; }
 </style>
 
 <div class="container" style="max-width: 1100px; margin: 0 auto;">
@@ -292,8 +291,9 @@
                 <div class="selection-grid">
                     <div class="selection-card">
                         <input type="radio" name="delivery_area" id="area_inside" value="INSIDE" required 
+                               data-cost="{{ settings.delivery_charge_inside|default:60 }}"
                                {% if form.delivery_area.value == 'INSIDE' %}checked{% endif %}
-                               onchange="updateTotal('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}')">
+                               onchange="updateTotal()">
                         <label class="selection-label" for="area_inside">
                             <div style="display:flex; align-items:center;">
                                 <span class="radio-circle"></span> {% trans "Inside Dhaka" %}
@@ -304,8 +304,9 @@
                     
                     <div class="selection-card">
                         <input type="radio" name="delivery_area" id="area_outside" value="OUTSIDE" required 
+                               data-cost="{{ settings.delivery_charge_outside|default:120 }}"
                                {% if form.delivery_area.value == 'OUTSIDE' %}checked{% endif %}
-                               onchange="updateTotal('OUTSIDE', '{{ settings.delivery_charge_outside|default:120 }}')">
+                               onchange="updateTotal()">
                         <label class="selection-label" for="area_outside">
                             <div style="display:flex; align-items:center;">
                                 <span class="radio-circle"></span> {% trans "Outside Dhaka" %}
@@ -316,10 +317,6 @@
                 </div>
                 {% if form.delivery_area.errors %}
                     <div class="error-msg">{{ form.delivery_area.errors.0 }}</div>
-                {% else %}
-                    <small style="color: var(--text-sub); display: block; margin-top: 10px;">
-                        {% trans "Please select your delivery area to calculate shipping." %}
-                    </small>
                 {% endif %}
             </div>
 
@@ -370,18 +367,8 @@
                     </div>
                     <div class="form-group" style="margin-bottom: 0;">
                         <label>{% trans "Transaction ID (TrxID)" %} <span style="color:red">*</span></label>
-                        
-                        <input type="text" 
-                               name="transaction_id" 
-                               id="id_transaction_id" 
-                               class="form-control" 
-                               placeholder="{% trans 'e.g. 9G7H6K' %}" 
-                               value="{{ form.transaction_id.value|default:'' }}">
-                               
-                        <small style="color: #666;">{% trans "This field is required for bKash payment" %}</small>
-                        {% if form.transaction_id.errors %}
-                            <div class="error-msg">{{ form.transaction_id.errors.0 }}</div>
-                        {% endif %}
+                        <input type="text" name="transaction_id" id="id_transaction_id" class="form-control" placeholder="{% trans 'e.g. 9G7H6K' %}" value="{{ form.transaction_id.value|default:'' }}">
+                        {% if form.transaction_id.errors %}<div class="error-msg">{{ form.transaction_id.errors.0 }}</div>{% endif %}
                     </div>
                 </div>
             </div>
@@ -391,34 +378,43 @@
             <div class="summary-card">
                 <div class="section-title">{% trans "Order Summary" %}</div>
                 
-                {% for item in cart_items %}
-                <div class="order-item">
-                    <div class="item-thumb-container">
-                        {% if item.product.images.first %}
-                            <img src="{{ item.product.images.first.image.url }}" class="item-thumb" alt="{{ item.product.name }}">
-                        {% elif item.product.main_image_obj %}
-                            <img src="{{ item.product.main_image_obj.image.url }}" class="item-thumb" alt="{{ item.product.name }}">
-                        {% else %}
-                            <img src="https://via.placeholder.com/60/eeeeee/cccccc?text=No+Img" class="item-thumb" alt="No Image">
-                        {% endif %}
-                    </div>
-                    
-                    <div class="item-info">
-                        <span class="item-title">{{ item.product.name }}</span>
-                        <div class="item-meta">
-                            {% if item.variation %}{% trans "Var" %}: {{ item.variation.name }} <br>{% endif %}
-                            {{ item.quantity }} x ৳{{ item.price|floatformat:0 }}
+                <div id="cart-items-container">
+                    {% for item in cart_items %}
+                    <div class="order-item" id="row-{{ item.id }}">
+                        <div class="item-thumb-container">
+                            {% if item.product.images.first %}
+                                <img src="{{ item.product.images.first.image.url }}" class="item-thumb" alt="{{ item.product.name }}">
+                            {% elif item.product.main_image_obj %}
+                                <img src="{{ item.product.main_image_obj.image.url }}" class="item-thumb" alt="{{ item.product.name }}">
+                            {% else %}
+                                <img src="https://via.placeholder.com/60/eeeeee/cccccc?text=No+Img" class="item-thumb" alt="No Image">
+                            {% endif %}
+                        </div>
+                        
+                        <div class="item-info">
+                            <span class="item-title">{{ item.product.name }}</span>
+                            {% if item.variation %}
+                                <span class="item-meta text-muted">{% trans "Var" %}: {{ item.variation.name }}</span>
+                            {% endif %}
+                            
+                            <div class="qty-controls">
+                                <button type="button" class="qty-btn update-cart" data-id="{{ item.id }}" data-action="decrease">-</button>
+                                <span class="qty-val">{{ item.quantity }}</span>
+                                <button type="button" class="qty-btn update-cart" data-id="{{ item.id }}" data-action="increase">+</button>
+                            </div>
+                        </div>
+                        
+                        <div style="font-weight: 700;">
+                            ৳<span class="item-total">{{ item.item_total|floatformat:0 }}</span>
+                            <button class="btn btn-link text-danger p-0 ms-2 update-cart" data-id="{{ item.id }}" data-action="remove" style="text-decoration:none; font-size:1.1rem;">&times;</button>
                         </div>
                     </div>
-                    <div style="font-weight: 700;">
-                        ৳{{ item.subtotal|floatformat:0 }}
-                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
 
                 <div class="cost-row">
                     <span>{% trans "Subtotal" %}</span>
-                    <span>৳{{ total_price|floatformat:0 }}</span>
+                    <span>৳<span id="subtotal-display">{{ total_price|floatformat:0 }}</span></span>
                 </div>
                 <div class="cost-row">
                     <span>{% trans "Delivery" %}</span>
@@ -449,22 +445,32 @@
     </div>
 
     <script>
-        let baseTotal = parseFloat("{{ total_price }}");
-        let initialDeliveryArea = "{{ form.delivery_area.value|default:'' }}";
+        // Global variable for current subtotal (starts with server value)
+        let currentSubtotal = parseFloat("{{ total_price }}");
 
-        function updateTotal(area, cost) {
-            let deliveryCost = parseFloat(cost);
-            let grandTotal = baseTotal + deliveryCost;
+        // 1. Delivery & Total Calculation
+        function updateTotal() {
+            const selectedOption = document.querySelector('input[name="delivery_area"]:checked');
+            let deliveryCost = 0;
 
-            document.getElementById('delivery-display').innerText = '৳' + deliveryCost;
-            document.getElementById('grand-total-display').innerText = '৳' + grandTotal;
-            document.getElementById('sticky-total-display').innerText = '৳' + grandTotal;
+            if (selectedOption) {
+                deliveryCost = parseFloat(selectedOption.getAttribute('data-cost'));
+                document.getElementById('delivery-display').innerText = '৳' + deliveryCost;
+            } else {
+                document.getElementById('delivery-display').innerText = '--';
+            }
+
+            let grandTotal = currentSubtotal + deliveryCost;
             
-            // Update bKash amount display as well
+            // Update all Total Displays
+            document.getElementById('grand-total-display').innerText = '৳' + grandTotal.toLocaleString();
+            document.getElementById('sticky-total-display').innerText = '৳' + grandTotal.toLocaleString();
+            
             const bkashDisplay = document.getElementById('bkash-amount-display');
-            if(bkashDisplay) bkashDisplay.innerText = grandTotal;
+            if(bkashDisplay) bkashDisplay.innerText = grandTotal.toLocaleString();
         }
 
+        // 2. bKash Toggle
         function togglePayment(method) {
             const bkashSection = document.getElementById('bkash-section');
             const trxInput = document.getElementById('id_transaction_id'); 
@@ -481,27 +487,73 @@
             }
         }
 
+        // 3. AJAX Cart Updates
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. Initialize Delivery Calculation
-            if (initialDeliveryArea === 'INSIDE') {
-                updateTotal('INSIDE', '{{ settings.delivery_charge_inside|default:60 }}');
-            } else if (initialDeliveryArea === 'OUTSIDE') {
-                updateTotal('OUTSIDE', '{{ settings.delivery_charge_outside|default:120 }}');
-            }
-            
-            // 2. Hide Mobile Nav for Distraction-Free
+            // Initial calculation
+            updateTotal();
+
+            // Mobile Nav Hide
             const globalNav = document.querySelector('.mobile-bottom-nav');
             if(globalNav && window.innerWidth < 900) {
                 globalNav.style.display = 'none';
             }
+            
+            // Quantity Button Logic
+            const buttons = document.querySelectorAll('.update-cart');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const itemId = this.dataset.id;
+                    const action = this.dataset.action;
+                    const row = document.getElementById(`row-${itemId}`);
+                    
+                    this.style.opacity = '0.5'; // Visual feedback
 
-            // 3. Smart Phone Auto-Formatting
+                    fetch("{% url 'update_cart_api' %}", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value
+                        },
+                        body: JSON.stringify({ item_id: itemId, action: action })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        this.style.opacity = '1';
+
+                        if (data.status === 'success') {
+                            if (action === 'remove' || (action === 'decrease' && data.item_qty < 1)) {
+                                row.remove();
+                                if(data.cart_count === 0) window.location.reload(); 
+                            } else {
+                                // Update quantity text
+                                row.querySelector('.qty-val').textContent = data.item_qty;
+                                // Update item total
+                                row.querySelector('.item-total').textContent = parseFloat(data.item_total).toLocaleString();
+                            }
+                            
+                            // CRITICAL: Update global subtotal and re-run calculation
+                            currentSubtotal = parseFloat(data.cart_total);
+                            document.getElementById('subtotal-display').textContent = currentSubtotal.toLocaleString();
+                            updateTotal(); 
+
+                        } else {
+                            alert(data.message || "Error updating cart");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        this.style.opacity = '1';
+                    });
+                });
+            });
+
+            // Smart Phone Auto-Formatting
             const phoneInput = document.getElementById('id_phone_number');
             if(phoneInput) {
                 phoneInput.addEventListener('input', function(e) {
                     let x = e.target.value.replace(/\D/g, '').match(/(\d{0,4})(\d{0,7})/);
                     e.target.value = !x[2] ? x[1] : x[1] + (x[1].length === 4 ? '' : '') + x[2];
-                    
                     if (e.target.value.length === 11) {
                         e.target.classList.add('is-valid');
                         e.target.classList.remove('is-invalid');
