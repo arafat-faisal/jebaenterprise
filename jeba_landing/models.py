@@ -57,17 +57,13 @@ class LandingPage(models.Model):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
-    # --- AI GENERATION LOGIC (FIXED) ---
+    # --- AI GENERATION LOGIC ---
     def generate_ai_content(self):
-        """Calls the dedicated Landing AI to populate sections."""
-        
-        # CHANGED: Import from LOCAL ai_generator, not jeba_seo
         from .ai_generator import generate_landing_content
         
         if not self.product: 
             return False
             
-        # Get image helper
         image_path = None
         try:
             img_obj = self.product.main_image_obj 
@@ -75,7 +71,6 @@ class LandingPage(models.Model):
                 image_path = img_obj.image.path
         except Exception: pass
 
-        # 1. Fetch Content
         content = generate_landing_content(
             product_name=self.product.name,
             description=self.product.description,
@@ -84,7 +79,6 @@ class LandingPage(models.Model):
         )
         
         if content:
-            # 2. Clear old sections
             self.sections.all().delete()
             
             # --- HERO ---
@@ -96,10 +90,11 @@ class LandingPage(models.Model):
                 order=0,
                 ai_generated=True,
                 image=self.product.main_image_obj.image if self.product.main_image_obj else None,
-                overlay_opacity='0.6'
+                overlay_opacity='0.6',
+                design_variant='OVERLAY'
             )
             
-            # --- FEATURES GRID (Rendered as HTML in a Rich Text block) ---
+            # --- FEATURES ---
             features_html = '<div class="row g-4">'
             for f in content.get('features', []):
                 features_html += f'''
@@ -123,7 +118,7 @@ class LandingPage(models.Model):
                 padding_bottom=60
             )
 
-            # --- STORY / DETAILS ---
+            # --- STORY ---
             self.sections.create(
                 section_type='TEXT_IMAGE_SPLIT',
                 heading=content.get('story_heading', "Product Details"),
@@ -134,7 +129,7 @@ class LandingPage(models.Model):
                 image=self.product.main_image_obj.image if self.product.main_image_obj else None
             )
             
-            # --- FAQ (Accordion) ---
+            # --- FAQ ---
             faq_html = '<div class="accordion" id="aiFaqAccordion">'
             for i, faq in enumerate(content.get('faqs', [])):
                 faq_html += f'''
@@ -178,8 +173,24 @@ class LandingSection(models.Model):
         ('FAQ', 'FAQ Accordion'),
     ]
 
+    DESIGN_VARIANTS = [
+        ('OVERLAY', 'Full Screen Overlay (Default)'),
+        ('SPLIT_LEFT', 'Split: Text Left / Image Right'),
+        ('SPLIT_RIGHT', 'Split: Text Right / Image Left'),
+        ('MINIMAL', 'Minimal Center (No Background Image)'),
+        ('PRODUCT_FOCUS', 'Product Focus (Mobile First / Modern)'),
+    ]
+
     page = models.ForeignKey(LandingPage, related_name='sections', on_delete=models.CASCADE)
     section_type = models.CharField(max_length=50, choices=SECTION_TYPES, default='TEXT_IMAGE_SPLIT')
+    
+    design_variant = models.CharField(
+        max_length=50, 
+        choices=DESIGN_VARIANTS, 
+        default='OVERLAY',
+        help_text="Controls the layout style"
+    )
+
     order = models.PositiveIntegerField(default=0)
     
     # Content
@@ -193,28 +204,28 @@ class LandingSection(models.Model):
     text_alignment = models.CharField(max_length=20, default='center')
     padding_top = models.IntegerField(default=80)
     padding_bottom = models.IntegerField(default=80)
+    
+    # --- NEW FIELD: TEXT PADDING ---
+    text_content_padding = models.IntegerField(default=0, help_text="Padding around the text content (in pixels). Helps fix border issues.")
+    
     background_color = models.CharField(max_length=20, blank=True, null=True)
     background_gradient = models.CharField(max_length=200, blank=True, null=True)
     text_color = models.CharField(max_length=20, blank=True, null=True)
     overlay_opacity = models.CharField(max_length=5, default='0.4')
-    # --- NEW: RESPONSIVE POSITIONING ---
-    desktop_media_position = models.CharField(
-        max_length=50, 
-        default="50% 50%", 
-        help_text="X Y coordinates for Desktop image focus (e.g. '50% 20%')"
-    )
-    mobile_media_position = models.CharField(
-        max_length=50, 
-        default="50% 50%", 
-        help_text="X Y coordinates for Mobile image focus"
-    )
-    # -----------------------------------
+    
+    desktop_media_position = models.CharField(max_length=50, default="50% 50%")
+    mobile_media_position = models.CharField(max_length=50, default="50% 50%")
+
     divider_top = models.CharField(max_length=20, default='NONE')
     divider_bottom = models.CharField(max_length=20, default='NONE')
     border_radius = models.IntegerField(default=0)
     
-    # Media
-    image = models.ImageField(upload_to='landing/images/', blank=True, null=True)
+    # Media Assets
+    image = models.ImageField(upload_to='landing/images/', blank=True, null=True, help_text="Background Image for Hero, or Side Image for Split.")
+    
+    foreground_image = models.ImageField(upload_to='landing/foreground/', blank=True, null=True, help_text="Custom Image/GIF to layer ON TOP of the background. Overrides product image.")
+    foreground_video = models.FileField(upload_to='landing/foreground/', blank=True, null=True, help_text="Custom Video (MP4) to layer ON TOP of the background. Overrides images.")
+
     video_file = models.FileField(upload_to='landing/videos/', blank=True, null=True)
     video_url = models.URLField(blank=True, null=True)
     

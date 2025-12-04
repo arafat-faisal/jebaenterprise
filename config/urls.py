@@ -29,6 +29,9 @@ urlpatterns = [
     # -----------------------------------
     path("landing/", include("jeba_landing.urls")),
     path('analytics/', include('jeba_analytics.urls')), # <--- ADD THIS
+    # --- NEW AI BUILDER (Add this line) ---
+    path('ai/', include('jeba_ai_builder.urls')),
+    # --------------------------------------
 ]
 
 # Serve media files in development

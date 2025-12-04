@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | Jeba AI Page{% endblock %}
+
+{% block content %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* FORCE OVERRIDES 
+           Ensure AI content breaks out of the default .container if you want full-width sections,
+           or stays inside if you prefer consistency.
+           For now, we keep it contained but style it to match.
+        */
+        
+        /* Your Custom AI CSS */
+        {{ page.compiled_css|safe }}
+        
+        /* Helper: Make sure Bootstrap doesn't override your global font */
+        .ai-generated-wrapper {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        
+        /* Fix for Bootstrap links overriding your theme links */
+        .ai-generated-wrapper a {
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="ai-generated-wrapper">
+        {% if page.compiled_html %}
+            {{ page.compiled_html|safe }}
+        {% else %}
+            <div class="text-center py-5">
+                <div class="p-5 bg-white rounded shadow-sm">
+                    <i class="fas fa-paint-brush fa-3x text-muted mb-3"></i>
+                    <h3>Canvas Ready</h3>
+                    <p class="text-muted">Instruct the AI to generate your content here.</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

@@ -101,6 +101,11 @@ def admin_preview(request):
         section = LandingSection(
             id=request.POST.get(f'sections-{i}-id'),
             section_type=sec_type,
+            
+            # --- NEW: Catch design_variant from POST data ---
+            design_variant=request.POST.get(f'sections-{i}-design_variant', 'OVERLAY'),
+            # ------------------------------------------------
+
             heading=request.POST.get(f'sections-{i}-heading'),
             subheading=request.POST.get(f'sections-{i}-subheading'),
             description=request.POST.get(f'sections-{i}-description'),

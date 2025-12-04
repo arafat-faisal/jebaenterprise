@@ -1,0 +1,271 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrahead %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    /* Full Screen Workspace - Adjusted for Admin Header */
+    .app-container { 
+        display: flex; 
+        height: 80vh; /* ✅ Force it to take only 80% of the viewport height */
+        margin: -20px; 
+        overflow: hidden; 
+        border-bottom: 1px solid #ddd; /* Visual border to see where it ends */
+    }
+    
+    /* Left: Chat Panel */
+    .sidebar-chat { 
+        width: 350px; 
+        background: #1e1e2d; 
+        display: flex; 
+        flex-direction: column; 
+        border-right: 1px solid #333; 
+        height: 100%; /* Force full height */
+    }
+    
+    /* Chat History - Takes available space */
+    .chat-history { 
+        flex: 1; 
+        overflow-y: auto; 
+        padding: 20px; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 15px; 
+    }
+    
+    /* Input Area - Fixed at bottom */
+    .chat-input-area { 
+        padding: 20px; 
+        background: #151521; 
+        border-top: 1px solid #333; 
+        flex-shrink: 0; /* Prevents it from shrinking/disappearing */
+    }
+    
+    /* Right: Preview Panel */
+    .preview-area { flex: 1; background: #e4e6ef; display: flex; flex-direction: column; }
+    .toolbar { padding: 10px 20px; background: white; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; }
+    iframe { flex: 1; width: 100%; border: none; }
+
+    /* Chat Bubbles */
+    .msg { padding: 10px 15px; border-radius: 10px; font-size: 0.9rem; max-width: 90%; }
+    .msg-user { background: #3699ff; color: white; align-self: flex-end; border-bottom-right-radius: 0; }
+    .msg-ai { background: #2b2b40; color: #b5b5c3; align-self: flex-start; border-bottom-left-radius: 0; }
+
+    /* Add inside the <style> tag */
+
+/* Smooth resizing animation */
+iframe { 
+    flex: 1; 
+    width: 100%; 
+    border: none; 
+    transition: width 0.3s ease, border 0.3s ease; /* Smooth transition */
+}
+
+/* The Mobile View Style */
+.iframe-mobile { 
+    width: 375px !important;  /* Standard Mobile Width */
+    margin: 0 auto;           /* Center it */
+    border: 10px solid #333 !important; /* Phone bezel look */
+    border-radius: 20px;
+    height: 95% !important;   /* Slight gap top/bottom */
+    margin-top: 10px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="app-container">
+    <div class="sidebar-chat">
+        <div class="p-3 border-bottom border-secondary d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="text-white m-0">🤖 AI Architect</h5>
+                <small class="text-muted">{{ page.title }}</small>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn btn-sm btn-dark border-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <i class="fas fa-history"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" style="max-height: 300px; overflow-y: auto;">
+                    <li><h6 class="dropdown-header">Previous Versions</h6></li>
+                    {% for version in page.versions.all %}
+                        <li>
+                            <a class="dropdown-item d-flex justify-content-between gap-3" href="{% url 'ai_restore_version' version.id %}">
+                                <span>{{ version.description|truncatechars:20 }}</span>
+                                <small class="text-muted">{{ version.created_at|date:"H:i" }}</small>
+                            </a>
+                        </li>
+                    {% empty %}
+                        <li><span class="dropdown-item text-muted">No history yet</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="p-2 bg-black border-bottom border-secondary">
+            <form method="post">
+                {% csrf_token %}
+                <select name="link_product_id" class="form-select form-select-sm bg-dark text-white border-secondary" onchange="this.form.submit()" style="font-size: 0.85rem;">
+                    <option value="">🔗 Link a Product context...</option>
+                    {% for p in products %}
+                        <option value="{{ p.id }}" {% if page.product.id == p.id %}selected{% endif %}>
+                            {{ p.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+        
+        <div class="chat-history" id="chatHistory">
+            <div class="msg msg-ai">
+                Hello! I am ready to build. Describe your landing page (e.g., "A dark-themed page for a gaming headset") or upload a sketch.
+            </div>
+
+            {% for item in history %}
+                {% if item.role == 'user' %}
+                    <div class="msg msg-user">{{ item.text_prompt }}</div>
+                {% else %}
+                    <div class="msg msg-ai">Done. I've updated the page.</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="chat-input-area">
+            <form id="aiForm" enctype="multipart/form-data">
+                <textarea class="form-control bg-dark text-white border-secondary mb-2" rows="3" placeholder="Instruction..." name="prompt" required></textarea>
+                <div class="d-flex gap-2">
+                    <input type="file" name="image" class="form-control form-control-sm bg-dark text-white border-secondary">
+                    <button type="submit" class="btn btn-primary btn-sm">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="preview-area">
+        <div class="toolbar">
+            <div class="btn-group">
+                <button id="btnDesktop" class="btn btn-sm btn-outline-secondary active">Desktop</button>
+                <button id="btnMobile" class="btn btn-sm btn-outline-secondary">Mobile</button>
+            </div>
+            <div>
+                <a href="{% url 'ai_page_preview' page.slug %}" target="_blank" class="btn btn-sm btn-light">Open Full <i class="fas fa-external-link-alt"></i></a>
+                <button id="btnPublish" class="btn btn-sm btn-success">Publish</button>
+            </div>
+        </div>
+        <iframe src="{% url 'ai_page_preview' page.slug %}" id="previewFrame"></iframe>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const form = document.getElementById('aiForm');
+    const chatBox = document.getElementById('chatHistory');
+    const iframe = document.getElementById('previewFrame');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const userText = formData.get('prompt');
+        
+        // 1. Show User Bubble Immediately
+        appendMessage('user', userText);
+        form.reset();
+        
+        // 2. Show Loading Bubble
+        const loadingId = 'loading-' + Date.now();
+        chatBox.innerHTML += `
+            <div id="${loadingId}" class="msg msg-ai">
+                <i class="fas fa-circle-notch fa-spin"></i> Thinking & Coding...
+            </div>`;
+        scrollToBottom();
+
+        // 3. Send Request
+        fetch("{% url 'ai_chat_endpoint' page.slug %}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}' // Important for Django
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Remove Loading
+            document.getElementById(loadingId).remove();
+
+            if (data.status === 'success') {
+                // Show AI Response
+                appendMessage('ai', data.explanation);
+                
+                // RELOAD IFRAME to show changes
+                iframe.contentWindow.location.reload();
+            } else {
+                appendMessage('ai', "❌ Error: " + data.error);
+            }
+        })
+        .catch(error => {
+            document.getElementById(loadingId).remove();
+            appendMessage('ai', "❌ Network Error");
+            console.error(error);
+        });
+    });
+
+    function appendMessage(role, text) {
+        const div = document.createElement('div');
+        div.className = `msg msg-${role}`;
+        div.innerText = text;
+        chatBox.appendChild(div);
+        scrollToBottom();
+    }
+
+    function scrollToBottom() {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    // --- VIEW SWITCHING LOGIC ---
+    const btnDesktop = document.getElementById('btnDesktop');
+    const btnMobile = document.getElementById('btnMobile');
+
+    btnDesktop.addEventListener('click', function() {
+        iframe.classList.remove('iframe-mobile'); // Remove mobile class
+        
+        // Update Buttons
+        btnDesktop.classList.add('active');
+        btnMobile.classList.remove('active');
+    });
+
+    btnMobile.addEventListener('click', function() {
+        iframe.classList.add('iframe-mobile'); // Add mobile class
+        
+        // Update Buttons
+        btnMobile.classList.add('active');
+        btnDesktop.classList.remove('active');
+    });
+    // --- PUBLISH LOGIC ---
+    const btnPublish = document.getElementById('btnPublish');
+    
+    btnPublish.addEventListener('click', function() {
+        if(!confirm("Are you ready to make this page LIVE to the public?")) return;
+        
+        const originalText = btnPublish.innerText;
+        btnPublish.innerText = "Publishing...";
+        
+        fetch("{% url 'ai_page_publish' page.slug %}", {
+            method: 'POST',
+            headers: { 'X-CSRFToken': '{{ csrf_token }}' }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert("🚀 Success! Your page is live.");
+                btnPublish.innerText = "Published ✅";
+                btnPublish.classList.remove('btn-success');
+                btnPublish.classList.add('btn-secondary');
+                btnPublish.disabled = true;
+            } else {
+                alert("Error: " + data.error);
+                btnPublish.innerText = originalText;
+            }
+        });
+    });
+</script>
+{% endblock %}

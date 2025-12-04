@@ -63,6 +63,9 @@ INSTALLED_APPS = [
     'jeba_analytics',
     'jeba_blog',
     'jeba_landing',
+    # --- NEW AI BUILDER ---
+    'jeba_ai_builder', 
+    # ----------------------
     # --- EXISTING APP (Deprecated/Hidden) ---
     # 'products', 
     'import_export',    

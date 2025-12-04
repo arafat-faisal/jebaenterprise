@@ -722,3 +722,2160 @@ INFO 2025-12-04 14:36:13,333 basehttp "POST /landing/admin-preview/render/ HTTP/
 WARNING 2025-12-04 14:36:13,340 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
 INFO 2025-12-04 14:36:25,567 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73907
 WARNING 2025-12-04 14:36:25,577 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 20:30:35,195 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 20:30:41,395 basehttp "GET /admin/ HTTP/1.1" 200 62395
+WARNING 2025-12-04 20:30:41,420 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:30:44,042 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 30036
+WARNING 2025-12-04 20:30:44,067 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:30:44,088 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:30:46,335 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 28026
+WARNING 2025-12-04 20:30:46,357 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:30:46,383 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:30:56,754 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 30036
+WARNING 2025-12-04 20:30:56,775 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:30:56,796 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:30:58,878 basehttp "GET /admin/jeba_landing/landingtheme/ HTTP/1.1" 200 28026
+WARNING 2025-12-04 20:30:58,898 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:30:58,919 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:31:09,036 basehttp "GET /admin/jeba_landing/landingtheme/add/ HTTP/1.1" 200 32072
+WARNING 2025-12-04 20:31:09,055 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:31:09,078 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:31:13,033 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 30036
+WARNING 2025-12-04 20:31:13,050 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:31:13,076 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:31:14,464 basehttp "GET /admin/jeba_landing/landingpage/add/ HTTP/1.1" 200 103833
+WARNING 2025-12-04 20:31:14,485 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:31:14,507 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:31:15,582 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 58519
+WARNING 2025-12-04 20:31:15,591 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 20:31:19,925 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 58519
+WARNING 2025-12-04 20:31:19,935 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 20:31:23,128 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 58519
+WARNING 2025-12-04 20:31:23,136 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 20:31:27,143 basehttp "POST /admin/jeba_landing/landingpage/add/ HTTP/1.1" 302 0
+INFO 2025-12-04 20:31:27,239 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 105221
+WARNING 2025-12-04 20:31:27,263 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:31:27,283 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:31:28,330 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 58718
+WARNING 2025-12-04 20:31:28,340 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 20:31:52,709 basehttp "GET /landing/ai/generate/1/ HTTP/1.1" 302 0
+INFO 2025-12-04 20:31:52,949 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 221832
+WARNING 2025-12-04 20:31:52,975 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:31:53,102 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:31:54,306 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73612
+WARNING 2025-12-04 20:31:54,318 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-04 20:42:27,732 autoreload E:\WebProjects\jebaenterprise\config\urls.py changed, reloading.
+INFO 2025-12-04 20:42:30,380 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 20:42:41,745 autoreload E:\WebProjects\jebaenterprise\config\urls.py changed, reloading.
+INFO 2025-12-04 20:42:42,173 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 20:42:54,340 autoreload E:\WebProjects\jebaenterprise\config\settings.py changed, reloading.
+INFO 2025-12-04 20:42:55,003 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 20:47:45,154 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 20:47:49,584 basehttp "GET /admin/ HTTP/1.1" 200 65058
+WARNING 2025-12-04 20:47:49,604 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:47:53,973 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 29005
+WARNING 2025-12-04 20:47:54,000 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:47:54,019 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:47:56,668 basehttp "GET /admin/jeba_ai_builder/aipage/add/ HTTP/1.1" 200 46457
+WARNING 2025-12-04 20:47:56,685 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:47:56,707 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:54:36,871 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 29005
+WARNING 2025-12-04 20:54:36,903 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:54:36,927 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:54:39,565 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 29005
+WARNING 2025-12-04 20:54:39,587 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:54:39,607 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:54:40,367 basehttp "GET /admin/jeba_ai_builder/aipage/add/ HTTP/1.1" 200 46457
+WARNING 2025-12-04 20:54:40,385 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:54:40,406 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:55:28,265 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35000
+WARNING 2025-12-04 20:55:28,289 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:55:28,313 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:56:36,415 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 29005
+WARNING 2025-12-04 20:56:36,439 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:56:36,461 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:56:38,241 basehttp "GET /admin/jeba_ai_builder/aipage/add/ HTTP/1.1" 200 46457
+WARNING 2025-12-04 20:56:38,266 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:56:38,283 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:56:49,668 basehttp "POST /admin/jeba_ai_builder/aipage/add/ HTTP/1.1" 302 0
+INFO 2025-12-04 20:56:49,710 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 33752
+WARNING 2025-12-04 20:56:49,729 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:56:49,750 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:56:53,563 basehttp "GET /admin/jeba_ai_builder/aipage/1/change/ HTTP/1.1" 200 47493
+WARNING 2025-12-04 20:56:53,583 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:56:53,604 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:57:55,880 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 20:57:59,899 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 33071
+WARNING 2025-12-04 20:57:59,926 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:58:00,059 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 20:58:01,888 basehttp "GET /admin/jeba_ai_builder/aipage/1/change/ HTTP/1.1" 200 47493
+WARNING 2025-12-04 20:58:01,913 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 20:58:01,931 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:05:59,524 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 33071
+WARNING 2025-12-04 21:05:59,547 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:05:59,570 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:06:03,020 basehttp "GET /admin/jeba_ai_builder/aipage/1/change/ HTTP/1.1" 200 47493
+WARNING 2025-12-04 21:06:03,042 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:06:03,068 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:07:39,588 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 33071
+WARNING 2025-12-04 21:07:39,605 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:07:39,628 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:07:45,195 basehttp "POST /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 28690
+WARNING 2025-12-04 21:07:45,218 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:07:46,319 basehttp "POST /admin/jeba_ai_builder/aipage/ HTTP/1.1" 302 0
+INFO 2025-12-04 21:07:46,354 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 29504
+WARNING 2025-12-04 21:07:46,373 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:07:46,400 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-04 21:08:04,473 log Not Found: /ai/builder/
+WARNING 2025-12-04 21:08:04,474 basehttp "GET /ai/builder/ HTTP/1.1" 404 12487
+WARNING 2025-12-04 21:08:04,579 log Not Found: /favicon.ico
+WARNING 2025-12-04 21:08:04,580 basehttp "GET /favicon.ico HTTP/1.1" 404 12487
+INFO 2025-12-04 21:09:58,282 autoreload E:\WebProjects\jebaenterprise\config\urls.py changed, reloading.
+INFO 2025-12-04 21:09:58,725 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 21:10:05,760 basehttp "GET /ai/builder/ HTTP/1.1" 302 0
+INFO 2025-12-04 21:10:05,818 basehttp "GET /ai/builder/untitled-draft/ HTTP/1.1" 200 18118
+WARNING 2025-12-04 21:10:05,837 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:10:05,860 basehttp "GET /ai/preview/untitled-draft/ HTTP/1.1" 200 1036
+INFO 2025-12-04 21:10:53,475 basehttp "POST /ai/api/chat/untitled-draft/ HTTP/1.1" 200 233
+INFO 2025-12-04 21:11:14,511 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\ai_service.py changed, reloading.
+INFO 2025-12-04 21:11:16,900 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 21:11:54,973 basehttp "POST /ai/api/chat/untitled-draft/ HTTP/1.1" 200 1366
+INFO 2025-12-04 21:13:01,347 basehttp "GET /admin/ HTTP/1.1" 200 64154
+WARNING 2025-12-04 21:13:01,384 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:13:03,863 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+WARNING 2025-12-04 21:13:03,885 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:13:03,904 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:13:05,832 basehttp "GET /admin/jeba_ai_builder/aipage/2/change/ HTTP/1.1" 200 83541
+WARNING 2025-12-04 21:13:05,849 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:13:05,871 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:14:17,216 basehttp "GET /ai/preview/untitled-draft/ HTTP/1.1" 200 10306
+WARNING 2025-12-04 21:14:24,135 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 21:14:24,136 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-04 21:15:32,429 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py changed, reloading.
+INFO 2025-12-04 21:15:34,854 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 21:16:29,750 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py changed, reloading.
+INFO 2025-12-04 21:16:30,152 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 21:16:43,933 basehttp "GET /ai/builder/untitled-draft/ HTTP/1.1" 200 18984
+WARNING 2025-12-04 21:16:43,948 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:16:43,984 basehttp "GET /ai/preview/untitled-draft/ HTTP/1.1" 200 10306
+INFO 2025-12-04 21:17:34,010 basehttp "POST /ai/api/chat/untitled-draft/ HTTP/1.1" 200 345
+INFO 2025-12-04 21:17:34,041 basehttp "GET /ai/preview/untitled-draft/ HTTP/1.1" 200 10470
+INFO 2025-12-04 21:18:05,495 basehttp "GET /ai/preview/untitled-draft/ HTTP/1.1" 200 10470
+INFO 2025-12-04 21:18:09,997 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+WARNING 2025-12-04 21:18:10,018 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:18:10,044 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:18:11,332 basehttp "GET /admin/jeba_ai_builder/aipage/2/change/ HTTP/1.1" 200 106954
+WARNING 2025-12-04 21:18:11,351 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:18:11,373 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:18:58,246 basehttp "POST /admin/jeba_ai_builder/aipage/2/change/ HTTP/1.1" 200 107800
+WARNING 2025-12-04 21:18:58,265 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:18:58,392 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:19:18,200 basehttp "POST /admin/jeba_ai_builder/aipage/2/change/ HTTP/1.1" 302 0
+INFO 2025-12-04 21:19:18,245 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 33361
+WARNING 2025-12-04 21:19:18,268 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:19:18,288 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:19:19,829 basehttp "GET /admin/jeba_ai_builder/aipage/2/change/ HTTP/1.1" 200 103650
+WARNING 2025-12-04 21:19:19,847 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:19:19,870 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:19:22,630 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+INFO 2025-12-04 21:19:25,230 basehttp "GET /ai/preview/untitled-draft/ HTTP/1.1" 200 10753
+WARNING 2025-12-04 21:19:30,755 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 21:19:30,755 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-04 21:20:05,584 basehttp "GET /admin/ HTTP/1.1" 200 65408
+WARNING 2025-12-04 21:20:05,603 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:20:08,003 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+WARNING 2025-12-04 21:20:08,027 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:20:08,048 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:20:09,673 basehttp "GET /admin/jeba_ai_builder/aipage/add/ HTTP/1.1" 200 46457
+WARNING 2025-12-04 21:20:09,692 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:20:09,715 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:20:11,253 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+WARNING 2025-12-04 21:20:11,273 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:20:11,405 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 21:20:30,914 basehttp "GET /admin/jeba_ai_builder/aipage/add/ HTTP/1.1" 200 46457
+INFO 2025-12-04 21:20:31,980 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+INFO 2025-12-04 21:20:32,595 basehttp "GET /admin/ HTTP/1.1" 200 65407
+INFO 2025-12-04 21:21:28,002 basehttp "POST /ai/api/chat/untitled-draft/ HTTP/1.1" 200 2024
+INFO 2025-12-04 21:21:28,033 basehttp "GET /ai/preview/untitled-draft/ HTTP/1.1" 200 10351
+INFO 2025-12-04 21:25:13,735 basehttp "GET /ai/builder/untitled-draft/ HTTP/1.1" 200 20759
+WARNING 2025-12-04 21:25:13,754 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 21:25:13,783 basehttp "GET /ai/preview/untitled-draft/ HTTP/1.1" 200 10351
+INFO 2025-12-04 22:23:50,132 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+WARNING 2025-12-04 22:23:50,155 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 22:23:50,175 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 22:25:07,506 basehttp "GET /admin/ HTTP/1.1" 200 65446
+WARNING 2025-12-04 22:25:07,525 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 22:25:09,985 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+WARNING 2025-12-04 22:25:10,009 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 22:25:10,127 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 22:25:37,661 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+INFO 2025-12-04 22:25:42,552 basehttp "GET /admin/jeba_ai_builder/aipage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-04 22:25:42,698 basehttp "GET /admin/ HTTP/1.1" 200 65993
+INFO 2025-12-04 22:25:46,625 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+WARNING 2025-12-04 22:25:46,646 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 22:25:46,670 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 22:26:07,427 basehttp "GET /admin/ HTTP/1.1" 200 65446
+WARNING 2025-12-04 22:26:07,462 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+WARNING 2025-12-04 22:26:11,019 log Not Found: /ai/generate
+WARNING 2025-12-04 22:26:11,020 basehttp "GET /ai/generate HTTP/1.1" 404 13619
+INFO 2025-12-04 22:26:13,351 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 32779
+INFO 2025-12-04 22:26:22,790 basehttp "GET /admin/ HTTP/1.1" 200 65446
+WARNING 2025-12-04 22:26:22,826 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+ERROR 2025-12-04 22:26:35,387 log Internal Server Error: /ai/builder/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "jeba_ai_builder_aipage_slug_key"
+DETAIL:  Key (slug)=(untitled-draft) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py", line 12, in builder_workspace
+    new_page = AIPage.objects.create(title="Untitled Draft")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\WebProjects\jebaenterprise\jeba_ai_builder\models.py", line 23, in save
+    super().save(*args, **kwargs)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "jeba_ai_builder_aipage_slug_key"
+DETAIL:  Key (slug)=(untitled-draft) already exists.
+
+ERROR 2025-12-04 22:26:35,390 basehttp "GET /ai/builder/ HTTP/1.1" 500 169403
+ERROR 2025-12-04 22:26:49,876 log Internal Server Error: /ai/builder/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "jeba_ai_builder_aipage_slug_key"
+DETAIL:  Key (slug)=(untitled-draft) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py", line 12, in builder_workspace
+    new_page = AIPage.objects.create(title="Untitled Draft")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 665, in create
+    obj.save(force_insert=True, using=self.db)
+  File "E:\WebProjects\jebaenterprise\jeba_ai_builder\models.py", line 23, in save
+    super().save(*args, **kwargs)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1873, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "jeba_ai_builder_aipage_slug_key"
+DETAIL:  Key (slug)=(untitled-draft) already exists.
+
+ERROR 2025-12-04 22:26:49,877 basehttp "GET /ai/builder/ HTTP/1.1" 500 169403
+INFO 2025-12-04 22:29:14,016 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py changed, reloading.
+INFO 2025-12-04 22:29:16,538 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 22:29:20,309 basehttp "GET /ai/builder/ HTTP/1.1" 302 0
+INFO 2025-12-04 22:29:20,363 basehttp "GET /ai/builder/untitled-draft-ffshn2/ HTTP/1.1" 200 19379
+WARNING 2025-12-04 22:29:20,382 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 22:29:20,409 basehttp "GET /ai/preview/untitled-draft-ffshn2/ HTTP/1.1" 200 1041
+INFO 2025-12-04 22:32:48,307 basehttp "POST /ai/api/chat/untitled-draft-ffshn2/ HTTP/1.1" 200 100
+INFO 2025-12-04 22:32:48,445 basehttp "GET /ai/preview/untitled-draft-ffshn2/ HTTP/1.1" 200 768
+INFO 2025-12-04 23:22:30,395 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\ai_service.py changed, reloading.
+INFO 2025-12-04 23:22:32,874 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 23:22:44,852 basehttp "GET /ai/builder/untitled-draft-ffshn2/ HTTP/1.1" 200 19710
+WARNING 2025-12-04 23:22:44,872 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 23:22:44,898 basehttp "GET /ai/preview/untitled-draft-ffshn2/ HTTP/1.1" 200 768
+INFO 2025-12-04 23:22:53,253 basehttp "POST /ai/api/chat/untitled-draft-ffshn2/ HTTP/1.1" 200 240
+INFO 2025-12-04 23:22:53,280 basehttp "GET /ai/preview/untitled-draft-ffshn2/ HTTP/1.1" 200 768
+INFO 2025-12-04 23:23:05,526 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\ai_service.py changed, reloading.
+INFO 2025-12-04 23:23:08,137 autoreload Watching for file changes with StatReloader
+INFO 2025-12-04 23:23:58,990 basehttp "POST /ai/api/chat/untitled-draft-ffshn2/ HTTP/1.1" 200 42
+INFO 2025-12-04 23:23:59,033 basehttp "GET /ai/preview/untitled-draft-ffshn2/ HTTP/1.1" 200 20600
+INFO 2025-12-04 23:25:38,939 basehttp "GET /ai/preview/untitled-draft-ffshn2/ HTTP/1.1" 200 20600
+INFO 2025-12-04 23:55:13,431 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 33385
+WARNING 2025-12-04 23:55:13,455 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 23:55:13,474 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 23:55:15,082 basehttp "GET /admin/jeba_ai_builder/aipage/5/change/ HTTP/1.1" 200 107807
+WARNING 2025-12-04 23:55:15,099 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 23:55:15,123 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 23:56:44,105 basehttp "POST /admin/jeba_ai_builder/aipage/5/change/ HTTP/1.1" 200 109126
+WARNING 2025-12-04 23:56:44,133 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 23:56:44,155 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 23:56:50,747 basehttp "POST /admin/jeba_ai_builder/aipage/5/change/ HTTP/1.1" 302 0
+INFO 2025-12-04 23:56:50,889 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 33972
+WARNING 2025-12-04 23:56:50,913 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-04 23:56:50,937 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-04 23:56:52,706 basehttp "GET /ai/preview/untitled-draft-ffshn2/ HTTP/1.1" 200 21546
+WARNING 2025-12-04 23:57:05,265 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-04 23:57:05,265 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 00:06:27,848 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\ai_service.py changed, reloading.
+INFO 2025-12-05 00:06:30,325 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 00:06:54,009 basehttp "GET /ai/builder/ HTTP/1.1" 302 0
+INFO 2025-12-05 00:06:54,065 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 19379
+WARNING 2025-12-05 00:06:54,091 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:06:54,127 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 40224
+WARNING 2025-12-05 00:06:54,137 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:08:46,004 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 240
+INFO 2025-12-05 00:08:46,039 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 39939
+WARNING 2025-12-05 00:08:46,048 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:08:59,640 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\ai_service.py changed, reloading.
+INFO 2025-12-05 00:09:02,347 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 00:09:58,437 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 42
+INFO 2025-12-05 00:09:58,599 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51045
+WARNING 2025-12-05 00:09:58,612 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:10:07,843 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51045
+WARNING 2025-12-05 00:10:07,870 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:10:19,465 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 33991
+WARNING 2025-12-05 00:10:19,486 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:10:19,514 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 00:10:20,545 basehttp "GET /admin/jeba_ai_builder/aipage/6/change/ HTTP/1.1" 200 84947
+WARNING 2025-12-05 00:10:20,564 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:10:20,588 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 00:13:17,875 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 757
+INFO 2025-12-05 00:13:17,912 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51545
+WARNING 2025-12-05 00:13:17,940 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:15:28,555 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51545
+WARNING 2025-12-05 00:15:28,587 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 00:15:32,425 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 00:15:32,425 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 00:16:38,841 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51545
+WARNING 2025-12-05 00:16:38,876 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:16:44,247 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 706
+INFO 2025-12-05 00:16:44,278 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 00:16:44,823 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:19:21,946 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 91
+INFO 2025-12-05 00:19:21,981 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 00:19:25,541 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:20:56,820 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 91
+INFO 2025-12-05 00:20:56,853 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 00:21:00,471 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:21:54,323 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py changed, reloading.
+INFO 2025-12-05 00:21:56,768 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 00:22:10,955 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\urls.py changed, reloading.
+INFO 2025-12-05 00:22:11,348 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 00:23:59,908 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py changed, reloading.
+INFO 2025-12-05 00:24:00,322 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 00:24:11,461 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\urls.py changed, reloading.
+INFO 2025-12-05 00:24:11,855 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 00:26:07,130 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 110521
+WARNING 2025-12-05 00:26:07,152 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:26:07,187 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 00:26:07,200 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:34:50,015 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 110521
+WARNING 2025-12-05 00:34:50,041 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:34:50,070 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 00:34:50,086 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:34:56,809 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 00:34:56,837 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 00:35:00,271 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 00:35:00,272 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 00:36:06,784 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 290
+INFO 2025-12-05 00:36:06,816 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 00:36:06,832 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:37:54,604 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 00:37:54,628 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 00:37:57,448 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 00:37:57,449 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 00:41:23,459 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 111251
+WARNING 2025-12-05 00:41:23,483 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:41:23,531 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 00:41:23,542 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:41:33,241 basehttp "GET /ai/restore/14/ HTTP/1.1" 302 0
+INFO 2025-12-05 00:41:33,282 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 111744
+WARNING 2025-12-05 00:41:33,305 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:41:33,331 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 00:41:33,348 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:41:48,369 basehttp "GET /ai/restore/15/ HTTP/1.1" 302 0
+INFO 2025-12-05 00:41:48,426 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 112237
+WARNING 2025-12-05 00:41:48,446 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:41:48,588 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 00:41:48,601 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:43:03,894 basehttp "GET /ai/restore/16/ HTTP/1.1" 302 0
+INFO 2025-12-05 00:43:03,934 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 112730
+WARNING 2025-12-05 00:43:03,961 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:43:03,991 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 00:43:04,005 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:43:15,816 basehttp "GET /ai/restore/14/ HTTP/1.1" 302 0
+INFO 2025-12-05 00:43:15,853 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 113223
+WARNING 2025-12-05 00:43:15,873 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:43:15,902 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 00:43:15,913 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:43:20,212 basehttp "GET /ai/restore/15/ HTTP/1.1" 302 0
+INFO 2025-12-05 00:43:20,248 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 113716
+WARNING 2025-12-05 00:43:20,271 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:43:20,297 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 00:43:20,308 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:43:31,235 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 00:43:31,264 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:46:23,513 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\models.py changed, reloading.
+INFO 2025-12-05 00:46:25,945 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 00:58:21,325 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 00:58:28,194 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 00:58:28,215 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:58:30,369 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 160712
+WARNING 2025-12-05 00:58:30,388 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:58:30,525 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 00:58:30,537 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 00:58:40,574 basehttp "POST /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 302 0
+INFO 2025-12-05 00:58:40,618 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 160720
+WARNING 2025-12-05 00:58:40,636 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 00:58:40,665 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 00:58:40,676 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+ERROR 2025-12-05 00:59:22,759 log Internal Server Error: /ai/api/chat/untitled-draft-azfhor/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py", line 81, in ai_chat_endpoint
+    img_url = p.main_image.url if p.main_image else ""
+                                  ^^^^^^^^^^^^
+AttributeError: 'Product' object has no attribute 'main_image'. Did you mean: 'main_image_obj'?
+ERROR 2025-12-05 00:59:22,762 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 500 87223
+ERROR 2025-12-05 01:00:54,345 log Internal Server Error: /ai/api/chat/untitled-draft-azfhor/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py", line 81, in ai_chat_endpoint
+    img_url = p.main_image.url if p.main_image else ""
+                                  ^^^^^^^^^^^^
+AttributeError: 'Product' object has no attribute 'main_image'. Did you mean: 'main_image_obj'?
+ERROR 2025-12-05 01:00:54,348 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 500 87231
+INFO 2025-12-05 01:06:11,779 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\views.py changed, reloading.
+INFO 2025-12-05 01:06:12,205 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 01:06:20,143 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 160966
+WARNING 2025-12-05 01:06:20,158 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:06:20,307 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 01:06:20,320 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:06:26,363 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 240
+INFO 2025-12-05 01:06:26,395 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 50165
+WARNING 2025-12-05 01:06:26,407 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:06:50,594 autoreload E:\WebProjects\jebaenterprise\jeba_ai_builder\ai_service.py changed, reloading.
+INFO 2025-12-05 01:06:53,241 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 01:07:10,480 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 580
+INFO 2025-12-05 01:07:10,537 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 43073
+WARNING 2025-12-05 01:07:10,556 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:08:53,803 basehttp "GET /ai/restore/19/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:08:53,873 basehttp "GET /ai/builder/untitled-draft-azfhor/ HTTP/1.1" 200 162693
+WARNING 2025-12-05 01:08:53,900 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:08:53,926 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 01:08:53,946 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:09:18,505 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 01:09:18,533 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:09:24,164 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 51788
+WARNING 2025-12-05 01:09:24,182 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:09:59,807 basehttp "POST /ai/api/chat/untitled-draft-azfhor/ HTTP/1.1" 200 1278
+INFO 2025-12-05 01:09:59,969 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 53009
+WARNING 2025-12-05 01:09:59,990 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:16:28,343 basehttp "GET /admin/ HTTP/1.1" 200 65996
+WARNING 2025-12-05 01:16:28,358 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:16:34,712 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35016
+WARNING 2025-12-05 01:16:34,736 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:16:34,765 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:16:42,654 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69771
+WARNING 2025-12-05 01:16:42,683 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:17:01,223 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:17:01,224 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:22:28,532 basehttp "GET /admin/jeba_ai_builder/aipage/ HTTP/1.1" 200 34006
+WARNING 2025-12-05 01:22:28,554 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:22:28,574 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:22:33,679 basehttp "GET /admin/jeba_ai_builder/aipage/6/change/ HTTP/1.1" 200 520485
+WARNING 2025-12-05 01:22:33,700 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:22:33,722 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:26:58,336 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-12-05 01:27:00,772 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 01:32:01,647 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 01:32:08,960 basehttp "GET /admin/ HTTP/1.1" 200 65985
+WARNING 2025-12-05 01:32:08,976 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:32:13,637 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35016
+WARNING 2025-12-05 01:32:13,662 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:32:13,681 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:32:15,417 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 221943
+WARNING 2025-12-05 01:32:15,437 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:32:15,569 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:32:16,664 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73780
+WARNING 2025-12-05 01:32:16,672 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:34:27,644 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:34:27,691 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35610
+WARNING 2025-12-05 01:34:27,717 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:34:27,739 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:34:29,279 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70402
+WARNING 2025-12-05 01:34:29,311 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:34:41,880 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 222132
+WARNING 2025-12-05 01:34:41,903 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:34:41,926 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:34:42,982 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74212
+WARNING 2025-12-05 01:34:42,990 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:35:15,374 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:35:15,608 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 222754
+WARNING 2025-12-05 01:35:15,635 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:35:15,660 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:35:16,759 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73780
+WARNING 2025-12-05 01:35:16,767 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:37:17,518 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-05 01:37:17,937 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 01:37:30,489 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 228843
+WARNING 2025-12-05 01:37:30,519 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:37:30,537 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:37:31,620 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73780
+WARNING 2025-12-05 01:37:31,629 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:37:39,029 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:37:39,224 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229466
+WARNING 2025-12-05 01:37:39,247 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:37:39,372 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:37:40,431 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73780
+WARNING 2025-12-05 01:37:40,442 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:37:51,302 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73780
+WARNING 2025-12-05 01:37:51,312 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:37:57,247 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:37:57,414 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229466
+WARNING 2025-12-05 01:37:57,436 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:37:57,456 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:37:58,546 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73780
+WARNING 2025-12-05 01:37:58,556 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:41:57,102 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-05 01:41:57,505 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 01:42:01,422 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 228843
+WARNING 2025-12-05 01:42:01,454 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:42:01,586 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:42:02,660 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74244
+WARNING 2025-12-05 01:42:02,667 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:42:09,983 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74244
+WARNING 2025-12-05 01:42:09,992 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:42:12,008 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74244
+WARNING 2025-12-05 01:42:12,034 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:42:15,544 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 228843
+WARNING 2025-12-05 01:42:15,569 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:42:15,591 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:42:16,686 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74244
+WARNING 2025-12-05 01:42:16,693 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:42:26,977 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:42:27,150 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229466
+WARNING 2025-12-05 01:42:27,172 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:42:27,192 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:42:28,255 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74244
+WARNING 2025-12-05 01:42:28,266 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:42:36,710 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74244
+WARNING 2025-12-05 01:42:36,721 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:42:46,357 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 228843
+WARNING 2025-12-05 01:42:46,376 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:42:46,396 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:42:47,480 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74244
+WARNING 2025-12-05 01:42:47,492 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:43:06,437 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74244
+WARNING 2025-12-05 01:43:06,447 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:43:07,910 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:43:08,090 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229466
+WARNING 2025-12-05 01:43:08,115 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:43:08,139 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:43:09,206 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74244
+WARNING 2025-12-05 01:43:09,216 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:43:26,972 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70434
+WARNING 2025-12-05 01:43:26,997 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:43:40,799 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:43:40,799 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:43:46,659 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70434
+WARNING 2025-12-05 01:43:46,693 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:43:46,707 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:43:46,707 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:44:08,731 basehttp "POST /add-to-cart/1634/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:44:08,776 basehttp "GET /checkout/ HTTP/1.1" 200 46371
+WARNING 2025-12-05 01:44:08,805 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:44:08,820 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:44:08,821 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:44:08,824 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2188
+WARNING 2025-12-05 01:44:14,070 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:44:14,071 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 01:44:14,102 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:44:14,102 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:44:18,923 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70709
+WARNING 2025-12-05 01:44:18,976 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:44:18,977 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 01:44:18,981 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:44:19,946 basehttp "POST /add-to-cart/1634/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:44:20,087 basehttp "GET /checkout/ HTTP/1.1" 200 46371
+WARNING 2025-12-05 01:44:20,114 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:44:20,142 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:44:20,142 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 01:44:29,568 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:44:29,569 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 01:44:29,617 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:44:29,617 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:45:00,445 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74519
+WARNING 2025-12-05 01:45:00,456 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:45:01,952 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74519
+WARNING 2025-12-05 01:45:01,962 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:45:04,034 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:45:04,218 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229466
+WARNING 2025-12-05 01:45:04,241 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:45:04,260 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:45:05,349 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74519
+WARNING 2025-12-05 01:45:05,360 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:45:07,778 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70709
+WARNING 2025-12-05 01:45:07,837 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:45:07,842 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:45:07,842 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:46:15,326 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:46:15,502 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229466
+WARNING 2025-12-05 01:46:15,530 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:46:15,652 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:46:16,946 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74519
+WARNING 2025-12-05 01:46:16,966 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:46:17,155 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70709
+WARNING 2025-12-05 01:46:17,191 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:46:17,202 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:46:17,203 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:46:22,049 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70709
+WARNING 2025-12-05 01:46:22,072 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:46:22,107 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:46:22,108 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:46:26,168 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70709
+WARNING 2025-12-05 01:46:26,187 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:46:26,217 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:46:26,217 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:46:35,524 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 01:46:35,701 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229466
+WARNING 2025-12-05 01:46:35,722 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 01:46:35,742 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 01:46:36,954 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73564
+WARNING 2025-12-05 01:46:36,968 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:46:37,315 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69754
+WARNING 2025-12-05 01:46:37,335 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:46:37,362 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:46:37,362 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:46:39,181 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69754
+WARNING 2025-12-05 01:46:39,204 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:46:39,230 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:46:39,230 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:46:45,554 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69754
+WARNING 2025-12-05 01:46:45,579 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 01:46:45,599 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 01:46:45,600 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 01:47:02,728 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69754
+WARNING 2025-12-05 01:47:02,754 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:47:15,369 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69754
+WARNING 2025-12-05 01:47:15,385 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:47:20,619 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69754
+WARNING 2025-12-05 01:47:20,636 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:47:27,526 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69754
+WARNING 2025-12-05 01:47:27,543 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:47:31,090 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69754
+WARNING 2025-12-05 01:47:31,107 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 01:59:31,664 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 69754
+WARNING 2025-12-05 01:59:31,689 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:11:25,343 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-12-05 02:11:25,754 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 02:11:55,952 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 02:12:55,628 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 02:12:59,466 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 59168
+WARNING 2025-12-05 02:12:59,506 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:12:59,534 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:12:59,534 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:13:04,739 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229243
+WARNING 2025-12-05 02:13:04,762 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:13:04,888 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:13:06,106 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 59781
+WARNING 2025-12-05 02:13:06,115 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:13:13,902 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 02:13:14,078 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229866
+WARNING 2025-12-05 02:13:14,102 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:13:14,123 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:13:15,185 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 61346
+WARNING 2025-12-05 02:13:15,196 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:13:23,735 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 60733
+WARNING 2025-12-05 02:13:23,755 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:13:23,779 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:13:23,779 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:13:31,077 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 60733
+WARNING 2025-12-05 02:13:31,095 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:13:31,124 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:13:31,124 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:13:33,702 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 60733
+WARNING 2025-12-05 02:13:33,724 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:13:38,880 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 60733
+WARNING 2025-12-05 02:13:38,895 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:14:01,707 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 60733
+WARNING 2025-12-05 02:14:01,724 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:14:01,751 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:14:01,752 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:22:15,592 basehttp "GET /ai/preview/untitled-draft-azfhor/ HTTP/1.1" 200 53284
+WARNING 2025-12-05 02:22:15,615 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:22:58,743 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 60679
+WARNING 2025-12-05 02:22:58,766 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:23:02,662 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 60679
+WARNING 2025-12-05 02:23:02,702 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:23:02,707 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:23:02,708 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:23:26,409 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 60679
+WARNING 2025-12-05 02:23:26,432 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:23:26,454 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:23:26,454 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:23:31,683 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 60679
+WARNING 2025-12-05 02:23:31,704 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:23:31,734 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:23:31,735 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:28:20,336 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70009
+WARNING 2025-12-05 02:28:20,429 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:28:20,433 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:28:20,434 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:28:26,668 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70009
+WARNING 2025-12-05 02:28:26,714 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:28:26,715 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:28:26,716 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:28:26,789 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:28:26,813 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 02:28:27,145 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:28:27,150 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 02:28:35,619 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70009
+WARNING 2025-12-05 02:28:35,646 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:28:46,309 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70009
+WARNING 2025-12-05 02:28:46,324 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:28:48,046 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70009
+INFO 2025-12-05 02:28:48,082 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:28:48,143 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:28:48,163 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 02:28:48,331 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:28:48,337 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 02:28:54,652 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229243
+WARNING 2025-12-05 02:28:54,675 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:28:54,694 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-05 02:28:54,816 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:28:55,771 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73504
+WARNING 2025-12-05 02:28:55,782 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:29:02,046 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 02:29:02,322 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229866
+WARNING 2025-12-05 02:29:02,344 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:29:02,470 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:29:03,524 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72725
+WARNING 2025-12-05 02:29:03,536 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:29:11,953 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72725
+WARNING 2025-12-05 02:29:11,963 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:29:14,694 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229243
+WARNING 2025-12-05 02:29:14,713 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:29:14,840 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:29:15,898 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72725
+WARNING 2025-12-05 02:29:15,909 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:29:26,195 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 02:29:26,349 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229866
+WARNING 2025-12-05 02:29:26,369 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:29:26,394 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:29:27,480 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 72400
+WARNING 2025-12-05 02:29:27,491 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:29:38,075 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 68905
+WARNING 2025-12-05 02:29:38,104 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:29:39,666 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 68905
+WARNING 2025-12-05 02:29:39,688 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:29:45,798 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:29:45,799 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:29:49,205 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 68905
+WARNING 2025-12-05 02:29:49,247 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:29:49,366 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:29:49,367 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:38:52,551 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 02:39:23,517 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 02:39:29,892 basehttp "GET / HTTP/1.1" 200 102295
+INFO 2025-12-05 02:39:29,927 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-05 02:39:29,929 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-05 02:39:29,956 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-05 02:39:29,979 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+WARNING 2025-12-05 02:39:29,984 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:39:30,056 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+INFO 2025-12-05 02:39:30,076 basehttp "GET /media/products/gallery/prod_1584_0.jpg HTTP/1.1" 200 49589
+INFO 2025-12-05 02:39:30,185 basehttp "GET /media/products/gallery/prod_1613_0.jpg HTTP/1.1" 200 64834
+INFO 2025-12-05 02:39:30,212 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 200 181972
+INFO 2025-12-05 02:39:30,217 basehttp "GET /media/products/gallery/prod_1386_0.jpg HTTP/1.1" 200 29615
+INFO 2025-12-05 02:39:30,217 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 200 79832
+INFO 2025-12-05 02:39:30,246 basehttp "GET /media/products/gallery/prod_1531_0.jpg HTTP/1.1" 200 46852
+INFO 2025-12-05 02:39:30,246 basehttp "GET /media/products/gallery/prod_1524_0.jpg HTTP/1.1" 200 35721
+INFO 2025-12-05 02:39:30,247 basehttp "GET /media/products/gallery/prod_1601_0.jpg HTTP/1.1" 200 72665
+INFO 2025-12-05 02:39:30,276 basehttp "GET /media/products/gallery/prod_1570_0.jpg HTTP/1.1" 200 59213
+INFO 2025-12-05 02:39:30,279 basehttp "GET /media/products/gallery/prod_1480_0.jpg HTTP/1.1" 200 49886
+INFO 2025-12-05 02:39:30,284 basehttp "GET /media/products/gallery/prod_1432_0.jpg HTTP/1.1" 200 851135
+INFO 2025-12-05 02:39:30,304 basehttp "GET /media/products/gallery/prod_1424_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-05 02:39:30,307 basehttp "GET /media/products/gallery/prod_1401_0.webp HTTP/1.1" 200 18328
+INFO 2025-12-05 02:39:30,355 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-12-05 02:39:30,415 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 200 47474
+INFO 2025-12-05 02:39:30,437 basehttp "GET /media/products/gallery/prod_1398_0.jpg HTTP/1.1" 200 45790
+INFO 2025-12-05 02:39:30,461 basehttp "GET /media/products/gallery/prod_1527_0.jpg HTTP/1.1" 200 67112
+INFO 2025-12-05 02:39:30,464 basehttp "GET /media/products/gallery/prod_1484_0.jpg HTTP/1.1" 200 24622
+INFO 2025-12-05 02:39:30,490 basehttp "GET /media/products/gallery/prod_1376_0.jpg HTTP/1.1" 200 18215
+INFO 2025-12-05 02:39:30,494 basehttp "GET /media/products/gallery/prod_1555_0.jpg HTTP/1.1" 200 67784
+INFO 2025-12-05 02:39:30,495 basehttp "GET /media/products/gallery/prod_1437_0.jpg HTTP/1.1" 200 11796
+INFO 2025-12-05 02:39:30,521 basehttp "GET /media/products/gallery/prod_1357_0.jpg HTTP/1.1" 200 34040
+INFO 2025-12-05 02:39:30,524 basehttp "GET /media/products/gallery/prod_1543_0.jpg HTTP/1.1" 200 33152
+INFO 2025-12-05 02:39:30,524 basehttp "GET /media/products/gallery/prod_1619_0.jpg HTTP/1.1" 200 57985
+INFO 2025-12-05 02:39:30,551 basehttp "GET /media/products/gallery/prod_1592_0.jpg HTTP/1.1" 200 443080
+INFO 2025-12-05 02:39:30,554 basehttp "GET /media/products/gallery/prod_1427_0.jpg HTTP/1.1" 200 34313
+INFO 2025-12-05 02:39:30,554 basehttp "GET /media/products/gallery/prod_1568_0.jpg HTTP/1.1" 200 50737
+INFO 2025-12-05 02:39:30,587 basehttp "GET /media/products/gallery/prod_1434_0.jpg HTTP/1.1" 200 54819
+INFO 2025-12-05 02:39:30,587 basehttp "GET /media/products/gallery/prod_1578_0.jpg HTTP/1.1" 200 45996
+INFO 2025-12-05 02:39:30,615 basehttp "GET /media/products/gallery/prod_1413_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-05 02:39:30,618 basehttp "GET /media/products/gallery/prod_1615_0.jpg HTTP/1.1" 200 40221
+INFO 2025-12-05 02:39:30,638 basehttp "GET /media/products/gallery/prod_1403_0.webp HTTP/1.1" 200 19464
+INFO 2025-12-05 02:39:30,678 basehttp "GET /media/products/gallery/prod_1358_0.jpg HTTP/1.1" 200 55612
+INFO 2025-12-05 02:39:34,147 basehttp "GET /admin/ HTTP/1.1" 200 66247
+INFO 2025-12-05 02:39:34,172 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+WARNING 2025-12-05 02:39:34,172 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:39:34,176 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+INFO 2025-12-05 02:39:34,178 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+INFO 2025-12-05 02:39:34,179 basehttp "GET /static/vendor/bootswatch/darkly/bootstrap.min.css HTTP/1.1" 200 164202
+INFO 2025-12-05 02:39:34,179 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+INFO 2025-12-05 02:39:34,179 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+INFO 2025-12-05 02:39:34,181 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-12-05 02:39:34,184 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+INFO 2025-12-05 02:39:34,317 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+INFO 2025-12-05 02:39:34,317 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+WARNING 2025-12-05 02:39:34,431 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:39:39,030 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35016
+INFO 2025-12-05 02:39:39,049 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+INFO 2025-12-05 02:39:39,050 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-12-05 02:39:39,051 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-12-05 02:39:39,051 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-12-05 02:39:39,051 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-12-05 02:39:39,052 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-12-05 02:39:39,053 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+WARNING 2025-12-05 02:39:39,056 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:39:39,057 basehttp "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-12-05 02:39:39,058 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-12-05 02:39:39,060 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+INFO 2025-12-05 02:39:39,061 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+INFO 2025-12-05 02:39:39,074 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:39:42,130 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70258
+WARNING 2025-12-05 02:39:42,157 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:39:42,177 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+WARNING 2025-12-05 02:39:49,773 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:39:49,773 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:39:54,508 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70258
+WARNING 2025-12-05 02:39:54,540 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:39:54,548 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:39:54,549 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 02:39:54,635 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 02:41:29,649 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70258
+WARNING 2025-12-05 02:41:29,677 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:41:29,705 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:41:29,705 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:41:32,500 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229243
+INFO 2025-12-05 02:41:32,518 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-12-05 02:41:32,520 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-12-05 02:41:32,520 basehttp "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+WARNING 2025-12-05 02:41:32,524 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:41:32,525 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-12-05 02:41:32,530 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-12-05 02:41:32,533 basehttp "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+INFO 2025-12-05 02:41:32,535 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-12-05 02:41:32,537 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-12-05 02:41:32,541 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-12-05 02:41:32,541 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:41:32,542 basehttp "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-12-05 02:41:33,743 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 73753
+WARNING 2025-12-05 02:41:33,752 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:48:01,920 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70551
+WARNING 2025-12-05 02:48:01,968 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:48:01,980 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:48:01,981 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:48:11,835 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70551
+WARNING 2025-12-05 02:48:11,855 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:48:11,989 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:48:11,989 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:48:16,069 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70551
+WARNING 2025-12-05 02:48:16,089 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:48:16,115 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:48:16,115 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:48:17,908 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70551
+WARNING 2025-12-05 02:48:17,929 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:48:17,961 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:48:17,962 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:48:18,724 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70551
+WARNING 2025-12-05 02:48:18,747 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:48:18,767 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:48:18,767 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:48:19,262 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70551
+WARNING 2025-12-05 02:48:19,285 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:48:19,308 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:48:19,309 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:48:24,282 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229243
+WARNING 2025-12-05 02:48:24,304 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:48:24,322 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:48:25,435 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74046
+WARNING 2025-12-05 02:48:25,443 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:49:05,046 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74044
+WARNING 2025-12-05 02:49:05,054 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:49:06,208 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 02:49:06,328 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229864
+WARNING 2025-12-05 02:49:06,350 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:49:06,369 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:49:07,956 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74044
+WARNING 2025-12-05 02:49:07,969 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:49:08,666 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:49:08,693 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:49:16,629 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:49:16,648 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:49:16,666 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:49:16,667 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:49:28,513 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74044
+WARNING 2025-12-05 02:49:28,524 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:49:30,628 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 02:49:30,675 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35610
+WARNING 2025-12-05 02:49:30,695 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:49:30,715 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:49:32,672 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229241
+WARNING 2025-12-05 02:49:32,689 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:49:32,713 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:49:33,698 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:49:33,719 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:49:33,736 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:49:33,736 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:49:33,952 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74044
+WARNING 2025-12-05 02:49:33,962 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:49:37,053 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:49:37,074 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:49:37,101 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:49:37,102 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:49:37,826 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:49:37,851 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:49:37,871 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:49:37,872 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:49:38,490 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:49:38,513 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:49:38,535 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:49:38,536 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:49:39,176 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:49:39,204 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:49:39,337 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:49:39,337 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:49:45,660 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:49:45,686 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:49:47,961 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:49:47,961 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:50:00,784 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:50:00,821 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:50:00,829 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:50:00,830 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:50:05,337 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:50:05,381 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:50:05,382 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:50:05,383 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:50:05,529 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:50:05,548 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 02:50:05,829 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:50:05,833 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 02:50:29,846 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:50:29,872 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:51:53,280 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:51:53,321 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:51:53,322 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 02:51:53,324 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:51:56,714 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:51:56,737 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 02:51:56,754 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:51:56,754 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:51:58,330 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70549
+WARNING 2025-12-05 02:51:58,374 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:51:58,376 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:51:58,380 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:51:58,577 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:51:58,705 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 02:51:58,781 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:51:58,787 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+WARNING 2025-12-05 02:52:37,434 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:52:47,375 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74043
+WARNING 2025-12-05 02:52:47,384 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:52:52,299 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 02:52:52,442 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 229863
+WARNING 2025-12-05 02:52:52,469 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 02:52:52,486 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 02:52:53,547 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 74043
+WARNING 2025-12-05 02:52:53,555 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:52:56,218 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70548
+WARNING 2025-12-05 02:52:56,262 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 02:52:56,263 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 02:52:56,263 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:52:56,351 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 02:52:56,481 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 02:52:56,686 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 02:52:56,692 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 02:53:27,860 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 70548
+WARNING 2025-12-05 02:53:27,883 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:00:19,243 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73548
+WARNING 2025-12-05 03:00:19,285 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:00:19,286 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 03:00:19,286 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:00:33,884 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73548
+WARNING 2025-12-05 03:00:33,912 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:10:43,718 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73548
+WARNING 2025-12-05 03:10:43,763 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:10:43,768 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:10:43,778 basehttp - Broken pipe from ('127.0.0.1', 54924)
+WARNING 2025-12-05 03:10:43,778 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:11:11,702 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73548
+WARNING 2025-12-05 03:11:11,750 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:11:11,752 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 03:11:11,753 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:11:14,161 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73548
+WARNING 2025-12-05 03:11:14,205 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:11:14,206 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:11:14,207 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 03:11:14,440 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:11:14,460 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 03:11:14,922 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 03:11:14,928 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 03:22:51,489 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73379
+WARNING 2025-12-05 03:22:51,520 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 03:22:51,588 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 03:22:54,872 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73379
+WARNING 2025-12-05 03:22:54,921 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:22:54,923 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 03:22:54,925 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:22:58,786 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73379
+INFO 2025-12-05 03:22:58,831 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 03:22:58,835 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:22:58,835 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 03:22:58,909 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:22:59,037 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 03:22:59,156 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 03:22:59,161 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 03:23:51,757 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73379
+WARNING 2025-12-05 03:23:51,800 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 03:23:51,818 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:23:51,818 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:24:14,103 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73379
+WARNING 2025-12-05 03:24:14,160 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:24:14,160 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 03:24:14,163 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:24:16,159 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73379
+WARNING 2025-12-05 03:24:16,212 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-05 03:24:16,212 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 03:24:16,212 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 03:24:16,407 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:24:16,427 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 03:24:16,890 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 03:24:16,896 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 03:24:46,313 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73379
+WARNING 2025-12-05 03:24:46,335 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:27:52,341 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73379
+WARNING 2025-12-05 03:27:52,383 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:27:52,383 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 03:27:52,386 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:30:01,479 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-12-05 03:30:01,925 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 03:30:11,048 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-05 03:30:11,429 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 03:31:14,454 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 03:31:18,847 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 238775
+WARNING 2025-12-05 03:31:18,871 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:31:18,994 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-05 03:31:19,114 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:31:20,130 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76578
+WARNING 2025-12-05 03:31:20,141 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:39:00,742 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76578
+WARNING 2025-12-05 03:39:00,747 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:39:07,041 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 03:39:07,246 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 239753
+WARNING 2025-12-05 03:39:07,271 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:39:07,289 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:39:08,408 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76578
+WARNING 2025-12-05 03:39:08,417 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:39:33,775 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76578
+WARNING 2025-12-05 03:39:33,808 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:39:35,626 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73110
+WARNING 2025-12-05 03:39:35,673 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:39:35,674 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 03:39:35,674 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:39:35,694 basehttp "GET /media/landing/foreground/Removal-501.png HTTP/1.1" 200 215998
+INFO 2025-12-05 03:39:57,797 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76579
+WARNING 2025-12-05 03:39:57,806 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:39:59,468 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76580
+WARNING 2025-12-05 03:39:59,476 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:40:01,967 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 03:40:02,124 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 239755
+WARNING 2025-12-05 03:40:02,147 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:40:02,280 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:40:03,867 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73112
+WARNING 2025-12-05 03:40:03,898 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:40:03,954 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76580
+WARNING 2025-12-05 03:40:03,968 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:40:04,018 basehttp "GET /media/landing/foreground/Removal-501.png HTTP/1.1" 304 0
+WARNING 2025-12-05 03:40:04,022 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:40:04,023 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:40:17,978 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73112
+WARNING 2025-12-05 03:40:18,000 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:40:18,123 basehttp "GET /media/landing/foreground/Removal-501.png HTTP/1.1" 304 0
+INFO 2025-12-05 03:40:37,173 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 239132
+WARNING 2025-12-05 03:40:37,192 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:40:37,210 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:40:38,304 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76580
+WARNING 2025-12-05 03:40:38,314 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:41:10,261 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76579
+WARNING 2025-12-05 03:41:10,272 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:41:13,667 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76581
+WARNING 2025-12-05 03:41:13,676 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:41:25,557 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76581
+WARNING 2025-12-05 03:41:25,567 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:41:28,179 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 03:41:28,361 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 239757
+WARNING 2025-12-05 03:41:28,386 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:41:28,407 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:41:29,553 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73114
+WARNING 2025-12-05 03:41:29,597 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:41:29,600 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 03:41:29,601 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:41:29,601 basehttp - Broken pipe from ('127.0.0.1', 49640)
+INFO 2025-12-05 03:41:29,715 basehttp "GET /media/landing/foreground/Removal-501.png HTTP/1.1" 304 0
+INFO 2025-12-05 03:41:30,057 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76581
+WARNING 2025-12-05 03:41:30,081 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:41:45,919 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73114
+WARNING 2025-12-05 03:41:45,946 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:41:45,968 basehttp "GET /media/landing/foreground/Removal-501.png HTTP/1.1" 304 0
+INFO 2025-12-05 03:41:58,954 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73114
+WARNING 2025-12-05 03:41:58,971 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:42:12,195 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73114
+WARNING 2025-12-05 03:42:12,214 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:42:12,239 basehttp "GET /media/landing/foreground/Removal-501.png HTTP/1.1" 304 0
+INFO 2025-12-05 03:42:36,709 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76581
+WARNING 2025-12-05 03:42:36,718 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:42:39,113 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 03:42:39,385 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 239831
+WARNING 2025-12-05 03:42:39,404 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:42:39,541 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:42:40,639 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76618
+WARNING 2025-12-05 03:42:40,648 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:42:40,672 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 03:42:43,742 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73151
+WARNING 2025-12-05 03:42:43,774 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 03:42:43,788 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:42:43,789 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:42:43,789 basehttp "GET /media/landing/foreground/Removal-501.png HTTP/1.1" 304 0
+INFO 2025-12-05 03:42:43,841 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+WARNING 2025-12-05 03:43:57,015 log Not Found: /landing/offers/ai-test-2/
+WARNING 2025-12-05 03:43:57,016 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 404 12819
+WARNING 2025-12-05 03:43:57,287 log Not Found: /favicon.ico
+WARNING 2025-12-05 03:43:57,288 basehttp "GET /favicon.ico HTTP/1.1" 404 12635
+INFO 2025-12-05 03:44:11,069 basehttp "GET / HTTP/1.1" 200 95370
+INFO 2025-12-05 03:44:11,175 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-05 03:44:11,176 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-05 03:44:11,270 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-05 03:44:11,328 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+WARNING 2025-12-05 03:44:11,363 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-05 03:44:11,453 basehttp "GET /media/products/gallery/prod_1352_0.jpg HTTP/1.1" 200 13597
+INFO 2025-12-05 03:44:11,455 basehttp "GET /media/products/gallery/prod_1356_0.jpg HTTP/1.1" 200 41204
+INFO 2025-12-05 03:44:11,456 basehttp "GET /media/products/gallery/prod_1501_0.jpg HTTP/1.1" 200 59897
+INFO 2025-12-05 03:44:11,477 basehttp "GET /media/products/gallery/prod_1429_0.jpg HTTP/1.1" 200 72784
+INFO 2025-12-05 03:44:11,545 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+INFO 2025-12-05 03:44:11,547 basehttp "GET /media/products/gallery/prod_1481_0.jpg HTTP/1.1" 200 265393
+INFO 2025-12-05 03:44:11,560 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 200 56424
+INFO 2025-12-05 03:44:11,574 basehttp "GET /media/products/gallery/prod_1491_0.jpg HTTP/1.1" 200 32928
+INFO 2025-12-05 03:44:11,633 basehttp "GET /media/products/gallery/prod_1477_0.jpg HTTP/1.1" 200 25679
+INFO 2025-12-05 03:44:11,669 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 200 39513
+INFO 2025-12-05 03:44:11,691 basehttp "GET /media/products/gallery/prod_1530_0.jpg HTTP/1.1" 200 27979
+INFO 2025-12-05 03:44:11,691 basehttp "GET /media/products/gallery/prod_1563_0.jpg HTTP/1.1" 200 56567
+INFO 2025-12-05 03:44:11,729 basehttp "GET /media/products/gallery/prod_1627_0.jpg HTTP/1.1" 200 66592
+INFO 2025-12-05 03:44:11,732 basehttp "GET /media/products/gallery/prod_1529_0.jpg HTTP/1.1" 200 26872
+INFO 2025-12-05 03:44:11,763 basehttp "GET /media/products/gallery/prod_1601_0.jpg HTTP/1.1" 200 72665
+INFO 2025-12-05 03:44:11,765 basehttp "GET /media/products/gallery/prod_1528_0.jpg HTTP/1.1" 200 75808
+INFO 2025-12-05 03:44:11,765 basehttp "GET /media/products/gallery/prod_1464_0.jpg HTTP/1.1" 200 43377
+INFO 2025-12-05 03:44:11,779 basehttp "GET /media/products/gallery/prod_1631_0.jpg HTTP/1.1" 200 40208
+INFO 2025-12-05 03:44:11,796 basehttp "GET /media/products/gallery/prod_1443_0.jpg HTTP/1.1" 200 56795
+INFO 2025-12-05 03:44:11,850 basehttp "GET /media/products/gallery/prod_1560_0.jpg HTTP/1.1" 200 57819
+INFO 2025-12-05 03:44:11,857 basehttp "GET /media/products/gallery/prod_1357_0.jpg HTTP/1.1" 200 34040
+INFO 2025-12-05 03:44:11,874 basehttp "GET /media/products/gallery/prod_1590_0.jpg HTTP/1.1" 200 41993
+INFO 2025-12-05 03:44:11,897 basehttp "GET /media/products/gallery/prod_1544_0.png HTTP/1.1" 200 201159
+INFO 2025-12-05 03:44:11,917 basehttp "GET /media/products/gallery/prod_1630_0.jpg HTTP/1.1" 200 37692
+INFO 2025-12-05 03:44:11,937 basehttp "GET /media/products/gallery/prod_1593_0.jpg HTTP/1.1" 200 19986
+INFO 2025-12-05 03:44:11,953 basehttp "GET /media/products/gallery/prod_1603_0.jpg HTTP/1.1" 200 129691
+INFO 2025-12-05 03:44:11,953 basehttp "GET /media/products/gallery/prod_1441_0.jpg HTTP/1.1" 200 31834
+INFO 2025-12-05 03:44:12,012 basehttp "GET /media/products/gallery/prod_1595_0.jpg HTTP/1.1" 200 105228
+INFO 2025-12-05 03:44:12,019 basehttp "GET /media/products/gallery/prod_1347_0.jpg HTTP/1.1" 200 60892
+INFO 2025-12-05 03:44:12,053 basehttp "GET /media/products/gallery/prod_1487_0.jpg HTTP/1.1" 200 61852
+INFO 2025-12-05 03:44:24,591 basehttp "GET / HTTP/1.1" 200 93811
+WARNING 2025-12-05 03:44:24,782 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-05 03:44:24,840 basehttp "GET /media/products/gallery/prod_1568_0.jpg HTTP/1.1" 200 50737
+INFO 2025-12-05 03:44:24,846 basehttp "GET /media/products/gallery/prod_1345_0.jpg HTTP/1.1" 200 32465
+INFO 2025-12-05 03:44:24,855 basehttp "GET /media/products/gallery/prod_1478_0.jpg HTTP/1.1" 200 30677
+INFO 2025-12-05 03:44:24,855 basehttp "GET /media/products/gallery/prod_1450_0.jpg HTTP/1.1" 200 52923
+INFO 2025-12-05 03:44:24,867 basehttp "GET /media/products/gallery/prod_1539_0.jpg HTTP/1.1" 200 27488
+INFO 2025-12-05 03:44:24,914 basehttp "GET /media/products/gallery/prod_1358_0.jpg HTTP/1.1" 200 55612
+INFO 2025-12-05 03:44:24,931 basehttp "GET /media/products/gallery/prod_1547_0.jpg HTTP/1.1" 200 57752
+INFO 2025-12-05 03:44:24,934 basehttp "GET /media/products/gallery/prod_1567_0.jpg HTTP/1.1" 200 54654
+INFO 2025-12-05 03:44:24,973 basehttp "GET /media/products/gallery/prod_1414_0.jpg HTTP/1.1" 200 138366
+INFO 2025-12-05 03:44:24,986 basehttp "GET /media/products/gallery/prod_1533_0.jpg HTTP/1.1" 200 17702
+INFO 2025-12-05 03:44:24,998 basehttp "GET /media/products/gallery/prod_1618_0.jpg HTTP/1.1" 200 36758
+INFO 2025-12-05 03:44:25,023 basehttp "GET /media/products/gallery/prod_1612_0.jpg HTTP/1.1" 200 37261
+INFO 2025-12-05 03:44:25,026 basehttp "GET /media/products/gallery/prod_1489_0.jpg HTTP/1.1" 200 96713
+INFO 2025-12-05 03:44:25,036 basehttp "GET /media/products/gallery/prod_1447_0.jpg HTTP/1.1" 200 40121
+INFO 2025-12-05 03:44:25,037 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 03:44:25,070 basehttp "GET /media/products/gallery/prod_1400_0.jpg HTTP/1.1" 200 119967
+INFO 2025-12-05 03:44:25,101 basehttp "GET /media/products/gallery/prod_1589_0.jpg HTTP/1.1" 200 45683
+INFO 2025-12-05 03:44:25,115 basehttp "GET /media/products/gallery/prod_1531_0.jpg HTTP/1.1" 200 46852
+INFO 2025-12-05 03:44:25,117 basehttp "GET /media/products/gallery/prod_1367_0.jpg HTTP/1.1" 200 59307
+INFO 2025-12-05 03:44:25,119 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 200 62244
+INFO 2025-12-05 03:44:25,167 basehttp "GET /media/products/gallery/prod_1368_0.jpg HTTP/1.1" 200 62638
+INFO 2025-12-05 03:44:25,171 basehttp "GET /media/products/gallery/prod_1482_0.jpg HTTP/1.1" 200 221983
+INFO 2025-12-05 03:44:25,184 basehttp "GET /media/products/gallery/prod_1516_0.jpg HTTP/1.1" 200 68076
+INFO 2025-12-05 03:44:25,223 basehttp "GET /media/products/gallery/prod_1394_0.jpeg HTTP/1.1" 200 232515
+INFO 2025-12-05 03:44:25,269 basehttp "GET /media/products/gallery/prod_1609_0.jpg HTTP/1.1" 200 82004
+INFO 2025-12-05 03:44:25,349 basehttp "GET /media/products/gallery/prod_1515_0.jpg HTTP/1.1" 200 64083
+INFO 2025-12-05 03:44:29,893 basehttp "GET /landing/offers/ HTTP/1.1" 200 37757
+WARNING 2025-12-05 03:44:29,947 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-05 03:44:32,000 basehttp "GET /catalog/ HTTP/1.1" 200 427675
+INFO 2025-12-05 03:44:32,273 basehttp "GET /media/products/gallery/prod_1626_0.jpg HTTP/1.1" 200 28364
+INFO 2025-12-05 03:44:32,278 basehttp "GET /media/products/gallery/prod_1625_0.jpg HTTP/1.1" 200 89097
+INFO 2025-12-05 03:44:32,279 basehttp "GET /media/products/gallery/prod_1624_0.webp HTTP/1.1" 200 32692
+INFO 2025-12-05 03:44:32,332 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-05 03:44:32,379 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-12-05 03:44:32,387 basehttp "GET /media/products/gallery/prod_1596_0.jpg HTTP/1.1" 200 49983
+INFO 2025-12-05 03:44:32,387 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 200 60115
+INFO 2025-12-05 03:44:32,389 basehttp "GET /media/products/gallery/prod_1597_0.jpg HTTP/1.1" 200 227441
+INFO 2025-12-05 03:44:32,616 basehttp "GET /media/products/gallery/prod_1582_0.jpg HTTP/1.1" 200 64454
+INFO 2025-12-05 03:44:32,636 basehttp "GET /media/products/gallery/prod_1581_0.jpg HTTP/1.1" 200 80607
+INFO 2025-12-05 03:44:32,637 basehttp "GET /media/products/gallery/prod_1572_0.jpg HTTP/1.1" 200 55541
+INFO 2025-12-05 03:44:32,645 basehttp "GET /media/products/gallery/prod_1552_0.jpg HTTP/1.1" 200 33320
+INFO 2025-12-05 03:44:32,712 basehttp "GET /media/products/gallery/prod_1550_0.jpg HTTP/1.1" 200 23942
+INFO 2025-12-05 03:44:32,722 basehttp "GET /media/products/gallery/prod_1545_0.jpg HTTP/1.1" 200 43117
+INFO 2025-12-05 03:44:32,764 basehttp "GET /media/products/gallery/prod_1541_0.webp HTTP/1.1" 200 24272
+INFO 2025-12-05 03:44:32,785 basehttp "GET /media/products/gallery/prod_1538_0.jpg HTTP/1.1" 200 38078
+INFO 2025-12-05 03:44:32,787 basehttp "GET /media/products/gallery/prod_1536_0.jpg HTTP/1.1" 200 52748
+INFO 2025-12-05 03:44:32,792 basehttp "GET /media/products/gallery/prod_1556_0.jpeg HTTP/1.1" 200 164288
+INFO 2025-12-05 03:44:32,802 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-12-05 03:44:32,895 basehttp "GET /media/products/gallery/prod_1542_0.jpg HTTP/1.1" 200 73916
+INFO 2025-12-05 03:44:32,920 basehttp "GET /media/products/gallery/prod_1526_0.jpg HTTP/1.1" 200 25898
+INFO 2025-12-05 03:44:32,922 basehttp "GET /media/products/gallery/prod_1524_0.jpg HTTP/1.1" 200 35721
+INFO 2025-12-05 03:44:32,971 basehttp "GET /media/products/gallery/prod_1523_0.jpeg HTTP/1.1" 200 101088
+INFO 2025-12-05 03:44:33,008 basehttp "GET /media/products/gallery/prod_1522_0.jpg HTTP/1.1" 200 123779
+INFO 2025-12-05 03:44:33,069 basehttp "GET /media/products/gallery/prod_1514_0.jpg HTTP/1.1" 200 63144
+INFO 2025-12-05 03:44:33,070 basehttp "GET /media/products/gallery/prod_1509_0.jpg HTTP/1.1" 200 38458
+INFO 2025-12-05 03:44:33,074 basehttp "GET /media/products/gallery/prod_1505_0.jpg HTTP/1.1" 200 51368
+INFO 2025-12-05 03:44:33,075 basehttp "GET /media/products/gallery/prod_1502_0.jpg HTTP/1.1" 200 42722
+INFO 2025-12-05 03:44:33,129 basehttp "GET /media/products/gallery/prod_1497_0.jpg HTTP/1.1" 200 41370
+INFO 2025-12-05 03:44:33,130 basehttp "GET /media/products/gallery/prod_1499_0.jpg HTTP/1.1" 200 36573
+INFO 2025-12-05 03:44:33,130 basehttp "GET /media/products/gallery/prod_1493_0.jpg HTTP/1.1" 200 67353
+INFO 2025-12-05 03:44:33,208 basehttp "GET /media/products/gallery/prod_1488_0.jpg HTTP/1.1" 200 59794
+INFO 2025-12-05 03:44:33,214 basehttp "GET /media/products/gallery/prod_1485_0.jpg HTTP/1.1" 200 139953
+INFO 2025-12-05 03:44:33,218 basehttp "GET /media/products/gallery/prod_1504_0.jpg HTTP/1.1" 200 373508
+INFO 2025-12-05 03:44:33,250 basehttp "GET /media/products/gallery/prod_1492_0.jpg HTTP/1.1" 200 39709
+INFO 2025-12-05 03:44:33,313 basehttp "GET /media/products/gallery/prod_1486_0.jpg HTTP/1.1" 200 270811
+INFO 2025-12-05 03:44:33,340 basehttp "GET /media/products/gallery/prod_1479_0.jpg HTTP/1.1" 200 28042
+INFO 2025-12-05 03:44:33,391 basehttp "GET /media/products/gallery/prod_1472_0.jpg HTTP/1.1" 200 37506
+INFO 2025-12-05 03:44:33,393 basehttp "GET /landing/offers/ HTTP/1.1" 200 37757
+INFO 2025-12-05 03:44:33,394 basehttp "GET /media/products/gallery/prod_1469_0.jpg HTTP/1.1" 200 42994
+INFO 2025-12-05 03:44:33,397 basehttp "GET /media/products/gallery/prod_1484_0.jpg HTTP/1.1" 200 24622
+INFO 2025-12-05 03:44:33,459 basehttp "GET /media/products/gallery/prod_1468_0.jpg HTTP/1.1" 200 113216
+INFO 2025-12-05 03:44:33,485 basehttp "GET /media/products/gallery/prod_1467_0.jpg HTTP/1.1" 200 66218
+INFO 2025-12-05 03:44:33,503 basehttp - Broken pipe from ('192.168.1.4', 59474)
+INFO 2025-12-05 03:44:33,506 basehttp - Broken pipe from ('192.168.1.4', 59478)
+INFO 2025-12-05 03:44:33,549 basehttp "GET /media/products/gallery/prod_1460_0.jpg HTTP/1.1" 200 136842
+INFO 2025-12-05 03:44:33,554 basehttp "GET /media/products/gallery/prod_1455_0.jpg HTTP/1.1" 200 59195
+WARNING 2025-12-05 03:44:33,593 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-05 03:44:33,593 basehttp "GET /media/products/gallery/prod_1463_0.jpg HTTP/1.1" 200 82109
+INFO 2025-12-05 03:44:39,496 basehttp "GET / HTTP/1.1" 200 95152
+INFO 2025-12-05 03:44:39,581 basehttp "GET /media/products/gallery/prod_1573_0.jpg HTTP/1.1" 200 42106
+INFO 2025-12-05 03:44:39,584 basehttp "GET /media/products/gallery/prod_1371_0.jpg HTTP/1.1" 200 39297
+INFO 2025-12-05 03:44:39,617 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 200 52115
+INFO 2025-12-05 03:44:39,647 basehttp "GET /media/products/gallery/prod_1409_0.jpg HTTP/1.1" 200 46546
+INFO 2025-12-05 03:44:39,649 basehttp "GET /media/products/gallery/prod_1406_0.jpg HTTP/1.1" 200 33922
+INFO 2025-12-05 03:44:39,699 basehttp "GET /media/products/gallery/prod_1598_0.jpg HTTP/1.1" 200 29886
+INFO 2025-12-05 03:44:39,746 basehttp "GET /media/products/gallery/prod_1506_0.jpg HTTP/1.1" 200 41414
+INFO 2025-12-05 03:44:39,784 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 200 181972
+INFO 2025-12-05 03:44:39,811 basehttp "GET /media/products/gallery/prod_1343_0.jpg HTTP/1.1" 200 17724
+WARNING 2025-12-05 03:44:39,873 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-05 03:44:39,881 basehttp "GET /media/products/gallery/prod_1537_0.jpg HTTP/1.1" 200 39078
+INFO 2025-12-05 03:44:39,881 basehttp "GET /media/products/gallery/prod_1455_0.jpg HTTP/1.1" 200 59195
+INFO 2025-12-05 03:44:39,894 basehttp "GET /media/products/gallery/prod_1399_0.jpg HTTP/1.1" 200 52532
+INFO 2025-12-05 03:44:39,954 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+INFO 2025-12-05 03:44:39,988 basehttp "GET /media/products/gallery/prod_1606_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-05 03:44:39,989 basehttp "GET /media/products/gallery/prod_1363_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-05 03:44:40,003 basehttp "GET /media/products/gallery/prod_1471_0.jpg HTTP/1.1" 200 41298
+INFO 2025-12-05 03:44:40,005 basehttp "GET /media/products/gallery/prod_1444_0.jpg HTTP/1.1" 200 38513
+INFO 2025-12-05 03:44:40,163 basehttp "GET /media/products/gallery/prod_1362_0.jpg HTTP/1.1" 200 51085
+INFO 2025-12-05 03:44:40,173 basehttp "GET /media/products/gallery/prod_1519_0.jpg HTTP/1.1" 200 957584
+INFO 2025-12-05 03:44:40,200 basehttp "GET /media/products/gallery/prod_1435_0.jpg HTTP/1.1" 200 51873
+INFO 2025-12-05 03:44:40,235 basehttp "GET /media/products/gallery/prod_1610_0.jpg HTTP/1.1" 200 79435
+WARNING 2025-12-05 03:44:46,992 log Not Found: /landing/offers/ai-test-2/
+WARNING 2025-12-05 03:44:46,993 basehttp "GET /landing/offers/ai-test-2/ HTTP/1.1" 404 12819
+INFO 2025-12-05 03:44:54,189 basehttp "GET /landing/offers/ HTTP/1.1" 200 37757
+WARNING 2025-12-05 03:44:54,240 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-05 03:45:18,029 basehttp "GET /landing/offers/test-camp HTTP/1.1" 301 0
+WARNING 2025-12-05 03:45:18,130 log Not Found: /landing/offers/test-camp/
+WARNING 2025-12-05 03:45:18,130 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 404 12819
+WARNING 2025-12-05 03:45:33,410 log Not Found: /favicon.ico
+WARNING 2025-12-05 03:45:33,411 basehttp "GET /favicon.ico HTTP/1.1" 404 12635
+INFO 2025-12-05 03:48:32,239 basehttp - Broken pipe from ('192.168.1.4', 59568)
+INFO 2025-12-05 03:48:32,239 basehttp - Broken pipe from ('192.168.1.4', 59504)
+INFO 2025-12-05 03:52:23,123 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73151
+WARNING 2025-12-05 03:52:23,171 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 03:52:23,176 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:52:23,176 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:52:23,195 basehttp "GET /media/landing/foreground/Removal-501.png HTTP/1.1" 304 0
+INFO 2025-12-05 03:52:23,227 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 03:52:46,732 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76621
+WARNING 2025-12-05 03:52:46,742 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:52:48,414 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 03:52:48,564 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 239834
+WARNING 2025-12-05 03:52:48,588 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:52:48,606 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:52:49,715 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76621
+WARNING 2025-12-05 03:52:49,723 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:52:53,956 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73154
+WARNING 2025-12-05 03:52:53,977 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 03:52:54,004 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:52:54,004 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:52:59,491 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73154
+WARNING 2025-12-05 03:52:59,514 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:53:54,637 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73154
+WARNING 2025-12-05 03:53:54,674 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 03:53:54,700 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:53:54,701 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 03:53:54,702 basehttp "GET /media/landing/foreground/Removal-501.png HTTP/1.1" 304 0
+INFO 2025-12-05 03:53:54,742 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 03:54:05,459 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76621
+WARNING 2025-12-05 03:54:05,473 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:54:09,709 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 03:54:09,971 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 239850
+WARNING 2025-12-05 03:54:09,998 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:54:10,016 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:54:12,061 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76621
+WARNING 2025-12-05 03:54:12,085 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:54:12,295 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73162
+WARNING 2025-12-05 03:54:12,341 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:54:12,342 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 03:54:12,345 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:54:12,364 basehttp "GET /media/landing/foreground/Removal-501_cropped.png HTTP/1.1" 200 178089
+INFO 2025-12-05 03:54:28,426 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73162
+WARNING 2025-12-05 03:54:28,451 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:54:28,576 basehttp "GET /media/landing/foreground/Removal-501_cropped.png HTTP/1.1" 304 0
+INFO 2025-12-05 03:55:23,787 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76629
+WARNING 2025-12-05 03:55:23,797 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:55:30,357 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 03:55:30,638 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 240197
+WARNING 2025-12-05 03:55:30,666 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:55:30,782 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:55:31,955 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76629
+WARNING 2025-12-05 03:55:31,975 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:55:32,015 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 03:55:32,747 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73234
+WARNING 2025-12-05 03:55:32,788 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:55:32,788 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 03:55:32,792 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:55:32,958 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 03:55:44,381 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73234
+WARNING 2025-12-05 03:55:44,404 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:55:44,543 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 03:56:52,002 autoreload E:\WebProjects\jebaenterprise\jeba_landing\models.py changed, reloading.
+INFO 2025-12-05 03:56:52,672 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 03:57:02,006 autoreload E:\WebProjects\jebaenterprise\jeba_landing\admin.py changed, reloading.
+INFO 2025-12-05 03:57:02,398 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-05 03:57:26,606 log Internal Server Error: /landing/offers/test-camp/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column jeba_landing_landingsection.text_content_padding does not exist
+LINE 1: ..., "jeba_landing_landingsection"."padding_bottom", "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 27, in landing_page_detail
+    return render(request, 'jeba_landing/landing_page.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column jeba_landing_landingsection.text_content_padding does not exist
+LINE 1: ..., "jeba_landing_landingsection"."padding_bottom", "jeba_land...
+                                                             ^
+
+ERROR 2025-12-05 03:57:26,612 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 500 249045
+WARNING 2025-12-05 03:57:26,657 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 03:57:26,658 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 03:57:26,790 log Not Found: /favicon.ico
+WARNING 2025-12-05 03:57:26,790 basehttp "GET /favicon.ico HTTP/1.1" 404 12633
+ERROR 2025-12-05 03:57:35,261 log Internal Server Error: /admin/jeba_landing/landingpage/1/change/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column jeba_landing_landingsection.text_content_padding does not exist
+LINE 1: ..., "jeba_landing_landingsection"."padding_bottom", "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1942, in _changeform_view
+    media += inline_formset.media
+             ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\helpers.py", line 465, in media
+    media = self.opts.media + self.formset.media
+                              ^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\formsets.py", line 521, in media
+    if self.forms:
+       ^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\formsets.py", line 207, in forms
+    for i in range(self.total_form_count())
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\formsets.py", line 182, in total_form_count
+    initial_forms = self.initial_form_count()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 1123, in initial_form_count
+    return super().initial_form_count()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 697, in initial_form_count
+    return len(self.get_queryset())
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 368, in __len__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column jeba_landing_landingsection.text_content_padding does not exist
+LINE 1: ..., "jeba_landing_landingsection"."padding_bottom", "jeba_land...
+                                                             ^
+
+ERROR 2025-12-05 03:57:35,265 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 500 233085
+INFO 2025-12-05 03:57:53,085 basehttp "GET /admin/jeba_landing HTTP/1.1" 301 0
+INFO 2025-12-05 03:57:53,243 basehttp "GET /admin/jeba_landing/ HTTP/1.1" 200 38130
+WARNING 2025-12-05 03:57:53,265 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:57:55,159 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35016
+WARNING 2025-12-05 03:57:55,177 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:57:55,197 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:57:57,503 basehttp "GET /admin/jeba_landing/landingpage/add/ HTTP/1.1" 200 109126
+WARNING 2025-12-05 03:57:57,520 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:57:57,541 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:57:58,716 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 61351
+WARNING 2025-12-05 03:57:58,725 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:58:33,782 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 03:58:39,869 basehttp "GET /admin/jeba_landing/ HTTP/1.1" 200 38130
+WARNING 2025-12-05 03:58:39,891 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:58:41,322 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35016
+WARNING 2025-12-05 03:58:41,341 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:58:41,361 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-05 03:58:46,955 log Internal Server Error: /admin/jeba_landing/landingpage/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column jeba_landing_landingsection.text_content_padding does not exist
+LINE 1: ..., "jeba_landing_landingsection"."padding_bottom", "jeba_land...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 2057, in changelist_view
+    response = self.response_action(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1686, in response_action
+    response = func(self, request, queryset)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\actions.py", line 39, in delete_selected
+    ) = modeladmin.get_deleted_objects(queryset, request)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 2199, in get_deleted_objects
+    return get_deleted_objects(objs, request, self.admin_site)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\utils.py", line 138, in get_deleted_objects
+    collector.collect(objs)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\utils.py", line 205, in collect
+    return super().collect(objs, source_attr=source_attr, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\deletion.py", line 343, in collect
+    if getattr(on_delete, "lazy_sub_objs", False) or sub_objs:
+                                                     ^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 400, in __bool__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 93, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column jeba_landing_landingsection.text_content_padding does not exist
+LINE 1: ..., "jeba_landing_landingsection"."padding_bottom", "jeba_land...
+                                                             ^
+
+ERROR 2025-12-05 03:58:46,956 basehttp "POST /admin/jeba_landing/landingpage/ HTTP/1.1" 500 235632
+INFO 2025-12-05 03:59:16,982 autoreload Watching for file changes with StatReloader
+INFO 2025-12-05 03:59:19,807 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35016
+INFO 2025-12-05 03:59:21,056 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 245736
+WARNING 2025-12-05 03:59:21,076 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 03:59:21,205 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 03:59:22,265 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76705
+WARNING 2025-12-05 03:59:22,273 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:59:22,308 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 03:59:45,525 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73310
+WARNING 2025-12-05 03:59:45,549 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 03:59:45,646 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 03:59:59,995 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76705
+WARNING 2025-12-05 04:00:00,004 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:00:00,978 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 04:00:01,122 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 246360
+WARNING 2025-12-05 04:00:01,143 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:00:01,167 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:00:02,116 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73324
+WARNING 2025-12-05 04:00:02,135 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:00:02,936 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76705
+WARNING 2025-12-05 04:00:02,953 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:00:18,957 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73324
+WARNING 2025-12-05 04:00:18,978 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:00:19,002 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:00:34,772 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 04:00:34,953 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 246359
+WARNING 2025-12-05 04:00:34,973 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:00:34,995 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:00:36,721 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73323
+WARNING 2025-12-05 04:00:36,739 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:00:36,946 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76703
+WARNING 2025-12-05 04:00:36,963 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:01:05,916 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-05 04:01:05,918 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73323
+WARNING 2025-12-05 04:01:05,919 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:01:12,014 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73323
+WARNING 2025-12-05 04:01:12,048 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:01:12,057 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:01:12,058 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:01:12,098 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 04:01:12,111 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:02:16,192 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:02:18,213 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73323
+WARNING 2025-12-05 04:02:18,239 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:02:50,247 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76703
+WARNING 2025-12-05 04:02:50,255 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:03:41,188 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76703
+WARNING 2025-12-05 04:03:41,200 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:03:47,982 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 04:03:48,191 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 246359
+WARNING 2025-12-05 04:03:48,218 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:03:48,236 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:03:49,349 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76703
+WARNING 2025-12-05 04:03:49,356 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:03:49,388 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 04:03:56,786 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 245736
+WARNING 2025-12-05 04:03:56,806 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:03:56,826 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:03:57,894 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76703
+WARNING 2025-12-05 04:03:57,905 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:04:08,006 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76703
+WARNING 2025-12-05 04:04:08,016 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:04:13,599 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76703
+WARNING 2025-12-05 04:04:13,608 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:04:16,895 basehttp "POST /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 04:04:16,997 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 246359
+WARNING 2025-12-05 04:04:17,018 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:04:17,038 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:04:18,102 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76703
+WARNING 2025-12-05 04:04:18,115 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:06:06,206 basehttp "GET /admin/jeba_landing/landingpage/1/change/ HTTP/1.1" 200 245736
+WARNING 2025-12-05 04:06:06,236 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:06:06,261 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:06:07,331 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:06:07,958 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 76746
+WARNING 2025-12-05 04:06:07,986 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:06:08,035 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 04:06:08,420 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73366
+WARNING 2025-12-05 04:06:08,446 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:06:50,770 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73409
+WARNING 2025-12-05 04:06:50,795 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:07:07,825 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73323
+WARNING 2025-12-05 04:07:07,845 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:07:55,360 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73366
+WARNING 2025-12-05 04:07:55,379 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:07:55,423 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:08:00,271 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73366
+INFO 2025-12-05 04:08:00,312 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:08:00,524 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:08:00,543 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:08:00,657 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:08:00,697 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:08:00,749 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:08:00,755 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:12:30,671 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74560
+WARNING 2025-12-05 04:12:30,699 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:12:30,735 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:12:30,736 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+WARNING 2025-12-05 04:12:45,544 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:12:45,544 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:12:49,379 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74560
+WARNING 2025-12-05 04:12:49,412 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:12:49,431 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:12:49,432 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:12:51,349 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74560
+WARNING 2025-12-05 04:12:51,394 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:12:51,395 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:12:51,396 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:12:51,612 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:12:51,636 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:12:51,847 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:12:51,879 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:12:51,970 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:12:51,975 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:13:26,072 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74560
+WARNING 2025-12-05 04:13:26,094 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:13:26,116 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:13:26,116 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:17:32,022 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74846
+WARNING 2025-12-05 04:17:32,063 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:17:32,074 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:17:32,075 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:17:32,106 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 04:17:32,115 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:17:35,955 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74846
+INFO 2025-12-05 04:17:35,999 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:17:36,101 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:17:36,101 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 04:17:36,229 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:17:36,248 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:17:36,434 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:17:36,464 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:17:36,663 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:17:36,668 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:17:55,285 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74560
+WARNING 2025-12-05 04:17:55,333 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:17:55,334 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:17:55,335 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:17:55,542 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:17:55,568 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:17:55,584 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:17:55,754 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:17:55,785 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:17:55,790 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:17:59,526 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74560
+WARNING 2025-12-05 04:17:59,573 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:17:59,573 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:17:59,574 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:17:59,776 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:17:59,796 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:17:59,868 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:17:59,929 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:17:59,968 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:17:59,973 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:18:17,520 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73323
+WARNING 2025-12-05 04:18:17,563 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:18:17,564 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:18:17,566 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:18:17,754 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:18:17,777 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:18:17,801 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:18:17,874 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:18:17,907 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:18:17,913 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:19:38,571 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73625
+WARNING 2025-12-05 04:19:38,618 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:19:38,618 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:19:38,619 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:19:38,766 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:19:38,786 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:19:38,892 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:19:38,923 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:19:39,014 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:19:39,019 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:22:06,625 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73730
+WARNING 2025-12-05 04:22:06,677 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:22:06,678 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:22:06,680 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:22:06,928 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:22:06,955 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:22:07,114 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:22:07,142 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:22:07,251 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:22:07,260 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:22:14,737 basehttp "POST /add-to-cart/1634/ HTTP/1.1" 302 0
+INFO 2025-12-05 04:22:14,891 basehttp "GET /checkout/ HTTP/1.1" 200 46377
+WARNING 2025-12-05 04:22:14,925 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:22:14,935 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:22:14,935 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:22:14,941 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2188
+WARNING 2025-12-05 04:22:38,906 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:22:38,906 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 04:22:38,936 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:22:38,936 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:22:41,916 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73730
+INFO 2025-12-05 04:22:41,962 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:22:41,964 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:22:41,964 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 04:22:42,171 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:22:42,190 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:22:42,388 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:22:42,432 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:22:42,633 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:22:42,638 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:24:21,230 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73323
+INFO 2025-12-05 04:24:21,278 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:24:21,379 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:24:21,379 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 04:24:21,509 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:24:21,657 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:24:21,658 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:24:21,661 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-05 04:24:21,661 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:24:21,687 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:24:21,774 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:24:21,780 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:29:11,888 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 75078
+WARNING 2025-12-05 04:29:11,933 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:29:11,939 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:29:11,939 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:29:11,986 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 04:29:11,987 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:29:13,919 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 75078
+WARNING 2025-12-05 04:29:13,964 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:29:13,964 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:29:13,969 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:29:14,049 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:29:14,070 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:29:14,181 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:29:14,211 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:29:14,408 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:29:14,414 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:29:51,094 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 75078
+WARNING 2025-12-05 04:29:51,141 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:29:51,142 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:29:51,143 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:29:51,390 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:29:51,526 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:29:51,643 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-05 04:29:51,644 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:29:51,646 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:29:51,741 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:29:51,764 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:29:51,769 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:30:29,465 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74641
+WARNING 2025-12-05 04:30:29,509 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:30:29,510 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:30:29,511 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:30:29,734 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:30:29,753 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:30:29,993 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:30:30,034 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:30:30,126 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:30:30,131 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:30:38,899 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 74641
+WARNING 2025-12-05 04:30:38,945 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:30:38,945 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:30:39,046 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:30:39,152 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:30:39,172 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:30:39,405 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:30:39,434 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:30:39,505 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:30:39,510 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:31:02,078 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73323
+WARNING 2025-12-05 04:31:02,099 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:31:02,122 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:31:02,123 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:31:29,939 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73728
+WARNING 2025-12-05 04:31:30,099 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-05 04:31:30,099 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:31:30,099 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+WARNING 2025-12-05 04:31:30,192 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:31:30,217 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:31:30,324 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:31:30,358 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:31:30,450 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:31:30,454 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:32:01,182 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73727
+WARNING 2025-12-05 04:32:01,228 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:32:01,228 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:32:01,231 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:32:01,364 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:32:01,384 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-05 04:32:01,493 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 200 67432
+INFO 2025-12-05 04:32:01,522 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 200 6565042
+INFO 2025-12-05 04:32:01,730 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-05 04:32:01,736 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-05 04:33:19,174 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35016
+WARNING 2025-12-05 04:33:19,195 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:33:19,221 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-05 04:33:19,299 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:33:21,339 basehttp "GET /admin/jeba_landing/landingpage/add/ HTTP/1.1" 200 109126
+WARNING 2025-12-05 04:33:21,361 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:33:21,381 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:33:22,436 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 61755
+WARNING 2025-12-05 04:33:22,445 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:33:34,000 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 61755
+WARNING 2025-12-05 04:33:34,010 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:33:52,084 basehttp "GET /admin/jeba_inventory/product/ HTTP/1.1" 200 288535
+WARNING 2025-12-05 04:33:52,108 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:33:52,116 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-12-05 04:33:52,128 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:33:52,150 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-05 04:33:52,182 basehttp "GET /media/products/gallery/prod_1632_0.jpg HTTP/1.1" 200 25956
+INFO 2025-12-05 04:33:52,182 basehttp "GET /media/products/gallery/prod_1630_0.jpg HTTP/1.1" 200 37692
+INFO 2025-12-05 04:33:52,182 basehttp "GET /media/products/gallery/prod_1628_0.jpg HTTP/1.1" 200 28476
+INFO 2025-12-05 04:33:52,182 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-12-05 04:33:52,186 basehttp "GET /media/products/gallery/prod_1631_0.jpg HTTP/1.1" 200 40208
+INFO 2025-12-05 04:33:52,188 basehttp "GET /media/products/gallery/prod_1627_0.jpg HTTP/1.1" 200 66592
+INFO 2025-12-05 04:33:52,225 basehttp "GET /media/products/gallery/prod_1626_0.jpg HTTP/1.1" 200 28364
+INFO 2025-12-05 04:33:52,226 basehttp "GET /media/products/gallery/prod_1624_0.webp HTTP/1.1" 200 32692
+INFO 2025-12-05 04:33:52,231 basehttp "GET /media/products/gallery/prod_1625_0.jpg HTTP/1.1" 200 89097
+INFO 2025-12-05 04:33:52,231 basehttp "GET /media/products/gallery/prod_1623_0.jpg HTTP/1.1" 200 79056
+INFO 2025-12-05 04:33:52,233 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 200 62244
+INFO 2025-12-05 04:33:52,235 basehttp "GET /media/products/gallery/prod_1621_0.jpg HTTP/1.1" 200 121975
+INFO 2025-12-05 04:33:52,265 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 200 39513
+INFO 2025-12-05 04:33:52,265 basehttp "GET /media/products/gallery/prod_1618_0.jpg HTTP/1.1" 200 36758
+INFO 2025-12-05 04:33:52,269 basehttp "GET /media/products/gallery/prod_1617_0.jpg HTTP/1.1" 200 183160
+INFO 2025-12-05 04:33:54,289 basehttp "GET /admin/jeba_inventory/product/1637/change/ HTTP/1.1" 200 167945
+WARNING 2025-12-05 04:33:54,314 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:33:54,314 basehttp "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+INFO 2025-12-05 04:33:54,314 basehttp "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2025-12-05 04:33:54,337 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-05 04:33:54,339 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:33:54,342 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2_eZprM6U.jpg HTTP/1.1" 200 64118
+INFO 2025-12-05 04:33:54,345 basehttp "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+INFO 2025-12-05 04:33:54,374 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F6.jpg HTTP/1.1" 200 63351
+INFO 2025-12-05 04:33:54,375 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F5.jpg HTTP/1.1" 200 97958
+INFO 2025-12-05 04:33:54,473 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F4.jpg HTTP/1.1" 200 39100
+INFO 2025-12-05 04:34:03,994 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35016
+WARNING 2025-12-05 04:34:04,015 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:34:04,035 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:34:05,918 basehttp "GET /admin/jeba_landing/landingpage/add/ HTTP/1.1" 200 109126
+WARNING 2025-12-05 04:34:05,940 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:34:06,074 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:34:07,143 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 61755
+WARNING 2025-12-05 04:34:07,153 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:34:14,928 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 61755
+WARNING 2025-12-05 04:34:14,938 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:34:19,419 basehttp "POST /admin/jeba_landing/landingpage/add/ HTTP/1.1" 302 0
+INFO 2025-12-05 04:34:19,589 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 110574
+WARNING 2025-12-05 04:34:19,611 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:34:19,630 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:34:20,674 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 62043
+WARNING 2025-12-05 04:34:20,685 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:34:42,686 basehttp "GET /landing/ai/generate/2/ HTTP/1.1" 302 0
+INFO 2025-12-05 04:34:42,829 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 245931
+WARNING 2025-12-05 04:34:42,851 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:34:42,873 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:34:43,962 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 77690
+WARNING 2025-12-05 04:34:43,972 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:35:49,419 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 77690
+WARNING 2025-12-05 04:35:49,428 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:36:10,586 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 77689
+WARNING 2025-12-05 04:36:10,594 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:36:11,731 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 77689
+WARNING 2025-12-05 04:36:11,741 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:36:29,423 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 77689
+WARNING 2025-12-05 04:36:29,434 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:36:36,812 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 77689
+WARNING 2025-12-05 04:36:36,822 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:36:44,833 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 77689
+WARNING 2025-12-05 04:36:44,843 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:36:52,255 basehttp "POST /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 302 0
+INFO 2025-12-05 04:36:52,391 basehttp "GET /admin/jeba_landing/landingpage/2/change/ HTTP/1.1" 200 246598
+WARNING 2025-12-05 04:36:52,420 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:36:52,539 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:36:53,598 basehttp "POST /landing/admin-preview/render/ HTTP/1.1" 200 77689
+WARNING 2025-12-05 04:36:53,605 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:37:00,640 basehttp "GET /landing/offers/test-camp/ HTTP/1.1" 200 73727
+WARNING 2025-12-05 04:37:00,682 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:37:00,684 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:37:00,685 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:37:00,757 basehttp "GET /media/landing/foreground/media.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:37:00,834 basehttp "GET /media/landing/images/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_soi7nRs.jpg HTTP/1.1" 304 0
+INFO 2025-12-05 04:37:23,238 basehttp "GET /admin/jeba_landing/landingpage/ HTTP/1.1" 200 35818
+WARNING 2025-12-05 04:37:23,257 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-05 04:37:23,389 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-05 04:37:24,616 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 74326
+WARNING 2025-12-05 04:37:24,647 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-05 04:37:24,812 basehttp "GET /media/landing/foreground/media_NR5sQSq.mp4 HTTP/1.1" 200 6565042
+WARNING 2025-12-05 04:37:38,004 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:37:38,004 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:37:43,699 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 74326
+WARNING 2025-12-05 04:37:43,735 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-05 04:37:43,744 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 04:37:43,745 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 12744
+INFO 2025-12-05 04:37:43,796 basehttp "GET /media/landing/foreground/media_NR5sQSq.mp4 HTTP/1.1" 304 0
+INFO 2025-12-05 04:38:43,135 basehttp "GET /landing/offers/final-test-using-ai HTTP/1.1" 301 0
+WARNING 2025-12-05 04:38:43,192 log Not Found: /landing/offers/final-test-using-ai/
+WARNING 2025-12-05 04:38:43,193 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 404 12849

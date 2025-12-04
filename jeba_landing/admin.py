@@ -18,7 +18,6 @@ class LandingPageForm(forms.ModelForm):
         model = LandingPage
         fields = '__all__'
         widgets = {
-            # Corrected Field Names
             'override_primary_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
             'override_accent_color': TextInput(attrs={'type': 'color', 'style': 'height: 40px; width: 80px; cursor: pointer;'}),
             'custom_css': Textarea(attrs={'rows': 10, 'style': 'font-family: monospace; width: 100%; background: #1e1e1e; color: #d4d4d4;'}),
@@ -46,8 +45,8 @@ class LandingSectionInline(admin.StackedInline):
     fieldsets = (
         ('Layout & Animation', {
             'fields': (
-                ('section_type', 'order'),
-                ('text_alignment', 'animation_effect'),
+                ('section_type', 'design_variant'),
+                ('order', 'text_alignment', 'animation_effect'),
             ),
         }),
         ('Content', {
@@ -57,6 +56,8 @@ class LandingSectionInline(admin.StackedInline):
             'fields': (
                 ('divider_top', 'divider_bottom'),
                 ('padding_top', 'padding_bottom'),
+                # ADDED HERE
+                'text_content_padding', 
                 ('border_radius', 'overlay_opacity'),
                 ('desktop_media_position', 'mobile_media_position'),
             ),
@@ -70,7 +71,12 @@ class LandingSectionInline(admin.StackedInline):
             'classes': ('collapse',),
         }),
         ('Media Assets', {
-            'fields': ('image', 'video_file', 'video_url'),
+            'fields': (
+                'image', 
+                ('foreground_image', 'foreground_video'),
+                'video_file', 'video_url'
+            ),
+            'description': "Use 'Image' for background. Use 'Foreground' fields to layer custom assets (PNG/GIF/Video) on top."
         }),
         ('Carousel Items', {
             'fields': (('image_2', 'image_3'), ('image_4', 'image_5')),
@@ -98,7 +104,6 @@ class LandingPageAdmin(admin.ModelAdmin):
         ("🎨 Design System", {
             "fields": (
                 ("theme", "theme_preset"),
-                # Corrected Field Names
                 ("override_primary_color", "override_accent_color"),
                 ("font_heading", "font_body"),
                 "custom_css"
