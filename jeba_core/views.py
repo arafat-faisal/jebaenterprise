@@ -11,3 +11,9 @@ def custom_404(request, exception):
 
 def custom_500(request):
     return render(request, 'jeba_core/500.html', status=500)
+
+def privacy_policy(request):
+    """
+    Renders the Privacy Policy page required by Facebook.
+    """
+    return render(request, 'jeba_core/privacy_policy.html')

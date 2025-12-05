@@ -66,4 +66,7 @@ urlpatterns = [
     # --- Core / Static ---
     path('about/', core_views.about_us, name='about_us'),
     path('contact/', core_views.contact_us, name='contact_us'),
+    # --- ADD THIS LINE ---
+    path('privacy-policy/', core_views.privacy_policy, name='privacy_policy'),
+    # ---------------------
 ]

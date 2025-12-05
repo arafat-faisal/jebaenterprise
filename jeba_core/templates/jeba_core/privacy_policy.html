@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Privacy Policy" %} | Jeba Enterprise{% endblock %}
+
+{% block content %}
+<style>
+    .policy-container {
+        max-width: 850px;
+        margin: 40px auto 80px;
+        padding: 0 20px;
+    }
+    
+    .policy-header {
+        text-align: center;
+        margin-bottom: 50px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .policy-header h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--text-main);
+        margin-bottom: 15px;
+        letter-spacing: -0.5px;
+    }
+    
+    .last-updated {
+        display: inline-block;
+        background: #F3F5F9;
+        color: var(--text-sub);
+        padding: 6px 15px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .policy-content {
+        line-height: 1.8;
+        color: #4a4a4a;
+        font-size: 1.05rem;
+    }
+
+    .policy-section {
+        margin-bottom: 40px;
+        background: #fff;
+        border-radius: 12px;
+    }
+
+    .policy-section h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-main);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .policy-section h3::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 24px;
+        background: var(--accent-lime);
+        border-radius: 3px;
+    }
+
+    .policy-section ul {
+        list-style: none;
+        padding-left: 20px;
+    }
+    
+    .policy-section li {
+        margin-bottom: 10px;
+        position: relative;
+    }
+    
+    .policy-section li::before {
+        content: '•';
+        color: var(--accent-lime);
+        font-weight: bold;
+        font-size: 1.2rem;
+        position: absolute;
+        left: -20px;
+        top: -2px;
+    }
+
+    .contact-card {
+        background: #1A1C1E;
+        color: white;
+        padding: 30px;
+        border-radius: 20px;
+        margin-top: 50px;
+        text-align: center;
+    }
+    
+    .contact-card h3 { color: white; margin-bottom: 10px; justify-content: center; }
+    .contact-card h3::before { display: none; }
+    .contact-card p { color: #aaa; margin-bottom: 20px; }
+    .contact-btn {
+        background: var(--accent-lime);
+        color: var(--text-main);
+        text-decoration: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 700;
+        display: inline-block;
+        transition: transform 0.2s;
+    }
+    .contact-btn:hover { transform: translateY(-3px); }
+
+    @media (max-width: 768px) {
+        .policy-header h1 { font-size: 2rem; }
+    }
+</style>
+
+<div class="policy-container">
+    <div class="policy-header">
+        <h1>{% trans "Privacy Policy" %}</h1>
+        <div class="last-updated">{% trans "Effective Date" %}: {% now "F j, Y" %}</div>
+    </div>
+
+    <div class="policy-content">
+        <div class="policy-section">
+            <h3>1. {% trans "Introduction" %}</h3>
+            <p>{% blocktrans %}Welcome to <strong>Jeba Enterprise</strong>. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you visit our website or use our services.{% endblocktrans %}</p>
+        </div>
+
+        <div class="policy-section">
+            <h3>2. {% trans "Information We Collect" %}</h3>
+            <p>{% trans "We may collect the following types of information:" %}</p>
+            <ul>
+                <li>{% trans "Personal details (Name, Email, Phone Number) provided during checkout or registration." %}</li>
+                <li>{% trans "Shipping and Billing addresses for order fulfillment." %}</li>
+                <li>{% trans "Chat interactions and inquiries made via our Facebook Messenger AI." %}</li>
+                <li>{% trans "Technical data such as IP address and browser type for site security." %}</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h3>3. {% trans "How We Use Your Data" %}</h3>
+            <p>{% trans "Your information is used strictly for the following purposes:" %}</p>
+            <ul>
+                <li>{% trans "Processing and delivering your orders efficiently." %}</li>
+                <li>{% trans "Sending order confirmations, invoices, and tracking updates." %}</li>
+                <li>{% trans "Improving our store features and customer support experience." %}</li>
+                <li>{% trans "Preventing fraud and ensuring the security of our platform." %}</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h3>4. {% trans "Data Sharing & Security" %}</h3>
+            <p>{% trans "We respect your data. We do NOT sell or trade your personal information. However, we may share necessary details with trusted third parties solely for business operations:" %}</p>
+            <ul>
+                <li><strong>{% trans "Logistics Partners" %}:</strong> {% trans "Courier services (e.g., Steadfast) to deliver your products." %}</li>
+                <li><strong>{% trans "Payment Processors" %}:</strong> {% trans "Secure gateways to process your payments safely." %}</li>
+            </ul>
+        </div>
+
+        <div class="contact-card">
+            <h3>{% trans "Have Questions?" %}</h3>
+            <p>{% trans "If you have any concerns regarding your privacy, our team is here to help." %}</p>
+            <a href="{% url 'contact_us' %}" class="contact-btn">{% trans "Contact Support" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
