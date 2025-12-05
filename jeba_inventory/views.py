@@ -11,6 +11,8 @@ from jeba_core.models import SiteSettings
 from jeba_analytics.analytics_service import AnalyticsService
 from jeba_engagement.forms import ReviewForm
 # -----------------------
+from django.db.models import F, FloatField, ExpressionWrapper
+
 
 # --- HELPER: Get Recommendations ---
 def get_recommendations(request, limit=8):
@@ -73,12 +75,41 @@ def home(request):
     
     all_products = Product.objects.filter(is_active=True).order_by('?')[:30]
 
+    # [SMARTCODER UPDATE] Fetch Categories with product counts
+    categories = Category.objects.annotate(
+        product_count=Count('products', filter=Q(products__is_active=True))
+    ).filter(product_count__gt=0).order_by('-product_count')[:8] # Top 8 categories
+
+    # [SMARTCODER FIX] Renamed 'discount_amount' to 'db_savings' to avoid conflict
+    deal_of_the_day = Product.objects.filter(
+        is_active=True, 
+        original_price__gt=F('selling_price')
+    ).annotate(
+        db_savings=ExpressionWrapper(  # <--- CHANGED NAME HERE
+            F('original_price') - F('selling_price'), output_field=FloatField()
+        )
+    ).order_by('-db_savings').first() # <--- UPDATED ORDERING HERE
+
+
+    # [SMARTCODER UPDATE] Fetch Multiple Flash Deals (Top 5)
+    flash_deals = Product.objects.filter(
+        is_active=True, 
+        original_price__gt=F('selling_price')
+    ).annotate(
+        db_savings=ExpressionWrapper(
+            F('original_price') - F('selling_price'), output_field=FloatField()
+        )
+    ).order_by('-db_savings')[:5] # Get Top 5 Deals
+
     context = {
         'featured_products': featured_products, 
         'new_arrivals': new_arrivals,
         'best_sellers': best_sellers,
         'recommendations': recommendations,
         'products': all_products,
+        'categories': categories,
+        'deal_of_the_day': deal_of_the_day,
+        'flash_deals': flash_deals,
     }
     return render(request, "jeba_inventory/home.html", context)
 

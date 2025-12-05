@@ -2736,3 +2736,1264 @@ INFO 2025-12-06 02:52:09,276 basehttp "GET /sales/checkout/ HTTP/1.1" 200 55988
 WARNING 2025-12-06 02:52:09,296 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
 WARNING 2025-12-06 02:52:09,314 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
 WARNING 2025-12-06 02:52:09,314 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:07:32,746 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 03:07:37,780 basehttp "GET / HTTP/1.1" 200 108567
+WARNING 2025-12-06 03:07:37,804 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:07:37,844 basehttp "GET /media/products/gallery/prod_1355_0.jpg HTTP/1.1" 200 21028
+INFO 2025-12-06 03:07:37,848 basehttp "GET /media/products/gallery/prod_1548_0.jpg HTTP/1.1" 200 12892
+INFO 2025-12-06 03:07:37,848 basehttp "GET /media/products/gallery/prod_1350_0.jpg HTTP/1.1" 200 30404
+INFO 2025-12-06 03:07:37,849 basehttp "GET /media/products/gallery/prod_1413_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:07:37,854 basehttp "GET /media/products/gallery/prod_1628_0.jpg HTTP/1.1" 200 28476
+INFO 2025-12-06 03:07:37,856 basehttp "GET /media/products/gallery/prod_1516_0.jpg HTTP/1.1" 200 68076
+INFO 2025-12-06 03:07:37,888 basehttp "GET /media/products/gallery/prod_1621_0.jpg HTTP/1.1" 200 121975
+INFO 2025-12-06 03:07:37,899 basehttp "GET /media/products/gallery/prod_1447_0.jpg HTTP/1.1" 200 40121
+INFO 2025-12-06 03:07:37,901 basehttp "GET /media/products/gallery/prod_1450_0.jpg HTTP/1.1" 200 52923
+INFO 2025-12-06 03:07:37,904 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 200 34316
+INFO 2025-12-06 03:07:37,911 basehttp "GET /media/products/gallery/prod_1561_0.jpg HTTP/1.1" 200 14092
+INFO 2025-12-06 03:07:37,912 basehttp "GET /media/products/gallery/prod_1457_0.jpg HTTP/1.1" 200 54782
+INFO 2025-12-06 03:07:37,924 basehttp "GET /media/products/gallery/prod_1513_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:07:37,932 basehttp "GET /media/products/gallery/prod_1440_0.jpg HTTP/1.1" 200 55678
+INFO 2025-12-06 03:07:42,062 basehttp "GET /catalog/ HTTP/1.1" 200 428332
+WARNING 2025-12-06 03:07:42,086 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:07:42,166 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 200 181972
+INFO 2025-12-06 03:07:42,166 basehttp "GET /media/products/gallery/prod_1632_0.jpg HTTP/1.1" 200 25956
+INFO 2025-12-06 03:07:42,170 basehttp "GET /media/products/gallery/prod_1631_0.jpg HTTP/1.1" 200 40208
+INFO 2025-12-06 03:07:42,171 basehttp "GET /media/products/gallery/prod_1343_0.jpg HTTP/1.1" 200 17724
+INFO 2025-12-06 03:07:42,173 basehttp "GET /media/products/gallery/prod_1365_0.jpg HTTP/1.1" 200 57492
+INFO 2025-12-06 03:07:42,201 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 200 39513
+INFO 2025-12-06 03:07:42,204 basehttp "GET /media/products/gallery/prod_1627_0.jpg HTTP/1.1" 200 66592
+INFO 2025-12-06 03:07:42,207 basehttp "GET /media/products/gallery/prod_1617_0.jpg HTTP/1.1" 200 183160
+INFO 2025-12-06 03:07:42,208 basehttp "GET /media/products/gallery/prod_1615_0.jpg HTTP/1.1" 200 40221
+INFO 2025-12-06 03:07:42,211 basehttp "GET /media/products/gallery/prod_1603_0.jpg HTTP/1.1" 200 129691
+INFO 2025-12-06 03:07:42,237 basehttp "GET /media/products/gallery/prod_1602_0.jpg HTTP/1.1" 200 30159
+INFO 2025-12-06 03:07:42,241 basehttp "GET /media/products/gallery/prod_1595_0.jpg HTTP/1.1" 200 105228
+INFO 2025-12-06 03:07:42,245 basehttp "GET /media/products/gallery/prod_1593_0.jpg HTTP/1.1" 200 19986
+INFO 2025-12-06 03:07:42,248 basehttp "GET /media/products/gallery/prod_1592_0.jpg HTTP/1.1" 200 443080
+INFO 2025-12-06 03:07:42,266 basehttp "GET /media/products/gallery/prod_1386_0.jpg HTTP/1.1" 200 29615
+INFO 2025-12-06 03:07:42,270 basehttp "GET /media/products/gallery/prod_1587_5.jpg HTTP/1.1" 200 27774
+INFO 2025-12-06 03:07:42,276 basehttp "GET /media/products/gallery/prod_1583_0.jpg HTTP/1.1" 200 14552
+INFO 2025-12-06 03:07:42,276 basehttp "GET /media/products/gallery/prod_1580_0.jpg HTTP/1.1" 200 22593
+INFO 2025-12-06 03:07:42,279 basehttp "GET /media/products/gallery/prod_1579_0.jpg HTTP/1.1" 200 35421
+INFO 2025-12-06 03:07:42,296 basehttp "GET /media/products/gallery/prod_1578_0.jpg HTTP/1.1" 200 45996
+INFO 2025-12-06 03:07:42,301 basehttp "GET /media/products/gallery/prod_1577_0.jpg HTTP/1.1" 200 236232
+INFO 2025-12-06 03:07:42,310 basehttp "GET /media/products/gallery/prod_1575_0.jpg HTTP/1.1" 200 24002
+INFO 2025-12-06 03:07:42,310 basehttp "GET /media/products/gallery/prod_1576_0.jpg HTTP/1.1" 200 42619
+INFO 2025-12-06 03:07:42,310 basehttp "GET /media/products/gallery/prod_1574_0.jpg HTTP/1.1" 200 22301
+INFO 2025-12-06 03:07:42,323 basehttp "GET /media/products/gallery/prod_1573_0.jpg HTTP/1.1" 200 42106
+INFO 2025-12-06 03:07:42,328 basehttp "GET /media/products/gallery/prod_1569_0.jpg HTTP/1.1" 200 48166
+INFO 2025-12-06 03:07:42,342 basehttp "GET /media/products/gallery/prod_1567_0.jpg HTTP/1.1" 200 54654
+INFO 2025-12-06 03:07:42,345 basehttp "GET /media/products/gallery/prod_1600_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:07:42,345 basehttp "GET /media/products/gallery/prod_1562_0.jpg HTTP/1.1" 200 43985
+INFO 2025-12-06 03:07:42,354 basehttp "GET /media/products/gallery/prod_1560_0.jpg HTTP/1.1" 200 57819
+INFO 2025-12-06 03:07:42,359 basehttp "GET /media/products/gallery/prod_1559_0.jpg HTTP/1.1" 200 49584
+INFO 2025-12-06 03:07:42,378 basehttp "GET /media/products/gallery/prod_1558_0.jpg HTTP/1.1" 200 93012
+INFO 2025-12-06 03:07:42,378 basehttp "GET /media/products/gallery/prod_1557_0.jpg HTTP/1.1" 200 34852
+INFO 2025-12-06 03:07:42,379 basehttp "GET /media/products/gallery/prod_1555_0.jpg HTTP/1.1" 200 67784
+INFO 2025-12-06 03:07:42,384 basehttp "GET /media/products/gallery/prod_1553_0.jpg HTTP/1.1" 200 109863
+INFO 2025-12-06 03:07:42,410 basehttp "GET /media/products/gallery/prod_1549_0.jpg HTTP/1.1" 200 32836
+INFO 2025-12-06 03:07:42,413 basehttp "GET /media/products/gallery/prod_1547_0.jpg HTTP/1.1" 200 57752
+INFO 2025-12-06 03:07:42,413 basehttp "GET /media/products/gallery/prod_1546_0.jpg HTTP/1.1" 200 79741
+INFO 2025-12-06 03:07:42,416 basehttp "GET /media/products/gallery/prod_1543_0.jpg HTTP/1.1" 200 33152
+INFO 2025-12-06 03:07:42,441 basehttp "GET /media/products/gallery/prod_1540_0.jpg HTTP/1.1" 200 51177
+INFO 2025-12-06 03:07:42,449 basehttp "GET /media/products/gallery/prod_1534_0.jpg HTTP/1.1" 200 43853
+INFO 2025-12-06 03:07:42,449 basehttp "GET /media/products/gallery/prod_1537_0.jpg HTTP/1.1" 200 39078
+INFO 2025-12-06 03:07:42,449 basehttp "GET /media/products/gallery/prod_1535_0.jpg HTTP/1.1" 200 35158
+INFO 2025-12-06 03:07:42,453 basehttp "GET /media/products/gallery/prod_1568_0.jpg HTTP/1.1" 200 50737
+INFO 2025-12-06 03:07:42,471 basehttp "GET /media/products/gallery/prod_1532_0.jpg HTTP/1.1" 200 134235
+INFO 2025-12-06 03:07:42,483 basehttp "GET /media/products/gallery/prod_1530_0.jpg HTTP/1.1" 200 27979
+INFO 2025-12-06 03:07:42,486 basehttp "GET /media/products/gallery/prod_1520_0.jpg HTTP/1.1" 200 22728
+INFO 2025-12-06 03:07:42,487 basehttp "GET /media/products/gallery/prod_1521_0.jpg HTTP/1.1" 200 95212
+INFO 2025-12-06 03:07:42,488 basehttp "GET /media/products/gallery/prod_1518_0.jpg HTTP/1.1" 200 46874
+INFO 2025-12-06 03:07:42,497 basehttp "GET /media/products/gallery/prod_1551_0.jpg HTTP/1.1" 200 39127
+INFO 2025-12-06 03:07:42,500 basehttp "GET /media/products/gallery/prod_1517_0.jpg HTTP/1.1" 200 33373
+INFO 2025-12-06 03:07:42,516 basehttp "GET /media/products/gallery/prod_1515_0.jpg HTTP/1.1" 200 64083
+INFO 2025-12-06 03:07:42,524 basehttp "GET /media/products/gallery/prod_1511_0.jpg HTTP/1.1" 200 63911
+INFO 2025-12-06 03:07:42,527 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 200 52115
+INFO 2025-12-06 03:07:42,531 basehttp "GET /media/products/gallery/prod_1503_0.jpg HTTP/1.1" 200 53706
+INFO 2025-12-06 03:07:42,534 basehttp "GET /media/products/gallery/prod_1500_0.jpg HTTP/1.1" 200 37529
+INFO 2025-12-06 03:07:42,536 basehttp "GET /media/products/gallery/prod_1507_0.jpg HTTP/1.1" 200 1037208
+INFO 2025-12-06 03:07:42,544 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 200 56780
+INFO 2025-12-06 03:07:42,561 basehttp "GET /media/products/gallery/prod_1491_0.jpg HTTP/1.1" 200 32928
+INFO 2025-12-06 03:07:42,562 basehttp "GET /media/products/gallery/prod_1490_0.jpg HTTP/1.1" 200 108642
+INFO 2025-12-06 03:07:42,572 basehttp "GET /media/products/gallery/prod_1482_0.jpg HTTP/1.1" 200 221983
+INFO 2025-12-06 03:07:42,573 basehttp "GET /media/products/gallery/prod_1480_0.jpg HTTP/1.1" 200 49886
+INFO 2025-12-06 03:07:42,575 basehttp "GET /media/products/gallery/prod_1481_0.jpg HTTP/1.1" 200 265393
+INFO 2025-12-06 03:07:42,577 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 200 54556
+INFO 2025-12-06 03:07:42,596 basehttp "GET /media/products/gallery/prod_1473_0.webp HTTP/1.1" 200 33126
+INFO 2025-12-06 03:07:42,599 basehttp "GET /media/products/gallery/prod_1474_0.jpg HTTP/1.1" 200 18391
+INFO 2025-12-06 03:07:42,610 basehttp "GET /media/products/gallery/prod_1471_0.jpg HTTP/1.1" 200 41298
+INFO 2025-12-06 03:07:42,611 basehttp "GET /media/products/gallery/prod_1465_0.jpg HTTP/1.1" 200 50338
+INFO 2025-12-06 03:07:42,613 basehttp "GET /media/products/gallery/prod_1459_0.jpg HTTP/1.1" 200 48127
+INFO 2025-12-06 03:07:42,613 basehttp "GET /media/products/gallery/prod_1462_0.jpg HTTP/1.1" 200 129504
+INFO 2025-12-06 03:07:42,625 basehttp "GET /media/products/gallery/prod_1453_0.jpg HTTP/1.1" 200 57952
+INFO 2025-12-06 03:07:42,646 basehttp "GET /media/products/gallery/prod_1441_0.jpg HTTP/1.1" 200 31834
+INFO 2025-12-06 03:07:42,646 basehttp "GET /media/products/gallery/prod_1444_0.jpg HTTP/1.1" 200 38513
+INFO 2025-12-06 03:07:42,647 basehttp "GET /media/products/gallery/prod_1445_0.jpg HTTP/1.1" 200 66648
+INFO 2025-12-06 03:07:42,650 basehttp "GET /media/products/gallery/prod_1439_0.jpg HTTP/1.1" 200 36259
+INFO 2025-12-06 03:07:42,681 basehttp "GET /media/products/gallery/prod_1428_0.jpg HTTP/1.1" 200 61664
+INFO 2025-12-06 03:07:42,682 basehttp "GET /media/products/gallery/prod_1427_0.jpg HTTP/1.1" 200 34313
+INFO 2025-12-06 03:07:42,682 basehttp "GET /media/products/gallery/prod_1426_0.jpg HTTP/1.1" 200 62710
+INFO 2025-12-06 03:07:42,682 basehttp "GET /media/products/gallery/prod_1429_0.jpg HTTP/1.1" 200 72784
+INFO 2025-12-06 03:07:42,714 basehttp "GET /media/products/gallery/prod_1424_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:07:42,717 basehttp "GET /media/products/gallery/prod_1416_0.jpg HTTP/1.1" 200 19912
+INFO 2025-12-06 03:07:42,717 basehttp "GET /media/products/gallery/prod_1422_0.jpg HTTP/1.1" 200 48828
+INFO 2025-12-06 03:07:42,717 basehttp "GET /media/products/gallery/prod_1415_0.jpg HTTP/1.1" 200 36042
+INFO 2025-12-06 03:07:42,725 basehttp "GET /media/products/gallery/prod_1458_0.jpg HTTP/1.1" 200 50863
+INFO 2025-12-06 03:07:42,750 basehttp "GET /media/products/gallery/prod_1404_0.jpg HTTP/1.1" 200 24924
+INFO 2025-12-06 03:07:42,750 basehttp "GET /media/products/gallery/prod_1409_0.jpg HTTP/1.1" 200 46546
+INFO 2025-12-06 03:07:42,754 basehttp "GET /media/products/gallery/prod_1400_0.jpg HTTP/1.1" 200 119967
+INFO 2025-12-06 03:07:42,758 basehttp "GET /media/products/gallery/prod_1392_0.jpg HTTP/1.1" 200 75072
+INFO 2025-12-06 03:07:42,760 basehttp "GET /media/products/gallery/prod_1430_0.jpg HTTP/1.1" 200 32653
+INFO 2025-12-06 03:07:42,782 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+INFO 2025-12-06 03:07:42,783 basehttp "GET /media/products/gallery/prod_1384_0.jpg HTTP/1.1" 200 61736
+INFO 2025-12-06 03:07:42,787 basehttp "GET /media/products/gallery/prod_1382_0.jpg HTTP/1.1" 200 41652
+INFO 2025-12-06 03:07:42,814 basehttp "GET /media/products/gallery/prod_1370_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-06 03:07:42,815 basehttp "GET /media/products/gallery/prod_1367_0.jpg HTTP/1.1" 200 59307
+INFO 2025-12-06 03:07:42,816 basehttp "GET /media/products/gallery/prod_1366_0.jpg HTTP/1.1" 200 57129
+INFO 2025-12-06 03:07:42,849 basehttp "GET /media/products/gallery/prod_1363_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:07:42,850 basehttp "GET /media/products/gallery/prod_1364_0.jpg HTTP/1.1" 200 53072
+INFO 2025-12-06 03:07:42,850 basehttp "GET /media/products/gallery/prod_1358_0.jpg HTTP/1.1" 200 55612
+INFO 2025-12-06 03:07:42,854 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 200 47474
+INFO 2025-12-06 03:07:42,882 basehttp "GET /media/products/gallery/prod_1357_0.jpg HTTP/1.1" 200 34040
+INFO 2025-12-06 03:07:42,885 basehttp "GET /media/products/gallery/prod_1353_0.jpeg HTTP/1.1" 200 44199
+INFO 2025-12-06 03:07:42,885 basehttp "GET /media/products/gallery/prod_1354_0.jpg HTTP/1.1" 200 45738
+INFO 2025-12-06 03:07:42,888 basehttp "GET /media/products/gallery/prod_1352_0.jpg HTTP/1.1" 200 13597
+INFO 2025-12-06 03:07:42,890 basehttp "GET /media/products/gallery/prod_1389_0.jpg HTTP/1.1" 200 73862
+INFO 2025-12-06 03:07:42,899 basehttp "GET /media/products/gallery/prod_1381_0.jpg HTTP/1.1" 200 19132
+INFO 2025-12-06 03:07:42,914 basehttp "GET /media/products/gallery/prod_1349_0.jpg HTTP/1.1" 200 53388
+INFO 2025-12-06 03:07:42,919 basehttp "GET /media/products/gallery/prod_1345_0.jpg HTTP/1.1" 200 32465
+INFO 2025-12-06 03:07:42,920 basehttp "GET /media/products/gallery/prod_1342_0.jpg HTTP/1.1" 200 51882
+INFO 2025-12-06 03:07:42,922 basehttp "GET /media/products/gallery/prod_1344_0.jpg HTTP/1.1" 200 517783
+INFO 2025-12-06 03:07:48,647 basehttp "GET /catalog/?category=41 HTTP/1.1" 200 240048
+WARNING 2025-12-06 03:07:48,664 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:07:54,473 basehttp "GET /catalog/?category=38 HTTP/1.1" 200 103863
+WARNING 2025-12-06 03:07:54,488 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:07:58,394 basehttp "GET /catalog/?category=47 HTTP/1.1" 200 68251
+WARNING 2025-12-06 03:07:58,408 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:08:06,201 basehttp "GET /catalog/?category=43 HTTP/1.1" 200 67451
+WARNING 2025-12-06 03:08:06,213 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:08:13,855 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:08:13,855 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:12:53,630 basehttp "GET / HTTP/1.1" 200 108852
+WARNING 2025-12-06 03:12:53,651 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:12:53,782 basehttp "GET /media/products/gallery/prod_1587_0.jpg HTTP/1.1" 200 103716
+WARNING 2025-12-06 03:13:08,713 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:13:08,714 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:13:18,347 basehttp "GET /sales/cart/ HTTP/1.1" 200 48839
+WARNING 2025-12-06 03:13:18,371 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:13:18,394 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:13:18,395 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:13:19,413 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 172
+INFO 2025-12-06 03:13:19,957 basehttp "GET /sales/cart/ HTTP/1.1" 200 47032
+WARNING 2025-12-06 03:13:19,974 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:13:19,995 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:13:19,996 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:13:20,445 basehttp "GET / HTTP/1.1" 200 106188
+WARNING 2025-12-06 03:13:20,471 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:13:20,481 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:13:20,482 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:18:05,051 basehttp "GET / HTTP/1.1" 200 111873
+WARNING 2025-12-06 03:18:05,080 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:18:05,098 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:18:05,098 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:18:11,428 basehttp "GET / HTTP/1.1" 200 113098
+WARNING 2025-12-06 03:18:11,450 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:20:44,929 basehttp "GET / HTTP/1.1" 200 114890
+WARNING 2025-12-06 03:20:44,957 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:20:44,972 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:20:44,973 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+WARNING 2025-12-06 03:20:50,614 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:20:50,615 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:20:55,188 basehttp "GET / HTTP/1.1" 200 114940
+WARNING 2025-12-06 03:20:55,219 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:20:55,228 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:20:55,228 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:20:57,676 basehttp "GET / HTTP/1.1" 200 109064
+WARNING 2025-12-06 03:20:57,695 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:23:30,040 basehttp "GET / HTTP/1.1" 200 109221
+WARNING 2025-12-06 03:23:30,058 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:23:32,251 basehttp "GET / HTTP/1.1" 200 114889
+WARNING 2025-12-06 03:23:32,281 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:23:32,290 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:23:32,291 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:24:53,942 basehttp "GET / HTTP/1.1" 200 107161
+INFO 2025-12-06 03:24:54,099 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-06 03:24:54,100 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-06 03:24:54,216 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-06 03:24:54,241 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+WARNING 2025-12-06 03:24:54,267 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:24:54,276 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+INFO 2025-12-06 03:24:54,474 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 200 79832
+INFO 2025-12-06 03:24:54,526 basehttp "GET /media/products/gallery/prod_1457_0.jpg HTTP/1.1" 200 54782
+INFO 2025-12-06 03:24:54,597 basehttp "GET /media/products/gallery/prod_1392_0.jpg HTTP/1.1" 200 75072
+INFO 2025-12-06 03:24:54,625 basehttp "GET /media/products/gallery/prod_1619_0.jpg HTTP/1.1" 200 57985
+INFO 2025-12-06 03:24:54,689 basehttp "GET /media/products/gallery/prod_1396_0.jpg HTTP/1.1" 200 18755
+INFO 2025-12-06 03:24:54,690 basehttp "GET /media/products/gallery/prod_1449_0.jpg HTTP/1.1" 200 45291
+INFO 2025-12-06 03:24:54,696 basehttp "GET /media/products/gallery/prod_1429_0.jpg HTTP/1.1" 200 72784
+INFO 2025-12-06 03:24:54,787 basehttp "GET /media/products/gallery/prod_1550_0.jpg HTTP/1.1" 200 23942
+INFO 2025-12-06 03:24:54,887 basehttp "GET /media/products/gallery/prod_1523_0.jpeg HTTP/1.1" 200 101088
+INFO 2025-12-06 03:24:54,904 basehttp "GET /media/products/gallery/prod_1617_0.jpg HTTP/1.1" 200 183160
+INFO 2025-12-06 03:24:54,933 basehttp "GET /media/products/gallery/prod_1582_0.jpg HTTP/1.1" 200 64454
+INFO 2025-12-06 03:24:55,036 basehttp "GET /media/products/gallery/prod_1558_0.jpg HTTP/1.1" 200 93012
+INFO 2025-12-06 03:24:55,227 basehttp "GET /media/products/gallery/prod_1409_0.jpg HTTP/1.1" 200 46546
+INFO 2025-12-06 03:24:55,254 basehttp "GET /media/products/gallery/prod_1351_0.jpg HTTP/1.1" 200 26204
+INFO 2025-12-06 03:24:55,260 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 200 56424
+INFO 2025-12-06 03:24:55,375 basehttp "GET /media/products/gallery/prod_1507_0.jpg HTTP/1.1" 200 1037208
+INFO 2025-12-06 03:24:55,406 basehttp "GET /media/products/gallery/prod_1598_0.jpg HTTP/1.1" 200 29886
+INFO 2025-12-06 03:24:55,406 basehttp "GET /media/products/gallery/prod_1399_0.jpg HTTP/1.1" 200 52532
+INFO 2025-12-06 03:24:55,408 basehttp "GET /media/products/gallery/prod_1433_0.jpg HTTP/1.1" 200 52261
+INFO 2025-12-06 03:24:55,462 basehttp "GET /media/products/gallery/prod_1536_0.jpg HTTP/1.1" 200 52748
+INFO 2025-12-06 03:24:55,602 basehttp "GET /media/products/gallery/prod_1468_0.jpg HTTP/1.1" 200 113216
+INFO 2025-12-06 03:24:56,252 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-12-06 03:24:56,253 basehttp "GET /media/products/gallery/prod_1511_0.jpg HTTP/1.1" 200 63911
+INFO 2025-12-06 03:24:56,253 basehttp "GET /media/products/gallery/prod_1419_0.jpg HTTP/1.1" 200 54447
+INFO 2025-12-06 03:24:56,428 basehttp "GET /media/products/gallery/prod_1362_0.jpg HTTP/1.1" 200 51085
+INFO 2025-12-06 03:24:56,429 basehttp "GET /media/products/gallery/prod_1464_0.jpg HTTP/1.1" 200 43377
+INFO 2025-12-06 03:24:56,429 basehttp "GET /media/products/gallery/prod_1611_0.jpg HTTP/1.1" 200 82986
+INFO 2025-12-06 03:24:56,519 basehttp "GET /media/products/gallery/prod_1443_0.jpg HTTP/1.1" 200 56795
+INFO 2025-12-06 03:24:56,556 basehttp "GET /media/products/gallery/prod_1427_0.jpg HTTP/1.1" 200 34313
+INFO 2025-12-06 03:24:56,636 basehttp "GET /media/products/gallery/prod_1519_0.jpg HTTP/1.1" 200 957584
+INFO 2025-12-06 03:24:57,724 basehttp "GET /catalog/?category=38 HTTP/1.1" 200 103615
+INFO 2025-12-06 03:24:57,792 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-06 03:24:57,817 basehttp "GET /media/products/gallery/prod_1601_0.jpg HTTP/1.1" 200 72665
+INFO 2025-12-06 03:24:57,829 basehttp "GET /media/products/gallery/prod_1541_0.webp HTTP/1.1" 200 24272
+WARNING 2025-12-06 03:24:57,843 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:24:57,872 basehttp "GET /media/products/gallery/prod_1509_0.jpg HTTP/1.1" 200 38458
+INFO 2025-12-06 03:24:57,875 basehttp "GET /media/products/gallery/prod_1460_0.jpg HTTP/1.1" 200 136842
+INFO 2025-12-06 03:24:57,876 basehttp "GET /media/products/gallery/prod_1497_0.jpg HTTP/1.1" 200 41370
+INFO 2025-12-06 03:24:57,878 basehttp "GET /media/products/gallery/prod_1406_0.jpg HTTP/1.1" 200 33922
+INFO 2025-12-06 03:24:57,888 basehttp "GET /media/products/gallery/prod_1403_0.webp HTTP/1.1" 200 19464
+INFO 2025-12-06 03:24:57,889 basehttp "GET /media/products/gallery/prod_1379_0.jpg HTTP/1.1" 200 42490
+INFO 2025-12-06 03:24:57,921 basehttp "GET /media/products/gallery/prod_1376_0.jpg HTTP/1.1" 200 18215
+INFO 2025-12-06 03:24:57,960 basehttp "GET /media/products/gallery/prod_1374_0.jpg HTTP/1.1" 200 42582
+INFO 2025-12-06 03:24:57,978 basehttp "GET /media/products/gallery/prod_1365_0.jpg HTTP/1.1" 200 57492
+INFO 2025-12-06 03:24:58,003 basehttp "GET /media/products/gallery/prod_1356_0.jpg HTTP/1.1" 200 41204
+INFO 2025-12-06 03:24:58,005 basehttp "GET /media/products/gallery/prod_1609_0.jpg HTTP/1.1" 200 82004
+INFO 2025-12-06 03:24:58,006 basehttp "GET /media/products/gallery/prod_1588_0.jpg HTTP/1.1" 200 32122
+INFO 2025-12-06 03:24:58,006 basehttp "GET /media/products/gallery/prod_1533_0.jpg HTTP/1.1" 200 17702
+INFO 2025-12-06 03:24:58,030 basehttp "GET /media/products/gallery/prod_1494_0.jpg HTTP/1.1" 200 44529
+INFO 2025-12-06 03:24:58,084 basehttp "GET /media/products/gallery/prod_1603_0.jpg HTTP/1.1" 200 129691
+INFO 2025-12-06 03:24:58,105 basehttp "GET /media/products/gallery/prod_1483_0.jpg HTTP/1.1" 200 52518
+INFO 2025-12-06 03:24:58,124 basehttp "GET /media/products/gallery/prod_1473_0.webp HTTP/1.1" 200 33126
+INFO 2025-12-06 03:24:58,124 basehttp "GET /media/products/gallery/prod_1444_0.jpg HTTP/1.1" 200 38513
+INFO 2025-12-06 03:24:58,124 basehttp "GET /media/products/gallery/prod_1480_0.jpg HTTP/1.1" 200 49886
+INFO 2025-12-06 03:24:58,183 basehttp "GET /media/products/gallery/prod_1415_0.jpg HTTP/1.1" 200 36042
+INFO 2025-12-06 03:24:58,281 basehttp "GET /media/products/gallery/prod_1367_0.jpg HTTP/1.1" 200 59307
+INFO 2025-12-06 03:24:58,281 basehttp "GET /media/products/gallery/prod_1371_0.jpg HTTP/1.1" 200 39297
+INFO 2025-12-06 03:24:58,282 basehttp "GET /media/products/gallery/prod_1382_0.jpg HTTP/1.1" 200 41652
+INFO 2025-12-06 03:24:58,283 basehttp "GET /media/products/gallery/prod_1359_0.jpg HTTP/1.1" 200 42611
+INFO 2025-12-06 03:24:58,353 basehttp "GET /media/products/gallery/prod_1389_0.jpg HTTP/1.1" 200 73862
+INFO 2025-12-06 03:24:59,998 basehttp "GET /catalog/?category=40 HTTP/1.1" 200 101828
+INFO 2025-12-06 03:25:00,077 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 200 62244
+INFO 2025-12-06 03:25:00,077 basehttp "GET /media/products/gallery/prod_1625_0.jpg HTTP/1.1" 200 89097
+WARNING 2025-12-06 03:25:00,115 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:25:00,141 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 200 60115
+INFO 2025-12-06 03:25:00,141 basehttp "GET /media/products/gallery/prod_1612_0.jpg HTTP/1.1" 200 37261
+INFO 2025-12-06 03:25:00,143 basehttp "GET /media/products/gallery/prod_1572_0.jpg HTTP/1.1" 200 55541
+INFO 2025-12-06 03:25:00,154 basehttp "GET /media/products/gallery/prod_1552_0.jpg HTTP/1.1" 200 33320
+INFO 2025-12-06 03:25:00,170 basehttp "GET /media/products/gallery/prod_1538_0.jpg HTTP/1.1" 200 38078
+INFO 2025-12-06 03:25:00,229 basehttp "GET /media/products/gallery/prod_1544_0.png HTTP/1.1" 200 201159
+INFO 2025-12-06 03:25:00,236 basehttp "GET /media/products/gallery/prod_1524_0.jpg HTTP/1.1" 200 35721
+INFO 2025-12-06 03:25:00,243 basehttp "GET /media/products/gallery/prod_1488_0.jpg HTTP/1.1" 200 59794
+INFO 2025-12-06 03:25:00,253 basehttp "GET /media/products/gallery/prod_1455_0.jpg HTTP/1.1" 200 59195
+INFO 2025-12-06 03:25:00,256 basehttp "GET /media/products/gallery/prod_1432_0.jpg HTTP/1.1" 200 851135
+INFO 2025-12-06 03:25:00,309 basehttp "GET /media/products/gallery/prod_1631_0.jpg HTTP/1.1" 200 40208
+INFO 2025-12-06 03:25:00,412 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 200 39513
+INFO 2025-12-06 03:25:00,428 basehttp "GET /media/products/gallery/prod_1587_5.jpg HTTP/1.1" 200 27774
+INFO 2025-12-06 03:25:00,456 basehttp "GET /media/products/gallery/prod_1575_0.jpg HTTP/1.1" 200 24002
+INFO 2025-12-06 03:25:00,518 basehttp "GET /media/products/gallery/prod_1534_0.jpg HTTP/1.1" 200 43853
+INFO 2025-12-06 03:25:00,570 basehttp "GET /media/products/gallery/prod_1555_0.jpg HTTP/1.1" 200 67784
+INFO 2025-12-06 03:25:00,590 basehttp "GET /media/products/gallery/prod_1521_0.jpg HTTP/1.1" 200 95212
+INFO 2025-12-06 03:25:00,658 basehttp "GET /media/products/gallery/prod_1491_0.jpg HTTP/1.1" 200 32928
+INFO 2025-12-06 03:25:00,663 basehttp "GET /media/products/gallery/prod_1470_0.jpg HTTP/1.1" 200 72763
+INFO 2025-12-06 03:25:00,667 basehttp "GET /media/products/gallery/prod_1495_0.jpg HTTP/1.1" 200 76018
+INFO 2025-12-06 03:25:00,673 basehttp "GET /media/products/gallery/prod_1525_0.jpg HTTP/1.1" 200 23357
+INFO 2025-12-06 03:25:00,705 basehttp "GET /media/products/gallery/prod_1510_0.jpg HTTP/1.1" 200 71817
+INFO 2025-12-06 03:25:00,714 basehttp "GET /media/products/gallery/prod_1489_0.jpg HTTP/1.1" 200 96713
+INFO 2025-12-06 03:25:00,785 basehttp "GET /media/products/gallery/prod_1416_0.jpg HTTP/1.1" 200 19912
+INFO 2025-12-06 03:25:00,785 basehttp "GET /media/products/gallery/prod_1447_0.jpg HTTP/1.1" 200 40121
+INFO 2025-12-06 03:25:04,432 basehttp "GET / HTTP/1.1" 200 104898
+INFO 2025-12-06 03:25:04,640 basehttp "GET /media/products/gallery/prod_1553_0.jpg HTTP/1.1" 200 109863
+INFO 2025-12-06 03:25:04,641 basehttp "GET /media/products/gallery/prod_1390_0.jpg HTTP/1.1" 200 37036
+INFO 2025-12-06 03:25:04,643 basehttp "GET /media/products/gallery/prod_1360_0.jpg HTTP/1.1" 200 55742
+INFO 2025-12-06 03:25:04,645 basehttp "GET /media/products/gallery/prod_1482_0.jpg HTTP/1.1" 200 221983
+WARNING 2025-12-06 03:25:04,854 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:25:05,173 basehttp "GET /media/products/gallery/prod_1628_0.jpg HTTP/1.1" 200 28476
+INFO 2025-12-06 03:25:05,174 basehttp "GET /media/products/gallery/prod_1404_0.jpg HTTP/1.1" 200 24924
+INFO 2025-12-06 03:25:05,174 basehttp "GET /media/products/gallery/prod_1493_0.jpg HTTP/1.1" 200 67353
+INFO 2025-12-06 03:25:05,356 basehttp "GET /media/products/gallery/prod_1430_0.jpg HTTP/1.1" 200 32653
+INFO 2025-12-06 03:25:05,359 basehttp "GET /media/products/gallery/prod_1381_0.jpg HTTP/1.1" 200 19132
+INFO 2025-12-06 03:25:05,361 basehttp "GET /media/products/gallery/prod_1568_0.jpg HTTP/1.1" 200 50737
+INFO 2025-12-06 03:25:05,430 basehttp "GET /media/products/gallery/prod_1490_0.jpg HTTP/1.1" 200 108642
+INFO 2025-12-06 03:25:05,583 basehttp "GET /media/products/gallery/prod_1387_0.jpg HTTP/1.1" 200 25023
+INFO 2025-12-06 03:25:05,810 basehttp "GET /media/products/gallery/prod_1346_0.jpg HTTP/1.1" 200 496634
+INFO 2025-12-06 03:25:05,839 basehttp "GET /media/products/gallery/prod_1384_0.jpg HTTP/1.1" 200 61736
+INFO 2025-12-06 03:25:05,840 basehttp "GET /media/products/gallery/prod_1565_0.jpg HTTP/1.1" 200 52354
+INFO 2025-12-06 03:25:05,882 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 200 34316
+INFO 2025-12-06 03:25:06,054 basehttp "GET /media/products/gallery/prod_1615_0.jpg HTTP/1.1" 200 40221
+INFO 2025-12-06 03:25:06,055 basehttp "GET /media/products/gallery/prod_1548_0.jpg HTTP/1.1" 200 12892
+INFO 2025-12-06 03:25:06,062 basehttp "GET /media/products/gallery/prod_1586_0.jpg HTTP/1.1" 200 129524
+INFO 2025-12-06 03:25:06,063 basehttp "GET /media/products/gallery/prod_1592_0.jpg HTTP/1.1" 200 443080
+INFO 2025-12-06 03:26:43,682 basehttp "GET /product/1553/ HTTP/1.1" 200 80140
+WARNING 2025-12-06 03:26:43,808 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:26:43,824 basehttp "GET /media/products/gallery/prod_1553_2.jpg HTTP/1.1" 200 52585
+INFO 2025-12-06 03:26:43,825 basehttp "GET /media/products/gallery/prod_1553_1.jpg HTTP/1.1" 200 334032
+INFO 2025-12-06 03:26:43,837 basehttp "GET /media/products/gallery/prod_1373_0.jpg HTTP/1.1" 200 47603
+INFO 2025-12-06 03:26:43,867 basehttp "GET /media/products/gallery/prod_1401_0.webp HTTP/1.1" 200 18328
+INFO 2025-12-06 03:26:43,947 basehttp "GET /media/products/gallery/prod_1623_0.jpg HTTP/1.1" 200 79056
+INFO 2025-12-06 03:26:44,090 basehttp "GET /media/products/gallery/prod_1630_0.jpg HTTP/1.1" 200 37692
+INFO 2025-12-06 03:26:44,091 basehttp "GET /media/products/gallery/prod_1527_0.jpg HTTP/1.1" 200 67112
+INFO 2025-12-06 03:26:44,093 basehttp "GET /media/products/gallery/prod_1461_0.jpg HTTP/1.1" 200 68657
+INFO 2025-12-06 03:26:44,178 basehttp "GET /media/products/gallery/prod_1610_0.jpg HTTP/1.1" 200 79435
+INFO 2025-12-06 03:26:53,333 basehttp "GET /wishlist/ HTTP/1.1" 302 0
+INFO 2025-12-06 03:26:53,395 basehttp "GET /accounts/login/?next=/wishlist/ HTTP/1.1" 200 41667
+WARNING 2025-12-06 03:26:53,465 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:26:56,594 basehttp "GET /catalog/ HTTP/1.1" 200 428084
+INFO 2025-12-06 03:26:56,741 basehttp "GET /media/products/gallery/prod_1626_0.jpg HTTP/1.1" 200 28364
+INFO 2025-12-06 03:26:56,757 basehttp "GET /media/products/gallery/prod_1624_0.webp HTTP/1.1" 200 32692
+INFO 2025-12-06 03:26:56,866 basehttp "GET /media/products/gallery/prod_1596_0.jpg HTTP/1.1" 200 49983
+INFO 2025-12-06 03:26:56,867 basehttp "GET /media/products/gallery/prod_1590_0.jpg HTTP/1.1" 200 41993
+INFO 2025-12-06 03:26:56,867 basehttp "GET /media/products/gallery/prod_1589_0.jpg HTTP/1.1" 200 45683
+INFO 2025-12-06 03:26:57,056 basehttp "GET /media/products/gallery/prod_1581_0.jpg HTTP/1.1" 200 80607
+INFO 2025-12-06 03:26:57,068 basehttp "GET /media/products/gallery/prod_1545_0.jpg HTTP/1.1" 200 43117
+INFO 2025-12-06 03:26:57,159 basehttp "GET /media/products/gallery/prod_1597_0.jpg HTTP/1.1" 200 227441
+INFO 2025-12-06 03:26:57,280 basehttp "GET /media/products/gallery/prod_1556_0.jpeg HTTP/1.1" 200 164288
+INFO 2025-12-06 03:26:57,366 basehttp "GET /media/products/gallery/prod_1542_0.jpg HTTP/1.1" 200 73916
+WARNING 2025-12-06 03:26:57,681 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:26:57,695 basehttp "GET /media/products/gallery/prod_1529_0.jpg HTTP/1.1" 200 26872
+INFO 2025-12-06 03:26:57,710 basehttp "GET /media/products/gallery/prod_1528_0.jpg HTTP/1.1" 200 75808
+INFO 2025-12-06 03:26:57,786 basehttp "GET /media/products/gallery/prod_1526_0.jpg HTTP/1.1" 200 25898
+INFO 2025-12-06 03:26:57,859 basehttp "GET /media/products/gallery/prod_1522_0.jpg HTTP/1.1" 200 123779
+INFO 2025-12-06 03:26:57,876 basehttp "GET /media/products/gallery/prod_1514_0.jpg HTTP/1.1" 200 63144
+INFO 2025-12-06 03:26:57,889 basehttp "GET /media/products/gallery/prod_1505_0.jpg HTTP/1.1" 200 51368
+INFO 2025-12-06 03:26:57,957 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-12-06 03:26:58,072 basehttp "GET /media/products/gallery/prod_1502_0.jpg HTTP/1.1" 200 42722
+INFO 2025-12-06 03:26:58,074 basehttp "GET /media/products/gallery/prod_1504_0.jpg HTTP/1.1" 200 373508
+INFO 2025-12-06 03:26:58,097 basehttp "GET /media/products/gallery/prod_1499_0.jpg HTTP/1.1" 200 36573
+INFO 2025-12-06 03:26:58,097 basehttp "GET /media/products/gallery/prod_1492_0.jpg HTTP/1.1" 200 39709
+INFO 2025-12-06 03:26:58,152 basehttp "GET /media/products/gallery/prod_1487_0.jpg HTTP/1.1" 200 61852
+INFO 2025-12-06 03:26:58,232 basehttp "GET /media/products/gallery/prod_1484_0.jpg HTTP/1.1" 200 24622
+INFO 2025-12-06 03:26:58,368 basehttp "GET /media/products/gallery/prod_1486_0.jpg HTTP/1.1" 200 270811
+INFO 2025-12-06 03:26:58,368 basehttp "GET /media/products/gallery/prod_1485_0.jpg HTTP/1.1" 200 139953
+INFO 2025-12-06 03:26:58,391 basehttp "GET /media/products/gallery/prod_1479_0.jpg HTTP/1.1" 200 28042
+INFO 2025-12-06 03:26:58,415 basehttp "GET /media/products/gallery/prod_1478_0.jpg HTTP/1.1" 200 30677
+INFO 2025-12-06 03:26:58,416 basehttp "GET /media/products/gallery/prod_1477_0.jpg HTTP/1.1" 200 25679
+INFO 2025-12-06 03:26:58,484 basehttp "GET /media/products/gallery/prod_1472_0.jpg HTTP/1.1" 200 37506
+INFO 2025-12-06 03:26:58,485 basehttp "GET /media/products/gallery/prod_1469_0.jpg HTTP/1.1" 200 42994
+INFO 2025-12-06 03:26:58,493 basehttp "GET /media/products/gallery/prod_1467_0.jpg HTTP/1.1" 200 66218
+INFO 2025-12-06 03:26:58,525 basehttp "GET /media/products/gallery/prod_1454_0.jpg HTTP/1.1" 200 36526
+INFO 2025-12-06 03:26:58,635 basehttp "GET /media/products/gallery/prod_1463_0.jpg HTTP/1.1" 200 82109
+INFO 2025-12-06 03:26:58,650 basehttp "GET /media/products/gallery/prod_1452_0.jpeg HTTP/1.1" 200 20595
+INFO 2025-12-06 03:26:58,660 basehttp "GET /media/products/gallery/prod_1451_0.jpg HTTP/1.1" 200 43102
+INFO 2025-12-06 03:26:58,661 basehttp "GET /media/products/gallery/prod_1446_0.jpg HTTP/1.1" 200 48329
+INFO 2025-12-06 03:26:58,705 basehttp "GET /media/products/gallery/prod_1437_0.jpg HTTP/1.1" 200 11796
+INFO 2025-12-06 03:26:58,710 basehttp "GET /media/products/gallery/prod_1425_0.jpg HTTP/1.1" 200 49226
+INFO 2025-12-06 03:26:58,729 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 200 22018
+INFO 2025-12-06 03:26:58,815 basehttp "GET /media/products/gallery/prod_1420_0.jpg HTTP/1.1" 200 50968
+INFO 2025-12-06 03:26:58,818 basehttp "GET /media/products/gallery/prod_1414_0.jpg HTTP/1.1" 200 138366
+INFO 2025-12-06 03:26:58,821 basehttp "GET /media/products/gallery/prod_1410_0.jpg HTTP/1.1" 200 67551
+INFO 2025-12-06 03:26:58,833 basehttp "GET /media/products/gallery/prod_1408_0.jpg HTTP/1.1" 200 16795
+INFO 2025-12-06 03:26:58,835 basehttp "GET /media/products/gallery/prod_1423_0.jpg HTTP/1.1" 200 41695
+INFO 2025-12-06 03:26:59,039 basehttp "GET /media/products/gallery/prod_1407_0.jpg HTTP/1.1" 200 58294
+INFO 2025-12-06 03:26:59,041 basehttp "GET /media/products/gallery/prod_1405_0.jpg HTTP/1.1" 200 54999
+INFO 2025-12-06 03:26:59,117 basehttp "GET / HTTP/1.1" 200 104222
+INFO 2025-12-06 03:26:59,121 basehttp "GET /media/products/gallery/prod_1398_0.jpg HTTP/1.1" 200 45790
+INFO 2025-12-06 03:26:59,122 basehttp "GET /media/products/gallery/prod_1402_0.jpeg HTTP/1.1" 200 239643
+INFO 2025-12-06 03:26:59,135 basehttp "GET /media/products/gallery/prod_1394_0.jpeg HTTP/1.1" 200 232515
+INFO 2025-12-06 03:26:59,254 basehttp "GET /media/products/gallery/prod_1393_0.jpg HTTP/1.1" 200 48008
+INFO 2025-12-06 03:26:59,346 basehttp "GET /media/products/gallery/prod_1386_0.jpg HTTP/1.1" 200 29615
+WARNING 2025-12-06 03:26:59,457 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:26:59,497 basehttp "GET /media/products/gallery/prod_1395_0.jpg HTTP/1.1" 200 276359
+INFO 2025-12-06 03:26:59,603 basehttp "GET /media/products/gallery/prod_1554_0.jpg HTTP/1.1" 200 22394
+INFO 2025-12-06 03:26:59,603 basehttp "GET /media/products/gallery/prod_1366_0.jpg HTTP/1.1" 200 57129
+INFO 2025-12-06 03:26:59,614 basehttp "GET /media/products/gallery/prod_1440_0.jpg HTTP/1.1" 200 55678
+INFO 2025-12-06 03:26:59,625 basehttp "GET /media/products/gallery/prod_1604_0.jpg HTTP/1.1" 200 63550
+INFO 2025-12-06 03:26:59,722 basehttp - Broken pipe from ('192.168.1.5', 47548)
+INFO 2025-12-06 03:26:59,796 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 200 181972
+INFO 2025-12-06 03:26:59,802 basehttp "GET /media/products/gallery/prod_1342_0.jpg HTTP/1.1" 200 51882
+INFO 2025-12-06 03:26:59,802 basehttp "GET /media/products/gallery/prod_1343_0.jpg HTTP/1.1" 200 17724
+INFO 2025-12-06 03:26:59,803 basehttp "GET /media/products/gallery/prod_1442_0.jpg HTTP/1.1" 200 77960
+INFO 2025-12-06 03:26:59,803 basehttp "GET /media/products/gallery/prod_1441_0.jpg HTTP/1.1" 200 31834
+INFO 2025-12-06 03:26:59,944 basehttp "GET /media/products/gallery/prod_1621_0.jpg HTTP/1.1" 200 121975
+INFO 2025-12-06 03:26:59,948 basehttp "GET /media/products/gallery/prod_1520_0.jpg HTTP/1.1" 200 22728
+INFO 2025-12-06 03:26:59,968 basehttp "GET /media/products/gallery/prod_1606_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-06 03:26:59,970 basehttp "GET /media/products/gallery/prod_1375_0.jpg HTTP/1.1" 200 62294
+INFO 2025-12-06 03:27:14,575 basehttp "GET / HTTP/1.1" 200 107479
+WARNING 2025-12-06 03:27:14,671 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:27:14,711 basehttp "GET /media/products/gallery/prod_1378_0.jpg HTTP/1.1" 200 62179
+INFO 2025-12-06 03:27:14,767 basehttp "GET /media/products/gallery/prod_1564_0.jpg HTTP/1.1" 200 31343
+INFO 2025-12-06 03:27:14,768 basehttp "GET /media/products/gallery/prod_1540_0.jpg HTTP/1.1" 200 51177
+INFO 2025-12-06 03:27:14,773 basehttp "GET /media/products/gallery/prod_1357_0.jpg HTTP/1.1" 200 34040
+INFO 2025-12-06 03:27:14,785 basehttp "GET /media/products/gallery/prod_1578_0.jpg HTTP/1.1" 200 45996
+INFO 2025-12-06 03:27:14,799 basehttp "GET /media/products/gallery/prod_1563_0.jpg HTTP/1.1" 200 56567
+INFO 2025-12-06 03:27:14,895 basehttp "GET /media/products/gallery/prod_1576_0.jpg HTTP/1.1" 200 42619
+INFO 2025-12-06 03:27:15,106 basehttp "GET /media/products/gallery/prod_1434_0.jpg HTTP/1.1" 200 54819
+INFO 2025-12-06 03:27:15,109 basehttp "GET /media/products/gallery/prod_1349_0.jpg HTTP/1.1" 200 53388
+INFO 2025-12-06 03:27:15,109 basehttp "GET /media/products/gallery/prod_1595_0.jpg HTTP/1.1" 200 105228
+INFO 2025-12-06 03:27:15,854 basehttp "GET /media/products/gallery/prod_1448_0.jpg HTTP/1.1" 200 247681
+INFO 2025-12-06 03:27:16,755 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-06 03:27:41,241 basehttp "GET /product/1630/ HTTP/1.1" 200 85893
+INFO 2025-12-06 03:27:41,326 basehttp "GET /media/products/gallery/prod_1630_1.jpg HTTP/1.1" 200 47743
+INFO 2025-12-06 03:27:41,330 basehttp "GET /media/products/gallery/prod_1630_2.jpg HTTP/1.1" 200 35293
+WARNING 2025-12-06 03:27:41,376 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:27:41,409 basehttp "GET /media/products/gallery/prod_1630_3.jpg HTTP/1.1" 200 60632
+INFO 2025-12-06 03:27:41,409 basehttp "GET /media/products/gallery/prod_1630_4.jpg HTTP/1.1" 200 26007
+INFO 2025-12-06 03:27:41,466 basehttp "GET /media/products/gallery/prod_1630_5.jpg HTTP/1.1" 200 73788
+INFO 2025-12-06 03:27:49,162 basehttp "GET /product/1630/ HTTP/1.1" 200 85893
+WARNING 2025-12-06 03:27:49,611 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:27:53,283 basehttp "GET / HTTP/1.1" 200 110523
+INFO 2025-12-06 03:27:53,603 basehttp "GET /media/products/gallery/prod_1438_0.jpg HTTP/1.1" 200 60293
+INFO 2025-12-06 03:27:53,735 basehttp "GET /media/products/gallery/prod_1569_0.jpg HTTP/1.1" 200 48166
+INFO 2025-12-06 03:27:53,736 basehttp "GET /media/products/gallery/prod_1358_0.jpg HTTP/1.1" 200 55612
+INFO 2025-12-06 03:27:53,737 basehttp "GET /media/products/gallery/prod_1547_0.jpg HTTP/1.1" 200 57752
+INFO 2025-12-06 03:27:53,737 basehttp "GET /media/products/gallery/prod_1354_0.jpg HTTP/1.1" 200 45738
+INFO 2025-12-06 03:27:53,738 basehttp "GET /media/products/gallery/prod_1413_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:27:53,749 basehttp "GET /media/products/gallery/prod_1435_0.jpg HTTP/1.1" 200 51873
+WARNING 2025-12-06 03:27:54,045 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:27:54,074 basehttp "GET /media/products/gallery/prod_1500_0.jpg HTTP/1.1" 200 37529
+INFO 2025-12-06 03:27:54,074 basehttp "GET /media/products/gallery/prod_1562_0.jpg HTTP/1.1" 200 43985
+INFO 2025-12-06 03:27:54,075 basehttp "GET /media/products/gallery/prod_1537_0.jpg HTTP/1.1" 200 39078
+INFO 2025-12-06 03:27:54,081 basehttp "GET /media/products/gallery/prod_1613_0.jpg HTTP/1.1" 200 64834
+INFO 2025-12-06 03:27:54,093 basehttp "GET /media/products/gallery/prod_1370_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-06 03:27:54,167 basehttp "GET /media/products/gallery/prod_1532_0.jpg HTTP/1.1" 200 134235
+INFO 2025-12-06 03:28:41,652 basehttp "GET / HTTP/1.1" 200 111820
+WARNING 2025-12-06 03:28:41,684 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:28:41,692 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:28:41,693 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:28:45,059 basehttp "GET / HTTP/1.1" 200 111104
+WARNING 2025-12-06 03:28:45,079 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:29:02,489 basehttp "GET / HTTP/1.1" 200 109053
+WARNING 2025-12-06 03:29:02,568 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:29:02,580 basehttp "GET /media/products/gallery/prod_1462_0.jpg HTTP/1.1" 200 129504
+INFO 2025-12-06 03:29:02,652 basehttp "GET /media/products/gallery/prod_1431_0.jpg HTTP/1.1" 200 28368
+INFO 2025-12-06 03:29:02,654 basehttp "GET /media/products/gallery/prod_1458_0.jpg HTTP/1.1" 200 50863
+INFO 2025-12-06 03:29:02,658 basehttp "GET /media/products/gallery/prod_1428_0.jpg HTTP/1.1" 200 61664
+INFO 2025-12-06 03:29:02,658 basehttp "GET /media/products/gallery/prod_1557_0.jpg HTTP/1.1" 200 34852
+INFO 2025-12-06 03:29:02,659 basehttp "GET /media/products/gallery/prod_1587_0.jpg HTTP/1.1" 200 103716
+INFO 2025-12-06 03:29:02,702 basehttp "GET /media/products/gallery/prod_1579_0.jpg HTTP/1.1" 200 35421
+INFO 2025-12-06 03:29:02,712 basehttp "GET /media/products/gallery/prod_1391_0.jpg HTTP/1.1" 200 66338
+INFO 2025-12-06 03:29:02,793 basehttp "GET /media/products/gallery/prod_1426_0.jpg HTTP/1.1" 200 62710
+INFO 2025-12-06 03:30:06,803 basehttp "GET / HTTP/1.1" 200 109912
+WARNING 2025-12-06 03:30:06,878 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:30:06,935 basehttp "GET /media/products/gallery/prod_1560_0.jpg HTTP/1.1" 200 57819
+INFO 2025-12-06 03:30:06,943 basehttp "GET /media/products/gallery/prod_1380_0.jpg HTTP/1.1" 200 39871
+INFO 2025-12-06 03:30:06,982 basehttp "GET /media/products/gallery/prod_1445_0.jpg HTTP/1.1" 200 66648
+INFO 2025-12-06 03:30:06,990 basehttp "GET /media/products/gallery/prod_1417_0.jpg HTTP/1.1" 200 31607
+INFO 2025-12-06 03:30:07,008 basehttp "GET /media/products/gallery/prod_1515_0.jpg HTTP/1.1" 200 64083
+INFO 2025-12-06 03:30:07,009 basehttp "GET /media/products/gallery/prod_1573_0.jpg HTTP/1.1" 200 42106
+INFO 2025-12-06 03:30:07,031 basehttp "GET /media/products/gallery/prod_1459_0.jpg HTTP/1.1" 200 48127
+INFO 2025-12-06 03:30:07,031 basehttp "GET /media/products/gallery/prod_1501_0.jpg HTTP/1.1" 200 59897
+INFO 2025-12-06 03:30:07,117 basehttp "GET /media/products/gallery/prod_1383_0.jpg HTTP/1.1" 200 38193
+INFO 2025-12-06 03:30:07,212 basehttp "GET /media/products/gallery/prod_1453_0.jpg HTTP/1.1" 200 57952
+INFO 2025-12-06 03:30:07,399 basehttp "GET /media/products/gallery/prod_1465_0.jpg HTTP/1.1" 200 50338
+INFO 2025-12-06 03:30:26,123 basehttp "GET / HTTP/1.1" 200 108498
+INFO 2025-12-06 03:30:26,313 basehttp "GET /media/products/gallery/prod_1345_0.jpg HTTP/1.1" 200 32465
+INFO 2025-12-06 03:30:26,472 basehttp "GET /media/products/gallery/prod_1363_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:30:26,472 basehttp "GET /media/products/gallery/prod_1530_0.jpg HTTP/1.1" 200 27979
+INFO 2025-12-06 03:30:26,473 basehttp "GET /media/products/gallery/prod_1583_0.jpg HTTP/1.1" 200 14552
+INFO 2025-12-06 03:30:26,475 basehttp "GET /media/products/gallery/prod_1608_0.jpg HTTP/1.1" 200 17814
+INFO 2025-12-06 03:30:26,475 basehttp "GET /media/products/gallery/prod_1397_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:30:26,475 basehttp "GET /media/products/gallery/prod_1503_0.jpg HTTP/1.1" 200 53706
+WARNING 2025-12-06 03:30:26,504 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:30:26,565 basehttp "GET /media/products/gallery/prod_1580_0.jpg HTTP/1.1" 200 22593
+INFO 2025-12-06 03:30:26,593 basehttp "GET /media/products/gallery/prod_1632_0.jpg HTTP/1.1" 200 25956
+INFO 2025-12-06 03:30:26,612 basehttp "GET /media/products/gallery/prod_1513_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:30:26,662 basehttp "GET /media/products/gallery/prod_1577_0.jpg HTTP/1.1" 200 236232
+INFO 2025-12-06 03:30:29,075 basehttp "GET /wishlist/ HTTP/1.1" 302 0
+INFO 2025-12-06 03:30:29,224 basehttp "GET /accounts/login/?next=/wishlist/ HTTP/1.1" 200 41667
+WARNING 2025-12-06 03:30:29,270 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:30:31,792 basehttp "GET / HTTP/1.1" 200 114065
+WARNING 2025-12-06 03:30:32,110 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:30:32,126 basehttp "GET /media/products/gallery/prod_1506_0.jpg HTTP/1.1" 200 41414
+INFO 2025-12-06 03:30:32,130 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 200 52115
+INFO 2025-12-06 03:30:32,159 basehttp "GET /media/products/gallery/prod_1607_0.jpg HTTP/1.1" 200 47482
+INFO 2025-12-06 03:30:32,159 basehttp "GET /media/products/gallery/prod_1600_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 03:32:17,947 basehttp "GET / HTTP/1.1" 200 114182
+INFO 2025-12-06 03:32:18,040 basehttp "GET /media/products/gallery/prod_1418_0.jpg HTTP/1.1" 200 43714
+INFO 2025-12-06 03:32:18,046 basehttp "GET /media/products/gallery/prod_1369_0.jpg HTTP/1.1" 200 56889
+INFO 2025-12-06 03:32:18,176 basehttp "GET /media/products/gallery/prod_1422_0.jpg HTTP/1.1" 200 48828
+INFO 2025-12-06 03:32:18,178 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+WARNING 2025-12-06 03:32:18,239 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:32:18,259 basehttp "GET /media/products/gallery/prod_1585_0.jpg HTTP/1.1" 200 69803
+INFO 2025-12-06 03:32:18,358 basehttp "GET /media/products/gallery/prod_1594_0.jpg HTTP/1.1" 200 33999
+INFO 2025-12-06 03:32:36,256 basehttp "GET / HTTP/1.1" 200 108464
+INFO 2025-12-06 03:32:36,394 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 200 56780
+INFO 2025-12-06 03:32:36,398 basehttp "GET /media/products/gallery/prod_1584_0.jpg HTTP/1.1" 200 49589
+INFO 2025-12-06 03:32:36,411 basehttp "GET /media/products/gallery/prod_1574_0.jpg HTTP/1.1" 200 22301
+INFO 2025-12-06 03:32:36,427 basehttp "GET /media/products/gallery/prod_1539_0.jpg HTTP/1.1" 200 27488
+WARNING 2025-12-06 03:32:36,627 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:32:36,711 basehttp "GET /media/products/gallery/prod_1344_0.jpg HTTP/1.1" 200 517783
+INFO 2025-12-06 03:33:09,639 basehttp "GET / HTTP/1.1" 200 112559
+WARNING 2025-12-06 03:33:09,723 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:33:09,770 basehttp "GET /media/products/gallery/prod_1400_0.jpg HTTP/1.1" 200 119967
+INFO 2025-12-06 03:33:09,853 basehttp "GET /media/products/gallery/prod_1602_0.jpg HTTP/1.1" 200 30159
+INFO 2025-12-06 03:33:09,865 basehttp "GET /media/products/gallery/prod_1561_0.jpg HTTP/1.1" 200 14092
+INFO 2025-12-06 03:33:12,190 basehttp "GET / HTTP/1.1" 200 115086
+INFO 2025-12-06 03:33:12,438 basehttp "GET /media/products/gallery/prod_1516_0.jpg HTTP/1.1" 200 68076
+INFO 2025-12-06 03:33:12,615 basehttp "GET /media/products/gallery/prod_1386_0.jpg HTTP/1.1" 200 29615
+WARNING 2025-12-06 03:33:12,630 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:33:26,344 basehttp "GET / HTTP/1.1" 200 110255
+WARNING 2025-12-06 03:33:26,425 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:33:26,431 basehttp "GET /media/products/gallery/prod_1368_0.jpg HTTP/1.1" 200 62638
+INFO 2025-12-06 03:33:26,523 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 200 47474
+INFO 2025-12-06 03:33:26,531 basehttp "GET /media/products/gallery/prod_1570_0.jpg HTTP/1.1" 200 59213
+INFO 2025-12-06 03:33:26,623 basehttp "GET /media/products/gallery/prod_1450_0.jpg HTTP/1.1" 200 52923
+INFO 2025-12-06 03:34:01,568 basehttp "GET / HTTP/1.1" 200 110908
+INFO 2025-12-06 03:34:01,706 basehttp "GET /media/products/gallery/prod_1518_0.jpg HTTP/1.1" 200 46874
+INFO 2025-12-06 03:34:01,708 basehttp "GET /media/products/gallery/prod_1471_0.jpg HTTP/1.1" 200 41298
+INFO 2025-12-06 03:34:01,759 basehttp "GET /media/products/gallery/prod_1559_0.jpg HTTP/1.1" 200 49584
+INFO 2025-12-06 03:34:01,804 basehttp "GET /media/products/gallery/prod_1599_0.jpg HTTP/1.1" 200 52927
+INFO 2025-12-06 03:34:01,805 basehttp "GET /media/products/gallery/prod_1377_0.jpg HTTP/1.1" 200 33451
+INFO 2025-12-06 03:34:01,807 basehttp "GET /media/products/gallery/prod_1350_0.jpg HTTP/1.1" 200 30404
+WARNING 2025-12-06 03:34:01,886 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:34:55,617 basehttp "GET / HTTP/1.1" 200 114239
+WARNING 2025-12-06 03:34:55,697 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:34:55,771 basehttp "GET /media/products/gallery/prod_1546_0.jpg HTTP/1.1" 200 79741
+INFO 2025-12-06 03:34:55,795 basehttp "GET /media/products/gallery/prod_1567_0.jpg HTTP/1.1" 200 54654
+INFO 2025-12-06 03:34:55,808 basehttp "GET /media/products/gallery/prod_1531_0.jpg HTTP/1.1" 200 46852
+INFO 2025-12-06 03:34:55,826 basehttp "GET /media/products/gallery/prod_1593_0.jpg HTTP/1.1" 200 19986
+INFO 2025-12-06 03:34:55,871 basehttp "GET /media/products/gallery/prod_1353_0.jpeg HTTP/1.1" 200 44199
+INFO 2025-12-06 03:35:05,233 basehttp "GET / HTTP/1.1" 200 113475
+WARNING 2025-12-06 03:35:05,250 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:35:09,269 basehttp "GET / HTTP/1.1" 200 112731
+WARNING 2025-12-06 03:35:09,289 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:35:14,781 basehttp "GET / HTTP/1.1" 200 109250
+WARNING 2025-12-06 03:35:14,811 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:35:52,788 basehttp "GET / HTTP/1.1" 200 110511
+WARNING 2025-12-06 03:35:52,875 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:35:53,354 basehttp "GET /media/products/gallery/prod_1475_0.jpg HTTP/1.1" 200 67091
+INFO 2025-12-06 03:35:53,356 basehttp "GET /media/products/gallery/prod_1481_0.jpg HTTP/1.1" 200 265393
+INFO 2025-12-06 03:36:07,916 basehttp "GET / HTTP/1.1" 200 112439
+WARNING 2025-12-06 03:36:08,001 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:36:08,050 basehttp "GET /media/products/gallery/prod_1551_0.jpg HTTP/1.1" 200 39127
+INFO 2025-12-06 03:36:08,073 basehttp "GET /media/products/gallery/prod_1535_0.jpg HTTP/1.1" 200 35158
+INFO 2025-12-06 03:36:08,076 basehttp "GET /media/products/gallery/prod_1517_0.jpg HTTP/1.1" 200 33373
+INFO 2025-12-06 03:36:08,090 basehttp "GET /media/products/gallery/prod_1512_0.jpg HTTP/1.1" 200 42813
+INFO 2025-12-06 03:36:20,106 basehttp "GET / HTTP/1.1" 200 110010
+WARNING 2025-12-06 03:36:20,181 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:36:20,228 basehttp "GET /media/products/gallery/prod_1347_0.jpg HTTP/1.1" 200 60892
+INFO 2025-12-06 03:36:20,241 basehttp "GET /media/products/gallery/prod_1543_0.jpg HTTP/1.1" 200 33152
+INFO 2025-12-06 03:36:20,295 basehttp "GET /media/products/gallery/prod_1474_0.jpg HTTP/1.1" 200 18391
+INFO 2025-12-06 03:36:53,387 basehttp "GET / HTTP/1.1" 200 110810
+WARNING 2025-12-06 03:36:53,464 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:36:55,555 basehttp "GET / HTTP/1.1" 200 113409
+WARNING 2025-12-06 03:36:55,581 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:36:57,752 basehttp "GET / HTTP/1.1" 200 111757
+WARNING 2025-12-06 03:36:57,774 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:36:59,343 basehttp "GET / HTTP/1.1" 200 111554
+WARNING 2025-12-06 03:36:59,363 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 03:36:59,382 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 03:36:59,382 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 03:38:09,356 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-12-06 03:38:09,765 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 03:38:37,262 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-12-06 03:38:37,626 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 03:38:47,745 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-12-06 03:38:48,120 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-06 03:39:53,601 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 92, in home
+    ).order_by('-discount_amount').first()
+                                   ^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 133, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: property 'discount_amount' of 'Product' object has no setter
+ERROR 2025-12-06 03:39:53,602 basehttp "GET / HTTP/1.1" 500 117617
+WARNING 2025-12-06 03:39:54,062 log Not Found: /favicon.ico
+WARNING 2025-12-06 03:39:54,062 basehttp "GET /favicon.ico HTTP/1.1" 404 13059
+ERROR 2025-12-06 03:40:12,202 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 92, in home
+    ).order_by('-discount_amount').first()
+                                   ^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 133, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: property 'discount_amount' of 'Product' object has no setter
+ERROR 2025-12-06 03:40:12,203 basehttp "GET / HTTP/1.1" 500 117613
+INFO 2025-12-06 03:40:21,232 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-06 03:40:24,448 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 92, in home
+    ).order_by('-discount_amount').first()
+                                   ^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 133, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: property 'discount_amount' of 'Product' object has no setter
+ERROR 2025-12-06 03:40:24,449 basehttp "GET / HTTP/1.1" 500 117654
+ERROR 2025-12-06 03:40:34,382 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 92, in home
+    ).order_by('-discount_amount').first()
+                                   ^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1106, in first
+    for obj in queryset[:1]:
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 386, in __iter__
+    self._fetch_all()
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1954, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 133, in __iter__
+    setattr(obj, attr_name, row[col_pos])
+AttributeError: property 'discount_amount' of 'Product' object has no setter
+ERROR 2025-12-06 03:40:34,384 basehttp "GET / HTTP/1.1" 500 118744
+INFO 2025-12-06 03:42:16,370 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-12-06 03:42:16,755 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 03:42:28,903 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-12-06 03:42:29,264 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-06 03:42:32,662 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 102, in home
+    return render(request, "jeba_inventory/home.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 705, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 615, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'sub'
+ERROR 2025-12-06 03:42:32,666 basehttp "GET / HTTP/1.1" 500 367671
+ERROR 2025-12-06 03:42:35,147 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 102, in home
+    return render(request, "jeba_inventory/home.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 705, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 615, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'sub'
+ERROR 2025-12-06 03:42:35,150 basehttp "GET / HTTP/1.1" 500 367774
+ERROR 2025-12-06 03:42:37,383 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 102, in home
+    return render(request, "jeba_inventory/home.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 705, in __init__
+    filter_func = parser.find_filter(filter_name)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 615, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'sub'
+ERROR 2025-12-06 03:42:37,386 basehttp "GET / HTTP/1.1" 500 366621
+INFO 2025-12-06 03:44:22,416 basehttp "GET / HTTP/1.1" 200 117729
+WARNING 2025-12-06 03:44:22,437 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:44:35,016 basehttp "GET / HTTP/1.1" 200 117079
+INFO 2025-12-06 03:44:35,190 basehttp "GET /media/products/gallery/prod_1496_0.jpg HTTP/1.1" 200 61782
+INFO 2025-12-06 03:44:35,348 basehttp "GET /media/products/gallery/prod_1424_0.webp HTTP/1.1" 200 9892
+WARNING 2025-12-06 03:44:35,364 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:44:35,451 basehttp "GET /media/products/gallery/prod_1591_0.jpg HTTP/1.1" 200 41954
+INFO 2025-12-06 03:44:41,464 basehttp "GET / HTTP/1.1" 200 116131
+WARNING 2025-12-06 03:44:41,638 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:44:41,891 basehttp "GET /media/products/gallery/prod_1618_0.jpg HTTP/1.1" 200 36758
+INFO 2025-12-06 03:44:50,358 basehttp "GET / HTTP/1.1" 200 115897
+INFO 2025-12-06 03:44:50,483 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 200 54556
+WARNING 2025-12-06 03:44:50,718 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:44:54,234 basehttp "GET / HTTP/1.1" 200 117729
+WARNING 2025-12-06 03:44:54,611 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:44:54,659 basehttp "GET /media/products/gallery/prod_1372_0.jpg HTTP/1.1" 200 76276
+INFO 2025-12-06 03:45:13,201 basehttp "GET /product/1421/ HTTP/1.1" 200 85866
+INFO 2025-12-06 03:45:13,277 basehttp "GET /media/products/gallery/prod_1421_1.jpg HTTP/1.1" 200 55285
+INFO 2025-12-06 03:45:13,295 basehttp "GET /media/products/gallery/prod_1421_2.jpg HTTP/1.1" 200 43795
+WARNING 2025-12-06 03:45:13,354 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:45:13,380 basehttp "GET /media/products/gallery/prod_1421_3.jpg HTTP/1.1" 200 50355
+INFO 2025-12-06 03:45:13,380 basehttp "GET /media/products/gallery/prod_1421_4.jpg HTTP/1.1" 200 27362
+INFO 2025-12-06 03:45:13,382 basehttp "GET /media/products/gallery/prod_1421_5.jpg HTTP/1.1" 200 52377
+INFO 2025-12-06 03:45:13,390 basehttp "GET /media/products/gallery/prod_1355_0.jpg HTTP/1.1" 200 21028
+INFO 2025-12-06 03:45:13,416 basehttp "GET /media/products/gallery/prod_1421_6.jpg HTTP/1.1" 200 77674
+INFO 2025-12-06 03:45:16,545 basehttp "GET / HTTP/1.1" 200 118608
+WARNING 2025-12-06 03:45:16,796 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:45:18,295 basehttp "GET / HTTP/1.1" 200 115965
+INFO 2025-12-06 03:45:18,419 basehttp "GET /media/products/gallery/prod_1364_0.jpg HTTP/1.1" 200 53072
+INFO 2025-12-06 03:45:18,492 basehttp "GET /media/products/gallery/prod_1627_0.jpg HTTP/1.1" 200 66592
+INFO 2025-12-06 03:45:18,493 basehttp "GET /media/products/gallery/prod_1456_0.jpg HTTP/1.1" 200 30818
+WARNING 2025-12-06 03:45:18,792 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:45:22,745 basehttp "GET /product/1421/ HTTP/1.1" 200 85866
+WARNING 2025-12-06 03:45:22,814 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:45:26,724 basehttp "GET / HTTP/1.1" 200 118697
+WARNING 2025-12-06 03:45:26,824 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:46:06,604 basehttp "GET / HTTP/1.1" 200 117434
+INFO 2025-12-06 03:46:06,689 basehttp "GET /media/products/gallery/prod_1549_0.jpg HTTP/1.1" 200 32836
+INFO 2025-12-06 03:46:06,834 basehttp "GET /media/products/gallery/prod_1352_0.jpg HTTP/1.1" 200 13597
+WARNING 2025-12-06 03:46:06,876 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:46:07,192 basehttp "GET /media/products/gallery/prod_1566_0.jpg HTTP/1.1" 200 1452752
+INFO 2025-12-06 03:46:19,635 basehttp "GET / HTTP/1.1" 200 116049
+WARNING 2025-12-06 03:46:19,976 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:46:20,119 basehttp "GET /media/products/gallery/prod_1439_0.jpg HTTP/1.1" 200 36259
+INFO 2025-12-06 03:49:49,174 basehttp "GET / HTTP/1.1" 200 116565
+WARNING 2025-12-06 03:49:49,256 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:50:02,707 basehttp "GET / HTTP/1.1" 200 118129
+WARNING 2025-12-06 03:50:02,797 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:50:53,153 basehttp "GET / HTTP/1.1" 200 116115
+WARNING 2025-12-06 03:50:53,471 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:51:09,780 basehttp "GET / HTTP/1.1" 200 117107
+INFO 2025-12-06 03:51:09,926 basehttp "GET /media/products/gallery/prod_1466_0.jpg HTTP/1.1" 200 16876
+WARNING 2025-12-06 03:51:10,153 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:51:15,472 basehttp "GET / HTTP/1.1" 200 118770
+WARNING 2025-12-06 03:51:15,492 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:51:59,981 basehttp "GET / HTTP/1.1" 200 116509
+WARNING 2025-12-06 03:52:00,236 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:52:15,175 basehttp "GET / HTTP/1.1" 200 119604
+WARNING 2025-12-06 03:52:15,510 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:52:22,594 basehttp "GET / HTTP/1.1" 200 117293
+WARNING 2025-12-06 03:52:22,920 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:54:12,590 basehttp "GET / HTTP/1.1" 200 118908
+WARNING 2025-12-06 03:54:12,620 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:55:05,777 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-12-06 03:55:06,160 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 03:55:13,208 autoreload E:\WebProjects\jebaenterprise\jeba_inventory\views.py changed, reloading.
+INFO 2025-12-06 03:55:13,574 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 03:55:45,736 basehttp "GET / HTTP/1.1" 200 120801
+WARNING 2025-12-06 03:55:45,755 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 03:55:58,740 basehttp "GET / HTTP/1.1" 200 118835
+WARNING 2025-12-06 03:55:58,992 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:56:35,147 basehttp "GET / HTTP/1.1" 200 121226
+WARNING 2025-12-06 03:56:35,454 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 03:58:11,501 basehttp "GET / HTTP/1.1" 200 119920
+WARNING 2025-12-06 03:58:11,523 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 04:01:25,347 basehttp "GET / HTTP/1.1" 200 129365
+WARNING 2025-12-06 04:01:25,573 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:01:39,374 basehttp "GET /product/1425/ HTTP/1.1" 200 86489
+INFO 2025-12-06 04:01:39,462 basehttp "GET /media/products/gallery/prod_1425_1.jpg HTTP/1.1" 200 33062
+INFO 2025-12-06 04:01:39,479 basehttp "GET /media/products/gallery/prod_1425_2.jpg HTTP/1.1" 200 29152
+INFO 2025-12-06 04:01:39,494 basehttp "GET /media/products/gallery/prod_1425_3.jpg HTTP/1.1" 200 41039
+WARNING 2025-12-06 04:01:39,839 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:01:50,875 basehttp "GET /product/1373/ HTTP/1.1" 200 78539
+WARNING 2025-12-06 04:01:51,502 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:01:59,093 basehttp "POST /sales/cart/add/1485/ HTTP/1.1" 302 0
+INFO 2025-12-06 04:01:59,176 basehttp "GET /product/1485/ HTTP/1.1" 200 84999
+INFO 2025-12-06 04:02:07,906 basehttp "GET /sales/cart/ HTTP/1.1" 200 48823
+WARNING 2025-12-06 04:02:07,964 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:02:10,528 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 172
+INFO 2025-12-06 04:02:11,134 basehttp "GET /sales/cart/ HTTP/1.1" 200 47038
+WARNING 2025-12-06 04:02:11,185 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:02:12,408 basehttp "GET / HTTP/1.1" 200 132964
+WARNING 2025-12-06 04:02:12,710 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:02:16,352 basehttp "POST /sales/cart/add/1636/ HTTP/1.1" 302 0
+INFO 2025-12-06 04:02:16,402 basehttp "GET /product/1636/ HTTP/1.1" 200 75105
+INFO 2025-12-06 04:02:19,004 basehttp "GET /sales/cart/ HTTP/1.1" 200 48821
+WARNING 2025-12-06 04:02:19,071 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:02:20,792 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 172
+INFO 2025-12-06 04:02:21,437 basehttp "GET /sales/cart/ HTTP/1.1" 200 47038
+INFO 2025-12-06 04:02:21,462 basehttp "GET / HTTP/1.1" 200 129551
+WARNING 2025-12-06 04:02:21,505 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:02:23,077 basehttp "GET / HTTP/1.1" 200 130803
+WARNING 2025-12-06 04:02:23,387 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:02:42,096 basehttp "GET /catalog/ HTTP/1.1" 200 428084
+WARNING 2025-12-06 04:02:43,265 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:02:45,065 basehttp "GET / HTTP/1.1" 200 128964
+WARNING 2025-12-06 04:02:45,413 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:03:10,275 basehttp "GET / HTTP/1.1" 200 129153
+WARNING 2025-12-06 04:03:10,549 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:05:02,191 basehttp "GET / HTTP/1.1" 200 126355
+WARNING 2025-12-06 04:05:02,511 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:05:42,374 basehttp "GET / HTTP/1.1" 200 132779
+WARNING 2025-12-06 04:05:42,625 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:06:00,345 basehttp "GET / HTTP/1.1" 200 131719
+WARNING 2025-12-06 04:06:00,688 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:06:16,590 basehttp "GET /catalog/ HTTP/1.1" 200 428084
+WARNING 2025-12-06 04:06:17,417 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:06:19,205 basehttp "GET / HTTP/1.1" 200 127199
+WARNING 2025-12-06 04:06:19,509 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+ERROR 2025-12-06 04:09:30,282 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 114, in home
+    return render(request, "jeba_inventory/home.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'contact' not found. 'contact' is not a valid view function or pattern name.
+ERROR 2025-12-06 04:09:30,284 basehttp "GET / HTTP/1.1" 500 242516
+ERROR 2025-12-06 04:09:40,971 log Internal Server Error: /
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_inventory\views.py", line 114, in home
+    return render(request, "jeba_inventory/home.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'contact' not found. 'contact' is not a valid view function or pattern name.
+ERROR 2025-12-06 04:09:40,972 basehttp "GET / HTTP/1.1" 500 242773
+INFO 2025-12-06 04:11:57,283 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
+INFO 2025-12-06 04:11:57,674 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 04:12:15,914 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
+INFO 2025-12-06 04:12:16,279 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 04:12:22,306 autoreload E:\WebProjects\jebaenterprise\products\urls.py changed, reloading.
+INFO 2025-12-06 04:12:22,678 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 04:12:24,257 basehttp "GET / HTTP/1.1" 200 134471
+WARNING 2025-12-06 04:12:25,065 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:13:03,903 basehttp "GET /contact/ HTTP/1.1" 200 46658
+WARNING 2025-12-06 04:13:04,027 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:13:29,780 basehttp "GET / HTTP/1.1" 200 132903
+WARNING 2025-12-06 04:13:29,798 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 04:14:58,285 basehttp "GET /contact/ HTTP/1.1" 200 46658
+WARNING 2025-12-06 04:14:58,431 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:16:26,646 basehttp "GET /contact/ HTTP/1.1" 200 44865
+WARNING 2025-12-06 04:16:26,722 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:16:44,533 basehttp "GET / HTTP/1.1" 200 134136
+WARNING 2025-12-06 04:16:44,867 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:17:18,844 basehttp "GET /product/1421/ HTTP/1.1" 200 90527
+WARNING 2025-12-06 04:17:19,196 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:17:22,372 basehttp "GET / HTTP/1.1" 200 130178
+WARNING 2025-12-06 04:17:22,817 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:19:09,227 basehttp "GET / HTTP/1.1" 200 135051
+WARNING 2025-12-06 04:19:09,484 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:21:11,775 basehttp "GET / HTTP/1.1" 200 134213
+WARNING 2025-12-06 04:21:11,851 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:21:14,426 basehttp "GET /product/1421/ HTTP/1.1" 200 79003
+WARNING 2025-12-06 04:21:14,485 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:21:25,098 basehttp "GET /product/1421/ HTTP/1.1" 200 79003
+WARNING 2025-12-06 04:21:25,177 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:21:53,694 basehttp "GET /product/1423/ HTTP/1.1" 200 76880
+WARNING 2025-12-06 04:21:53,715 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 04:21:53,739 basehttp "GET /media/products/gallery/prod_1423_1.jpg HTTP/1.1" 200 53871
+INFO 2025-12-06 04:21:53,744 basehttp "GET /media/products/gallery/prod_1423_3.jpg HTTP/1.1" 200 44213
+INFO 2025-12-06 04:21:53,748 basehttp "GET /media/products/gallery/prod_1423_5.jpg HTTP/1.1" 200 41695
+INFO 2025-12-06 04:21:53,751 basehttp "GET /media/products/gallery/prod_1423_4.jpg HTTP/1.1" 200 61255
+INFO 2025-12-06 04:21:53,839 basehttp "GET /media/products/gallery/prod_1423_2.jpg HTTP/1.1" 200 64036
+INFO 2025-12-06 04:21:58,739 basehttp "GET /product/1423/ HTTP/1.1" 200 76880
+WARNING 2025-12-06 04:21:58,757 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 04:22:28,755 basehttp "POST /sales/cart/add/1423/ HTTP/1.1" 302 0
+INFO 2025-12-06 04:22:28,901 basehttp "GET /sales/checkout/ HTTP/1.1" 200 55976
+WARNING 2025-12-06 04:22:28,917 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 04:25:36,727 basehttp "GET /product/1421/ HTTP/1.1" 200 90527
+WARNING 2025-12-06 04:25:37,008 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:26:29,679 basehttp "GET /product/1421/ HTTP/1.1" 200 79325
+WARNING 2025-12-06 04:26:29,764 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:26:45,824 basehttp "GET /product/1421/ HTTP/1.1" 200 90527
+WARNING 2025-12-06 04:26:45,901 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:28:05,971 basehttp "GET /product/1421/ HTTP/1.1" 200 90527
+WARNING 2025-12-06 04:28:06,080 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:33:08,344 basehttp "GET /product/1421/ HTTP/1.1" 200 92829
+WARNING 2025-12-06 04:33:08,414 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:33:23,803 basehttp "GET /product/1421/ HTTP/1.1" 200 90528
+WARNING 2025-12-06 04:33:23,873 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:33:36,695 basehttp "GET /product/1421/ HTTP/1.1" 200 90528
+WARNING 2025-12-06 04:33:36,774 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:34:02,917 basehttp "GET / HTTP/1.1" 200 134262
+WARNING 2025-12-06 04:34:03,021 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:36:54,211 basehttp "GET / HTTP/1.1" 200 138051
+WARNING 2025-12-06 04:36:54,283 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:36:56,379 basehttp "GET /product/1421/ HTTP/1.1" 200 90771
+WARNING 2025-12-06 04:36:56,454 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:38:02,728 basehttp "GET /product/1421/ HTTP/1.1" 200 91593
+WARNING 2025-12-06 04:38:02,827 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:38:36,509 basehttp "GET /product/1421/ HTTP/1.1" 200 91387
+WARNING 2025-12-06 04:38:36,606 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:39:28,509 basehttp "GET /product/1421/ HTTP/1.1" 200 91387
+WARNING 2025-12-06 04:39:28,588 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:39:40,871 basehttp "GET / HTTP/1.1" 200 136726
+WARNING 2025-12-06 04:39:40,941 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:39:42,932 basehttp "GET /product/1472/ HTTP/1.1" 200 92010
+INFO 2025-12-06 04:39:43,018 basehttp "GET /media/products/gallery/prod_1472_1.jpg HTTP/1.1" 200 45712
+INFO 2025-12-06 04:39:43,019 basehttp "GET /media/products/gallery/prod_1472_2.jpg HTTP/1.1" 200 25190
+WARNING 2025-12-06 04:39:43,047 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:39:43,076 basehttp "GET /media/products/gallery/prod_1472_3.jpg HTTP/1.1" 200 76270
+INFO 2025-12-06 04:39:50,475 basehttp "GET / HTTP/1.1" 200 136275
+WARNING 2025-12-06 04:39:50,552 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:39:51,071 basehttp "GET / HTTP/1.1" 200 133751
+WARNING 2025-12-06 04:39:51,145 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:39:59,789 basehttp "GET /catalog/ HTTP/1.1" 200 432745
+WARNING 2025-12-06 04:40:01,087 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:40:04,039 basehttp "GET / HTTP/1.1" 200 132452
+WARNING 2025-12-06 04:40:04,360 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:40:10,013 basehttp "GET /catalog/ HTTP/1.1" 200 432745
+WARNING 2025-12-06 04:40:10,803 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:40:12,690 basehttp "GET /product/1630/ HTTP/1.1" 200 91414
+WARNING 2025-12-06 04:40:12,770 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:40:23,892 basehttp "GET / HTTP/1.1" 200 137014
+WARNING 2025-12-06 04:40:24,386 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:41:54,481 basehttp "GET / HTTP/1.1" 200 134845
+WARNING 2025-12-06 04:41:54,730 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:42:31,301 basehttp "GET / HTTP/1.1" 200 134174
+WARNING 2025-12-06 04:42:31,383 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:42:33,104 basehttp "GET /product/1421/ HTTP/1.1" 200 92034
+WARNING 2025-12-06 04:42:33,470 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:43:08,685 basehttp "GET /product/1421/ HTTP/1.1" 200 91973
+WARNING 2025-12-06 04:43:08,779 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:46:32,316 basehttp "GET / HTTP/1.1" 200 133342
+WARNING 2025-12-06 04:46:32,444 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:46:37,490 basehttp "GET /product/1594/ HTTP/1.1" 200 84233
+INFO 2025-12-06 04:46:37,570 basehttp "GET /media/products/gallery/prod_1594_2.jpg HTTP/1.1" 200 45446
+WARNING 2025-12-06 04:46:37,587 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-06 04:46:37,668 basehttp "GET /media/products/gallery/prod_1594_1.jpg HTTP/1.1" 200 85715

@@ -718,56 +718,276 @@
     </div>
     
     {% block footer %}
-    <footer class="sequoia-footer">
-        <div class="footer-content">
+    <style>
+    /* --- FOOTER BASE (Light Theme) --- */
+    .site-footer {
+        background-color: #ffffff; /* Pure White */
+        border-top: 1px solid #f3f4f6; /* Subtle Separation */
+        color: #4b5563; /* Cool Gray Text */
+        padding: 60px 0 20px;
+        font-family: 'Inter', sans-serif;
+        position: relative;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* --- TOP SECTION --- */
+    .footer-top {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr; /* Custom Grid Layout */
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+
+    /* BRAND COLUMN */
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer-logo {
+        display: inline-block;
+        text-decoration: none;
+    }
+    .footer-logo h2 {
+        color: #111827; /* Dark Black */
+        font-weight: 800;
+        margin: 0;
+        font-size: 1.5rem;
+        letter-spacing: -0.5px;
+    }
+    .footer-logo img { height: 35px; width: auto; }
+    
+    .footer-desc {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #6b7280;
+        max-width: 300px;
+    }
+
+    /* SOCIAL ICONS (Light Theme) */
+    .footer-social { display: flex; gap: 12px; }
+    .social-link {
+        width: 36px; height: 36px;
+        background: #f3f4f6; /* Light Gray */
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        color: #374151;
+        transition: all 0.2s;
+        text-decoration: none;
+        border: 1px solid transparent;
+    }
+    .social-link:hover {
+        background: #111827; /* Black on Hover */
+        color: white;
+        transform: translateY(-2px);
+    }
+    .social-link svg { width: 18px; height: 18px; }
+
+    /* LINK COLUMNS */
+    .footer-col h4 {
+        color: #111827;
+        font-size: 0.95rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .footer-menu { list-style: none; padding: 0; margin: 0; }
+    .footer-menu li { margin-bottom: 10px; }
+    .footer-menu a {
+        color: #6b7280;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: 0.2s;
+        display: inline-block;
+    }
+    .footer-menu a:hover {
+        color: #111827; /* Darker on hover */
+        transform: translateX(3px);
+    }
+
+    /* DYNAMIC CONTACT */
+    .contact-list { display: flex; flex-direction: column; gap: 12px; }
+    .contact-item {
+        display: flex; align-items: flex-start; gap: 10px;
+        font-size: 0.9rem; color: #6b7280;
+    }
+    .contact-icon { color: #111827; flex-shrink: 0; margin-top: 2px; }
+
+    /* --- BOTTOM BAR --- */
+    .footer-bottom {
+        border-top: 1px solid #f3f4f6;
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .copyright { font-size: 0.85rem; color: #9ca3af; }
+
+    /* PAYMENT METHODS */
+    .payment-methods { display: flex; align-items: center; gap: 10px; }
+    .payment-label { font-size: 0.8rem; color: #9ca3af; margin-right: 5px; }
+    
+    .pay-badge {
+        height: 30px;
+        padding: 0 10px;
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .pay-badge img { height: 18px; width: auto; }
+    .pay-cod {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #374151;
+        background: #f9fafb;
+    }
+
+    /* --- MOBILE RESPONSIVENESS (< 768px) --- */
+    @media (max-width: 900px) {
+        .footer-top {
+            grid-template-columns: 1fr 1fr; /* 2 Columns tablet */
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .site-footer { padding: 40px 0 20px; }
+        
+        .footer-top {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            margin-bottom: 30px;
+        }
+        
+        /* Stack everything nicely */
+        .footer-brand { align-items: center; text-align: center; }
+        .footer-col { text-align: center; }
+        
+        .contact-item { justify-content: center; }
+        
+        .footer-bottom {
+            flex-direction: column-reverse; /* Copyright at bottom */
+            gap: 15px;
+        }
+    }
+</style>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        
+        <div class="footer-top">
+            
             <div class="footer-brand">
-                <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 35px; margin-bottom: 5px;">
-                <p>{% trans "Making modern lifestyle products accessible to everyone. Join our newsletter for exclusive offers." %}</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('{% blocktrans %}Thanks for subscribing!{% endblocktrans %}');">
-                    <input type="email" class="newsletter-input" placeholder="{% trans 'Enter your email' %}" required>
-                    <button type="submit" class="btn-subscribe">{% trans "Join" %}</button>
-                </form>
+                <a href="/" class="footer-logo">
+                    {% if site_settings.logo %}
+                        <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.site_name }}">
+                    {% else %}
+                        <h2>{{ site_settings.site_name|default:"JebaEnterprise" }}</h2>
+                    {% endif %}
+                </a>
+                <p class="footer-desc">
+                    {{ site_settings.site_description|default:"Premium products delivered with trust and speed." }}
+                </p>
+                
+                <div class="footer-social">
+                    {% if site_settings.facebook_page_url %}
+                    <a href="{{ site_settings.facebook_page_url }}" class="social-link" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    {% endif %}
+                    {% if site_settings.instagram_page_url %}
+                    <a href="{{ site_settings.instagram_page_url }}" class="social-link" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    {% endif %}
+                    {% if site_settings.youtube_page_url %}
+                    <a href="{{ site_settings.youtube_page_url }}" class="social-link" target="_blank" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    {% endif %}
+                </div>
             </div>
 
-            <div class="footer-links">
-                <div>
-                    <div class="col-title">{% trans "Shop" %}</div>
-                    <ul class="footer-link-list">
-                        <li><a href="{% url 'home' %}">{% trans "New Arrivals" %}</a></li>
-                        <li><a href="{% url 'product_catalog' %}">{% trans "Best Sellers" %}</a></li>
-                        <li><a href="{% url 'product_catalog' %}">{% trans "All Products" %}</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <div class="col-title">{% trans "Support" %}</div>
-                    <ul class="footer-link-list">
-                        <li><a href="{% url 'my_orders' %}">{% trans "Track Order" %}</a></li>
-                        <li><a href="#">{% trans "Return Policy" %}</a></li>
-                        <li><a href="#">{% trans "Help Center" %}</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <div class="col-title">{% trans "Company" %}</div>
-                    <ul class="footer-link-list">
-                        <li><a href="{% url 'blog_list' %}">{% trans "Our Blog" %}</a></li>
-                        <li><a href="{% url 'about_us' %}">{% trans "About Us" %}</a></li> 
-                        <li><a href="#">{% trans "Careers" %}</a></li>
-                        <li><a href="{% url 'contact_us' %}">{% trans "Contact" %}</a></li> 
-                        <li><a href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
-                    </ul>
-                </div>
+            <div class="footer-col">
+                <h4>{% trans "Discover" %}</h4>
+                <ul class="footer-menu">
+                    <li><a href="{% url 'product_catalog' %}?sort=new">{% trans "New Arrivals" %}</a></li>
+                    <li><a href="{% url 'product_catalog' %}?sort=popularity">{% trans "Best Sellers" %}</a></li>
+                    <li><a href="{% url 'product_catalog' %}">{% trans "Catalog" %}</a></li>
+                    <li><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+                </ul>
             </div>
+
+            <div class="footer-col">
+                <h4>{% trans "Support" %}</h4>
+                <ul class="footer-menu">
+                    <li><a href="#">{% trans "Track My Order" %}</a></li>
+                    <li><a href="#">{% trans "Shipping Info" %}</a></li>
+                    <li><a href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
+                    <li><a href="{% url 'contact' %}">{% trans "Contact Us" %}</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+    <h4>{% trans "Get in Touch" %}</h4>
+    <div class="contact-list">
+        {% if site_settings.contact_address %}
+        <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <span>{{ site_settings.contact_address }}</span>
+        </div>
+        {% endif %}
+        
+        {% if site_settings.contact_phone %}
+        <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <a href="tel:{{ site_settings.contact_phone }}" style="color: inherit; text-decoration: none;">
+                {{ site_settings.contact_phone }}
+            </a>
+        </div>
+        {% endif %}
+        
+        {% if site_settings.contact_email %}
+        <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <a href="mailto:{{ site_settings.contact_email }}" style="color: inherit; text-decoration: none;">
+                {{ site_settings.contact_email }}
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
         </div>
 
         <div class="footer-bottom">
-            <div>&copy; {% now "Y" %} {% trans "Jeba Enterprise. All rights reserved." %}</div>
-            <div class="social-links">
-                <a href="{{ site_settings.facebook_page_url }}" target="_blank" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+            <div class="copyright">
+                &copy; {% now "Y" %} {{ site_settings.site_name|default:"JebaEnterprise" }}. All rights reserved.
+            </div>
+            
+            <div class="payment-methods">
+                <span class="payment-label">{% trans "We accept:" %}</span>
+                
+                <div class="pay-badge" title="Bkash">
+                    <img src="https://seeklogo.com/images/B/bkash-logo-0C1572FBB4-seeklogo.com.png" alt="Bkash">
+                </div>
+                
+                <div class="pay-badge pay-cod" title="Cash on Delivery">
+                    COD
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
     {% endblock footer %}
 
     {% block chat_widget %}

@@ -600,7 +600,7 @@
         <p style="color:#666; margin-top:5px; font-size:0.9rem;">{% trans "Choose how you'd like to get in touch for" %} <b>{{ product.display_name }}</b></p>
         
         <div class="contact-options">
-            <a href="tel:{{ site_settings.phone }}" class="contact-opt">
+            <a href="tel:{{ site_settings.contact_phone }}" class="contact-opt">
                 <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                 {% trans "Call Now" %}
             </a>
@@ -705,18 +705,31 @@
 
         <div class="trust-grid">
             <div class="trust-item">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 <span>{% trans "Fast" %}<br>{% trans "Delivery" %}</span>
             </div>
             <div class="trust-item">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                <span>100%<br>{% trans "Authentic" %}</span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                <span>{% trans "Cash on" %}<br>{% trans "Delivery" %}</span>
             </div>
             <div class="trust-item">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                <span>{% trans "Secure" %}<br>{% trans "Checkout" %}</span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                <span>{% trans "Secure" %}<br>{% trans "Payment" %}</span>
             </div>
         </div>
+
+        <div id="tab-shipping" class="tab-content">
+    <ul style="padding-left:20px; margin:0; list-style-type: disc;">
+        <li style="margin-bottom: 8px;"><strong>{% trans "Inside Dhaka:" %}</strong> {{ site_settings.delivery_charge_inside|default:"60" }} TK (2-3 Days)</li>
+        <li style="margin-bottom: 8px;"><strong>{% trans "Outside Dhaka:" %}</strong> {{ site_settings.delivery_charge_outside|default:"120" }} TK (3-5 Days)</li>
+        <li style="margin-bottom: 8px;">
+            <strong>{% trans "Payment Options:" %}</strong> 
+            {% trans "Cash on Delivery (COD) and Bkash are available." %}
+        </li>
+        <li style="margin-bottom: 8px;"><strong>{% trans "Helpline:" %}</strong> {{ site_settings.contact_phone|default:"+880..." }}</li>
+        {% comment %} <li><strong>{% trans "Returns:" %}</strong> {% trans "7 Days Easy Return Policy." %}</li> {% endcomment %}
+    </ul>
+</div>
 
         {% if product.variations.all %}
             <form id="cart-form" action="{% url 'add_to_cart_variation' product.variations.first.id %}" method="POST">
@@ -1096,4 +1109,5 @@
     });
 </script>
 {% endif %}
+
 {% endblock %}
