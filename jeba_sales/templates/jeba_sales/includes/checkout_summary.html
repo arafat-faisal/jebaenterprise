@@ -1,0 +1,50 @@
+{% load humanize %}
+
+<div class="order-summary-content">
+    {% for item in cart_items %}
+    <div class="product-row">
+        <div class="product-img-wrapper">
+            {% if item.product.thumbnail %}
+                <img src="{{ item.product.thumbnail.url }}" class="product-img">
+            {% else %}
+                <img src="https://via.placeholder.com/64" class="product-img">
+            {% endif %}
+            <span class="qty-badge">{{ item.quantity }}</span>
+        </div>
+        <div class="product-info">
+            <span class="product-name">{{ item.product.name }}</span>
+            {% if item.variation %}
+                <span class="product-variant">{{ item.variation.name }}</span>
+            {% endif %}
+        </div>
+        <div class="product-price">৳{{ item.item_total|floatformat:0 }}</div>
+    </div>
+    {% endfor %}
+
+    <div class="coupon-row">
+        <div class="form-floating" style="flex-grow:1; margin-bottom:0;">
+            <input type="text" id="coupon-input" class="form-control" placeholder="Discount code">
+            <label>{% trans "Gift card or discount code" %}</label>
+        </div>
+        <button type="button" id="coupon-btn" class="btn-apply" onclick="applyCoupon()">Apply</button>
+    </div>
+    <div id="coupon-msg" style="font-size:0.85rem; margin-top:-15px; margin-bottom:20px;"></div>
+
+    <div class="pricing-row">
+        <span>{% trans "Subtotal" %}</span>
+        <span>৳{{ total_price|floatformat:0 }}</span>
+    </div>
+    <div class="pricing-row">
+        <span>{% trans "Shipping" %}</span>
+        <span class="shipping-display">--</span>
+    </div>
+    <div class="pricing-row discount-row" style="display:none; color:green;">
+        <span>{% trans "Discount" %}</span>
+        <span class="discount-amount">-৳0</span>
+    </div>
+
+    <div class="total-row">
+        <span class="total-label">{% trans "Total" %}</span>
+        <span class="total-amount total-display">৳{{ total_price|floatformat:0 }}</span>
+    </div>
+</div>

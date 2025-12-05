@@ -161,9 +161,19 @@
     .item-thumb-container {
         width: 60px; height: 60px; border-radius: 8px; overflow: hidden;
         background: #f0f0f0; flex-shrink: 0; border: 1px solid #eee;
+        position: relative;
     }
     .item-thumb { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; }
     
+    /* Thumb Badge for Qty */
+    .thumb-qty-badge {
+        position: absolute; top: -8px; right: -8px;
+        background: #666; color: white;
+        width: 20px; height: 20px; border-radius: 50%;
+        font-size: 0.75rem; display: flex; align-items: center; justify-content: center;
+        z-index: 2;
+    }
+
     .item-info { flex-grow: 1; min-width: 0; }
     .item-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; display: block; line-height: 1.3; }
     .item-meta { font-size: 0.85rem; color: var(--text-sub, #666); }
@@ -181,7 +191,41 @@
     }
     .btn-checkout:hover { transform: translateY(-2px); opacity: 0.95; }
 
-    /* --- NEW QUANTITY CONTROLS --- */
+    /* --- NEW FEATURES STYLING --- */
+    
+    /* 1. Mobile Toggle */
+    .mobile-summary-toggle {
+        display: none; /* Hidden on desktop */
+        background: #fafafa; border-bottom: 1px solid #e1e1e1;
+        padding: 15px 20px; align-items: center; justify-content: space-between;
+        cursor: pointer; margin-bottom: 20px;
+    }
+    .toggle-text { display: flex; align-items: center; gap: 8px; color: #3F51B5; font-weight: 600; }
+    .toggle-price { font-weight: 800; font-size: 1.1rem; }
+    .summary-content-mobile { display: none; background: #fafafa; padding: 20px; border-bottom: 1px solid #e1e1e1; margin-bottom: 20px; }
+
+    /* 2. Coupon Field */
+    .coupon-box { display: flex; gap: 10px; margin: 25px 0; }
+    .coupon-input { 
+        flex-grow: 1; padding: 12px 15px; border: 1px solid #ddd; 
+        border-radius: 8px; font-size: 0.9rem; 
+    }
+    .btn-apply {
+        background: #ccc; color: white; border: none; padding: 0 20px;
+        border-radius: 8px; font-weight: 600; cursor: default; transition: 0.2s;
+    }
+    .coupon-input:not(:placeholder-shown) + .btn-apply {
+        background: #3F51B5; cursor: pointer;
+    }
+
+    /* 3. Variation Selector */
+    .var-select {
+        background: #f8f9fa; border: 1px solid #ddd; border-radius: 4px;
+        padding: 2px 5px; font-size: 0.8rem; color: #555; max-width: 100%; cursor: pointer;
+        margin-top: 4px;
+    }
+
+    /* 4. Quantity Controls */
     .qty-controls {
         display: inline-flex;
         align-items: center;
@@ -218,7 +262,13 @@
 
     @media (max-width: 900px) {
         .checkout-grid { grid-template-columns: 1fr; gap: 20px; }
-        .summary-card { position: static; order: -1; margin-bottom: 20px; }
+        
+        /* Hide Desktop Summary Sidebar by default on mobile */
+        .right-col { display: none; } 
+        
+        /* Show Mobile Toggle */
+        .mobile-summary-toggle { display: flex; }
+        
         .btn-checkout.desktop-only { display: none; }
         .mobile-spacer { height: 100px; } 
     }
@@ -231,6 +281,16 @@
         border-radius: 10px; margin-bottom: 25px; font-weight: 600; font-size: 0.9rem; text-align: center;
     }
 </style>
+
+<div class="mobile-summary-toggle" onclick="toggleMobileSummary()">
+    <div class="toggle-text">
+        <span id="toggle-icon">▶</span> {% trans "Show order summary" %}
+    </div>
+    <div class="toggle-price" id="mobile-header-total">৳{{ total_price|floatformat:0 }}</div>
+</div>
+
+<div class="summary-content-mobile" id="mobile-summary-content">
+    </div>
 
 <div class="container" style="max-width: 1100px; margin: 0 auto;">
     
@@ -374,7 +434,7 @@
             </div>
         </div>
 
-        <div class="right-col">
+        <div class="right-col" id="sidebar-content">
             <div class="summary-card">
                 <div class="section-title">{% trans "Order Summary" %}</div>
                 
@@ -382,18 +442,26 @@
                     {% for item in cart_items %}
                     <div class="order-item" id="row-{{ item.id }}">
                         <div class="item-thumb-container">
-                            {% if item.product.images.first %}
-                                <img src="{{ item.product.images.first.image.url }}" class="item-thumb" alt="{{ item.product.name }}">
-                            {% elif item.product.main_image_obj %}
-                                <img src="{{ item.product.main_image_obj.image.url }}" class="item-thumb" alt="{{ item.product.name }}">
+                            {% if item.product.thumbnail %}
+                                <img src="{{ item.product.thumbnail.url }}" class="item-thumb" alt="{{ item.product.name }}">
                             {% else %}
-                                <img src="https://via.placeholder.com/60/eeeeee/cccccc?text=No+Img" class="item-thumb" alt="No Image">
+                                <img src="https://via.placeholder.com/60" class="item-thumb" alt="No Image">
                             {% endif %}
+                            <span class="thumb-qty-badge">{{ item.quantity }}</span>
                         </div>
                         
                         <div class="item-info">
                             <span class="item-title">{{ item.product.name }}</span>
-                            {% if item.variation %}
+                            
+                            {% if item.variations %}
+                                <select class="var-select update-cart" data-id="{{ item.id }}" data-action="swap" onchange="triggerSwap(this)">
+                                    {% for v in item.variations %}
+                                        <option value="{{ v.id }}" {% if item.variation.id == v.id %}selected{% endif %}>
+                                            {{ v.name }} - ৳{{ v.selling_price|floatformat:0 }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            {% elif item.variation %}
                                 <span class="item-meta text-muted">{% trans "Var" %}: {{ item.variation.name }}</span>
                             {% endif %}
                             
@@ -412,9 +480,19 @@
                     {% endfor %}
                 </div>
 
+                <div class="coupon-box">
+                    <input type="text" id="coupon-input" class="coupon-input" placeholder="{% trans 'Coupon Code' %}">
+                    <button type="button" class="btn-apply" onclick="applyCoupon()">{% trans "Apply" %}</button>
+                </div>
+                <div id="coupon-msg" style="font-size:0.85rem; margin-top:-15px; margin-bottom:15px; display:none;"></div>
+
                 <div class="cost-row">
                     <span>{% trans "Subtotal" %}</span>
-                    <span>৳<span id="subtotal-display">{{ total_price|floatformat:0 }}</span></span>
+                    <span>৳<span id="subtotal-display">{{ subtotal|default:total_price|floatformat:0 }}</span></span>
+                </div>
+                <div class="cost-row discount-row" style="color:green; {% if discount == 0 %}display:none;{% endif %}">
+                    <span>{% trans "Discount" %}</span>
+                    <span id="discount-display">-৳{{ discount|floatformat:0 }}</span>
                 </div>
                 <div class="cost-row">
                     <span>{% trans "Delivery" %}</span>
@@ -445,8 +523,9 @@
     </div>
 
     <script>
-        // Global variable for current subtotal (starts with server value)
-        let currentSubtotal = parseFloat("{{ total_price }}");
+        // State
+        let currentSubtotal = parseFloat("{{ subtotal|default:total_price }}");
+        let currentDiscount = parseFloat("{{ discount|default:0 }}");
 
         // 1. Delivery & Total Calculation
         function updateTotal() {
@@ -460,11 +539,13 @@
                 document.getElementById('delivery-display').innerText = '--';
             }
 
-            let grandTotal = currentSubtotal + deliveryCost;
+            let grandTotal = currentSubtotal + deliveryCost - currentDiscount;
+            if(grandTotal < 0) grandTotal = 0;
             
             // Update all Total Displays
-            document.getElementById('grand-total-display').innerText = '৳' + grandTotal.toLocaleString();
-            document.getElementById('sticky-total-display').innerText = '৳' + grandTotal.toLocaleString();
+            const fmtTotal = '৳' + grandTotal.toLocaleString();
+            document.getElementById('grand-total-display').innerText = fmtTotal;
+            document.getElementById('sticky-total-display').innerText = fmtTotal;
             
             const bkashDisplay = document.getElementById('bkash-amount-display');
             if(bkashDisplay) bkashDisplay.innerText = grandTotal.toLocaleString();
@@ -487,66 +568,140 @@
             }
         }
 
-        // 3. AJAX Cart Updates
+        // 3. Mobile Summary Toggle
+        function toggleMobileSummary() {
+            const content = document.getElementById('mobile-summary-content');
+            const icon = document.getElementById('toggle-icon');
+            const sidebar = document.getElementById('sidebar-content');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                icon.innerText = '▶';
+                content.innerHTML = ''; 
+            } else {
+                content.style.display = 'block';
+                icon.innerText = '▼';
+                // Clone sidebar to mobile view
+                content.innerHTML = sidebar.innerHTML;
+                attachCartListeners(); // Re-attach events to cloned buttons
+            }
+        }
+
+        // 4. Coupon Logic
+        function applyCoupon() {
+            // Find input (Desktop or Mobile)
+            const input = document.querySelector('.coupon-input') || document.querySelector('#mobile-summary-content .coupon-input');
+            const msg = document.getElementById('coupon-msg') || document.querySelector('#mobile-summary-content #coupon-msg');
+            const code = input ? input.value : '';
+            
+            if(!code) return;
+
+            fetch("{% url 'apply_coupon_api' %}", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "X-CSRFToken": "{{ csrf_token }}" },
+                body: JSON.stringify({ code: code })
+            })
+            .then(r => r.json())
+            .then(data => {
+                const msgBox = document.querySelectorAll('#coupon-msg'); // Both views
+                msgBox.forEach(el => el.style.display = 'block');
+                
+                if(data.status === 'success') {
+                    currentDiscount = parseFloat(data.discount);
+                    
+                    document.querySelectorAll('#discount-display').forEach(el => el.innerText = '-৳' + currentDiscount);
+                    document.querySelectorAll('.discount-row').forEach(el => el.style.display = 'flex');
+                    
+                    msgBox.forEach(el => {
+                        el.style.color = 'green';
+                        el.innerText = data.message;
+                    });
+                    
+                    updateTotal();
+                } else {
+                    msgBox.forEach(el => {
+                        el.style.color = 'red';
+                        el.innerText = data.message;
+                    });
+                }
+            });
+        }
+
+        // 5. Variant Swap Logic
+        function triggerSwap(selectEl) {
+            const itemId = selectEl.dataset.id;
+            const newVarId = selectEl.value;
+            
+            selectEl.disabled = true;
+            selectEl.style.opacity = '0.5';
+
+            fetch("{% url 'update_cart_api' %}", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "X-CSRFToken": "{{ csrf_token }}" },
+                body: JSON.stringify({ item_id: itemId, action: 'swap', new_variation_id: newVarId })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    window.location.reload(); 
+                } else {
+                    alert(data.message);
+                    selectEl.disabled = false;
+                    selectEl.style.opacity = '1';
+                }
+            });
+        }
+
+        // 6. AJAX Cart Updates
+        function attachCartListeners() {
+            // Remove old listeners to prevent duplicates (cloning replaces nodes)
+            const buttons = document.querySelectorAll('.update-cart');
+            buttons.forEach(btn => btn.replaceWith(btn.cloneNode(true)));
+
+            document.querySelectorAll('.update-cart').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if(this.tagName === 'SELECT') return; // Skip select events here
+                    
+                    e.preventDefault();
+                    const itemId = this.dataset.id;
+                    const action = this.dataset.action;
+                    
+                    fetch("{% url 'update_cart_api' %}", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json", "X-CSRFToken": "{{ csrf_token }}" },
+                        body: JSON.stringify({ item_id: itemId, action: action })
+                    })
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            if (action === 'remove' || (action === 'decrease' && data.item_qty < 1)) {
+                                document.querySelectorAll(`#row-${itemId}`).forEach(el => el.remove());
+                                if(data.cart_count === 0) window.location.reload(); 
+                            } else {
+                                document.querySelectorAll(`#row-${itemId} .qty-val`).forEach(el => el.textContent = data.item_qty);
+                                document.querySelectorAll(`#row-${itemId} .thumb-qty-badge`).forEach(el => el.textContent = data.item_qty);
+                                document.querySelectorAll(`#row-${itemId} .item-total`).forEach(el => el.textContent = parseFloat(data.item_total).toLocaleString());
+                            }
+                            
+                            currentSubtotal = parseFloat(data.cart_total);
+                            document.querySelectorAll('#subtotal-display').forEach(el => el.textContent = currentSubtotal.toLocaleString());
+                            updateTotal(); 
+                        }
+                    });
+                });
+            });
+        }
+
+        // Init
         document.addEventListener('DOMContentLoaded', function() {
-            // Initial calculation
             updateTotal();
+            attachCartListeners();
 
             // Mobile Nav Hide
             const globalNav = document.querySelector('.mobile-bottom-nav');
             if(globalNav && window.innerWidth < 900) {
                 globalNav.style.display = 'none';
             }
-            
-            // Quantity Button Logic
-            const buttons = document.querySelectorAll('.update-cart');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const itemId = this.dataset.id;
-                    const action = this.dataset.action;
-                    const row = document.getElementById(`row-${itemId}`);
-                    
-                    this.style.opacity = '0.5'; // Visual feedback
-
-                    fetch("{% url 'update_cart_api' %}", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value
-                        },
-                        body: JSON.stringify({ item_id: itemId, action: action })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        this.style.opacity = '1';
-
-                        if (data.status === 'success') {
-                            if (action === 'remove' || (action === 'decrease' && data.item_qty < 1)) {
-                                row.remove();
-                                if(data.cart_count === 0) window.location.reload(); 
-                            } else {
-                                // Update quantity text
-                                row.querySelector('.qty-val').textContent = data.item_qty;
-                                // Update item total
-                                row.querySelector('.item-total').textContent = parseFloat(data.item_total).toLocaleString();
-                            }
-                            
-                            // CRITICAL: Update global subtotal and re-run calculation
-                            currentSubtotal = parseFloat(data.cart_total);
-                            document.getElementById('subtotal-display').textContent = currentSubtotal.toLocaleString();
-                            updateTotal(); 
-
-                        } else {
-                            alert(data.message || "Error updating cart");
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        this.style.opacity = '1';
-                    });
-                });
-            });
 
             // Smart Phone Auto-Formatting
             const phoneInput = document.getElementById('id_phone_number');

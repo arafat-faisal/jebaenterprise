@@ -19,9 +19,42 @@ from jeba_sales.utils import send_order_email, render_to_pdf
 from products.steadfast import check_delivery_status
 from jeba_analytics.utils import send_purchase_event, send_add_to_cart_event
 from jeba_sales.notifications import send_telegram_order_notification
-
+from .models import Coupon
 # --- CART VIEWS ---
+# --- ADD THIS FUNCTION ---
+@require_POST
+def apply_coupon_api(request):
+    """API to validate coupon"""
+    try:
+        data = json.loads(request.body)
+        code = data.get('code', '').strip().upper()
+        
+        # 1. Validate Code
+        try:
+            coupon = Coupon.objects.get(code=code, active=True)
+        except Coupon.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Invalid or expired coupon code.'})
 
+        # 2. Validate Cart Total
+        cart = request.session.get('cart', {})
+        cart_total = sum(item['price'] * item['quantity'] for item in cart.values())
+        
+        if cart_total < coupon.min_spend:
+            return JsonResponse({'status': 'error', 'message': f"Minimum spend of ৳{coupon.min_spend} required."})
+
+        # 3. Apply to Session
+        request.session['coupon_code'] = coupon.code
+        request.session['discount_amount'] = float(coupon.discount_amount)
+        
+        return JsonResponse({
+            'status': 'success',
+            'discount': float(coupon.discount_amount),
+            'message': f'Coupon {code} applied!'
+        })
+        
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+    
 def add_to_cart(request: HttpRequest, product_id):
     """
     Handles adding simple products (no variations) to the cart.
@@ -223,21 +256,21 @@ def update_cart(request, item_id, action):
 
 @require_POST
 def update_cart_api(request):
-    """AJAX Endpoint for dynamic cart updates"""
+    """AJAX Endpoint for dynamic cart updates (Inc, Dec, Remove, Swap)"""
     try:
         data = json.loads(request.body)
         item_id = data.get('item_id')
         action = data.get('action')
+        # Extra param for swapping
+        new_var_id = data.get('new_variation_id') 
         
         if not item_id or not action:
             return JsonResponse({'status': 'error', 'message': 'Invalid parameters'}, status=400)
 
         cart = request.session.get('cart', {})
-        if item_id not in cart:
-             return JsonResponse({'status': 'error', 'message': 'Item not found'}, status=404)
-             
-        # Perform Logic
-        success, message = _process_cart_update(cart, item_id, action)
+        
+        # --- LOGIC HANDLER ---
+        success, message = _process_cart_update(cart, item_id, action, new_var_id)
         
         if not success:
             return JsonResponse({'status': 'error', 'message': message}, status=400)
@@ -250,28 +283,53 @@ def update_cart_api(request):
         new_item_qty = 0
         cart_count = len(cart)
         
+        # Calculate totals considering coupons (basic logic)
         for key, val in cart.items():
             line_total = val['price'] * val['quantity']
             new_cart_total += line_total
+            # If we swapped, the item_id might have changed or merged, so we return generic totals
             if key == item_id:
                 new_item_total = line_total
                 new_item_qty = val['quantity']
 
+        # Coupon Logic
+        discount = request.session.get('discount_amount', 0)
+        coupon_code = request.session.get('coupon_code')
+        
+        # Re-validate coupon min spend
+        if coupon_code:
+            try:
+                coupon = Coupon.objects.get(code=coupon_code, active=True)
+                if new_cart_total < coupon.min_spend:
+                    discount = 0 # Invalidate
+                    request.session['discount_amount'] = 0
+                    message = "Coupon removed (below min spend)"
+            except Coupon.DoesNotExist:
+                discount = 0
+
+        final_total = max(0, new_cart_total - discount)
+
         return JsonResponse({
             'status': 'success',
             'cart_total': new_cart_total,
+            'discount': discount,
+            'final_total': final_total,
             'item_total': new_item_total,
             'item_qty': new_item_qty,
             'cart_count': cart_count,
-            'action_performed': action
+            'action_performed': action,
+            'message': message
         })
 
     except Exception as e:
         return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+    
 
-
-def _process_cart_update(cart, item_id, action):
+def _process_cart_update(cart, item_id, action, new_var_id=None):
     """Helper logic shared between View and API"""
+    if item_id not in cart:
+        return False, "Item not found"
+
     item = cart[item_id]
     current_qty = item['quantity']
     
@@ -306,9 +364,50 @@ def _process_cart_update(cart, item_id, action):
     elif action == 'remove':
         del cart[item_id]
         return True, "Removed"
+
+    elif action == 'swap':
+        if not new_var_id: return False, "Missing Variation ID"
+        
+        try:
+            # 1. Get New Variation Data
+            new_var = ProductVariation.objects.get(id=new_var_id)
+            if not new_var.is_active: return False, "Variation unavailable"
+            
+            # 2. Check Stock
+            if new_var.stock_quantity < current_qty:
+                return False, f"Only {new_var.stock_quantity} left in {new_var.name}"
+
+            # 3. Construct New Key
+            new_key = f"var_{new_var_id}"
+            
+            # 4. Merge or Move
+            if new_key in cart:
+                # Merge: Add current qty to existing item
+                cart[new_key]['quantity'] += current_qty
+                # Check if merged qty exceeds stock
+                if cart[new_key]['quantity'] > new_var.stock_quantity:
+                    # Rollback
+                    cart[new_key]['quantity'] -= current_qty
+                    return False, "Not enough stock to merge"
+            else:
+                # Create new entry
+                cart[new_key] = {
+                    'product_id': item['product_id'],
+                    'name': f"{new_var.product.name} ({new_var.name})",
+                    'price': float(new_var.selling_price),
+                    'quantity': current_qty,
+                    'variation_id': new_var.id,
+                    'image_url': item.get('image_url', '') # Keep same image or update if var has one
+                }
+            
+            # 5. Remove Old Item
+            del cart[item_id]
+            return True, "Variation Updated"
+
+        except ProductVariation.DoesNotExist:
+            return False, "Variation invalid"
     
     return False, "Invalid action"
-
 
 # --- CHECKOUT & ORDERS ---
 
@@ -347,8 +446,15 @@ def checkout(request):
 
                     # 2. Create Sale
                     new_sale = form.save(commit=False)
-                    if request.user.is_authenticated:
-                        new_sale.user = request.user
+                    new_sale.user = request.user if request.user.is_authenticated else None
+
+                    # Apply Coupon from Session
+                    coupon_code = request.session.get('coupon_code')
+                    discount = request.session.get('discount_amount', 0)
+                    if coupon_code and discount > 0:
+                        new_sale.coupon_code = coupon_code
+                        new_sale.discount_amount = discount
+                        # You might need to add these fields to Sale model or calculate net total
 
                     # Delivery Charge Logic
                     delivery_area = form.cleaned_data.get('delivery_area')
@@ -375,7 +481,11 @@ def checkout(request):
 
                 # 4. Async Tasks
                 _handle_post_checkout(request, new_sale)
+                
 
+                # Cleanup Session
+                request.session.pop('coupon_code', None)
+                request.session.pop('discount_amount', None)
                 request.session['last_order_id'] = new_sale.id
                 request.session['cart'] = {}
                 return redirect('order_success')
@@ -388,6 +498,7 @@ def checkout(request):
                 messages.error(request, "An unexpected error occurred.")
                 return redirect('view_cart')
     else:
+        # GET Request
         initial_data = {}
         if request.user.is_authenticated:
             initial_data['customer_name'] = f"{request.user.first_name} {request.user.last_name}".strip()
@@ -396,9 +507,8 @@ def checkout(request):
                 initial_data['shipping_address'] = request.user.profile.address
         form = CheckoutForm(initial=initial_data)
 
-    # --- FIX STARTS HERE: Reconstruct Cart Items properly ---
     cart_items = []
-    total_price = 0
+    cart_subtotal = 0
     
     for key, item_data in cart.items():
         try:
@@ -414,24 +524,33 @@ def checkout(request):
                 continue
 
         item_total = item_data['price'] * item_data['quantity']
-        total_price += item_total
+        cart_subtotal += item_total
         
-        # We pass a dictionary that mimics the structure template expects
-        # crucially including 'product' (the object) and 'id' (the cart key)
+        # FETCH VARIATIONS FOR DROPDOWN
+        available_variations = None
+        if product.variations.exists():
+            available_variations = product.variations.filter(is_active=True)
+
         cart_items.append({
-            'id': key,                  # <--- Required for JS Buttons
-            'product': product,         # <--- Required for Images
+            'id': key,
+            'product': product,
             'variation': variation,
+            'variations': available_variations, # <--- NEW: List of options
             'name': item_data['name'],
             'price': item_data['price'],
             'quantity': item_data['quantity'],
             'item_total': item_total,
         })
-    # ---------------------------------------------------------
+
+    # Coupon Handling
+    discount = request.session.get('discount_amount', 0)
+    final_total = max(0, cart_subtotal - discount)
 
     context = {
         'cart_items': cart_items, 
-        'total_price': total_price,
+        'subtotal': cart_subtotal,
+        'discount': discount,
+        'total_price': final_total, # Used for initial render
         'form': form,
         'settings': settings_obj,
     }

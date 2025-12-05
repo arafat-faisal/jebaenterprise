@@ -25,4 +25,5 @@ urlpatterns = [
 
     # --- WEBHOOKS ---
     path('webhook/steadfast/', views.steadfast_webhook, name='steadfast_webhook'),
+    path('cart/api/apply-coupon/', views.apply_coupon_api, name='apply_coupon_api'), # <--- ADD THIS
 ]
