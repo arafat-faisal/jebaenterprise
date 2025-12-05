@@ -675,21 +675,31 @@
             <span>({{ reviews.count }} {% trans "Reviews" %})</span>
         </div>
 
-        <div class="price-wrapper">
+        <div class="price-wrapper" id="price-container">
             {% if product.call_for_price %}
                 <span class="badge-stock badge-contact">{% trans "Call for Price" %}</span>
             {% else %}
                 <span class="price-tag" id="display-price">৳{{ product.selling_price|floatformat:0 }}</span>
                 
-                {% if product.stock_quantity <= 0 %}
-                    <span class="badge-stock stock-out">{% trans "Out of Stock" %}</span>
-                {% elif product.stock_quantity <= 5 %}
-                    <span class="badge-stock stock-low pulse-anim">
-                        🔥 {% trans "Only" %} {{ product.stock_quantity }} {% trans "Left" %}
-                    </span>
-                {% else %}
-                    <span class="badge-stock stock-in">{% trans "In Stock" %}</span>
-                {% endif %}
+                <span id="old-price-display" style="text-decoration:line-through; color:#999; font-size:1.2rem; margin-left:10px; {% if not product.has_discount %}display:none;{% endif %}">
+                    ৳{{ product.original_price|floatformat:0 }}
+                </span>
+                
+                <span id="discount-badge" class="badge-stock stock-out" style="background:var(--color-danger); color:white; margin-left:5px; font-size:0.8rem; {% if not product.has_discount %}display:none;{% endif %}">
+                    SAVE ৳<span id="save-amount">{{ product.discount_amount }}</span>
+                </span>
+                
+                <span id="stock-badge-container" style="margin-left: 15px;">
+                    {% if product.stock_quantity <= 0 %}
+                        <span class="badge-stock stock-out">{% trans "Out of Stock" %}</span>
+                    {% elif product.stock_quantity <= 5 %}
+                        <span class="badge-stock stock-low pulse-anim">
+                            🔥 {% trans "Only" %} {{ product.stock_quantity }} {% trans "Left" %}
+                        </span>
+                    {% else %}
+                        <span class="badge-stock stock-in">{% trans "In Stock" %}</span>
+                    {% endif %}
+                </span>
             {% endif %}
         </div>
 
@@ -722,6 +732,9 @@
                         {% for var in product.variations.all %}
                             <option value="{{ var.id }}" 
                                     data-price="{{ var.selling_price|floatformat:0 }}"
+                                    data-old-price="{{ var.original_price|default:0|floatformat:0 }}"
+                                    data-stock="{{ var.stock_quantity }}"
+                                    /* REMOVED jeba_sales: prefix below */
                                     data-url="{% url 'add_to_cart_variation' var.id %}">
                                 {{ var.name }}
                             </option>
@@ -732,7 +745,8 @@
 
             <input type="hidden" name="quantity" id="main-qty-input" value="1">
 
-            {% if product.stock_quantity > 0 and not product.call_for_price %}
+            {% if product.stock_quantity > 0 or product.variations.all %}
+                {% if not product.call_for_price %}
                 <div class="action-row">
                     <div class="sb-qty-wrapper">
                         <button type="button" class="sb-qty-btn" onclick="updateQty(-1)">-</button>
@@ -740,13 +754,14 @@
                         <button type="button" class="sb-qty-btn" onclick="updateQty(1)">+</button>
                     </div>
                     
-                    <button type="submit" name="action" value="add" class="btn-main btn-cart" style="margin-right:10px;">
+                    <button type="submit" name="action" value="add" class="btn-main btn-cart" id="btn-add-desktop" style="margin-right:10px;">
                         {% trans "Add to Cart" %}
                     </button>
-                    <button type="submit" name="action" value="buy_now" class="btn-main btn-buy">
+                    <button type="submit" name="action" value="buy_now" class="btn-main btn-buy" id="btn-buy-desktop">
                         {% trans "Buy Now" %}
                     </button>
                 </div>
+                {% endif %}
             {% elif product.call_for_price %}
                 <div class="action-row">
                     <button type="button" onclick="toggleContactModal(true)" class="btn-main btn-contact">
@@ -774,11 +789,11 @@
             <button type="button" class="sb-qty-btn" onclick="updateQty(1)">+</button>
         </div>
         
-        <button type="submit" form="cart-form" name="action" value="add" class="sb-action-btn sb-cart-btn">
+        <button type="submit" form="cart-form" name="action" value="add" class="sb-action-btn sb-cart-btn" id="btn-add-mobile">
             <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         </button>
         
-        <button type="submit" form="cart-form" name="action" value="buy_now" class="sb-action-btn sb-buy-btn">
+        <button type="submit" form="cart-form" name="action" value="buy_now" class="sb-action-btn sb-buy-btn" id="btn-buy-mobile">
             {% trans "Buy Now" %}
         </button>
     {% endif %}
@@ -933,19 +948,94 @@
         }
     }
 
-    // --- 6. VARIATION LOGIC ---
+    // --- 6. VARIATION LOGIC (UPGRADED) ---
     document.addEventListener('DOMContentLoaded', () => {
         const varSelect = document.getElementById('variation-select');
         const priceDisplay = document.getElementById('display-price');
+        const oldPriceDisplay = document.getElementById('old-price-display');
+        const discountBadge = document.getElementById('discount-badge');
+        const saveAmountSpan = document.getElementById('save-amount');
+        const stockBadgeContainer = document.getElementById('stock-badge-container');
         const form = document.getElementById('cart-form');
+        
+        // Buttons to disable if out of stock
+        const addBtnDesk = document.getElementById('btn-add-desktop');
+        const buyBtnDesk = document.getElementById('btn-buy-desktop');
+        const addBtnMob = document.getElementById('btn-add-mobile');
+        const buyBtnMob = document.getElementById('btn-buy-mobile');
+        
+        const allBtns = [addBtnDesk, buyBtnDesk, addBtnMob, buyBtnMob].filter(b => b !== null);
 
         if(varSelect) {
-            varSelect.addEventListener('change', function() {
-                const opt = this.options[this.selectedIndex];
-                const newPrice = '৳' + opt.dataset.price;
-                if(priceDisplay) priceDisplay.innerText = newPrice;
+            // Function to run on change AND on load
+            const updateVariation = () => {
+                const opt = varSelect.options[varSelect.selectedIndex];
+                
+                // 1. Update Price
+                const newPrice = parseFloat(opt.dataset.price);
+                const oldPrice = parseFloat(opt.dataset.oldPrice) || 0;
+                
+                if(priceDisplay) priceDisplay.innerText = '৳' + newPrice;
                 form.action = opt.dataset.url;
-            });
+                
+                // 2. Update Discount
+                if (oldPrice > newPrice) {
+                    if(oldPriceDisplay) {
+                        oldPriceDisplay.innerText = '৳' + oldPrice;
+                        oldPriceDisplay.style.display = 'inline';
+                    }
+                    if(discountBadge) {
+                        if(saveAmountSpan) saveAmountSpan.innerText = (oldPrice - newPrice);
+                        discountBadge.style.display = 'inline-flex';
+                    }
+                } else {
+                    if(oldPriceDisplay) oldPriceDisplay.style.display = 'none';
+                    if(discountBadge) discountBadge.style.display = 'none';
+                }
+
+                // 3. Update Stock & Buttons
+                const stock = parseInt(opt.dataset.stock);
+                
+                if (stock <= 0) {
+                    // Out of Stock Logic
+                    allBtns.forEach(btn => {
+                        btn.disabled = true;
+                        btn.style.opacity = '0.5';
+                        btn.style.cursor = 'not-allowed';
+                        if(btn.tagName === 'BUTTON') btn.innerText = "{% trans 'Out of Stock' %}";
+                    });
+                    if(stockBadgeContainer) {
+                        stockBadgeContainer.innerHTML = '<span class="badge-stock stock-out">{% trans "Out of Stock" %}</span>';
+                    }
+                } else {
+                    // In Stock Logic
+                    allBtns.forEach(btn => {
+                        btn.disabled = false;
+                        btn.style.opacity = '1';
+                        btn.style.cursor = 'pointer';
+                        // Reset Text
+                        if(btn.classList.contains('btn-buy') || btn.classList.contains('sb-buy-btn')) {
+                            btn.innerText = "{% trans 'Buy Now' %}";
+                        } else if(btn.classList.contains('btn-cart')) {
+                             btn.innerText = "{% trans 'Add to Cart' %}";
+                        }
+                    });
+
+                    if(stockBadgeContainer) {
+                        if (stock <= 5) {
+                            stockBadgeContainer.innerHTML = `<span class="badge-stock stock-low pulse-anim">🔥 {% trans "Only" %} ${stock} {% trans "Left" %}</span>`;
+                        } else {
+                            stockBadgeContainer.innerHTML = '<span class="badge-stock stock-in">{% trans "In Stock" %}</span>';
+                        }
+                    }
+                }
+            };
+
+            // Run on load to set initial state
+            updateVariation();
+
+            // Run on change
+            varSelect.addEventListener('change', updateVariation);
         }
     });
 
@@ -973,7 +1063,7 @@
     // 2. AddToCart (Button Click with Delay)
     // We intercept the form submission to ensure the pixel fires
     const addBtns = document.querySelectorAll('.btn-add-cart, .spb-btn'); // Main + Sticky buttons
-    const cartForm = document.getElementById('add-to-cart-form');
+    const cartForm = document.getElementById('cart-form'); // FIXED: Was 'add-to-cart-form'
 
     addBtns.forEach(btn => {
         if(btn && cartForm) {

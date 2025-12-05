@@ -1114,3 +1114,1330 @@ INFO 2025-12-05 22:30:37,135 basehttp "GET /privacy-policy/ HTTP/1.1" 200 44176
 WARNING 2025-12-05 22:30:37,154 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
 INFO 2025-12-05 22:30:49,781 basehttp "GET /contact/ HTTP/1.1" 200 42493
 WARNING 2025-12-05 22:30:49,802 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:20,151 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 00:37:23,132 basehttp "GET / HTTP/1.1" 200 104781
+WARNING 2025-12-06 00:37:23,164 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:23,189 basehttp "GET /media/products/gallery/prod_1632_0.jpg HTTP/1.1" 200 25956
+INFO 2025-12-06 00:37:23,191 basehttp "GET /media/products/gallery/prod_1447_0.jpg HTTP/1.1" 200 40121
+INFO 2025-12-06 00:37:23,193 basehttp "GET /media/products/gallery/prod_1370_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-06 00:37:23,242 basehttp "GET /media/products/gallery/prod_1615_0.jpg HTTP/1.1" 200 40221
+INFO 2025-12-06 00:37:23,243 basehttp "GET /media/products/gallery/prod_1479_0.jpg HTTP/1.1" 200 28042
+INFO 2025-12-06 00:37:23,247 basehttp "GET /media/products/gallery/prod_1600_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 00:37:23,291 basehttp "GET /media/products/gallery/prod_1414_0.jpg HTTP/1.1" 200 138366
+INFO 2025-12-06 00:37:23,294 basehttp "GET /media/products/gallery/prod_1576_0.jpg HTTP/1.1" 200 42619
+INFO 2025-12-06 00:37:23,298 basehttp "GET /media/products/gallery/prod_1491_0.jpg HTTP/1.1" 200 32928
+INFO 2025-12-06 00:37:23,330 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 200 39513
+INFO 2025-12-06 00:37:23,336 basehttp "GET /media/products/gallery/prod_1450_0.jpg HTTP/1.1" 200 52923
+INFO 2025-12-06 00:37:23,341 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-12-06 00:37:23,373 basehttp "GET /media/products/gallery/prod_1518_0.jpg HTTP/1.1" 200 46874
+INFO 2025-12-06 00:37:23,382 basehttp "GET /media/products/gallery/prod_1343_0.jpg HTTP/1.1" 200 17724
+INFO 2025-12-06 00:37:23,382 basehttp "GET /media/products/gallery/prod_1454_0.jpg HTTP/1.1" 200 36526
+INFO 2025-12-06 00:37:23,414 basehttp "GET /media/products/gallery/prod_1471_0.jpg HTTP/1.1" 200 41298
+INFO 2025-12-06 00:37:23,421 basehttp "GET /media/products/gallery/prod_1573_0.jpg HTTP/1.1" 200 42106
+INFO 2025-12-06 00:37:23,423 basehttp "GET /media/products/gallery/prod_1444_0.jpg HTTP/1.1" 200 38513
+INFO 2025-12-06 00:37:23,528 basehttp "GET /media/products/gallery/prod_1428_0.jpg HTTP/1.1" 200 61664
+INFO 2025-12-06 00:37:23,528 basehttp "GET /media/products/gallery/prod_1582_0.jpg HTTP/1.1" 200 64454
+INFO 2025-12-06 00:37:23,528 basehttp "GET /media/products/gallery/prod_1611_0.jpg HTTP/1.1" 200 82986
+INFO 2025-12-06 00:37:23,533 basehttp "GET /media/products/gallery/prod_1468_0.jpg HTTP/1.1" 200 113216
+INFO 2025-12-06 00:37:23,534 basehttp "GET /media/products/gallery/prod_1586_0.jpg HTTP/1.1" 200 129524
+INFO 2025-12-06 00:37:23,537 basehttp "GET /media/products/gallery/prod_1603_0.jpg HTTP/1.1" 200 129691
+INFO 2025-12-06 00:37:23,582 basehttp "GET /media/products/gallery/prod_1529_0.jpg HTTP/1.1" 200 26872
+INFO 2025-12-06 00:37:23,588 basehttp "GET /media/products/gallery/prod_1460_0.jpg HTTP/1.1" 200 136842
+INFO 2025-12-06 00:37:23,594 basehttp "GET /media/products/gallery/prod_1453_0.jpg HTTP/1.1" 200 57952
+INFO 2025-12-06 00:37:23,594 basehttp "GET /media/products/gallery/prod_1545_0.jpg HTTP/1.1" 200 43117
+INFO 2025-12-06 00:37:23,596 basehttp "GET /media/products/gallery/prod_1346_0.jpg HTTP/1.1" 200 496634
+INFO 2025-12-06 00:37:23,605 basehttp "GET /media/products/gallery/prod_1519_0.jpg HTTP/1.1" 200 957584
+INFO 2025-12-06 00:37:23,614 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 200 56780
+INFO 2025-12-06 00:37:25,376 basehttp "GET /cart/ HTTP/1.1" 200 52040
+WARNING 2025-12-06 00:37:25,394 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:25,513 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-06 00:37:27,080 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 121
+INFO 2025-12-06 00:37:28,277 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 117
+INFO 2025-12-06 00:37:28,829 basehttp "GET /cart/ HTTP/1.1" 200 49034
+WARNING 2025-12-06 00:37:28,849 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:31,197 basehttp "GET / HTTP/1.1" 200 105589
+WARNING 2025-12-06 00:37:31,223 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:31,268 basehttp "GET /media/products/gallery/prod_1374_0.jpg HTTP/1.1" 200 42582
+INFO 2025-12-06 00:37:31,273 basehttp "GET /media/products/gallery/prod_1413_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 00:37:31,274 basehttp "GET /media/products/gallery/prod_1541_0.webp HTTP/1.1" 200 24272
+INFO 2025-12-06 00:37:31,274 basehttp "GET /media/products/gallery/prod_1406_0.jpg HTTP/1.1" 200 33922
+INFO 2025-12-06 00:37:31,275 basehttp "GET /media/products/gallery/prod_1425_0.jpg HTTP/1.1" 200 49226
+INFO 2025-12-06 00:37:31,276 basehttp "GET /media/products/gallery/prod_1610_0.jpg HTTP/1.1" 200 79435
+INFO 2025-12-06 00:37:31,321 basehttp "GET /media/products/gallery/prod_1568_0.jpg HTTP/1.1" 200 50737
+INFO 2025-12-06 00:37:31,333 basehttp "GET /media/products/gallery/prod_1591_0.jpg HTTP/1.1" 200 41954
+INFO 2025-12-06 00:37:31,337 basehttp "GET /media/products/gallery/prod_1628_0.jpg HTTP/1.1" 200 28476
+INFO 2025-12-06 00:37:31,337 basehttp "GET /media/products/gallery/prod_1449_0.jpg HTTP/1.1" 200 45291
+INFO 2025-12-06 00:37:31,341 basehttp "GET /media/products/gallery/prod_1371_0.jpg HTTP/1.1" 200 39297
+INFO 2025-12-06 00:37:31,341 basehttp "GET /media/products/gallery/prod_1594_0.jpg HTTP/1.1" 200 33999
+INFO 2025-12-06 00:37:31,367 basehttp "GET /media/products/gallery/prod_1395_0.jpg HTTP/1.1" 200 276359
+INFO 2025-12-06 00:37:31,386 basehttp "GET /media/products/gallery/prod_1500_0.jpg HTTP/1.1" 200 37529
+INFO 2025-12-06 00:37:31,389 basehttp "GET /media/products/gallery/prod_1581_0.jpg HTTP/1.1" 200 80607
+INFO 2025-12-06 00:37:31,395 basehttp "GET /media/products/gallery/prod_1495_0.jpg HTTP/1.1" 200 76018
+INFO 2025-12-06 00:37:31,396 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 200 60115
+INFO 2025-12-06 00:37:31,401 basehttp "GET /media/products/gallery/prod_1507_0.jpg HTTP/1.1" 200 1037208
+INFO 2025-12-06 00:37:31,406 basehttp "GET /media/products/gallery/prod_1466_0.jpg HTTP/1.1" 200 16876
+INFO 2025-12-06 00:37:31,430 basehttp "GET /media/products/gallery/prod_1509_0.jpg HTTP/1.1" 200 38458
+INFO 2025-12-06 00:37:31,442 basehttp "GET /media/products/gallery/prod_1510_0.jpg HTTP/1.1" 200 71817
+INFO 2025-12-06 00:37:31,442 basehttp "GET /media/products/gallery/prod_1536_0.jpg HTTP/1.1" 200 52748
+INFO 2025-12-06 00:37:31,445 basehttp "GET /media/products/gallery/prod_1381_0.jpg HTTP/1.1" 200 19132
+INFO 2025-12-06 00:37:31,448 basehttp "GET /media/products/gallery/prod_1435_0.jpg HTTP/1.1" 200 51873
+INFO 2025-12-06 00:37:31,477 basehttp "GET /media/products/gallery/prod_1539_0.jpg HTTP/1.1" 200 27488
+INFO 2025-12-06 00:37:31,499 basehttp "GET /media/products/gallery/prod_1422_0.jpg HTTP/1.1" 200 48828
+INFO 2025-12-06 00:37:31,501 basehttp "GET /media/products/gallery/prod_1597_0.jpg HTTP/1.1" 200 227441
+INFO 2025-12-06 00:37:31,521 basehttp "GET /media/products/gallery/prod_1365_0.jpg HTTP/1.1" 200 57492
+INFO 2025-12-06 00:37:34,356 basehttp "GET /product/1620/ HTTP/1.1" 200 78748
+WARNING 2025-12-06 00:37:34,377 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:34,412 basehttp "GET /media/products/gallery/prod_1620_1.jpg HTTP/1.1" 200 17238
+INFO 2025-12-06 00:37:34,419 basehttp "GET /media/products/gallery/prod_1620_2.jpg HTTP/1.1" 200 42262
+INFO 2025-12-06 00:37:34,423 basehttp "GET /media/products/gallery/prod_1575_0.jpg HTTP/1.1" 200 24002
+INFO 2025-12-06 00:37:34,424 basehttp "GET /media/products/gallery/prod_1620_3.jpg HTTP/1.1" 200 45781
+INFO 2025-12-06 00:37:34,425 basehttp "GET /media/products/gallery/prod_1534_0.jpg HTTP/1.1" 200 43853
+INFO 2025-12-06 00:37:34,429 basehttp "GET /media/products/gallery/prod_1521_0.jpg HTTP/1.1" 200 95212
+INFO 2025-12-06 00:37:34,462 basehttp "GET /media/products/gallery/prod_1489_0.jpg HTTP/1.1" 200 96713
+INFO 2025-12-06 00:37:34,480 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 200 62244
+INFO 2025-12-06 00:37:34,482 basehttp "GET /media/products/gallery/prod_1617_0.jpg HTTP/1.1" 200 183160
+INFO 2025-12-06 00:37:34,483 basehttp "GET /media/products/gallery/prod_1470_0.jpg HTTP/1.1" 200 72763
+INFO 2025-12-06 00:37:34,485 basehttp "GET /media/products/gallery/prod_1612_0.jpg HTTP/1.1" 200 37261
+INFO 2025-12-06 00:37:34,501 basehttp "GET /media/products/gallery/prod_1455_0.jpg HTTP/1.1" 200 59195
+INFO 2025-12-06 00:37:34,510 basehttp "GET /media/products/gallery/prod_1625_0.jpg HTTP/1.1" 200 89097
+INFO 2025-12-06 00:37:34,558 basehttp "GET /media/products/gallery/prod_1631_0.jpg HTTP/1.1" 200 40208
+INFO 2025-12-06 00:37:38,767 basehttp "GET / HTTP/1.1" 200 99760
+WARNING 2025-12-06 00:37:38,794 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:38,834 basehttp "GET /media/products/gallery/prod_1511_0.jpg HTTP/1.1" 200 63911
+INFO 2025-12-06 00:37:38,844 basehttp "GET /media/products/gallery/prod_1608_0.jpg HTTP/1.1" 200 17814
+INFO 2025-12-06 00:37:38,846 basehttp "GET /media/products/gallery/prod_1384_0.jpg HTTP/1.1" 200 61736
+INFO 2025-12-06 00:37:38,846 basehttp "GET /media/products/gallery/prod_1426_0.jpg HTTP/1.1" 200 62710
+INFO 2025-12-06 00:37:38,847 basehttp "GET /media/products/gallery/prod_1561_0.jpg HTTP/1.1" 200 14092
+INFO 2025-12-06 00:37:38,847 basehttp "GET /media/products/gallery/prod_1623_0.jpg HTTP/1.1" 200 79056
+INFO 2025-12-06 00:37:38,872 basehttp "GET /media/products/gallery/prod_1462_0.jpg HTTP/1.1" 200 129504
+INFO 2025-12-06 00:37:38,899 basehttp "GET /media/products/gallery/prod_1602_0.jpg HTTP/1.1" 200 30159
+INFO 2025-12-06 00:37:38,903 basehttp "GET /media/products/gallery/prod_1630_0.jpg HTTP/1.1" 200 37692
+INFO 2025-12-06 00:37:38,903 basehttp "GET /media/products/gallery/prod_1542_0.jpg HTTP/1.1" 200 73916
+INFO 2025-12-06 00:37:38,908 basehttp "GET /media/products/gallery/prod_1565_0.jpg HTTP/1.1" 200 52354
+INFO 2025-12-06 00:37:38,918 basehttp "GET /media/products/gallery/prod_1442_0.jpg HTTP/1.1" 200 77960
+INFO 2025-12-06 00:37:38,953 basehttp "GET /media/products/gallery/prod_1461_0.jpg HTTP/1.1" 200 68657
+INFO 2025-12-06 00:37:38,957 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 200 56424
+INFO 2025-12-06 00:37:38,962 basehttp "GET /media/products/gallery/prod_1548_0.jpg HTTP/1.1" 200 12892
+INFO 2025-12-06 00:37:38,963 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 200 47474
+INFO 2025-12-06 00:37:38,967 basehttp "GET /media/products/gallery/prod_1405_0.jpg HTTP/1.1" 200 54999
+INFO 2025-12-06 00:37:38,995 basehttp "GET /media/products/gallery/prod_1350_0.jpg HTTP/1.1" 200 30404
+INFO 2025-12-06 00:37:39,010 basehttp "GET /media/products/gallery/prod_1344_0.jpg HTTP/1.1" 200 517783
+INFO 2025-12-06 00:37:39,015 basehttp "GET /media/products/gallery/prod_1387_0.jpg HTTP/1.1" 200 25023
+INFO 2025-12-06 00:37:39,015 basehttp "GET /media/products/gallery/prod_1626_0.jpg HTTP/1.1" 200 28364
+INFO 2025-12-06 00:37:39,017 basehttp "GET /media/products/gallery/prod_1367_0.jpg HTTP/1.1" 200 59307
+INFO 2025-12-06 00:37:39,019 basehttp "GET /media/products/gallery/prod_1352_0.jpg HTTP/1.1" 200 13597
+INFO 2025-12-06 00:37:39,039 basehttp "GET /media/products/gallery/prod_1377_0.jpg HTTP/1.1" 200 33451
+INFO 2025-12-06 00:37:39,053 basehttp "GET /media/products/gallery/prod_1531_0.jpg HTTP/1.1" 200 46852
+INFO 2025-12-06 00:37:39,063 basehttp "GET /media/products/gallery/prod_1588_0.jpg HTTP/1.1" 200 32122
+INFO 2025-12-06 00:37:40,747 basehttp "GET /product/1541/ HTTP/1.1" 200 79022
+WARNING 2025-12-06 00:37:40,765 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:40,803 basehttp "GET /media/products/gallery/prod_1541_1.jpg HTTP/1.1" 200 48876
+INFO 2025-12-06 00:37:40,810 basehttp "GET /media/products/gallery/prod_1356_0.jpg HTTP/1.1" 200 41204
+INFO 2025-12-06 00:37:40,811 basehttp "GET /media/products/gallery/prod_1533_0.jpg HTTP/1.1" 200 17702
+INFO 2025-12-06 00:37:40,813 basehttp "GET /media/products/gallery/prod_1494_0.jpg HTTP/1.1" 200 44529
+INFO 2025-12-06 00:37:40,816 basehttp "GET /media/products/gallery/prod_1483_0.jpg HTTP/1.1" 200 52518
+INFO 2025-12-06 00:37:40,816 basehttp "GET /media/products/gallery/prod_1601_0.jpg HTTP/1.1" 200 72665
+INFO 2025-12-06 00:37:40,857 basehttp "GET /media/products/gallery/prod_1497_0.jpg HTTP/1.1" 200 41370
+INFO 2025-12-06 00:37:40,857 basehttp "GET /media/products/gallery/prod_1609_0.jpg HTTP/1.1" 200 82004
+WARNING 2025-12-06 00:37:43,808 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:37:43,808 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:37:47,184 basehttp "GET / HTTP/1.1" 200 102253
+WARNING 2025-12-06 00:37:47,219 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:47,267 basehttp "GET /media/products/gallery/prod_1424_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 00:37:47,267 basehttp "GET /media/products/gallery/prod_1583_0.jpg HTTP/1.1" 200 14552
+INFO 2025-12-06 00:37:47,267 basehttp "GET /media/products/gallery/prod_1596_0.jpg HTTP/1.1" 200 49983
+INFO 2025-12-06 00:37:47,274 basehttp "GET /media/products/gallery/prod_1415_0.jpg HTTP/1.1" 200 36042
+INFO 2025-12-06 00:37:47,316 basehttp "GET /media/products/gallery/prod_1342_0.jpg HTTP/1.1" 200 51882
+INFO 2025-12-06 00:37:47,320 basehttp "GET /media/products/gallery/prod_1604_0.jpg HTTP/1.1" 200 63550
+INFO 2025-12-06 00:37:47,322 basehttp "GET /media/products/gallery/prod_1452_0.jpeg HTTP/1.1" 200 20595
+INFO 2025-12-06 00:37:47,328 basehttp "GET /media/products/gallery/prod_1481_0.jpg HTTP/1.1" 200 265393
+WARNING 2025-12-06 00:37:47,346 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:37:47,348 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:37:47,373 basehttp "GET /media/products/gallery/prod_1547_0.jpg HTTP/1.1" 200 57752
+INFO 2025-12-06 00:37:47,375 basehttp "GET /media/products/gallery/prod_1587_0.jpg HTTP/1.1" 200 103716
+INFO 2025-12-06 00:37:47,378 basehttp "GET /media/products/gallery/prod_1577_0.jpg HTTP/1.1" 200 236232
+INFO 2025-12-06 00:37:47,381 basehttp "GET /media/products/gallery/prod_1482_0.jpg HTTP/1.1" 200 221983
+INFO 2025-12-06 00:37:47,382 basehttp "GET /media/products/gallery/prod_1552_0.jpg HTTP/1.1" 200 33320
+INFO 2025-12-06 00:37:47,388 basehttp "GET /media/products/gallery/prod_1366_0.jpg HTTP/1.1" 200 57129
+INFO 2025-12-06 00:37:47,425 basehttp "GET /media/products/gallery/prod_1443_0.jpg HTTP/1.1" 200 56795
+INFO 2025-12-06 00:37:47,427 basehttp "GET /media/products/gallery/prod_1527_0.jpg HTTP/1.1" 200 67112
+INFO 2025-12-06 00:37:47,427 basehttp "GET /media/products/gallery/prod_1567_0.jpg HTTP/1.1" 200 54654
+INFO 2025-12-06 00:37:47,443 basehttp "GET /media/products/gallery/prod_1616_0.png HTTP/1.1" 200 1085160
+INFO 2025-12-06 00:37:47,446 basehttp "GET /media/products/gallery/prod_1480_0.jpg HTTP/1.1" 200 49886
+INFO 2025-12-06 00:37:47,476 basehttp "GET /media/products/gallery/prod_1410_0.jpg HTTP/1.1" 200 67551
+INFO 2025-12-06 00:37:47,521 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 200 181972
+INFO 2025-12-06 00:37:49,470 basehttp "GET /product/1424/ HTTP/1.1" 200 77454
+WARNING 2025-12-06 00:37:49,495 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:37:49,518 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:37:49,519 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:37:49,548 basehttp "GET /media/products/gallery/prod_1517_0.jpg HTTP/1.1" 200 33373
+INFO 2025-12-06 00:37:49,550 basehttp "GET /media/products/gallery/prod_1528_0.jpg HTTP/1.1" 200 75808
+INFO 2025-12-06 00:37:49,553 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 200 22018
+INFO 2025-12-06 00:37:49,554 basehttp "GET /media/products/gallery/prod_1593_0.jpg HTTP/1.1" 200 19986
+INFO 2025-12-06 00:37:49,554 basehttp "GET /media/products/gallery/prod_1354_0.jpg HTTP/1.1" 200 45738
+INFO 2025-12-06 00:37:49,599 basehttp "GET /media/products/gallery/prod_1607_0.jpg HTTP/1.1" 200 47482
+INFO 2025-12-06 00:37:53,694 basehttp "GET / HTTP/1.1" 200 101044
+WARNING 2025-12-06 00:37:53,727 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:37:53,764 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:37:53,764 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:37:53,770 basehttp "GET /media/products/gallery/prod_1357_0.jpg HTTP/1.1" 200 34040
+INFO 2025-12-06 00:37:53,786 basehttp "GET /media/products/gallery/prod_1403_0.webp HTTP/1.1" 200 19464
+INFO 2025-12-06 00:37:53,788 basehttp "GET /media/products/gallery/prod_1564_0.jpg HTTP/1.1" 200 31343
+INFO 2025-12-06 00:37:53,808 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 200 34316
+INFO 2025-12-06 00:37:53,812 basehttp "GET /media/products/gallery/prod_1549_0.jpg HTTP/1.1" 200 32836
+INFO 2025-12-06 00:37:53,832 basehttp "GET /media/products/gallery/prod_1474_0.jpg HTTP/1.1" 200 18391
+INFO 2025-12-06 00:37:53,832 basehttp "GET /media/products/gallery/prod_1543_0.jpg HTTP/1.1" 200 33152
+INFO 2025-12-06 00:37:53,852 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 200 79832
+INFO 2025-12-06 00:37:53,852 basehttp "GET /media/products/gallery/prod_1584_0.jpg HTTP/1.1" 200 49589
+INFO 2025-12-06 00:37:53,864 basehttp "GET /media/products/gallery/prod_1380_0.jpg HTTP/1.1" 200 39871
+INFO 2025-12-06 00:37:53,873 basehttp "GET /media/products/gallery/prod_1345_0.jpg HTTP/1.1" 200 32465
+INFO 2025-12-06 00:37:53,883 basehttp "GET /media/products/gallery/prod_1448_0.jpg HTTP/1.1" 200 247681
+INFO 2025-12-06 00:37:53,888 basehttp "GET /media/products/gallery/prod_1445_0.jpg HTTP/1.1" 200 66648
+INFO 2025-12-06 00:37:53,908 basehttp "GET /media/products/gallery/prod_1399_0.jpg HTTP/1.1" 200 52532
+INFO 2025-12-06 00:37:53,919 basehttp "GET /media/products/gallery/prod_1373_0.jpg HTTP/1.1" 200 47603
+INFO 2025-12-06 00:37:53,923 basehttp "GET /media/products/gallery/prod_1419_0.jpg HTTP/1.1" 200 54447
+INFO 2025-12-06 00:37:53,944 basehttp "GET /media/products/gallery/prod_1389_0.jpg HTTP/1.1" 200 73862
+INFO 2025-12-06 00:37:53,967 basehttp "GET /media/products/gallery/prod_1369_0.jpg HTTP/1.1" 200 56889
+INFO 2025-12-06 00:37:54,000 basehttp "GET /media/products/gallery/prod_1493_0.jpg HTTP/1.1" 200 67353
+INFO 2025-12-06 00:37:54,007 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+INFO 2025-12-06 00:37:56,307 basehttp "GET /product/1564/ HTTP/1.1" 200 81686
+WARNING 2025-12-06 00:37:56,382 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-06 00:37:56,382 basehttp "GET /media/products/gallery/prod_1564_1.jpg HTTP/1.1" 200 25643
+WARNING 2025-12-06 00:37:56,383 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+WARNING 2025-12-06 00:37:56,387 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:37:56,395 basehttp "GET /media/products/gallery/prod_1564_2.jpeg HTTP/1.1" 200 88085
+INFO 2025-12-06 00:37:56,398 basehttp "GET /media/products/gallery/prod_1564_4.jpeg HTTP/1.1" 200 5134
+INFO 2025-12-06 00:37:56,399 basehttp "GET /media/products/gallery/prod_1564_3.jpeg HTTP/1.1" 200 9777
+INFO 2025-12-06 00:37:56,400 basehttp "GET /media/products/gallery/prod_1564_5.jpeg HTTP/1.1" 200 3678
+INFO 2025-12-06 00:38:04,846 basehttp "GET /product/1545/ HTTP/1.1" 200 80339
+WARNING 2025-12-06 00:38:04,880 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:38:04,908 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:38:04,909 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:38:04,917 basehttp "GET /media/products/gallery/prod_1514_0.jpg HTTP/1.1" 200 63144
+INFO 2025-12-06 00:38:04,917 basehttp "GET /media/products/gallery/prod_1545_1.jpg HTTP/1.1" 200 37096
+INFO 2025-12-06 00:38:12,930 basehttp "GET / HTTP/1.1" 200 102990
+WARNING 2025-12-06 00:38:12,960 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:38:12,984 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:38:12,985 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:38:13,008 basehttp "GET /media/products/gallery/prod_1459_0.jpg HTTP/1.1" 200 48127
+INFO 2025-12-06 00:38:13,018 basehttp "GET /media/products/gallery/prod_1515_0.jpg HTTP/1.1" 200 64083
+INFO 2025-12-06 00:38:13,021 basehttp "GET /media/products/gallery/prod_1535_0.jpg HTTP/1.1" 200 35158
+INFO 2025-12-06 00:38:13,023 basehttp "GET /media/products/gallery/prod_1473_0.webp HTTP/1.1" 200 33126
+INFO 2025-12-06 00:38:13,028 basehttp "GET /media/products/gallery/prod_1432_0.jpg HTTP/1.1" 200 851135
+INFO 2025-12-06 00:38:13,048 basehttp "GET /media/products/gallery/prod_1402_0.jpeg HTTP/1.1" 200 239643
+INFO 2025-12-06 00:38:13,074 basehttp "GET /media/products/gallery/prod_1522_0.jpg HTTP/1.1" 200 123779
+INFO 2025-12-06 00:38:13,075 basehttp "GET /media/products/gallery/prod_1503_0.jpg HTTP/1.1" 200 53706
+INFO 2025-12-06 00:38:13,078 basehttp "GET /media/products/gallery/prod_1544_0.png HTTP/1.1" 200 201159
+INFO 2025-12-06 00:38:13,081 basehttp "GET /media/products/gallery/prod_1538_0.jpg HTTP/1.1" 200 38078
+INFO 2025-12-06 00:38:13,093 basehttp "GET /media/products/gallery/prod_1504_0.jpg HTTP/1.1" 200 373508
+INFO 2025-12-06 00:38:13,119 basehttp "GET /media/products/gallery/prod_1441_0.jpg HTTP/1.1" 200 31834
+INFO 2025-12-06 00:38:13,124 basehttp "GET /media/products/gallery/prod_1394_0.jpeg HTTP/1.1" 200 232515
+INFO 2025-12-06 00:38:13,129 basehttp "GET /media/products/gallery/prod_1364_0.jpg HTTP/1.1" 200 53072
+INFO 2025-12-06 00:38:13,130 basehttp "GET /media/products/gallery/prod_1400_0.jpg HTTP/1.1" 200 119967
+INFO 2025-12-06 00:38:13,137 basehttp "GET /media/products/gallery/prod_1417_0.jpg HTTP/1.1" 200 31607
+INFO 2025-12-06 00:38:17,192 basehttp "GET /dashboard/ HTTP/1.1" 200 51415
+WARNING 2025-12-06 00:38:17,212 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:42:59,732 basehttp "GET / HTTP/1.1" 200 103803
+WARNING 2025-12-06 00:42:59,762 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:42:59,803 basehttp "GET /media/products/gallery/prod_1618_0.jpg HTTP/1.1" 200 36758
+INFO 2025-12-06 00:42:59,804 basehttp "GET /media/products/gallery/prod_1351_0.jpg HTTP/1.1" 200 26204
+INFO 2025-12-06 00:42:59,804 basehttp "GET /media/products/gallery/prod_1502_0.jpg HTTP/1.1" 200 42722
+INFO 2025-12-06 00:42:59,811 basehttp "GET /media/products/gallery/prod_1379_0.jpg HTTP/1.1" 200 42490
+INFO 2025-12-06 00:42:59,812 basehttp "GET /media/products/gallery/prod_1578_0.jpg HTTP/1.1" 200 45996
+INFO 2025-12-06 00:42:59,812 basehttp "GET /media/products/gallery/prod_1558_0.jpg HTTP/1.1" 200 93012
+INFO 2025-12-06 00:42:59,848 basehttp "GET /media/products/gallery/prod_1619_0.jpg HTTP/1.1" 200 57985
+INFO 2025-12-06 00:42:59,858 basehttp "GET /media/products/gallery/prod_1530_0.jpg HTTP/1.1" 200 27979
+INFO 2025-12-06 00:42:59,858 basehttp "GET /media/products/gallery/prod_1606_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-06 00:42:59,860 basehttp "GET /media/products/gallery/prod_1438_0.jpg HTTP/1.1" 200 60293
+INFO 2025-12-06 00:42:59,860 basehttp "GET /media/products/gallery/prod_1524_0.jpg HTTP/1.1" 200 35721
+INFO 2025-12-06 00:43:00,561 basehttp "GET /product/1436/ HTTP/1.1" 200 88374
+WARNING 2025-12-06 00:43:00,585 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:43:00,620 basehttp "GET /media/products/gallery/prod_1436_2.jpg HTTP/1.1" 200 33403
+INFO 2025-12-06 00:43:00,621 basehttp "GET /media/products/gallery/prod_1436_1.jpg HTTP/1.1" 200 33734
+INFO 2025-12-06 00:43:00,626 basehttp "GET /media/products/gallery/prod_1436_4.jpg HTTP/1.1" 200 42518
+INFO 2025-12-06 00:43:00,627 basehttp "GET /media/products/gallery/prod_1436_3.jpg HTTP/1.1" 200 38003
+INFO 2025-12-06 00:43:00,627 basehttp "GET /media/products/gallery/prod_1362_0.jpg HTTP/1.1" 200 51085
+INFO 2025-12-06 00:43:00,629 basehttp "GET /media/products/gallery/prod_1390_0.jpg HTTP/1.1" 200 37036
+INFO 2025-12-06 00:43:00,650 basehttp "GET /media/products/gallery/prod_1401_0.webp HTTP/1.1" 200 18328
+INFO 2025-12-06 00:43:00,654 basehttp "GET /media/products/gallery/prod_1464_0.jpg HTTP/1.1" 200 43377
+WARNING 2025-12-06 00:43:12,210 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:12,210 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:43:16,122 basehttp "GET /product/1436/ HTTP/1.1" 200 88374
+WARNING 2025-12-06 00:43:16,160 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:43:16,268 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:16,268 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:43:27,518 basehttp "GET /product/1362/ HTTP/1.1" 200 83756
+WARNING 2025-12-06 00:43:27,556 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:43:27,575 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:27,575 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:43:27,581 basehttp "GET /media/products/gallery/prod_1362_1.jpg HTTP/1.1" 200 55388
+INFO 2025-12-06 00:43:27,587 basehttp "GET /media/products/gallery/prod_1362_2.jpg HTTP/1.1" 200 71649
+INFO 2025-12-06 00:43:27,587 basehttp "GET /media/products/gallery/prod_1362_3.jpg HTTP/1.1" 200 60806
+INFO 2025-12-06 00:43:27,588 basehttp "GET /media/products/gallery/prod_1362_4.jpg HTTP/1.1" 200 43820
+INFO 2025-12-06 00:43:37,075 basehttp "GET / HTTP/1.1" 200 100446
+WARNING 2025-12-06 00:43:37,127 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:37,127 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+WARNING 2025-12-06 00:43:37,130 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:43:37,151 basehttp "GET /media/products/gallery/prod_1472_0.jpg HTTP/1.1" 200 37506
+INFO 2025-12-06 00:43:37,162 basehttp "GET /media/products/gallery/prod_1427_0.jpg HTTP/1.1" 200 34313
+INFO 2025-12-06 00:43:37,163 basehttp "GET /media/products/gallery/prod_1492_0.jpg HTTP/1.1" 200 39709
+INFO 2025-12-06 00:43:37,165 basehttp "GET /media/products/gallery/prod_1613_0.jpg HTTP/1.1" 200 64834
+INFO 2025-12-06 00:43:37,165 basehttp "GET /media/products/gallery/prod_1501_0.jpg HTTP/1.1" 200 59897
+INFO 2025-12-06 00:43:37,207 basehttp "GET /media/products/gallery/prod_1418_0.jpg HTTP/1.1" 200 43714
+INFO 2025-12-06 00:43:37,208 basehttp "GET /media/products/gallery/prod_1496_0.jpg HTTP/1.1" 200 61782
+INFO 2025-12-06 00:43:37,209 basehttp "GET /media/products/gallery/prod_1485_0.jpg HTTP/1.1" 200 139953
+INFO 2025-12-06 00:43:37,234 basehttp "GET /media/products/gallery/prod_1486_0.jpg HTTP/1.1" 200 270811
+INFO 2025-12-06 00:43:37,267 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 200 52115
+INFO 2025-12-06 00:43:37,284 basehttp "GET /media/products/gallery/prod_1551_0.jpg HTTP/1.1" 200 39127
+INFO 2025-12-06 00:43:37,299 basehttp "GET /media/products/gallery/prod_1347_0.jpg HTTP/1.1" 200 60892
+INFO 2025-12-06 00:43:40,000 basehttp "GET /product/1472/ HTTP/1.1" 200 88703
+WARNING 2025-12-06 00:43:40,035 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:43:40,064 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:40,064 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:43:40,067 basehttp "GET /media/products/gallery/prod_1472_2.jpg HTTP/1.1" 200 25190
+INFO 2025-12-06 00:43:40,068 basehttp "GET /media/products/gallery/prod_1472_1.jpg HTTP/1.1" 200 45712
+INFO 2025-12-06 00:43:40,157 basehttp "GET /media/products/gallery/prod_1472_3.jpg HTTP/1.1" 200 76270
+INFO 2025-12-06 00:43:47,727 basehttp "GET /catalog/ HTTP/1.1" 200 429780
+WARNING 2025-12-06 00:43:47,773 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:47,775 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+WARNING 2025-12-06 00:43:47,778 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:43:47,804 basehttp "GET /media/products/gallery/prod_1624_0.webp HTTP/1.1" 200 32692
+INFO 2025-12-06 00:43:47,847 basehttp "GET /media/products/gallery/prod_1550_0.jpg HTTP/1.1" 200 23942
+INFO 2025-12-06 00:43:47,847 basehttp "GET /media/products/gallery/prod_1590_0.jpg HTTP/1.1" 200 41993
+INFO 2025-12-06 00:43:47,848 basehttp "GET /media/products/gallery/prod_1589_0.jpg HTTP/1.1" 200 45683
+INFO 2025-12-06 00:43:47,848 basehttp "GET /media/products/gallery/prod_1572_0.jpg HTTP/1.1" 200 55541
+INFO 2025-12-06 00:43:47,850 basehttp "GET /media/products/gallery/prod_1556_0.jpeg HTTP/1.1" 200 164288
+INFO 2025-12-06 00:43:47,854 basehttp "GET /media/products/gallery/prod_1526_0.jpg HTTP/1.1" 200 25898
+INFO 2025-12-06 00:43:47,892 basehttp "GET /media/products/gallery/prod_1499_0.jpg HTTP/1.1" 200 36573
+INFO 2025-12-06 00:43:47,896 basehttp "GET /media/products/gallery/prod_1505_0.jpg HTTP/1.1" 200 51368
+INFO 2025-12-06 00:43:47,900 basehttp "GET /media/products/gallery/prod_1523_0.jpeg HTTP/1.1" 200 101088
+INFO 2025-12-06 00:43:47,901 basehttp "GET /media/products/gallery/prod_1488_0.jpg HTTP/1.1" 200 59794
+INFO 2025-12-06 00:43:47,904 basehttp "GET /media/products/gallery/prod_1484_0.jpg HTTP/1.1" 200 24622
+INFO 2025-12-06 00:43:47,905 basehttp "GET /media/products/gallery/prod_1487_0.jpg HTTP/1.1" 200 61852
+INFO 2025-12-06 00:43:47,938 basehttp "GET /media/products/gallery/prod_1478_0.jpg HTTP/1.1" 200 30677
+INFO 2025-12-06 00:43:47,940 basehttp "GET /media/products/gallery/prod_1469_0.jpg HTTP/1.1" 200 42994
+INFO 2025-12-06 00:43:47,941 basehttp "GET /media/products/gallery/prod_1477_0.jpg HTTP/1.1" 200 25679
+INFO 2025-12-06 00:43:47,947 basehttp "GET /media/products/gallery/prod_1467_0.jpg HTTP/1.1" 200 66218
+INFO 2025-12-06 00:43:47,949 basehttp "GET /media/products/gallery/prod_1463_0.jpg HTTP/1.1" 200 82109
+INFO 2025-12-06 00:43:47,950 basehttp "GET /media/products/gallery/prod_1451_0.jpg HTTP/1.1" 200 43102
+INFO 2025-12-06 00:43:47,981 basehttp "GET /media/products/gallery/prod_1433_0.jpg HTTP/1.1" 200 52261
+INFO 2025-12-06 00:43:47,987 basehttp "GET /media/products/gallery/prod_1437_0.jpg HTTP/1.1" 200 11796
+INFO 2025-12-06 00:43:47,991 basehttp "GET /media/products/gallery/prod_1423_0.jpg HTTP/1.1" 200 41695
+INFO 2025-12-06 00:43:47,991 basehttp "GET /media/products/gallery/prod_1420_0.jpg HTTP/1.1" 200 50968
+INFO 2025-12-06 00:43:47,995 basehttp "GET /media/products/gallery/prod_1408_0.jpg HTTP/1.1" 200 16795
+INFO 2025-12-06 00:43:47,998 basehttp "GET /media/products/gallery/prod_1407_0.jpg HTTP/1.1" 200 58294
+INFO 2025-12-06 00:43:48,029 basehttp "GET /media/products/gallery/prod_1398_0.jpg HTTP/1.1" 200 45790
+INFO 2025-12-06 00:43:48,032 basehttp "GET /media/products/gallery/prod_1396_0.jpg HTTP/1.1" 200 18755
+INFO 2025-12-06 00:43:48,035 basehttp "GET /media/products/gallery/prod_1386_0.jpg HTTP/1.1" 200 29615
+INFO 2025-12-06 00:43:48,036 basehttp "GET /media/products/gallery/prod_1393_0.jpg HTTP/1.1" 200 48008
+INFO 2025-12-06 00:43:48,039 basehttp "GET /media/products/gallery/prod_1383_0.jpg HTTP/1.1" 200 38193
+INFO 2025-12-06 00:43:48,045 basehttp "GET /media/products/gallery/prod_1378_0.jpg HTTP/1.1" 200 62179
+INFO 2025-12-06 00:43:48,079 basehttp "GET /media/products/gallery/prod_1375_0.jpg HTTP/1.1" 200 62294
+INFO 2025-12-06 00:43:48,082 basehttp "GET /media/products/gallery/prod_1376_0.jpg HTTP/1.1" 200 18215
+INFO 2025-12-06 00:43:48,086 basehttp "GET /media/products/gallery/prod_1372_0.jpg HTTP/1.1" 200 76276
+INFO 2025-12-06 00:43:48,094 basehttp "GET /media/products/gallery/prod_1627_0.jpg HTTP/1.1" 200 66592
+INFO 2025-12-06 00:43:48,095 basehttp "GET /media/products/gallery/prod_1621_0.jpg HTTP/1.1" 200 121975
+INFO 2025-12-06 00:43:48,099 basehttp "GET /media/products/gallery/prod_1598_0.jpg HTTP/1.1" 200 29886
+INFO 2025-12-06 00:43:48,128 basehttp "GET /media/products/gallery/prod_1595_0.jpg HTTP/1.1" 200 105228
+INFO 2025-12-06 00:43:48,136 basehttp "GET /media/products/gallery/prod_1587_5.jpg HTTP/1.1" 200 27774
+INFO 2025-12-06 00:43:48,142 basehttp "GET /media/products/gallery/prod_1585_0.jpg HTTP/1.1" 200 69803
+INFO 2025-12-06 00:43:48,149 basehttp "GET /media/products/gallery/prod_1580_0.jpg HTTP/1.1" 200 22593
+INFO 2025-12-06 00:43:48,153 basehttp "GET /media/products/gallery/prod_1574_0.jpg HTTP/1.1" 200 22301
+INFO 2025-12-06 00:43:48,153 basehttp "GET /media/products/gallery/prod_1579_0.jpg HTTP/1.1" 200 35421
+INFO 2025-12-06 00:43:48,173 basehttp "GET /media/products/gallery/prod_1570_0.jpg HTTP/1.1" 200 59213
+INFO 2025-12-06 00:43:48,175 basehttp "GET /media/products/gallery/prod_1569_0.jpg HTTP/1.1" 200 48166
+INFO 2025-12-06 00:43:48,192 basehttp "GET /media/products/gallery/prod_1566_0.jpg HTTP/1.1" 200 1452752
+INFO 2025-12-06 00:43:48,197 basehttp "GET /media/products/gallery/prod_1559_0.jpg HTTP/1.1" 200 49584
+INFO 2025-12-06 00:43:48,198 basehttp "GET /media/products/gallery/prod_1563_0.jpg HTTP/1.1" 200 56567
+INFO 2025-12-06 00:43:48,199 basehttp "GET /media/products/gallery/prod_1560_0.jpg HTTP/1.1" 200 57819
+INFO 2025-12-06 00:43:48,217 basehttp "GET /media/products/gallery/prod_1555_0.jpg HTTP/1.1" 200 67784
+INFO 2025-12-06 00:43:48,224 basehttp "GET /media/products/gallery/prod_1554_0.jpg HTTP/1.1" 200 22394
+INFO 2025-12-06 00:43:48,239 basehttp "GET /media/products/gallery/prod_1553_0.jpg HTTP/1.1" 200 109863
+INFO 2025-12-06 00:43:48,247 basehttp "GET /media/products/gallery/prod_1540_0.jpg HTTP/1.1" 200 51177
+INFO 2025-12-06 00:43:48,251 basehttp "GET /media/products/gallery/prod_1537_0.jpg HTTP/1.1" 200 39078
+INFO 2025-12-06 00:43:48,252 basehttp "GET /media/products/gallery/prod_1546_0.jpg HTTP/1.1" 200 79741
+INFO 2025-12-06 00:43:48,266 basehttp "GET /media/products/gallery/prod_1532_0.jpg HTTP/1.1" 200 134235
+INFO 2025-12-06 00:43:48,272 basehttp "GET /media/products/gallery/prod_1525_0.jpg HTTP/1.1" 200 23357
+INFO 2025-12-06 00:43:48,287 basehttp "GET /media/products/gallery/prod_1520_0.jpg HTTP/1.1" 200 22728
+INFO 2025-12-06 00:43:48,307 basehttp "GET /media/products/gallery/prod_1512_0.jpg HTTP/1.1" 200 42813
+INFO 2025-12-06 00:43:48,307 basehttp "GET /media/products/gallery/prod_1513_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 00:43:48,324 basehttp "GET /media/products/gallery/prod_1506_0.jpg HTTP/1.1" 200 41414
+INFO 2025-12-06 00:43:48,343 basehttp "GET /media/products/gallery/prod_1490_0.jpg HTTP/1.1" 200 108642
+INFO 2025-12-06 00:43:48,360 basehttp "GET /media/products/gallery/prod_1475_0.jpg HTTP/1.1" 200 67091
+INFO 2025-12-06 00:43:48,360 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 200 54556
+INFO 2025-12-06 00:43:48,372 basehttp "GET /media/products/gallery/prod_1465_0.jpg HTTP/1.1" 200 50338
+INFO 2025-12-06 00:43:48,378 basehttp "GET /media/products/gallery/prod_1458_0.jpg HTTP/1.1" 200 50863
+INFO 2025-12-06 00:43:48,393 basehttp "GET /media/products/gallery/prod_1516_0.jpg HTTP/1.1" 200 68076
+INFO 2025-12-06 00:43:48,394 basehttp "GET /media/products/gallery/prod_1457_0.jpg HTTP/1.1" 200 54782
+INFO 2025-12-06 00:43:48,394 basehttp "GET /media/products/gallery/prod_1456_0.jpg HTTP/1.1" 200 30818
+INFO 2025-12-06 00:43:48,409 basehttp "GET /media/products/gallery/prod_1440_0.jpg HTTP/1.1" 200 55678
+INFO 2025-12-06 00:43:48,420 basehttp "GET /media/products/gallery/prod_1439_0.jpg HTTP/1.1" 200 36259
+INFO 2025-12-06 00:43:48,438 basehttp "GET /media/products/gallery/prod_1430_0.jpg HTTP/1.1" 200 32653
+INFO 2025-12-06 00:43:48,439 basehttp "GET /media/products/gallery/prod_1434_0.jpg HTTP/1.1" 200 54819
+INFO 2025-12-06 00:43:48,439 basehttp "GET /media/products/gallery/prod_1431_0.jpg HTTP/1.1" 200 28368
+INFO 2025-12-06 00:43:48,447 basehttp "GET /media/products/gallery/prod_1429_0.jpg HTTP/1.1" 200 72784
+INFO 2025-12-06 00:43:48,458 basehttp "GET /media/products/gallery/prod_1416_0.jpg HTTP/1.1" 200 19912
+INFO 2025-12-06 00:43:48,485 basehttp "GET /media/products/gallery/prod_1409_0.jpg HTTP/1.1" 200 46546
+INFO 2025-12-06 00:43:48,485 basehttp "GET /media/products/gallery/prod_1397_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 00:43:48,490 basehttp "GET /media/products/gallery/prod_1404_0.jpg HTTP/1.1" 200 24924
+INFO 2025-12-06 00:43:48,496 basehttp "GET /media/products/gallery/prod_1392_0.jpg HTTP/1.1" 200 75072
+INFO 2025-12-06 00:43:48,505 basehttp "GET /media/products/gallery/prod_1391_0.jpg HTTP/1.1" 200 66338
+INFO 2025-12-06 00:43:48,538 basehttp "GET /media/products/gallery/prod_1382_0.jpg HTTP/1.1" 200 41652
+INFO 2025-12-06 00:43:48,542 basehttp "GET /media/products/gallery/prod_1363_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-06 00:43:48,542 basehttp "GET /media/products/gallery/prod_1368_0.jpg HTTP/1.1" 200 62638
+INFO 2025-12-06 00:43:48,547 basehttp "GET /media/products/gallery/prod_1360_0.jpg HTTP/1.1" 200 55742
+INFO 2025-12-06 00:43:48,548 basehttp "GET /media/products/gallery/prod_1359_0.jpg HTTP/1.1" 200 42611
+INFO 2025-12-06 00:43:48,572 basehttp "GET /media/products/gallery/prod_1353_0.jpeg HTTP/1.1" 200 44199
+INFO 2025-12-06 00:43:48,574 basehttp "GET /media/products/gallery/prod_1349_0.jpg HTTP/1.1" 200 53388
+INFO 2025-12-06 00:43:48,677 basehttp "GET /media/products/gallery/prod_1358_0.jpg HTTP/1.1" 200 55612
+INFO 2025-12-06 00:43:50,239 basehttp "GET /product/1634/ HTTP/1.1" 200 84367
+WARNING 2025-12-06 00:43:50,273 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:43:50,292 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:50,293 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:43:50,298 basehttp "GET /media/products/gallery/prod_1634_2.jpg HTTP/1.1" 200 27780
+INFO 2025-12-06 00:43:50,305 basehttp "GET /media/products/gallery/prod_1634_1.jpg HTTP/1.1" 200 32279
+INFO 2025-12-06 00:43:53,439 basehttp "POST /add-to-cart/1634/ HTTP/1.1" 302 0
+INFO 2025-12-06 00:43:53,487 basehttp "GET /checkout/ HTTP/1.1" 200 49329
+WARNING 2025-12-06 00:43:53,513 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:43:53,538 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:53,538 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:43:53,541 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2188
+INFO 2025-12-06 00:43:57,393 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 117
+INFO 2025-12-06 00:43:57,427 basehttp "GET /checkout/ HTTP/1.1" 302 0
+INFO 2025-12-06 00:43:57,464 basehttp "GET /cart/ HTTP/1.1" 200 49726
+WARNING 2025-12-06 00:43:57,492 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:43:57,515 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:57,517 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:43:59,143 basehttp "GET / HTTP/1.1" 200 102901
+WARNING 2025-12-06 00:43:59,173 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:43:59,193 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:43:59,193 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:44:01,023 basehttp "GET /product/1466/ HTTP/1.1" 200 84199
+WARNING 2025-12-06 00:44:01,063 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:44:01,077 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:44:01,078 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:44:01,085 basehttp "GET /media/products/gallery/prod_1466_4.jpg HTTP/1.1" 200 190209
+INFO 2025-12-06 00:44:01,087 basehttp "GET /media/products/gallery/prod_1466_3.jpg HTTP/1.1" 200 238014
+INFO 2025-12-06 00:44:01,088 basehttp "GET /media/products/gallery/prod_1466_2.jpg HTTP/1.1" 200 86809
+INFO 2025-12-06 00:44:01,188 basehttp "GET /media/products/gallery/prod_1466_1.jpg HTTP/1.1" 200 54035
+INFO 2025-12-06 00:44:05,300 basehttp "GET /product/1545/ HTTP/1.1" 200 84724
+WARNING 2025-12-06 00:44:05,334 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:44:05,457 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:44:05,458 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:44:07,351 basehttp "GET / HTTP/1.1" 200 104965
+WARNING 2025-12-06 00:44:07,385 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:44:07,411 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:44:07,411 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:44:09,462 basehttp "GET /product/1436/ HTTP/1.1" 200 88374
+WARNING 2025-12-06 00:44:09,497 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:44:09,527 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:44:09,528 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:44:14,602 basehttp "GET / HTTP/1.1" 200 104805
+WARNING 2025-12-06 00:44:14,629 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:44:14,649 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:44:14,650 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:44:19,373 basehttp "GET /catalog/ HTTP/1.1" 200 429780
+WARNING 2025-12-06 00:44:19,409 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:44:19,422 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:44:19,423 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:44:21,553 basehttp "GET /product/1637/ HTTP/1.1" 200 81101
+WARNING 2025-12-06 00:44:21,595 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:44:21,613 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:44:21,613 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:44:21,619 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2_eZprM6U.jpg HTTP/1.1" 200 64118
+INFO 2025-12-06 00:44:21,620 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-06 00:44:21,627 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F5.jpg HTTP/1.1" 200 97958
+INFO 2025-12-06 00:44:21,630 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F6.jpg HTTP/1.1" 200 63351
+INFO 2025-12-06 00:44:21,720 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F4.jpg HTTP/1.1" 200 39100
+INFO 2025-12-06 00:50:55,611 autoreload E:\WebProjects\jebaenterprise\jeba_sales\urls.py changed, reloading.
+INFO 2025-12-06 00:50:56,050 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 00:53:59,550 autoreload E:\WebProjects\jebaenterprise\jeba_sales\views.py changed, reloading.
+INFO 2025-12-06 00:53:59,946 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 00:54:22,186 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 00:54:44,463 basehttp "GET /product/1637/ HTTP/1.1" 200 81101
+WARNING 2025-12-06 00:54:44,495 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 00:54:44,615 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:54:44,616 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:54:47,754 basehttp "POST /add-to-cart/1637/ HTTP/1.1" 302 0
+ERROR 2025-12-06 00:54:47,832 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 417, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:54:47,836 basehttp "GET /checkout/ HTTP/1.1" 500 216264
+WARNING 2025-12-06 00:54:47,875 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:54:47,876 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+WARNING 2025-12-06 00:54:47,982 log Not Found: /favicon.ico
+WARNING 2025-12-06 00:54:47,983 basehttp "GET /favicon.ico HTTP/1.1" 404 13057
+INFO 2025-12-06 00:54:58,613 autoreload E:\WebProjects\jebaenterprise\jeba_sales\views.py changed, reloading.
+INFO 2025-12-06 00:54:59,016 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-06 00:55:00,893 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 453, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:55:00,905 basehttp "GET /checkout/ HTTP/1.1" 500 217217
+WARNING 2025-12-06 00:55:01,048 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:55:01,048 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+ERROR 2025-12-06 00:55:01,961 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 453, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:55:01,963 basehttp "GET /checkout/ HTTP/1.1" 500 217217
+WARNING 2025-12-06 00:55:02,007 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:55:02,009 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+WARNING 2025-12-06 00:55:02,773 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:55:02,773 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+WARNING 2025-12-06 00:55:02,806 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:55:02,807 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:55:04,093 basehttp "POST /add-to-cart/1637/ HTTP/1.1" 302 0
+ERROR 2025-12-06 00:55:04,149 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 453, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:55:04,151 basehttp "GET /checkout/ HTTP/1.1" 500 217217
+WARNING 2025-12-06 00:55:04,195 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 00:55:04,196 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168
+INFO 2025-12-06 00:55:28,987 autoreload E:\WebProjects\jebaenterprise\jeba_sales\urls.py changed, reloading.
+INFO 2025-12-06 00:55:29,405 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 00:55:30,778 basehttp "GET /checkout/ HTTP/1.1" 200 49336
+WARNING 2025-12-06 00:55:30,799 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:55:33,040 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 117
+INFO 2025-12-06 00:55:33,176 basehttp "GET /checkout/ HTTP/1.1" 302 0
+INFO 2025-12-06 00:55:33,207 basehttp "GET /cart/ HTTP/1.1" 200 49726
+WARNING 2025-12-06 00:55:33,224 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:55:36,473 basehttp "GET / HTTP/1.1" 200 103049
+WARNING 2025-12-06 00:55:36,495 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:55:52,040 autoreload E:\WebProjects\jebaenterprise\jeba_sales\urls.py changed, reloading.
+INFO 2025-12-06 00:55:52,417 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 00:56:04,554 autoreload E:\WebProjects\jebaenterprise\jeba_sales\views.py changed, reloading.
+INFO 2025-12-06 00:56:04,938 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 00:56:36,152 basehttp "GET /product/1396/ HTTP/1.1" 200 86870
+WARNING 2025-12-06 00:56:36,182 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 00:56:36,211 basehttp "GET /media/products/gallery/prod_1396_2.jpg HTTP/1.1" 200 25349
+INFO 2025-12-06 00:56:36,212 basehttp "GET /media/products/gallery/prod_1396_1.jpg HTTP/1.1" 200 29086
+INFO 2025-12-06 00:56:36,213 basehttp "GET /media/products/gallery/prod_1396_3.jpg HTTP/1.1" 200 23342
+INFO 2025-12-06 00:56:36,215 basehttp "GET /media/products/gallery/prod_1396_4.jpg HTTP/1.1" 200 21609
+INFO 2025-12-06 00:56:36,219 basehttp "GET /media/products/gallery/prod_1396_5.jpg HTTP/1.1" 200 20290
+INFO 2025-12-06 00:56:37,388 basehttp "POST /add-to-cart/1396/ HTTP/1.1" 302 0
+ERROR 2025-12-06 00:56:37,446 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 417, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:56:37,452 basehttp "GET /checkout/ HTTP/1.1" 500 215354
+INFO 2025-12-06 00:56:42,762 basehttp "POST /add-to-cart/1396/ HTTP/1.1" 302 0
+ERROR 2025-12-06 00:56:42,809 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 417, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:56:42,811 basehttp "GET /checkout/ HTTP/1.1" 500 215354
+INFO 2025-12-06 00:57:11,481 autoreload E:\WebProjects\jebaenterprise\jeba_sales\urls.py changed, reloading.
+INFO 2025-12-06 00:57:11,872 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 00:57:23,003 autoreload E:\WebProjects\jebaenterprise\jeba_sales\urls.py changed, reloading.
+INFO 2025-12-06 00:57:23,411 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-06 00:57:24,488 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 417, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:57:24,492 basehttp "GET /checkout/ HTTP/1.1" 500 215354
+INFO 2025-12-06 00:57:29,640 autoreload E:\WebProjects\jebaenterprise\jeba_sales\urls.py changed, reloading.
+INFO 2025-12-06 00:57:30,241 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 00:59:45,546 autoreload E:\WebProjects\jebaenterprise\jeba_sales\urls.py changed, reloading.
+INFO 2025-12-06 00:59:45,987 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-06 00:59:47,774 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 417, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:59:47,778 basehttp "GET /checkout/ HTTP/1.1" 500 215354
+ERROR 2025-12-06 00:59:48,447 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 417, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:59:48,449 basehttp "GET /checkout/ HTTP/1.1" 500 215354
+ERROR 2025-12-06 00:59:48,998 log Internal Server Error: /checkout/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_sales\views.py", line 417, in checkout
+    return render(request, 'jeba_sales/checkout.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'update_cart_api' not found. 'update_cart_api' is not a valid view function or pattern name.
+ERROR 2025-12-06 00:59:49,000 basehttp "GET /checkout/ HTTP/1.1" 500 215354
+INFO 2025-12-06 01:00:13,057 autoreload E:\WebProjects\jebaenterprise\jeba_sales\urls.py changed, reloading.
+INFO 2025-12-06 01:00:13,466 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 01:01:09,975 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 01:01:17,032 autoreload E:\WebProjects\jebaenterprise\jeba_sales\urls.py changed, reloading.
+INFO 2025-12-06 01:01:17,433 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 01:01:22,801 basehttp "POST /add-to-cart/1396/ HTTP/1.1" 302 0
+INFO 2025-12-06 01:01:22,847 basehttp "GET /sales/checkout/ HTTP/1.1" 200 49295
+WARNING 2025-12-06 01:01:22,870 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:01:30,146 basehttp "GET /sales/checkout/ HTTP/1.1" 200 49295
+WARNING 2025-12-06 01:01:30,163 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 01:01:38,636 log Bad Request: /sales/cart/api/update/
+WARNING 2025-12-06 01:01:38,637 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 400 52
+INFO 2025-12-06 01:01:44,159 basehttp "GET /product/1396/ HTTP/1.1" 200 87160
+WARNING 2025-12-06 01:01:44,177 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:01:47,431 basehttp "POST /sales/cart/add/1396/ HTTP/1.1" 302 0
+INFO 2025-12-06 01:01:47,464 basehttp "GET /sales/checkout/ HTTP/1.1" 200 49295
+WARNING 2025-12-06 01:01:47,483 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:02:08,686 basehttp "POST /sales/cart/add/1396/ HTTP/1.1" 302 0
+INFO 2025-12-06 01:02:08,716 basehttp "GET /sales/checkout/ HTTP/1.1" 200 49295
+WARNING 2025-12-06 01:02:08,736 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 01:02:25,846 log Bad Request: /sales/cart/api/update/
+WARNING 2025-12-06 01:02:25,846 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 400 52
+WARNING 2025-12-06 01:02:27,359 log Bad Request: /sales/cart/api/update/
+WARNING 2025-12-06 01:02:27,359 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 400 52
+WARNING 2025-12-06 01:02:29,319 log Bad Request: /sales/cart/api/update/
+WARNING 2025-12-06 01:02:29,320 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 400 52
+INFO 2025-12-06 01:04:07,813 basehttp "GET /product/1396/ HTTP/1.1" 200 87160
+WARNING 2025-12-06 01:04:07,837 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:05:57,428 basehttp "POST /sales/cart/add/1396/ HTTP/1.1" 302 0
+INFO 2025-12-06 01:05:57,470 basehttp "GET /sales/checkout/ HTTP/1.1" 200 49295
+WARNING 2025-12-06 01:05:57,491 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:08:31,270 autoreload E:\WebProjects\jebaenterprise\jeba_sales\views.py changed, reloading.
+INFO 2025-12-06 01:08:31,660 autoreload Watching for file changes with StatReloader
+INFO 2025-12-06 01:08:35,175 basehttp "GET /sales/checkout/ HTTP/1.1" 200 49309
+WARNING 2025-12-06 01:08:35,199 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:08:37,394 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 129
+INFO 2025-12-06 01:08:38,270 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 127
+INFO 2025-12-06 01:08:38,832 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 119
+INFO 2025-12-06 01:08:38,862 basehttp "GET /sales/checkout/ HTTP/1.1" 302 0
+INFO 2025-12-06 01:08:39,009 basehttp "GET /sales/cart/ HTTP/1.1" 200 49756
+WARNING 2025-12-06 01:08:39,027 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:08:40,642 basehttp "GET / HTTP/1.1" 200 101526
+WARNING 2025-12-06 01:08:40,662 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:08:42,354 basehttp "GET /product/1423/ HTTP/1.1" 200 86118
+WARNING 2025-12-06 01:08:42,378 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:08:42,411 basehttp "GET /media/products/gallery/prod_1423_1.jpg HTTP/1.1" 200 53871
+INFO 2025-12-06 01:08:42,412 basehttp "GET /media/products/gallery/prod_1423_2.jpg HTTP/1.1" 200 64036
+INFO 2025-12-06 01:08:42,415 basehttp "GET /media/products/gallery/prod_1423_4.jpg HTTP/1.1" 200 61255
+INFO 2025-12-06 01:08:42,418 basehttp "GET /media/products/gallery/prod_1423_5.jpg HTTP/1.1" 200 41695
+INFO 2025-12-06 01:08:42,424 basehttp "GET /media/products/gallery/prod_1423_3.jpg HTTP/1.1" 200 44213
+INFO 2025-12-06 01:08:43,986 basehttp "POST /sales/cart/add/1423/ HTTP/1.1" 302 0
+INFO 2025-12-06 01:08:44,018 basehttp "GET /sales/checkout/ HTTP/1.1" 200 49331
+WARNING 2025-12-06 01:08:44,034 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:08:46,919 basehttp "POST /sales/checkout/ HTTP/1.1" 200 49765
+WARNING 2025-12-06 01:08:46,937 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:09:04,784 basehttp "POST /sales/checkout/ HTTP/1.1" 302 0
+INFO 2025-12-06 01:09:04,841 basehttp "GET /sales/order/success/ HTTP/1.1" 200 47135
+WARNING 2025-12-06 01:09:04,859 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:09:10,626 basehttp "GET /dashboard/ HTTP/1.1" 200 51466
+WARNING 2025-12-06 01:09:10,641 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:09:13,111 basehttp "GET /sales/order/73/ HTTP/1.1" 200 46373
+WARNING 2025-12-06 01:09:13,129 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:10:11,418 basehttp "GET /my-orders/ HTTP/1.1" 200 47680
+WARNING 2025-12-06 01:10:11,436 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:10:15,357 basehttp "GET /sales/order/20/ HTTP/1.1" 200 46639
+WARNING 2025-12-06 01:10:15,378 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:10:41,691 basehttp "GET / HTTP/1.1" 200 107416
+WARNING 2025-12-06 01:10:41,711 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:10:45,346 basehttp "GET /product/1421/ HTTP/1.1" 200 88116
+WARNING 2025-12-06 01:10:45,370 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-06 01:10:45,408 basehttp "GET /media/products/gallery/prod_1421_1.jpg HTTP/1.1" 200 55285
+INFO 2025-12-06 01:10:45,411 basehttp "GET /media/products/gallery/prod_1421_2.jpg HTTP/1.1" 200 43795
+INFO 2025-12-06 01:10:45,413 basehttp "GET /media/products/gallery/prod_1421_3.jpg HTTP/1.1" 200 50355
+INFO 2025-12-06 01:10:45,415 basehttp "GET /media/products/gallery/prod_1421_4.jpg HTTP/1.1" 200 27362
+INFO 2025-12-06 01:10:45,416 basehttp "GET /media/products/gallery/prod_1421_5.jpg HTTP/1.1" 200 52377
+INFO 2025-12-06 01:10:45,420 basehttp "GET /media/products/gallery/prod_1421_6.jpg HTTP/1.1" 200 77674
+INFO 2025-12-06 01:10:47,931 basehttp "GET /admin/ HTTP/1.1" 200 73688
+WARNING 2025-12-06 01:10:47,955 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-06 01:10:47,956 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+INFO 2025-12-06 01:10:47,961 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+INFO 2025-12-06 01:10:47,962 basehttp "GET /static/vendor/bootswatch/darkly/bootstrap.min.css HTTP/1.1" 200 164202
+INFO 2025-12-06 01:10:47,962 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+INFO 2025-12-06 01:10:47,962 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+INFO 2025-12-06 01:10:47,964 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+INFO 2025-12-06 01:10:47,965 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-12-06 01:10:47,970 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+INFO 2025-12-06 01:10:48,087 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+INFO 2025-12-06 01:10:48,088 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+WARNING 2025-12-06 01:10:48,176 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-06 01:10:53,464 basehttp "GET /admin/jeba_inventory/product/ HTTP/1.1" 200 290640
+INFO 2025-12-06 01:10:53,485 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-12-06 01:10:53,486 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-12-06 01:10:53,486 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-12-06 01:10:53,486 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-12-06 01:10:53,487 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+WARNING 2025-12-06 01:10:53,493 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-06 01:10:53,494 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-12-06 01:10:53,494 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-12-06 01:10:53,495 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-12-06 01:10:53,497 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-12-06 01:10:53,498 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+INFO 2025-12-06 01:10:53,499 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+INFO 2025-12-06 01:10:53,509 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-06 01:11:03,628 basehttp "GET /admin/jeba_inventory/product/?q=ALMARI%2FCLOSET+CLOTH+HANGER HTTP/1.1" 200 237400
+WARNING 2025-12-06 01:11:03,648 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-06 01:11:03,668 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-06 01:11:21,573 basehttp "POST /admin/jeba_inventory/product/?q=ALMARI%2FCLOSET+CLOTH+HANGER HTTP/1.1" 302 0
+INFO 2025-12-06 01:11:21,672 basehttp "GET /admin/jeba_inventory/product/?q=ALMARI%2FCLOSET+CLOTH+HANGER HTTP/1.1" 200 237918
+WARNING 2025-12-06 01:11:21,692 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-06 01:11:21,711 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-06 01:11:24,325 basehttp "GET /product/1421/ HTTP/1.1" 200 88095
+WARNING 2025-12-06 01:11:24,342 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-06 01:11:34,519 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-06 01:11:34,520 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13168

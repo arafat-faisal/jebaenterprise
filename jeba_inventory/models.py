@@ -194,6 +194,7 @@ class Product(models.Model):
     def thumbnail(self):
         img_obj = self.main_image_obj
         return img_obj.image if img_obj else None
+    
     # --- NEW: Discount Logic ---
     @property
     def has_discount(self):
@@ -205,6 +206,14 @@ class Product(models.Model):
             return int(self.original_price - self.selling_price)
         return 0
     # ---------------------------
+
+    # --- NEW: Variation Logic Helper ---
+    @property
+    def has_variations(self):
+        """Returns True if the product has active variations."""
+        return self.variations.filter(is_active=True).exists()
+    # ---------------------------
+
     def auto_assign_category(self):
         CATEGORY_KEYWORDS = {
             'Electronics': ['phone', 'mobile', 'laptop', 'camera', 'earphone', 'headphone', 'charger', 'cable', 'usb', 'speaker', 'watch', 'smart', 'tv', 'gadget', 'wireless', 'bluetooth'],
@@ -254,19 +263,44 @@ class Product(models.Model):
         self.save()
         return True
 
-# --- Product Variation ---
+# --- Product Variation (UPGRADED) ---
 class ProductVariation(models.Model):
     product = models.ForeignKey(Product, related_name='variations', on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, verbose_name=_("Variation Name"))
+    name = models.CharField(max_length=255, verbose_name=_("Variation Name"), help_text=_("e.g. Size: XL, Color: Red"))
+    
+    # Pricing (Upgraded to support discounts per variation)
     selling_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Selling Price"))
-    is_active = models.BooleanField(default=True, verbose_name=_("Is Active"))
+    original_price = models.DecimalField(
+        max_digits=10, decimal_places=2, 
+        null=True, blank=True, 
+        verbose_name=_("Original Price"),
+        help_text=_("Set higher than selling price to show discount for this specific variation.")
+    )
+    
+    # Inventory (Upgraded)
+    sku = models.CharField(max_length=50, blank=True, null=True, unique=True, verbose_name=_("SKU"))
     stock_quantity = models.PositiveIntegerField(default=0, verbose_name=_("Stock Quantity"))
+    
+    is_active = models.BooleanField(default=True, verbose_name=_("Is Active"))
 
     class Meta:
         db_table = 'products_productvariation'
+        verbose_name = _("Variation")
+        verbose_name_plural = _("Variations")
 
     def __str__(self):
         return f"{self.product.name} - {self.name}"
+
+    # NEW: Properties to handle variation discounts
+    @property
+    def has_discount(self):
+        return self.original_price and self.original_price > self.selling_price
+
+    @property
+    def discount_amount(self):
+        if self.has_discount:
+            return int(self.original_price - self.selling_price)
+        return 0
 
 # --- Product Image ---
 class ProductImage(models.Model):
