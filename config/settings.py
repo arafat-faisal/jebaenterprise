@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'jeba_landing',
     # --- NEW AI BUILDER ---
     'jeba_ai_builder', 
+    'jeba_messenger',
     # ----------------------
     # --- EXISTING APP (Deprecated/Hidden) ---
     # 'products', 
@@ -263,6 +264,9 @@ JAZZMIN_SETTINGS = {
         "jeba_analytics": "fas fa-chart-line",
         "jeba_blog": "fas fa-newspaper",
         "jeba_landing.LandingPage": "fas fa-rocket",
+        # --- ADD THIS LINE ---
+        "jeba_messenger": "fab fa-facebook-messenger", 
+        # ---------------------
     },
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-circle",
@@ -272,7 +276,15 @@ JAZZMIN_SETTINGS = {
             "name": "Competitor Analysis", 
             "url": "admin_scraper", 
             "icon": "fas fa-search-dollar",
+        }],
+        # --- ADD THIS BLOCK ---
+        "jeba_messenger": [{
+            "name": "Inbox & AI Copilot", 
+            "url": "chat_dashboard", 
+            "icon": "fas fa-robot",
+            # "permissions": ["jeba_messenger.view_conversation"]
         }]
+        # ----------------------
     },
 }
 

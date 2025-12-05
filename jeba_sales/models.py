@@ -59,10 +59,16 @@ class Sale(models.Model):
 
     @property
     def invoice_number(self):
+        # FIX: Check if ID exists (is not None)
+        if self.id is None:
+            return "NEW"
         return f"JEBA-{self.id + 8000}"
     
     @property
     def order_id(self):
+        # FIX: Check if ID exists (is not None)
+        if self.id is None:
+            return "New Order"
         return f"#{self.id + 8000}"
     
     # RENAME: Internal method to calculate the subtotal from line items (always reliable source)

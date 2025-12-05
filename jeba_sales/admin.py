@@ -113,6 +113,19 @@ class SaleAdmin(admin.ModelAdmin):
         }),
     )
 
+    # --- CRITICAL FIX: Allow Pre-filling from URL ---
+    def get_changeform_initial_data(self, request):
+        initial = super().get_changeform_initial_data(request)
+        # Capture GET parameters from the Dashboard "Create Order" button
+        if request.GET.get('customer_name'):
+            initial['customer_name'] = request.GET.get('customer_name')
+        if request.GET.get('phone_number'):
+            initial['phone_number'] = request.GET.get('phone_number')
+        if request.GET.get('shipping_address'):
+            initial['shipping_address'] = request.GET.get('shipping_address')
+        return initial
+    # ------------------------------------------------
+
     # --- CUSTOM COLUMNS & BADGES ---
     def status_badge(self, obj):
         colors = {
@@ -166,20 +179,18 @@ class SaleAdmin(admin.ModelAdmin):
     invoice_link.short_description = "Invoice"
 
     # --- STEADFAST INTEGRATION ---
+    # --- FIX: ADDED SAFETY CHECK HERE ---
     def steadfast_action_button(self, obj):
+        # If the object is being created (has no ID), return a placeholder
+        if not obj or not obj.pk:
+            return "-"
+            
         if obj.consignment_id:
-            return format_html(
-                '<a class="btn btn-sm btn-success" target="_blank" href="https://portal.steadfast.com.bd/track/{}">'
-                '<i class="fas fa-truck"></i> Track (ID: {})</a>', 
-                obj.consignment_id, obj.consignment_id
-            )
-        return format_html(
-            '<a class="btn btn-sm btn-primary" href="{}">'
-            '<i class="fas fa-paper-plane"></i> Send to Courier</a>',
-            reverse('admin:sale_send_steadfast', args=[obj.pk])
-        )
+            return format_html('<a class="btn btn-sm btn-success" target="_blank" href="https://portal.steadfast.com.bd/track/{}"><i class="fas fa-truck"></i> Track (ID: {})</a>', obj.consignment_id, obj.consignment_id)
+        return format_html('<a class="btn btn-sm btn-primary" href="{}"><i class="fas fa-paper-plane"></i> Send to Courier</a>', reverse('admin:sale_send_steadfast', args=[obj.pk]))
     steadfast_action_button.short_description = "Courier Actions"
     steadfast_action_button.allow_tags = True
+    # ------------------------------------
 
     def steadfast_status_preview(self, obj):
         if obj.consignment_id:

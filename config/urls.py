@@ -32,6 +32,7 @@ urlpatterns = [
     # --- NEW AI BUILDER (Add this line) ---
     path('ai/', include('jeba_ai_builder.urls')),
     # --------------------------------------
+    path('messenger/', include('jeba_messenger.urls')),
 ]
 
 # Serve media files in development
