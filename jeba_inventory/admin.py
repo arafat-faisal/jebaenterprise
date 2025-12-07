@@ -124,7 +124,7 @@ class ProductVariationInline(admin.TabularInline):
     model = ProductVariation
     extra = 1
     # UPGRADE: Added SKU and Original Price
-    fields = ('name', 'sku', 'original_price', 'selling_price', 'stock_quantity', 'is_active')
+    fields = ('name', 'sku', 'original_price', 'selling_price', 'stock_quantity', 'image', 'is_active')
 
 class CompetitorPriceInline(admin.TabularInline):
     model = CompetitorPrice

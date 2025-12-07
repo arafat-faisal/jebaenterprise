@@ -12,787 +12,615 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{% with h_font=page.font_heading b_font=page.font_body %}
-    {% if 'Montserrat' in h_font or 'Montserrat' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">{% endif %}
-    {% if 'Open Sans' in h_font or 'Open Sans' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">{% endif %}
-    {% if 'Roboto' in h_font or 'Roboto' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">{% endif %}
-    {% if 'Playfair' in h_font or 'Playfair' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">{% endif %}
-    {% if 'Lato' in h_font or 'Lato' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">{% endif %}
-    {% if 'Oswald' in h_font or 'Oswald' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">{% endif %}
-    {% if 'Raleway' in h_font or 'Raleway' in b_font %}<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">{% endif %}
-{% endwith %}
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
     /* --- 1. DYNAMIC THEME ENGINE --- */
     :root {
-        --app-bg: #000000;
-        --app-card-bg: #1d1d1f;
-        --app-accent: #D4F759;
-        --app-text: #f5f5f7;
-        --app-subtext: #86868b;
-        --app-radius: 28px;
-        --font-heading: '{{ page.font_heading }}', sans-serif;
-        --font-body: '{{ page.font_body }}', sans-serif;
-    }
-    {% if page.theme %}{{ page.theme.base_css|safe }}{% endif %}
-    :root {
-        {% if page.override_primary_color %}--app-bg: {{ page.override_primary_color }} !important;{% endif %}
-        {% if page.override_accent_color %}--app-accent: {{ page.override_accent_color }} !important;{% endif %}
-    }
-    {{ page.custom_css|default:""|safe }}
-
-    /* --- 2. CORE STYLES & NAVBAR --- */
-    body .container { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
-    
-    /* Navbar Hiding Logic - SUPER SNAPPY */
-    body.immersive-mode .site-header { 
-        transform: translateY(-110%) !important; 
-        pointer-events: none; 
-    }
-    body.immersive-mode .mobile-bottom-nav { 
-        transform: translateY(110%) !important; 
-        pointer-events: none; 
-    }
-    
-    /* Optimized Transition: Faster (0.25s) and specialized for 'transform' only to prevent lag */
-    .site-header, .mobile-bottom-nav { 
-        transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) !important; 
-        will-change: transform;
-    }
-    
-    .landing-wrapper {
-        background-color: var(--app-bg);
-        color: var(--app-text);
-        font-family: var(--font-body);
-        width: 100%;
-        overflow-x: hidden;
-        padding-bottom: 100px;
-        min-height: 100vh;
-        opacity: 0; /* JS will reveal this */
-        transition: opacity 0.5s ease;
-    }
-
-    /* --- 3. TYPOGRAPHY --- */
-    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
-    
-    .headline-pro { 
-        font-size: 56px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.3em; color: inherit; 
-    }
-    
-    .headline-fluid {
-        font-size: clamp(1.8rem, 3.5vw, 3.8rem); 
-        line-height: 1.1;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        margin-bottom: 0.3em;
-        color: inherit;
-    }
-    
-    .subhead-pro { font-size: 24px; line-height: 1.4; font-weight: 400; opacity: 0.8; margin-bottom: 30px; }
-    .text-body-pro { font-size: 18px; line-height: 1.6; font-weight: 400; opacity: 0.9; }
-
-    /* Mobile Compact Styles */
-    @media (max-width: 768px) {
-        .headline-pro { font-size: 36px; }
-        .headline-fluid { font-size: clamp(1.8rem, 7vw, 2.5rem); margin-bottom: 5px; }
-        .subhead-pro { font-size: 15px; margin-bottom: 15px; line-height: 1.3; }
-        .text-body-pro { font-size: 16px; }
+        /* LIGHT MODE (Default) */
+        --app-bg: #F8F9FA;
+        --app-surface: #ffffff;
+        --app-card-bg: rgba(0, 0, 0, 0.03);
+        --app-text: #1a1a1a;
+        --app-text-muted: #6c757d;
+        --app-border: rgba(0, 0, 0, 0.08);
         
-        .landing-wrapper { padding-bottom: 120px; }
-        .row.g-5, .row.gy-5 { --bs-gutter-y: 1rem !important; }
+        --app-accent: #000000;
+        --app-accent-fg: #ffffff;
+        --app-accent-glow: rgba(0, 0, 0, 0.15);
+        
+        --glass-bg: rgba(255, 255, 255, 0.85);
+        --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+        
+        --font-body: 'Plus Jakarta Sans', sans-serif;
+        --font-heading: 'Outfit', sans-serif;
+        --radius-sm: 12px;
+        --radius-lg: 24px;
+        --radius-pill: 100px;
     }
 
-    /* --- 4. COMPONENTS & IMAGES --- */
-    
-    .hero-overlay-img {
-        width: auto;
-        object-fit: contain;
-        filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
-        max-height: 38vh; 
-        margin-bottom: 5px;
+    [data-theme="dark"] {
+        --app-bg: #050505;
+        --app-surface: #121212;
+        --app-card-bg: rgba(255, 255, 255, 0.04);
+        --app-text: #ffffff;
+        --app-text-muted: #949494;
+        --app-border: rgba(255, 255, 255, 0.1);
+        
+        --app-accent: #D4F759;
+        --app-accent-fg: #000000;
+        --app-accent-glow: rgba(212, 247, 89, 0.3);
+        
+        --glass-bg: rgba(20, 20, 20, 0.85);
+        --glass-border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    @media (min-width: 992px) {
-        .hero-overlay-img {
-            max-height: 65vh; 
-            margin-bottom: 0;
+
+    body {
+        background-color: var(--app-bg); color: var(--app-text);
+        font-family: var(--font-body); overflow-x: hidden;
+        transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    .noise-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none; z-index: 0; opacity: 0.6; mix-blend-mode: overlay;
+    }
+
+    /* --- 2. THEME TOGGLE --- */
+    .theme-wrapper {
+        position: fixed; top: 20px; right: 20px; z-index: 10000;
+        display: flex; align-items: center; gap: 10px;
+    }
+    .theme-toggle {
+        width: 44px; height: 44px; border-radius: 50%;
+        background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        border: var(--glass-border); color: var(--app-text);
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .theme-toggle:hover { transform: scale(1.1) rotate(15deg); }
+
+    .theme-hint {
+        background: var(--app-accent); color: var(--app-accent-fg);
+        padding: 6px 14px; border-radius: 12px; font-size: 0.85rem; font-weight: 700;
+        opacity: 0; transform: translateX(10px);
+        animation: hint-enter 0.6s ease 3s forwards, hint-pulse 2s infinite 3.6s, hint-exit 0.6s ease 9s forwards;
+        pointer-events: none; white-space: nowrap;
+        box-shadow: 0 5px 15px var(--app-accent-glow);
+    }
+    .theme-hint::after {
+        content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+        border-width: 6px; border-style: solid;
+        border-color: transparent transparent transparent var(--app-accent);
+    }
+
+    @keyframes hint-enter { to { opacity: 1; transform: translateX(0); } }
+    @keyframes hint-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    @keyframes hint-exit { to { opacity: 0; transform: translateX(10px); } }
+
+    /* --- 3. PREMIUM SCROLL HELPER --- */
+    .scroll-indicator {
+        /* Removed absolute positioning for mobile to prevent overlap */
+        display: flex; flex-direction: column; align-items: center; gap: 8px;
+        z-index: 20; opacity: 0; animation: fade-in-up 1s ease 1.5s forwards;
+        pointer-events: none;
+        margin-top: 20px; /* Space from controls */
+    }
+    .scroll-text {
+        font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;
+        font-weight: 700; color: var(--app-text-muted); opacity: 0.8;
+    }
+    .scroll-mouse {
+        width: 24px; height: 36px;
+        border: 2px solid var(--app-text-muted); border-radius: 20px;
+        position: relative;
+    }
+    .scroll-wheel {
+        width: 4px; height: 6px; background: var(--app-accent);
+        border-radius: 2px; position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+        animation: scroll-wheel 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+    }
+
+    @keyframes scroll-wheel { 0% { top: 6px; opacity: 1; } 100% { top: 20px; opacity: 0; } }
+    @keyframes fade-in-up { from { opacity: 0; transform: translate(0, 20px); } to { opacity: 1; transform: translate(0, 0); } }
+
+    /* --- 4. LAYOUT --- */
+    body.immersive-mode .site-header { transform: translateY(-150%); pointer-events: none; }
+    body.immersive-mode .mobile-bottom-nav { transform: translateY(150%); pointer-events: none; }
+    .site-header, .mobile-bottom-nav { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+
+    .landing-wrapper { min-height: 100vh; width: 100%; overflow-x: hidden; opacity: 0; padding-bottom: 140px; position: relative; z-index: 1; }
+
+    .headline-fluid {
+        font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 4.2rem);
+        line-height: 1.1; font-weight: 800; letter-spacing: -0.02em;
+        color: var(--app-text); margin-bottom: 0.4em;
+    }
+    .badge-pill {
+        font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px;
+        font-weight: 700; padding: 6px 16px; border-radius: 50px;
+        background: var(--app-accent); color: var(--app-accent-fg);
+        display: inline-block; margin-bottom: 15px;
+        box-shadow: 0 5px 15px var(--app-accent-glow);
+    }
+    .subhead-pro { font-size: 1.15rem; color: var(--app-text-muted); font-weight: 400; line-height: 1.6; }
+
+    /* --- 5. HERO SECTION --- */
+    .hero-section {
+        position: relative; min-height: calc(100dvh - 130px);
+        display: flex; flex-direction: column; justify-content: center; padding-top: 20px;
+    }
+    .hero-media-container {
+        position: relative; perspective: 1000px;
+        display: flex; justify-content: center; align-items: center;
+    }
+    .hero-media-container img {
+        width: 100%; height: auto; max-height: 60vh;
+        object-fit: contain; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15));
+        transition: transform 0.1s ease-out; will-change: transform;
+    }
+    .hero-badge {
+        position: absolute; top: 15%; right: 10%;
+        background: rgba(255, 255, 255, 0.9); color: #000;
+        padding: 8px 18px; border-radius: 50px;
+        font-size: 0.85rem; font-weight: 800;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        transform: rotate(6deg); z-index: 5; border: 2px solid #fff;
+    }
+
+    /* --- 6. CONTROLS --- */
+    .price-display { font-family: var(--font-heading); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .price-val { font-size: 2rem; font-weight: 800; color: var(--app-text); letter-spacing: -0.5px; }
+    .price-strike { 
+        position: relative; font-size: 1.25rem; color: var(--app-text-muted); 
+        font-weight: 500; text-decoration: none !important; margin-right: 5px;
+    }
+    .price-strike::after {
+        content: ''; position: absolute; left: -5%; top: 48%; width: 110%; height: 2px;
+        background: #ff3b30; transform: rotate(-10deg); border-radius: 100%;
+        box-shadow: 0 0 2px rgba(255, 59, 48, 0.4);
+    }
+
+    .variation-selector-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+    .var-option {
+        cursor: pointer; padding: 10px 16px; border-radius: var(--radius-sm);
+        background: var(--app-card-bg); border: 1px solid var(--app-border);
+        color: var(--app-text-muted); font-weight: 600; font-size: 0.9rem;
+        display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;
+    }
+    .var-option:hover { background: var(--app-border); color: var(--app-text); transform: translateY(-2px); }
+    .var-option.active {
+        background: var(--app-accent); color: var(--app-accent-fg);
+        border-color: var(--app-accent); box-shadow: 0 5px 20px var(--app-accent-glow);
+    }
+    .var-img-thumb { width: 24px; height: 24px; border-radius: 4px; object-fit: cover; background: #fff; }
+
+    .btn-shine-anim {
+        position: relative; overflow: hidden;
+        background: var(--app-text); color: var(--app-bg) !important;
+        font-weight: 800; border: none; padding: 16px 30px; border-radius: var(--radius-pill);
+        font-size: 1.05rem; width: auto; display: inline-block;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .btn-shine-anim:hover { transform: scale(1.03); opacity: 0.95; }
+    .btn-shine-anim:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+    /* --- 7. MOBILE OPTIMIZATION --- */
+    @media (max-width: 768px) {
+        .theme-wrapper { top: 90px; right: 15px; }
+        .landing-wrapper { padding-bottom: 120px; }
+        
+        /* Fit screen: 100dvh - Header - Nav - Padding */
+        .hero-section { 
+            min-height: calc(100dvh - 120px); 
+            justify-content: center; 
+            padding: 0;
+            padding-bottom: 20px; 
+        }
+        
+        .headline-fluid { font-size: 1.8rem; margin-bottom: 5px; }
+        .badge-pill { margin-bottom: 5px; font-size: 0.7rem; padding: 4px 12px; }
+        
+        .hero-media-container { margin-bottom: 10px; }
+        .hero-media-container img { max-height: 28vh; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1)); }
+        
+        .mobile-controls-area {
+            background: var(--glass-bg); border: var(--glass-border);
+            border-radius: var(--radius-lg); padding: 15px;
+            text-align: center; backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .price-display { margin-bottom: 8px; }
+        .variation-selector-group { justify-content: center; gap: 8px; margin-bottom: 8px; }
+        .var-option { padding: 8px 12px; font-size: 0.85rem; }
+        .btn-shine-anim { width: 100%; padding: 12px; font-size: 1rem; }
+        
+        /* Flex positioning for safer layout */
+        .hero-mobile-layout {
+            display: flex; flex-direction: column; 
+            justify-content: center; height: 100%;
         }
     }
-
-    /* --- 5. MOBILE SCROLL HELPER --- */
-    .scroll-floater {
-        position: fixed;
-        bottom: 70px;
-        left: 20px;
-        z-index: 999;
-        background: rgba(255, 255, 255, 0.15); /* Slightly more opaque for performance */
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: var(--app-text);
-        padding: 8px 16px;
-        border-radius: 50px;
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
-        opacity: 0;
-        transform: translateY(20px);
-    }
     
-    .scroll-floater.visible { opacity: 1; transform: translateY(0); }
-    .scroll-floater.pos-right { transform: translateX(calc(100vw - 100% - 40px)); }
-    .scroll-floater i { animation: floatArrow 1.5s infinite ease-in-out; }
-    @keyframes floatArrow { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(3px); opacity: 1; } }
-
-    @media (min-width: 768px) {
-        .scroll-floater { display: none !important; }
+    @media (min-width: 769px) {
+        /* Desktop: Absolute bottom positioning */
+        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); }
     }
 
-    /* Components */
-    .stock-warning-badge { display: inline-flex; align-items: center; gap: 8px; background: #ff3b30; color: white; padding: 5px 12px; border-radius: 50px; font-weight: 700; font-size: 0.8rem; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(255, 59, 48, 0.4); }
-    .countdown-wrapper { margin: 15px 0; padding: 10px 15px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; display: inline-block; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); }
-    .countdown-timer { font-family: monospace; font-size: 1.8rem; font-weight: 800; color: var(--app-accent); line-height: 1; }
-    .countdown-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; display: block; margin-bottom: 4px; }
-
-    /* --- ANIMATION FIXES --- */
-    @keyframes shimmer-gold { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-    
-    /* ADDED: Missing Keyframe */
-    @keyframes heartbeat-lucrative {
-        0% { transform: scale(1); }
-        15% { transform: scale(1.05); }
-        30% { transform: scale(1); }
-        45% { transform: scale(1.05); }
-        60% { transform: scale(1); }
-        100% { transform: scale(1); }
+    /* --- 8. ISLAND BAR --- */
+    #island-bar {
+        position: fixed; bottom: 25px; left: 50%;
+        transform: translateX(-50%) translateY(150%);
+        width: 94%; max-width: 500px; height: 74px;
+        background: var(--glass-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+        border: var(--glass-border); border-radius: var(--radius-pill);
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 6px 8px 6px 20px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.25); z-index: 9999;
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #island-bar.visible { transform: translateX(-50%) translateY(0); }
+    @media (max-width: 768px) {
+        body:not(.immersive-mode) #island-bar.visible { transform: translateX(-50%) translateY(-65px); }
     }
 
-    .btn-lucrative-style { 
-        background: linear-gradient(110deg, var(--app-accent) 0%, #ffffff 20%, var(--app-accent) 40%); 
-        background-size: 200% 100%; 
-        color: #000 !important; 
-        font-weight: 800; 
-        border: none; 
-        animation: shimmer-gold 4s infinite linear; /* Slowed down slightly for performance */
+    .island-left { display: flex; align-items: center; gap: 12px; overflow: hidden; }
+    .island-thumb { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid var(--app-border); flex-shrink: 0; }
+    .island-meta { display: flex; flex-direction: column; overflow: hidden; }
+    .island-name { color: var(--app-text); font-weight: 700; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; }
+    .island-price-block { font-size: 0.85rem; display: flex; gap: 6px; align-items: center; }
+    .island-strike { text-decoration: line-through; color: var(--app-text-muted); font-size: 0.8em; position: relative; }
+    .island-strike::after { content: ''; position: absolute; left: -10%; top: 50%; width: 120%; height: 1px; background: #ff3b30; transform: rotate(-5deg); }
+    .island-val { color: var(--app-text); font-weight: 800; }
+    .btn-island {
+        background: var(--app-text); color: var(--app-bg); border: none; padding: 10px 24px;
+        border-radius: var(--radius-pill); font-weight: 700; font-size: 0.9rem; white-space: nowrap; flex-shrink: 0;
     }
-    
-    .btn-custom-outline { border: 2px solid rgba(255,255,255,0.2); color: var(--app-text); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; }
-    .btn-custom-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; color: #fff; }
-
-    .custom-video-wrapper { position: relative; border-radius: 20px; overflow: hidden; width: 100%; background: #000; cursor: pointer; touch-action: manipulation; }
-    .custom-video-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .video-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); transition: opacity 0.3s; z-index: 2; pointer-events: none; }
-    .video-overlay.hidden { opacity: 0; }
-    .play-icon-circle { width: 70px; height: 70px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.4); }
-    .play-icon-circle i { font-size: 24px; color: #fff; margin-left: 4px; }
-
-    #island-bar { position: fixed; z-index: 9999; display: flex; align-items: center; justify-content: center; overflow: hidden; opacity: 0; visibility: hidden; }
-    .island-content-full { width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 15px; opacity: 0; }
-    .island-content-hero { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; text-align: center; color: #000; font-weight: 800; font-size: 18px; white-space: nowrap; opacity: 1; text-decoration: none; }
-    .island-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
-    .island-thumb { width: 45px; height: 45px; border-radius: 10px; object-fit: cover; background: #fff; border: 1px solid rgba(255,255,255,0.1); }
-    .island-info { display: flex; flex-direction: column; line-height: 1.2; overflow: hidden; }
-    .island-name { font-size: 15px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .island-actions { display: flex; align-items: center; gap: 10px; }
-    .btn-island-secondary { background: rgba(255,255,255,0.1); color: #fff; border: none; padding: 8px 16px; border-radius: 99px; font-size: 14px; font-weight: 600; text-decoration: none; }
-    /* Inner Button (Always Lucrative) */
-    .btn-island-primary { 
-        background: var(--app-accent); color: #000; font-weight: 700; border: none; padding: 10px 24px; border-radius: 99px; font-size: 14px; cursor: pointer; 
-        
-        /* Apply Animation - Optimized */
-        background: linear-gradient(110deg, var(--app-accent) 0%, var(--app-accent) 40%, rgba(255, 255, 255, 0.8) 50%, var(--app-accent) 60%, var(--app-accent) 100%);
-        background-size: 200% 100%;
-        animation: shimmer-gold 6s infinite linear, heartbeat-lucrative 3s infinite ease-in-out;
-    }
-    .price-strike { position: relative; display: inline-block; color: #999; font-size: 0.9em; margin-right: 8px; font-weight: 500; text-decoration: none; }
-    .price-strike::after { content: ''; position: absolute; left: -5%; top: 50%; width: 110%; height: 2px; background: #ff3b30; transform: translateY(-50%) rotate(-12deg); border-radius: 2px; }
-    .price-highlight { color: var(--app-accent); font-weight: 700; font-size: larger;}
-
-    .dynamic-section { position: relative; background-size: cover; background-position: center; padding-top: var(--sec-pt, 80px); padding-bottom: var(--sec-pb, 80px); background: var(--sec-bg, transparent); color: var(--sec-color, inherit); text-align: var(--sec-align, center); }
-    .hero-full-screen { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-    .dynamic-radius { border-radius: var(--sec-radius, 0px); overflow: hidden; }
-    .section-bg-image { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; }
-    
-    .shape-divider { position: absolute; left: 0; width: 100%; overflow: hidden; line-height: 0; z-index: 1; pointer-events: none; }
-    .shape-divider svg { display: block; width: calc(130% + 1.3px); height: 60px; }
-    @media (min-width: 768px) { .shape-divider svg { height: 120px; } }
-    .divider-top { top: 0; transform: rotate(180deg); }
-    .divider-bottom { bottom: 0; }
-    .divider-fill { fill: var(--app-bg); }
-    .section-icon { font-size: 40px; color: var(--app-accent); margin-bottom: 20px; display: inline-block; }
-
-    .carousel-pro { border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-    .carousel-item { height: 600px; background: #000; }
-    .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
-    @media (max-width: 768px) { .carousel-item { height: 400px; } }
-
-    #site-loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--app-bg); z-index: 99999; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.5s ease; }
-    .loader-spinner { width: 40px; height: 40px; border: 4px solid rgba(255, 255, 255, 0.1); border-top: 4px solid var(--app-accent); border-radius: 50%; animation: spin 1s linear infinite; margin-top: 15px; }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-    {% if preview_mode %}
-        .landing-wrapper { opacity: 1 !important; }
-        #site-loader { display: none !important; opacity: 0 !important; pointer-events: none !important; }
-    {% endif %}
 </style>
 
-<div id="site-loader" {% if preview_mode %}style="display: none !important;"{% endif %}>
-    <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 60px;">
-    <div class="loader-spinner"></div>
-</div>
+<div class="noise-overlay"></div>
 
-<div id="scroll-floater" class="scroll-floater">
-    <span>Scroll Down</span> <i class="fas fa-arrow-down"></i>
-</div>
-
-<div class="landing-wrapper" id="landing-wrapper">
-
-    {% for section in sections %}
-        {% with bg=section.background_gradient|default:section.background_color|default:'transparent' txt=section.text_color|default:'inherit' %}
-        
-        <section class="dynamic-section {% if section.section_type == 'HERO' %}hero-full-screen{% endif %}" 
-                 id="section-{{ section.id }}"
-                 {% if preview_mode %}
-                    data-form-index="{{ section.form_index }}"
-                    data-desktop-pos="{{ section.desktop_media_position }}"
-                    data-mobile-pos="{{ section.mobile_media_position }}"
-                    onclick="handleClick(event, {{ section.form_index }})"
-                 {% endif %}
-                 style="
-                    --sec-pt: {{ section.padding_top }}px; 
-                    --sec-pb: {{ section.padding_bottom }}px;
-                    --sec-bg: {{ bg }};
-                    --sec-color: {{ txt }};
-                    --sec-align: {{ section.text_alignment }};
-                    --sec-radius: {{ section.border_radius }}px;
-                    --sec-overlay: {{ section.overlay_opacity }};
-                    --card-bg: {% if section.background_color %}{{ section.background_color }}{% else %}var(--app-card-bg){% endif %};
-                 ">
-            
-            <style>
-                #section-{{ section.id }} .section-bg-image { background-position: {{ section.desktop_media_position }}; }
-                @media (max-width: 768px) {
-                    #section-{{ section.id }} .section-bg-image { background-position: {{ section.mobile_media_position }}; }
-                }
-                {% if preview_mode %}
-                #section-{{ section.id }}:hover .section-bg-image { cursor: move; filter: brightness(1.1); }
-                {% endif %}
-            </style>
-
-            {% if section.image and section.section_type == 'HERO' and section.design_variant == 'OVERLAY' %}
-                <div class="section-bg-image" style="background-image: url('{{ section.image.url }}');"></div>
-            {% elif section.image and section.section_type != 'HERO' and section.section_type != 'TEXT_IMAGE_SPLIT' and section.section_type != 'FEATURES_GRID' and section.section_type != 'CAROUSEL' %}
-                 <div class="section-bg-image" style="background-image: url('{{ section.image.url }}');"></div>
-            {% endif %}
-
-            {% if section.divider_top != 'NONE' %}
-            <div class="shape-divider divider-top">
-                {% if section.divider_top == 'WAVE' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="divider-fill"></path></svg>
-                {% elif section.divider_top == 'SLANT_RIGHT' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="divider-fill"></path></svg>
-                {% elif section.divider_top == 'CURVE' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="divider-fill"></path><path d="M0,0V15.81C13,36.92,46,62.34,98.58,81.55c58.72,21.47,117.49,4.9,139.52-6.36C296.34,58.34,334.68,17.47,419.66,35c82.33,16.94,86.83,72.88,143.72,81.71C633.27,127.48,674,83.55,754,64.21c37.07-9,102.39-14.73,149.33,12.72,48.27,28.23,94.27,14,138.31-7.86,51.64-25.64,103-34.79,158.36-13.88V0Z" class="divider-fill"></path></svg>
-                {% endif %}
-            </div>
-            {% endif %}
-
-            {% if section.section_type == 'HERO' %}
-                
-                {% if section.design_variant == 'OVERLAY' or not section.design_variant %}
-                    <div style="position: absolute; inset: 0; background: rgba(0,0,0, var(--sec-overlay)); z-index: 0;"></div>
-                    
-                    <div class="container" style="position: relative; z-index: 2;">
-                        <div class="row align-items-center gy-3 g-lg-4"> 
-                            
-                            <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                {% if section.foreground_video %}
-                                    <video autoplay loop muted playsinline class="hero-overlay-img gs-scale-up">
-                                        <source src="{{ section.foreground_video.url }}" type="video/mp4">
-                                    </video>
-                                {% elif section.foreground_image %}
-                                    <img src="{{ section.foreground_image.url }}" class="hero-overlay-img gs-scale-up" alt="{{ section.heading }}">
-                                {% elif product.main_image_obj %}
-                                    <img src="{{ product.main_image_obj.image.url }}" class="hero-overlay-img gs-scale-up" alt="{{ product.name }}">
-                                {% endif %}
-                            </div>
-
-                            <div class="col-lg-6 order-2 order-lg-1 text-center text-lg-start" 
-                                 style="{% if section.text_content_padding > 0 %}padding: {{ section.text_content_padding }}px;{% endif %}">
-                                
-                                {% if page.stock_warning > 0 and product.stock <= page.stock_warning %}
-                                    <div class="stock-warning-badge gs-fade-up"><i class="fas fa-fire-alt"></i> ONLY {{ product.stock }} LEFT IN STOCK!</div>
-                                {% endif %}
-                                {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon gs-fade-up"></i>{% endif %}
-                                
-                                <h1 class="headline-fluid gs-fade-up">{{ section.heading }}</h1>
-                                
-                                {% if section.subheading %}<p class="subhead-pro gs-fade-up">{{ section.subheading }}</p>{% endif %}
-                                
-                                {% if page.countdown_end %}
-                                    <div class="countdown-wrapper gs-fade-up">
-                                        <span class="countdown-label">Offer Expires In</span>
-                                        <div class="countdown-timer" id="hero-countdown" data-end="{{ page.countdown_end|date:'Y-m-d H:i:s' }}">...</div>
-                                    </div>
-                                {% endif %}
-                                
-                                <div class="mt-3 mt-lg-4">
-                                    <div id="hero-btn-placeholder" style="display:inline-block; width:180px; height:54px;"></div>
-                                </div>
-                                
-                                {% if page.trust_badge_image %}
-                                    <div class="mt-3 gs-fade-up" style="opacity: 0.9;">
-                                        <img src="{{ page.trust_badge_image.url }}" alt="Secure Checkout" style="height: 36px; border-radius: 4px;">
-                                    </div>
-                                {% endif %}
-                            </div>
-
-                        </div>
-                    </div>
-
-                {% elif section.design_variant == 'SPLIT_LEFT' or section.design_variant == 'SPLIT_RIGHT' %}
-                    <div class="container" style="position: relative; z-index: 2;">
-                        <div class="row align-items-center g-5">
-                            <div class="col-lg-6 order-2 {% if section.design_variant == 'SPLIT_RIGHT' %}order-lg-2{% else %}order-lg-1{% endif %}">
-                                {% if page.stock_warning > 0 and product.stock <= page.stock_warning %}
-                                    <div class="stock-warning-badge gs-fade-up"><i class="fas fa-fire-alt"></i> ONLY {{ product.stock }} LEFT!</div>
-                                {% endif %}
-                                <h1 class="headline-pro gs-fade-up text-start">{{ section.heading }}</h1>
-                                <p class="subhead-pro gs-fade-up text-start">{{ section.subheading }}</p>
-                                {% if page.countdown_end %}
-                                    <div class="countdown-wrapper gs-fade-up text-start">
-                                        <span class="countdown-label">Expires In</span>
-                                        <div class="countdown-timer" id="hero-countdown-split" data-end="{{ page.countdown_end|date:'Y-m-d H:i:s' }}">...</div>
-                                    </div>
-                                {% endif %}
-                                <div class="mt-4 text-start"><div id="hero-btn-placeholder" style="display:inline-block; width:180px; height:54px;"></div></div>
-                            </div>
-                            <div class="col-lg-6 order-1 {% if section.design_variant == 'SPLIT_RIGHT' %}order-lg-1{% else %}order-lg-2{% endif %}">
-                                {% if section.image %}<img src="{{ section.image.url }}" class="img-fluid rounded-4 shadow-lg gs-scale-up" alt="{{ section.heading }}" style="width: 100%; object-fit: cover; max-height: 600px;">{% endif %}
-                            </div>
-                        </div>
-                    </div>
-
-                {% elif section.design_variant == 'PRODUCT_FOCUS' %}
-                    <div class="container" style="position: relative; z-index: 2;">
-                        <div class="row align-items-center gy-5">
-                            <div class="col-lg-7 order-1 order-lg-2">
-                                <div class="position-relative gs-scale-up">
-                                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: var(--app-accent); filter: blur(80px); opacity: 0.2; z-index: -1;"></div>
-                                    {% if section.foreground_video %}
-                                        <video autoplay loop muted playsinline class="img-fluid rounded-4 shadow-lg" style="width: 100%; object-fit: contain; max-height: 45vh; min-height: 250px;">
-                                            <source src="{{ section.foreground_video.url }}" type="video/mp4">
-                                        </video>
-                                    {% elif section.foreground_image %}
-                                        <img src="{{ section.foreground_image.url }}" class="img-fluid rounded-4 shadow-lg" alt="{{ section.heading }}" style="width: 100%; object-fit: contain; max-height: 45vh; min-height: 250px;">
-                                    {% elif section.image %}
-                                        <img src="{{ section.image.url }}" class="img-fluid rounded-4 shadow-lg" alt="{{ section.heading }}" style="width: 100%; object-fit: contain; max-height: 45vh; min-height: 250px;">
-                                    {% endif %}
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-5 order-2 order-lg-1">
-                                <div class="text-center text-lg-start ps-lg-4" 
-                                     style="{% if section.text_content_padding > 0 %}padding: {{ section.text_content_padding }}px;{% endif %}">
-                                    {% if page.stock_warning > 0 and product.stock <= page.stock_warning %}
-                                        <div class="stock-warning-badge gs-fade-up"><i class="fas fa-fire-alt"></i> LIMITED STOCK</div>
-                                    {% endif %}
-                                    <h1 class="headline-pro gs-fade-up" style="font-size: 3.2rem;">{{ section.heading }}</h1>
-                                    <p class="subhead-pro gs-fade-up mt-3">{{ section.subheading }}</p>
-                                    
-                                    <div class="mt-4 d-flex justify-content-center justify-content-lg-start">
-                                         <div id="hero-btn-placeholder" style="display:inline-block; width:200px; height:60px;"></div>
-                                    </div>
-
-                                    {% if page.trust_badge_image %}
-                                        <div class="mt-4 opacity-75 gs-fade-up d-flex justify-content-center justify-content-lg-start"><img src="{{ page.trust_badge_image.url }}" style="height: 30px;"></div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                {% elif section.design_variant == 'MINIMAL' %}
-                    <div class="container" style="position: relative; z-index: 2; max-width: 800px !important;">
-                        {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon gs-fade-up"></i>{% endif %}
-                        <h1 class="headline-pro gs-fade-up">{{ section.heading }}</h1>
-                        <p class="subhead-pro gs-fade-up">{{ section.subheading }}</p>
-                        <div id="hero-btn-placeholder" style="display:inline-block; width:180px; height:54px; margin-top:25px;"></div>
-                    </div>
-                {% endif %}
-
-            {% elif section.section_type == 'TEXT_IMAGE_SPLIT' %}
-                <div class="container" style="padding: 0 20px !important;">
-                    <div class="row align-items-center g-5">
-                        <div class="col-md-6 order-2 {% if section.text_alignment == 'end' %}order-md-2{% else %}order-md-1{% endif %}">
-                            <div class="split-text gs-fade-right">
-                                {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon"></i>{% endif %}
-                                <h2 class="headline-pro" style="font-size: 42px;">{{ section.heading }}</h2>
-                                {% if section.subheading %}<h3 class="subhead-pro">{{ section.subheading }}</h3>{% endif %}
-                                <div class="text-body-pro mt-4">{{ section.description|safe }}</div>
-                                {% if section.button_text %}
-                                <a href="#island-bar" class="btn-custom-outline mt-4 d-inline-block">{{ section.button_text }}</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="col-md-6 order-1 {% if section.text_alignment == 'end' %}order-md-1{% else %}order-md-2{% endif %}">
-                            <div class="split-media gs-fade-left dynamic-radius" style="box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
-                                {% if section.image %}
-                                    <img src="{{ section.image.url }}" alt="{{ section.heading }}" style="width:100%; height:auto;">
-                                {% elif section.video_file %}
-                                    <div class="custom-video-wrapper" onclick="togglePlay('video-{{ section.id }}', this)">
-                                        <video loop playsinline id="video-{{ section.id }}"><source src="{{ section.video_file.url }}" type="video/mp4"></video>
-                                        <div class="video-overlay"><div class="play-icon-circle"><i class="fas fa-play"></i></div></div>
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            {% elif section.section_type == 'FEATURES_GRID' %}
-                <div class="container" style="padding: 0 20px !important;">
-                    <div class="text-center mb-5 gs-fade-up">
-                        {% if section.icon_class %}<i class="{{ section.icon_class }} section-icon"></i>{% endif %}
-                        <h2 class="headline-pro">{{ section.heading }}</h2>
-                        {% if section.subheading %}<p class="subhead-pro">{{ section.subheading }}</p>{% endif %}
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-10 col-lg-8">
-                            <div class="bento-card gs-fade-up dynamic-radius" style="background: var(--card-bg); padding: 50px;">
-                                <div class="text-body-pro text-center">{{ section.description|safe }}</div>
-                                {% if section.image %}<img src="{{ section.image.url }}" class="img-fluid mt-4 rounded" alt="Feature">{% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            {% elif section.section_type == 'RICH_TEXT' %}
-                 <div class="container" style="padding: 0 20px !important;">
-                     <div class="row justify-content-center">
-                         <div class="col-lg-8">
-                             {% if section.icon_class %}<div class="text-center"><i class="{{ section.icon_class }} section-icon"></i></div>{% endif %}
-                             <div class="text-body-pro">{{ section.description|safe }}</div>
-                         </div>
-                     </div>
-                 </div>
-
-            {% elif section.section_type == 'VIDEO' %}
-                <div class="container" style="padding: 0 20px !important;">
-                    <div class="text-center mb-4 gs-fade-up">
-                         <h2 class="headline-pro" style="font-size: 40px;">{{ section.heading }}</h2>
-                    </div>
-                    <div class="shadow-lg gs-scale-up dynamic-radius">
-                         {% if section.video_file %}
-                            <div class="custom-video-wrapper" onclick="togglePlay('video-{{ section.id }}', this)">
-                                <video loop playsinline id="video-{{ section.id }}" style="width:100%;"><source src="{{ section.video_file.url }}" type="video/mp4"></video>
-                                <div class="video-overlay"><div class="play-icon-circle"><i class="fas fa-play"></i></div></div>
-                            </div>
-                         {% elif section.video_url %}
-                            <div class="ratio ratio-16x9"><iframe src="{{ section.video_url }}" allowfullscreen></iframe></div>
-                         {% endif %}
-                    </div>
-                </div>
-
-            {% elif section.section_type == 'CAROUSEL' %}
-                <div class="container" style="padding: 0 20px !important;">
-                    {% if section.heading %}
-                    <div class="text-center mb-5 gs-fade-up">
-                        <h2 class="headline-pro">{{ section.heading }}</h2>
-                        {% if section.subheading %}<p class="subhead-pro">{{ section.subheading }}</p>{% endif %}
-                    </div>
-                    {% endif %}
-                    <div id="carousel-{{ section.id }}" class="carousel slide carousel-fade carousel-pro gs-scale-up" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            {% if section.image %}<div class="carousel-item active"><img src="{{ section.image.url }}" class="d-block w-100" alt="1"></div>{% endif %}
-                            {% if section.image_2 %}<div class="carousel-item"><img src="{{ section.image_2.url }}" class="d-block w-100" alt="2"></div>{% endif %}
-                            {% if section.image_3 %}<div class="carousel-item"><img src="{{ section.image_3.url }}" class="d-block w-100" alt="3"></div>{% endif %}
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ section.id }}" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
-                    </div>
-                </div>
-            {% endif %}
-
-            {% if section.divider_bottom != 'NONE' %}
-            <div class="shape-divider divider-bottom">
-                {% if section.divider_bottom == 'WAVE' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="divider-fill"></path></svg>
-                {% elif section.divider_bottom == 'SLANT_RIGHT' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" transform="scale(1, -1) translate(0, -120)" class="divider-fill"></path></svg>
-                {% elif section.divider_bottom == 'CURVE' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" transform="scale(1, -1) translate(0, -120)" class="divider-fill"></path></svg>
-                {% elif section.divider_bottom == 'CURVE_REVERSE' %}<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" transform="scale(1, -1) translate(0, -120)" class="divider-fill"></path></svg>
-                {% endif %}
-            </div>
-            {% endif %}
-
-        </section>
-        {% endwith %}
-    {% endfor %}
-
-</div>
-
-<div id="island-bar" class="btn-lucrative-style">
-    <a href="{% if product.id %}{% url 'add_to_cart' product.id %}?action=buy_now{% else %}#{% endif %}" class="island-content-hero">
-        {% with first_sec=sections.first %}{{ first_sec.button_text|default:"Buy Now" }}{% endwith %}
-    </a>
-    <div class="island-content-full">
-        <div class="island-left">
-            {% if product.main_image_obj %}
-                <img src="{{ product.main_image_obj.image.url }}" alt="{{ product.name }}" class="island-thumb">
-            {% else %}
-                <div class="island-thumb" style="background: #333; display:flex; align-items:center; justify-content:center;"><i class="fas fa-box" style="color:#fff;"></i></div>
-            {% endif %}
-            <div class="island-info">
-                <span class="island-name">{{ product.name }}</span>
-                <div style="font-size: 13px; line-height: 1.1;">
-                    {% if product.has_discount %}
-                        <span class="price-strike">৳{{ product.original_price|floatformat:0 }}</span>
-                        <span class="price-highlight">৳{{ product.selling_price|floatformat:0 }}</span>
-                    {% else %}
-                        <span style="color:#cecece">৳{{ product.selling_price|default:0|floatformat:0 }}</span>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-        <div class="island-actions">
-            <a href="{% if product.id %}{% url 'product_detail' product.id %}{% else %}#{% endif %}" class="btn-island-secondary">View</a>
-            <form action="{% if product.id %}{% url 'add_to_cart' product.id %}{% else %}#{% endif %}" method="POST" style="margin:0;">
-                {% csrf_token %}
-                <input type="hidden" name="action" value="buy_now">
-                <button type="submit" class="btn-island-primary btn-lucrative-style">
-                    {% with first_sec=sections.first %}{{ first_sec.button_text|default:"Buy Now" }}{% endwith %}
-                </button>
-            </form>
-        </div>
+<div class="theme-wrapper">
+    <div class="theme-hint" id="theme-hint">Try Dark Mode 🌓</div>
+    <div class="theme-toggle" onclick="toggleTheme()" id="theme-btn">
+        <i class="fas fa-moon"></i>
     </div>
 </div>
 
+<div id="site-loader" style="position:fixed; inset:0; background:var(--app-bg); z-index:99999; display:flex; align-items:center; justify-content:center; transition: opacity 0.5s;">
+    <div style="width:50px; height:50px; border:3px solid var(--app-border); border-top-color:var(--app-accent); border-radius:50%; animation: spin 0.8s linear infinite;"></div>
+</div>
+
 <script>
-    function togglePlay(vidId, wrapper) {
-        const vid = document.getElementById(vidId);
-        const overlay = wrapper.querySelector('.video-overlay');
-        if(vid.paused) { vid.play(); overlay.classList.add('hidden'); } 
-        else { vid.pause(); overlay.classList.remove('hidden'); }
+    const VARIATIONS = {
+        {% for var in product.variations.all %}
+        "{{ var.id }}": {
+            id: "{{ var.id }}",
+            name: "{{ var.name }}",
+            price: {{ var.selling_price }},
+            original: {{ var.original_price|default:0 }},
+            has_discount: {% if var.has_discount %}true{% else %}false{% endif %},
+            image: "{% if var.image %}{{ var.image.url }}{% elif product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}"
+        }{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    };
+</script>
+
+<div class="landing-wrapper" id="landing-wrapper">
+    {% for section in sections %}
+    <div style="position:relative; width:100%;">
+        {% if section.image and section.section_type != 'HERO' %}
+            <div style="position:absolute; inset:0; background:url('{{ section.image.url }}') center/cover; opacity:0.1; z-index:-1; filter: grayscale(100%);"></div>
+        {% endif %}
+
+        {% if section.section_type == 'HERO' %}
+        <section class="hero-section" id="hero-trigger">
+            <div class="container">
+                
+                <div class="d-lg-none hero-mobile-layout">
+                    <div class="text-center gs-reveal" style="z-index:2; position:relative;">
+                        {% if section.badge_label %}
+                            <span class="badge-pill">{{ section.badge_label }}</span>
+                        {% endif %}
+                        <h1 class="headline-fluid">{{ section.heading }}</h1>
+                    </div>
+
+                    <div class="hero-media-container gs-scale">
+                        {% if section.badge_label %}
+                            <div class="hero-badge">{{ section.badge_label }}</div>
+                        {% endif %}
+                        <img src="{% if product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}" 
+                             id="hero-main-image-mobile" 
+                             alt="{{ product.name }}">
+                    </div>
+
+                    <div class="mobile-controls-area gs-up">
+                        <div class="price-display">
+                            <span id="hero-price-strike-mob" class="price-strike {% if not product.has_discount %}d-none{% endif %}">৳{{ product.original_price|floatformat:0 }}</span>
+                            <span id="hero-price-val-mob" class="price-val">৳{{ product.selling_price|floatformat:0 }}</span>
+                        </div>
+
+                        {% if product.has_variations %}
+                        <div class="variation-selector-group">
+                            {% for var in product.variations.all %}
+                            <div class="var-option {% if forloop.first %}active{% endif %}" 
+                                 data-id="{{ var.id }}"
+                                 onclick="selectVariation('{{ var.id }}', this)">
+                                <span>{{ var.name }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <form action="{% if product.id %}{% url 'add_to_cart' product.id %}{% else %}#{% endif %}" method="POST" onsubmit="handleSubmit(this)">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="buy_now">
+                            <input type="hidden" name="variation_id" id="form-variation-id-mob" value="">
+                            <button type="submit" class="btn-shine-anim" data-original-text="{{ section.button_text|default:'Add to Cart' }}">
+                                {{ section.button_text|default:"Add to Cart" }}
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="scroll-indicator" id="scroll-helper-mob">
+                        <span class="scroll-text">Discover</span>
+                        <div class="scroll-mouse">
+                            <div class="scroll-wheel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row align-items-center d-none d-lg-flex" style="min-height: 80vh;">
+                    <div class="col-lg-6">
+                        <div class="ps-4 gs-reveal">
+                            {% if section.badge_label %}
+                                <span class="badge-pill">{{ section.badge_label }}</span>
+                            {% endif %}
+                            <h1 class="headline-fluid">{{ section.heading }}</h1>
+                            <p class="subhead-pro mb-5">{{ section.subheading }}</p>
+                            
+                            <div class="price-display">
+                                <span id="hero-price-strike" class="price-strike {% if not product.has_discount %}d-none{% endif %}">৳{{ product.original_price|floatformat:0 }}</span>
+                                <span id="hero-price-val" class="price-val">৳{{ product.selling_price|floatformat:0 }}</span>
+                            </div>
+
+                            {% if product.has_variations %}
+                            <div class="variation-selector-group">
+                                {% for var in product.variations.all %}
+                                <div class="var-option {% if forloop.first %}active{% endif %}" 
+                                     data-id="{{ var.id }}"
+                                     onclick="selectVariation('{{ var.id }}', this)">
+                                    {% if var.image %}<img src="{{ var.image.url }}" class="var-img-thumb">{% endif %}
+                                    <span>{{ var.name }}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            <form action="{% if product.id %}{% url 'add_to_cart' product.id %}{% else %}#{% endif %}" method="POST" class="mt-4" onsubmit="handleSubmit(this)">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="buy_now">
+                                <input type="hidden" name="variation_id" id="form-variation-id" value="">
+                                <button type="submit" class="btn-shine-anim" id="hero-buy-btn" data-original-text="{{ section.button_text|default:'Order Now' }}">
+                                    {{ section.button_text|default:"Order Now" }} &rarr;
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <div class="hero-media-container gs-scale" id="desktop-hero-img-wrap">
+                            {% if section.badge_label %}
+                                <div class="hero-badge">{{ section.badge_label }}</div>
+                            {% endif %}
+                            <img src="{% if product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}" 
+                                 id="hero-main-image" 
+                                 alt="{{ product.name }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator d-none d-lg-flex" id="scroll-helper-desk">
+                <span class="scroll-text">Discover</span>
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+        {% if section.section_type != 'HERO' %}
+        <section style="padding: 80px 0; position:relative; z-index:2;">
+            <div class="container">
+                <div class="text-center gs-reveal">
+                    {% if section.heading %}<h2 style="font-size:2.5rem; font-weight:700; margin-bottom:20px; color:var(--app-text);">{{ section.heading }}</h2>{% endif %}
+                    <div style="font-size:1.1rem; color:var(--app-text-muted);">{{ section.description|safe }}</div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<div id="island-bar">
+    <div class="island-left">
+        <img src="{% if product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}" id="island-thumb" class="island-thumb">
+        <div class="island-meta">
+            <span class="island-name">{{ product.display_name }}</span>
+            <div class="island-price-block">
+                <span class="island-strike" id="island-strike">৳{{ product.original_price|floatformat:0 }}</span>
+                <span class="island-val" id="island-price">৳{{ product.selling_price|floatformat:0 }}</span>
+            </div>
+        </div>
+    </div>
+    <form action="{% if product.id %}{% url 'add_to_cart' product.id %}{% else %}#{% endif %}" method="POST" style="margin:0;" onsubmit="handleSubmit(this)">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="buy_now">
+        <input type="hidden" name="variation_id" id="island-variation-input" value="">
+        <button type="submit" class="btn-island" data-original-text="Buy Now">Buy Now</button>
+    </form>
+</div>
+
+<script>
+    // --- UTILS ---
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.querySelector('#theme-btn i');
+        const hint = document.getElementById('theme-hint');
+        if(hint) hint.remove(); 
+
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
+            localStorage.setItem('jeba_theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
+            localStorage.setItem('jeba_theme', 'dark');
+        }
     }
 
-    function initCountdown() {
-        const timer = document.getElementById('hero-countdown') || document.getElementById('hero-countdown-split');
-        if (!timer) return;
-        const endTime = new Date(timer.dataset.end).getTime();
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = endTime - now;
-            if (distance < 0) { timer.innerHTML = "EXPIRED"; return; }
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        };
-        setInterval(updateTimer, 1000);
-        updateTimer();
+    // --- FORM HANDLERS ---
+    function handleSubmit(form) {
+        const btn = form.querySelector('button[type="submit"]');
+        if(btn) {
+            if(!btn.dataset.originalText) btn.dataset.originalText = btn.innerText;
+            btn.style.opacity = '0.7';
+            btn.style.cursor = 'wait';
+            btn.innerText = 'Processing...';
+            setTimeout(() => btn.disabled = true, 50);
+        }
     }
+
+    window.addEventListener('pageshow', function(event) {
+        document.querySelectorAll('button[type="submit"]').forEach(btn => {
+            btn.disabled = false;
+            btn.style.opacity = "1";
+            btn.style.cursor = "pointer";
+            if(btn.dataset.originalText && btn.innerText === 'Processing...') {
+                btn.innerText = btn.dataset.originalText;
+            }
+        });
+    });
+
+    // --- INIT ---
+    (function init() {
+        if (localStorage.getItem('jeba_theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelector('#theme-btn i').className = 'fas fa-sun';
+            });
+        }
+        
+        setTimeout(() => {
+            const hint = document.getElementById('theme-hint');
+            if(hint) hint.remove();
+        }, 9000);
+    })();
 
     function mainInit() {
-        if (typeof gsap === "undefined") {
-            console.warn("GSAP not loaded. Skipping animations.");
-            document.getElementById('site-loader').style.display = 'none';
-            document.getElementById('landing-wrapper').style.opacity = '1';
-            return;
+        document.getElementById('site-loader').style.opacity = '0';
+        setTimeout(() => document.getElementById('site-loader').style.display = 'none', 500);
+        document.getElementById('landing-wrapper').style.opacity = '1';
+        
+        if (typeof gsap !== "undefined") {
+            gsap.registerPlugin(ScrollTrigger);
+            initAnimations();
+            initScrollLogic();
         }
-
-        gsap.registerPlugin(ScrollTrigger);
         
-        // --- KEY FIX: Force loader to hide ---
-        const loader = document.getElementById('site-loader');
-        const wrapper = document.getElementById('landing-wrapper');
-        if(loader) loader.style.display = 'none';
-        if(wrapper) wrapper.style.opacity = '1';
-
-        initCountdown();
-        initIslandBar();
-        initScrollFloater();
-
-        // --- OPTIMIZED ANIMATIONS ---
-        // Refresh ScrollTrigger to calculate correct positions after images load
-        ScrollTrigger.refresh();
-
-        gsap.utils.toArray('.gs-fade-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 85%" }, y: 40, opacity: 0, duration: 0.8, ease: "power2.out" }));
-        gsap.utils.toArray('.gs-scale-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, scale: 0.95, opacity: 0, duration: 0.8, ease: "back.out(1.7)" }));
-        gsap.utils.toArray('.gs-fade-right').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: -30, opacity: 0, duration: 0.8 }));
-        gsap.utils.toArray('.gs-fade-left').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 80%" }, x: 30, opacity: 0, duration: 0.8 }));
-        
-        // --- FIX: Snappy Header Logic ---
-        ScrollTrigger.create({
-            start: 10, // Start tracking almost immediately
-            onUpdate: (self) => {
-                const isScrollingDown = self.direction === 1;
-                const scrollY = self.scroll();
-                const threshold = 150; // Activate sooner (was 400)
-
-                // If scrolling DOWN and past threshold -> HIDE
-                if (isScrollingDown && scrollY > threshold) {
-                    document.body.classList.add('immersive-mode');
-                } 
-                // If scrolling UP -> SHOW INSTANTLY
-                else if (!isScrollingDown) {
-                    document.body.classList.remove('immersive-mode');
-                }
-            }
-        });
+        const keys = Object.keys(VARIATIONS);
+        if(keys.length > 0) {
+            selectVariation(keys[0], null);
+        }
     }
 
-    // --- NEW: Scroll Floater Logic ---
-    function initScrollFloater() {
-        const floater = document.getElementById('scroll-floater');
-        if (!floater || window.innerWidth >= 768) return;
-
-        setTimeout(() => floater.classList.add('visible'), 1500);
-
-        ScrollTrigger.create({
-            trigger: document.body,
-            start: "100px top", 
-            onEnter: () => floater.classList.remove('visible'),
-            onLeaveBack: () => floater.classList.add('visible')
+    // --- VARIATION LOGIC ---
+    function selectVariation(varId, element) {
+        if(!VARIATIONS[varId]) return;
+        const data = VARIATIONS[varId];
+        
+        document.querySelectorAll('.var-option').forEach(el => {
+            if (el.dataset.id === varId) el.classList.add('active');
+            else el.classList.remove('active');
         });
 
-        const sections = gsap.utils.toArray('.dynamic-section');
-        sections.forEach((sec, i) => {
-            ScrollTrigger.create({
-                trigger: sec,
-                start: "top center",
-                end: "bottom center",
-                onEnter: () => {
-                    if (i % 2 !== 0) floater.classList.add('pos-right');
-                    else floater.classList.remove('pos-right');
-                },
-                onEnterBack: () => {
-                    if (i % 2 !== 0) floater.classList.add('pos-right');
-                    else floater.classList.remove('pos-right');
-                }
+        ['form-variation-id', 'form-variation-id-mob', 'island-variation-input'].forEach(id => {
+            const el = document.getElementById(id);
+            if(el) {
+                el.value = varId;
+                el.setAttribute('value', varId);
+            }
+        });
+
+        updatePrice(data.price, data.original, data.has_discount);
+        if(data.image) {
+            ['hero-main-image', 'hero-main-image-mobile', 'island-thumb'].forEach(id => {
+                const img = document.getElementById(id);
+                if(img) img.src = data.image;
             });
-        });
+        }
     }
 
-    function initIslandBar() {
+    function updatePrice(price, original, hasDiscount) {
+        const setTxt = (id, txt) => { const el = document.getElementById(id); if(el) el.innerText = txt; };
+        const setDisplay = (id, show) => { 
+            const el = document.getElementById(id); 
+            if(el) el.classList.toggle('d-none', !show); 
+        };
+
+        const p = "৳" + parseInt(price);
+        const o = "৳" + parseInt(original);
+
+        setTxt('hero-price-val', p); setTxt('hero-price-strike', o); setDisplay('hero-price-strike', hasDiscount);
+        setTxt('hero-price-val-mob', p); setTxt('hero-price-strike-mob', o); setDisplay('hero-price-strike-mob', hasDiscount);
+        setTxt('island-price', p); setTxt('island-strike', o);
+        const islandStrike = document.getElementById('island-strike');
+        if(islandStrike) islandStrike.style.display = hasDiscount ? 'inline' : 'none';
+    }
+
+    function initAnimations() {
+        gsap.utils.toArray('.gs-reveal').forEach(el => gsap.from(el.children, { scrollTrigger: { trigger: el, start: "top 85%" }, y: 40, opacity: 0, duration: 0.8, stagger: 0.1 }));
+        gsap.utils.toArray('.gs-scale').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, scale: 0.9, opacity: 0, duration: 1 }));
+        gsap.utils.toArray('.gs-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, y: 60, opacity: 0, duration: 0.8 }));
+    }
+
+    function initScrollLogic() {
         const island = document.getElementById('island-bar');
-        const heroPlaceholder = document.getElementById('hero-btn-placeholder');
-        const heroContent = document.querySelector('.island-content-hero');
-        const fullContent = document.querySelector('.island-content-full');
-
-        if (!island || !heroPlaceholder) return;
-
-        // Cleanup old triggers
-        ScrollTrigger.getAll().filter(t => t.vars.trigger === "body").forEach(t => t.kill());
-
-        gsap.set(island, { clearProps: "all" });
-        gsap.set(heroContent, { clearProps: "all" });
-        gsap.set(fullContent, { clearProps: "all" });
-
-        const rect = heroPlaceholder.getBoundingClientRect();
-        // Calculate relative to document to avoid scroll offset errors
-        const absoluteTop = rect.top + window.scrollY;
+        const helper = document.getElementById('scroll-helper-desk');
+        const helperMob = document.getElementById('scroll-helper-mob');
         
-        let accentColor = getComputedStyle(document.documentElement).getPropertyValue('--app-accent').trim() || '#D4F759';
-
-        gsap.set(island, { 
-            top: absoluteTop, left: rect.left, width: rect.width, height: rect.height,
-            padding: "0", borderRadius: "50px", 
-            backgroundColor: accentColor, 
-            backgroundImage: `linear-gradient(110deg, ${accentColor} 0%, #ffffff 20%, ${accentColor} 40%)`, 
-            position: "absolute", zIndex: 9999, opacity: 1, visibility: "visible"
-        });
-
-        const isMobile = window.innerWidth < 768;
-        const targetWidth = isMobile ? window.innerWidth * 0.92 : Math.min(window.innerWidth * 0.9, 480);
-        
-        // Use simpler animation for performance
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "body", 
-                start: "top top", 
-                end: "400px top", 
-                scrub: 0.5, 
-                onEnter: () => island.style.position = "fixed",
-                onLeaveBack: () => {
-                    island.style.position = "absolute";
-                    island.style.top = (rect.top + window.scrollY) + "px";
-                    island.style.left = rect.left + "px";
+        ScrollTrigger.create({
+            start: "top top", 
+            onUpdate: (self) => {
+                if (self.scroll() > 50) {
+                    document.body.classList.add('immersive-mode');
+                    if(helper) helper.style.opacity = '0';
+                    if(helperMob) helperMob.style.opacity = '0';
+                } else {
+                    document.body.classList.remove('immersive-mode');
+                    if(helper) helper.style.opacity = '1';
+                    if(helperMob) helperMob.style.opacity = '1';
                 }
             }
         });
 
-        tl.to(island, {
-            top: window.innerHeight - 80, 
-            left: isMobile ? (window.innerWidth - targetWidth)/2 : "50%",
-            x: isMobile ? 0 : "-50%",
-            width: targetWidth, height: 72, padding: "0 15px", borderRadius: "99px",
-            // REMOVED: Heavy backdrop filter and complex gradient transition for performance
-            backgroundColor: "#141416", 
-            backgroundImage: "none",
-            boxShadow: "0 15px 50px rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.1)",
-            ease: "power1.inOut"
-        }, 0)
-        .to(heroContent, { opacity: 0, duration: 0.2 }, 0) 
-        .to(fullContent, { opacity: 1, display: "flex", duration: 0.4 }, 0.2); 
-    }
-
-    // --- SAFETY & INIT LOGIC ---
-    
-    // 1. Safety Timer: If JS fails or images hang, force show the site after 3s
-    setTimeout(() => {
-        const loader = document.getElementById('site-loader');
-        if (loader && loader.style.display !== 'none') {
-            console.warn("Forced loader removal via timeout");
-            loader.style.display = 'none';
-            document.getElementById('landing-wrapper').style.opacity = '1';
+        const hero = document.getElementById('hero-trigger');
+        if(hero) {
+            ScrollTrigger.create({
+                trigger: hero, start: "bottom top", 
+                onEnter: () => island.classList.add('visible'),
+                onLeaveBack: () => island.classList.remove('visible')
+            });
         }
-    }, 3000);
+    }
 
-    // 2. Strict Load Event: Wait for images to load before measuring layout
     window.addEventListener("load", mainInit);
-
-    // 3. Fallback: If already loaded
-    if (document.readyState === 'complete') {
-        mainInit();
-    }
-
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            ScrollTrigger.refresh();
-            initIslandBar();
-            initScrollFloater();
-        }, 200);
-    });
-
-    {% if preview_mode %}
-    function handleClick(e, index) {
-        if (e.target.classList.contains('section-bg-image')) return;
-        parent.focusSection(index);
-    }
-    // ... (Keep existing preview logic) ...
-    {% endif %}
+    setTimeout(() => { if(document.getElementById('site-loader').style.display !== 'none') mainInit(); }, 3000);
 </script>
-
-{% if page.meta_pixel_id %}
-<script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '{{ page.meta_pixel_id }}');
-    fbq('track', 'PageView');
-    
-    fbq('track', 'ViewContent', {
-        'content_name': "{{ product.name|escapejs }}", 
-        'content_ids': ['{{ product.id }}'],
-        'content_type': 'product',
-        'value': Number("{{ product.selling_price|default:0 }}"),
-        'currency': 'BDT'
-    });
-</script>
-{% endif %}
-
 {% endblock %}

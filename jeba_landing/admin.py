@@ -74,7 +74,7 @@ class LandingSectionInline(admin.StackedInline):
             'fields': (
                 'image', 
                 ('foreground_image', 'foreground_video'),
-                'video_file', 'video_url'
+                'video_file', 'video_url', 'media_max_width', 'media_vertical_offset', 'media_padding'
             ),
             'description': "Use 'Image' for background. Use 'Foreground' fields to layer custom assets (PNG/GIF/Video) on top."
         }),

@@ -268,6 +268,14 @@ class ProductVariation(models.Model):
     product = models.ForeignKey(Product, related_name='variations', on_delete=models.CASCADE)
     name = models.CharField(max_length=255, verbose_name=_("Variation Name"), help_text=_("e.g. Size: XL, Color: Red"))
     
+    # --- NEW: Variation Image Field ---
+    image = models.ImageField(
+        upload_to='products/variations/', 
+        blank=True, null=True, 
+        verbose_name=_("Variation Image"),
+        help_text=_("Specific image for this variation (e.g. Red Shirt). Used in Landing Page/Cart.")
+    )
+    # ----------------------------------
     # Pricing (Upgraded to support discounts per variation)
     selling_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Selling Price"))
     original_price = models.DecimalField(

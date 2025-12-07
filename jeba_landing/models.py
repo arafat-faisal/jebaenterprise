@@ -226,6 +226,27 @@ class LandingSection(models.Model):
     foreground_image = models.ImageField(upload_to='landing/foreground/', blank=True, null=True, help_text="Custom Image/GIF to layer ON TOP of the background. Overrides product image.")
     foreground_video = models.FileField(upload_to='landing/foreground/', blank=True, null=True, help_text="Custom Video (MP4) to layer ON TOP of the background. Overrides images.")
 
+    # --- NEW: Media Controls ---
+    media_max_width = models.CharField(
+        max_length=20, default="100%", 
+        help_text="e.g. '400px', '80%', or '50vh'. Controls hero image/video size."
+    )
+    media_vertical_offset = models.IntegerField(
+        default=0, 
+        help_text="Move image UP or DOWN in pixels (e.g. -50 to move up, 20 to move down)."
+    )
+    media_padding = models.CharField(
+        max_length=20, default="0px", 
+        help_text="Padding around the media (e.g. '20px')."
+    )
+    # In jeba_landing/models.py > LandingSection class
+    badge_label = models.CharField(
+        max_length=50, 
+        blank=True, 
+        null=True, 
+        help_text="e.g. 'Best Seller', 'New Arrival' - Shows as a floating badge on the hero image."
+    )
+
     video_file = models.FileField(upload_to='landing/videos/', blank=True, null=True)
     video_url = models.URLField(blank=True, null=True)
     

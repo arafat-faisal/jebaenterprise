@@ -197,16 +197,18 @@
     {% endif %}
 </div>
 
-{# --- META PIXEL PURCHASE EVENT --- #}
+{# --- SMARTCODER: META PIXEL PURCHASE EVENT ADDED --- #}
 {% if site_settings.meta_pixel_id and sale %}
 <script>
-    fbq('track', 'Purchase', {
-        value: parseFloat("{{ sale.total_amount }}"),
-        currency: 'BDT',
-        content_ids: [{% for item in sale.items.all %}'{{ item.product.id }}',{% endfor %}],
-        content_type: 'product',
-        order_id: '{{ sale.invoice_number }}'
-    });
+    if (typeof fbq === 'function') {
+        fbq('track', 'Purchase', {
+            value: parseFloat("{{ sale.total_amount }}"),
+            currency: 'BDT',
+            content_ids: [{% for item in sale.items.all %}'{{ item.product.id }}',{% endfor %}],
+            content_type: 'product',
+            order_id: '{{ sale.invoice_number }}'
+        });
+    }
 </script>
 {% endif %}
 
