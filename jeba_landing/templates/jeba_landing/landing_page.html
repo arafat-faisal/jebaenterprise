@@ -6,281 +6,11 @@
 {% block content %}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 
-<style>
-    /* --- 1. DYNAMIC THEME ENGINE --- */
-    :root {
-        /* LIGHT MODE (Default) */
-        --app-bg: #F8F9FA;
-        --app-surface: #ffffff;
-        --app-card-bg: rgba(0, 0, 0, 0.03);
-        --app-text: #1a1a1a;
-        --app-text-muted: #6c757d;
-        --app-border: rgba(0, 0, 0, 0.08);
-        
-        --app-accent: #000000;
-        --app-accent-fg: #ffffff;
-        --app-accent-glow: rgba(0, 0, 0, 0.15);
-        
-        --glass-bg: rgba(255, 255, 255, 0.85);
-        --glass-border: 1px solid rgba(0, 0, 0, 0.05);
-        
-        --font-body: 'Plus Jakarta Sans', sans-serif;
-        --font-heading: 'Outfit', sans-serif;
-        --radius-sm: 12px;
-        --radius-lg: 24px;
-        --radius-pill: 100px;
-    }
-
-    [data-theme="dark"] {
-        --app-bg: #050505;
-        --app-surface: #121212;
-        --app-card-bg: rgba(255, 255, 255, 0.04);
-        --app-text: #ffffff;
-        --app-text-muted: #949494;
-        --app-border: rgba(255, 255, 255, 0.1);
-        
-        --app-accent: #D4F759;
-        --app-accent-fg: #000000;
-        --app-accent-glow: rgba(212, 247, 89, 0.3);
-        
-        --glass-bg: rgba(20, 20, 20, 0.85);
-        --glass-border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    body {
-        background-color: var(--app-bg); color: var(--app-text);
-        font-family: var(--font-body); overflow-x: hidden;
-        transition: background-color 0.5s ease, color 0.5s ease;
-    }
-
-    .noise-overlay {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-        pointer-events: none; z-index: 0; opacity: 0.6; mix-blend-mode: overlay;
-    }
-
-    /* --- 2. THEME TOGGLE --- */
-    .theme-wrapper {
-        position: fixed; top: 20px; right: 20px; z-index: 10000;
-        display: flex; align-items: center; gap: 10px;
-    }
-    .theme-toggle {
-        width: 44px; height: 44px; border-radius: 50%;
-        background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-        border: var(--glass-border); color: var(--app-text);
-        display: flex; align-items: center; justify-content: center;
-        cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-    }
-    .theme-toggle:hover { transform: scale(1.1) rotate(15deg); }
-
-    .theme-hint {
-        background: var(--app-accent); color: var(--app-accent-fg);
-        padding: 6px 14px; border-radius: 12px; font-size: 0.85rem; font-weight: 700;
-        opacity: 0; transform: translateX(10px);
-        animation: hint-enter 0.6s ease 3s forwards, hint-pulse 2s infinite 3.6s, hint-exit 0.6s ease 9s forwards;
-        pointer-events: none; white-space: nowrap;
-        box-shadow: 0 5px 15px var(--app-accent-glow);
-    }
-    .theme-hint::after {
-        content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
-        border-width: 6px; border-style: solid;
-        border-color: transparent transparent transparent var(--app-accent);
-    }
-
-    @keyframes hint-enter { to { opacity: 1; transform: translateX(0); } }
-    @keyframes hint-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-    @keyframes hint-exit { to { opacity: 0; transform: translateX(10px); } }
-
-    /* --- 3. PREMIUM SCROLL HELPER --- */
-    .scroll-indicator {
-        /* Removed absolute positioning for mobile to prevent overlap */
-        display: flex; flex-direction: column; align-items: center; gap: 8px;
-        z-index: 20; opacity: 0; animation: fade-in-up 1s ease 1.5s forwards;
-        pointer-events: none;
-        margin-top: 20px; /* Space from controls */
-    }
-    .scroll-text {
-        font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;
-        font-weight: 700; color: var(--app-text-muted); opacity: 0.8;
-    }
-    .scroll-mouse {
-        width: 24px; height: 36px;
-        border: 2px solid var(--app-text-muted); border-radius: 20px;
-        position: relative;
-    }
-    .scroll-wheel {
-        width: 4px; height: 6px; background: var(--app-accent);
-        border-radius: 2px; position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
-        animation: scroll-wheel 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-    }
-
-    @keyframes scroll-wheel { 0% { top: 6px; opacity: 1; } 100% { top: 20px; opacity: 0; } }
-    @keyframes fade-in-up { from { opacity: 0; transform: translate(0, 20px); } to { opacity: 1; transform: translate(0, 0); } }
-
-    /* --- 4. LAYOUT --- */
-    body.immersive-mode .site-header { transform: translateY(-150%); pointer-events: none; }
-    body.immersive-mode .mobile-bottom-nav { transform: translateY(150%); pointer-events: none; }
-    .site-header, .mobile-bottom-nav { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-
-    .landing-wrapper { min-height: 100vh; width: 100%; overflow-x: hidden; opacity: 0; padding-bottom: 140px; position: relative; z-index: 1; }
-
-    .headline-fluid {
-        font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 4.2rem);
-        line-height: 1.1; font-weight: 800; letter-spacing: -0.02em;
-        color: var(--app-text); margin-bottom: 0.4em;
-    }
-    .badge-pill {
-        font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px;
-        font-weight: 700; padding: 6px 16px; border-radius: 50px;
-        background: var(--app-accent); color: var(--app-accent-fg);
-        display: inline-block; margin-bottom: 15px;
-        box-shadow: 0 5px 15px var(--app-accent-glow);
-    }
-    .subhead-pro { font-size: 1.15rem; color: var(--app-text-muted); font-weight: 400; line-height: 1.6; }
-
-    /* --- 5. HERO SECTION --- */
-    .hero-section {
-        position: relative; min-height: calc(100dvh - 130px);
-        display: flex; flex-direction: column; justify-content: center; padding-top: 20px;
-    }
-    .hero-media-container {
-        position: relative; perspective: 1000px;
-        display: flex; justify-content: center; align-items: center;
-    }
-    .hero-media-container img {
-        width: 100%; height: auto; max-height: 60vh;
-        object-fit: contain; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15));
-        transition: transform 0.1s ease-out; will-change: transform;
-    }
-    .hero-badge {
-        position: absolute; top: 15%; right: 10%;
-        background: rgba(255, 255, 255, 0.9); color: #000;
-        padding: 8px 18px; border-radius: 50px;
-        font-size: 0.85rem; font-weight: 800;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        transform: rotate(6deg); z-index: 5; border: 2px solid #fff;
-    }
-
-    /* --- 6. CONTROLS --- */
-    .price-display { font-family: var(--font-heading); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-    .price-val { font-size: 2rem; font-weight: 800; color: var(--app-text); letter-spacing: -0.5px; }
-    .price-strike { 
-        position: relative; font-size: 1.25rem; color: var(--app-text-muted); 
-        font-weight: 500; text-decoration: none !important; margin-right: 5px;
-    }
-    .price-strike::after {
-        content: ''; position: absolute; left: -5%; top: 48%; width: 110%; height: 2px;
-        background: #ff3b30; transform: rotate(-10deg); border-radius: 100%;
-        box-shadow: 0 0 2px rgba(255, 59, 48, 0.4);
-    }
-
-    .variation-selector-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
-    .var-option {
-        cursor: pointer; padding: 10px 16px; border-radius: var(--radius-sm);
-        background: var(--app-card-bg); border: 1px solid var(--app-border);
-        color: var(--app-text-muted); font-weight: 600; font-size: 0.9rem;
-        display: flex; align-items: center; gap: 8px; transition: all 0.2s ease;
-    }
-    .var-option:hover { background: var(--app-border); color: var(--app-text); transform: translateY(-2px); }
-    .var-option.active {
-        background: var(--app-accent); color: var(--app-accent-fg);
-        border-color: var(--app-accent); box-shadow: 0 5px 20px var(--app-accent-glow);
-    }
-    .var-img-thumb { width: 24px; height: 24px; border-radius: 4px; object-fit: cover; background: #fff; }
-
-    .btn-shine-anim {
-        position: relative; overflow: hidden;
-        background: var(--app-text); color: var(--app-bg) !important;
-        font-weight: 800; border: none; padding: 16px 30px; border-radius: var(--radius-pill);
-        font-size: 1.05rem; width: auto; display: inline-block;
-        transition: transform 0.2s ease, opacity 0.2s ease;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    .btn-shine-anim:hover { transform: scale(1.03); opacity: 0.95; }
-    .btn-shine-anim:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-
-    /* --- 7. MOBILE OPTIMIZATION --- */
-    @media (max-width: 768px) {
-        .theme-wrapper { top: 90px; right: 15px; }
-        .landing-wrapper { padding-bottom: 120px; }
-        
-        /* Fit screen: 100dvh - Header - Nav - Padding */
-        .hero-section { 
-            min-height: calc(100dvh - 120px); 
-            justify-content: center; 
-            padding: 0;
-            padding-bottom: 20px; 
-        }
-        
-        .headline-fluid { font-size: 1.8rem; margin-bottom: 5px; }
-        .badge-pill { margin-bottom: 5px; font-size: 0.7rem; padding: 4px 12px; }
-        
-        .hero-media-container { margin-bottom: 10px; }
-        .hero-media-container img { max-height: 28vh; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1)); }
-        
-        .mobile-controls-area {
-            background: var(--glass-bg); border: var(--glass-border);
-            border-radius: var(--radius-lg); padding: 15px;
-            text-align: center; backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        
-        .price-display { margin-bottom: 8px; }
-        .variation-selector-group { justify-content: center; gap: 8px; margin-bottom: 8px; }
-        .var-option { padding: 8px 12px; font-size: 0.85rem; }
-        .btn-shine-anim { width: 100%; padding: 12px; font-size: 1rem; }
-        
-        /* Flex positioning for safer layout */
-        .hero-mobile-layout {
-            display: flex; flex-direction: column; 
-            justify-content: center; height: 100%;
-        }
-    }
-    
-    @media (min-width: 769px) {
-        /* Desktop: Absolute bottom positioning */
-        .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); }
-    }
-
-    /* --- 8. ISLAND BAR --- */
-    #island-bar {
-        position: fixed; bottom: 25px; left: 50%;
-        transform: translateX(-50%) translateY(150%);
-        width: 94%; max-width: 500px; height: 74px;
-        background: var(--glass-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-        border: var(--glass-border); border-radius: var(--radius-pill);
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 6px 8px 6px 20px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.25); z-index: 9999;
-        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    #island-bar.visible { transform: translateX(-50%) translateY(0); }
-    @media (max-width: 768px) {
-        body:not(.immersive-mode) #island-bar.visible { transform: translateX(-50%) translateY(-65px); }
-    }
-
-    .island-left { display: flex; align-items: center; gap: 12px; overflow: hidden; }
-    .island-thumb { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid var(--app-border); flex-shrink: 0; }
-    .island-meta { display: flex; flex-direction: column; overflow: hidden; }
-    .island-name { color: var(--app-text); font-weight: 700; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; }
-    .island-price-block { font-size: 0.85rem; display: flex; gap: 6px; align-items: center; }
-    .island-strike { text-decoration: line-through; color: var(--app-text-muted); font-size: 0.8em; position: relative; }
-    .island-strike::after { content: ''; position: absolute; left: -10%; top: 50%; width: 120%; height: 1px; background: #ff3b30; transform: rotate(-5deg); }
-    .island-val { color: var(--app-text); font-weight: 800; }
-    .btn-island {
-        background: var(--app-text); color: var(--app-bg); border: none; padding: 10px 24px;
-        border-radius: var(--radius-pill); font-weight: 700; font-size: 0.9rem; white-space: nowrap; flex-shrink: 0;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
 
 <div class="noise-overlay"></div>
 
@@ -291,8 +21,8 @@
     </div>
 </div>
 
-<div id="site-loader" style="position:fixed; inset:0; background:var(--app-bg); z-index:99999; display:flex; align-items:center; justify-content:center; transition: opacity 0.5s;">
-    <div style="width:50px; height:50px; border:3px solid var(--app-border); border-top-color:var(--app-accent); border-radius:50%; animation: spin 0.8s linear infinite;"></div>
+<div id="site-loader">
+    <div class="loader-spinner"></div>
 </div>
 
 <script>
@@ -335,7 +65,9 @@
                         {% endif %}
                         <img src="{% if product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}" 
                              id="hero-main-image-mobile" 
-                             alt="{{ product.name }}">
+                             alt="{{ product.name }}"
+                             fetchpriority="high"
+                             decoding="async">
                     </div>
 
                     <div class="mobile-controls-area gs-up">
@@ -367,9 +99,9 @@
                     </div>
 
                     <div class="scroll-indicator" id="scroll-helper-mob">
-                        <span class="scroll-text">Discover</span>
-                        <div class="scroll-mouse">
-                            <div class="scroll-wheel"></div>
+                        <span class="scroll-text">Swipe</span>
+                        <div class="scroll-hand-wrapper">
+                            <i class="fa-regular fa-hand-pointer scroll-hand-icon"></i>
                         </div>
                     </div>
                 </div>
@@ -418,7 +150,9 @@
                             {% endif %}
                             <img src="{% if product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}" 
                                  id="hero-main-image" 
-                                 alt="{{ product.name }}">
+                                 alt="{{ product.name }}"
+                                 fetchpriority="high"
+                                 decoding="async">
                         </div>
                     </div>
                 </div>
@@ -426,8 +160,8 @@
             
             <div class="scroll-indicator d-none d-lg-flex" id="scroll-helper-desk">
                 <span class="scroll-text">Discover</span>
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
+                <div class="scroll-hand-wrapper">
+                    <i class="fa-regular fa-hand-pointer scroll-hand-icon"></i>
                 </div>
             </div>
         </section>
@@ -465,162 +199,12 @@
         <button type="submit" class="btn-island" data-original-text="Buy Now">Buy Now</button>
     </form>
 </div>
+{% endblock %}
 
-<script>
-    // --- UTILS ---
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.querySelector('#theme-btn i');
-        const hint = document.getElementById('theme-hint');
-        if(hint) hint.remove(); 
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-            icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
-            localStorage.setItem('jeba_theme', 'light');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
-            localStorage.setItem('jeba_theme', 'dark');
-        }
-    }
-
-    // --- FORM HANDLERS ---
-    function handleSubmit(form) {
-        const btn = form.querySelector('button[type="submit"]');
-        if(btn) {
-            if(!btn.dataset.originalText) btn.dataset.originalText = btn.innerText;
-            btn.style.opacity = '0.7';
-            btn.style.cursor = 'wait';
-            btn.innerText = 'Processing...';
-            setTimeout(() => btn.disabled = true, 50);
-        }
-    }
-
-    window.addEventListener('pageshow', function(event) {
-        document.querySelectorAll('button[type="submit"]').forEach(btn => {
-            btn.disabled = false;
-            btn.style.opacity = "1";
-            btn.style.cursor = "pointer";
-            if(btn.dataset.originalText && btn.innerText === 'Processing...') {
-                btn.innerText = btn.dataset.originalText;
-            }
-        });
-    });
-
-    // --- INIT ---
-    (function init() {
-        if (localStorage.getItem('jeba_theme') === 'dark') {
-            document.body.setAttribute('data-theme', 'dark');
-            document.addEventListener('DOMContentLoaded', () => {
-                document.querySelector('#theme-btn i').className = 'fas fa-sun';
-            });
-        }
-        
-        setTimeout(() => {
-            const hint = document.getElementById('theme-hint');
-            if(hint) hint.remove();
-        }, 9000);
-    })();
-
-    function mainInit() {
-        document.getElementById('site-loader').style.opacity = '0';
-        setTimeout(() => document.getElementById('site-loader').style.display = 'none', 500);
-        document.getElementById('landing-wrapper').style.opacity = '1';
-        
-        if (typeof gsap !== "undefined") {
-            gsap.registerPlugin(ScrollTrigger);
-            initAnimations();
-            initScrollLogic();
-        }
-        
-        const keys = Object.keys(VARIATIONS);
-        if(keys.length > 0) {
-            selectVariation(keys[0], null);
-        }
-    }
-
-    // --- VARIATION LOGIC ---
-    function selectVariation(varId, element) {
-        if(!VARIATIONS[varId]) return;
-        const data = VARIATIONS[varId];
-        
-        document.querySelectorAll('.var-option').forEach(el => {
-            if (el.dataset.id === varId) el.classList.add('active');
-            else el.classList.remove('active');
-        });
-
-        ['form-variation-id', 'form-variation-id-mob', 'island-variation-input'].forEach(id => {
-            const el = document.getElementById(id);
-            if(el) {
-                el.value = varId;
-                el.setAttribute('value', varId);
-            }
-        });
-
-        updatePrice(data.price, data.original, data.has_discount);
-        if(data.image) {
-            ['hero-main-image', 'hero-main-image-mobile', 'island-thumb'].forEach(id => {
-                const img = document.getElementById(id);
-                if(img) img.src = data.image;
-            });
-        }
-    }
-
-    function updatePrice(price, original, hasDiscount) {
-        const setTxt = (id, txt) => { const el = document.getElementById(id); if(el) el.innerText = txt; };
-        const setDisplay = (id, show) => { 
-            const el = document.getElementById(id); 
-            if(el) el.classList.toggle('d-none', !show); 
-        };
-
-        const p = "৳" + parseInt(price);
-        const o = "৳" + parseInt(original);
-
-        setTxt('hero-price-val', p); setTxt('hero-price-strike', o); setDisplay('hero-price-strike', hasDiscount);
-        setTxt('hero-price-val-mob', p); setTxt('hero-price-strike-mob', o); setDisplay('hero-price-strike-mob', hasDiscount);
-        setTxt('island-price', p); setTxt('island-strike', o);
-        const islandStrike = document.getElementById('island-strike');
-        if(islandStrike) islandStrike.style.display = hasDiscount ? 'inline' : 'none';
-    }
-
-    function initAnimations() {
-        gsap.utils.toArray('.gs-reveal').forEach(el => gsap.from(el.children, { scrollTrigger: { trigger: el, start: "top 85%" }, y: 40, opacity: 0, duration: 0.8, stagger: 0.1 }));
-        gsap.utils.toArray('.gs-scale').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, scale: 0.9, opacity: 0, duration: 1 }));
-        gsap.utils.toArray('.gs-up').forEach(el => gsap.from(el, { scrollTrigger: { trigger: el, start: "top 90%" }, y: 60, opacity: 0, duration: 0.8 }));
-    }
-
-    function initScrollLogic() {
-        const island = document.getElementById('island-bar');
-        const helper = document.getElementById('scroll-helper-desk');
-        const helperMob = document.getElementById('scroll-helper-mob');
-        
-        ScrollTrigger.create({
-            start: "top top", 
-            onUpdate: (self) => {
-                if (self.scroll() > 50) {
-                    document.body.classList.add('immersive-mode');
-                    if(helper) helper.style.opacity = '0';
-                    if(helperMob) helperMob.style.opacity = '0';
-                } else {
-                    document.body.classList.remove('immersive-mode');
-                    if(helper) helper.style.opacity = '1';
-                    if(helperMob) helperMob.style.opacity = '1';
-                }
-            }
-        });
-
-        const hero = document.getElementById('hero-trigger');
-        if(hero) {
-            ScrollTrigger.create({
-                trigger: hero, start: "bottom top", 
-                onEnter: () => island.classList.add('visible'),
-                onLeaveBack: () => island.classList.remove('visible')
-            });
-        }
-    }
-
-    window.addEventListener("load", mainInit);
-    setTimeout(() => { if(document.getElementById('site-loader').style.display !== 'none') mainInit(); }, 3000);
-</script>
+<script src="{% static 'js/landing_page.js' %}"></script>
 {% endblock %}

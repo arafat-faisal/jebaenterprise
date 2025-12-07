@@ -7212,3 +7212,412 @@ INFO 2025-12-07 06:18:10,475 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2
 INFO 2025-12-07 06:18:25,303 basehttp "POST /sales/checkout/ HTTP/1.1" 302 0
 INFO 2025-12-07 06:18:25,337 basehttp "GET /sales/order/success/ HTTP/1.1" 200 50743
 WARNING 2025-12-07 06:18:25,354 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:13:06,549 autoreload Watching for file changes with StatReloader
+INFO 2025-12-07 16:13:41,664 basehttp "GET / HTTP/1.1" 200 136769
+WARNING 2025-12-07 16:13:41,701 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:13:41,720 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,724 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,729 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,798 basehttp "GET /media/products/gallery/prod_1486_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,799 basehttp "GET /media/products/gallery/prod_1546_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,823 basehttp "GET /media/products/gallery/prod_1439_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,847 basehttp "GET /media/products/gallery/prod_1404_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,899 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,923 basehttp "GET /media/products/gallery/prod_1585_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,930 basehttp "GET /media/products/gallery/prod_1609_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:41,952 basehttp "GET /media/products/gallery/prod_1497_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,004 basehttp "GET /media/products/gallery/prod_1456_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,005 basehttp "GET /media/products/gallery/prod_1409_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,010 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,014 basehttp "GET /media/products/gallery/prod_1590_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,014 basehttp "GET /media/products/gallery/prod_1369_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,018 basehttp "GET /media/products/gallery/prod_1554_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,054 basehttp "GET /media/products/gallery/prod_1458_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,063 basehttp "GET /media/products/gallery/prod_1565_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,063 basehttp "GET /media/products/gallery/prod_1515_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,067 basehttp "GET /media/products/gallery/prod_1509_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,070 basehttp "GET /media/products/gallery/prod_1503_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,070 basehttp "GET /media/products/gallery/prod_1567_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,097 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,108 basehttp "GET /media/products/gallery/prod_1598_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,110 basehttp "GET /media/products/gallery/prod_1523_0.jpeg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,111 basehttp "GET /media/products/gallery/prod_1478_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,113 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,117 basehttp "GET /media/products/gallery/prod_1526_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,134 basehttp "GET /media/products/gallery/prod_1438_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,148 basehttp "GET /media/products/gallery/prod_1520_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,152 basehttp "GET /media/products/gallery/prod_1477_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,153 basehttp "GET /media/products/gallery/prod_1396_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,155 basehttp "GET /media/products/gallery/prod_1493_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,164 basehttp "GET /media/products/gallery/prod_1425_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,174 basehttp "GET /media/products/gallery/prod_1434_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:42,248 basehttp "GET /media/products/gallery/prod_1604_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:43,944 basehttp "GET /sales/cart/ HTTP/1.1" 200 56158
+WARNING 2025-12-07 16:13:43,964 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:13:46,573 basehttp "GET / HTTP/1.1" 200 137515
+WARNING 2025-12-07 16:13:46,607 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:13:46,642 basehttp "GET /media/products/gallery/prod_1568_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:46,646 basehttp "GET /media/products/gallery/prod_1511_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:46,648 basehttp "GET /media/products/gallery/prod_1548_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:46,648 basehttp "GET /media/products/gallery/prod_1593_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:46,651 basehttp "GET /media/products/gallery/prod_1502_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:46,652 basehttp "GET /media/products/gallery/prod_1444_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:46,673 basehttp "GET /media/products/gallery/prod_1627_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:46,675 basehttp "GET /media/products/gallery/prod_1596_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:46,776 basehttp "GET /media/products/gallery/prod_1476_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:47,851 basehttp "GET /media/products/gallery/prod_1392_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:47,852 basehttp "GET /media/products/gallery/prod_1525_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:47,854 basehttp "GET /media/products/gallery/prod_1597_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:47,962 basehttp "GET /media/products/gallery/prod_1553_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:48,020 basehttp "GET /media/products/gallery/prod_1361_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:48,021 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:48,021 basehttp "GET /media/products/gallery/prod_1569_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:48,116 basehttp "GET /media/products/gallery/prod_1406_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:13:56,428 basehttp "GET /landing/offers/ HTTP/1.1" 200 48233
+WARNING 2025-12-07 16:13:56,447 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:13:56,472 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 304 0
+INFO 2025-12-07 16:14:06,867 basehttp "GET / HTTP/1.1" 200 127234
+INFO 2025-12-07 16:14:06,903 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-07 16:14:06,904 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 16:14:06,931 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-07 16:14:06,932 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+WARNING 2025-12-07 16:14:06,935 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:14:06,953 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+INFO 2025-12-07 16:14:07,090 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 16:14:07,165 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 200 60115
+INFO 2025-12-07 16:14:07,165 basehttp "GET /media/products/gallery/prod_1531_0.jpg HTTP/1.1" 200 46852
+INFO 2025-12-07 16:14:07,165 basehttp "GET /media/products/gallery/prod_1459_0.jpg HTTP/1.1" 200 48127
+INFO 2025-12-07 16:14:07,168 basehttp "GET /media/products/gallery/prod_1587_0.jpg HTTP/1.1" 200 103716
+INFO 2025-12-07 16:14:07,179 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 200 22018
+INFO 2025-12-07 16:14:07,208 basehttp "GET /media/products/gallery/prod_1550_0.jpg HTTP/1.1" 200 23942
+INFO 2025-12-07 16:14:07,210 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-12-07 16:14:07,210 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 200 34316
+INFO 2025-12-07 16:14:07,210 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+INFO 2025-12-07 16:14:07,212 basehttp "GET /media/products/gallery/prod_1496_0.jpg HTTP/1.1" 200 61782
+INFO 2025-12-07 16:14:07,216 basehttp "GET /media/products/gallery/prod_1385_0.jpg HTTP/1.1" 200 79832
+INFO 2025-12-07 16:14:07,246 basehttp "GET /media/products/gallery/prod_1528_0.jpg HTTP/1.1" 200 75808
+INFO 2025-12-07 16:14:07,251 basehttp "GET /media/products/gallery/prod_1530_0.jpg HTTP/1.1" 200 27979
+INFO 2025-12-07 16:14:07,255 basehttp "GET /media/products/gallery/prod_1355_0.jpg HTTP/1.1" 200 21028
+INFO 2025-12-07 16:14:07,256 basehttp "GET /media/products/gallery/prod_1491_0.jpg HTTP/1.1" 200 32928
+INFO 2025-12-07 16:14:07,257 basehttp "GET /media/products/gallery/prod_1512_0.jpg HTTP/1.1" 200 42813
+INFO 2025-12-07 16:14:07,262 basehttp "GET /media/products/gallery/prod_1519_0.jpg HTTP/1.1" 200 957584
+INFO 2025-12-07 16:14:07,277 basehttp "GET /media/products/gallery/prod_1378_0.jpg HTTP/1.1" 200 62179
+INFO 2025-12-07 16:14:07,287 basehttp "GET /media/products/gallery/prod_1438_0.jpg HTTP/1.1" 200 60293
+INFO 2025-12-07 16:14:07,294 basehttp "GET /media/products/gallery/prod_1456_0.jpg HTTP/1.1" 200 30818
+INFO 2025-12-07 16:14:07,299 basehttp "GET /media/products/gallery/prod_1513_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-07 16:14:07,300 basehttp "GET /media/products/gallery/prod_1508_0.jpg HTTP/1.1" 200 52115
+INFO 2025-12-07 16:14:07,304 basehttp "GET /media/products/gallery/prod_1620_0.jpg HTTP/1.1" 200 39513
+INFO 2025-12-07 16:14:07,312 basehttp "GET /media/products/gallery/prod_1401_0.webp HTTP/1.1" 200 18328
+INFO 2025-12-07 16:14:07,320 basehttp "GET /media/products/gallery/prod_1494_0.jpg HTTP/1.1" 200 44529
+INFO 2025-12-07 16:14:07,331 basehttp "GET /media/products/gallery/prod_1560_0.jpg HTTP/1.1" 200 57819
+INFO 2025-12-07 16:14:07,338 basehttp "GET /media/products/gallery/prod_1370_0.jpg HTTP/1.1" 200 51548
+INFO 2025-12-07 16:14:07,339 basehttp "GET /media/products/gallery/prod_1347_0.jpg HTTP/1.1" 200 60892
+INFO 2025-12-07 16:14:07,343 basehttp "GET /media/products/gallery/prod_1466_0.jpg HTTP/1.1" 200 16876
+INFO 2025-12-07 16:14:07,346 basehttp "GET /media/products/gallery/prod_1393_0.jpg HTTP/1.1" 200 48008
+INFO 2025-12-07 16:14:07,358 basehttp "GET /media/products/gallery/prod_1428_0.jpg HTTP/1.1" 200 61664
+INFO 2025-12-07 16:14:07,464 basehttp "GET /media/products/gallery/prod_1582_0.jpg HTTP/1.1" 200 64454
+WARNING 2025-12-07 16:14:07,471 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 16:14:10,334 basehttp "GET /landing/offers/ HTTP/1.1" 200 45926
+WARNING 2025-12-07 16:14:10,350 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:14:10,380 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+WARNING 2025-12-07 16:14:11,810 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:14:11,811 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:14:15,120 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 61635
+INFO 2025-12-07 16:14:15,148 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12511
+WARNING 2025-12-07 16:14:15,151 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:14:15,152 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7189
+WARNING 2025-12-07 16:14:15,165 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:14:15,165 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:14:15,179 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 16:14:15,180 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 16:14:15,180 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 16:14:42,078 basehttp "POST /sales/cart/add/1637/ HTTP/1.1" 302 0
+INFO 2025-12-07 16:14:42,116 basehttp "GET /sales/checkout/ HTTP/1.1" 200 56871
+WARNING 2025-12-07 16:14:42,139 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-07 16:14:42,166 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:14:42,166 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:14:42,167 basehttp "GET /media/bkash_logo.svg HTTP/1.1" 200 2188
+INFO 2025-12-07 16:14:45,479 basehttp "GET /static/css/landing_page.css HTTP/1.1" 304 0
+WARNING 2025-12-07 16:14:45,513 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:14:45,514 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+WARNING 2025-12-07 16:14:45,542 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:14:45,543 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:14:47,368 basehttp "POST /sales/cart/add/1637/ HTTP/1.1" 302 0
+INFO 2025-12-07 16:14:47,402 basehttp "GET /sales/checkout/ HTTP/1.1" 200 56871
+WARNING 2025-12-07 16:14:47,419 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-07 16:14:47,440 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:14:47,441 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+WARNING 2025-12-07 16:14:50,508 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:14:50,509 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+WARNING 2025-12-07 16:14:50,642 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:14:50,642 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:16:57,216 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 61910
+INFO 2025-12-07 16:16:57,244 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12531
+INFO 2025-12-07 16:16:57,250 basehttp "GET /static/js/landing_page.js HTTP/1.1" 304 0
+WARNING 2025-12-07 16:16:57,250 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-07 16:16:57,269 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:16:57,270 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:17:04,866 basehttp "GET /wishlist/ HTTP/1.1" 302 0
+INFO 2025-12-07 16:17:04,904 basehttp "GET /accounts/login/?next=/wishlist/ HTTP/1.1" 200 47212
+WARNING 2025-12-07 16:17:04,928 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-07 16:17:04,942 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:04,943 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:17:06,313 basehttp "GET / HTTP/1.1" 200 129880
+WARNING 2025-12-07 16:17:06,335 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-07 16:17:06,351 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:06,352 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:17:06,407 basehttp "GET /media/products/gallery/prod_1451_0.jpg HTTP/1.1" 200 43102
+INFO 2025-12-07 16:17:06,408 basehttp "GET /media/products/gallery/prod_1534_0.jpg HTTP/1.1" 200 43853
+INFO 2025-12-07 16:17:06,408 basehttp "GET /media/products/gallery/prod_1607_0.jpg HTTP/1.1" 200 47482
+INFO 2025-12-07 16:17:06,408 basehttp "GET /media/products/gallery/prod_1488_0.jpg HTTP/1.1" 200 59794
+INFO 2025-12-07 16:17:06,409 basehttp "GET /media/products/gallery/prod_1418_0.jpg HTTP/1.1" 200 43714
+INFO 2025-12-07 16:17:06,415 basehttp "GET /media/products/gallery/prod_1592_0.jpg HTTP/1.1" 200 443080
+INFO 2025-12-07 16:17:06,439 basehttp "GET /media/products/gallery/prod_1471_0.jpg HTTP/1.1" 200 41298
+INFO 2025-12-07 16:17:06,450 basehttp "GET /media/products/gallery/prod_1354_0.jpg HTTP/1.1" 200 45738
+INFO 2025-12-07 16:17:06,451 basehttp "GET /media/products/gallery/prod_1406_0.jpg HTTP/1.1" 200 33922
+INFO 2025-12-07 16:17:06,452 basehttp "GET /media/products/gallery/prod_1502_0.jpg HTTP/1.1" 200 42722
+INFO 2025-12-07 16:17:08,049 basehttp "GET /sales/cart/ HTTP/1.1" 200 54218
+WARNING 2025-12-07 16:17:08,072 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-07 16:17:08,091 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:08,092 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:17:09,097 basehttp "POST /sales/cart/api/update/ HTTP/1.1" 200 172
+INFO 2025-12-07 16:17:09,644 basehttp "GET /sales/cart/ HTTP/1.1" 200 52308
+WARNING 2025-12-07 16:17:09,667 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-07 16:17:09,797 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:09,797 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+WARNING 2025-12-07 16:17:10,810 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:10,811 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+WARNING 2025-12-07 16:17:10,837 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:10,837 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:17:11,278 basehttp "GET /accounts/login/?next=/wishlist/ HTTP/1.1" 200 46937
+WARNING 2025-12-07 16:17:11,318 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:11,320 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:17:12,147 basehttp "GET /static/css/landing_page.css HTTP/1.1" 304 0
+WARNING 2025-12-07 16:17:12,189 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:12,189 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+WARNING 2025-12-07 16:17:12,236 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:12,236 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:17:13,898 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 61635
+WARNING 2025-12-07 16:17:13,923 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+WARNING 2025-12-07 16:17:13,939 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:17:13,940 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:48:11,282 basehttp "GET / HTTP/1.1" 200 137306
+WARNING 2025-12-07 16:48:13,344 log Not Found: /url('https://fo
+WARNING 2025-12-07 16:48:13,344 basehttp "GET /url('https://fo HTTP/1.1" 404 13078
+INFO 2025-12-07 16:48:13,573 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 16:48:14,004 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-07 16:48:15,641 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+INFO 2025-12-07 16:48:15,642 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-07 16:48:15,643 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+INFO 2025-12-07 16:48:15,941 basehttp "GET /media/products/gallery/prod_1477_0.jpg HTTP/1.1" 200 25679
+INFO 2025-12-07 16:48:16,218 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 200 22018
+WARNING 2025-12-07 16:48:16,711 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:48:19,199 basehttp "GET /media/products/gallery/prod_1542_0.jpg HTTP/1.1" 200 73916
+INFO 2025-12-07 16:48:21,392 basehttp "GET /media/products/gallery/prod_1469_0.jpg HTTP/1.1" 200 42994
+INFO 2025-12-07 16:48:21,616 basehttp "GET /media/products/gallery/prod_1615_0.jpg HTTP/1.1" 200 40221
+INFO 2025-12-07 16:48:21,915 basehttp "GET /media/products/gallery/prod_1455_0.jpg HTTP/1.1" 200 59195
+INFO 2025-12-07 16:48:26,722 basehttp "GET /landing/offers/ HTTP/1.1" 200 48233
+INFO 2025-12-07 16:48:27,917 basehttp "GET /media/products/gallery/prod_1380_0.jpg HTTP/1.1" 200 39871
+INFO 2025-12-07 16:48:29,353 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+WARNING 2025-12-07 16:48:33,652 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:48:34,402 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 16:48:36,955 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 63942
+INFO 2025-12-07 16:48:37,333 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-07 16:48:39,103 basehttp - Broken pipe from ('127.0.0.1', 54090)
+WARNING 2025-12-07 16:48:39,131 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:48:39,132 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+WARNING 2025-12-07 16:48:39,266 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:48:39,266 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:48:40,778 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 16:48:43,369 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12092
+INFO 2025-12-07 16:48:44,749 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 16:48:48,009 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 16:48:59,206 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+WARNING 2025-12-07 16:49:01,432 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:49:03,831 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 6539
+INFO 2025-12-07 16:49:06,776 basehttp - Broken pipe from ('127.0.0.1', 53093)
+INFO 2025-12-07 16:49:06,776 basehttp - Broken pipe from ('127.0.0.1', 57193)
+INFO 2025-12-07 16:49:06,776 basehttp - Broken pipe from ('127.0.0.1', 56718)
+INFO 2025-12-07 16:49:06,849 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 63942
+INFO 2025-12-07 16:49:08,768 basehttp - Broken pipe from ('127.0.0.1', 52991)
+WARNING 2025-12-07 16:49:08,810 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:49:08,810 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:49:09,190 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 16:49:11,171 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12092
+INFO 2025-12-07 16:49:11,198 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 16:49:11,199 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 16:49:11,199 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+WARNING 2025-12-07 16:49:11,280 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:49:13,972 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 6539
+INFO 2025-12-07 16:49:41,782 basehttp - Broken pipe from ('127.0.0.1', 50674)
+INFO 2025-12-07 16:49:43,831 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 63942
+WARNING 2025-12-07 16:49:45,889 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:49:45,889 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:49:46,275 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 16:49:48,241 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12092
+INFO 2025-12-07 16:49:48,267 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 16:49:48,270 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 16:49:48,270 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+WARNING 2025-12-07 16:49:48,392 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:49:51,090 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 6539
+INFO 2025-12-07 16:50:34,131 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 16:50:39,046 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 16:50:41,136 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 16:52:17,148 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 63942
+WARNING 2025-12-07 16:52:19,189 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:52:19,189 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:52:19,581 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 16:52:24,486 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12190
+INFO 2025-12-07 16:52:24,561 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 16:52:27,264 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+WARNING 2025-12-07 16:52:29,521 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:52:29,541 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 16:52:35,462 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 6539
+INFO 2025-12-07 16:53:08,278 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 16:53:13,501 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 16:53:15,599 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 16:56:34,637 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64038
+WARNING 2025-12-07 16:56:36,672 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:56:36,673 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:56:37,060 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 16:56:39,031 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12992
+INFO 2025-12-07 16:56:39,065 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 16:56:39,065 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 16:56:39,066 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+WARNING 2025-12-07 16:56:39,182 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:56:41,902 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 16:57:24,519 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 16:57:24,588 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 16:57:25,163 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 16:57:26,439 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64038
+WARNING 2025-12-07 16:57:27,037 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 16:57:27,037 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 16:57:27,125 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 16:57:27,615 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12992
+INFO 2025-12-07 16:57:27,640 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 16:57:27,643 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 16:57:27,644 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+WARNING 2025-12-07 16:57:27,715 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 16:57:28,471 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 16:57:40,566 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 16:57:41,975 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 16:57:42,557 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 16:57:49,521 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 16:57:50,076 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 16:57:51,044 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 16:57:51,638 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 16:57:59,678 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 16:58:00,805 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 17:00:25,439 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64038
+WARNING 2025-12-07 17:00:25,622 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 17:00:25,622 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 17:00:25,726 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 17:00:25,798 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12992
+WARNING 2025-12-07 17:00:25,807 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 17:00:25,832 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 17:00:25,833 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 17:00:25,834 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 17:00:26,003 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 17:00:28,182 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 17:00:28,478 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 17:00:28,642 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 17:00:32,812 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64038
+WARNING 2025-12-07 17:00:32,859 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 17:00:32,860 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 17:00:32,861 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 17:00:32,870 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 17:00:32,879 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 12992
+WARNING 2025-12-07 17:00:32,900 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 17:00:32,900 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 17:00:32,920 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 17:00:33,007 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 17:00:33,021 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 17:00:33,160 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 17:00:33,165 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 17:04:34,436 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64103
+WARNING 2025-12-07 17:04:34,484 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 17:04:34,484 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 17:04:34,501 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 17:04:34,509 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 17:04:34,606 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13531
+WARNING 2025-12-07 17:04:34,609 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 17:04:34,610 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 17:04:34,632 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 17:04:34,632 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 17:04:34,740 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 17:04:34,979 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 17:04:34,984 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 17:07:22,941 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64103
+WARNING 2025-12-07 17:07:22,989 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 17:07:22,989 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 17:07:22,996 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 17:07:23,007 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 17:07:23,117 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13963
+INFO 2025-12-07 17:07:23,141 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 17:07:23,168 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+WARNING 2025-12-07 17:07:23,233 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 17:07:23,234 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 17:07:23,329 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 17:07:23,644 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 17:07:23,649 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 17:09:51,152 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64103
+WARNING 2025-12-07 17:09:51,195 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 17:09:51,196 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 17:09:51,203 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 17:09:51,212 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 17:09:51,255 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13621
+WARNING 2025-12-07 17:09:51,255 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 17:09:51,256 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 17:09:51,278 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 17:09:51,281 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 17:09:51,282 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 17:09:51,661 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 17:09:51,666 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 17:13:43,244 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64103
+WARNING 2025-12-07 17:13:43,291 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 17:13:43,292 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 17:13:43,294 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 17:13:43,310 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 17:13:43,373 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13102
+INFO 2025-12-07 17:13:43,377 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+WARNING 2025-12-07 17:13:43,379 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 17:13:43,399 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 17:13:43,399 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 17:13:43,499 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 17:13:43,816 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 17:13:43,821 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 17:14:23,310 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64103
+WARNING 2025-12-07 17:14:25,395 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 17:14:25,395 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 17:14:25,955 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 17:14:27,524 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13102
+INFO 2025-12-07 17:14:27,550 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 17:14:27,552 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 17:14:27,552 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+WARNING 2025-12-07 17:14:28,198 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 17:14:30,837 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 17:14:49,033 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64103
+INFO 2025-12-07 17:14:51,070 basehttp - Broken pipe from ('127.0.0.1', 49561)
+WARNING 2025-12-07 17:14:51,115 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 17:14:51,116 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 17:14:51,496 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 17:14:53,441 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13102
+INFO 2025-12-07 17:14:53,470 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-07 17:14:53,470 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 17:14:53,471 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+WARNING 2025-12-07 17:14:53,606 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 17:14:56,315 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 17:15:09,301 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-07 17:15:09,359 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-07 17:15:09,959 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-07 17:15:10,436 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64103
+WARNING 2025-12-07 17:15:11,040 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-07 17:15:11,040 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-07 17:15:11,136 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-07 17:15:11,619 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13102
+INFO 2025-12-07 17:15:11,643 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-07 17:15:11,643 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-07 17:15:11,645 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+WARNING 2025-12-07 17:15:11,733 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-07 17:15:12,479 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-07 17:15:24,671 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
