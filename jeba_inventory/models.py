@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
+from jeba_core.image_optimizer import optimize_image, generate_lqip
 
 # --- NEW: Tag Model (Fixed Slug Generation) ---
 class Tag(models.Model):
@@ -267,7 +268,16 @@ class Product(models.Model):
 class ProductVariation(models.Model):
     product = models.ForeignKey(Product, related_name='variations', on_delete=models.CASCADE)
     name = models.CharField(max_length=255, verbose_name=_("Variation Name"), help_text=_("e.g. Size: XL, Color: Red"))
+    image_placeholder = models.TextField(blank=True, null=True, editable=False) # <--- NEW
     
+    def save(self, *args, **kwargs):
+        if self.image:
+            # Check if this is a new upload or change
+            if not self.pk or (self.pk and ProductVariation.objects.get(pk=self.pk).image != self.image):
+                self.image = optimize_image(self.image, max_width=800)
+                self.image_placeholder = generate_lqip(self.image)
+        super().save(*args, **kwargs)
+
     # --- NEW: Variation Image Field ---
     image = models.ImageField(
         upload_to='products/variations/', 
@@ -322,12 +332,19 @@ class ProductImage(models.Model):
     )
     is_main = models.BooleanField(default=False, verbose_name=_("Main Thumbnail"))
 
+    placeholder = models.TextField(blank=True, null=True, editable=False) # <--- NEW
+    
     class Meta:
         db_table = 'products_productimage'
 
     def save(self, *args, **kwargs):
         if self.is_main:
             ProductImage.objects.filter(product=self.product).exclude(id=self.id).update(is_main=False)
+        
+        if self.image:
+             if not self.pk or (self.pk and ProductImage.objects.get(pk=self.pk).image != self.image):
+                self.image = optimize_image(self.image, max_width=1200)
+                self.placeholder = generate_lqip(self.image)
         super().save(*args, **kwargs)
 
     def __str__(self):

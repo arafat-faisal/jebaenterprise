@@ -6,6 +6,9 @@ from django.conf import settings
 
 # --- MODULAR IMPORT ---
 from jeba_inventory.models import Product
+from jeba_core.image_optimizer import optimize_image, generate_lqip
+
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=255, verbose_name=_("Blog Title"))
@@ -30,6 +33,7 @@ class BlogPost(models.Model):
     
     # --- CONTENT ---
     featured_image = models.ImageField(upload_to='blog/featured/', blank=True, null=True)
+    featured_image_placeholder = models.TextField(blank=True, null=True, editable=False) # <--- NEW
     content = models.TextField(verbose_name=_("Post Content"))
     excerpt = models.TextField(
         max_length=500, 
@@ -65,6 +69,11 @@ class BlogPost(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         
+        if self.featured_image:
+             if not self.pk or (self.pk and BlogPost.objects.get(pk=self.pk).featured_image != self.featured_image):
+                self.featured_image = optimize_image(self.featured_image, max_width=1200)
+                self.featured_image_placeholder = generate_lqip(self.featured_image)
+
         # NEW: Auto-fill meta title if blank
         if not self.meta_title:
             self.meta_title = self.title

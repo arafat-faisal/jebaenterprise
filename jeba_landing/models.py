@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils.text import slugify
 import json
+# --- ADD THIS MISSING LINE BELOW ---
+from jeba_core.image_optimizer import optimize_image, generate_lqip
+# -----------------------------------
 
 # --- 1. THEME ENGINE ---
 class LandingTheme(models.Model):
@@ -225,6 +228,8 @@ class LandingSection(models.Model):
     
     foreground_image = models.ImageField(upload_to='landing/foreground/', blank=True, null=True, help_text="Custom Image/GIF to layer ON TOP of the background. Overrides product image.")
     foreground_video = models.FileField(upload_to='landing/foreground/', blank=True, null=True, help_text="Custom Video (MP4) to layer ON TOP of the background. Overrides images.")
+    # ... existing fields ...
+    placeholders = models.JSONField(default=dict, blank=True, editable=False) # <--- NEW (Stores all LQIPs)
 
     # --- NEW: Media Controls ---
     media_max_width = models.CharField(
@@ -264,3 +269,29 @@ class LandingSection(models.Model):
 
     def __str__(self):
         return f"{self.get_section_type_display()} - {self.heading}"
+    
+    def save(self, *args, **kwargs):
+        # Helper to process a specific field
+        def process_field(field_name, width=1920):
+            field = getattr(self, field_name)
+            if field:
+                # Basic check if it needs optimization (simplification for Landing Page)
+                if not field.name.endswith('.webp'):
+                    new_img = optimize_image(field, max_width=width)
+                    setattr(self, field_name, new_img)
+                    
+                # Always generate placeholder if missing
+                if field_name not in self.placeholders:
+                    lqip = generate_lqip(getattr(self, field_name))
+                    if lqip:
+                        self.placeholders[field_name] = lqip
+
+        # Process all image fields
+        process_field('image', 1920)
+        process_field('image_2', 1920)
+        process_field('image_3', 1920)
+        process_field('image_4', 1920)
+        process_field('image_5', 1920)
+        process_field('foreground_image', 1000)
+
+        super().save(*args, **kwargs)

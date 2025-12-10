@@ -133,12 +133,9 @@ function selectVariation(varId, element) {
     });
 
     updatePrice(data.price, data.original, data.has_discount);
-    if (data.image) {
-        ['hero-main-image', 'hero-main-image-mobile', 'island-thumb'].forEach(id => {
-            const img = document.getElementById(id);
-            if (img) img.src = data.image;
-        });
-    }
+    if (data.image && data.placeholder) {
+    updateHeroImageWithBlur(data.image, data.placeholder);
+}
 }
 
 function updatePrice(price, original, hasDiscount) {
@@ -206,3 +203,22 @@ window.addEventListener('pageshow', (e) => {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const blurDivs = document.querySelectorAll('.blur-load');
+    
+    blurDivs.forEach(div => {
+        const img = div.querySelector('img');
+        
+        function loaded() {
+            div.classList.add('loaded');
+        }
+
+        if (img.complete) {
+            loaded();
+        } else {
+            img.addEventListener('load', loaded);
+        }
+    });
+});
+

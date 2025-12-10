@@ -27,17 +27,82 @@
 
 <script>
     const VARIATIONS = {
-        {% for var in product.variations.all %}
-        "{{ var.id }}": {
-            id: "{{ var.id }}",
-            name: "{{ var.name }}",
-            price: {{ var.selling_price }},
-            original: {{ var.original_price|default:0 }},
-            has_discount: {% if var.has_discount %}true{% else %}false{% endif %},
-            image: "{% if var.image %}{{ var.image.url }}{% elif product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}"
-        }{% if not forloop.last %},{% endif %}
-        {% endfor %}
-    };
+    {% for var in product.variations.all %}
+    "{{ var.id }}": {
+        id: "{{ var.id }}",
+        name: "{{ var.name }}",
+        price: {{ var.selling_price }},
+        original: {{ var.original_price|default:0 }},
+        has_discount: {% if var.has_discount %}true{% else %}false{% endif %},
+        
+        // --- NEW: Add Placeholder ---
+        image: "{% if var.image %}{{ var.image.url }}{% elif product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}",
+        placeholder: "{% if var.image %}{{ var.image_placeholder }}{% elif product.main_image_obj %}{{ product.main_image_obj.placeholder }}{% endif %}"
+        // ----------------------------
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+};
+
+// Function to smoothly switch the hero image with Blur-Up effect
+// Function to smoothly switch the hero image (Smart Cache Version)
+function updateHeroImageWithBlur(imageUrl, placeholderUrl) {
+    // 1. Target both Desktop and Mobile hero images
+    const images = [
+        document.getElementById('hero-main-image'),
+        document.getElementById('hero-main-image-mobile')
+    ];
+
+    images.forEach(img => {
+        if (!img) return;
+        
+        // Find the blur wrapper (parent of the image)
+        const wrapper = img.closest('.blur-load');
+        if (!wrapper) return;
+
+        // Optimization: Don't do anything if it's already the same image
+        if (img.src === imageUrl) return;
+
+        // --- THE SMART CHECK ---
+        // We create a temporary image object to check if the browser has it cached
+        const loader = new Image();
+        loader.src = imageUrl;
+
+        if (loader.complete) {
+            // CASE A: CACHED (Instant Swap)
+            // Just switch the source. No blur animation needed.
+            img.src = imageUrl;
+            
+            // Ensure wrapper stays in 'loaded' state
+            wrapper.classList.add('loaded');
+            img.style.opacity = 1;
+            
+            // Update the background behind it (just to keep state consistent)
+            if (placeholderUrl) {
+                wrapper.style.backgroundImage = `url('${placeholderUrl}')`;
+            }
+        } else {
+            // CASE B: NOT CACHED (Play Blur Animation)
+            
+            // 1. Set the low-res placeholder on the background
+            if (placeholderUrl) {
+                wrapper.style.backgroundImage = `url('${placeholderUrl}')`;
+            }
+            
+            // 2. Hide the current image (revealing the placeholder)
+            wrapper.classList.remove('loaded');
+            img.style.opacity = 0;
+
+            // 3. Start loading the new high-res image
+            img.src = imageUrl;
+            
+            // 4. Fade in when ready
+            img.onload = function() {
+                wrapper.classList.add('loaded');
+                img.style.opacity = 1;
+            };
+        }
+    });
+}
 </script>
 
 <div class="landing-wrapper" id="landing-wrapper">
@@ -63,11 +128,23 @@
                         {% if section.badge_label %}
                             <div class="hero-badge">{{ section.badge_label }}</div>
                         {% endif %}
-                        <img src="{% if product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}" 
-                             id="hero-main-image-mobile" 
-                             alt="{{ product.name }}"
-                             fetchpriority="high"
-                             decoding="async">
+                        <div class="hero-media-container gs-scale" id="desktop-hero-img-wrap">
+                            {% if section.badge_label %}
+                                <div class="hero-badge">{{ section.badge_label }}</div>
+                            {% endif %}
+                            
+                            {% if product.main_image_obj %}
+                                <div class="blur-load" 
+                                    style="background-image: url('{{ product.main_image_obj.placeholder }}'); aspect-ratio: 1/1;">
+                                    
+                                    <img src="{{ product.main_image_obj.image.url }}" 
+                                        id="hero-main-image" 
+                                        alt="{{ product.name }}"
+                                        fetchpriority="high"
+                                        decoding="async">
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
 
                     <div class="mobile-controls-area gs-up">
@@ -122,14 +199,23 @@
 
                             {% if product.has_variations %}
                             <div class="variation-selector-group">
-                                {% for var in product.variations.all %}
-                                <div class="var-option {% if forloop.first %}active{% endif %}" 
-                                     data-id="{{ var.id }}"
-                                     onclick="selectVariation('{{ var.id }}', this)">
-                                    {% if var.image %}<img src="{{ var.image.url }}" class="var-img-thumb">{% endif %}
-                                    <span>{{ var.name }}</span>
-                                </div>
-                                {% endfor %}
+{% for var in product.variations.all %}
+<div class="var-option {% if forloop.first %}active{% endif %}" 
+     data-id="{{ var.id }}"
+     onclick="selectVariation('{{ var.id }}', this)">
+    
+    {% if var.image %}
+        <div class="blur-load" 
+             style="width: 40px; height: 40px; border-radius: 4px; background-image: url('{{ var.image_placeholder }}'); display: inline-block; vertical-align: middle; margin-right: 8px;">
+            <img src="{{ var.image.url }}" 
+                 class="var-img-thumb" 
+                 style="width: 100%; height: 100%; object-fit: cover;"
+                 loading="lazy">
+        </div>
+    {% endif %}
+    <span>{{ var.name }}</span>
+</div>
+{% endfor %}
                             </div>
                             {% endif %}
 
@@ -148,11 +234,23 @@
                             {% if section.badge_label %}
                                 <div class="hero-badge">{{ section.badge_label }}</div>
                             {% endif %}
-                            <img src="{% if product.main_image_obj %}{{ product.main_image_obj.image.url }}{% endif %}" 
-                                 id="hero-main-image" 
-                                 alt="{{ product.name }}"
-                                 fetchpriority="high"
-                                 decoding="async">
+                            <div class="hero-media-container gs-scale" id="desktop-hero-img-wrap">
+                                {% if section.badge_label %}
+                                    <div class="hero-badge">{{ section.badge_label }}</div>
+                                {% endif %}
+                                
+                                {% if product.main_image_obj %}
+                                    <div class="blur-load" 
+                                        style="background-image: url('{{ product.main_image_obj.placeholder }}'); aspect-ratio: 1/1;">
+                                        
+                                        <img src="{{ product.main_image_obj.image.url }}" 
+                                            id="hero-main-image" 
+                                            alt="{{ product.name }}"
+                                            fetchpriority="high"
+                                            decoding="async">
+                                    </div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>

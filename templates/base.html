@@ -503,6 +503,29 @@
         /* Icon Styles */
         .sugg-icon { width: 16px; height: 16px; color: #8E94A3; }
         .trending-icon { color: var(--accent-lime); fill: var(--text-main); }
+
+/* The Container */
+.blur-load {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+/* The Real Image (Hidden at first) */
+.blur-load img {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The "Loaded" State */
+.blur-load.loaded img {
+    opacity: 1;
+}
+
     </style>
     
     <style>
@@ -1156,6 +1179,25 @@
             }
         });
     });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const blurDivs = document.querySelectorAll('.blur-load');
+    
+    blurDivs.forEach(div => {
+        const img = div.querySelector('img');
+        
+        function loaded() {
+            div.classList.add('loaded');
+        }
+
+        if (img.complete) {
+            loaded();
+        } else {
+            img.addEventListener('load', loaded);
+        }
+    });
+});
+
     </script>
     
     <script src="/static/js/analytics.js"></script>
