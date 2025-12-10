@@ -1,0 +1,98 @@
+{% extends "admin/change_list.html" %}
+{% load static %}
+
+{% block content_title %}
+    <h1>📊 High-Frequency Analytics Command Center</h1>
+{% endblock %}
+
+{% block result_list %}
+
+<div style="margin-bottom: 30px; background: #1a1a1a; padding: 20px; border-radius: 8px; color: white; display: flex; flex-wrap: wrap; gap: 20px; border: 1px solid #333;">
+    
+    <div style="flex: 1; min-width: 200px; display: flex; flex-direction: column; justify-content: space-around;">
+        <div style="background: #2d2d2d; padding: 15px; border-radius: 5px; margin-bottom: 10px; border-left: 4px solid #007bff;">
+            <h3 style="margin: 0; font-size: 14px; color: #aaa;">TOTAL SESSIONS (Last 1000)</h3>
+            <span style="font-size: 24px; font-weight: bold;">{{ total_sessions }}</span>
+        </div>
+        
+        <div style="background: #2d2d2d; padding: 15px; border-radius: 5px; margin-bottom: 10px; border-left: 4px solid {% if bounce_rate > 70 %}#dc3545{% else %}#28a745{% endif %};">
+            <h3 style="margin: 0; font-size: 14px; color: #aaa;">BOUNCE RATE</h3>
+            <span style="font-size: 24px; font-weight: bold;">{{ bounce_rate }}%</span>
+            <small style="display:block; color:#666;">Target: &lt; 60%</small>
+        </div>
+
+        <div style="background: #2d2d2d; padding: 15px; border-radius: 5px; border-left: 4px solid #ffc107;">
+            <h3 style="margin: 0; font-size: 14px; color: #aaa;">AVG LOAD TIME</h3>
+            <span style="font-size: 24px; font-weight: bold;">{{ avg_load_time }} ms</span>
+            <small style="display:block; color:#666;">(Time to Interactive)</small>
+        </div>
+    </div>
+
+    <div style="flex: 1; min-width: 300px; background: #2d2d2d; padding: 15px; border-radius: 5px;">
+        <h3 style="text-align: center; color: #aaa; margin-bottom: 15px;">Device Breakdown</h3>
+        <canvas id="deviceChart" style="max-height: 200px;"></canvas>
+    </div>
+
+    <div style="flex: 1; min-width: 300px; background: #2d2d2d; padding: 15px; border-radius: 5px;">
+        <h3 style="text-align: center; color: #aaa; margin-bottom: 15px;">Site Speed Performance</h3>
+        <canvas id="speedChart" style="max-height: 200px;"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- DATA INGESTION ---
+        const deviceData = JSON.parse('{{ devices|safe }}');
+        const speedData = JSON.parse('{{ speed_stats|safe }}');
+
+        // --- CHART 1: DEVICES ---
+        const ctxDevice = document.getElementById('deviceChart').getContext('2d');
+        new Chart(ctxDevice, {
+            type: 'doughnut',
+            data: {
+                labels: deviceData.map(d => d.device_type.toUpperCase()),
+                datasets: [{
+                    data: deviceData.map(d => d.count),
+                    backgroundColor: ['#36a2eb', '#ff6384', '#ffcd56', '#4bc0c0'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'right', labels: { color: '#ccc' } } }
+            }
+        });
+
+        // --- CHART 2: SPEED ---
+        const ctxSpeed = document.getElementById('speedChart').getContext('2d');
+        new Chart(ctxSpeed, {
+            type: 'bar',
+            data: {
+                labels: ['Fast (<2s)', 'Slow (>2s)'],
+                datasets: [{
+                    label: 'Sessions',
+                    data: [speedData.fast, speedData.slow],
+                    backgroundColor: ['#28a745', '#dc3545'],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { grid: { color: '#444' }, ticks: { color: '#ccc' } },
+                    x: { ticks: { color: '#ccc' } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    });
+</script>
+
+{{ block.super }}
+
+{% endblock %}

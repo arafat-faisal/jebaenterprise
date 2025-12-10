@@ -8,6 +8,13 @@ from datetime import timedelta
 from .models import ProductEvent, SearchEvent, DailyAdSpend
 from jeba_inventory.models import Product
 from jeba_sales.models import SaleItem
+import json
+from django.contrib import admin
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
+from .models import SessionTrace, SearchEvent, ProductEvent, DailyAdSpend
+from django.core.serializers.json import DjangoJSONEncoder
+from django.db.models import Count, Avg, Case, When, Value
 
 # --- 1. DAILY PROFIT & ROI DASHBOARD ---
 @admin.register(DailyAdSpend)
@@ -292,6 +299,179 @@ class ProductEventAdmin(admin.ModelAdmin):
         return f"{time_str} | {scroll_str}"
     behavior_display.short_description = "Time | Scroll"
 
+
+# --- HELPERS ---
+def pretty_json(data):
+    """Format JSON for readability in Admin."""
+    try:
+        return format_html(
+            '<pre style="background: #2d2d2d; color: #ccc; padding: 10px; border-radius: 5px; overflow-x: auto;">{}</pre>',
+            json.dumps(data, indent=2, sort_keys=True)
+        )
+    except Exception:
+        return data
+
+@admin.register(SessionTrace)
+class SessionTraceAdmin(admin.ModelAdmin):
+    list_display = (
+        'short_session_id', 
+        'device_badge', 
+        'network_status',
+        'load_time_display', 
+        'scroll_depth_bar', 
+        'is_bounce_badge', 
+        'created_at'
+    )
+    list_filter = (
+        'is_bounce', 
+        'device_type', 
+        ('created_at', admin.DateFieldListFilter),
+        'load_time_ms' # Useful if you have a range filter installed, otherwise standard
+    )
+    search_fields = ('session_id', 'url', 'ip_address')
+    # --- CRITICAL FIX: Add created_at to readonly_fields ---
+    readonly_fields = ('session_id', 'formatted_raw_data', 'performance_breakdown', 'created_at')
+    # --- VISUAL DASHBOARD INJECTION ---
+    change_list_template = "admin/jeba_analytics/sessiontrace/change_list.html"
+
+    def changelist_view(self, request, extra_context=None):
+        # 1. Aggregate Data from the Queryset
+        # FIX: We fetch IDs first to avoid "Cannot filter a sliced queryset" error
+        last_1000_ids = list(SessionTrace.objects.order_by('-created_at').values_list('id', flat=True)[:1000])
+        
+        if not last_1000_ids:
+            dashboard_data = {
+                'total_sessions': 0,
+                'bounce_rate': 0,
+                'avg_load_time': 0,
+                'devices': '[]',
+                'speed_stats': '{"fast": 0, "slow": 0}',
+            }
+        else:
+            # Create a new, clean queryset based on these IDs
+            qs = SessionTrace.objects.filter(id__in=last_1000_ids)
+            
+            # A. Bounce Rate
+            total = qs.count()
+            bounces = qs.filter(is_bounce=True).count()
+            bounce_rate = round((bounces / total * 100), 1) if total > 0 else 0
+            
+            # B. Average Load Time (Avg of 'fullLoad')
+            avg_load = qs.aggregate(Avg('load_time_ms'))['load_time_ms__avg'] or 0
+            
+            # C. Device Breakdown
+            devices = list(qs.values('device_type').annotate(count=Count('device_type')))
+            
+            # D. Network Performance (Fast vs Slow)
+            speed_stats = qs.aggregate(
+                fast=Count(Case(When(load_time_ms__lt=2000, then=1))),
+                slow=Count(Case(When(load_time_ms__gte=2000, then=1)))
+            )
+
+            dashboard_data = {
+                'total_sessions': total,
+                'bounce_rate': bounce_rate,
+                'avg_load_time': round(avg_load),
+                'devices': json.dumps(devices, cls=DjangoJSONEncoder),
+                'speed_stats': json.dumps(speed_stats, cls=DjangoJSONEncoder),
+            }
+
+        extra_context = extra_context or {}
+        extra_context.update(dashboard_data)
+        
+        return super().changelist_view(request, extra_context=extra_context)
+
+    fieldsets = (
+        ("Session Identity", {
+            "fields": ("session_id", "url", "created_at", "ip_address")
+        }),
+        ("Device & Network", {
+            "fields": ("user_agent", "device_type")
+        }),
+        ("Performance Metrics", {
+            "fields": ("load_time_ms", "ttfb_ms", "performance_breakdown")
+        }),
+        ("Engagement", {
+            "fields": ("duration_ms", "max_scroll", "is_bounce")
+        }),
+        ("The Black Box", {
+            "fields": ("formatted_raw_data",),
+            "classes": ("collapse",),
+        }),
+    )
+
+    def short_session_id(self, obj):
+        return obj.session_id[:8] + "..."
+    short_session_id.short_description = "ID"
+
+    def device_badge(self, obj):
+        icons = {
+            'mobile': 'fa-mobile-alt',
+            'desktop': 'fa-desktop',
+            'tablet': 'fa-tablet-alt'
+        }
+        icon = icons.get(obj.device_type, 'fa-question')
+        return format_html(f'<i class="fas {icon}"></i> {obj.device_type}')
+    device_badge.short_description = "Device"
+
+    def network_status(self, obj):
+        # Infer network quality from TTFB
+        if not obj.ttfb_ms: return "-"
+        
+        if obj.ttfb_ms < 100:
+            color = "#00c853" # Green (Fast/WiFi)
+            label = "⚡ 5G/WiFi"
+        elif obj.ttfb_ms < 300:
+            color = "#ffab00" # Orange (4G)
+            label = "📶 4G"
+        else:
+            color = "#d50000" # Red (3G/Slow)
+            label = "🐌 Slow 3G"
+            
+        return format_html(f'<span style="color: {color}; font-weight: bold;">{label}</span>')
+    network_status.short_description = "Est. Network"
+
+    def load_time_display(self, obj):
+        if not obj.load_time_ms:
+            return "-"
+        
+        # Color scale for Load Time
+        val = obj.load_time_ms
+        if val < 1500: color = "green"
+        elif val < 3500: color = "orange"
+        else: color = "red"
+        
+        return format_html(
+            f'<span style="color: {color}; font-weight: bold;">{val}ms</span>'
+        )
+    load_time_display.short_description = "Load Time"
+
+    def scroll_depth_bar(self, obj):
+        # Visual progress bar for scroll
+        percent = min(obj.max_scroll, 100)
+        color = "#007bff" if percent > 50 else "#6c757d"
+        return format_html(
+            f'<div style="width: 100px; background: #e9ecef; border-radius: 3px;">'
+            f'<div style="width: {percent}%; background: {color}; height: 5px; border-radius: 3px;"></div>'
+            f'</div>'
+        )
+    scroll_depth_bar.short_description = "Scroll"
+
+    def is_bounce_badge(self, obj):
+        if obj.is_bounce:
+            return format_html('<span style="color: red;">❌ Bounce</span>')
+        return format_html('<span style="color: green;">✅ Engaged</span>')
+    is_bounce_badge.short_description = "Status"
+
+    def formatted_raw_data(self, obj):
+        return pretty_json(obj.raw_data)
+    formatted_raw_data.short_description = "Full Telemetry JSON"
+
+    def performance_breakdown(self, obj):
+        """Extracts and formats performance object specifically."""
+        perf = obj.raw_data.get('performance', {})
+        return pretty_json(perf)
+    performance_breakdown.short_description = "Timing Breakdown"
 
 @admin.register(SearchEvent)
 class SearchEventAdmin(admin.ModelAdmin):

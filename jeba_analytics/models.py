@@ -102,6 +102,42 @@ class ProductEvent(models.Model):
 
         super().save(*args, **kwargs)
 
+# --- NEW: THE BLACK BOX MODEL ---
+class SessionTrace(models.Model):
+    """
+    High-Frequency raw telemetry storage. 
+    Stores the full JSON dump from landing_analytics.js.
+    """
+    session_id = models.CharField(max_length=100, unique=True, db_index=True)
+    url = models.CharField(max_length=500)
+    
+    # Device Context
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+    user_agent = models.TextField(blank=True)
+    device_type = models.CharField(max_length=20, default='desktop') # mobile/tablet/desktop
+    
+    # Performance Stats (Extracted for easy filtering)
+    load_time_ms = models.IntegerField(null=True, blank=True, help_text="Full Page Load")
+    ttfb_ms = models.IntegerField(null=True, blank=True, help_text="Time to First Byte")
+    
+    # Engagement
+    max_scroll = models.PositiveIntegerField(default=0)
+    is_bounce = models.BooleanField(default=True)
+    duration_ms = models.PositiveIntegerField(default=0)
+    
+    # The Black Box Content
+    raw_data = models.JSONField(default=dict, verbose_name="Full Telemetry Blob")
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Session Trace"
+        verbose_name_plural = "Session Traces"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Trace {self.session_id} ({self.duration_ms}ms)"
 
 # --- PROFIT & ROI ANALYTICS ---
 class DailyAdSpend(models.Model):

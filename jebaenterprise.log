@@ -7621,3 +7621,782 @@ INFO 2025-12-07 17:15:11,645 basehttp "GET /media/products/variations/Baby-Sleep
 WARNING 2025-12-07 17:15:11,733 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
 INFO 2025-12-07 17:15:12,479 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
 INFO 2025-12-07 17:15:24,671 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-10 10:28:01,941 autoreload Watching for file changes with StatReloader
+INFO 2025-12-10 10:28:26,251 autoreload Watching for file changes with StatReloader
+INFO 2025-12-10 10:28:42,118 basehttp "GET / HTTP/1.1" 200 134522
+INFO 2025-12-10 10:28:42,152 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-10 10:28:42,153 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-10 10:28:42,181 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-10 10:28:42,181 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+WARNING 2025-12-10 10:28:42,187 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-10 10:28:42,320 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 200 22018
+INFO 2025-12-10 10:28:42,321 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+INFO 2025-12-10 10:28:42,326 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-10 10:28:42,376 basehttp "GET /media/products/gallery/prod_1633_0.jpg HTTP/1.1" 200 45645
+INFO 2025-12-10 10:28:42,510 basehttp "GET /media/products/gallery/prod_1614_0.jpg HTTP/1.1" 200 60115
+INFO 2025-12-10 10:28:42,527 basehttp "GET /media/products/gallery/prod_1347_0.jpg HTTP/1.1" 200 60892
+INFO 2025-12-10 10:28:42,528 basehttp "GET /media/products/gallery/prod_1359_0.jpg HTTP/1.1" 200 42611
+INFO 2025-12-10 10:28:42,541 basehttp "GET /media/products/gallery/prod_1458_0.jpg HTTP/1.1" 200 50863
+INFO 2025-12-10 10:28:42,554 basehttp "GET /media/products/gallery/prod_1557_0.jpg HTTP/1.1" 200 34852
+INFO 2025-12-10 10:28:42,555 basehttp "GET /media/products/gallery/prod_1350_0.jpg HTTP/1.1" 200 30404
+INFO 2025-12-10 10:28:42,589 basehttp "GET /media/products/gallery/prod_1593_0.jpg HTTP/1.1" 200 19986
+INFO 2025-12-10 10:28:42,589 basehttp "GET /media/products/gallery/prod_1399_0.jpg HTTP/1.1" 200 52532
+INFO 2025-12-10 10:28:42,618 basehttp "GET /media/products/gallery/prod_1498_0.jpg HTTP/1.1" 200 56780
+INFO 2025-12-10 10:28:42,639 basehttp "GET /media/products/gallery/prod_1411_0.jpg HTTP/1.1" 200 47474
+INFO 2025-12-10 10:28:42,663 basehttp "GET /media/products/gallery/prod_1343_0.jpg HTTP/1.1" 200 17724
+INFO 2025-12-10 10:28:42,678 basehttp "GET /media/products/gallery/prod_1454_0.jpg HTTP/1.1" 200 36526
+INFO 2025-12-10 10:28:42,694 basehttp "GET /media/products/gallery/prod_1358_0.jpg HTTP/1.1" 200 55612
+INFO 2025-12-10 10:28:42,725 basehttp "GET /media/products/gallery/prod_1377_0.jpg HTTP/1.1" 200 33451
+INFO 2025-12-10 10:28:42,732 basehttp "GET /media/products/gallery/prod_1592_0.jpg HTTP/1.1" 200 443080
+INFO 2025-12-10 10:28:42,757 basehttp "GET /media/products/gallery/prod_1346_0.jpg HTTP/1.1" 200 496634
+INFO 2025-12-10 10:28:42,762 basehttp "GET /media/products/gallery/prod_1570_0.jpg HTTP/1.1" 200 59213
+INFO 2025-12-10 10:28:42,789 basehttp "GET /media/products/gallery/prod_1467_0.jpg HTTP/1.1" 200 66218
+INFO 2025-12-10 10:28:42,794 basehttp "GET /media/products/gallery/prod_1507_0.jpg HTTP/1.1" 200 1037208
+INFO 2025-12-10 10:28:42,803 basehttp "GET /media/products/gallery/prod_1417_0.jpg HTTP/1.1" 200 31607
+INFO 2025-12-10 10:28:42,819 basehttp "GET /media/products/gallery/prod_1525_0.jpg HTTP/1.1" 200 23357
+INFO 2025-12-10 10:28:42,827 basehttp "GET /media/products/gallery/prod_1538_0.jpg HTTP/1.1" 200 38078
+INFO 2025-12-10 10:28:42,843 basehttp "GET /media/products/gallery/prod_1559_0.jpg HTTP/1.1" 200 49584
+INFO 2025-12-10 10:28:42,850 basehttp "GET /media/products/gallery/prod_1515_0.jpg HTTP/1.1" 200 64083
+INFO 2025-12-10 10:28:42,866 basehttp "GET /media/products/gallery/prod_1457_0.jpg HTTP/1.1" 200 54782
+INFO 2025-12-10 10:28:42,927 basehttp "GET /media/products/gallery/prod_1379_0.jpg HTTP/1.1" 200 42490
+INFO 2025-12-10 10:28:42,950 basehttp "GET /media/products/gallery/prod_1514_0.jpg HTTP/1.1" 200 63144
+INFO 2025-12-10 10:28:42,977 basehttp "GET /media/products/gallery/prod_1613_0.jpg HTTP/1.1" 200 64834
+INFO 2025-12-10 10:28:42,980 basehttp "GET /media/products/gallery/prod_1442_0.jpg HTTP/1.1" 200 77960
+INFO 2025-12-10 10:28:42,992 basehttp "GET /media/products/gallery/prod_1424_0.webp HTTP/1.1" 200 9892
+INFO 2025-12-10 10:28:43,009 basehttp "GET /media/products/gallery/prod_1398_0.jpg HTTP/1.1" 200 45790
+INFO 2025-12-10 10:28:43,010 basehttp "GET /media/products/gallery/prod_1535_0.jpg HTTP/1.1" 200 35158
+INFO 2025-12-10 10:28:43,037 basehttp "GET /media/products/gallery/prod_1446_0.jpg HTTP/1.1" 200 48329
+INFO 2025-12-10 10:28:43,038 basehttp "GET /media/products/gallery/prod_1418_0.jpg HTTP/1.1" 200 43714
+INFO 2025-12-10 10:28:43,124 basehttp "GET /media/products/gallery/prod_1482_0.jpg HTTP/1.1" 200 221983
+INFO 2025-12-10 10:28:46,965 basehttp "GET /landing/offers/ HTTP/1.1" 200 48233
+WARNING 2025-12-10 10:28:46,982 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-10 10:28:47,005 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-10 10:29:58,400 basehttp "GET / HTTP/1.1" 200 138299
+WARNING 2025-12-10 10:29:58,425 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-10 10:29:58,449 basehttp "GET /media/products/gallery/prod_1608_0.jpg HTTP/1.1" 200 17814
+INFO 2025-12-10 10:29:58,516 basehttp "GET /media/products/gallery/prod_1406_0.jpg HTTP/1.1" 200 33922
+INFO 2025-12-10 10:29:58,519 basehttp "GET /media/products/gallery/prod_1387_0.jpg HTTP/1.1" 200 25023
+INFO 2025-12-10 10:29:58,522 basehttp "GET /media/products/gallery/prod_1580_0.jpg HTTP/1.1" 200 22593
+INFO 2025-12-10 10:29:58,547 basehttp "GET /media/products/gallery/prod_1423_0.jpg HTTP/1.1" 200 41695
+INFO 2025-12-10 10:29:58,550 basehttp "GET /media/products/gallery/prod_1491_0.jpg HTTP/1.1" 200 32928
+INFO 2025-12-10 10:29:58,551 basehttp "GET /media/products/gallery/prod_1516_0.jpg HTTP/1.1" 200 68076
+INFO 2025-12-10 10:29:58,576 basehttp "GET /media/products/gallery/prod_1483_0.jpg HTTP/1.1" 200 52518
+INFO 2025-12-10 10:29:58,577 basehttp "GET /media/products/gallery/prod_1584_0.jpg HTTP/1.1" 200 49589
+INFO 2025-12-10 10:29:58,604 basehttp "GET /media/products/gallery/prod_1497_0.jpg HTTP/1.1" 200 41370
+INFO 2025-12-10 10:29:58,604 basehttp "GET /media/products/gallery/prod_1493_0.jpg HTTP/1.1" 200 67353
+INFO 2025-12-10 10:29:58,627 basehttp "GET /media/products/gallery/prod_1455_0.jpg HTTP/1.1" 200 59195
+INFO 2025-12-10 10:29:58,671 basehttp "GET /media/products/gallery/prod_1487_0.jpg HTTP/1.1" 200 61852
+INFO 2025-12-10 10:29:58,693 basehttp "GET /media/products/gallery/prod_1609_0.jpg HTTP/1.1" 200 82004
+INFO 2025-12-10 10:29:58,736 basehttp "GET /media/products/gallery/prod_1569_0.jpg HTTP/1.1" 200 48166
+INFO 2025-12-10 10:29:58,753 basehttp "GET /media/products/gallery/prod_1571_0.jpg HTTP/1.1" 200 34316
+INFO 2025-12-10 10:29:58,756 basehttp "GET /media/products/gallery/prod_1348_0.jpg HTTP/1.1" 200 56424
+INFO 2025-12-10 10:29:58,761 basehttp "GET /media/products/gallery/prod_1631_0.jpg HTTP/1.1" 200 40208
+INFO 2025-12-10 10:29:58,777 basehttp "GET /media/products/gallery/prod_1523_0.jpeg HTTP/1.1" 200 101088
+INFO 2025-12-10 10:29:58,784 basehttp "GET /media/products/gallery/prod_1627_0.jpg HTTP/1.1" 200 66592
+INFO 2025-12-10 10:29:58,802 basehttp "GET /media/products/gallery/prod_1435_0.jpg HTTP/1.1" 200 51873
+INFO 2025-12-10 10:29:58,810 basehttp "GET /media/products/gallery/prod_1402_0.jpeg HTTP/1.1" 200 239643
+INFO 2025-12-10 10:29:58,832 basehttp "GET /media/products/gallery/prod_1549_0.jpg HTTP/1.1" 200 32836
+INFO 2025-12-10 10:29:58,892 basehttp "GET /media/products/gallery/prod_1472_0.jpg HTTP/1.1" 200 37506
+INFO 2025-12-10 10:29:58,939 basehttp "GET /media/products/gallery/prod_1403_0.webp HTTP/1.1" 200 19464
+INFO 2025-12-10 10:29:58,962 basehttp "GET /media/products/gallery/prod_1485_0.jpg HTTP/1.1" 200 139953
+INFO 2025-12-10 10:29:58,971 basehttp "GET /media/products/gallery/prod_1532_0.jpg HTTP/1.1" 200 134235
+INFO 2025-12-10 10:29:58,987 basehttp "GET /media/products/gallery/prod_1434_0.jpg HTTP/1.1" 200 54819
+INFO 2025-12-10 10:29:58,993 basehttp "GET /media/products/gallery/prod_1480_0.jpg HTTP/1.1" 200 49886
+INFO 2025-12-10 10:29:59,017 basehttp "GET /media/products/gallery/prod_1425_0.jpg HTTP/1.1" 200 49226
+INFO 2025-12-10 10:29:59,120 basehttp "GET /media/products/gallery/prod_1388_0.jpg HTTP/1.1" 200 62048
+INFO 2025-12-10 10:29:59,638 basehttp "GET /admin/ HTTP/1.1" 200 73397
+WARNING 2025-12-10 10:29:59,672 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:29:59,673 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+INFO 2025-12-10 10:29:59,674 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+INFO 2025-12-10 10:29:59,677 basehttp "GET /static/jazzmin/js/main.js HTTP/1.1" 200 2391
+INFO 2025-12-10 10:29:59,677 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+INFO 2025-12-10 10:29:59,679 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+INFO 2025-12-10 10:29:59,679 basehttp "GET /static/vendor/bootswatch/darkly/bootstrap.min.css HTTP/1.1" 200 164202
+INFO 2025-12-10 10:29:59,682 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-12-10 10:29:59,694 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+INFO 2025-12-10 10:29:59,785 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 25392
+INFO 2025-12-10 10:29:59,786 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+WARNING 2025-12-10 10:29:59,870 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+WARNING 2025-12-10 10:35:54,989 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-10 10:35:54,989 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-10 10:36:02,486 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64160
+WARNING 2025-12-10 10:36:02,535 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-10 10:36:02,537 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-10 10:36:02,541 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-10 10:36:02,548 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+WARNING 2025-12-10 10:36:02,575 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-10 10:36:02,575 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13102
+INFO 2025-12-10 10:36:02,576 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-10 10:36:02,577 basehttp "GET /static/js/landing_analytics.js HTTP/1.1" 200 6104
+INFO 2025-12-10 10:36:02,602 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-10 10:36:02,603 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-10 10:36:02,603 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-10 10:36:02,609 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-10 10:36:07,868 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 10:36:12,871 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 10:36:17,513 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-10 10:36:17,865 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 10:36:20,151 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-10 10:36:22,881 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 10:36:27,855 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 10:36:30,057 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-10 10:36:30,559 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-10 10:36:32,870 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 10:36:37,854 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 10:36:38,912 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 10:36:38,912 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 10:36:40,080 basehttp "GET /admin/ HTTP/1.1" 200 73397
+WARNING 2025-12-10 10:36:40,097 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:44:02,083 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\admin.py changed, reloading.
+INFO 2025-12-10 10:44:02,467 autoreload Watching for file changes with StatReloader
+INFO 2025-12-10 10:44:12,906 basehttp "GET /admin/ HTTP/1.1" 200 75035
+WARNING 2025-12-10 10:44:12,919 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:44:14,834 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 39926
+INFO 2025-12-10 10:44:14,853 basehttp "GET /static/vendor/select2/css/select2.min.css HTTP/1.1" 200 16264
+INFO 2025-12-10 10:44:14,854 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-12-10 10:44:14,856 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-12-10 10:44:14,857 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-12-10 10:44:14,857 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-12-10 10:44:14,858 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-12-10 10:44:14,858 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+WARNING 2025-12-10 10:44:14,861 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:44:14,862 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-12-10 10:44:14,867 basehttp "GET /static/jazzmin/js/change_list.js HTTP/1.1" 200 2252
+INFO 2025-12-10 10:44:14,867 basehttp "GET /static/vendor/select2/js/select2.min.js HTTP/1.1" 200 73170
+INFO 2025-12-10 10:44:14,876 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-10 10:44:30,848 log Internal Server Error: /admin/jeba_analytics/sessiontrace/1/change/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 312, in __new__
+    fields = fields_for_model(
+             ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 207, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'created_at' cannot be specified for SessionTrace model form as it is a non-editable field
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+                ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 842, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: 'created_at' cannot be specified for SessionTrace model form as it is a non-editable field. Check fields/fieldsets/exclude attributes of class SessionTraceAdmin.
+ERROR 2025-12-10 10:44:30,851 basehttp "GET /admin/jeba_analytics/sessiontrace/1/change/ HTTP/1.1" 500 166890
+WARNING 2025-12-10 10:44:30,928 log Not Found: /favicon.ico
+WARNING 2025-12-10 10:44:30,928 basehttp "GET /favicon.ico HTTP/1.1" 404 13051
+INFO 2025-12-10 10:44:33,285 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 39926
+INFO 2025-12-10 10:44:43,030 basehttp "POST /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 31280
+INFO 2025-12-10 10:44:43,047 basehttp "GET /static/admin/js/cancel.js HTTP/1.1" 200 564
+WARNING 2025-12-10 10:44:43,047 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:44:44,223 basehttp "POST /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 302 0
+INFO 2025-12-10 10:44:44,256 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 34389
+WARNING 2025-12-10 10:44:44,273 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:44:44,413 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:44:46,607 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 33884
+WARNING 2025-12-10 10:44:46,623 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:44:46,644 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:45:40,530 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 33884
+WARNING 2025-12-10 10:45:40,549 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:45:40,584 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:45:41,188 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 33884
+WARNING 2025-12-10 10:45:41,209 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:45:41,225 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:45:41,661 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 33884
+WARNING 2025-12-10 10:45:41,681 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:45:41,708 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:46:39,168 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 33884
+WARNING 2025-12-10 10:46:39,187 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:46:39,212 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:46:39,713 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 33884
+WARNING 2025-12-10 10:46:39,733 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:46:39,756 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:46:41,706 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 33884
+WARNING 2025-12-10 10:46:41,724 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:46:41,742 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:49:15,555 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 33884
+WARNING 2025-12-10 10:49:15,570 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:49:15,705 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:49:16,315 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 33884
+WARNING 2025-12-10 10:49:16,334 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:49:16,360 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:49:20,790 basehttp "GET /admin/jeba_analytics/sessiontrace/?is_bounce__exact=1&q= HTTP/1.1" 200 33979
+WARNING 2025-12-10 10:49:20,812 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:49:20,830 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:49:23,285 basehttp "GET /admin/jeba_analytics/sessiontrace/?is_bounce__exact=1&q= HTTP/1.1" 200 33979
+WARNING 2025-12-10 10:49:23,303 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:49:23,326 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:52:29,531 basehttp "GET /admin/jeba_analytics/sessiontrace/?is_bounce__exact=1&q= HTTP/1.1" 200 222318
+WARNING 2025-12-10 10:52:29,552 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:52:29,575 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:53:40,924 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 220271
+WARNING 2025-12-10 10:53:40,946 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:53:40,971 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:53:54,300 basehttp "GET /admin/jeba_analytics/sessiontrace/?is_bounce__exact=0&q= HTTP/1.1" 200 222898
+WARNING 2025-12-10 10:53:54,315 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 10:53:54,335 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 10:56:29,509 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\admin.py changed, reloading.
+INFO 2025-12-10 10:56:29,891 autoreload Watching for file changes with StatReloader
+INFO 2025-12-10 10:56:54,273 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\admin.py changed, reloading.
+INFO 2025-12-10 10:56:54,628 autoreload Watching for file changes with StatReloader
+INFO 2025-12-10 10:58:26,300 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\admin.py changed, reloading.
+INFO 2025-12-10 10:58:26,675 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-10 10:59:26,959 log Internal Server Error: /admin/jeba_analytics/sessiontrace/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_analytics\admin.py", line 343, in changelist_view
+    bounces = qs.filter(is_bounce=True).count()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1495, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\db\models\query.py", line 1507, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+ERROR 2025-12-10 10:59:26,962 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 500 115174
+INFO 2025-12-10 11:02:41,092 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\admin.py changed, reloading.
+INFO 2025-12-10 11:02:41,470 autoreload Watching for file changes with StatReloader
+INFO 2025-12-10 11:02:51,220 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 221615
+WARNING 2025-12-10 11:02:51,239 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:02:51,259 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:03:59,813 basehttp "GET /admin/jeba_analytics/sessiontrace/?is_bounce__exact=1&q= HTTP/1.1" 200 226254
+WARNING 2025-12-10 11:03:59,839 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:03:59,859 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:04:06,124 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 224207
+WARNING 2025-12-10 11:04:06,141 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:04:06,162 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:06:13,155 basehttp "GET / HTTP/1.1" 200 131308
+INFO 2025-12-10 11:06:13,318 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-10 11:06:13,318 basehttp "GET /media/products/gallery/prod_1436_0.jpg HTTP/1.1" 200 28454
+INFO 2025-12-10 11:06:13,440 basehttp "GET /media/products/gallery/prod_1412_0.jpg HTTP/1.1" 200 26797
+INFO 2025-12-10 11:06:13,441 basehttp "GET /media/products/gallery/prod_1605_0.jpg HTTP/1.1" 200 43632
+WARNING 2025-12-10 11:06:13,480 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-10 11:06:13,493 basehttp "GET /media/products/gallery/prod_1629_0.jpg HTTP/1.1" 200 30281
+INFO 2025-12-10 11:06:14,286 basehttp "GET /media/products/gallery/prod_1421_0.jpg HTTP/1.1" 200 22018
+INFO 2025-12-10 11:06:14,353 basehttp "GET /media/products/gallery/prod_1526_0.jpg HTTP/1.1" 200 25898
+INFO 2025-12-10 11:06:14,354 basehttp "GET /media/products/gallery/prod_1622_0.jpg HTTP/1.1" 200 62244
+INFO 2025-12-10 11:06:14,354 basehttp "GET /media/products/gallery/prod_1531_0.jpg HTTP/1.1" 200 46852
+INFO 2025-12-10 11:06:14,354 basehttp "GET /media/products/gallery/prod_1378_0.jpg HTTP/1.1" 200 62179
+INFO 2025-12-10 11:06:14,377 basehttp "GET /media/products/gallery/prod_1461_0.jpg HTTP/1.1" 200 68657
+INFO 2025-12-10 11:06:14,404 basehttp "GET /media/products/gallery/prod_1564_0.jpg HTTP/1.1" 200 31343
+INFO 2025-12-10 11:06:14,460 basehttp "GET /media/products/gallery/prod_1441_0.jpg HTTP/1.1" 200 31834
+INFO 2025-12-10 11:06:14,461 basehttp "GET /media/products/gallery/prod_1357_0.jpg HTTP/1.1" 200 34040
+INFO 2025-12-10 11:06:14,571 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+WARNING 2025-12-10 11:06:29,804 log Not Found: /landing/offer
+WARNING 2025-12-10 11:06:29,804 basehttp "GET /landing/offer HTTP/1.1" 404 14063
+WARNING 2025-12-10 11:06:30,158 log Not Found: /favicon.ico
+WARNING 2025-12-10 11:06:30,159 basehttp "GET /favicon.ico HTTP/1.1" 404 13053
+INFO 2025-12-10 11:06:33,394 basehttp "GET /landing/offers HTTP/1.1" 301 0
+INFO 2025-12-10 11:06:33,452 basehttp "GET /landing/offers/ HTTP/1.1" 200 45932
+WARNING 2025-12-10 11:06:33,547 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-10 11:06:33,679 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-10 11:06:36,561 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 61859
+INFO 2025-12-10 11:06:36,674 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13102
+WARNING 2025-12-10 11:06:36,696 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1861
+INFO 2025-12-10 11:06:36,710 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-10 11:06:36,712 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-10 11:06:36,716 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-10 11:06:36,734 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-10 11:06:36,765 basehttp "GET /static/js/landing_analytics.js HTTP/1.1" 200 6104
+INFO 2025-12-10 11:06:42,513 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:06:44,518 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 224726
+WARNING 2025-12-10 11:06:44,543 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:06:44,562 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:06:47,481 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:06:52,490 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:06:57,479 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:01,720 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 224731
+WARNING 2025-12-10 11:07:01,742 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:07:01,760 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:07:02,482 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:07,486 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:08,276 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 224731
+WARNING 2025-12-10 11:07:08,293 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:07:08,314 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:07:12,521 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:17,494 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:17,678 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 224731
+WARNING 2025-12-10 11:07:17,693 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:07:17,719 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:07:18,439 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 224731
+WARNING 2025-12-10 11:07:18,454 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:07:18,474 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:07:19,380 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 224731
+WARNING 2025-12-10 11:07:19,396 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:07:19,415 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:07:19,964 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 224731
+WARNING 2025-12-10 11:07:19,980 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:07:20,000 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:07:20,617 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 224731
+WARNING 2025-12-10 11:07:20,633 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:07:20,652 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-10 11:07:21,929 log Internal Server Error: /admin/jeba_analytics/sessiontrace/502/change/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 312, in __new__
+    fields = fields_for_model(
+             ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 207, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'created_at' cannot be specified for SessionTrace model form as it is a non-editable field
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+                ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 842, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: 'created_at' cannot be specified for SessionTrace model form as it is a non-editable field. Check fields/fieldsets/exclude attributes of class SessionTraceAdmin.
+ERROR 2025-12-10 11:07:21,932 basehttp "GET /admin/jeba_analytics/sessiontrace/502/change/?_changelist_filters=q%3D HTTP/1.1" 500 167844
+INFO 2025-12-10 11:07:22,483 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:26,745 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:27,629 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:32,656 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:37,643 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:07:52,291 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:08:04,427 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 43960
+INFO 2025-12-10 11:08:05,202 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:08:06,236 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 43960
+WARNING 2025-12-10 11:08:06,254 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:08:06,394 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:08:10,186 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:08:15,184 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:08:29,507 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:08:43,106 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:08:58,125 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:09:13,617 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:09:28,978 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:09:30,931 basehttp "GET /landing/offers/ HTTP/1.1" 200 48233
+WARNING 2025-12-10 11:09:31,519 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-10 11:09:31,519 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-10 11:09:31,630 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-10 11:09:32,106 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-10 11:09:32,124 basehttp "GET /media/products/gallery/prod_1634_0.jpg HTTP/1.1" 200 25540
+INFO 2025-12-10 11:09:42,403 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-10 11:10:32,523 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 43961
+WARNING 2025-12-10 11:10:32,543 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:32,564 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:33,949 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64160
+WARNING 2025-12-10 11:10:34,539 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-10 11:10:34,539 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-10 11:10:34,636 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-10 11:10:35,119 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13102
+INFO 2025-12-10 11:10:35,145 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-10 11:10:35,146 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-10 11:10:35,147 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+WARNING 2025-12-10 11:10:35,212 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-10 11:10:35,957 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-10 11:10:36,384 basehttp "GET /static/js/landing_analytics.js HTTP/1.1" 200 6104
+INFO 2025-12-10 11:10:37,214 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 43961
+INFO 2025-12-10 11:10:37,248 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-10 11:10:37,252 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:38,168 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 43961
+WARNING 2025-12-10 11:10:38,182 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:38,201 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:38,745 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 43961
+WARNING 2025-12-10 11:10:38,761 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:38,789 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:39,380 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 43961
+WARNING 2025-12-10 11:10:39,396 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:39,420 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:39,978 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 43961
+WARNING 2025-12-10 11:10:39,992 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:40,026 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:40,641 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 43961
+WARNING 2025-12-10 11:10:40,656 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:40,675 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:42,457 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:10:45,142 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:10:46,347 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 45142
+WARNING 2025-12-10 11:10:46,361 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:46,387 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:47,868 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:10:48,163 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-10 11:10:48,417 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 45143
+WARNING 2025-12-10 11:10:48,433 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:48,456 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:50,621 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 45143
+WARNING 2025-12-10 11:10:50,637 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:50,757 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:52,466 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:10:54,928 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:10:55,503 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 45143
+WARNING 2025-12-10 11:10:55,519 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:55,557 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:56,292 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 45143
+WARNING 2025-12-10 11:10:56,308 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:10:56,336 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:10:57,454 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:01,631 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:02,242 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 45144
+WARNING 2025-12-10 11:11:02,256 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:11:02,281 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:11:03,025 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 45144
+WARNING 2025-12-10 11:11:03,040 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:11:03,060 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:11:03,560 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 45144
+WARNING 2025-12-10 11:11:03,575 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:11:03,602 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:11:03,779 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:07,459 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:12,464 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:13,919 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:14,517 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 45146
+WARNING 2025-12-10 11:11:14,531 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:11:14,558 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:11:17,878 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:19,482 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64160
+WARNING 2025-12-10 11:11:20,082 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-10 11:11:20,083 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:20,084 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+WARNING 2025-12-10 11:11:20,084 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-10 11:11:20,181 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-10 11:11:20,657 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13102
+INFO 2025-12-10 11:11:20,682 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-10 11:11:20,682 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+INFO 2025-12-10 11:11:20,683 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+WARNING 2025-12-10 11:11:20,770 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-10 11:11:21,527 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-10 11:11:21,934 basehttp "GET /static/js/landing_analytics.js HTTP/1.1" 200 6104
+INFO 2025-12-10 11:11:24,855 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:26,271 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 46380
+WARNING 2025-12-10 11:11:26,285 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:11:26,308 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:11:27,239 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 46380
+WARNING 2025-12-10 11:11:27,253 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:11:27,383 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:11:27,871 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:27,935 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 46380
+WARNING 2025-12-10 11:11:27,949 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:11:27,968 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:11:28,483 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 46380
+WARNING 2025-12-10 11:11:28,497 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:11:28,619 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:11:32,848 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:33,726 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-10 11:11:35,140 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+WARNING 2025-12-10 11:11:35,744 basehttp "GET /static/images/favicon.ico HTTP/1.1" 404 1868
+INFO 2025-12-10 11:11:37,850 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:42,840 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:47,856 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:52,848 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:11:57,850 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:02,856 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:07,854 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:12,853 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:17,856 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:22,855 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:27,857 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:32,856 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:37,860 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:42,858 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:47,849 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:12:50,050 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+ERROR 2025-12-10 11:12:52,519 log Internal Server Error: /admin/jeba_analytics/sessiontrace/505/change/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 840, in get_form
+    return modelform_factory(self.model, **defaults)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 654, in modelform_factory
+    return type(form)(class_name, (form,), form_class_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 312, in __new__
+    fields = fields_for_model(
+             ^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\forms\models.py", line 207, in fields_for_model
+    raise FieldError(
+django.core.exceptions.FieldError: 'created_at' cannot be specified for SessionTrace model form as it is a non-editable field
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1987, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1840, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 1878, in _changeform_view
+    ModelForm = self.get_form(
+                ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\admin\options.py", line 842, in get_form
+    raise FieldError(
+django.core.exceptions.FieldError: 'created_at' cannot be specified for SessionTrace model form as it is a non-editable field. Check fields/fieldsets/exclude attributes of class SessionTraceAdmin.
+ERROR 2025-12-10 11:12:52,520 basehttp "GET /admin/jeba_analytics/sessiontrace/505/change/?_changelist_filters=q%3D HTTP/1.1" 500 167844
+INFO 2025-12-10 11:12:53,427 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:00,723 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:07,167 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:08,102 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:09,032 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 46382
+INFO 2025-12-10 11:13:14,297 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:19,360 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:23,211 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:29,743 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:33,600 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:37,891 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:44,133 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:47,852 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:52,849 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:53,459 basehttp "GET /landing/offers/final-test-using-ai/ HTTP/1.1" 200 64160
+INFO 2025-12-10 11:13:54,032 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:13:54,034 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+WARNING 2025-12-10 11:13:54,048 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-10 11:13:54,048 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13162
+INFO 2025-12-10 11:13:54,241 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-10 11:13:54,620 basehttp "GET /static/css/landing_page.css HTTP/1.1" 200 13102
+INFO 2025-12-10 11:13:54,645 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F2.jpg HTTP/1.1" 200 64118
+INFO 2025-12-10 11:13:54,648 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F1.jpg HTTP/1.1" 200 32058
+INFO 2025-12-10 11:13:54,648 basehttp "GET /media/products/variations/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3.jpg HTTP/1.1" 200 67432
+WARNING 2025-12-10 11:13:54,702 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-10 11:13:55,468 basehttp "GET /static/js/landing_page.js HTTP/1.1" 200 7236
+INFO 2025-12-10 11:13:55,911 basehttp "GET /static/js/landing_analytics.js HTTP/1.1" 200 6104
+INFO 2025-12-10 11:14:00,423 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:14:01,298 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47417
+WARNING 2025-12-10 11:14:01,319 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:01,343 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:01,876 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:14:03,078 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47417
+WARNING 2025-12-10 11:14:03,096 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:03,117 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:03,792 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47417
+WARNING 2025-12-10 11:14:03,805 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:03,835 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:04,401 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47417
+WARNING 2025-12-10 11:14:04,418 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:04,437 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:04,916 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47417
+WARNING 2025-12-10 11:14:04,933 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:04,952 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:06,835 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:14:07,701 basehttp "GET /media/products/gallery/Baby-Sleeping-Blanket-Bag-Fluffy-Fleece-F3_1600x1600.jpg HTTP/1.1" 200 1934613
+INFO 2025-12-10 11:14:09,118 basehttp "GET /media/logo.svg HTTP/1.1" 200 4195
+INFO 2025-12-10 11:14:11,835 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:14:14,640 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:14:15,629 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47421
+WARNING 2025-12-10 11:14:15,645 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:15,673 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:16,858 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:14:21,395 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:14:21,401 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:14:22,589 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47421
+WARNING 2025-12-10 11:14:22,602 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:22,622 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:23,254 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47421
+WARNING 2025-12-10 11:14:23,268 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:23,289 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:23,965 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47421
+WARNING 2025-12-10 11:14:23,980 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:24,000 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:30,736 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47421
+WARNING 2025-12-10 11:14:30,750 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:30,769 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:14:31,612 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 47421
+WARNING 2025-12-10 11:14:31,627 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:14:31,761 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:15:41,017 autoreload E:\WebProjects\jebaenterprise\jeba_analytics\admin.py changed, reloading.
+INFO 2025-12-10 11:15:41,413 autoreload Watching for file changes with StatReloader
+INFO 2025-12-10 11:16:00,257 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:01,583 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:04,403 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:06,680 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:11,694 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:16,687 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:21,687 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:26,677 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:31,678 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:36,679 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:41,707 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:46,677 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:51,703 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:16:56,694 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:17:01,682 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:28:21,044 basehttp "GET /admin/jeba_analytics/sessiontrace/?q= HTTP/1.1" 200 197864
+WARNING 2025-12-10 11:28:21,065 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:28:21,085 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:29:04,090 basehttp "GET /admin/jeba_analytics/sessiontrace/806/change/?_changelist_filters=q%3D HTTP/1.1" 200 47420
+WARNING 2025-12-10 11:29:04,112 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:29:04,112 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-12-10 11:29:04,119 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-12-10 11:29:04,127 basehttp "GET /static/jazzmin/js/change_form.js HTTP/1.1" 200 6052
+INFO 2025-12-10 11:29:04,132 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:29:31,079 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:13,030 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:13,985 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:18,966 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:23,984 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:28,985 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:34,009 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:38,988 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:43,988 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:48,987 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:53,968 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:34:58,971 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:03,980 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:06,436 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 43860
+WARNING 2025-12-10 11:35:06,464 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:35:06,589 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:35:08,995 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:13,990 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:15,211 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:18,155 basehttp "POST /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 31286
+WARNING 2025-12-10 11:35:18,174 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:35:19,116 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:19,440 basehttp "POST /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 302 0
+INFO 2025-12-10 11:35:19,475 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 38273
+WARNING 2025-12-10 11:35:19,491 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:35:19,512 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:35:21,406 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 37768
+WARNING 2025-12-10 11:35:21,422 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:35:21,446 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:35:24,116 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:29,112 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:34,127 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:39,114 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:44,111 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:45,218 basehttp "GET /admin/jeba_analytics/sessiontrace/ HTTP/1.1" 200 196616
+WARNING 2025-12-10 11:35:45,233 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:35:45,258 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-10 11:35:49,138 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:54,241 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:35:59,106 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:36:04,149 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:36:09,119 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:36:14,125 basehttp "POST /analytics/ingest-beacon/ HTTP/1.1" 200 65
+INFO 2025-12-10 11:42:06,817 basehttp "GET /admin/jeba_analytics/sessiontrace/1108/change/ HTTP/1.1" 200 47301
+WARNING 2025-12-10 11:42:06,846 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-10 11:42:06,968 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
