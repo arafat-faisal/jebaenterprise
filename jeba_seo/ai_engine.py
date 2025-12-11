@@ -132,8 +132,16 @@ def get_seo_data(request, obj=None, page_type=None):
         if final_title: data['seo_title'] = clean_and_truncate(final_title, 60)
         if final_desc: data['seo_description'] = clean_and_truncate(final_desc, 160)
         
-        image = getattr(obj, 'image', None) or getattr(obj, 'main_image', None)
-        if image: data['seo_image'] = image.url
+        # image = getattr(obj, 'image', None) or getattr(obj, 'main_image', None)
+        # if image: data['seo_image'] = image.url
+        image_obj = getattr(obj, 'main_image_obj', None)
+        if image_obj:
+            data['seo_image'] = image_obj.image.url
+        elif hasattr(obj, 'thumbnail') and obj.thumbnail:
+            data['seo_image'] = obj.thumbnail.url
+        elif hasattr(obj, 'featured_image') and obj.featured_image:
+             data['seo_image'] = obj.featured_image.url
+        # --- FIX ENDS HERE ---
 
     return data
 

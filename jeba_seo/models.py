@@ -9,6 +9,12 @@ class GlobalSEOSettings(models.Model):
     # Social Media Defaults
     default_social_image = models.ImageField(upload_to='seo/', blank=True, null=True)
     
+    # --- NEW: Ownership Verification ---
+    google_site_verification = models.CharField(max_length=100, blank=True, help_text="Google Search Console verification code")
+    bing_site_verification = models.CharField(max_length=100, blank=True, help_text="Bing Webmaster Tools verification code")
+    facebook_domain_verification = models.CharField(max_length=100, blank=True, help_text="Facebook Domain Verification code")
+    # -----------------------------------
+    
     def __str__(self):
         return "Global SEO Settings"
 

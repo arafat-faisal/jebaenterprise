@@ -1,30 +1,40 @@
 {% load static %}
+{% if site_settings.google_site_verification %}
+<meta name="google-site-verification" content="{{ site_settings.google_site_verification }}" />
+{% endif %}
+{% if site_settings.bing_site_verification %}
+<meta name="msvalidate.01" content="{{ site_settings.bing_site_verification }}" />
+{% endif %}
+{% if site_settings.facebook_domain_verification %}
+<meta name="facebook-domain-verification" content="{{ site_settings.facebook_domain_verification }}" />
+{% endif %}
 
 <title>{{ seo_data.seo_title }}</title>
-<meta name="title" content="{{ seo_data.seo_title }}">
 <meta name="description" content="{{ seo_data.seo_description }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta property="og:type" content="website">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
 <meta property="og:title" content="{{ seo_data.seo_title }}">
 <meta property="og:description" content="{{ seo_data.seo_description }}">
 {% if seo_data.seo_image %}
-<meta property="og:image" content="{{ request.build_absolute_uri }}{{ seo_data.seo_image }}">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ seo_data.seo_image }}">
 {% endif %}
 
-<link rel="icon" href="{% static 'images/favicon.ico' %}">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta property="twitter:title" content="{{ seo_data.seo_title }}">
+<meta property="twitter:description" content="{{ seo_data.seo_description }}">
+{% if seo_data.seo_image %}
+<meta property="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ seo_data.seo_image }}">
+{% endif %}
 
-{% if site_settings %}
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+
+{% if site_settings.default_social_image %}
+<link rel="icon" type="image/png" href="{{ site_settings.default_social_image.url }}">
+{% endif %}
+
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "{{ site_settings.site_name }}",
-  "url": "{{ request.build_absolute_uri }}",
-  "logo": "{% if site_settings.default_social_image %}{{ request.build_absolute_uri }}{{ site_settings.default_social_image.url }}{% else %}{{ request.build_absolute_uri }}/static/media/logo.png{% endif %}",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer service"
-  }
-}
+    {{ json_ld_output }}
 </script>
-{% endif %}

@@ -4,6 +4,11 @@ from django.contrib.admin.views.decorators import staff_member_required
 from jeba_inventory.models import Product
 from jeba_seo.ai_engine import generate_product_content
 
+from django.http import HttpResponse
+from django.views.decorators.http import require_GET
+from django.conf import settings
+
+
 @staff_member_required
 def generate_ai_for_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -34,3 +39,15 @@ def generate_ai_for_product(request, product_id):
         messages.error(request, "AI Generation Failed.")
         
     return redirect(request.META.get('HTTP_REFERER', '/admin/'))
+
+@require_GET
+def robots_txt(request):
+    lines = [
+        "User-Agent: *",
+        "Disallow: /admin/",
+        "Disallow: /accounts/",
+        "Disallow: /checkout/",
+        "Disallow: /cart/",
+        f"Sitemap: {request.scheme}://{request.get_host()}/sitemap.xml",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")

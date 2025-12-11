@@ -61,8 +61,10 @@ class Product(models.Model):
     )
     
     # --- NEW: Visibility & SEO ---
+    # Add db_index=True to heavily filtered fields
     is_active = models.BooleanField(
         default=True, 
+        db_index=True,  # <--- SPEED BOOST
         verbose_name=_("Visible in Store"),
         help_text=_("Uncheck to hide this product from the frontend without deleting it.")
     )
@@ -150,6 +152,7 @@ class Product(models.Model):
     )
     is_featured = models.BooleanField(
         default=False, 
+        db_index=True,  # <--- SPEED BOOST
         help_text=_("Check this to show on Homepage Hero section"),
         verbose_name=_("Is Featured")
     )

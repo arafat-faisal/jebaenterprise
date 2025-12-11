@@ -73,6 +73,8 @@ INSTALLED_APPS = [
     # --- ADD THIS LINE ---
     'django.contrib.humanize', 
     # ---------------------
+    'django.contrib.sitemaps', # <--- ADD THIS
+    'django.contrib.sites',    # <--- ADD THIS (Required for sitemaps)
 ]
 
 MIDDLEWARE = [
@@ -164,6 +166,18 @@ LOCALE_PATHS = [
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# --- SPEED UPGRADE: WhiteNoise Storage ---
+# Replaces: STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+# -----------------------------------------
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -355,3 +369,5 @@ GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 # --- TELEGRAM NOTIFICATIONS ---
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+
+SITE_ID = 1
