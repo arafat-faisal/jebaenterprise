@@ -336,14 +336,14 @@
                 <!-- 1. HERO CAROUSEL -->
                 {% if section.section_type == 'HERO_CAROUSEL' %}
                     <div class="container mx-auto px-4 py-2 md:py-16">
-                        <div class="flex flex-col md:flex-row items-center gap-4 md:gap-12">
+                        <div class="flex flex-col md:flex-row items-center gap-2 md:gap-12"> <!-- Reduced gap-4 to gap-2 -->
                             
                             <!-- Column 1: Text Content -->
-                            <div class="w-full md:w-1/2 text-center md:text-left order-2 md:order-1">
-                                <h1 class="text-2xl md:text-6xl font-extrabold mb-3 leading-tight text-gray-900 drop-shadow-sm animate-fade-in-up">
+                            <div class="w-full md:w-1/2 text-center md:text-left order-2 md:order-1 mt-1 md:mt-0"> <!-- Reduced top margin -->
+                                <h1 class="text-xl md:text-6xl font-extrabold mb-2 leading-tight text-gray-900 drop-shadow-sm animate-fade-in-up"> <!-- text-2xl -> text-xl -->
                                     {{ section.content.headline|default:campaign.title }}
                                 </h1>
-                                <p class="text-sm md:text-2xl text-gray-600 mb-3 md:mb-4 max-w-lg mx-auto md:mx-0">
+                                <p class="text-sm md:text-2xl text-gray-600 mb-3 md:mb-4 max-w-lg mx-auto md:mx-0 leading-snug">
                                     {{ section.content.subheadline }}
                                 </p>
                                 
@@ -355,10 +355,10 @@
                                         {% for variant in product.available_colors %}
                                         <button type="button" 
                                                 @click="selectVariant('COLOR', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name}}', {{ variant.stock_quantity }})"
-                                                :class="selectedVariants.COLOR === {{ variant.id }} ? 'ring-2 ring-lime-500' : ''"
+                                                :class="selectedVariants.COLOR === {{ variant.id }} ? 'ring-2 ring-lime-500' : ({{ variant.stock_quantity }} === 0 ? 'opacity-50 cursor-not-allowed' : '')"
                                                 class="w-8 h-8 rounded-full border-2 hover:scale-110 transition"
                                                 {% if variant.color_code %}style="background: {{ variant.color_code }}"{% else %}style="background: #ccc"{% endif %}
-                                                title="{{ variant.name }}">
+                                                title="{{ variant.name }} (Stock: {{ variant.stock_quantity }})">
                                         </button>
                                         {% endfor %}
                                         <span class="text-gray-400 select-none">|</span>
@@ -367,7 +367,7 @@
                                         {% for variant in product.available_sizes %}
                                         <button type="button" 
                                                 @click="selectVariant('SIZE', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
-                                                :class="selectedVariants.SIZE === {{ variant.id }} ? 'ring-2 ring-lime-500 bg-lime-50' : 'bg-white'"
+                                                :class="selectedVariants.SIZE === {{ variant.id }} ? 'ring-2 ring-lime-500 bg-lime-50' : ({{ variant.stock_quantity }} === 0 ? 'bg-white opacity-50 cursor-not-allowed' : 'bg-white')"
                                                 class="px-2 py-1 border-2 border-gray-300 rounded-lg hover:border-lime-400 transition text-xs font-bold">
                                             {{ variant.name }}
                                         </button>
@@ -385,7 +385,7 @@
                                     </div>
                                 </div>
                                 {% endif %}
-                                <a href="#order" @click="trackEvent('CTA_CLICK')" class="group btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:scale-105 transition transform animate-pulse-slow">
+                                <a href="#order" @click="trackEvent('CTA_CLICK')" class="group btn-primary inline-flex justify-center items-center gap-2 px-8 py-3 md:py-4 rounded-full font-bold text-lg shadow-xl hover:scale-105 transition transform animate-pulse-slow w-full md:w-auto"> <!-- Full width on mobile -->
                                     <span x-text="lang === 'en' ? 'Buy Now' : 'এখনই কিনুন'"></span>
                                     <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                 </a>
@@ -393,7 +393,8 @@
 
                             <!-- Column 2: Product Carousel -->
                             <div class="w-full md:w-1/2 order-1 md:order-2">
-                                <div class="swiper hero-swiper rounded-3xl shadow-2xl overflow-hidden bg-gray-100 aspect-square md:aspect-[4/3] border border-gray-100">
+                                <!-- UPDATED: aspect-[16/10] on mobile to save height (was aspect-square) -->
+                                <div class="swiper hero-swiper rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden bg-gray-100 aspect-[16/10] md:aspect-[4/3] border border-gray-100">
                                     <div class="swiper-wrapper">
                                         {% for img in section.content.images %}
                                         <div class="swiper-slide flex items-center justify-center bg-white">
