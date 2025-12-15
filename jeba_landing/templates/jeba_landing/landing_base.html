@@ -232,7 +232,7 @@
                 
                 <!-- Auth Links -->
                 {% if user.is_authenticated %}
-                <a href="/admin/" class="text-sm font-semibold text-gray-800 hover:text-primary transition">
+                <a href="/accounts/dashboard/" class="text-sm font-semibold text-gray-800 hover:text-primary transition">
                    <span class="bg-gray-100 px-3 py-1 rounded-full">👤 {{ user.username }}</span>
                 </a>
                 {% else %}
@@ -283,7 +283,7 @@
             
             <!-- Mobile Auth -->
             {% if user.is_authenticated %}
-             <a href="/admin/" class="text-gray-800 font-semibold text-center py-2 bg-gray-50 rounded-lg">👤 {{ user.username }}</a>
+             <a href="/accounts/dashboard/" class="text-gray-800 font-semibold text-center py-2 bg-gray-50 rounded-lg">👤 {{ user.username }}</a>
             {% else %}
              <a href="/accounts/login/?next={{ request.path }}" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? '🔐 Login' : '🔐 লগইন'"></a>
             {% endif %}
@@ -547,9 +547,10 @@
                                     {% for variant in product.available_colors %}
                                     <button type="button" 
                                             @click="selectVariant('COLOR', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
-                                            title="{{ variant.name }} (Stock: {{ variant.stock_quantity }})"
-                                            :class="{'ring-2 ring-lime-500': selectedVariants.COLOR === {{ variant.id }}, 'opacity-50 cursor-not-allowed': {{ variant.stock_quantity }} === 0}"
-                                            @click="selectVariant('COLOR', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})">
+                                            :class="selectedVariants.COLOR === {{ variant.id }} ? 'ring-2 ring-lime-500' : ({{ variant.stock_quantity }} === 0 ? 'opacity-50 cursor-not-allowed' : '')"
+                                            class="w-8 h-8 rounded-full border-2 hover:scale-110 transition"
+                                            {% if variant.color_code %}style="background: {{ variant.color_code }}"{% else %}style="background: #ccc"{% endif %}
+                                            title="{{ variant.name }} (Stock: {{ variant.stock_quantity }})">
                                     </button>
                                     {% endfor %}
                                 </div>
@@ -562,12 +563,8 @@
                                     {% for variant in product.available_sizes %}
                                     <button type="button" 
                                             @click="selectVariant('SIZE', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
-                                            :class="{
-                                                'ring-2 ring-lime-500 bg-lime-50': selectedVariants.SIZE === {{ variant.id }},
-                                                'bg-white': selectedVariants.SIZE !== {{ variant.id }},
-                                                'opacity-50 cursor-not-allowed': {{ variant.stock_quantity }} === 0
-                                            }"
-                                            class="px-2 py-1 border-2 border-gray-300 rounded text-xs font-bold">
+                                            :class="selectedVariants.SIZE === {{ variant.id }} ? 'ring-2 ring-lime-500 bg-lime-50' : ({{ variant.stock_quantity }} === 0 ? 'bg-white opacity-50 cursor-not-allowed' : 'bg-white')"
+                                            class="px-2 py-1 border-2 border-gray-300 rounded text-xs font-bold transition">
                                         {{ variant.name }}
                                     </button>
                                     {% endfor %}
