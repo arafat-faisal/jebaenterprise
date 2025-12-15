@@ -155,26 +155,27 @@
             </div>
         </div>
 
-        <!-- AI Insights Stub -->
-        <div class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl shadow-lg p-6 text-white relative overflow-hidden">
+        <!-- Dynamic AI Insights -->
+        {% for insight in insights %}
+        <div class="bg-gradient-to-r {% if insight.type == 'critical' %}from-red-900 to-red-800{% elif insight.type == 'warning' %}from-yellow-700 to-yellow-600{% elif insight.type == 'success' %}from-green-900 to-green-800{% else %}from-blue-900 to-blue-800{% endif %} rounded-2xl shadow-lg p-6 text-white relative overflow-hidden mb-4">
             <div class="relative z-10">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center animate-pulse">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center animate-pulse">
+                        <span class="text-xl">{% if insight.type == 'critical' %}🚨{% elif insight.type == 'warning' %}⚠️{% elif insight.type == 'success' %}🚀{% else %}ℹ️{% endif %}</span>
                     </div>
-                    <h3 class="text-lg font-bold">AI Optimization Insights</h3>
+                    <h3 class="text-lg font-bold">{{ insight.title }}</h3>
                 </div>
                 <p class="opacity-90 max-w-2xl mb-6">
-                    Based on current traffic patterns, Variant <span class="font-bold text-blue-300">"{{ variants.0.name }}"</span> is performing 15% better with mobile users from Dhaka. 
-                    Recommended: Increase weight to 80% for mobile traffic.
+                    {{ insight.text }}
                 </p>
                 <button class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-lg text-sm font-medium transition backdrop-blur">
-                    Apply Suggestion
+                    {{ insight.action }}
                 </button>
             </div>
             <!-- Decorative BG -->
-            <div class="absolute right-0 top-0 w-64 h-64 bg-blue-500/20 blur-3xl rounded-full -mr-16 -mt-16"></div>
+            <div class="absolute right-0 top-0 w-64 h-64 bg-white/5 blur-3xl rounded-full -mr-16 -mt-16"></div>
         </div>
+        {% endfor %}
 
     </div>
 </div>

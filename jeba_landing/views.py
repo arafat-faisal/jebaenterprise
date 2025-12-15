@@ -11,6 +11,7 @@ from django.db.models import Count, Sum
 from django.contrib.admin.views.decorators import staff_member_required
 
 from .models import Campaign, CampaignVariant, VisitorSession, ConversionEvent
+from jeba_diagnostics.models import PageReport
 
 from jeba_core.models import SiteSettings
 
@@ -50,6 +51,13 @@ class CampaignDispatchView(View):
         
         if session_uuid:
             visitor_session = VisitorSession.objects.filter(session_uuid=session_uuid, campaign=campaign).first()
+            
+            # SESSION EXPIRY LOGIC
+            # If session is older than 30 mins since last update, treat as new session
+            if visitor_session:
+                time_since_last_seen = (timezone.now() - visitor_session.updated_at).total_seconds()
+                if time_since_last_seen > 1800: # 30 minutes
+                    visitor_session = None # Force creation of new session
             
         # 2. If New Visitor (or cross-campaign), Create Session & Assign Variant
         if not visitor_session:
@@ -205,10 +213,18 @@ def analytics_dashboard(request, slug):
         event_types = [e.event_type for e in events]
         
         # Calculate Duration (Time between first and last event)
+        # Calculate Duration (Time between first and last event)
         if events.exists():
-            duration = (events.last().created_at - events.first().created_at).seconds
+            duration_seconds = (events.last().created_at - events.first().created_at).seconds
+            # Format MM:SS
+            minutes, seconds = divmod(duration_seconds, 60)
+            duration = f"{minutes}m {seconds}s"
+            
+            # Cap crazy durations
+            if duration_seconds > 3600:
+                duration = "> 1 hr (Left Open)"
         else:
-            duration = 0
+            duration = "0s"
             
         # Scroll Depth
         scroll = "0%"
@@ -242,6 +258,69 @@ def analytics_dashboard(request, slug):
             'row_class': row_class
         })
 
+    
+    # 5. ACTIONABLE ALGORITHMIC INSIGHTS
+    insights = []
+    
+    # Insight 1: Speed Check
+    latest_speed_report = PageReport.objects.filter(url__contains=campaign.slug).order_by('-created_at').first()
+    if latest_speed_report:
+        if latest_speed_report.score < 50:
+            insights.append({
+                'type': 'critical',
+                'title': 'Site is Laggy',
+                'text': f'Page Speed Score is {latest_speed_report.score}/100. This kills conversions. Run Diagnostics & Fix ASAP.',
+                'action': 'Go to Diagnostics'
+            })
+        elif latest_speed_report.score < 80:
+             insights.append({
+                'type': 'warning',
+                'title': 'Speed Could Be Better',
+                'text': f'Current Score: {latest_speed_report.score}. Aim for 90+ for mobile users.',
+                'action': 'Analyze Performance'
+            })
+    else:
+        insights.append({
+            'type': 'info',
+            'title': 'No Speed Data',
+            'text': 'We haven\'t tested this page speed yet.',
+            'action': 'Run Test'
+        })
+
+    # Insight 2: Pricing / Value Perception
+    if total_sessions > 50:
+        if conversion_rate < 0.5:
+             insights.append({
+                'type': 'critical',
+                'title': 'Price Resistance Likely',
+                'text': 'Traffic is good (50+), but CR is very low (< 0.5%). The price might be too high or the offer isn\'t compelling.',
+                'action': 'Lower Price / Add Bonus'
+            })
+        elif conversion_rate > 5.0:
+            insights.append({
+                'type': 'success',
+                'title': 'Offer is Hot! 🔥',
+                'text': 'CR is fantastic (> 5%). Consider increasing ad spend to scale this winner.',
+                'action': 'Scale Ads'
+            })
+            
+    # Insight 3: Traffic Quality
+    if total_sessions < 10:
+        insights.append({
+            'type': 'warning',
+            'title': 'Low Traffic Data',
+            'text': 'Not enough data to make decisions yet. Drive at least 100 visitors.',
+            'action': 'Boost Traffic'
+        })
+    elif 'Direct/None' in [s['name'] for s in sources_data] and sources_data[0]['count'] == total_sessions:
+         insights.append({
+            'type': 'info',
+            'title': 'Untracked Traffic',
+            'text': 'Most traffic is Direct. Use UTM parameters in your ads to see where they come from.',
+            'action': 'Setup UTMs'
+        })
+
+    
     context = {
         'campaign': campaign,
         'summary': {
@@ -252,7 +331,8 @@ def analytics_dashboard(request, slug):
         },
         'variants': variants_data,
         'sources': sources_data,
-        'session_logs': session_logs
+        'session_logs': session_logs,
+        'insights': insights # <--- Passed to template
     }
     
     return render(request, 'jeba_landing/dashboard.html', context)
