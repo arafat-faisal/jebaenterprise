@@ -62,7 +62,7 @@ class CampaignAdmin(admin.ModelAdmin):
         Act as a world-class conversion copywriter. I need a JSON structure for a landing page for:
         Product: {product.name}
         Description: {product.description or 'No description'}
-        Price: {campaign.currency} {product.selling_price or product.price}
+        Price: {campaign.currency} {product.selling_price}
         
         Context: Bangladeshi Market, Urgent, Emotional.
         

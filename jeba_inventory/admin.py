@@ -132,10 +132,7 @@ class ProductVariantInline(admin.TabularInline):
     extra = 1
     fields = ('variant_type', 'name', 'color_code', 'price_adjustment', 'stock_quantity', 'sku', 'is_active', 'sort_order')
     
-    class Media:
-        css = {
-            'all': ('admin/css/variant_admin.css',)
-        }
+
 
 class CompetitorPriceInline(admin.TabularInline):
     model = CompetitorPrice
