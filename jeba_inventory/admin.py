@@ -8,7 +8,7 @@ from import_export import resources
 from import_export.fields import Field
 from import_export.widgets import ForeignKeyWidget
 
-from .models import Category, Product, ProductVariation, ProductImage, Tag
+from .models import Category, Product, ProductVariation, ProductImage, Tag, ProductVariant
 from jeba_intelligence.models import CompetitorPrice
 from jeba_intelligence.utils import fetch_competitor_data
 
@@ -126,6 +126,17 @@ class ProductVariationInline(admin.TabularInline):
     # UPGRADE: Added SKU and Original Price
     fields = ('name', 'sku', 'original_price', 'selling_price', 'stock_quantity', 'image', 'is_active')
 
+class ProductVariantInline(admin.TabularInline):
+    """Inline for new ProductVariant model (color/size/material variants)"""
+    model = ProductVariant
+    extra = 1
+    fields = ('variant_type', 'name', 'color_code', 'price_adjustment', 'stock_quantity', 'sku', 'is_active', 'sort_order')
+    
+    class Media:
+        css = {
+            'all': ('admin/css/variant_admin.css',)
+        }
+
 class CompetitorPriceInline(admin.TabularInline):
     model = CompetitorPrice
     extra = 0
@@ -159,7 +170,7 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(ImportExportModelAdmin):
     resource_class = ProductResource
-    inlines = [ProductImageInline, ProductVariationInline, CompetitorPriceInline]
+    inlines = [ProductImageInline, ProductVariantInline, ProductVariationInline, CompetitorPriceInline]
     
     # List View Configuration
     list_display = (

@@ -15,6 +15,34 @@ class SiteSettings(models.Model):
     )
     # ----------------------------
 
+    # --- BRANDING ---
+    logo = models.ImageField(
+        upload_to='site/branding/', 
+        null=True, 
+        blank=True, 
+        help_text=_("Main Website Logo")
+    )
+    favicon = models.ImageField(
+        upload_to='site/branding/', 
+        null=True, 
+        blank=True, 
+        help_text=_("Browser Favicon")
+    )
+
+    # --- GLOBAL SCRIPTS (SEO/TRACKING) ---
+    header_scripts = models.TextField(
+        blank=True, 
+        null=True, 
+        default="",
+        help_text=_("Scripts to inject in <head> like Google Analytics, Pixel Base Code, etc.")
+    )
+    footer_scripts = models.TextField(
+        blank=True, 
+        null=True, 
+        default="", 
+        help_text=_("Scripts to inject before </body> like Chat Widgets.")
+    )
+
     bkash_number = models.CharField(
         max_length=15, 
         default="017XXXXXXXX", 

@@ -1,0 +1,99 @@
+{% extends "admin/base_site.html" %}
+{% load i18n humanize %}
+
+{% block content %}
+<div style="padding: 20px;">
+    <a href="{% url 'diagnostics_home' %}">&larr; Back to Dashboard</a>
+    <h1>{% trans "Performance Report" %}: {{ report.url }}</h1>
+    
+    <!-- Score Card -->
+    <div style="display: flex; gap: 20px; margin-bottom: 30px;">
+        <div style="background: #fff; padding: 20px; border-radius: 8px; flex: 1; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="margin: 0; color: #666; font-size: 14px; text-transform: uppercase;">Performance Score</h3>
+            <div style="font-size: 48px; font-weight: 800; color: {% if report.performance_score > 80 %}green{% elif report.performance_score > 50 %}orange{% else %}red{% endif %};">
+                {{ report.performance_score }}
+            </div>
+        </div>
+        <div style="background: #fff; padding: 20px; border-radius: 8px; flex: 1; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="margin: 0; color: #666; font-size: 14px; text-transform: uppercase;">Total Load Time</h3>
+            <div style="font-size: 48px; font-weight: 800; color: #333;">
+                {{ report.total_time_ms }}<span style="font-size: 20px;">ms</span>
+            </div>
+        </div>
+        <div style="background: #fff; padding: 20px; border-radius: 8px; flex: 1; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="margin: 0; color: #666; font-size: 14px; text-transform: uppercase;">HTML Size</h3>
+            <div style="font-size: 48px; font-weight: 800; color: #333;">
+                {{ report.html_size_bytes|filesizeformat }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Suggestions -->
+    {% if report.details.suggestions %}
+    <div style="background: #fff3cdc7; padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #ffeeba;">
+        <h3 style="margin-top: 0; color: #856404;">⚠️ Recommendations</h3>
+        <ul style="margin: 0; padding-left: 20px;">
+            {% for warning in report.details.suggestions %}
+            <li style="margin-bottom: 5px; color: #856404;">{{ warning }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Asset Breakdown -->
+    <div style="background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2>Asset Analysis</h2>
+        
+        <h3>Images ({{ report.image_count }})</h3>
+        {% if report.details.images %}
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <thead>
+                <tr style="background: #f8f9fa; border-bottom: 2px solid #ddd;">
+                    <th style="text-align: left; padding: 8px;">Name/Source</th>
+                    <th style="text-align: left; padding: 8px;">Size</th>
+                    <th style="text-align: left; padding: 8px;">Issues</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for img in report.details.images %}
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px; max-width: 400px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="{{ img.src }}">
+                        {{ img.name }}
+                    </td>
+                    <td style="padding: 8px;">{{ img.display_size }}</td>
+                    <td style="padding: 8px;">
+                        {% if img.warning %}
+                        <span style="color: red; font-weight: bold;">{{ img.warning }}</span>
+                        {% endif %}
+                        {% if img.cls_warning %}
+                        <span style="color: orange; display: block; font-size: 12px;">{{ img.cls_warning }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No images found in <code>&lt;img&gt;</code> tags.</p>
+        {% endif %}
+
+        <h3 style="margin-top: 30px;">Scripts ({{ report.script_count }})</h3>
+        {% if report.details.scripts %}
+        <ul style="list-style: none; padding: 0;">
+            {% for script in report.details.scripts %}
+            <li style="padding: 8px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between;">
+                <span title="{{ script.src }}">{{ script.src|default:"Inline Script"|truncatechars:60 }}</span>
+                <div>
+                    {% if script.defer %}<span style="background: #d4edda; color: #155724; padding: 2px 6px; border-radius: 4px; font-size: 12px;">DEFER</span>{% endif %}
+                    {% if script.async %}<span style="background: #cce5ff; color: #004085; padding: 2px 6px; border-radius: 4px; font-size: 12px;">ASYNC</span>{% endif %}
+                    {% if not script.defer and not script.async and script.src %}<span style="background: #f8d7da; color: #721c24; padding: 2px 6px; border-radius: 4px; font-size: 12px;">BLOCKING</span>{% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No external scripts found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

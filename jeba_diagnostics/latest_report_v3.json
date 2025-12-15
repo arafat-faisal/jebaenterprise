@@ -1,0 +1,48 @@
+{
+  "css": [],
+  "url": "http://127.0.0.1:8080/landing/demo-offer/",
+  "ttfb": 55,
+  "score": 100,
+  "images": [
+    {
+      "src": "/media/site/branding/jeba_enterprise_optimized.png",
+      "name": "jeba_enterprise_optimized.png",
+      "size": 40615,
+      "display_size": "39.7 KB"
+    },
+    {
+      "src": "/media/products/gallery/prod_1342_0.webp",
+      "name": "prod_1342_0.webp",
+      "size": 19832,
+      "display_size": "19.4 KB"
+    },
+    {
+      "src": "/media/products/gallery/prod_1342_0.webp",
+      "name": "prod_1342_0.webp",
+      "size": 19832,
+      "display_size": "19.4 KB"
+    }
+  ],
+  "scripts": [
+    {
+      "src": "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js",
+      "async": false,
+      "defer": true
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js",
+      "async": false,
+      "defer": true
+    },
+    {
+      "src": "https://cdn.tailwindcss.com",
+      "async": false,
+      "defer": false
+    }
+  ],
+  "html_size": 55600,
+  "total_time": 56,
+  "suggestions": [],
+  "script_count": 3,
+  "total_assets_size": 135879
+}

@@ -1,0 +1,70 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block content %}
+<div style="padding: 20px;">
+    <h1>{% trans "Jeba Diagnostics & Performance Hub" %}</h1>
+    <p class="help">{% trans "Analyze page load times, asset sizes, and potential bottlenecks." %}</p>
+    
+    <div style="background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 30px;">
+        <h2>{% trans "Test New Page" %}</h2>
+        <form method="POST" action="{% url 'diagnostics_analyze' %}">
+            {% csrf_token %}
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" name="url" placeholder="/landing/offers/" style="flex: 1; padding: 10px; font-size: 16px;" list="url_suggestions" required>
+                <datalist id="url_suggestions">
+                    {% for u in suggested_urls %}
+                    <option value="{{ u }}">
+                    {% endfor %}
+                </datalist>
+                <button type="submit" class="button button-primary" style="padding: 10px 20px; font-size: 16px;">{% trans "Analyze Now" %}</button>
+            </div>
+            <p style="margin-top: 5px; color: #666; font-size: 12px;">{% trans "Enter a relative path (e.g. /) or absolute URL." %}</p>
+        </form>
+    </div>
+
+    <h2>{% trans "Recent Reports" %}</h2>
+    {% if reports %}
+    <table style="width: 100%; border-collapse: collapse; background: #fff;">
+        <thead>
+            <tr style="background: #f8f9fa; border-bottom: 2px solid #ddd;">
+                <th style="padding: 12px; text-align: left;">URL</th>
+                <th style="padding: 12px; text-align: left;">Score</th>
+                <th style="padding: 12px; text-align: left;">Time (ms)</th>
+                <th style="padding: 12px; text-align: left;">Img Count</th>
+                <th style="padding: 12px; text-align: left;">Date</th>
+                <th style="padding: 12px; text-align: left;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 12px;">
+                    <a href="{% url 'diagnostics_report' report.id %}" style="font-weight: bold;">{{ report.url }}</a>
+                </td>
+                <td style="padding: 12px;">
+                    {% if report.performance_score > 80 %}
+                        <span style="color: green; font-weight: bold;">{{ report.performance_score }}</span>
+                    {% elif report.performance_score > 50 %}
+                        <span style="color: orange; font-weight: bold;">{{ report.performance_score }}</span>
+                    {% else %}
+                        <span style="color: red; font-weight: bold;">{{ report.performance_score }}</span>
+                    {% endif %}
+                </td>
+                <td style="padding: 12px;">{{ report.total_time_ms }} ms</td>
+                <td style="padding: 12px;">{{ report.image_count }}</td>
+                <td style="padding: 12px;">{{ report.created_at|date:"M d, H:i" }}</td>
+                <td style="padding: 12px;">
+                    <a href="{% url 'diagnostics_report' report.id %}" class="button">View</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'diagnostics_clear' %}" onclick="return confirm('Clear all reports?')" style="color: red;">{% trans "Clear History" %}</a>
+    {% else %}
+    <p>{% trans "No reports generated yet." %}</p>
+    {% endif %}
+</div>
+{% endblock %}

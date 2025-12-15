@@ -6,6 +6,9 @@ from email.mime.image import MIMEImage
 import os
 from io import BytesIO
 from xhtml2pdf import pisa
+from jeba_core.models import SiteSettings
+# jeba_analytics.analytics_service is not imported here, removing if not needed or keeping it if it was (it wasn't in original)
+
 
 def _embed_image_file(email_message, file_path, cid):
     """Opens a file and attaches it to the email message as an inline attachment."""
@@ -37,8 +40,15 @@ def send_order_email(sale, recipient_email, tracking_url):
     msg.attach_alternative(html_message, "text/html")
 
     # Embed Logo
-    logo_filename = 'logo.png' 
-    logo_path = os.path.join(settings.MEDIA_ROOT, logo_filename) 
+    try:
+        settings_obj = SiteSettings.load()
+        if settings_obj.logo:
+            logo_path = settings_obj.logo.path
+        else:
+            logo_path = os.path.join(settings.MEDIA_ROOT, 'logo.png')
+    except:
+         logo_path = os.path.join(settings.MEDIA_ROOT, 'logo.png')
+
     _embed_image_file(msg, logo_path, 'logo_img')
 
     # Embed Product Images

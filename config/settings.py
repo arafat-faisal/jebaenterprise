@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     # --- NEW AI BUILDER ---
     'jeba_ai_builder', 
     'jeba_messenger',
+    'jeba_diagnostics', # <--- Page Speed & Diagnostics
     # ----------------------
     # --- EXISTING APP (Deprecated/Hidden) ---
     # 'products', 
@@ -252,6 +253,7 @@ JAZZMIN_SETTINGS = {
     # Top Menu
     "topmenu_links": [
         {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Page Speed Tools", "url": "diagnostics_home", "permissions": ["auth.view_user"]}, # <--- ADD THIS
         {"name": "View Site", "url": "/", "new_window": True},
     ],
 
@@ -285,6 +287,7 @@ JAZZMIN_SETTINGS = {
         "jeba_landing.LandingPage": "fas fa-rocket",
         # --- ADD THIS LINE ---
         "jeba_messenger": "fab fa-facebook-messenger", 
+        "jeba_diagnostics": "fas fa-tachometer-alt", # <--- Performance Icon
         # ---------------------
     },
     "default_icon_parents": "fas fa-chevron-circle-right",

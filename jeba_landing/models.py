@@ -1,297 +1,168 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
+from django.conf import settings
+import uuid
 import json
-# --- ADD THIS MISSING LINE BELOW ---
-from jeba_core.image_optimizer import optimize_image, generate_lqip
-# -----------------------------------
 
-# --- 1. THEME ENGINE ---
-class LandingTheme(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True)
-    default_config = models.JSONField(default=dict, blank=True)
-    base_css = models.TextField(blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+# Try to import Product, handle if missing for initial migration steps
+try:
+    from jeba_inventory.models import Product
+except ImportError:
+    Product = None
 
-    def __str__(self):
-        return self.name
-
-# --- 2. LANDING PAGE ---
-class LandingPage(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True, max_length=255)
-    
-    product = models.ForeignKey(
-        'jeba_inventory.Product', 
-        on_delete=models.CASCADE, 
-        related_name='landing_pages'
-    )
-    
-    # Theme & Design
-    theme = models.ForeignKey(LandingTheme, on_delete=models.SET_NULL, null=True, blank=True)
-    theme_preset = models.CharField(max_length=20, blank=True, null=True) 
-    
-    # Overrides
-    override_primary_color = models.CharField(max_length=20, blank=True, null=True)
-    override_accent_color = models.CharField(max_length=20, blank=True, null=True)
-    custom_css = models.TextField(blank=True, null=True)
-    
-    # Fonts
-    font_heading = models.CharField(max_length=50, default='Montserrat', blank=True)
-    font_body = models.CharField(max_length=50, default='Open Sans', blank=True)
-
-    # Conversion Tools
-    countdown_end = models.DateTimeField(blank=True, null=True)
-    stock_warning = models.IntegerField(default=0)
-    trust_badge_image = models.ImageField(upload_to='landing/badges/', blank=True, null=True)
-    
-    # Meta
-    meta_pixel_id = models.CharField(max_length=50, blank=True, null=True)
-    is_published = models.BooleanField(default=False)
-    ai_generated = models.BooleanField(default=False) 
+class TimeStampedModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return f"{self.title} ({self.slug})"
+    class Meta:
+        abstract = True
+
+# --- 1. CAMPAIGN MANAGEMENT ---
+
+class Campaign(TimeStampedModel):
+    """
+    The umbrella container for a landing page strategy. 
+    It can reference a specific Product or just be a general promo.
+    """
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(unique=True, max_length=255)
+    product = models.ForeignKey(
+        'jeba_inventory.Product', 
+        on_delete=models.SET_NULL, 
+        null=True, blank=True,
+        related_name='landing_campaigns'
+    )
+    is_active = models.BooleanField(default=False)
+    
+    # Meta / SEO
+    meta_title = models.CharField(max_length=255, blank=True)
+    meta_description = models.TextField(blank=True)
+    meta_pixel_id = models.CharField(max_length=50, blank=True, help_text="Specific Pixel for this campaign (overrides global)")
+    
+    # AI Automation
+    manual_ai_prompt = models.TextField(blank=True, null=True, help_text="Paste AI-generated JSON here to auto-create variants/sections.")
+    
+    # Localization
+    currency = models.CharField(max_length=10, default='BDT', choices=[('BDT', 'Taka'), ('USD', 'USD')])
+    language_toggle = models.BooleanField(default=True, help_text="Allow users to switch between BN/EN")
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
-    # --- AI GENERATION LOGIC ---
-    def generate_ai_content(self):
-        from .ai_generator import generate_landing_content
-        
-        if not self.product: 
-            return False
-            
-        image_path = None
-        try:
-            img_obj = self.product.main_image_obj 
-            if img_obj and img_obj.image:
-                image_path = img_obj.image.path
-        except Exception: pass
+    def __str__(self):
+        return self.title
 
-        content = generate_landing_content(
-            product_name=self.product.name,
-            description=self.product.description,
-            category=self.product.category.name if hasattr(self.product, 'category') and self.product.category else "General",
-            image_path=image_path
-        )
-        
-        if content:
-            self.sections.all().delete()
-            
-            # --- HERO ---
-            self.sections.create(
-                section_type='HERO',
-                heading=content.get('hero_headline', self.product.name),
-                subheading=content.get('hero_subhead', ''),
-                button_text="Order Now - Limited Stock",
-                order=0,
-                ai_generated=True,
-                image=self.product.main_image_obj.image if self.product.main_image_obj else None,
-                overlay_opacity='0.6',
-                design_variant='OVERLAY'
-            )
-            
-            # --- FEATURES ---
-            features_html = '<div class="row g-4">'
-            for f in content.get('features', []):
-                features_html += f'''
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="p-4 border rounded-3 bg-opacity-10 bg-white h-100">
-                        <i class="{f['icon']} fa-3x mb-3 text-warning"></i>
-                        <h4 class="h5 fw-bold">{f['title']}</h4>
-                        <p class="small opacity-75">{f['desc']}</p>
-                    </div>
-                </div>
-                '''
-            features_html += '</div>'
+class CampaignVariant(TimeStampedModel):
+    """
+    A specific version of the campaign for A/B testing.
+    e.g. 'Variant A: Video Hero' vs 'Variant B: Static Image'
+    """
+    campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE, related_name='variants')
+    name = models.CharField(max_length=100, help_text="e.g. 'Control', 'Video Hero'")
+    weight = models.PositiveIntegerField(default=50, help_text="Traffic percentage (0-100)")
+    
+    # Design Overrides
+    primary_color = models.CharField(max_length=20, default="#D4F759")
+    accent_color = models.CharField(max_length=20, default="#000000")
+    
+    # Psychology Triggers
+    enable_fomo_timer = models.BooleanField(default=False)
+    fomo_timer_end = models.DateTimeField(null=True, blank=True)
+    enable_social_proof = models.BooleanField(default=True, help_text="Show 'X people viewing now'")
+    enable_exit_popup = models.BooleanField(default=True)
+    
+    def __str__(self):
+        return f"{self.campaign.slug} - {self.name} ({self.weight}%)"
 
-            self.sections.create(
-                section_type='RICH_TEXT',
-                heading="Why Customers Love This",
-                description=features_html,
-                order=1,
-                ai_generated=True,
-                padding_top=60,
-                padding_bottom=60
-            )
-
-            # --- STORY ---
-            self.sections.create(
-                section_type='TEXT_IMAGE_SPLIT',
-                heading=content.get('story_heading', "Product Details"),
-                description=content.get('story_content', ''),
-                order=2,
-                ai_generated=True,
-                text_alignment='start',
-                image=self.product.main_image_obj.image if self.product.main_image_obj else None
-            )
-            
-            # --- FAQ ---
-            faq_html = '<div class="accordion" id="aiFaqAccordion">'
-            for i, faq in enumerate(content.get('faqs', [])):
-                faq_html += f'''
-                <div class="accordion-item bg-transparent border-bottom border-secondary">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed bg-transparent text-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#faq{i}">
-                            {faq['question']}
-                        </button>
-                    </h2>
-                    <div id="faq{i}" class="accordion-collapse collapse" data-bs-parent="#aiFaqAccordion">
-                        <div class="accordion-body opacity-75">{faq['answer']}</div>
-                    </div>
-                </div>
-                '''
-            faq_html += '</div>'
-            
-            self.sections.create(
-                section_type='RICH_TEXT',
-                heading="Frequently Asked Questions",
-                description=faq_html,
-                order=3,
-                ai_generated=True,
-                background_color="#121212"
-            )
-            
-            self.ai_generated = True
-            self.save()
-            return True
-        return False
-
-# --- 3. LANDING SECTIONS ---
 class LandingSection(models.Model):
+    """
+    Modular blocks that make up a Variant.
+    """
     SECTION_TYPES = [
-        ('HERO', 'Hero Section'),
-        ('VIDEO', 'Video Section'),
-        ('FEATURES_GRID', 'Features Grid'),
-        ('TEXT_IMAGE_SPLIT', 'Split Content'),
-        ('CAROUSEL', 'Image Carousel'),
-        ('RICH_TEXT', 'Rich Text Block'),
+        ('HERO_CAROUSEL', 'Hero Carousel'),
+        ('HERO_VIDEO', 'Hero Video'),
+        ('FEATURES', 'Features Grid'),
+        ('PRODUCT_HIGHLIGHT', 'Product Highlight (Split)'),
         ('TESTIMONIALS', 'Testimonials'),
         ('FAQ', 'FAQ Accordion'),
+        ('CTA_Sticky', 'Sticky Bottom CTA'),
+        ('HTML', 'Raw HTML'),
     ]
-
-    DESIGN_VARIANTS = [
-        ('OVERLAY', 'Full Screen Overlay (Default)'),
-        ('SPLIT_LEFT', 'Split: Text Left / Image Right'),
-        ('SPLIT_RIGHT', 'Split: Text Right / Image Left'),
-        ('MINIMAL', 'Minimal Center (No Background Image)'),
-        ('PRODUCT_FOCUS', 'Product Focus (Mobile First / Modern)'),
-    ]
-
-    page = models.ForeignKey(LandingPage, related_name='sections', on_delete=models.CASCADE)
-    section_type = models.CharField(max_length=50, choices=SECTION_TYPES, default='TEXT_IMAGE_SPLIT')
     
-    design_variant = models.CharField(
-        max_length=50, 
-        choices=DESIGN_VARIANTS, 
-        default='OVERLAY',
-        help_text="Controls the layout style"
-    )
-
+    variant = models.ForeignKey(CampaignVariant, on_delete=models.CASCADE, related_name='sections')
+    section_type = models.CharField(max_length=50, choices=SECTION_TYPES)
     order = models.PositiveIntegerField(default=0)
     
-    # Content
-    icon_class = models.CharField(max_length=100, blank=True, null=True)
-    heading = models.CharField(max_length=255, blank=True, null=True)
-    subheading = models.CharField(max_length=500, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    button_text = models.CharField(max_length=50, blank=True, null=True)
+    # Content (JSON for flexibility)
+    content = models.JSONField(default=dict, blank=True, help_text="JSON structure for the section content")
     
-    # Design
-    text_alignment = models.CharField(max_length=20, default='center')
-    padding_top = models.IntegerField(default=80)
-    padding_bottom = models.IntegerField(default=80)
+    # Styling
+    is_dark_mode = models.BooleanField(default=False)
+    padding_y = models.CharField(max_length=20, default="py-12")
     
-    # --- NEW FIELD: TEXT PADDING ---
-    text_content_padding = models.IntegerField(default=0, help_text="Padding around the text content (in pixels). Helps fix border issues.")
-    
-    background_color = models.CharField(max_length=20, blank=True, null=True)
-    background_gradient = models.CharField(max_length=200, blank=True, null=True)
-    text_color = models.CharField(max_length=20, blank=True, null=True)
-    overlay_opacity = models.CharField(max_length=5, default='0.4')
-    
-    desktop_media_position = models.CharField(max_length=50, default="50% 50%")
-    mobile_media_position = models.CharField(max_length=50, default="50% 50%")
-
-    divider_top = models.CharField(max_length=20, default='NONE')
-    divider_bottom = models.CharField(max_length=20, default='NONE')
-    border_radius = models.IntegerField(default=0)
-    
-    # Media Assets
-    image = models.ImageField(upload_to='landing/images/', blank=True, null=True, help_text="Background Image for Hero, or Side Image for Split.")
-    
-    foreground_image = models.ImageField(upload_to='landing/foreground/', blank=True, null=True, help_text="Custom Image/GIF to layer ON TOP of the background. Overrides product image.")
-    foreground_video = models.FileField(upload_to='landing/foreground/', blank=True, null=True, help_text="Custom Video (MP4) to layer ON TOP of the background. Overrides images.")
-    # ... existing fields ...
-    placeholders = models.JSONField(default=dict, blank=True, editable=False) # <--- NEW (Stores all LQIPs)
-
-    # --- NEW: Media Controls ---
-    media_max_width = models.CharField(
-        max_length=20, default="100%", 
-        help_text="e.g. '400px', '80%', or '50vh'. Controls hero image/video size."
-    )
-    media_vertical_offset = models.IntegerField(
-        default=0, 
-        help_text="Move image UP or DOWN in pixels (e.g. -50 to move up, 20 to move down)."
-    )
-    media_padding = models.CharField(
-        max_length=20, default="0px", 
-        help_text="Padding around the media (e.g. '20px')."
-    )
-    # In jeba_landing/models.py > LandingSection class
-    badge_label = models.CharField(
-        max_length=50, 
-        blank=True, 
-        null=True, 
-        help_text="e.g. 'Best Seller', 'New Arrival' - Shows as a floating badge on the hero image."
-    )
-
-    video_file = models.FileField(upload_to='landing/videos/', blank=True, null=True)
-    video_url = models.URLField(blank=True, null=True)
-    
-    # Carousel
-    image_2 = models.ImageField(upload_to='landing/images/', blank=True, null=True)
-    image_3 = models.ImageField(upload_to='landing/images/', blank=True, null=True)
-    image_4 = models.ImageField(upload_to='landing/images/', blank=True, null=True)
-    image_5 = models.ImageField(upload_to='landing/images/', blank=True, null=True)
-    
-    animation_effect = models.CharField(max_length=20, default='FADE_UP')
-    ai_generated = models.BooleanField(default=False)
-
     class Meta:
         ordering = ['order']
 
     def __str__(self):
-        return f"{self.get_section_type_display()} - {self.heading}"
+        return f"{self.get_section_type_display()} (Order: {self.order})"
+
+# --- 2. ANALYTICS ENGINE ("THE MONSTER") ---
+
+class VisitorSession(TimeStampedModel):
+    """
+    Identifies a unique browser/user session.
+    """
+    campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE, related_name='sessions')
+    variant = models.ForeignKey(CampaignVariant, on_delete=models.SET_NULL, null=True, related_name='sessions')
     
-    def save(self, *args, **kwargs):
-        # Helper to process a specific field
-        def process_field(field_name, width=1920):
-            field = getattr(self, field_name)
-            if field:
-                # Basic check if it needs optimization (simplification for Landing Page)
-                if not field.name.endswith('.webp'):
-                    new_img = optimize_image(field, max_width=width)
-                    setattr(self, field_name, new_img)
-                    
-                # Always generate placeholder if missing
-                if field_name not in self.placeholders:
-                    lqip = generate_lqip(getattr(self, field_name))
-                    if lqip:
-                        self.placeholders[field_name] = lqip
+    session_uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+    user_agent = models.TextField(blank=True)
+    device_type = models.CharField(max_length=20, default='mobile') # mobile, tablet, desktop
+    
+    # Geo (from IP)
+    country = models.CharField(max_length=50, default='Bangladesh')
+    city = models.CharField(max_length=100, blank=True)
+    
+    # Referral
+    utm_source = models.CharField(max_length=100, blank=True)
+    utm_medium = models.CharField(max_length=100, blank=True)
+    utm_campaign = models.CharField(max_length=100, blank=True)
+    referrer_url = models.TextField(blank=True)
 
-        # Process all image fields
-        process_field('image', 1920)
-        process_field('image_2', 1920)
-        process_field('image_3', 1920)
-        process_field('image_4', 1920)
-        process_field('image_5', 1920)
-        process_field('foreground_image', 1000)
+    def __str__(self):
+        return str(self.session_uuid)
 
-        super().save(*args, **kwargs)
+class ConversionEvent(TimeStampedModel):
+    """
+    Tracks specific actions: View, Click, Scroll, AddToCart, Purchase
+    """
+    EVENT_TYPES = [
+        ('PAGE_VIEW', 'Page View'),
+        ('SCROLL_50', 'Scrolled 50%'),
+        ('SCROLL_90', 'Scrolled 90%'),
+        ('CLICK_CTA', 'Clicked CTA'),
+        ('ADD_TO_CART', 'Added to Cart'),
+        ('INITIATE_CHECKOUT', 'Initiated Checkout'),
+        ('PURCHASE', 'Purchase Completed'),
+        ('EXIT_INTENT', 'Exit Intent Triggered'),
+        ('HEARTBEAT', 'Time on Page (Heartbeat)'),
+    ]
+    
+    session = models.ForeignKey(VisitorSession, on_delete=models.CASCADE, related_name='events')
+    event_type = models.CharField(max_length=30, choices=EVENT_TYPES)
+    
+    # Context
+    metadata = models.JSONField(default=dict, blank=True, help_text="Extra data like button text, scroll depth, or product ID")
+    value = models.DecimalField(max_digits=10, decimal_places=2, default=0.00, help_text="Monetary value if applicable")
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['event_type', 'created_at']),
+        ]
+
+    def __str__(self):
+        return f"{self.event_type} - {self.session}"

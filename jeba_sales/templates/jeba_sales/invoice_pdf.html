@@ -109,7 +109,11 @@
     <table class="header-table">
         <tr>
             <td class="logo-area">
+                {% if settings.logo %}
+                <img src="{{ settings.logo.url }}" style="height: 50px;" alt="Jeba Enterprise" />
+                {% else %}
                 <img src="/media/logo.png" style="height: 50px;" alt="Jeba Enterprise" />
+                {% endif %}
             </td>
             <td class="invoice-info">
                 <div class="title">INVOICE</div>
@@ -158,8 +162,10 @@
             <tr>
                 <td>
                     <div class="item-name">{{ item.product.name }}</div>
-                    {% if item.variation %}
-                        <div class="item-var">Var: {{ item.variation.name }}</div>
+                    {% if item.variant_summary %}
+                        <div class="item-var">{{ item.variant_summary }}</div>
+                    {% elif item.variation %}
+                        <div class="item-var">{{ item.variation.get_variant_type_display }}: {{ item.variation.name }}</div>
                     {% endif %}
                 </td>
                 <td style="text-align: center;">{{ item.quantity }}</td>

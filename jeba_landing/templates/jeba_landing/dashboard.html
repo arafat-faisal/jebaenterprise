@@ -24,6 +24,35 @@
                 ⚙️ Configure Campaign
             </a>
         </div>
+        
+        <!-- Filter Bar -->
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-8">
+            <form method="GET" class="flex flex-wrap items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <label class="text-sm font-semibold text-gray-600">📅 Date:</label>
+                    <select name="date_range" onchange="this.form.submit()" class="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2">
+                        <option value="today" {% if current_date_range == 'today' %}selected{% endif %}>Today</option>
+                        <option value="yesterday" {% if current_date_range == 'yesterday' %}selected{% endif %}>Yesterday</option>
+                        <option value="7d" {% if current_date_range == '7d' %}selected{% endif %}>Last 7 Days</option>
+                        <option value="30d" {% if current_date_range == '30d' %}selected{% endif %}>Last 30 Days</option>
+                        <option value="all" {% if current_date_range == 'all' %}selected{% endif %}>All Time</option>
+                    </select>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <label class="text-sm font-semibold text-gray-600">🔗 Source:</label>
+                    <select name="source" onchange="this.form.submit()" class="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2">
+                        <option value="all" {% if current_source == 'all' %}selected{% endif %}>All Sources</option>
+                        <option value="Direct" {% if current_source == 'Direct' %}selected{% endif %}>Direct / None</option>
+                        {% for src in available_sources %}
+                        <option value="{{ src }}" {% if current_source == src %}selected{% endif %}>{{ src }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <a href="?" class="text-xs text-gray-400 hover:text-red-500 underline ml-auto">Reset Filters</a>
+            </form>
+        </div>
 
         <!-- KPI Cards -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">

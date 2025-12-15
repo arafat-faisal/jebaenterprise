@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<style>
+    /* Critical Grid Polyfill */
+    .grid { display: grid; }
+    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .gap-8 { gap: 2rem; }
+    @media (min-width: 768px) { .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 1024px) { .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .h-48 { height: 12rem; }
+    .w-full { width: 100%; }
+    .object-cover { object-fit: cover; }
+    .hidden { display: none; }
+</style>
+<script src="https://cdn.tailwindcss.com"></script> 
+<script>
+    tailwind.config = {
+        corePlugins: {
+            preflight: false,
+        }
+    }
+</script>
+<div class="container mx-auto px-4 py-12">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold mb-4">{% trans "Special Offers" %}</h1>
+        <p class="text-gray-600">{% trans "Exclusive deals available for a limited time." %}</p>
+    </div>
+
+    {% if campaigns %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for campaign in campaigns %}
+        <a href="{% url 'campaign_detail' campaign.slug %}" class="group block bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="h-48 bg-gray-100 relative overflow-hidden">
+                {% if campaign.product.main_image_obj %}
+                <img src="{{ campaign.product.main_image_obj.image.url }}" alt="{{ campaign.title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" width="400" height="192">
+                {% else %}
+                <div class="w-full h-full flex items-center justify-center text-gray-400">
+                    <span class="text-4xl">🏷️</span>
+                </div>
+                {% endif %}
+                
+                {% if campaign.product.discount_percentage > 0 %}
+                <div class="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse shadow-md">
+                     -{{ campaign.product.discount_percentage }}% OFF
+                </div>
+                {% endif %}
+                
+                {% if campaign.is_active %}
+                <div class="absolute top-4 right-4 bg-lime-400 text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    {% trans "Active" %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="p-6">
+                <h2 class="text-xl font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition">{{ campaign.title }}</h2>
+                
+                <!-- Pricing Only if Product Available -->
+                {% if campaign.product %}
+                <div class="flex items-center gap-3 mb-3">
+                    {% if campaign.product.original_price and campaign.product.original_price > campaign.product.selling_price %}
+                    <span class="relative text-gray-400 text-sm font-semibold">
+                        ৳{{ campaign.product.original_price|floatformat:0 }}
+                        <div class="absolute top-1/2 left-0 w-full h-[2px] bg-red-500 -rotate-12 transform origin-center"></div>
+                    </span>
+                    {% endif %}
+                    <span class="text-xl font-extrabold text-gray-900">
+                        ৳{{ campaign.product.selling_price|floatformat:0 }}
+                    </span>
+                </div>
+                {% endif %}
+
+                <p class="text-gray-500 text-sm line-clamp-2 mb-4">{{ campaign.meta_description|default:campaign.product.description|default:"" }}</p>
+                <span class="inline-block text-sm font-bold text-white bg-blue-600 px-4 py-2 rounded-full group-hover:bg-blue-700 transition shadow-sm">
+                    {% trans "Ekhoni Kinun" %} &rarr;
+                </span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-20 bg-gray-50 rounded-3xl">
+        <div class="text-6xl mb-4">😢</div>
+        <h3 class="text-2xl font-bold text-gray-900">{% trans "No Active Offers" %}</h3>
+        <p class="text-gray-500 mt-2">{% trans "Check back later for new deals!" %}</p>
+        <a href="/" class="inline-block mt-6 px-8 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition">
+            {% trans "Continue Shopping" %}
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

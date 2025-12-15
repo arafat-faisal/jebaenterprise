@@ -1,0 +1,68 @@
+{
+  "css": [],
+  "url": "http://127.0.0.1:8080/landing/offers/",
+  "ttfb": 61,
+  "score": 90,
+  "images": [
+    {
+      "src": "https://www.facebook.com/tr?id=841980284896752&ev=PageView&noscript=1",
+      "name": "tr?id=841980284896752&ev=PageView&noscript=1",
+      "size": 44,
+      "display_size": "0.0 KB"
+    },
+    {
+      "src": "/media/site/branding/jeba_enterprise_optimized.png",
+      "name": "jeba_enterprise_optimized.png",
+      "size": 40615,
+      "cls_warning": "Missing width/height attributes (CLS risk)",
+      "display_size": "39.7 KB"
+    },
+    {
+      "src": "/media/products/gallery/prod_1342_0.webp",
+      "name": "prod_1342_0.webp",
+      "size": 19832,
+      "cls_warning": "Missing width/height attributes (CLS risk)",
+      "display_size": "19.4 KB"
+    },
+    {
+      "src": "/media/products/gallery/prod_1421_0.webp",
+      "name": "prod_1421_0.webp",
+      "size": 16468,
+      "cls_warning": "Missing width/height attributes (CLS risk)",
+      "display_size": "16.1 KB"
+    },
+    {
+      "src": "/media/site/branding/jeba_enterprise_optimized.png",
+      "name": "jeba_enterprise_optimized.png",
+      "size": 40615,
+      "cls_warning": "Missing width/height attributes (CLS risk)",
+      "display_size": "39.7 KB"
+    },
+    {
+      "src": "https://seeklogo.com/images/B/bkash-logo-0C1572FBB4-seeklogo.com.png",
+      "name": "bkash-logo-0C1572FBB4-seeklogo.com.png",
+      "size": 0,
+      "cls_warning": "Missing width/height attributes (CLS risk)",
+      "display_size": "Unknown"
+    }
+  ],
+  "scripts": [
+    {
+      "src": "https://cdn.tailwindcss.com",
+      "async": false,
+      "defer": false
+    },
+    {
+      "src": "/static/js/analytics.js",
+      "async": false,
+      "defer": false
+    }
+  ],
+  "html_size": 53804,
+  "total_time": 62,
+  "suggestions": [
+    "Blocking script found: analytics.js. Consider adding 'defer'."
+  ],
+  "script_count": 2,
+  "total_assets_size": 171378
+}

@@ -1,0 +1,57 @@
+{
+  "css": [],
+  "url": "http://127.0.0.1:8080/landing/demo-offer/",
+  "ttfb": 48,
+  "score": 93,
+  "images": [
+    {
+      "src": "/media/site/branding/jeba_enterprise_optimized.png",
+      "name": "jeba_enterprise_optimized.png",
+      "size": 40615,
+      "cls_warning": "Missing width/height attributes (CLS risk)",
+      "display_size": "39.7 KB"
+    },
+    {
+      "src": "/media/products/gallery/prod_1342_0.webp",
+      "name": "prod_1342_0.webp",
+      "size": 19832,
+      "cls_warning": "Missing width/height attributes (CLS risk)",
+      "display_size": "19.4 KB"
+    },
+    {
+      "src": "/media/products/gallery/prod_1342_0.webp",
+      "name": "prod_1342_0.webp",
+      "size": 19832,
+      "display_size": "19.4 KB"
+    }
+  ],
+  "scripts": [
+    {
+      "src": "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js",
+      "async": false,
+      "defer": false
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js",
+      "async": false,
+      "defer": true
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js",
+      "async": false,
+      "defer": true
+    },
+    {
+      "src": "https://cdn.tailwindcss.com",
+      "async": false,
+      "defer": false
+    }
+  ],
+  "html_size": 55641,
+  "total_time": 50,
+  "suggestions": [
+    "Blocking script found: swiper-bundle.min.js. Consider adding 'defer'."
+  ],
+  "script_count": 4,
+  "total_assets_size": 135920
+}

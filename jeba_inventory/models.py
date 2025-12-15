@@ -198,6 +198,133 @@ class Product(models.Model):
     def thumbnail(self):
         img_obj = self.main_image_obj
         return img_obj.image if img_obj else None
+
+    @property
+    def discount_percentage(self):
+        if self.original_price and self.original_price > self.selling_price:
+            try:
+                msg = ((self.original_price - self.selling_price) / self.original_price) * 100
+                return int(round(msg))
+            except:
+                return 0
+        return 0
+    
+    @property
+    def has_variants(self):
+        """Check if product has any active variants"""
+        return self.variants.filter(is_active=True).exists()
+    
+    @property
+    def available_colors(self):
+        """Get all active color variants"""
+        return self.variants.filter(variant_type='COLOR', is_active=True).order_by('sort_order', 'name')
+    
+    @property
+    def available_sizes(self):
+        """Get all active size variants"""
+        return self.variants.filter(variant_type='SIZE', is_active=True).order_by('sort_order', 'name')
+
+
+# --- Product Variant Model ---
+class ProductVariant(models.Model):
+    """
+    Represents product variations like color, size, material.
+    Allows per-variant pricing, stock tracking, and SKU management.
+    """
+    VARIANT_TYPE_CHOICES = [
+        ('COLOR', _('Color')),
+        ('SIZE', _('Size')),
+        ('MATERIAL', _('Material')),
+        ('STYLE', _('Style')),
+        ('OTHER', _('Other')),
+    ]
+    
+    product = models.ForeignKey(
+        Product, 
+        on_delete=models.CASCADE, 
+        related_name='variants',
+        verbose_name=_("Product")
+    )
+    variant_type = models.CharField(
+        max_length=20, 
+        choices=VARIANT_TYPE_CHOICES,
+        verbose_name=_("Variant Type"),
+        help_text=_("Type of variation (color, size, etc.)")
+    )
+    name = models.CharField(
+        max_length=100,
+        verbose_name=_("Variant Name"),
+        help_text=_("e.g., 'Red', 'Large', 'Cotton'")
+    )
+    
+    # Optional: Visual color display
+    color_code = models.CharField(
+        max_length=7, 
+        blank=True, 
+        null=True,
+        verbose_name=_("Color Code"),
+        help_text=_("Hex color code (e.g., #FF0000) for visual display")
+    )
+    
+    # Pricing (optional - if 0, uses product's base price)
+    price_adjustment = models.DecimalField(
+        max_digits=10, 
+        decimal_places=2, 
+        default=0.00,
+        verbose_name=_("Price Adjustment"),
+        help_text=_("Additional cost for this variant (can be negative for discounts)")
+    )
+    
+    # Stock tracking per variant
+    stock_quantity = models.PositiveIntegerField(
+        default=0,
+        verbose_name=_("Stock Quantity"),
+        help_text=_("Available stock for this specific variant")
+    )
+    
+    # SKU for inventory management
+    sku = models.CharField(
+        max_length=100, 
+        unique=True, 
+        blank=True, 
+        null=True,
+        verbose_name=_("SKU"),
+        help_text=_("Unique identifier for this variant")
+    )
+    
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name=_("Is Active"),
+        help_text=_("Uncheck to hide this variant without deleting it")
+    )
+    sort_order = models.PositiveIntegerField(
+        default=0,
+        verbose_name=_("Sort Order"),
+        help_text=_("Lower numbers appear first")
+    )
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = _("Product Variant")
+        verbose_name_plural = _("Product Variants")
+        db_table = 'jeba_inventory_product_variant'
+        ordering = ['sort_order', 'name']
+        unique_together = [['product', 'variant_type', 'name']]
+    
+    def __str__(self):
+        return f"{self.product.name} - {self.get_variant_type_display()}: {self.name}"
+    
+    @property
+    def final_price(self):
+        """Calculate final price including adjustment"""
+        return self.product.selling_price + self.price_adjustment
+    
+    @property
+    def in_stock(self):
+        """Check if variant has stock"""
+        return self.stock_quantity > 0
     
     # --- NEW: Discount Logic ---
     @property

@@ -50,6 +50,7 @@ urlpatterns = [
     path('ai/', include('jeba_ai_builder.urls')),
     # --------------------------------------
     path('messenger/', include('jeba_messenger.urls')),
+    path('diagnostics/', include('jeba_diagnostics.urls')), # <--- Page Speed Tools
 ]
 
 # Serve media files in development

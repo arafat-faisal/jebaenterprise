@@ -226,8 +226,10 @@
                         <a href="{% url 'product_detail' item.product.id %}" style="text-decoration: none; color: inherit; font-weight: 600;">
                             {{ item.product.name }}
                         </a>
-                        {% if item.variation %}
-                            <div style="font-size: 0.85rem; color: #888;">Variant: {{ item.variation.name }}</div>
+                        {% if item.variant_summary %}
+                            <div style="font-size: 0.85rem; color: #888;">{{ item.variant_summary }}</div>
+                        {% elif item.variation %}
+                            <div style="font-size: 0.85rem; color: #888;">{{ item.variation.get_variant_type_display }}: {{ item.variation.name }}</div>
                         {% endif %}
                     </td>
                     <td>৳{{ item.sold_price|floatformat:2 }}</td>

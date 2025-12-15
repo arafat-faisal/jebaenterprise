@@ -242,7 +242,11 @@
     <div class="header-row">
         <div class="company-info">
             {% comment %} Ensure your logo is accessible via the static tag {% endcomment %}
+            {% if settings.logo %}
+            <img src="{{ settings.logo.url }}" alt="Jeba Enterprise Logo" class="company-logo">
+            {% else %}
             <img src="{% static 'logo.svg' %}" alt="Jeba Enterprise Logo" class="company-logo">
+            {% endif %}
             <p style="margin-top: 10px;">{{ settings.contact_address|linebreaksbr }}</p>
             <p>Phone: {{ settings.contact_phone }}</p>
             <p>Email: {{ settings.contact_email }}</p>
@@ -296,8 +300,10 @@
                             <a href="{% url 'product_detail' item.product.id %}" class="item-link">
                                 {{ item.product.name }}
                             </a>
-                            {% if item.variation %}
-                                <div class="item-variation">({{ item.variation.name }})</div>
+                            {% if item.variant_summary %}
+                                <div class="item-variation">{{ item.variant_summary }}</div>
+                            {% elif item.variation %}
+                                <div class="item-variation">{{ item.variation.get_variant_type_display }}: {{ item.variation.name }}</div>
                             {% endif %}
                         </div>
                     </div>

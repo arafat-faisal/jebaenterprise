@@ -171,24 +171,61 @@ class TrackEventView(View):
 def analytics_dashboard(request, slug):
     campaign = get_object_or_404(Campaign, slug=slug)
     
-    # 1. Headline Metrics
-    total_sessions = campaign.sessions.count()
+    # --- FILTERS ---
+    date_range = request.GET.get('date_range', '7d')
+    source_filter = request.GET.get('source', 'all')
     
-    purchases = ConversionEvent.objects.filter(
-        session__campaign=campaign, 
+    # Base Queryset
+    sessions_qs = campaign.sessions.all()
+    
+    # 1. Apply Date Filter
+    now = timezone.now()
+    if date_range == 'today':
+        start_date = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        sessions_qs = sessions_qs.filter(created_at__gte=start_date)
+    elif date_range == 'yesterday':
+        start_date = (now - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+        end_date = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        sessions_qs = sessions_qs.filter(created_at__gte=start_date, created_at__lt=end_date)
+    elif date_range == '7d':
+        start_date = now - timedelta(days=7)
+        sessions_qs = sessions_qs.filter(created_at__gte=start_date)
+    elif date_range == '30d':
+        start_date = now - timedelta(days=30)
+        sessions_qs = sessions_qs.filter(created_at__gte=start_date)
+    # 'all' implies no filter
+    
+    # 2. Apply Source Filter
+    if source_filter != 'all':
+        if source_filter == 'Direct':
+             sessions_qs = sessions_qs.filter(utm_source='')
+        else:
+             sessions_qs = sessions_qs.filter(utm_source=source_filter)
+
+    # --- AGGREGATION ---
+    
+    # 1. Headline Metrics
+    total_sessions = sessions_qs.count()
+    
+    # Filter purchase events to only include those from the filtered sessions
+    purchases_qs = ConversionEvent.objects.filter(
+        session__in=sessions_qs, 
         event_type='PURCHASE'
     )
-    total_purchases = purchases.count()
-    total_revenue = purchases.aggregate(Sum('value'))['value__sum'] or 0.00
+    total_purchases = purchases_qs.count()
+    total_revenue = purchases_qs.aggregate(Sum('value'))['value__sum'] or 0.00
     
     conversion_rate = (total_purchases / total_sessions * 100) if total_sessions > 0 else 0
     
-    # 2. Variant Performance
+    # 2. Variant Performance (Scoped to filtered sessions)
     variants_data = []
     for v in campaign.variants.all():
-        v_sessions = v.sessions.count()
-        v_purchases = ConversionEvent.objects.filter(session__variant=v, event_type='PURCHASE').count()
-        v_revenue = ConversionEvent.objects.filter(session__variant=v, event_type='PURCHASE').aggregate(Sum('value'))['value__sum'] or 0
+        # We filter the ALREADY FILTERED main queryset by variant
+        v_sessions_qs = sessions_qs.filter(variant=v)
+        v_sessions = v_sessions_qs.count()
+        
+        v_purchases = ConversionEvent.objects.filter(session__in=v_sessions_qs, event_type='PURCHASE').count()
+        v_revenue = ConversionEvent.objects.filter(session__in=v_sessions_qs, event_type='PURCHASE').aggregate(Sum('value'))['value__sum'] or 0
         v_cr = (v_purchases / v_sessions * 100) if v_sessions > 0 else 0
         
         variants_data.append({
@@ -199,39 +236,36 @@ def analytics_dashboard(request, slug):
             'cr': round(v_cr, 2)
         })
 
-    # 3. Source Breakdown (Where did they come from?)
-    sources_query = campaign.sessions.values('utm_source').annotate(count=Count('id')).order_by('-count')
-    sources_data = [{'name': s['utm_source'] or 'Direct/None', 'count': s['count']} for s in sources_query[:5]]
+    # 3. Source Breakdown (For the filter dropdown AND the list)
+    # Note: We query the ORIGINAL UNFILTERED list to populate the dropdown options, 
+    # but the chart/list below might show filtered data. 
+    # Actually, for the breakdown list, it makes sense to show breakdown of CURRENT view.
+    sources_query = sessions_qs.values('utm_source').annotate(count=Count('id')).order_by('-count')
+    sources_data = [{'name': s['utm_source'] or 'Direct', 'count': s['count']} for s in sources_query[:5]]
+    
+    # For the Dropdown: Get ALL distinct sources for this campaign ever
+    available_sources = campaign.sessions.exclude(utm_source='').values_list('utm_source', flat=True).distinct()
 
-    # 4. Detailed Session Log (The "God View")
-    # Fetch last 50 sessions with related events to avoid N+1
-    recent_sessions = campaign.sessions.prefetch_related('events').order_by('-created_at')[:50]
+    # 4. Detailed Session Log (Filtered)
+    recent_sessions = sessions_qs.prefetch_related('events').order_by('-created_at')[:50]
     
     session_logs = []
     for s in recent_sessions:
         events = s.events.all()
         event_types = [e.event_type for e in events]
         
-        # Calculate Duration (Time between first and last event)
-        # Calculate Duration (Time between first and last event)
         if events.exists():
             duration_seconds = (events.last().created_at - events.first().created_at).seconds
-            # Format MM:SS
             minutes, seconds = divmod(duration_seconds, 60)
             duration = f"{minutes}m {seconds}s"
-            
-            # Cap crazy durations
-            if duration_seconds > 3600:
-                duration = "> 1 hr (Left Open)"
+            if duration_seconds > 3600: duration = "> 1 hr"
         else:
             duration = "0s"
             
-        # Scroll Depth
         scroll = "0%"
         if 'SCROLL_90' in event_types: scroll = "90%"
         elif 'SCROLL_50' in event_types: scroll = "50%"
         
-        # Outcome
         outcome = "Bounced"
         row_class = "text-gray-500"
         
@@ -243,7 +277,7 @@ def analytics_dashboard(request, slug):
             row_class = "text-blue-600 font-semibold"
         elif 'ADD_TO_CART' in event_types: 
             outcome = "🛍️ Cart"
-        elif duration > 30: 
+        elif duration != "0s": # Simple logic for "Reading"
             outcome = "👀 Reading"
             
         session_logs.append({
@@ -252,75 +286,25 @@ def analytics_dashboard(request, slug):
             'source': s.utm_source or 'Direct',
             'location': f"{s.city}, {s.country}" if s.city else s.country,
             'device': s.device_type,
-            'duration': f"{duration}s",
+            'duration': duration,
             'scroll': scroll,
             'outcome': outcome,
             'row_class': row_class
         })
 
-    
-    # 5. ACTIONABLE ALGORITHMIC INSIGHTS
+    # 5. ACTIONABLE INSIGHTS (Recalculated on Filtered Data)
     insights = []
     
-    # Insight 1: Speed Check
     latest_speed_report = PageReport.objects.filter(url__contains=campaign.slug).order_by('-created_at').first()
-    if latest_speed_report:
-        if latest_speed_report.score < 50:
-            insights.append({
-                'type': 'critical',
-                'title': 'Site is Laggy',
-                'text': f'Page Speed Score is {latest_speed_report.score}/100. This kills conversions. Run Diagnostics & Fix ASAP.',
-                'action': 'Go to Diagnostics'
-            })
-        elif latest_speed_report.score < 80:
-             insights.append({
-                'type': 'warning',
-                'title': 'Speed Could Be Better',
-                'text': f'Current Score: {latest_speed_report.score}. Aim for 90+ for mobile users.',
-                'action': 'Analyze Performance'
-            })
-    else:
-        insights.append({
-            'type': 'info',
-            'title': 'No Speed Data',
-            'text': 'We haven\'t tested this page speed yet.',
-            'action': 'Run Test'
-        })
+    if latest_speed_report and latest_speed_report.score < 50:
+         insights.append({'type': 'critical', 'title': 'Laggy Site', 'text': f'Speed Score {latest_speed_report.score}/100.', 'action': 'Fix'})
 
-    # Insight 2: Pricing / Value Perception
     if total_sessions > 50:
         if conversion_rate < 0.5:
-             insights.append({
-                'type': 'critical',
-                'title': 'Price Resistance Likely',
-                'text': 'Traffic is good (50+), but CR is very low (< 0.5%). The price might be too high or the offer isn\'t compelling.',
-                'action': 'Lower Price / Add Bonus'
-            })
+             insights.append({'type': 'critical', 'title': 'Price/Offer Mismatch', 'text': f'CR is {round(conversion_rate,2)}%.', 'action': 'Review Offer'})
         elif conversion_rate > 5.0:
-            insights.append({
-                'type': 'success',
-                'title': 'Offer is Hot! 🔥',
-                'text': 'CR is fantastic (> 5%). Consider increasing ad spend to scale this winner.',
-                'action': 'Scale Ads'
-            })
-            
-    # Insight 3: Traffic Quality
-    if total_sessions < 10:
-        insights.append({
-            'type': 'warning',
-            'title': 'Low Traffic Data',
-            'text': 'Not enough data to make decisions yet. Drive at least 100 visitors.',
-            'action': 'Boost Traffic'
-        })
-    elif 'Direct/None' in [s['name'] for s in sources_data] and sources_data[0]['count'] == total_sessions:
-         insights.append({
-            'type': 'info',
-            'title': 'Untracked Traffic',
-            'text': 'Most traffic is Direct. Use UTM parameters in your ads to see where they come from.',
-            'action': 'Setup UTMs'
-        })
+            insights.append({'type': 'success', 'title': 'Winning Campaign', 'text': f'CR is {round(conversion_rate,2)}%!', 'action': 'Scale'})
 
-    
     context = {
         'campaign': campaign,
         'summary': {
@@ -332,7 +316,11 @@ def analytics_dashboard(request, slug):
         'variants': variants_data,
         'sources': sources_data,
         'session_logs': session_logs,
-        'insights': insights # <--- Passed to template
+        'insights': insights,
+        # Filters for Context
+        'current_date_range': date_range,
+        'current_source': source_filter,
+        'available_sources': sorted(list(available_sources))
     }
     
     return render(request, 'jeba_landing/dashboard.html', context)

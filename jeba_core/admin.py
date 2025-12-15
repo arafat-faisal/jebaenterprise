@@ -13,6 +13,14 @@ class SiteSettingsAdmin(admin.ModelAdmin):
             'fields': ('maintenance_mode', 'call_for_price'),
             'description': "Master switches for site availability and pricing visibility."
         }),
+        ("🎨 Branding & Design", {
+            'fields': (
+                ('logo', 'favicon'),
+                'header_scripts',
+                'footer_scripts'
+            ),
+            'description': "Upload your logo and favicon. Add custom tracking scripts, analytics, or chat widgets."
+        }),
         ("📢 Marketing & Hero Section", {
             'fields': ('featured_products',),
             'description': "Select specific products for the Homepage Hero Slider. If empty, standard featured products are used."

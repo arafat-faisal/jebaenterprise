@@ -106,6 +106,9 @@ class SaleItem(models.Model):
     # CRITICAL: These record the financial state AT THE TIME OF SALE
     buying_cost = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     sold_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Sold Price"))
+    
+    # Stores "Color: Red, Size: XL" - Independent of ProductVariation model mess
+    variant_summary = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Variant Details"))
 
     class Meta:
         db_table = 'products_saleitem'
@@ -137,16 +140,6 @@ class SaleItem(models.Model):
             else:
                 self.sold_price = self.product.selling_price
 
-        # 3. Handle Stock Deduction (Only on creation)
-        if not self.pk: 
-            if self.variation:
-                self.variation.stock_quantity -= self.quantity
-                self.variation.save()
-            
-            # Reduce parent product stock as well
-            self.product.stock_quantity -= self.quantity
-            self.product.save()
-            
         super().save(*args, **kwargs)
 
 # --- NEW: COUPON MODEL ---

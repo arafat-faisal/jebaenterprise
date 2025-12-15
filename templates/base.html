@@ -593,7 +593,11 @@
             .mobile-bottom-nav { display: none !important; }
         }
     </style>
+    {% if site_settings.favicon %}
+    <link rel="icon" href="{{ site_settings.favicon.url }}">
+    {% else %}
     <link rel="icon" href="/media/logo.svg" type="image/svg+xml">
+    {% endif %}
     {% if site_settings.meta_pixel_id %}
     <script>
         !function(f,b,e,v,n,t,s)
@@ -619,7 +623,11 @@
     {% block header %}
     <header class="site-header">
         <a href="{% url 'home' %}" class="logo">
-            <img src="/media/logo.svg" alt="Jeba Enterprise" style="height: 40px; width: auto;">
+            {% if site_settings.logo %}
+            <img src="{{ site_settings.logo.url }}" alt="Jeba Enterprise" style="height: 40px; width: auto;" width="150" height="40">
+            {% else %}
+            <span style="font-size: 1.3rem; font-weight: 800;">Jeba Enterprise</span>
+            {% endif %}
         </a>
 
         <div class="mobile-lang-switcher">
@@ -912,7 +920,7 @@
             <div class="footer-brand">
                 <a href="/" class="footer-logo">
                     {% if site_settings.logo %}
-                        <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.site_name }}">
+                        <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.site_name }}" width="130" height="35">
                     {% else %}
                         <h2>{{ site_settings.site_name|default:"JebaEnterprise" }}</h2>
                     {% endif %}
@@ -1001,7 +1009,7 @@
                 <span class="payment-label">{% trans "We accept:" %}</span>
                 
                 <div class="pay-badge" title="Bkash">
-                    <img src="https://seeklogo.com/images/B/bkash-logo-0C1572FBB4-seeklogo.com.png" alt="Bkash">
+                    <img src="https://seeklogo.com/images/B/bkash-logo-0C1572FBB4-seeklogo.com.png" alt="Bkash" width="40" height="18">
                 </div>
                 
                 <div class="pay-badge pay-cod" title="Cash on Delivery">
@@ -1200,7 +1208,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     </script>
     
-    <script src="/static/js/analytics.js"></script>
+    <script src="/static/js/analytics.js" defer></script>
 
 {% block scripts %}
 {% endblock %}
