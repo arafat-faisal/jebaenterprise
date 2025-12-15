@@ -804,7 +804,7 @@
                         [25, 50, 75, 90].forEach(milestone => {
                             if (pctScrolled >= milestone && !this.scrollDepth[milestone]) {
                                 this.scrollDepth[milestone] = true;
-                                this.trackEvent('SCROLL_DEPTH', {depth: milestone});
+                                this.trackEvent('SCROLL_' + milestone);
                             }
                         });
                     });
