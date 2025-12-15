@@ -7,6 +7,7 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.utils import timezone
+from datetime import timedelta
 from django.db.models import Count, Sum
 from django.contrib.admin.views.decorators import staff_member_required
 
