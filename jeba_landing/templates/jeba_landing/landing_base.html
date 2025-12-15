@@ -236,7 +236,7 @@
                    <span class="bg-gray-100 px-3 py-1 rounded-full">👤 {{ user.username }}</span>
                 </a>
                 {% else %}
-                <a href="/accounts/login/" class="text-sm font-semibold text-gray-800 hover:text-primary transition" x-text="lang === 'en' ? 'Login' : 'লগইন'"></a>
+                <a href="/accounts/login/?next={{ request.path }}" class="text-sm font-semibold text-gray-800 hover:text-primary transition" x-text="lang === 'en' ? 'Login' : 'লগইন'"></a>
                 {% endif %}
                 
                 <a href="#order" class="btn-primary px-6 py-2.5 rounded-full font-bold text-sm shadow-lg hover:scale-105 transition transform flex items-center gap-2">
@@ -285,7 +285,7 @@
             {% if user.is_authenticated %}
              <a href="/admin/" class="text-gray-800 font-semibold text-center py-2 bg-gray-50 rounded-lg">👤 {{ user.username }}</a>
             {% else %}
-             <a href="/accounts/login/" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? '🔐 Login' : '🔐 লগইন'"></a>
+             <a href="/accounts/login/?next={{ request.path }}" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? '🔐 Login' : '🔐 লগইন'"></a>
             {% endif %}
             <a href="#order" @click="mobileMenuOpen = false" class="btn-primary text-center py-3.5 rounded-xl font-bold shadow-md text-lg" x-text="lang === 'en' ? 'Order Now' : 'অর্ডার করুন'"></a>
         </div>
