@@ -230,6 +230,15 @@
                 <a href="#features" class="text-sm font-semibold text-gray-800 hover:text-primary transition" x-text="lang === 'en' ? 'Features' : 'বৈশিষ্ট্য'"></a>
                 <a href="#reviews" class="text-sm font-semibold text-gray-800 hover:text-primary transition" x-text="lang === 'en' ? 'Reviews' : 'মতামত'"></a>
                 
+                <!-- Auth Links -->
+                {% if user.is_authenticated %}
+                <a href="/admin/" class="text-sm font-semibold text-gray-800 hover:text-primary transition">
+                   <span class="bg-gray-100 px-3 py-1 rounded-full">👤 {{ user.username }}</span>
+                </a>
+                {% else %}
+                <a href="/admin/login/" class="text-sm font-semibold text-gray-800 hover:text-primary transition" x-text="lang === 'en' ? 'Login' : 'লগইন'"></a>
+                {% endif %}
+                
                 <a href="#order" class="btn-primary px-6 py-2.5 rounded-full font-bold text-sm shadow-lg hover:scale-105 transition transform flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                     <span x-text="lang === 'en' ? 'Order Now' : 'অর্ডার করুন'"></span>
@@ -271,6 +280,13 @@
             <a href="#features" @click="mobileMenuOpen = false" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? 'Features' : 'বৈশিষ্ট্য'"></a>
             <a href="#reviews" @click="mobileMenuOpen = false" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? 'Reviews' : 'কাটমার রিভিউ'"></a>
             <a href="#faq" @click="mobileMenuOpen = false" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? 'FAQ' : 'প্রশ্ন ও উত্তর'"></a>
+            
+            <!-- Mobile Auth -->
+            {% if user.is_authenticated %}
+             <a href="/admin/" class="text-gray-800 font-semibold text-center py-2 bg-gray-50 rounded-lg">👤 {{ user.username }}</a>
+            {% else %}
+             <a href="/admin/login/" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? '🔐 Login' : '🔐 লগইন'"></a>
+            {% endif %}
             <a href="#order" @click="mobileMenuOpen = false" class="btn-primary text-center py-3.5 rounded-xl font-bold shadow-md text-lg" x-text="lang === 'en' ? 'Order Now' : 'অর্ডার করুন'"></a>
         </div>
     </nav>
