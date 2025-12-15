@@ -296,8 +296,8 @@ def analytics_dashboard(request, slug):
     insights = []
     
     latest_speed_report = PageReport.objects.filter(url__contains=campaign.slug).order_by('-created_at').first()
-    if latest_speed_report and latest_speed_report.score < 50:
-         insights.append({'type': 'critical', 'title': 'Laggy Site', 'text': f'Speed Score {latest_speed_report.score}/100.', 'action': 'Fix'})
+    if latest_speed_report and latest_speed_report.performance_score < 50:
+         insights.append({'type': 'critical', 'title': 'Laggy Site', 'text': f'Speed Score {latest_speed_report.performance_score}/100.', 'action': 'Fix'})
 
     if total_sessions > 50:
         if conversion_rate < 0.5:
