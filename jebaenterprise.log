@@ -23747,3 +23747,671 @@ INFO 2025-12-15 23:09:48,082 basehttp "GET /landing/analytics/demo-offer/?date_r
 INFO 2025-12-15 23:09:48,122 basehttp "GET /admin/login/?next=/landing/analytics/demo-offer/%3Fdate_range%3Dtoday HTTP/1.1" 200 3126
 INFO 2025-12-15 23:10:16,826 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
 INFO 2025-12-15 23:10:16,915 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:11:16,820 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+ERROR 2025-12-15 23:11:53,765 log Internal Server Error: /landing/analytics/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:11:53,769 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 500 85017
+INFO 2025-12-15 23:12:05,096 autoreload Watching for file changes with StatReloader
+ERROR 2025-12-15 23:12:07,832 log Internal Server Error: /landing/analytics/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:12:07,834 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 500 85016
+ERROR 2025-12-15 23:12:08,369 log Internal Server Error: /landing/analytics/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:12:08,372 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 500 85016
+INFO 2025-12-15 23:12:16,830 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:12:16,831 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:12:25,914 basehttp "GET /admin/ HTTP/1.1" 200 83950
+WARNING 2025-12-15 23:12:25,928 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:12:29,938 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 38550
+WARNING 2025-12-15 23:12:29,957 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:12:29,983 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-15 23:12:32,455 log Internal Server Error: /landing/analytics/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:12:32,458 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 500 84880
+INFO 2025-12-15 23:12:34,034 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 38550
+ERROR 2025-12-15 23:12:34,882 log Internal Server Error: /landing/analytics/almari-camp-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:12:34,884 basehttp "GET /landing/analytics/almari-camp-test/ HTTP/1.1" 500 84813
+INFO 2025-12-15 23:12:39,338 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 38550
+INFO 2025-12-15 23:12:45,239 basehttp "POST /admin/jeba_landing/campaign/ HTTP/1.1" 200 576804
+INFO 2025-12-15 23:12:45,252 basehttp "GET /static/admin/js/cancel.js HTTP/1.1" 200 564
+WARNING 2025-12-15 23:12:45,253 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:12:46,975 basehttp "POST /admin/jeba_landing/campaign/ HTTP/1.1" 302 0
+INFO 2025-12-15 23:12:47,017 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 34260
+WARNING 2025-12-15 23:12:47,033 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:12:47,054 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-15 23:12:50,625 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 33759
+WARNING 2025-12-15 23:12:50,638 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:12:50,667 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-15 23:12:51,509 basehttp "GET /admin/jeba_landing/campaign/add/ HTTP/1.1" 200 73597
+WARNING 2025-12-15 23:12:51,526 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:12:51,555 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-15 23:13:15,028 basehttp "POST /admin/jeba_landing/campaign/add/ HTTP/1.1" 302 0
+INFO 2025-12-15 23:13:15,125 basehttp "GET /admin/jeba_landing/campaign/9/change/ HTTP/1.1" 200 74932
+WARNING 2025-12-15 23:13:15,147 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:13:15,178 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-15 23:13:16,819 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:13:16,819 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:13:16,821 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:13:16,822 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:13:23,900 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 37761
+WARNING 2025-12-15 23:13:23,917 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:13:24,050 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-15 23:13:28,286 basehttp "POST /admin/jeba_landing/campaign/ HTTP/1.1" 200 3086
+WARNING 2025-12-15 23:14:16,813 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:14:16,813 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:14:16,912 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:14:16,913 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:15:16,819 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:15:16,819 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:15:16,822 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:15:16,822 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:16:04,512 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 37761
+INFO 2025-12-15 23:16:05,534 basehttp "GET /admin/jeba_landing/campaign/9/change/ HTTP/1.1" 200 74330
+WARNING 2025-12-15 23:16:05,555 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:16:05,580 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-15 23:16:09,438 basehttp "POST /admin/jeba_landing/campaign/9/change/ HTTP/1.1" 302 0
+INFO 2025-12-15 23:16:09,530 basehttp "GET /admin/jeba_landing/campaign/9/change/ HTTP/1.1" 200 83560
+WARNING 2025-12-15 23:16:09,549 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:16:09,575 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-15 23:16:14,054 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 37761
+WARNING 2025-12-15 23:16:14,071 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:16:14,095 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-15 23:16:16,125 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:16:16,128 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84218
+WARNING 2025-12-15 23:16:16,823 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:16:16,823 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:16:16,823 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:16:16,823 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:17:11,968 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:17:11,969 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:17:16,915 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:17:16,915 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:17:21,812 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:17:21,812 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:17:31,815 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:17:31,816 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:17:41,814 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:17:41,815 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:18:16,814 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:18:16,814 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:18:49,314 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-15 23:18:50,742 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-15 23:19:16,827 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:19:16,828 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+ERROR 2025-12-15 23:19:48,590 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:19:48,594 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84355
+ERROR 2025-12-15 23:19:49,195 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:19:49,199 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84355
+WARNING 2025-12-15 23:20:16,812 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:20:16,812 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+ERROR 2025-12-15 23:20:19,476 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:20:19,480 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84355
+ERROR 2025-12-15 23:20:20,246 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:20:20,248 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84355
+ERROR 2025-12-15 23:20:21,019 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:20:21,021 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84353
+WARNING 2025-12-15 23:21:16,815 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:21:16,816 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+ERROR 2025-12-15 23:21:34,014 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:21:34,015 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84355
+INFO 2025-12-15 23:21:37,652 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 38517
+WARNING 2025-12-15 23:21:37,669 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:21:37,694 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-15 23:21:40,009 log Internal Server Error: /landing/analytics/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:21:40,012 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 500 84262
+INFO 2025-12-15 23:21:41,484 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 38517
+WARNING 2025-12-15 23:22:16,816 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:22:16,817 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:23:16,816 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:23:16,817 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:24:16,823 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:24:16,824 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:25:16,919 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:25:16,919 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+ERROR 2025-12-15 23:25:55,315 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:25:55,318 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84218
+WARNING 2025-12-15 23:26:16,811 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:26:16,812 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:26:52,278 basehttp "GET /admin/login/ HTTP/1.1" 200 3069
+WARNING 2025-12-15 23:26:52,298 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:26:52,298 basehttp "GET /static/jazzmin/css/main.css HTTP/1.1" 200 16969
+INFO 2025-12-15 23:26:52,299 basehttp "GET /static/vendor/fontawesome-free/css/all.min.css HTTP/1.1" 200 103009
+INFO 2025-12-15 23:26:52,302 basehttp "GET /static/vendor/bootswatch/darkly/bootstrap.min.css HTTP/1.1" 200 164202
+INFO 2025-12-15 23:26:52,302 basehttp "GET /static/vendor/adminlte/js/adminlte.min.js HTTP/1.1" 200 44244
+INFO 2025-12-15 23:26:52,302 basehttp "GET /static/vendor/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 62440
+INFO 2025-12-15 23:26:52,303 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-12-15 23:26:52,308 basehttp "GET /static/vendor/adminlte/css/adminlte.min.css HTTP/1.1" 200 1382975
+INFO 2025-12-15 23:26:52,344 basehttp "GET /static/vendor/fontawesome-free/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 156400
+WARNING 2025-12-15 23:26:52,371 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:27:09,094 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 302 0
+INFO 2025-12-15 23:27:09,132 basehttp "GET /admin/login/?next=/landing/analytics/video-test/ HTTP/1.1" 200 3105
+WARNING 2025-12-15 23:27:09,149 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+WARNING 2025-12-15 23:27:16,819 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:27:16,819 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:27:28,957 basehttp "POST /admin/login/?next=/landing/analytics/video-test/ HTTP/1.1" 302 0
+ERROR 2025-12-15 23:27:28,994 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:27:28,995 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84370
+WARNING 2025-12-15 23:27:29,064 log Not Found: /favicon.ico
+WARNING 2025-12-15 23:27:29,065 basehttp "GET /favicon.ico HTTP/1.1" 404 13578
+ERROR 2025-12-15 23:28:01,309 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:28:01,311 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84033
+WARNING 2025-12-15 23:28:16,816 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:28:16,817 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:29:16,814 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:29:16,815 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:30:16,829 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:30:16,830 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+WARNING 2025-12-15 23:31:16,820 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:31:16,820 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+ERROR 2025-12-15 23:32:06,811 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:32:06,814 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84354
+ERROR 2025-12-15 23:32:08,134 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:32:08,136 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84354
+ERROR 2025-12-15 23:32:08,673 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:32:08,675 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84354
+WARNING 2025-12-15 23:32:16,810 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:32:16,810 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:32:26,245 basehttp "GET /admin/jeba_landing/campaign/ HTTP/1.1" 200 38517
+WARNING 2025-12-15 23:32:26,261 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:32:26,284 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+ERROR 2025-12-15 23:32:30,177 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:32:30,179 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84218
+ERROR 2025-12-15 23:32:30,863 log Internal Server Error: /landing/analytics/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:32:30,866 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 500 84262
+ERROR 2025-12-15 23:32:45,877 log Internal Server Error: /landing/analytics/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:32:45,879 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 500 84262
+ERROR 2025-12-15 23:33:10,032 log Internal Server Error: /landing/analytics/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:33:10,035 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 500 84526
+WARNING 2025-12-15 23:33:10,106 log Not Found: /favicon.ico
+WARNING 2025-12-15 23:33:10,106 basehttp "GET /favicon.ico HTTP/1.1" 404 13578
+WARNING 2025-12-15 23:33:16,812 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:33:16,812 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+ERROR 2025-12-15 23:33:51,224 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:33:51,226 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84231
+ERROR 2025-12-15 23:33:51,773 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:33:51,774 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84231
+ERROR 2025-12-15 23:34:09,491 log Internal Server Error: /landing/analytics/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 191, in analytics_dashboard
+    start_date = now - timedelta(days=7)
+                       ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+ERROR 2025-12-15 23:34:09,492 basehttp "GET /landing/analytics/video-test/ HTTP/1.1" 500 84093
+WARNING 2025-12-15 23:34:16,819 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:34:16,819 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:34:43,970 autoreload E:\WebProjects\jebaenterprise\jeba_landing\views.py changed, reloading.
+INFO 2025-12-15 23:34:44,810 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-15 23:35:16,820 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:35:16,820 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:35:25,779 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 21081
+WARNING 2025-12-15 23:35:25,797 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+WARNING 2025-12-15 23:35:25,958 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:35:47,482 basehttp "GET /admin/jeba_landing/campaignvariant/ HTTP/1.1" 200 39228
+WARNING 2025-12-15 23:35:47,504 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:35:47,529 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-12-15 23:35:59,456 basehttp "GET /landing/demo-offer/?preview_variant=11 HTTP/1.1" 200 55600
+WARNING 2025-12-15 23:35:59,686 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-15 23:35:59,687 basehttp "GET /media/site/branding/jeba_enterprise_optimized.png HTTP/1.1" 304 0
+WARNING 2025-12-15 23:35:59,689 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-15 23:36:03,178 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:36:09,077 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:36:09,728 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:36:09,875 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:36:10,119 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+WARNING 2025-12-15 23:36:16,815 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:36:16,815 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:36:19,740 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:36:22,904 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:22,918 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:23,618 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:23,629 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:29,557 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:29,570 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:30,293 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:30,306 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:30,836 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:30,846 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:31,388 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:31,398 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:36,678 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:36,690 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:37,387 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:37,399 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:43,448 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:43,459 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:44,123 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:44,134 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:44,642 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:44,653 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:45,191 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:36:45,203 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:49,581 basehttp "GET /admin/jeba_landing/campaign/10/change/ HTTP/1.1" 200 82528
+WARNING 2025-12-15 23:36:49,603 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:36:49,624 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-12-15 23:37:16,815 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:37:16,815 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:37:21,419 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:37:21,433 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:22,060 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:37:22,074 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:22,723 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:37:22,735 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:23,256 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 22219
+WARNING 2025-12-15 23:37:23,266 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:28,125 basehttp "GET /landing/demo-offer/?preview_variant=11 HTTP/1.1" 200 55600
+INFO 2025-12-15 23:37:28,173 basehttp "GET /media/site/branding/jeba_enterprise_optimized.png HTTP/1.1" 304 0
+INFO 2025-12-15 23:37:31,475 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23350
+WARNING 2025-12-15 23:37:31,488 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:38,320 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:37:38,428 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:37:40,890 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:37:42,208 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:37:43,116 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:37:46,626 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:46,638 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:47,414 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:47,426 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:48,826 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:37:49,997 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:50,009 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:50,651 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:50,662 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:51,065 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:51,077 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:51,633 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:51,645 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:51,957 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:51,968 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:53,193 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:53,213 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:54,279 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:54,291 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:54,980 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:54,991 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:55,993 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:56,004 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:58,284 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:37:58,295 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:37:58,819 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:38:03,636 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:38:03,647 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:38:04,497 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:38:04,508 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:38:06,952 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:38:06,964 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+INFO 2025-12-15 23:38:07,776 basehttp "GET /landing/analytics/demo-offer/ HTTP/1.1" 200 23351
+WARNING 2025-12-15 23:38:07,788 basehttp "GET /static/logo.svg HTTP/1.1" 404 1838
+WARNING 2025-12-15 23:38:16,812 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:38:16,812 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:39:11,146 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-15 23:39:16,822 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:39:16,822 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:39:30,880 basehttp "GET /landing/demo-offer/?t=567 HTTP/1.1" 200 55587
+INFO 2025-12-15 23:39:30,915 basehttp "GET /media/products/gallery/prod_1342_0.webp HTTP/1.1" 200 19832
+INFO 2025-12-15 23:39:31,014 basehttp "GET /media/site/branding/jeba_enterprise_optimized.png HTTP/1.1" 200 40615
+INFO 2025-12-15 23:39:36,554 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:39:36,618 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:39:36,740 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:39:36,906 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:39:41,304 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:39:51,299 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:40:01,307 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-15 23:40:11,314 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+WARNING 2025-12-15 23:40:16,815 log Not Found: /landing/api/track/
+WARNING 2025-12-15 23:40:16,816 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
+INFO 2025-12-15 23:40:21,297 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
