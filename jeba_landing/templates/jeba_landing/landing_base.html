@@ -223,19 +223,10 @@
         overflow: hidden;
       }
 
-      /* 5. COMPONENTS */
       /* Dynamic Theme Variables */
       :root {
-        --primary: {
-           {
-            variant.primary_color|default: "#D4F759";
-          }
-        }
-        --accent: {
-           {
-            variant.accent_color|default: "#000000";
-          }
-        }
+        --primary: {{ variant.primary_color|default:"#D4F759" }};
+        --accent: {{ variant.accent_color|default:"#000000" }};
       }
 
       .btn-primary {
@@ -313,6 +304,75 @@
       }
       .no-js-message {
         display: none;
+      }
+
+      /* SHORT SCREEN FIX - For very small mobile devices (iPhone SE, small Android) */
+      @media (max-width: 768px) and (max-height: 700px) {
+        /* Reduce hero image size */
+        .aspect-square {
+          max-height: 35vh !important;
+        }
+        .hero-swiper {
+          max-height: 35vh !important;
+        }
+        /* Smaller headline */
+        .text-xl {
+          font-size: 1.1rem !important;
+          line-height: 1.3 !important;
+        }
+        .text-2xl {
+          font-size: 1.25rem !important;
+        }
+        /* Reduce padding */
+        .py-2 {
+          padding-top: 0.25rem !important;
+          padding-bottom: 0.25rem !important;
+        }
+        .mb-3, .mb-4 {
+          margin-bottom: 0.5rem !important;
+        }
+        .gap-2 {
+          gap: 0.35rem !important;
+        }
+        /* Smaller buttons */
+        .px-8 {
+          padding-left: 1.5rem !important;
+          padding-right: 1.5rem !important;
+        }
+        .py-3 {
+          padding-top: 0.6rem !important;
+          padding-bottom: 0.6rem !important;
+        }
+        /* Reduce nav padding */
+        nav.fixed {
+          padding-top: 0.35rem !important;
+          padding-bottom: 0.35rem !important;
+        }
+        /* Ensure main content fits */
+        main.pt-14 {
+          padding-top: 3rem !important;
+        }
+        /* Variant buttons smaller */
+        .w-8.h-8 {
+          width: 1.5rem !important;
+          height: 1.5rem !important;
+        }
+      }
+
+      /* EXTRA SHORT SCREENS (under 600px height) */
+      @media (max-width: 768px) and (max-height: 600px) {
+        .aspect-square {
+          max-height: 28vh !important;
+        }
+        .hero-swiper {
+          max-height: 28vh !important;
+        }
+        .text-xl {
+          font-size: 1rem !important;
+        }
+        main.pt-14 {
+          padding-top: 2.5rem !important;
+        }
       }
     </style>
     <noscript>
@@ -750,17 +810,16 @@
               {{ product.name }}
             </p>
             <div class="flex items-baseline gap-2">
-              {% if product.original_price and product.original_price >
-              product.selling_price %}
+              {% if product.original_price and product.original_price > product.selling_price %}
               <div class="relative text-xs text-gray-500 mr-1">
-                {{ campaign.currency }} {{ product.original_price }}
+                {{ campaign.currency }} <span x-text="({{ product.original_price }} + variantPriceAdjustment).toFixed(0)">{{ product.original_price }}</span>
                 <div
                   class="absolute top-1/2 left-0 w-full h-[1px] bg-red-500 -rotate-12 transform origin-center"
                 ></div>
               </div>
               {% endif %}
               <p class="font-bold text-lg text-gray-900 leading-none">
-                {{ campaign.currency }} {{ product.selling_price }}
+                {{ campaign.currency }} <span x-text="({{ product.selling_price }} + variantPriceAdjustment).toFixed(0)">{{ product.selling_price }}</span>
               </p>
             </div>
           </div>
@@ -827,29 +886,18 @@
                 <div
                   class="flex flex-wrap gap-2 items-center justify-center md:justify-start"
                 >
-                  {% if product.available_colors %} {% for variant in
-                  product.available_colors %}
+                  {% if product.available_colors %} {% for variant in product.available_colors %}
                   <button
                     type="button"
                     @click="selectVariant('COLOR', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name}}', {{ variant.stock_quantity }})"
                     :class="selectedVariants.COLOR === {{ variant.id }} ? 'ring-2 ring-lime-500' : ({{ variant.stock_quantity }} === 0 ? 'opacity-50 cursor-not-allowed' : '')"
                     class="w-8 h-8 rounded-full border-2 hover:scale-110 transition"
-                    {%
-                    if
-                    variant.color_code
-                    %}style="background: {{ variant.color_code }}"
-                    {%
-                    else
-                    %}style="background: #ccc"
-                    {%
-                    endif
-                    %}
+                    {% if variant.color_code %}style="background: {{ variant.color_code }}"{% else %}style="background: #ccc"{% endif %}
                     title="{{ variant.name }} (Stock: {{ variant.stock_quantity }})"
                   ></button>
                   {% endfor %}
                   <span class="text-gray-400 select-none">|</span>
-                  {% endif %} {% if product.available_sizes %} {% for variant in
-                  product.available_sizes %}
+                  {% endif %} {% if product.available_sizes %} {% for variant in product.available_sizes %}
                   <button
                     type="button"
                     @click="selectVariant('SIZE', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
@@ -862,8 +910,7 @@
                   <span
                     class="text-lg md:text-2xl font-bold text-lime-600 ml-2"
                   >
-                    {% if product.original_price and product.original_price >
-                    product.selling_price %}
+                    {% if product.original_price and product.original_price > product.selling_price %}
                     <span
                       class="relative text-gray-400 text-lg font-semibold mr-2"
                     >
@@ -920,17 +967,7 @@
                       src="{{ img }}"
                       alt="Product Image"
                       class="w-full h-full object-contain p-2 hover:scale-105 transition duration-500"
-                      {%
-                      if
-                      forloop.first
-                      %}fetchpriority="high"
-                      loading="eager"
-                      {%
-                      else
-                      %}loading="lazy"
-                      {%
-                      endif
-                      %}
+                      {% if forloop.first %}fetchpriority="high" loading="eager"{% else %}loading="lazy"{% endif %}
                       width="600"
                       height="600"
                     />
@@ -1159,16 +1196,7 @@
                       @click="selectVariant('COLOR', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
                       :class="selectedVariants.COLOR === {{ variant.id }} ? 'ring-2 ring-lime-500' : ({{ variant.stock_quantity }} === 0 ? 'opacity-50 cursor-not-allowed' : '')"
                       class="w-8 h-8 rounded-full border-2 hover:scale-110 transition"
-                      {%
-                      if
-                      variant.color_code
-                      %}style="background: {{ variant.color_code }}"
-                      {%
-                      else
-                      %}style="background: #ccc"
-                      {%
-                      endif
-                      %}
+                      {% if variant.color_code %}style="background: {{ variant.color_code }}"{% else %}style="background: #ccc"{% endif %}
                       title="{{ variant.name }} (Stock: {{ variant.stock_quantity }})"
                     ></button>
                     {% endfor %}
@@ -1641,7 +1669,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Global Footer Scripts -->
-    {% if settings.footer_scripts %} {{ settings.footer_scripts|safe }} {% endif
-    %}
+    {% if settings.footer_scripts %} {{ settings.footer_scripts|safe }} {% endif %}
   </body>
 </html>

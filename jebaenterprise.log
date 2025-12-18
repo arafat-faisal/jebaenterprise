@@ -24415,3 +24415,1069 @@ INFO 2025-12-15 23:40:11,314 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
 WARNING 2025-12-15 23:40:16,815 log Not Found: /landing/api/track/
 WARNING 2025-12-15 23:40:16,816 basehttp "POST /landing/api/track/ HTTP/1.1" 404 28
 INFO 2025-12-15 23:40:21,297 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:35:03,184 autoreload Watching for file changes with StatReloader
+INFO 2025-12-18 23:35:12,961 basehttp "GET / HTTP/1.1" 200 131092
+WARNING 2025-12-18 23:35:12,998 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-18 23:35:13,120 basehttp "GET /media/products/gallery/prod_1539_0.webp HTTP/1.1" 200 22504
+INFO 2025-12-18 23:35:13,121 basehttp "GET /media/products/gallery/prod_1364_0.webp HTTP/1.1" 200 46788
+INFO 2025-12-18 23:35:13,149 basehttp "GET /media/products/gallery/prod_1588_0.webp HTTP/1.1" 200 26092
+INFO 2025-12-18 23:35:13,149 basehttp "GET /media/products/gallery/prod_1602_0.webp HTTP/1.1" 200 22754
+INFO 2025-12-18 23:35:13,284 basehttp "GET /media/products/gallery/prod_1496_0.webp HTTP/1.1" 200 57454
+ERROR 2025-12-18 23:35:14,693 log Internal Server Error: /landing/offers/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 34, in campaign_list
+    return render(request, 'jeba_landing/campaign_list.html', {'campaigns': campaigns})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 111: 'endif', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+ERROR 2025-12-18 23:35:14,699 basehttp "GET /landing/offers/ HTTP/1.1" 500 243885
+WARNING 2025-12-18 23:35:14,789 log Not Found: /favicon.ico
+WARNING 2025-12-18 23:35:14,789 basehttp "GET /favicon.ico HTTP/1.1" 404 13578
+INFO 2025-12-18 23:39:21,441 basehttp "GET /landing/offers/ HTTP/1.1" 200 48472
+INFO 2025-12-18 23:39:21,483 basehttp "GET /media/products/gallery/prod_1342_0.webp HTTP/1.1" 200 19832
+WARNING 2025-12-18 23:39:21,486 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-18 23:39:21,487 basehttp "GET /media/products/gallery/prod_1634_0.webp HTTP/1.1" 200 18398
+ERROR 2025-12-18 23:39:25,109 log Internal Server Error: /landing/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 120, in get
+    response = render(request, 'jeba_landing/landing_base.html', context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 761: 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-18 23:39:25,112 basehttp "GET /landing/demo-offer/ HTTP/1.1" 500 210174
+INFO 2025-12-18 23:39:27,291 basehttp "GET /landing/offers/ HTTP/1.1" 200 48472
+WARNING 2025-12-18 23:39:27,306 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+ERROR 2025-12-18 23:39:36,677 log Internal Server Error: /landing/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 120, in get
+    response = render(request, 'jeba_landing/landing_base.html', context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 761: 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-18 23:39:36,680 basehttp "GET /landing/demo-offer/ HTTP/1.1" 500 210174
+ERROR 2025-12-18 23:48:47,637 log Internal Server Error: /landing/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 120, in get
+    response = render(request, 'jeba_landing/landing_base.html', context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 839: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-18 23:48:47,640 basehttp "GET /landing/demo-offer/ HTTP/1.1" 500 351243
+INFO 2025-12-18 23:48:50,880 basehttp "GET /landing/offers/ HTTP/1.1" 200 48472
+WARNING 2025-12-18 23:48:50,892 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+ERROR 2025-12-18 23:48:52,660 log Internal Server Error: /landing/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 120, in get
+    response = render(request, 'jeba_landing/landing_base.html', context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 839: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-18 23:48:52,663 basehttp "GET /landing/demo-offer/ HTTP/1.1" 500 351106
+ERROR 2025-12-18 23:48:55,850 log Internal Server Error: /landing/video-test/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 120, in get
+    response = render(request, 'jeba_landing/landing_base.html', context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 839: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-18 23:48:55,852 basehttp "GET /landing/video-test/ HTTP/1.1" 500 350952
+ERROR 2025-12-18 23:48:57,828 log Internal Server Error: /landing/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 120, in get
+    response = render(request, 'jeba_landing/landing_base.html', context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 839: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-18 23:48:57,829 basehttp "GET /landing/demo-offer/ HTTP/1.1" 500 351106
+ERROR 2025-12-18 23:56:58,937 log Internal Server Error: /landing/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endfor'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 120, in get
+    response = render(request, 'jeba_landing/landing_base.html', context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 839: 'endfor', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+ERROR 2025-12-18 23:56:58,941 basehttp "GET /landing/demo-offer/ HTTP/1.1" 500 351243
+ERROR 2025-12-18 23:58:21,214 log Internal Server Error: /landing/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 120, in get
+    response = render(request, 'jeba_landing/landing_base.html', context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 1612: 'if'. Looking for one of: elif, else, endif.
+ERROR 2025-12-18 23:58:21,217 basehttp "GET /landing/demo-offer/ HTTP/1.1" 500 195026
+ERROR 2025-12-18 23:58:24,206 log Internal Server Error: /landing/demo-offer/
+Traceback (most recent call last):
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\jeba_landing\views.py", line 120, in get
+    response = render(request, 'jeba_landing/landing_base.html', context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+  File "E:\WebProjects\jebaenterprise\venv\Lib\site-packages\django\template\base.py", line 590, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 1612: 'if'. Looking for one of: elif, else, endif.
+ERROR 2025-12-18 23:58:24,209 basehttp "GET /landing/demo-offer/ HTTP/1.1" 500 195026
+INFO 2025-12-18 23:59:11,744 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58816
+INFO 2025-12-18 23:59:12,215 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:16,876 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:17,190 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:17,365 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:18,587 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:22,010 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:24,847 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58816
+WARNING 2025-12-18 23:59:27,504 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-18 23:59:27,505 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-18 23:59:29,682 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58816
+WARNING 2025-12-18 23:59:30,369 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-18 23:59:30,370 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-18 23:59:38,072 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:38,302 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:38,680 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:38,680 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:40,766 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:46,111 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-18 23:59:50,662 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:00:00,669 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:00:10,666 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:00:20,656 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:00:30,771 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:00:40,655 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:00:50,910 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:01:00,927 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:01:10,921 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:01:20,930 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:01:30,920 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:01:40,915 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:01:50,919 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:02:00,906 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:02:11,029 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:02:20,914 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:02:30,916 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:02:40,922 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:03:38,011 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:03:48,573 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:03:49,404 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58761
+WARNING 2025-12-19 00:03:49,974 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 00:03:49,974 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 00:03:50,405 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:03:50,405 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:03:50,804 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:00,494 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:07,903 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:10,382 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:20,378 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:30,380 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:32,201 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58761
+INFO 2025-12-19 00:04:37,841 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:39,646 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:40,915 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:41,391 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:42,335 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:04:52,443 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+WARNING 2025-12-19 00:04:53,161 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 00:04:53,162 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 00:05:02,325 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:05:12,336 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:05:13,035 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58761
+WARNING 2025-12-19 00:05:13,608 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 00:05:13,609 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 00:05:24,922 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:05:34,917 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:05:44,906 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:05:54,922 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:06:04,923 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:06:14,922 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:06:25,032 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:06:34,927 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:06:44,910 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:06:54,917 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:04,918 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:17,861 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:20,076 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:21,249 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58761
+WARNING 2025-12-19 00:07:21,823 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 00:07:21,824 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 00:07:27,277 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58761
+WARNING 2025-12-19 00:07:27,859 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 00:07:27,859 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 00:07:38,381 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:48,262 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:50,202 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:51,429 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:52,458 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:56,307 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:07:58,248 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:08:08,274 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:08:18,255 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:08:28,258 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:08:38,274 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:08:48,279 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:08:58,258 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:09:08,258 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:09:18,257 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+WARNING 2025-12-19 00:09:20,397 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 00:09:20,397 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 00:09:28,253 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:09:35,463 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58761
+WARNING 2025-12-19 00:09:36,037 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 00:09:36,037 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 00:09:43,124 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58761
+WARNING 2025-12-19 00:09:43,694 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 00:09:43,694 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 00:09:50,372 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58761
+WARNING 2025-12-19 00:09:50,955 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 00:09:50,956 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 00:10:01,337 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:10:01,954 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:10:02,790 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:10:03,787 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:10:11,338 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:10:21,333 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:10:31,336 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:10:41,437 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:10:51,920 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:11:01,921 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:11:11,899 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:11:21,898 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:11:31,916 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:11:41,905 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:11:52,011 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:12:37,909 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:13:37,919 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:14:37,925 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:15:37,922 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:16:37,918 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:17:37,921 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:18:37,928 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:19:37,910 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:20:37,919 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:21:37,911 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:22:37,914 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:23:37,924 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:24:37,917 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:25:37,902 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:26:37,914 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:27:37,918 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:28:37,918 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:29:37,913 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:30:38,020 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:31:37,912 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:32:37,918 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:33:37,909 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:34:38,229 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:35:37,920 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:36:37,928 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:37:37,917 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:38:37,904 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:39:38,027 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:40:37,915 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:41:37,925 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:42:38,028 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:43:37,918 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:44:37,918 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:45:37,924 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:46:37,904 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:47:37,923 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:48:37,928 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:49:37,930 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:50:37,921 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:51:37,925 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:52:37,935 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:53:37,920 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:54:37,924 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:55:37,917 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:56:37,924 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:57:37,915 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:58:37,915 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 00:59:37,922 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:00:37,924 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:01:37,913 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:02:38,027 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:03:37,920 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:04:38,336 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:05:38,026 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:06:37,912 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:06:52,008 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:01,203 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 58761
+INFO 2025-12-19 01:07:01,325 basehttp "GET /media/products/gallery/prod_1342_0.webp HTTP/1.1" 200 19832
+INFO 2025-12-19 01:07:01,353 basehttp "GET /media/site/branding/jeba_enterprise_optimized.png HTTP/1.1" 200 40615
+INFO 2025-12-19 01:07:01,562 basehttp "GET /media/site/branding/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-12-19 01:07:01,755 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:02,009 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:03,559 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:04,201 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:04,965 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:10,187 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:11,101 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:11,102 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:11,519 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:11,804 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:11,899 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:15,563 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:15,586 basehttp "POST /landing/order/place/ HTTP/1.1" 302 0
+INFO 2025-12-19 01:07:15,629 basehttp "GET /sales/order/success/ HTTP/1.1" 200 52234
+WARNING 2025-12-19 01:07:15,709 basehttp "GET /static/js/analytics.js HTTP/1.1" 404 1859
+INFO 2025-12-19 01:07:18,157 basehttp "GET /sales/invoice/b8934bad-af69-4121-b850-71a08c91e75a/pdf/ HTTP/1.1" 200 86867
+INFO 2025-12-19 01:07:18,300 basehttp "GET /sales/invoice/b8934bad-af69-4121-b850-71a08c91e75a/pdf/ HTTP/1.1" 200 86867
+INFO 2025-12-19 01:07:18,515 basehttp - Broken pipe from ('127.0.0.1', 56909)
+INFO 2025-12-19 01:07:18,516 basehttp - Broken pipe from ('127.0.0.1', 56910)
+INFO 2025-12-19 01:07:21,907 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:32,027 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:37,344 basehttp - Broken pipe from ('127.0.0.1', 54541)
+INFO 2025-12-19 01:07:41,909 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:07:51,914 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:08:37,916 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:09:37,905 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:10:37,902 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:11:37,917 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:12:37,902 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:13:37,917 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:14:37,911 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:15:37,925 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:16:37,917 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:17:37,919 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:18:37,925 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:19:37,921 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:20:37,916 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:21:37,915 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:28:04,857 autoreload Watching for file changes with StatReloader
+INFO 2025-12-19 01:28:09,724 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 60656
+WARNING 2025-12-19 01:28:10,261 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 01:28:10,262 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 01:28:20,667 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:28:23,278 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 60656
+WARNING 2025-12-19 01:28:23,848 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 01:28:23,848 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 01:28:34,260 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:28:44,250 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:28:54,256 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:28:58,671 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:28:58,807 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:29:04,919 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:29:11,340 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 60656
+WARNING 2025-12-19 01:29:14,411 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 01:29:14,412 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 01:29:21,471 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:29:22,919 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 60656
+WARNING 2025-12-19 01:29:23,500 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 01:29:23,500 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 01:29:27,558 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16
+INFO 2025-12-19 01:29:30,387 basehttp "GET /landing/demo-offer/ HTTP/1.1" 200 60656
+WARNING 2025-12-19 01:29:31,077 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-19 01:29:31,078 basehttp "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 13689
+INFO 2025-12-19 01:29:31,102 basehttp "GET /media/site/branding/jeba_enterprise_optimized.png HTTP/1.1" 200 40615
+INFO 2025-12-19 01:29:31,388 basehttp "GET /media/products/gallery/prod_1342_0.webp HTTP/1.1" 200 19832
+INFO 2025-12-19 01:29:33,717 basehttp "GET /media/site/branding/favicon.ico HTTP/1.1" 200 15406
+INFO 2025-12-19 01:29:43,660 basehttp "POST /landing/api/track/ HTTP/1.1" 200 16

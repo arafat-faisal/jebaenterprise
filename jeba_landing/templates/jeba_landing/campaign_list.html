@@ -95,8 +95,7 @@
         <!-- Pricing Only if Product Available -->
         {% if campaign.product %}
         <div class="flex items-center gap-3 mb-3">
-          {% if campaign.product.original_price and
-          campaign.product.original_price > campaign.product.selling_price %}
+          {% if campaign.product.original_price and campaign.product.original_price > campaign.product.selling_price %}
           <span class="relative text-gray-400 text-sm font-semibold">
             ৳{{ campaign.product.original_price|floatformat:0 }}
             <div
@@ -111,9 +110,7 @@
         {% endif %}
 
         <p class="text-gray-500 text-sm line-clamp-2 mb-4">
-          {{
-          campaign.meta_description|default:campaign.product.description|default:""|striptags|safe
-          }}
+          {{ campaign.meta_description|default:campaign.product.description|default:""|striptags|truncatechars:120 }}
         </p>
         <span
           class="inline-block text-sm font-bold text-white bg-blue-600 px-4 py-2 rounded-full group-hover:bg-blue-700 transition shadow-sm"

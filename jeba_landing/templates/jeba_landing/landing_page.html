@@ -124,27 +124,22 @@ function updateHeroImageWithBlur(imageUrl, placeholderUrl) {
                         <h1 class="headline-fluid">{{ section.heading }}</h1>
                     </div>
 
-                    <div class="hero-media-container gs-scale">
+                    <div class="hero-media-container gs-scale" id="mobile-hero-img-wrap">
                         {% if section.badge_label %}
                             <div class="hero-badge">{{ section.badge_label }}</div>
                         {% endif %}
-                        <div class="hero-media-container gs-scale" id="desktop-hero-img-wrap">
-                            {% if section.badge_label %}
-                                <div class="hero-badge">{{ section.badge_label }}</div>
-                            {% endif %}
-                            
-                            {% if product.main_image_obj %}
-                                <div class="blur-load" 
-                                    style="background-image: url('{{ product.main_image_obj.placeholder }}'); aspect-ratio: 1/1;">
-                                    
-                                    <img src="{{ product.main_image_obj.image.url }}" 
-                                        id="hero-main-image" 
-                                        alt="{{ product.name }}"
-                                        fetchpriority="high"
-                                        decoding="async">
-                                </div>
-                            {% endif %}
-                        </div>
+                        
+                        {% if product.main_image_obj %}
+                            <div class="blur-load" 
+                                style="background-image: url('{{ product.main_image_obj.placeholder }}');">
+                                
+                                <img src="{{ product.main_image_obj.image.url }}" 
+                                    id="hero-main-image-mobile" 
+                                    alt="{{ product.name }}"
+                                    fetchpriority="high"
+                                    decoding="async">
+                            </div>
+                        {% endif %}
                     </div>
 
                     <div class="mobile-controls-area gs-up">
@@ -234,23 +229,18 @@ function updateHeroImageWithBlur(imageUrl, placeholderUrl) {
                             {% if section.badge_label %}
                                 <div class="hero-badge">{{ section.badge_label }}</div>
                             {% endif %}
-                            <div class="hero-media-container gs-scale" id="desktop-hero-img-wrap">
-                                {% if section.badge_label %}
-                                    <div class="hero-badge">{{ section.badge_label }}</div>
-                                {% endif %}
-                                
-                                {% if product.main_image_obj %}
-                                    <div class="blur-load" 
-                                        style="background-image: url('{{ product.main_image_obj.placeholder }}'); aspect-ratio: 1/1;">
-                                        
-                                        <img src="{{ product.main_image_obj.image.url }}" 
-                                            id="hero-main-image" 
-                                            alt="{{ product.name }}"
-                                            fetchpriority="high"
-                                            decoding="async">
-                                    </div>
-                                {% endif %}
-                            </div>
+                            
+                            {% if product.main_image_obj %}
+                                <div class="blur-load" 
+                                    style="background-image: url('{{ product.main_image_obj.placeholder }}');">
+                                    
+                                    <img src="{{ product.main_image_obj.image.url }}" 
+                                        id="hero-main-image" 
+                                        alt="{{ product.name }}"
+                                        fetchpriority="high"
+                                        decoding="async">
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
