@@ -1,849 +1,1647 @@
-{% load static %}
-{% load i18n %}
+{% load static %} {% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ campaign.title }} | {{ campaign.meta_title }}</title>
-    <meta name="description" content="{{ campaign.meta_description }}">
-    
+    <meta name="description" content="{{ campaign.meta_description }}" />
+
     <!-- Speed: Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Favicon -->
+    {% if settings.favicon %}
+    <link rel="icon" href="{{ settings.favicon.url }}" type="image/x-icon" />
+    {% elif settings.logo %}
+    <link rel="icon" href="{{ settings.logo.url }}" type="image/x-icon" />
+    {% endif %}
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Hind+Siliguri:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        /* 1. RESET (Critical for Tailwind parity) */
-        *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; }
-        html { line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; font-family: 'Inter', 'Hind Siliguri', sans-serif; scroll-behavior: smooth; }
-        body { margin: 0; line-height: inherit; color: #111827; background-color: #f9fafb; }
-        img { display: block; vertical-align: middle; max-width: 100%; height: auto; }
-        button { cursor: pointer; background-color: transparent; }
-        h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; margin: 0; }
-        p { margin: 0; }
-        
-        /* 2. LAYOUT UTILITIES (Mapping common template classes) */
-        .container { width: 100%; margin-right: auto; margin-left: auto; padding-right: 1rem; padding-left: 1rem; }
-        @media (min-width: 640px) { .container { max-width: 640px; } }
-        @media (min-width: 768px) { .container { max-width: 768px; } }
-        @media (min-width: 1024px) { .container { max-width: 1024px; } }
-        
-        .flex { display: flex; }
-        .flex-col { flex-direction: column; }
-        .items-center { align-items: center; }
-        .justify-between { justify-content: space-between; }
-        .justify-center { justify-content: center; }
-        
-        .relative { position: relative; }
-        .absolute { position: absolute; }
-        .fixed { position: fixed; }
-        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-        .top-0 { top: 0; } 
-        .bottom-0 { bottom: 0; }
-        .left-0 { left: 0; }
-        .z-50 { z-index: 50; }
-        
-        .hidden { display: none; }
-        .block { display: block; }
-        .w-full { width: 100%; }
-        .h-full { height: 100%; }
-        
-        /* 3. SPACING & SIZING */
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .mb-4 { margin-bottom: 1rem; }
-        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
-        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-        .px-4 { padding-left: 1rem; padding-right: 1rem; }
-        .gap-4 { gap: 1rem; }
-        
-        /* 4. TYPOGRAPHY & DECORATION */
-        .text-center { text-align: center; }
-        .font-bold, .font-extrabold { font-weight: 700; }
-        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
-        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
-        .text-6xl { font-size: 3.75rem; line-height: 1; }
-        
-        .bg-white { background-color: #fff; }
-        .bg-gray-100 { background-color: #f3f4f6; }
-        .text-gray-900 { color: #111827; }
-        
-        .rounded-full { border-radius: 9999px; }
-        .rounded-3xl { border-radius: 1.5rem; }
-        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-        .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
-        .overflow-hidden { overflow: hidden; }
+      /* 1. RESET (Critical for Tailwind parity) */
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #e5e7eb;
+      }
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        tab-size: 4;
+        font-family: "Inter", "Hind Siliguri", sans-serif;
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        line-height: inherit;
+        color: #111827;
+        background-color: #f9fafb;
+      }
+      img {
+        display: block;
+        vertical-align: middle;
+        max-width: 100%;
+        height: auto;
+      }
+      button {
+        cursor: pointer;
+        background-color: transparent;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+        margin: 0;
+      }
+      p {
+        margin: 0;
+      }
 
-        /* 5. COMPONENTS */
-        /* Dynamic Theme Variables */
-        :root {
-            --primary: {{ variant.primary_color|default:"#D4F759" }};
-            --accent: {{ variant.accent_color|default:"#000000" }};
+      /* 2. LAYOUT UTILITIES (Mapping common template classes) */
+      .container {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+      @media (min-width: 640px) {
+        .container {
+          max-width: 640px;
         }
-        
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--primary);
-            color: var(--accent);
-            font-weight: 700;
-            border-radius: 9999px;
-            text-decoration: none;
-            transition: transform 0.2s;
+      }
+      @media (min-width: 768px) {
+        .container {
+          max-width: 768px;
         }
-
-        /* Swiper / Slider Initial State */
-        .swiper-wrapper { display: flex; }
-        .swiper-slide { flex-shrink: 0; width: 100%; height: 100%; }
-        .swiper-slide:not(:first-child) { display: none; } /* Hide non-active slides initially */
-        .swiper-initialized .swiper-slide:not(:first-child) { display: block; } /* Show when JS ready */
-
-        /* Responsive Overrides */
-        @media (min-width: 768px) {
-            .md\:block { display: block; }
-            .md\:hidden { display: none; }
-            .md\:flex { display: flex; }
-            .md\:flex-row { flex-direction: row; }
-            .md\:w-1\/2 { width: 50%; }
-            .md\:text-left { text-align: left; }
-            .md\:text-6xl { font-size: 3.75rem; line-height: 1; }
-            .md\:gap-12 { gap: 3rem; }
-            .md\:order-1 { order: 1; }
-            .md\:order-2 { order: 2; }
+      }
+      @media (min-width: 1024px) {
+        .container {
+          max-width: 1024px;
         }
+      }
 
-        /* Clean Scrollbar */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .no-js-message { display: none; }
+      .flex {
+        display: flex;
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-between {
+        justify-content: space-between;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+
+      .relative {
+        position: relative;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .fixed {
+        position: fixed;
+      }
+      .inset-0 {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      .top-0 {
+        top: 0;
+      }
+      .bottom-0 {
+        bottom: 0;
+      }
+      .left-0 {
+        left: 0;
+      }
+      .z-50 {
+        z-index: 50;
+      }
+
+      .hidden {
+        display: none;
+      }
+      .block {
+        display: block;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .h-full {
+        height: 100%;
+      }
+
+      /* 3. SPACING & SIZING */
+      .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .py-16 {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      .py-4 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .gap-4 {
+        gap: 1rem;
+      }
+
+      /* 4. TYPOGRAPHY & DECORATION */
+      .text-center {
+        text-align: center;
+      }
+      .font-bold,
+      .font-extrabold {
+        font-weight: 700;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+      .text-6xl {
+        font-size: 3.75rem;
+        line-height: 1;
+      }
+
+      .bg-white {
+        background-color: #fff;
+      }
+      .bg-gray-100 {
+        background-color: #f3f4f6;
+      }
+      .text-gray-900 {
+        color: #111827;
+      }
+
+      .rounded-full {
+        border-radius: 9999px;
+      }
+      .rounded-3xl {
+        border-radius: 1.5rem;
+      }
+      .shadow-lg {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .shadow-2xl {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+
+      /* 5. COMPONENTS */
+      /* Dynamic Theme Variables */
+      :root {
+        --primary: {
+           {
+            variant.primary_color|default: "#D4F759";
+          }
+        }
+        --accent: {
+           {
+            variant.accent_color|default: "#000000";
+          }
+        }
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--primary);
+        color: var(--accent);
+        font-weight: 700;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: transform 0.2s;
+      }
+
+      /* Swiper / Slider Initial State */
+      .swiper-wrapper {
+        display: flex;
+      }
+      .swiper-slide {
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-slide:not(:first-child) {
+        display: none;
+      } /* Hide non-active slides initially */
+      .swiper-initialized .swiper-slide:not(:first-child) {
+        display: block;
+      } /* Show when JS ready */
+
+      /* Responsive Overrides */
+      @media (min-width: 768px) {
+        .md\:block {
+          display: block;
+        }
+        .md\:hidden {
+          display: none;
+        }
+        .md\:flex {
+          display: flex;
+        }
+        .md\:flex-row {
+          flex-direction: row;
+        }
+        .md\:w-1\/2 {
+          width: 50%;
+        }
+        .md\:text-left {
+          text-align: left;
+        }
+        .md\:text-6xl {
+          font-size: 3.75rem;
+          line-height: 1;
+        }
+        .md\:gap-12 {
+          gap: 3rem;
+        }
+        .md\:order-1 {
+          order: 1;
+        }
+        .md\:order-2 {
+          order: 2;
+        }
+      }
+
+      /* Clean Scrollbar */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .no-js-message {
+        display: none;
+      }
     </style>
     <noscript>
-        <style>
-            .no-js-message { display: block; background: #fee2e2; color: #991b1b; padding: 1rem; text-align: center; }
-            [x-show], [x-data] { display: block !important; }
-            .fixed.bottom-0 { position: static !important; }
-            .hero-swiper .swiper-slide { display: block; margin-bottom: 20px; } /* Fallback layout */
-        </style>
+      <style>
+        .no-js-message {
+          display: block;
+          background: #fee2e2;
+          color: #991b1b;
+          padding: 1rem;
+          text-align: center;
+        }
+        [x-show],
+        [x-data] {
+          display: block !important;
+        }
+        .fixed.bottom-0 {
+          position: static !important;
+        }
+        .hero-swiper .swiper-slide {
+          display: block;
+          margin-bottom: 20px;
+        } /* Fallback layout */
+      </style>
     </noscript>
-    
+
     <!-- Standard Meta Pixel -->
     {% if campaign.meta_pixel_id %}
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '{{ campaign.meta_pixel_id }}');
-    fbq('track', 'PageView');
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "{{ campaign.meta_pixel_id }}");
+      fbq("track", "PageView");
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id={{ campaign.meta_pixel_id }}&ev=PageView&noscript=1"
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id={{ campaign.meta_pixel_id }}&ev=PageView&noscript=1"
     /></noscript>
     {% endif %}
-</head>
-<body class="bg-gray-50 text-gray-900 overflow-x-hidden" 
-      x-data="landingApp({
+  </head>
+  <body
+    class="bg-gray-50 text-gray-900 overflow-x-hidden"
+    x-data="landingApp({
           subtotal: {{ product.selling_price|default:0 }},
           insideCharge: {{ settings.delivery_charge_inside|default:60 }},
           outsideCharge: {{ settings.delivery_charge_outside|default:120 }}
-      })" 
-      x-init="initTracking('{{ session_id }}')">
-
+      })"
+    x-init="initTracking('{{ session_id }}')"
+  >
     <!-- GLOBAL MESSAGES (TOASTS) -->
     {% if messages %}
-    <div class="fixed top-4 left-1/2 transform -translate-x-1/2 z-[60] w-full max-w-md px-4 space-y-2 pointer-events-none">
-        {% for message in messages %}
-        <div x-data="{ show: true }" 
-             x-show="show" 
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0 -translate-y-4"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             x-transition:leave="transition ease-in duration-200"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-4"
-             x-init="setTimeout(() => show = false, 5000)"
-             class="pointer-events-auto p-4 rounded-xl shadow-lg border flex items-center gap-3
-                    {% if message.tags == 'error' %}bg-red-50 border-red-200 text-red-800
-                    {% elif message.tags == 'success' %}bg-green-50 border-green-200 text-green-800
-                    {% else %}bg-white border-gray-200 text-gray-800{% endif %}">
-            
-            <!-- Icon -->
-            <div class="shrink-0">
-                {% if message.tags == 'error' %}
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                {% elif message.tags == 'success' %}
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                {% else %}
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                {% endif %}
-            </div>
-            
-            <p class="text-sm font-medium">{{ message }}</p>
-            
-            <!-- Close -->
-            <button @click="show = false" class="ml-auto hover:opacity-75">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
+    <div
+      class="fixed top-4 left-1/2 transform -translate-x-1/2 z-[60] w-full max-w-md px-4 space-y-2 pointer-events-none"
+    >
+      {% for message in messages %}
+      <div
+        x-data="{ show: true }"
+        x-show="show"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-4"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-4"
+        x-init="setTimeout(() => show = false, 5000)"
+        class="pointer-events-auto p-4 rounded-xl shadow-lg border flex items-center gap-3 {% if message.tags == 'error' %}bg-red-50 border-red-200 text-red-800 {% elif message.tags == 'success' %}bg-green-50 border-green-200 text-green-800 {% else %}bg-white border-gray-200 text-gray-800{% endif %}"
+      >
+        <!-- Icon -->
+        <div class="shrink-0">
+          {% if message.tags == 'error' %}
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          {% elif message.tags == 'success' %}
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            ></path>
+          </svg>
+          {% else %}
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          {% endif %}
         </div>
-        {% endfor %}
+
+        <p class="text-sm font-medium">{{ message }}</p>
+
+        <!-- Close -->
+        <button @click="show = false" class="ml-auto hover:opacity-75">
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      {% endfor %}
     </div>
     {% endif %}
 
     <div class="no-js-message">
-        For the best experience, please enable JavaScript.
+      For the best experience, please enable JavaScript.
     </div>
 
     <!-- HEADER / NAV -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md"
-         :class="{ 'bg-white/80 py-2 shadow-sm': scrolled, 'bg-white/60 py-3': !scrolled }"
-         @scroll.window="scrolled = (window.pageYOffset > 20); scrolledPastHero = (window.pageYOffset > 500)">
-        
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <!-- Brand / Logo -->
-            <a href="/" class="flex items-center gap-2 hover:opacity-80 transition">
-                {% if settings.logo %}
-                <img src="{{ settings.logo.url }}" alt="Logo" class="h-10 w-auto object-contain" width="150" height="40">
-                {% else %}
-                <span class="font-bold text-xl tracking-tighter text-gray-900">
-                    {{ campaign.title }}
-                </span>
-                {% endif %}
-            </a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-6">
-                <!-- Language Toggle -->
-                <div class="flex items-center bg-gray-100/50 rounded-full p-1 gap-1 border border-white/50">
-                    <button @click="setLang('bn')" :class="{ 'bg-white shadow text-black': lang==='bn', 'text-gray-500 hover:text-gray-700': lang!=='bn' }" class="px-3 py-1 rounded-full text-xs font-bold transition">বাংলা</button>
-                    <button @click="setLang('en')" :class="{ 'bg-white shadow text-black': lang==='en', 'text-gray-500 hover:text-gray-700': lang!=='en' }" class="px-3 py-1 rounded-full text-xs font-bold transition">ENG</button>
-                </div>
+    <nav
+      class="fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md"
+      :class="{ 'bg-white/80 py-2 shadow-sm': scrolled, 'bg-white/60 py-3': !scrolled }"
+      @scroll.window="scrolled = (window.pageYOffset > 20); scrolledPastHero = (window.pageYOffset > 500)"
+    >
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <!-- Brand / Logo -->
+        <a href="/" class="flex items-center gap-2 hover:opacity-80 transition">
+          {% if settings.logo %}
+          <img
+            src="{{ settings.logo.url }}"
+            alt="Logo"
+            class="h-10 w-auto object-contain"
+            width="150"
+            height="40"
+          />
+          {% else %}
+          <span class="font-bold text-xl tracking-tighter text-gray-900">
+            {{ campaign.title }}
+          </span>
+          {% endif %}
+        </a>
 
-                <a href="#features" class="text-sm font-semibold text-gray-800 hover:text-primary transition" x-text="lang === 'en' ? 'Features' : 'বৈশিষ্ট্য'"></a>
-                <a href="#reviews" class="text-sm font-semibold text-gray-800 hover:text-primary transition" x-text="lang === 'en' ? 'Reviews' : 'মতামত'"></a>
-                
-                <!-- Auth Links -->
-                {% if user.is_authenticated %}
-                <a href="/accounts/dashboard/" class="text-sm font-semibold text-gray-800 hover:text-primary transition">
-                   <span class="bg-gray-100 px-3 py-1 rounded-full">👤 {{ user.username }}</span>
-                </a>
-                {% else %}
-                <a href="/accounts/login/?next={{ request.path }}" class="text-sm font-semibold text-gray-800 hover:text-primary transition" x-text="lang === 'en' ? 'Login' : 'লগইন'"></a>
-                {% endif %}
-                
-                <a href="#order" class="btn-primary px-6 py-2.5 rounded-full font-bold text-sm shadow-lg hover:scale-105 transition transform flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                    <span x-text="lang === 'en' ? 'Order Now' : 'অর্ডার করুন'"></span>
-                </a>
-            </div>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-6">
+          <!-- Language Toggle -->
+          <div
+            class="flex items-center bg-gray-100/50 rounded-full p-1 gap-1 border border-white/50"
+          >
+            <button
+              @click="setLang('bn')"
+              :class="{ 'bg-white shadow text-black': lang==='bn', 'text-gray-500 hover:text-gray-700': lang!=='bn' }"
+              class="px-3 py-1 rounded-full text-xs font-bold transition"
+            >
+              বাংলা
+            </button>
+            <button
+              @click="setLang('en')"
+              :class="{ 'bg-white shadow text-black': lang==='en', 'text-gray-500 hover:text-gray-700': lang!=='en' }"
+              class="px-3 py-1 rounded-full text-xs font-bold transition"
+            >
+              ENG
+            </button>
+          </div>
 
-            <!-- Mobile Actions -->
-            <div class="flex md:hidden items-center gap-3">
-                <!-- Mobile Social Links -->
-                {% if settings.facebook_page_url %}
-                <a href="{{ settings.facebook_page_url }}" target="_blank" rel="noopener noreferrer" class="p-2 bg-blue-50 text-blue-600 rounded-full shadow-sm hover:bg-blue-100 transition">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                </a>
-                {% endif %}
+          <a
+            href="#features"
+            class="text-sm font-semibold text-gray-800 hover:text-primary transition"
+            x-text="lang === 'en' ? 'Features' : 'বৈশিষ্ট্য'"
+          ></a>
+          <a
+            href="#reviews"
+            class="text-sm font-semibold text-gray-800 hover:text-primary transition"
+            x-text="lang === 'en' ? 'Reviews' : 'মতামত'"
+          ></a>
 
-                <!-- Mobile Call Button -->
-                {% if settings.contact_phone %}
-                <a href="tel:{{ settings.contact_phone }}" class="p-2 bg-green-100 text-green-600 rounded-full animate-pulse shadow-sm">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                </a>
-                {% endif %}
+          <!-- Auth Links -->
+          {% if user.is_authenticated %}
+          <a
+            href="/accounts/dashboard/"
+            class="text-sm font-semibold text-gray-800 hover:text-primary transition"
+          >
+            <span class="bg-gray-100 px-3 py-1 rounded-full"
+              >👤 {{ user.username }}</span
+            >
+          </a>
+          {% else %}
+          <a
+            href="/accounts/login/?next={{ request.path }}"
+            class="text-sm font-semibold text-gray-800 hover:text-primary transition"
+            x-text="lang === 'en' ? 'Login' : 'লগইন'"
+          ></a>
+          {% endif %}
 
-                <!-- Mobile Hamburger -->
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-800 focus:outline-none bg-gray-50 rounded-lg">
-                    <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    <svg x-show="mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
+          <a
+            href="#order"
+            class="btn-primary px-6 py-2.5 rounded-full font-bold text-sm shadow-lg hover:scale-105 transition transform flex items-center gap-2"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
+            </svg>
+            <span x-text="lang === 'en' ? 'Order Now' : 'অর্ডার করুন'"></span>
+          </a>
         </div>
 
-        <!-- Mobile Menu Drawer -->
-        <div x-show="mobileMenuOpen" 
-             x-transition 
-             style="display: none;"
-             class="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-2xl py-6 flex flex-col gap-4 px-6">
-            
-            <!-- Mobile Lang Toggle -->
-            <div class="flex justify-center mb-2">
-                <div class="flex items-center bg-gray-100 rounded-full p-1 gap-1">
-                    <button @click="setLang('bn')" :class="{ 'bg-white shadow text-black': lang==='bn', 'text-gray-500 hover:text-gray-700': lang!=='bn' }" class="px-6 py-2 rounded-full text-sm font-bold transition">বাংলা</button>
-                    <button @click="setLang('en')" :class="{ 'bg-white shadow text-black': lang==='en', 'text-gray-500 hover:text-gray-700': lang!=='en' }" class="px-6 py-2 rounded-full text-sm font-bold transition">English</button>
-                </div>
-            </div>
+        <!-- Mobile Actions -->
+        <div class="flex md:hidden items-center gap-3">
+          <!-- Mobile Social Links -->
+          {% if settings.facebook_page_url %}
+          <a
+            href="{{ settings.facebook_page_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-2 bg-blue-50 text-blue-600 rounded-full shadow-sm hover:bg-blue-100 transition"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+          </a>
+          {% endif %}
 
-            <a href="/" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? '🏠 Home' : '🏠 হোম'"></a>
-            <a href="#features" @click="mobileMenuOpen = false" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? 'Features' : 'বৈশিষ্ট্য'"></a>
-            <a href="#reviews" @click="mobileMenuOpen = false" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? 'Reviews' : 'কাটমার রিভিউ'"></a>
-            <a href="#faq" @click="mobileMenuOpen = false" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? 'FAQ' : 'প্রশ্ন ও উত্তর'"></a>
-            
-            <!-- Mobile Auth -->
-            {% if user.is_authenticated %}
-             <a href="/accounts/dashboard/" class="text-gray-800 font-semibold text-center py-2 bg-gray-50 rounded-lg">👤 {{ user.username }}</a>
-            {% else %}
-             <a href="/accounts/login/?next={{ request.path }}" class="text-gray-800 font-semibold text-center py-2" x-text="lang === 'en' ? '🔐 Login' : '🔐 লগইন'"></a>
-            {% endif %}
-            <a href="#order" @click="mobileMenuOpen = false" class="btn-primary text-center py-3.5 rounded-xl font-bold shadow-md text-lg" x-text="lang === 'en' ? 'Order Now' : 'অর্ডার করুন'"></a>
+          <!-- Mobile Call Button -->
+          {% if settings.contact_phone %}
+          <a
+            href="tel:{{ settings.contact_phone }}"
+            class="p-2 bg-green-100 text-green-600 rounded-full animate-pulse shadow-sm"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
+            </svg>
+          </a>
+          {% endif %}
+
+          <!-- Mobile Hamburger -->
+          <button
+            @click="mobileMenuOpen = !mobileMenuOpen"
+            class="p-2 text-gray-800 focus:outline-none bg-gray-50 rounded-lg"
+          >
+            <svg
+              x-show="!mobileMenuOpen"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+            <svg
+              x-show="mobileMenuOpen"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
         </div>
+      </div>
+
+      <!-- Mobile Menu Drawer -->
+      <div
+        x-show="mobileMenuOpen"
+        x-transition
+        style="display: none"
+        class="md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-2xl py-6 flex flex-col gap-4 px-6"
+      >
+        <!-- Mobile Lang Toggle -->
+        <div class="flex justify-center mb-2">
+          <div class="flex items-center bg-gray-100 rounded-full p-1 gap-1">
+            <button
+              @click="setLang('bn')"
+              :class="{ 'bg-white shadow text-black': lang==='bn', 'text-gray-500 hover:text-gray-700': lang!=='bn' }"
+              class="px-6 py-2 rounded-full text-sm font-bold transition"
+            >
+              বাংলা
+            </button>
+            <button
+              @click="setLang('en')"
+              :class="{ 'bg-white shadow text-black': lang==='en', 'text-gray-500 hover:text-gray-700': lang!=='en' }"
+              class="px-6 py-2 rounded-full text-sm font-bold transition"
+            >
+              English
+            </button>
+          </div>
+        </div>
+
+        <a
+          href="/"
+          class="text-gray-800 font-semibold text-center py-2"
+          x-text="lang === 'en' ? '🏠 Home' : '🏠 হোম'"
+        ></a>
+        <a
+          href="#features"
+          @click="mobileMenuOpen = false"
+          class="text-gray-800 font-semibold text-center py-2"
+          x-text="lang === 'en' ? 'Features' : 'বৈশিষ্ট্য'"
+        ></a>
+        <a
+          href="#reviews"
+          @click="mobileMenuOpen = false"
+          class="text-gray-800 font-semibold text-center py-2"
+          x-text="lang === 'en' ? 'Reviews' : 'কাটমার রিভিউ'"
+        ></a>
+        <a
+          href="#faq"
+          @click="mobileMenuOpen = false"
+          class="text-gray-800 font-semibold text-center py-2"
+          x-text="lang === 'en' ? 'FAQ' : 'প্রশ্ন ও উত্তর'"
+        ></a>
+
+        <!-- Mobile Auth -->
+        {% if user.is_authenticated %}
+        <a
+          href="/accounts/dashboard/"
+          class="text-gray-800 font-semibold text-center py-2 bg-gray-50 rounded-lg"
+          >👤 {{ user.username }}</a
+        >
+        {% else %}
+        <a
+          href="/accounts/login/?next={{ request.path }}"
+          class="text-gray-800 font-semibold text-center py-2"
+          x-text="lang === 'en' ? '🔐 Login' : '🔐 লগইন'"
+        ></a>
+        {% endif %}
+        <a
+          href="#order"
+          @click="mobileMenuOpen = false"
+          class="btn-primary text-center py-3.5 rounded-xl font-bold shadow-md text-lg"
+          x-text="lang === 'en' ? 'Order Now' : 'অর্ডার করুন'"
+        ></a>
+      </div>
     </nav>
 
     <!-- PRODUCT ISLAND (STICKY BAR) - BOTTOM ON ALL DEVICES -->
-    <div x-show="scrolledPastHero" 
-         x-transition:enter="transition ease-out duration-300"
-         x-transition:enter-start="translate-y-full"
-         x-transition:enter-end="translate-y-0"
-         style="display: none;"
-         class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur border-t border-gray-200 p-3 z-40 flex items-center justify-between shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
-        
-        <div class="container mx-auto px-4 flex justify-between items-center">
-             <!-- Mobile & Desktop Content -->
-            <div class="flex items-center gap-3">
-                {% if product.main_image_obj %}
-                <img src="{{ product.main_image_obj.image.url }}" class="w-10 h-10 rounded-lg object-cover border border-gray-100" width="40" height="40">
-                {% endif %}
-                <div>
-                     <!-- Hide Name on Small Mobile -->
-                    <p class="hidden md:block font-bold text-gray-900">{{ product.name }}</p>
-                    <div class="flex items-baseline gap-2">
-                        {% if product.original_price and product.original_price > product.selling_price %}
-                        <div class="relative text-xs text-gray-500 mr-1">
-                            {{ campaign.currency }} {{ product.original_price }}
-                            <div class="absolute top-1/2 left-0 w-full h-[1px] bg-red-500 -rotate-12 transform origin-center"></div>
-                        </div>
-                        {% endif %}
-                        <p class="font-bold text-lg text-gray-900 leading-none">{{ campaign.currency }} {{ product.selling_price }}</p>
-                    </div>
-                </div>
+    <div
+      x-show="scrolledPastHero"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="translate-y-full"
+      x-transition:enter-end="translate-y-0"
+      style="display: none"
+      class="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur border-t border-gray-200 p-3 z-40 flex items-center justify-between shadow-[0_-4px_20px_rgba(0,0,0,0.1)]"
+    >
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <!-- Mobile & Desktop Content -->
+        <div class="flex items-center gap-3">
+          {% if product.main_image_obj %}
+          <img
+            src="{{ product.main_image_obj.image.url }}"
+            class="w-10 h-10 rounded-lg object-cover border border-gray-100"
+            width="40"
+            height="40"
+          />
+          {% endif %}
+          <div>
+            <!-- Hide Name on Small Mobile -->
+            <p class="hidden md:block font-bold text-gray-900">
+              {{ product.name }}
+            </p>
+            <div class="flex items-baseline gap-2">
+              {% if product.original_price and product.original_price >
+              product.selling_price %}
+              <div class="relative text-xs text-gray-500 mr-1">
+                {{ campaign.currency }} {{ product.original_price }}
+                <div
+                  class="absolute top-1/2 left-0 w-full h-[1px] bg-red-500 -rotate-12 transform origin-center"
+                ></div>
+              </div>
+              {% endif %}
+              <p class="font-bold text-lg text-gray-900 leading-none">
+                {{ campaign.currency }} {{ product.selling_price }}
+              </p>
             </div>
-            <a href="#order" @click="trackEvent('CTA_CLICK')" class="group btn-primary px-6 md:px-8 py-2.5 rounded-full font-bold shadow-lg text-sm md:text-base animate-pulse-slow flex items-center gap-2">
-                <span x-text="lang === 'en' ? 'Buy Now' : 'এখনই কিনুন'"></span>
-                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
+          </div>
         </div>
+        <a
+          href="#order"
+          @click="trackEvent('CTA_CLICK')"
+          class="group btn-primary px-6 md:px-8 py-2.5 rounded-full font-bold shadow-lg text-sm md:text-base animate-pulse-slow flex items-center gap-2"
+        >
+          <span x-text="lang === 'en' ? 'Buy Now' : 'এখনই কিনুন'"></span>
+          <svg
+            class="w-4 h-4 transition-transform group-hover:translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"
+            ></path>
+          </svg>
+        </a>
+      </div>
     </div>
 
     <!-- CONTENT SECTIONS -->
-    <main class="pt-14 md:pt-20 pb-24 md:pb-0"> <!-- Added padding bottom for mobile island -->
-        {% for section in sections %}
-            <!-- SECTION WRAPPER -->
-            <section id="{{ section.section_type|lower }}" class="relative {{ section.padding_y }} {% if section.is_dark_mode %}bg-gray-900 text-white{% endif %}"
-                     x-intersect.once="trackEvent('SECTION_VIEW', {id: '{{ section.id }}', type: '{{ section.section_type }}'})">
-                
-                <!-- 1. HERO CAROUSEL -->
-                {% if section.section_type == 'HERO_CAROUSEL' %}
-                    <div class="container mx-auto px-4 py-2 md:py-16">
-                        <div class="flex flex-col md:flex-row items-center gap-2 md:gap-12"> <!-- Reduced gap-4 to gap-2 -->
-                            
-                            <!-- Column 1: Text Content -->
-                            <div class="w-full md:w-1/2 text-center md:text-left order-2 md:order-1 mt-1 md:mt-0"> <!-- Reduced top margin -->
-                                <h1 class="text-xl md:text-6xl font-extrabold mb-2 leading-tight text-gray-900 drop-shadow-sm animate-fade-in-up"> <!-- text-2xl -> text-xl -->
-                                    {{ section.content.headline|default:campaign.title }}
-                                </h1>
-                                <p class="text-sm md:text-2xl text-gray-600 mb-3 md:mb-4 max-w-lg mx-auto md:mx-0 leading-snug">
-                                    {{ section.content.subheadline }}
-                                </p>
-                                
-                                {% if product.has_variants %}
-                                <!-- Compact Variant Selector (Mobile-optimized) -->
-                                <div class="mb-3 md:mb-4">
-                                    <div class="flex flex-wrap gap-2 items-center justify-center md:justify-start">
-                                        {% if product.available_colors %}
-                                        {% for variant in product.available_colors %}
-                                        <button type="button" 
-                                                @click="selectVariant('COLOR', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name}}', {{ variant.stock_quantity }})"
-                                                :class="selectedVariants.COLOR === {{ variant.id }} ? 'ring-2 ring-lime-500' : ({{ variant.stock_quantity }} === 0 ? 'opacity-50 cursor-not-allowed' : '')"
-                                                class="w-8 h-8 rounded-full border-2 hover:scale-110 transition"
-                                                {% if variant.color_code %}style="background: {{ variant.color_code }}"{% else %}style="background: #ccc"{% endif %}
-                                                title="{{ variant.name }} (Stock: {{ variant.stock_quantity }})">
-                                        </button>
-                                        {% endfor %}
-                                        <span class="text-gray-400 select-none">|</span>
-                                        {% endif %}
-                                        {% if product.available_sizes %}
-                                        {% for variant in product.available_sizes %}
-                                        <button type="button" 
-                                                @click="selectVariant('SIZE', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
-                                                :class="selectedVariants.SIZE === {{ variant.id }} ? 'ring-2 ring-lime-500 bg-lime-50' : ({{ variant.stock_quantity }} === 0 ? 'bg-white opacity-50 cursor-not-allowed' : 'bg-white')"
-                                                class="px-2 py-1 border-2 border-gray-300 rounded-lg hover:border-lime-400 transition text-xs font-bold">
-                                            {{ variant.name }}
-                                        </button>
-                                        {% endfor %}
-                                        {% endif %}
-                                        <span class="text-lg md:text-2xl font-bold text-lime-600 ml-2">
-                                            {% if product.original_price and product.original_price > product.selling_price %}
-                                            <span class="relative text-gray-400 text-lg font-semibold mr-2">
-                                                {{ campaign.currency }}<span x-text="({{ product.original_price }} + variantPriceAdjustment).toFixed(0)">{{ product.original_price }}</span>
-                                                <div class="absolute top-1/2 left-0 w-full h-[2px] bg-red-500 -rotate-12 transform origin-center"></div>
-                                            </span>
-                                            {% endif %}
-                                            {{ campaign.currency }}<span x-text="({{ product.selling_price }} + variantPriceAdjustment).toFixed(0)">{{ product.selling_price }}</span>
-                                        </span>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                <a href="#order" @click="trackEvent('CTA_CLICK')" class="group btn-primary inline-flex justify-center items-center gap-2 px-8 py-3 md:py-4 rounded-full font-bold text-lg shadow-xl hover:scale-105 transition transform animate-pulse-slow w-full md:w-auto"> <!-- Full width on mobile -->
-                                    <span x-text="lang === 'en' ? 'Buy Now' : 'এখনই কিনুন'"></span>
-                                    <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </a>
-                            </div>
+    <main class="pt-14 md:pt-20 pb-24 md:pb-0">
+      <!-- Added padding bottom for mobile island -->
+      {% for section in sections %}
+      <!-- SECTION WRAPPER -->
+      <section
+        id="{{ section.section_type|lower }}"
+        class="relative {{ section.padding_y }} {% if section.is_dark_mode %}bg-gray-900 text-white{% endif %}"
+        x-intersect.once="trackEvent('SECTION_VIEW', {id: '{{ section.id }}', type: '{{ section.section_type }}'})"
+      >
+        <!-- 1. HERO CAROUSEL -->
+        {% if section.section_type == 'HERO_CAROUSEL' %}
+        <div class="container mx-auto px-4 py-2 md:py-16">
+          <div class="flex flex-col md:flex-row items-center gap-2 md:gap-12">
+            <!-- Reduced gap-4 to gap-2 -->
 
-                            <!-- Column 2: Product Carousel -->
-                            <div class="w-full md:w-1/2 order-1 md:order-2">
-                                <!-- UPDATED: aspect-[16/10] on mobile to save height (was aspect-square) -->
-                                <div class="swiper hero-swiper rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden bg-gray-100 aspect-[16/10] md:aspect-[4/3] border border-gray-100">
-                                    <div class="swiper-wrapper">
-                                        {% for img in section.content.images %}
-                                        <div class="swiper-slide flex items-center justify-center bg-white">
-                                            <img src="{{ img }}" alt="Product Image" 
-                                                 class="w-full h-full object-contain p-2 hover:scale-105 transition duration-500"
-                                                 {% if forloop.first %}fetchpriority="high" loading="eager"{% else %}loading="lazy"{% endif %}
-                                                 width="600" height="600">
-                                        </div>
-                                        {% empty %}
-                                        <div class="swiper-slide flex items-center justify-center bg-gray-50 text-gray-400">
-                                            <span>No Image Available</span>
-                                        </div>
-                                        {% endfor %}
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
+            <!-- Column 1: Text Content -->
+            <div
+              class="w-full md:w-1/2 text-center md:text-left order-2 md:order-1 mt-1 md:mt-0"
+            >
+              <!-- Reduced top margin -->
+              <h1
+                class="text-xl md:text-6xl font-extrabold mb-2 leading-tight text-gray-900 drop-shadow-sm animate-fade-in-up"
+              >
+                <!-- text-2xl -> text-xl -->
+                {{ section.content.headline|default:campaign.title }}
+              </h1>
+              <p
+                class="text-sm md:text-2xl text-gray-600 mb-3 md:mb-4 max-w-lg mx-auto md:mx-0 leading-snug"
+              >
+                {{ section.content.subheadline }}
+              </p>
 
-                <!-- 2. HERO VIDEO -->
-                {% elif section.section_type == 'HERO_VIDEO' %}
-                    <div class="container mx-auto px-4 text-center my-8">
-                        {% if section.content.headline %}
-                        <h2 class="text-3xl md:text-5xl font-bold mb-6">{{ section.content.headline }}</h2>
-                        {% endif %}
-                        
-                        <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black">
-                            {% if section.content.video_url %}
-                                <iframe class="absolute inset-0 w-full h-full" src="{{ section.content.video_url }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            {% else %}
-                                <div class="flex items-center justify-center h-full text-white/50">
-                                    No Video URL Provided
-                                </div>
-                            {% endif %}
-                        </div>
-                    </div>
-
-                <!-- 3. FEATURES GRID -->
-                {% elif section.section_type == 'FEATURES' %}
-                    <div id="features" class="container mx-auto px-4 my-12 scroll-mt-24">
-                        {% if section.content.heading %}
-                        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">{{ section.content.heading }}</h2>
-                        {% endif %}
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {% for feature in section.content.features %}
-                            <div class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 text-center hover:transform hover:-translate-y-2 transition duration-300">
-                                <div class="text-5xl mb-6 inline-block p-4 bg-lime-50 rounded-2xl">{{ feature.icon }}</div>
-                                <h3 class="font-bold text-xl mb-3 text-gray-900">{{ feature.title }}</h3>
-                                <p class="text-gray-600 leading-relaxed">{{ feature.text }}</p>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                <!-- 4. PRODUCT HIGHLIGHT (SPLIT) -->
-                {% elif section.section_type == 'PRODUCT_HIGHLIGHT' %}
-                    <div class="container mx-auto px-4 my-16">
-                        <div class="flex flex-col md:flex-row items-center gap-12 {% if forloop.counter|divisibleby:2 %}md:flex-row-reverse{% endif %}">
-                            <div class="w-full md:w-1/2">
-                                <img src="{{ section.content.image|default:'https://placehold.co/600x600' }}" alt="Highlight" class="rounded-3xl shadow-2xl w-full object-cover h-[400px]">
-                            </div>
-                            <div class="w-full md:w-1/2 text-center md:text-left">
-                                <h2 class="text-3xl md:text-4xl font-bold mb-6">{{ section.content.heading }}</h2>
-                                <div class="prose prose-lg text-gray-600 mb-8">
-                                    {{ section.content.text|linebreaks }}
-                                </div>
-                                <a href="#order" class="btn-primary px-8 py-3 rounded-full font-bold shadow-md">
-                                    Shop Now
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                <!-- 5. TESTIMONIALS -->
-                {% elif section.section_type == 'TESTIMONIALS' %}
-                    <div id="reviews" class="bg-gray-50 py-16 scroll-mt-24">
-                        <div class="container mx-auto px-4">
-                            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">What Our Customers Say</h2>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                {% for review in section.content.testimonials %}
-                                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
-                                    <div class="flex text-yellow-400 mb-4">
-                                        {% for i in "12345" %}★★{% endfor %} <!-- Simple stars -->
-                                    </div>
-                                    <p class="text-gray-600 italic mb-6 flex-grow">"{{ review.text }}"</p>
-                                    <div class="flex items-center gap-3 mt-auto">
-                                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">
-                                            {{ review.name|slice:":1" }}
-                                        </div>
-                                        <div>
-                                            <p class="font-bold text-sm">{{ review.name }}</p>
-                                            <p class="text-xs text-gray-500">Verified Buyer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-
-                <!-- 6. FAQ (ACCORDION) -->
-                {% elif section.section_type == 'FAQ' %}
-                    <div id="faq" class="container mx-auto px-4 my-16 max-w-3xl scroll-mt-24">
-                        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-                        <div class="space-y-4">
-                            {% for item in section.content.items %}
-                            <div class="border border-gray-200 rounded-2xl overflow-hidden" x-data="{ open: false }">
-                                <button @click="open = !open" class="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-gray-50 transition text-left">
-                                    <span class="font-bold text-lg">{{ item.question }}</span>
-                                    <span class="transform transition-transform" :class="{'rotate-180': open}">▼</span>
-                                </button>
-                                <div x-show="open" x-collapse class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-gray-700">
-                                    {{ item.answer }}
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                <!-- 7. HTML / OTHER -->
-                {% elif section.section_type == 'HTML' %}
-                    <div class="container mx-auto px-4">
-                        {{ section.content.html|safe }}
-                    </div>
-                {% endif %}
-            </section>
-        {% endfor %}
-        
-        <!-- PRODUCT CHECKOUT AREA -->
-        {% if product %}
-        <section id="order" class="py-12 md:py-20 bg-white scroll-mt-24">
-            <div class="container mx-auto px-4 max-w-lg">
-                <div class="bg-white border border-gray-200 rounded-3xl shadow-xl p-5 md:p-8">
-                    <h3 class="text-xl md:text-2xl font-bold mb-4 text-center" x-text="lang === 'en' ? 'Complete Your Order' : 'আপনার অর্ডার সম্পন্ন করুন'"></h3>
-                    
-                    <form action="{% url 'landing_place_order' %}" method="POST" class="space-y-3 md:space-y-4" @submit="trackEvent('FORM_SUBMIT')">
-                        {% csrf_token %}
-                        <input type="hidden" name="product_id" value="{{ product.id }}">
-                        
-                        {% if product.has_variants %}
-                        <!-- Variant Selection in Form -->
-                        <div class="bg-gray-50 p-3 rounded-xl border border-gray-200">
-                            <label class="block text-sm font-bold mb-2" x-text="lang === 'en' ? 'Select Options:' : 'অপশন নির্বাচন করুন:'"></label>
-                            {% if product.available_colors %}
-                            <div class="mb-2">
-                                <label class="text-xs font-semibold text-gray-600 mb-1 block" x-text="lang === 'en' ? 'Color:' : 'রঙ:'"></label>
-                                <div class="flex flex-wrap gap-2 items-center">
-                                    {% for variant in product.available_colors %}
-                                    <button type="button" 
-                                            @click="selectVariant('COLOR', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
-                                            :class="selectedVariants.COLOR === {{ variant.id }} ? 'ring-2 ring-lime-500' : ({{ variant.stock_quantity }} === 0 ? 'opacity-50 cursor-not-allowed' : '')"
-                                            class="w-8 h-8 rounded-full border-2 hover:scale-110 transition"
-                                            {% if variant.color_code %}style="background: {{ variant.color_code }}"{% else %}style="background: #ccc"{% endif %}
-                                            title="{{ variant.name }} (Stock: {{ variant.stock_quantity }})">
-                                    </button>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% if product.available_sizes %}
-                            <div>
-                                <label class="text-xs font-semibold text-gray-600 mb-1 block" x-text="lang === 'en' ? 'Size:' : 'সাইজ:'"></label>
-                                <div class="flex flex-wrap gap-2 items-center">
-                                    {% for variant in product.available_sizes %}
-                                    <button type="button" 
-                                            @click="selectVariant('SIZE', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
-                                            :class="selectedVariants.SIZE === {{ variant.id }} ? 'ring-2 ring-lime-500 bg-lime-50' : ({{ variant.stock_quantity }} === 0 ? 'bg-white opacity-50 cursor-not-allowed' : 'bg-white')"
-                                            class="px-2 py-1 border-2 border-gray-300 rounded text-xs font-bold transition">
-                                        {{ variant.name }}
-                                    </button>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                            {% endif %}
-                            <p class="text-xs text-red-600 mt-2" x-show="variantStock === 0" x-text="lang === 'en' ? 'Selected variant is out of stock' : 'নির্বাচিত ভ্যারিয়ান্ট স্টক আউট'"></p>
-                        </div>
-                        
-                        <!-- Hidden inputs to send variant data -->
-                        <template x-for="(variantId, variantType) in selectedVariants" :key="variantType">
-                            <input type="hidden" :name="'variant_' + variantType" :value="variantId">
-                        </template>
-                        {% endif %}
-                        
-                        <!-- Customer Details -->
-                        <div>
-                            <label class="block text-sm font-semibold mb-1" x-text="lang === 'en' ? 'Name' : 'নাম'"></label>
-                            <input type="text" name="name" 
-                                   @focus="trackEvent('FORM_FOCUS', {field: 'name'})"
-                                   class="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-lime-400 outline-none text-sm md:text-base" 
-                                   :placeholder="lang === 'en' ? 'Your Name' : 'আপনার নাম'" required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-1" x-text="lang === 'en' ? 'Phone (Mobile)' : 'ফোন (মোবাইল)'"></label>
-                            <input type="tel" name="phone" 
-                                   @focus="trackEvent('FORM_FOCUS', {field: 'phone'})"
-                                   class="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-lime-400 outline-none text-sm md:text-base" 
-                                   placeholder="017..." required>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-1" x-text="lang === 'en' ? 'Address' : 'ঠিকানা'"></label>
-                            <textarea name="address" 
-                                      @focus="trackEvent('FORM_FOCUS', {field: 'address'})"
-                                      class="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-lime-400 outline-none text-sm md:text-base" 
-                                      :placeholder="lang === 'en' ? 'Full delivery address' : 'সম্পূর্ণ ডেলিভারি ঠিকানা'" rows="2" required></textarea>
-                        </div>
-
-                        <!-- Delivery Area Selection -->
-                        <div class="space-y-2">
-                            <label class="block text-sm font-semibold" x-text="lang === 'en' ? 'Delivery Area' : 'ডেলিভারি এলাকা'"></label>
-                            <div class="grid grid-cols-2 gap-4">
-                                <label class="border rounded-xl p-3 flex items-center justify-between cursor-pointer transition"
-                                       :class="{'border-lime-500 bg-lime-50': delivery === 'INSIDE'}">
-                                    <div class="flex items-center gap-2">
-                                        <input type="radio" name="delivery_area" value="INSIDE" x-model="delivery" class="text-lime-600 focus:ring-lime-500">
-                                        <span class="text-sm" x-text="lang === 'en' ? 'Inside Dhaka' : 'ঢাকার ভিতরে'"></span>
-                                    </div>
-                                    <span class="font-bold text-sm">৳<span x-text="insideCharge"></span></span>
-                                </label>
-                                <label class="border rounded-xl p-3 flex items-center justify-between cursor-pointer transition"
-                                       :class="{'border-lime-500 bg-lime-50': delivery === 'OUTSIDE'}">
-                                    <div class="flex items-center gap-2">
-                                        <input type="radio" name="delivery_area" value="OUTSIDE" x-model="delivery" class="text-lime-600 focus:ring-lime-500">
-                                        <span class="text-sm" x-text="lang === 'en' ? 'Outside Dhaka' : 'ঢাকার বাইরে'"></span>
-                                    </div>
-                                    <span class="font-bold text-sm">৳<span x-text="outsideCharge"></span></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Payment Method -->
-                        <div class="space-y-2">
-                            <label class="block text-sm font-semibold" x-text="lang === 'en' ? 'Payment Method' : 'পেমেন্ট পদ্ধতি'"></label>
-                            <div class="grid grid-cols-2 gap-4">
-                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer transition"
-                                       :class="{'border-lime-500 bg-lime-50': payment === 'COD'}">
-                                    <input type="radio" name="payment_method" value="COD" x-model="payment" class="text-lime-600 focus:ring-lime-500">
-                                    <span class="text-sm font-bold" x-text="lang === 'en' ? 'Cash On Delivery' : 'ক্যাশ অন ডেলিভারি'"></span>
-                                </label>
-                                <label class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer transition"
-                                       :class="{'border-lime-500 bg-lime-50': payment === 'BKASH'}">
-                                    <input type="radio" name="payment_method" value="BKASH" x-model="payment" class="text-lime-600 focus:ring-lime-500">
-                                    <span class="text-sm font-bold text-pink-600" x-text="lang === 'en' ? 'bKash Payment' : 'বিকাশ পেমেন্ট'"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- bKash Payment Instructions -->
-                        <div x-show="payment === 'BKASH'" class="bg-pink-50 p-4 rounded-xl border border-pink-200">
-                            <p class="font-bold text-pink-700" x-text="lang === 'en' ? 'How to Pay:' : 'কিভাবে পেমেন্ট করবেন:'"></p>
-                            <ol class="list-decimal list-inside space-y-1 text-gray-700">
-                                <li><span x-text="lang === 'en' ? 'Dial' : 'ডায়াল করুন'"></span> <strong>*247#</strong> <span x-text="lang === 'en' ? 'or use bKash App' : 'অথবা বিকাশ অ্যাপ ব্যবহার করুন'"></span></li>
-                                <li><span x-text="lang === 'en' ? 'Send Money to:' : 'টাকা পাঠান:'"></span> <strong>{{ settings.bkash_number|default:'017XXXXXXXX' }}</strong></li>
-                                <li><span x-text="lang === 'en' ? 'Amount:' : 'পরিমাণ:'"></span> <strong>৳<span x-text="subtotal + (delivery === 'INSIDE' ? insideCharge : outsideCharge)"></span></strong></li>
-                                <li><span x-text="lang === 'en' ? 'Reference:' : 'রেফারেন্স:'"></span> <strong x-text="lang === 'en' ? 'Your Name' : 'আপনার নাম'"></strong></li>
-                            </ol>
-                            <div>
-                                <label class="block text-xs font-bold text-pink-800 mb-1" x-text="lang === 'en' ? 'Transaction ID (TrxID)' : 'লেনদেন আইডি (TrxID)'"></label>
-                                <input type="text" name="transaction_id" 
-                                       class="w-full px-3 py-2 border border-pink-300 rounded-lg focus:ring-pink-500 focus:border-pink-500" 
-                                       :placeholder="lang === 'en' ? 'e.g. 9G7H6K' : 'উদাহরণ: 9G7H6K'" :required="payment === 'BKASH'">
-                            </div>
-                        </div>
-                        
-                        <!-- Submit Button -->
-                        <button type="submit" 
-                                :disabled="({{ product.has_variants|yesno:'true,false' }} && variantStock === 0) || {{ product.stock_quantity }} === 0"
-                                :class="(({{ product.has_variants|yesno:'true,false' }} && variantStock === 0) || {{ product.stock_quantity }} === 0) ? 'opacity-50 cursor-not-allowed bg-gray-300 text-gray-600' : 'btn-primary hover:scale-[1.02]'"
-                                class="w-full py-4 rounded-xl font-bold text-lg shadow-lg transform transition">
-                            <span x-show="!({{ product.has_variants|yesno:'true,false' }} && variantStock === 0) && {{ product.stock_quantity }} > 0" x-text="lang === 'en' ? 'Confirm Order' : 'অর্ডার নিশ্চিত করুন'"></span>
-                            <span x-show="({{ product.has_variants|yesno:'true,false' }} && variantStock === 0) || {{ product.stock_quantity }} === 0" x-text="lang === 'en' ? 'Out of Stock' : 'স্টক শেষ'"></span>
-                        </button>
-                        
-                        <div class="text-center text-xs text-gray-500 mt-4 flex justify-center gap-2 items-center">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                            <span x-text="lang === 'en' ? 'Secure Checkout' : 'নিরাপদ চেকআউট'"></span>
-                        </div>
-                    </form>
+              {% if product.has_variants %}
+              <!-- Compact Variant Selector (Mobile-optimized) -->
+              <div class="mb-3 md:mb-4">
+                <div
+                  class="flex flex-wrap gap-2 items-center justify-center md:justify-start"
+                >
+                  {% if product.available_colors %} {% for variant in
+                  product.available_colors %}
+                  <button
+                    type="button"
+                    @click="selectVariant('COLOR', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name}}', {{ variant.stock_quantity }})"
+                    :class="selectedVariants.COLOR === {{ variant.id }} ? 'ring-2 ring-lime-500' : ({{ variant.stock_quantity }} === 0 ? 'opacity-50 cursor-not-allowed' : '')"
+                    class="w-8 h-8 rounded-full border-2 hover:scale-110 transition"
+                    {%
+                    if
+                    variant.color_code
+                    %}style="background: {{ variant.color_code }}"
+                    {%
+                    else
+                    %}style="background: #ccc"
+                    {%
+                    endif
+                    %}
+                    title="{{ variant.name }} (Stock: {{ variant.stock_quantity }})"
+                  ></button>
+                  {% endfor %}
+                  <span class="text-gray-400 select-none">|</span>
+                  {% endif %} {% if product.available_sizes %} {% for variant in
+                  product.available_sizes %}
+                  <button
+                    type="button"
+                    @click="selectVariant('SIZE', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
+                    :class="selectedVariants.SIZE === {{ variant.id }} ? 'ring-2 ring-lime-500 bg-lime-50' : ({{ variant.stock_quantity }} === 0 ? 'bg-white opacity-50 cursor-not-allowed' : 'bg-white')"
+                    class="px-2 py-1 border-2 border-gray-300 rounded-lg hover:border-lime-400 transition text-xs font-bold"
+                  >
+                    {{ variant.name }}
+                  </button>
+                  {% endfor %} {% endif %}
+                  <span
+                    class="text-lg md:text-2xl font-bold text-lime-600 ml-2"
+                  >
+                    {% if product.original_price and product.original_price >
+                    product.selling_price %}
+                    <span
+                      class="relative text-gray-400 text-lg font-semibold mr-2"
+                    >
+                      {{ campaign.currency }}<span
+                        x-text="({{ product.original_price }} + variantPriceAdjustment).toFixed(0)"
+                        >{{ product.original_price }}</span
+                      >
+                      <div
+                        class="absolute top-1/2 left-0 w-full h-[2px] bg-red-500 -rotate-12 transform origin-center"
+                      ></div>
+                    </span>
+                    {% endif %} {{ campaign.currency }}<span
+                      x-text="({{ product.selling_price }} + variantPriceAdjustment).toFixed(0)"
+                      >{{ product.selling_price }}</span
+                    >
+                  </span>
                 </div>
+              </div>
+              {% endif %}
+              <a
+                href="#order"
+                @click="trackEvent('CTA_CLICK')"
+                class="group btn-primary inline-flex justify-center items-center gap-2 px-8 py-3 md:py-4 rounded-full font-bold text-lg shadow-xl hover:scale-105 transition transform animate-pulse-slow w-full md:w-auto"
+              >
+                <!-- Full width on mobile -->
+                <span x-text="lang === 'en' ? 'Buy Now' : 'এখনই কিনুন'"></span>
+                <svg
+                  class="w-5 h-5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </a>
             </div>
-        </section>
+
+            <!-- Column 2: Product Carousel -->
+            <div class="w-full md:w-1/2 order-1 md:order-2">
+              <div
+                class="swiper hero-swiper rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden bg-gray-100 aspect-square md:aspect-[4/3] border border-gray-100"
+              >
+                <div class="swiper-wrapper">
+                  {% for img in section.content.images %}
+                  <div
+                    class="swiper-slide flex items-center justify-center bg-white"
+                  >
+                    <img
+                      src="{{ img }}"
+                      alt="Product Image"
+                      class="w-full h-full object-contain p-2 hover:scale-105 transition duration-500"
+                      {%
+                      if
+                      forloop.first
+                      %}fetchpriority="high"
+                      loading="eager"
+                      {%
+                      else
+                      %}loading="lazy"
+                      {%
+                      endif
+                      %}
+                      width="600"
+                      height="600"
+                    />
+                  </div>
+                  {% empty %}
+                  <div
+                    class="swiper-slide flex items-center justify-center bg-gray-50 text-gray-400"
+                  >
+                    <span>No Image Available</span>
+                  </div>
+                  {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. HERO VIDEO -->
+        {% elif section.section_type == 'HERO_VIDEO' %}
+        <div class="container mx-auto px-4 text-center my-8">
+          {% if section.content.headline %}
+          <h2 class="text-3xl md:text-5xl font-bold mb-6">
+            {{ section.content.headline }}
+          </h2>
+          {% endif %}
+
+          <div
+            class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black"
+          >
+            {% if section.content.video_url %}
+            <iframe
+              class="absolute inset-0 w-full h-full"
+              src="{{ section.content.video_url }}"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            {% else %}
+            <div class="flex items-center justify-center h-full text-white/50">
+              No Video URL Provided
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- 3. FEATURES GRID -->
+        {% elif section.section_type == 'FEATURES' %}
+        <div id="features" class="container mx-auto px-4 my-12 scroll-mt-24">
+          {% if section.content.heading %}
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+            {{ section.content.heading }}
+          </h2>
+          {% endif %}
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for feature in section.content.features %}
+            <div
+              class="p-8 bg-white rounded-3xl shadow-lg border border-gray-100 text-center hover:transform hover:-translate-y-2 transition duration-300"
+            >
+              <div
+                class="text-5xl mb-6 inline-block p-4 bg-lime-50 rounded-2xl"
+              >
+                {{ feature.icon }}
+              </div>
+              <h3 class="font-bold text-xl mb-3 text-gray-900">
+                {{ feature.title }}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">{{ feature.text }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- 4. PRODUCT HIGHLIGHT (SPLIT) -->
+        {% elif section.section_type == 'PRODUCT_HIGHLIGHT' %}
+        <div class="container mx-auto px-4 my-16">
+          <div
+            class="flex flex-col md:flex-row items-center gap-12 {% if forloop.counter|divisibleby:2 %}md:flex-row-reverse{% endif %}"
+          >
+            <div class="w-full md:w-1/2">
+              <img
+                src="{{ section.content.image|default:'https://placehold.co/600x600' }}"
+                alt="Highlight"
+                class="rounded-3xl shadow-2xl w-full object-cover h-[400px]"
+              />
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left">
+              <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                {{ section.content.heading }}
+              </h2>
+              <div class="prose prose-lg text-gray-600 mb-8">
+                {{ section.content.text|linebreaks }}
+              </div>
+              <a
+                href="#order"
+                class="btn-primary px-8 py-3 rounded-full font-bold shadow-md"
+              >
+                Shop Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. TESTIMONIALS -->
+        {% elif section.section_type == 'TESTIMONIALS' %}
+        <div id="reviews" class="bg-gray-50 py-16 scroll-mt-24">
+          <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+              What Our Customers Say
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {% for review in section.content.testimonials %}
+              <div
+                class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full"
+              >
+                <div class="flex text-yellow-400 mb-4">
+                  {% for i in "12345" %}★★{% endfor %}
+                  <!-- Simple stars -->
+                </div>
+                <p class="text-gray-600 italic mb-6 flex-grow">
+                  "{{ review.text }}"
+                </p>
+                <div class="flex items-center gap-3 mt-auto">
+                  <div
+                    class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500"
+                  >
+                    {{ review.name|slice:":1" }}
+                  </div>
+                  <div>
+                    <p class="font-bold text-sm">{{ review.name }}</p>
+                    <p class="text-xs text-gray-500">Verified Buyer</p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. FAQ (ACCORDION) -->
+        {% elif section.section_type == 'FAQ' %}
+        <div
+          id="faq"
+          class="container mx-auto px-4 my-16 max-w-3xl scroll-mt-24"
+        >
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+            Frequently Asked Questions
+          </h2>
+          <div class="space-y-4">
+            {% for item in section.content.items %}
+            <div
+              class="border border-gray-200 rounded-2xl overflow-hidden"
+              x-data="{ open: false }"
+            >
+              <button
+                @click="open = !open"
+                class="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-gray-50 transition text-left"
+              >
+                <span class="font-bold text-lg">{{ item.question }}</span>
+                <span
+                  class="transform transition-transform"
+                  :class="{'rotate-180': open}"
+                  >▼</span
+                >
+              </button>
+              <div
+                x-show="open"
+                x-collapse
+                class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-gray-700"
+              >
+                {{ item.answer }}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- 7. HTML / OTHER -->
+        {% elif section.section_type == 'HTML' %}
+        <div class="container mx-auto px-4">
+          {{ section.content.html|safe }}
+        </div>
         {% endif %}
+      </section>
+      {% endfor %}
+
+      <!-- PRODUCT CHECKOUT AREA -->
+      {% if product %}
+      <section id="order" class="py-12 md:py-20 bg-white scroll-mt-24">
+        <div class="container mx-auto px-4 max-w-lg">
+          <div
+            class="bg-white border border-gray-200 rounded-3xl shadow-xl p-5 md:p-8"
+          >
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4 text-center"
+              x-text="lang === 'en' ? 'Complete Your Order' : 'আপনার অর্ডার সম্পন্ন করুন'"
+            ></h3>
+
+            <form
+              action="{% url 'landing_place_order' %}"
+              method="POST"
+              class="space-y-3 md:space-y-4"
+              @submit="trackEvent('FORM_SUBMIT')"
+            >
+              {% csrf_token %}
+              <input type="hidden" name="product_id" value="{{ product.id }}" />
+
+              {% if product.has_variants %}
+              <!-- Variant Selection in Form -->
+              <div class="bg-gray-50 p-3 rounded-xl border border-gray-200">
+                <label
+                  class="block text-sm font-bold mb-2"
+                  x-text="lang === 'en' ? 'Select Options:' : 'অপশন নির্বাচন করুন:'"
+                ></label>
+                {% if product.available_colors %}
+                <div class="mb-2">
+                  <label
+                    class="text-xs font-semibold text-gray-600 mb-1 block"
+                    x-text="lang === 'en' ? 'Color:' : 'রঙ:'"
+                  ></label>
+                  <div class="flex flex-wrap gap-2 items-center">
+                    {% for variant in product.available_colors %}
+                    <button
+                      type="button"
+                      @click="selectVariant('COLOR', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
+                      :class="selectedVariants.COLOR === {{ variant.id }} ? 'ring-2 ring-lime-500' : ({{ variant.stock_quantity }} === 0 ? 'opacity-50 cursor-not-allowed' : '')"
+                      class="w-8 h-8 rounded-full border-2 hover:scale-110 transition"
+                      {%
+                      if
+                      variant.color_code
+                      %}style="background: {{ variant.color_code }}"
+                      {%
+                      else
+                      %}style="background: #ccc"
+                      {%
+                      endif
+                      %}
+                      title="{{ variant.name }} (Stock: {{ variant.stock_quantity }})"
+                    ></button>
+                    {% endfor %}
+                  </div>
+                </div>
+                {% endif %} {% if product.available_sizes %}
+                <div>
+                  <label
+                    class="text-xs font-semibold text-gray-600 mb-1 block"
+                    x-text="lang === 'en' ? 'Size:' : 'সাইজ:'"
+                  ></label>
+                  <div class="flex flex-wrap gap-2 items-center">
+                    {% for variant in product.available_sizes %}
+                    <button
+                      type="button"
+                      @click="selectVariant('SIZE', {{ variant.id }}, {{ variant.price_adjustment }}, '{{ variant.name }}', {{ variant.stock_quantity }})"
+                      :class="selectedVariants.SIZE === {{ variant.id }} ? 'ring-2 ring-lime-500 bg-lime-50' : ({{ variant.stock_quantity }} === 0 ? 'bg-white opacity-50 cursor-not-allowed' : 'bg-white')"
+                      class="px-2 py-1 border-2 border-gray-300 rounded text-xs font-bold transition"
+                    >
+                      {{ variant.name }}
+                    </button>
+                    {% endfor %}
+                  </div>
+                </div>
+                {% endif %}
+                <p
+                  class="text-xs text-red-600 mt-2"
+                  x-show="variantStock === 0"
+                  x-text="lang === 'en' ? 'Selected variant is out of stock' : 'নির্বাচিত ভ্যারিয়ান্ট স্টক আউট'"
+                ></p>
+              </div>
+
+              <!-- Hidden inputs to send variant data -->
+              <template
+                x-for="(variantId, variantType) in selectedVariants"
+                :key="variantType"
+              >
+                <input
+                  type="hidden"
+                  :name="'variant_' + variantType"
+                  :value="variantId"
+                />
+              </template>
+              {% endif %}
+
+              <!-- Customer Details -->
+              <div>
+                <label
+                  class="block text-sm font-semibold mb-1"
+                  x-text="lang === 'en' ? 'Name' : 'নাম'"
+                ></label>
+                <input
+                  type="text"
+                  name="name"
+                  @focus="trackEvent('FORM_FOCUS', {field: 'name'})"
+                  class="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-lime-400 outline-none text-sm md:text-base"
+                  :placeholder="lang === 'en' ? 'Your Name' : 'আপনার নাম'"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-sm font-semibold mb-1"
+                  x-text="lang === 'en' ? 'Phone (Mobile)' : 'ফোন (মোবাইল)'"
+                ></label>
+                <input
+                  type="tel"
+                  name="phone"
+                  @focus="trackEvent('FORM_FOCUS', {field: 'phone'})"
+                  class="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-lime-400 outline-none text-sm md:text-base"
+                  placeholder="017..."
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-sm font-semibold mb-1"
+                  x-text="lang === 'en' ? 'Address' : 'ঠিকানা'"
+                ></label>
+                <textarea
+                  name="address"
+                  @focus="trackEvent('FORM_FOCUS', {field: 'address'})"
+                  class="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-lime-400 outline-none text-sm md:text-base"
+                  :placeholder="lang === 'en' ? 'Full delivery address' : 'সম্পূর্ণ ডেলিভারি ঠিকানা'"
+                  rows="2"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Delivery Area Selection -->
+              <div class="space-y-2">
+                <label
+                  class="block text-sm font-semibold"
+                  x-text="lang === 'en' ? 'Delivery Area' : 'ডেলিভারি এলাকা'"
+                ></label>
+                <div class="grid grid-cols-2 gap-4">
+                  <label
+                    class="border rounded-xl p-3 flex items-center justify-between cursor-pointer transition"
+                    :class="{'border-lime-500 bg-lime-50': delivery === 'INSIDE'}"
+                  >
+                    <div class="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="delivery_area"
+                        value="INSIDE"
+                        x-model="delivery"
+                        class="text-lime-600 focus:ring-lime-500"
+                      />
+                      <span
+                        class="text-sm"
+                        x-text="lang === 'en' ? 'Inside Dhaka' : 'ঢাকার ভিতরে'"
+                      ></span>
+                    </div>
+                    <span class="font-bold text-sm"
+                      >৳<span x-text="insideCharge"></span
+                    ></span>
+                  </label>
+                  <label
+                    class="border rounded-xl p-3 flex items-center justify-between cursor-pointer transition"
+                    :class="{'border-lime-500 bg-lime-50': delivery === 'OUTSIDE'}"
+                  >
+                    <div class="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="delivery_area"
+                        value="OUTSIDE"
+                        x-model="delivery"
+                        class="text-lime-600 focus:ring-lime-500"
+                      />
+                      <span
+                        class="text-sm"
+                        x-text="lang === 'en' ? 'Outside Dhaka' : 'ঢাকার বাইরে'"
+                      ></span>
+                    </div>
+                    <span class="font-bold text-sm"
+                      >৳<span x-text="outsideCharge"></span
+                    ></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Payment Method -->
+              <div class="space-y-2">
+                <label
+                  class="block text-sm font-semibold"
+                  x-text="lang === 'en' ? 'Payment Method' : 'পেমেন্ট পদ্ধতি'"
+                ></label>
+                <div class="grid grid-cols-2 gap-4">
+                  <label
+                    class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer transition"
+                    :class="{'border-lime-500 bg-lime-50': payment === 'COD'}"
+                  >
+                    <input
+                      type="radio"
+                      name="payment_method"
+                      value="COD"
+                      x-model="payment"
+                      class="text-lime-600 focus:ring-lime-500"
+                    />
+                    <span
+                      class="text-sm font-bold"
+                      x-text="lang === 'en' ? 'Cash On Delivery' : 'ক্যাশ অন ডেলিভারি'"
+                    ></span>
+                  </label>
+                  <label
+                    class="border rounded-xl p-3 flex items-center gap-2 cursor-pointer transition"
+                    :class="{'border-lime-500 bg-lime-50': payment === 'BKASH'}"
+                  >
+                    <input
+                      type="radio"
+                      name="payment_method"
+                      value="BKASH"
+                      x-model="payment"
+                      class="text-lime-600 focus:ring-lime-500"
+                    />
+                    <span
+                      class="text-sm font-bold text-pink-600"
+                      x-text="lang === 'en' ? 'bKash Payment' : 'বিকাশ পেমেন্ট'"
+                    ></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- bKash Payment Instructions -->
+              <div
+                x-show="payment === 'BKASH'"
+                class="bg-pink-50 p-4 rounded-xl border border-pink-200"
+              >
+                <p
+                  class="font-bold text-pink-700"
+                  x-text="lang === 'en' ? 'How to Pay:' : 'কিভাবে পেমেন্ট করবেন:'"
+                ></p>
+                <ol class="list-decimal list-inside space-y-1 text-gray-700">
+                  <li>
+                    <span
+                      x-text="lang === 'en' ? 'Dial' : 'ডায়াল করুন'"
+                    ></span>
+                    <strong>*247#</strong>
+                    <span
+                      x-text="lang === 'en' ? 'or use bKash App' : 'অথবা বিকাশ অ্যাপ ব্যবহার করুন'"
+                    ></span>
+                  </li>
+                  <li>
+                    <span
+                      x-text="lang === 'en' ? 'Send Money to:' : 'টাকা পাঠান:'"
+                    ></span>
+                    <strong
+                      >{{ settings.bkash_number|default:'017XXXXXXXX' }}</strong
+                    >
+                  </li>
+                  <li>
+                    <span x-text="lang === 'en' ? 'Amount:' : 'পরিমাণ:'"></span>
+                    <strong
+                      >৳<span
+                        x-text="subtotal + (delivery === 'INSIDE' ? insideCharge : outsideCharge)"
+                      ></span
+                    ></strong>
+                  </li>
+                  <li>
+                    <span
+                      x-text="lang === 'en' ? 'Reference:' : 'রেফারেন্স:'"
+                    ></span>
+                    <strong
+                      x-text="lang === 'en' ? 'Your Name' : 'আপনার নাম'"
+                    ></strong>
+                  </li>
+                </ol>
+                <div>
+                  <label
+                    class="block text-xs font-bold text-pink-800 mb-1"
+                    x-text="lang === 'en' ? 'Transaction ID (TrxID)' : 'লেনদেন আইডি (TrxID)'"
+                  ></label>
+                  <input
+                    type="text"
+                    name="transaction_id"
+                    class="w-full px-3 py-2 border border-pink-300 rounded-lg focus:ring-pink-500 focus:border-pink-500"
+                    :placeholder="lang === 'en' ? 'e.g. 9G7H6K' : 'উদাহরণ: 9G7H6K'"
+                    :required="payment === 'BKASH'"
+                  />
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                :disabled="({{ product.has_variants|yesno:'true,false' }} && variantStock === 0) || {{ product.stock_quantity }} === 0"
+                :class="(({{ product.has_variants|yesno:'true,false' }} && variantStock === 0) || {{ product.stock_quantity }} === 0) ? 'opacity-50 cursor-not-allowed bg-gray-300 text-gray-600' : 'btn-primary hover:scale-[1.02]'"
+                class="w-full py-4 rounded-xl font-bold text-lg shadow-lg transform transition"
+              >
+                <span
+                  x-show="!({{ product.has_variants|yesno:'true,false' }} && variantStock === 0) && {{ product.stock_quantity }} > 0"
+                  x-text="lang === 'en' ? 'Confirm Order' : 'অর্ডার নিশ্চিত করুন'"
+                ></span>
+                <span
+                  x-show="({{ product.has_variants|yesno:'true,false' }} && variantStock === 0) || {{ product.stock_quantity }} === 0"
+                  x-text="lang === 'en' ? 'Out of Stock' : 'স্টক শেষ'"
+                ></span>
+              </button>
+
+              <div
+                class="text-center text-xs text-gray-500 mt-4 flex justify-center gap-2 items-center"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  ></path>
+                </svg>
+                <span
+                  x-text="lang === 'en' ? 'Secure Checkout' : 'নিরাপদ চেকআউট'"
+                ></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      {% endif %}
     </main>
 
     <!-- FOOTER -->
     <footer class="bg-gray-900 text-white py-12 text-center pb-24 md:pb-12">
-        <p class="opacity-50 text-sm">&copy; {% now "Y" %} {{ campaign.title }}. All rights reserved.</p>
+      <p class="opacity-50 text-sm">
+        &copy; {% now "Y" %} {{ campaign.title }}. All rights reserved.
+      </p>
     </footer>
 
     <!-- PSYCHOLOGY TOAST (FOMO) -->
     {% if variant.enable_social_proof %}
-    <div x-show="showToast" 
-         x-transition:enter="transition ease-out duration-300"
-         x-transition:enter-start="translate-y-full opacity-0"
-         x-transition:enter-end="translate-y-0 opacity-100"
-         class="fixed bottom-24 md:bottom-8 left-4 bg-white/90 backdrop-blur border border-gray-200 p-3 rounded-xl shadow-2xl z-50 flex items-center gap-3 max-w-[300px]"
-         style="display: none;">
-        <div class="bg-green-100 text-green-700 p-2 rounded-full">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-        </div>
-        <div>
-            <p class="text-xs font-bold text-gray-900" x-text="lang === 'en' ? 'Just Purchased!' : 'এইমাত্র কেনা হয়েছে!'"></p>
-            <p class="text-xs text-gray-600"><span x-text="randomName"></span> <span x-text="lang === 'en' ? 'from' : ''"></span> <span x-text="randomCity">Dhaka</span> <span x-text="lang === 'en' ? 'bought this 2m ago.' : 'থেকে ২ মিনিট আগে কিনেছেন।'"></span></p>
-        </div>
+    <div
+      x-show="showToast"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="translate-y-full opacity-0"
+      x-transition:enter-end="translate-y-0 opacity-100"
+      class="fixed bottom-24 md:bottom-8 left-4 bg-white/90 backdrop-blur border border-gray-200 p-3 rounded-xl shadow-2xl z-50 flex items-center gap-3 max-w-[300px]"
+      style="display: none"
+    >
+      <div class="bg-green-100 text-green-700 p-2 rounded-full">
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+          ></path>
+        </svg>
+      </div>
+      <div>
+        <p
+          class="text-xs font-bold text-gray-900"
+          x-text="lang === 'en' ? 'Just Purchased!' : 'এইমাত্র কেনা হয়েছে!'"
+        ></p>
+        <p class="text-xs text-gray-600">
+          <span x-text="randomName"></span>
+          <span x-text="lang === 'en' ? 'from' : ''"></span>
+          <span x-text="randomCity">Dhaka</span>
+          <span
+            x-text="lang === 'en' ? 'bought this 2m ago.' : 'থেকে ২ মিনিট আগে কিনেছেন।'"
+          ></span>
+        </p>
+      </div>
     </div>
     {% endif %}
 
     <!-- SCRIPTS -->
     <script>
-        // Init Carousel if present
-        new Swiper('.hero-swiper', {
-            loop: true,
-            pagination: { el: '.swiper-pagination' },
-            autoplay: { delay: 3000 }
-        });
+      // Init Carousel if present
+      new Swiper('.hero-swiper', {
+          loop: true,
+          pagination: { el: '.swiper-pagination' },
+          autoplay: { delay: 3000 }
+      });
 
-        // Application Logic
-        function landingApp(config = {}) {
-            return {
-                lang: 'bn', // Default to Bangla
-                scrolled: false,
-                scrolledPastHero: false,
-                mobileMenuOpen: false,
-                sessionId: null,
-                showToast: false,
-                randomName: 'Karim',
-                randomCity: 'Dhaka',
-                scrollDepth: {25: false, 50: false, 75: false, 90: false},
-                
-                // Variant selection state
-                selectedVariants: {},
-                selectedVariantName: {},
-                variantPriceAdjustment: 0,
-                variantStock: null,
-                
-                // Checkout State (Merged from Config)
-                delivery: 'INSIDE',
-                payment: 'COD',
-                subtotal: 0,
-                insideCharge: 60,
-                outsideCharge: 120,
-                ...config,
+      // Application Logic
+      function landingApp(config = {}) {
+          return {
+              lang: 'bn', // Default to Bangla
+              scrolled: false,
+              scrolledPastHero: false,
+              mobileMenuOpen: false,
+              sessionId: null,
+              showToast: false,
+              randomName: 'Karim',
+              randomCity: 'Dhaka',
+              scrollDepth: {25: false, 50: false, 75: false, 90: false},
 
-                setLang(l) {
-                    this.lang = l;
-                },
-                
-                selectVariant(variantType, variantId, priceAdj, name, stock) {
-                    this.selectedVariants[variantType] = variantId;
-                    this.selectedVariantName[variantType] = name;
-                    this.variantPriceAdjustment = priceAdj;
-                    this.variantStock = stock;
-                    this.subtotal = {{ product.selling_price|default:0 }} + priceAdj;
-                },
+              // Variant selection state
+              selectedVariants: {},
+              selectedVariantName: {},
+              variantPriceAdjustment: 0,
+              variantStock: null,
 
-                initTracking(sid) {
-                    this.sessionId = sid;
-                    this.startHeartbeat();
-                    this.initScrollTracking();
-                    
-                    // Fire ViewContent event on page load
-                    if (typeof fbq === 'function') {
-                        fbq('track', 'ViewContent');
-                    }
-                    
-                    {% if variant.enable_social_proof %}
-                    // Trigger FOMO toast after 5s
-                    setTimeout(() => {
-                        const names = ['Karim', 'Rahim', 'Nusrat', 'Aisha', 'Fahad'];
-                        const cities = ['Dhaka', 'Chittagong', 'Sylhet', 'Rajshahi'];
-                        this.randomName = names[Math.floor(Math.random() * names.length)];
-                        this.randomCity = cities[Math.floor(Math.random() * cities.length)];
-                        this.showToast = true;
-                        
-                        // Hide after 4s
-                        setTimeout(() => this.showToast = false, 4000);
-                    }, 5000);
-                    {% endif %}
-                },
-                
-                trackEvent(eventType, metadata = {}) {
-                    if (!this.sessionId) return;
-                    
-                    // 1. Send to Backend Analytics
-                    const payload = {
-                        session_id: this.sessionId,
-                        event_type: eventType,
-                        metadata: metadata,
-                        value: 0
-                    };
-                    const blob = new Blob([JSON.stringify(payload)], {type: 'application/json'});
-                    navigator.sendBeacon('/landing/api/track/', blob);
+              // Checkout State (Merged from Config)
+              delivery: 'INSIDE',
+              payment: 'COD',
+              subtotal: 0,
+              insideCharge: 60,
+              outsideCharge: 120,
+              ...config,
 
-                    // 2. Map to Meta Pixel Events (for best ad data)
-                    if (typeof fbq === 'function') {
-                        if (eventType === 'CTA_CLICK') {
-                            fbq('track', 'AddToCart');
-                        } else if (eventType === 'FORM_FOCUS') {
-                            fbq('track', 'InitiateCheckout');
-                        } else if (eventType === 'FORM_SUBMIT') {
-                            fbq('track', 'AddPaymentInfo');
-                        }
-                    }
-                },
+              setLang(l) {
+                  this.lang = l;
+              },
 
-                startHeartbeat() {
-                    setInterval(() => {
-                        this.trackEvent('HEARTBEAT');
-                    }, 10000); // Every 10s
-                },
+              selectVariant(variantType, variantId, priceAdj, name, stock) {
+                  this.selectedVariants[variantType] = variantId;
+                  this.selectedVariantName[variantType] = name;
+                  this.variantPriceAdjustment = priceAdj;
+                  this.variantStock = stock;
+                  this.subtotal = {{ product.selling_price|default:0 }} + priceAdj;
+              },
 
-                initScrollTracking() {
-                    window.addEventListener('scroll', () => {
-                        const winHeight = window.innerHeight;
-                        const docHeight = document.documentElement.scrollHeight;
-                        const scrollTop = window.scrollY;
-                        const trackLength = docHeight - winHeight;
-                        const pctScrolled = Math.floor(scrollTop / trackLength * 100);
+              initTracking(sid) {
+                  this.sessionId = sid;
+                  this.startHeartbeat();
+                  this.initScrollTracking();
 
-                        [25, 50, 75, 90].forEach(milestone => {
-                            if (pctScrolled >= milestone && !this.scrollDepth[milestone]) {
-                                this.scrollDepth[milestone] = true;
-                                this.trackEvent('SCROLL_' + milestone);
-                            }
-                        });
-                    });
-                }
-            }
-        }
+                  // Fire ViewContent event on page load
+                  if (typeof fbq === 'function') {
+                      fbq('track', 'ViewContent');
+                  }
+
+                  {% if variant.enable_social_proof %}
+                  // Trigger FOMO toast after 5s
+                  setTimeout(() => {
+                      const names = ['Karim', 'Rahim', 'Nusrat', 'Aisha', 'Fahad'];
+                      const cities = ['Dhaka', 'Chittagong', 'Sylhet', 'Rajshahi'];
+                      this.randomName = names[Math.floor(Math.random() * names.length)];
+                      this.randomCity = cities[Math.floor(Math.random() * cities.length)];
+                      this.showToast = true;
+
+                      // Hide after 4s
+                      setTimeout(() => this.showToast = false, 4000);
+                  }, 5000);
+                  {% endif %}
+              },
+
+              trackEvent(eventType, metadata = {}) {
+                  if (!this.sessionId) return;
+
+                  // 1. Send to Backend Analytics
+                  const payload = {
+                      session_id: this.sessionId,
+                      event_type: eventType,
+                      metadata: metadata,
+                      value: 0
+                  };
+                  const blob = new Blob([JSON.stringify(payload)], {type: 'application/json'});
+                  navigator.sendBeacon('/landing/api/track/', blob);
+
+                  // 2. Map to Meta Pixel Events (for best ad data)
+                  if (typeof fbq === 'function') {
+                      if (eventType === 'CTA_CLICK') {
+                          fbq('track', 'AddToCart');
+                      } else if (eventType === 'FORM_FOCUS') {
+                          fbq('track', 'InitiateCheckout');
+                      } else if (eventType === 'FORM_SUBMIT') {
+                          fbq('track', 'AddPaymentInfo');
+                      }
+                  }
+              },
+
+              startHeartbeat() {
+                  setInterval(() => {
+                      this.trackEvent('HEARTBEAT');
+                  }, 10000); // Every 10s
+              },
+
+              initScrollTracking() {
+                  window.addEventListener('scroll', () => {
+                      const winHeight = window.innerHeight;
+                      const docHeight = document.documentElement.scrollHeight;
+                      const scrollTop = window.scrollY;
+                      const trackLength = docHeight - winHeight;
+                      const pctScrolled = Math.floor(scrollTop / trackLength * 100);
+
+                      [25, 50, 75, 90].forEach(milestone => {
+                          if (pctScrolled >= milestone && !this.scrollDepth[milestone]) {
+                              this.scrollDepth[milestone] = true;
+                              this.trackEvent('SCROLL_' + milestone);
+                          }
+                      });
+                  });
+              }
+          }
+      }
     </script>
     <!-- Defer Heavy Scripts for LCP Optimization -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+
     <!-- Load Tailwind non-blocking (Functional First strategy) -->
-    <script src="https://cdn.tailwindcss.com"></script> 
-    
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Global Footer Scripts -->
-    {% if settings.footer_scripts %}
-    {{ settings.footer_scripts|safe }}
-    {% endif %}
-</body>
+    {% if settings.footer_scripts %} {{ settings.footer_scripts|safe }} {% endif
+    %}
+  </body>
 </html>
