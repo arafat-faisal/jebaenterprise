@@ -1,0 +1,318 @@
+# Jeba Enterprise - Improvement Suggestions
+
+> **Last Updated:** 2026-01-11  
+> **Purpose:** Track potential improvements, optimizations, and refactoring opportunities
+
+---
+
+## Priority Levels
+
+| Level | Description |
+|-------|-------------|
+| 🔴 **Critical** | Security risks or major bugs |
+| 🟠 **High** | Performance issues or important features |
+| 🟡 **Medium** | Quality of life improvements |
+| 🟢 **Low** | Nice-to-have enhancements |
+
+---
+
+## 1. Security Improvements
+
+### 🔴 bKash Transaction ID Validation
+**Current:** Transaction IDs are not checked for uniqueness.  
+**Risk:** Same payment could be used for multiple orders.  
+**Solution:**
+```python
+class Sale(models.Model):
+    transaction_id = models.CharField(max_length=50, unique=True, null=True, blank=True)
+```
+**Effort:** Low | **Impact:** High
+
+---
+
+### 🟠 Admin Login Rate Limiting
+**Current:** No rate limiting on admin login attempts.  
+**Risk:** Brute force attacks possible.  
+**Solution:** Add django-axes or django-defender.  
+**Effort:** Low | **Impact:** Medium
+
+---
+
+### 🟠 API Key Rotation Support
+**Current:** API keys (Steadfast, Gemini) are static in [.env](file:///e:/WebProjects/jebaenterprise/.env).  
+**Improvement:** Add admin UI for key rotation with encryption.  
+**Effort:** Medium | **Impact:** Medium
+
+---
+
+## 2. Performance Optimizations
+
+### 🟠 Database Query Optimization
+**Current:** Some views may have N+1 queries.  
+**Solution:**
+```python
+# Add select_related and prefetch_related
+Product.objects.select_related('category').prefetch_related('images', 'variations')
+```
+**Files to Audit:**
+- [jeba_inventory/views.py](file:///e:/WebProjects/jebaenterprise/jeba_inventory/views.py)
+- [jeba_sales/views.py](file:///e:/WebProjects/jebaenterprise/jeba_sales/views.py)
+**Effort:** Medium | **Impact:** High
+
+---
+
+### 🟠 Image Lazy Loading
+**Current:** All product images load immediately.  
+**Solution:** Add `loading="lazy"` attribute to `<img>` tags.  
+**Files:** All product templates  
+**Effort:** Low | **Impact:** Medium
+
+---
+
+### 🟡 Redis Caching
+**Current:** No caching layer implemented.  
+**Solution:** Add Redis for:
+- Session storage
+- Product listing cache
+- SiteSettings cache
+**Effort:** Medium | **Impact:** High
+
+---
+
+### 🟡 CDN for Static/Media Files
+**Current:** Media served directly from Django.  
+**Solution:** Use Cloudflare or AWS CloudFront.  
+**Effort:** Medium | **Impact:** High (for production)
+
+---
+
+## 3. Feature Additions
+
+### 🟠 Automated Stock Alerts
+**Current:** No notification when stock is low.  
+**Solution:**
+```python
+# In Product.save() or via signal
+if self.stock_quantity <= 5:
+    send_telegram_notification(f"Low stock: {self.name} ({self.stock_quantity} left)")
+```
+**Effort:** Low | **Impact:** High (for business)
+
+---
+
+### 🟠 Order Status Webhooks
+**Current:** Steadfast status must be checked manually.  
+**Solution:** Implement scheduled task to sync order statuses:
+```python
+# management/commands/sync_orders.py
+@periodic_task(crontab(minute='*/30'))
+def sync_steadfast_statuses():
+    ...
+```
+**Effort:** Medium | **Impact:** High
+
+---
+
+### 🟡 Product Bulk Import Improvements
+**Current:** Import via django-import-export.  
+**Improvement:** Add:
+- Image URL import
+- Variant creation in bulk
+- Validation preview before import
+**Effort:** Medium | **Impact:** Medium
+
+---
+
+### 🟡 Customer Order Tracking Page
+**Current:** Customers need to log in to see orders.  
+**Solution:** Add public tracking page with order ID + phone verification.  
+**Effort:** Medium | **Impact:** Medium
+
+---
+
+### 🟢 Multi-Currency Support
+**Current:** Only BDT supported.  
+**Solution:** Add currency conversion for international customers.  
+**Effort:** High | **Impact:** Low (unless targeting international)
+
+---
+
+### 🟢 PWA Support
+**Current:** Standard web app.  
+**Solution:** Add service worker for offline product browsing.  
+**Effort:** Medium | **Impact:** Low
+
+---
+
+## 4. Code Quality
+
+### 🟡 Type Hints Throughout
+**Current:** Inconsistent type annotations.  
+**Solution:** Add type hints to all functions:
+```python
+def calculate_profit(sale: Sale) -> Decimal:
+    ...
+```
+**Effort:** Medium | **Impact:** Low (but helps maintainability)
+
+---
+
+### 🟡 Test Coverage
+**Current:** Minimal test coverage.  
+**Solution:** Add tests for:
+- [ ] Checkout flow (critical path)
+- [ ] Stock reduction
+- [ ] Payment validation
+- [ ] Cart operations
+**Effort:** High | **Impact:** Medium
+
+---
+
+### 🟡 Consolidate Legacy App
+**Current:** `products/` app coexists with new modular apps.  
+**Solution:** Gradually migrate all code from `products/` to appropriate `jeba_*` apps.  
+**Effort:** High | **Impact:** Medium (cleaner architecture)
+
+---
+
+### 🟢 API Documentation
+**Current:** No API documentation.  
+**Solution:** Add drf-spectacular or similar for OpenAPI docs.  
+**Effort:** Medium | **Impact:** Low
+
+---
+
+## 5. UX Improvements
+
+### 🟡 Checkout Progress Indicator
+**Current:** Single-page checkout.  
+**Solution:** Add step indicator: Cart → Details → Payment → Confirm  
+**Effort:** Low | **Impact:** Medium
+
+---
+
+### 🟡 Real-Time Stock Updates
+**Current:** Stock shown at page load only.  
+**Solution:** WebSocket or polling for live stock status during checkout.  
+**Effort:** High | **Impact:** Medium
+
+---
+
+### 🟢 Search Autocomplete
+**Current:** Standard search form.  
+**Solution:** Add AJAX autocomplete for product suggestions.  
+**Effort:** Medium | **Impact:** Medium
+
+---
+
+### 🟢 Recently Viewed Products
+**Current:** Not implemented.  
+**Solution:** Store last 5 viewed products in session/cookie.  
+**Effort:** Low | **Impact:** Low
+
+---
+
+## 6. DevOps & Infrastructure
+
+### 🟠 Database Backups
+**Current:** Manual or provider-managed.  
+**Solution:** Automated daily backups with retention policy.  
+**Effort:** Low | **Impact:** Critical (for disaster recovery)
+
+---
+
+### 🟠 Error Monitoring
+**Current:** Errors logged to file only.  
+**Solution:** Add Sentry or similar for real-time error tracking.  
+**Effort:** Low | **Impact:** High
+
+---
+
+### 🟡 CI/CD Pipeline
+**Current:** Manual deployment.  
+**Solution:** GitHub Actions for:
+- Run tests on PR
+- Auto-deploy to staging
+- Manual approve for production
+**Effort:** Medium | **Impact:** Medium
+
+---
+
+### 🟡 Docker Support
+**Current:** Direct installation.  
+**Solution:** Add Dockerfile and docker-compose for consistent deployments.  
+**Effort:** Medium | **Impact:** Medium
+
+---
+
+## 7. Analytics Improvements
+
+### 🟡 Dashboard Visualization
+**Current:** Data in Django admin tables.  
+**Solution:** Add Chart.js or similar for:
+- Sales trends
+- Traffic sources
+- Conversion funnels
+**Effort:** Medium | **Impact:** Medium
+
+---
+
+### 🟡 Funnel Analysis
+**Current:** Individual events tracked.  
+**Solution:** Add funnel visualization: View → Cart → Checkout → Purchase  
+**Effort:** Medium | **Impact:** Medium
+
+---
+
+### 🟢 Cohort Analysis
+**Current:** Not implemented.  
+**Solution:** Track customer lifetime value by acquisition date.  
+**Effort:** High | **Impact:** Low (advanced analytics)
+
+---
+
+## Implementation Priority Matrix
+
+```
+          High Impact
+               │
+    🔴 bKash │ 🟠 Stock   🟠 Error
+    Validation│ Alerts     Monitoring
+               │
+Low ───────────┼─────────────────── High
+Effort         │                   Effort
+               │
+    🟢 Lazy   │ 🟡 Test    🟡 Docker
+    Loading    │ Coverage
+               │
+          Low Impact
+```
+
+---
+
+## Completed Improvements
+
+| Date | Improvement | Completed By |
+|------|-------------|--------------|
+| - | (None yet) | - |
+
+---
+
+## Tracking Template
+
+When completing an improvement:
+
+```markdown
+### [Date] - [Improvement Name]
+**Priority:** 🟠 High  
+**Effort:** Low/Medium/High  
+**Files Changed:**
+- file1.py
+- file2.py
+
+**Description:**
+Brief description of what was implemented.
+
+**Testing:**
+How it was verified.
+```

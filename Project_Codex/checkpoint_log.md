@@ -1,0 +1,135 @@
+# Jeba Enterprise - Checkpoint Log
+
+> **Purpose:** Audit trail of all checkpoints during Codex operations  
+> **Usage:** Parse JSON blobs to resume from any historical checkpoint
+
+---
+
+## Initial Codex Generation - 2026-01-11
+
+### Checkpoint #1: Project Analysis Complete
+
+```
+***CHECKPOINT REACHED: Initial project structure analysis***
+Files analyzed:
+- config/settings.py
+- config/urls.py
+- requirements.txt
+- FEATURES.md
+- info.md
+- All */models.py files across 13 apps
+
+Changes made: None (analysis only)
+Next planned step: Create Codex overview.md
+
+{"step_id": "INIT-001", "timestamp": "2026-01-11T23:53:50+06:00", "files": ["config/settings.py", "config/urls.py", "requirements.txt", "*/models.py"], "changes": [], "next": "Create overview.md", "status": "complete"}
+```
+
+---
+
+### Checkpoint #2: Core Codex Files Created
+
+```
+***CHECKPOINT REACHED: Core Codex documentation files created***
+Files created:
+- Project_Codex/overview.md
+- Project_Codex/code_structure.md
+- Project_Codex/data_schemas.md
+- Project_Codex/dependencies.md
+- Project_Codex/logic_flows.md
+- Project_Codex/edge_cases.md
+
+Changes made: Created 6 primary documentation files
+Next planned step: Create rules.toml and initial_prompt.txt
+
+{"step_id": "INIT-002", "timestamp": "2026-01-11T23:55:00+06:00", "files": ["overview.md", "code_structure.md", "data_schemas.md", "dependencies.md", "logic_flows.md", "edge_cases.md"], "changes": ["Created comprehensive project documentation"], "next": "Create operational files", "status": "complete"}
+```
+
+---
+
+### Checkpoint #3: Operational Files Created
+
+```
+***CHECKPOINT REACHED: Rules and configuration files created***
+Files created:
+- Project_Codex/rules.toml
+- Project_Codex/initial_prompt.txt
+- Project_Codex/metadata.json
+- Project_Codex/codex_version.txt
+- Project_Codex/checkpoint_log.md
+- Project_Codex/search_index.md
+
+Changes made: Created 6 operational/supporting files
+Next planned step: Final verification and summary
+
+{"step_id": "INIT-003", "timestamp": "2026-01-11T23:56:00+06:00", "files": ["rules.toml", "initial_prompt.txt", "metadata.json", "codex_version.txt", "checkpoint_log.md", "search_index.md"], "changes": ["Created operational guidelines and supporting files"], "next": "Generate final summary", "status": "complete"}
+```
+
+---
+
+### Checkpoint #4: Initial Codex Complete
+
+```
+***CHECKPOINT REACHED: Initial Project Codex generation complete***
+Total files created: 12
+- overview.md
+- code_structure.md
+- data_schemas.md
+- dependencies.md
+- logic_flows.md
+- edge_cases.md
+- rules.toml
+- initial_prompt.txt
+- metadata.json
+- codex_version.txt
+- checkpoint_log.md
+- search_index.md
+
+Codex Version: 1.0.0
+Next planned step: Ready for user queries
+
+{"step_id": "INIT-FINAL", "timestamp": "2026-01-11T23:58:00+06:00", "files": ["overview.md", "code_structure.md", "data_schemas.md", "dependencies.md", "logic_flows.md", "edge_cases.md", "rules.toml", "initial_prompt.txt", "metadata.json", "codex_version.txt", "checkpoint_log.md", "search_index.md"], "changes": ["Complete Codex v1.0.0 generated"], "next": "User queries", "status": "complete"}
+```
+
+---
+
+## Future Checkpoints
+
+_Append new checkpoints below as Codex is updated_
+
+---
+
+## Checkpoint Format Reference
+
+```
+***CHECKPOINT REACHED: {step_description}***
+Files analyzed/modified: {file_list}
+Changes made: {change_summary}
+Next planned step: {next_step}
+Awaiting user confirmation to proceed.
+
+{
+    "step_id": "{unique_id}",
+    "timestamp": "{ISO_timestamp}",
+    "files": [{list_of_files}],
+    "changes": [{list_of_changes}],
+    "next": "{next_step}",
+    "status": "complete|partial|error"
+}
+```
+
+### Status Values
+
+| Status     | Meaning                                                 |
+| ---------- | ------------------------------------------------------- |
+| `complete` | Step finished successfully, safe to proceed             |
+| `partial`  | Step partially completed, investigate before proceeding |
+| `error`    | Step failed, requires intervention                      |
+
+### Resume Instructions
+
+1. Find the last checkpoint with `status: "complete"`
+2. Parse the JSON blob
+3. Verify the listed files/changes are as expected
+4. Continue from the `next` step
+5. Do NOT redo completed work

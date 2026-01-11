@@ -1,0 +1,380 @@
+# Jeba Enterprise - AI Operational Rules
+# Version: 1.0.0
+# Generated: 2026-01-11
+# Purpose: Define operational guidelines for AI agents interacting with this project
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 1: ANALYSIS RULES
+# ═══════════════════════════════════════════════════════════════════════════
+[analysis]
+# Core analysis requirements
+always_reference_codex = true
+codex_path = "Project_Codex/"
+primary_reference_file = "overview.md"
+
+# Before modifying code, always:
+pre_modification_checks = [
+    "Review relevant data_schemas.md section",
+    "Check logic_flows.md for affected processes",
+    "Verify edge_cases.md for potential issues",
+    "Confirm dependencies.md for package requirements"
+]
+
+# Code exploration order
+exploration_priority = [
+    "config/settings.py",        # Understand configuration
+    "config/urls.py",            # Understand routing
+    "{app}/models.py",           # Understand data models
+    "{app}/views.py",            # Understand business logic
+    "{app}/admin.py",            # Understand admin interface
+    "{app}/templates/",          # Understand UI
+]
+
+# Technology context
+framework = "Django 5.2"
+database = "PostgreSQL"
+admin_theme = "django-jazzmin"
+ai_provider = "Google Gemini"
+language = "Python 3.10+"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 2: CODE MODIFICATION RULES
+# ═══════════════════════════════════════════════════════════════════════════
+[modifications]
+# Validation requirements
+auto_validation_hooks = true
+run_syntax_check = true
+run_migration_check = true
+
+# Before any code change:
+pre_modification_protocol = [
+    "Create backup reference in checkpoint",
+    "Identify all files to be modified",
+    "Verify no conflicting changes in progress",
+    "Check for existing tests that may be affected"
+]
+
+# After any code change:
+post_modification_protocol = [
+    "Run python manage.py check",
+    "Run python manage.py makemigrations --dry-run (if models changed)",
+    "Verify imports are correct",
+    "Update Codex if schema or flow changed"
+]
+
+# Model modification rules
+[modifications.models]
+always_add_verbose_name = true
+always_add_help_text = true
+prefer_decimal_over_float = true
+use_ugettext_lazy_for_strings = true
+add_created_at_updated_at = true
+
+# Legacy table handling
+preserve_legacy_db_tables = true   # Use db_table = 'products_*' for existing tables
+
+# Migration rules
+migration_strategy = "incremental"  # Never delete existing migrations
+test_migrations_before_commit = true
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 3: UPDATE & SYNC RULES
+# ═══════════════════════════════════════════════════════════════════════════
+[updates]
+# Codex synchronization
+sync_codex_on_change = true
+update_data_schemas_on_model_change = true
+update_logic_flows_on_view_change = true
+update_edge_cases_on_bug_discovery = true
+
+# Version tracking
+increment_codex_version = true
+version_file = "codex_version.txt"
+
+# Backup rules
+create_backup_on_major_update = true
+backup_directory = "backups/"
+backup_format = "codex_{date}.md"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 4: QUERY HANDLING RULES
+# ═══════════════════════════════════════════════════════════════════════════
+[queries]
+# Response guidelines
+always_cite_codex_sources = true
+provide_file_paths = true
+use_code_blocks_for_snippets = true
+
+# When answering questions about the project:
+response_protocol = [
+    "Reference relevant Codex section first",
+    "Provide actual file paths with line numbers",
+    "Include code snippets when helpful",
+    "Note any edge cases from edge_cases.md",
+    "Suggest related areas that may be affected"
+]
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 5: SAFETY CONSTRAINTS
+# ═══════════════════════════════════════════════════════════════════════════
+[safety]
+# Files that should NEVER be modified without explicit user approval
+protected_files = [
+    ".env",
+    "config/settings.py",
+    "manage.py",
+    "requirements.txt",
+    "**/migrations/*.py"
+]
+
+# Actions requiring confirmation
+require_confirmation = [
+    "Deleting any file",
+    "Modifying database migrations",
+    "Changing authentication logic",
+    "Modifying payment processing code",
+    "Altering order/checkout flow",
+    "Changing API keys or secrets handling"
+]
+
+# Never do these automatically
+forbidden_actions = [
+    "Run python manage.py migrate without user approval",
+    "Delete migration files",
+    "Expose secrets in code or logs",
+    "Disable security middleware",
+    "Remove CSRF protection",
+    "Execute arbitrary user-provided Python code"
+]
+
+# Security-sensitive areas
+security_sensitive_paths = [
+    "jeba_accounts/",
+    "jeba_sales/views.py",       # Payment handling
+    "products/steadfast.py",      # API secrets
+    "config/settings.py",         # All secrets
+]
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 6: DOCUMENTATION RULES
+# ═══════════════════════════════════════════════════════════════════════════
+[documentation]
+# Comment style
+docstring_format = "Google style"
+comment_complex_logic = true
+document_magic_numbers = true
+
+# Django-specific
+add_admin_list_display_comments = true
+document_model_relationships = true
+
+# Example docstring format:
+# """
+# Brief description of function.
+# 
+# Args:
+#     param1: Description of param1.
+#     param2: Description of param2.
+# 
+# Returns:
+#     Description of return value.
+# 
+# Raises:
+#     ExceptionType: When this exception is raised.
+# """
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 7: RESUMABILITY (CRITICAL)
+# ═══════════════════════════════════════════════════════════════════════════
+[resumability]
+# Checkpoint requirements
+force_checkpoint_after_every_step = true
+max_files_per_step = 5            # Analyze/modify max 5 files per checkpoint
+max_tests_per_step = 3            # Run max 3 tests per checkpoint
+
+# Checkpoint format
+checkpoint_format = """
+***CHECKPOINT REACHED: {step_description}***
+Files analyzed/modified: {file_list}
+Changes made: {change_summary}
+Next planned step: {next_step}
+Awaiting user confirmation to proceed.
+
+```json
+{
+    "step_id": "{step_id}",
+    "timestamp": "{timestamp}",
+    "files": {files_json},
+    "changes": {changes_json},
+    "next": "{next_step}",
+    "status": "complete|partial|error"
+}
+```
+"""
+
+# Resume behavior
+resume_behavior = """
+When resuming from a checkpoint:
+1. Parse the JSON blob from user's provided checkpoint
+2. Confirm all listed files/changes are as expected
+3. Start from the 'next' step, do not redo completed work
+4. If status was 'partial' or 'error', investigate before proceeding
+"""
+
+# Atomic step guidance
+atomic_step_examples = [
+    "Analyze models.py for a single app",
+    "Review one specific view function",
+    "Modify one model and its migrations",
+    "Add one new feature with tests",
+    "Fix one specific bug"
+]
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 8: KNOWLEDGE BASE MANAGEMENT
+# ═══════════════════════════════════════════════════════════════════════════
+[knowledge_base]
+# Single source of truth
+single_source_of_truth = true
+primary_codex = "Project_Codex/"
+
+# Maintenance
+audit_frequency = "monthly"
+check_for_outdated_content = true
+tag_system = "consistent"
+
+# AI integration
+use_ai_for_summarization = true
+use_ai_for_tagging = false        # Manual tagging preferred for consistency
+
+# Conflict resolution
+conflict_priority = [
+    "Actual codebase (ground truth)",
+    "data_schemas.md",
+    "logic_flows.md",
+    "overview.md"
+]
+
+# When Codex conflicts with code:
+conflict_resolution = """
+1. Code is always the source of truth
+2. Update Codex to match code
+3. Log the discrepancy
+4. Investigate why Codex was outdated
+"""
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 9: AUDIT & SELF-IMPROVEMENT
+# ═══════════════════════════════════════════════════════════════════════════
+[audit]
+# Periodic self-checks
+periodic_self_checks = true
+self_check_frequency = "quarterly"
+
+# Self-check tasks
+self_check_tasks = [
+    "Verify Codex matches current codebase",
+    "Check for new best practices in Django ecosystem",
+    "Review edge_cases.md for newly discovered issues",
+    "Update dependencies.md if requirements.txt changed",
+    "Scan for security advisories on current packages"
+]
+
+# External research
+research_sources = [
+    "Django documentation",
+    "Django release notes",
+    "Python security advisories",
+    "Package changelogs (via PyPI)"
+]
+
+# Improvement suggestions
+track_improvement_suggestions = true
+suggestion_file = "improvements.md"
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 10: APP-SPECIFIC RULES
+# ═══════════════════════════════════════════════════════════════════════════
+
+[app_rules.jeba_core]
+# Core settings are singleton - never create second instance
+singleton_models = ["SiteSettings"]
+preserve_branding_fields = true
+
+[app_rules.jeba_inventory]
+# Product-related rules
+always_optimize_images = true      # Use image_optimizer.py
+generate_lqip_for_images = true    # Low-quality image placeholder
+validate_price_relationships = true # sale_price < selling_price
+
+[app_rules.jeba_sales]
+# Order-related rules
+use_atomic_transactions = true     # Always wrap checkout in transaction
+lock_stock_on_checkout = true      # Use select_for_update
+validate_payment_details = true    # bKash requires transaction_id
+
+[app_rules.jeba_analytics]
+# Analytics rules
+filter_bot_traffic = true
+aggregate_daily_stats = true
+preserve_raw_telemetry = true      # Keep SessionTrace.raw_data
+
+[app_rules.jeba_landing]
+# Landing page rules
+support_ab_testing = true
+track_all_conversion_events = true
+enforce_variant_weight_sum = false # Weights don't need to sum to 100
+
+[app_rules.jeba_messenger]
+# Messenger rules
+respect_24hr_window = true         # Facebook 24-hour messaging policy
+log_all_api_calls = true
+generate_ai_suggestions = "on_demand" # Not auto by default
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 11: TESTING RULES
+# ═══════════════════════════════════════════════════════════════════════════
+[testing]
+# Test requirements
+write_tests_for_new_features = true
+test_file_pattern = "tests.py"
+use_django_test_client = true
+
+# Test coverage targets
+minimum_coverage = 0.0             # Currently no formal coverage requirement
+critical_paths_to_test = [
+    "Checkout flow",
+    "Stock reduction",
+    "Payment validation",
+    "User authentication"
+]
+
+# Test data
+use_factory_pattern = false        # Django fixtures preferred
+create_test_fixtures = true
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SECTION 12: ENVIRONMENT & DEPLOYMENT
+# ═══════════════════════════════════════════════════════════════════════════
+[environment]
+# Environment detection
+debug_mode_variable = "DEBUG"
+production_indicators = [
+    "DEBUG=False",
+    "ALLOWED_HOSTS configured",
+    "HTTPS enabled"
+]
+
+# Deployment checklist
+pre_deployment_checks = [
+    "collectstatic completed",
+    "All migrations applied",
+    "Environment variables set",
+    "HTTPS configured",
+    "Database backed up"
+]
+
+# Servers
+wsgi_server = "gunicorn"
+static_server = "whitenoise"
+database_server = "PostgreSQL"

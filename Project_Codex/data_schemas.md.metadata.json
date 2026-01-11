@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_OTHER",
+  "summary":  "Complete database schema documentation for all 13 Django apps, including all model definitions, field specifications, relationships (ForeignKey, ManyToMany), meta classes, and computed properties. Organized by domain with ER diagrams in Mermaid syntax.",
+  "updatedAt":  "2026-01-11T17:59:17.436779700Z"
+}

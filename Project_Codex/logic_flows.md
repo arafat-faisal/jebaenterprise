@@ -1,0 +1,853 @@
+# Jeba Enterprise - Logic Flows
+
+> **Last Updated:** 2026-01-11  
+> **Notation:** Mermaid sequence and flowchart diagrams
+
+---
+
+## Table of Contents
+
+1. [E-Commerce Purchase Flow](#1-e-commerce-purchase-flow)
+2. [Cart Management](#2-cart-management)
+3. [Checkout Process](#3-checkout-process)
+4. [Order Fulfillment (Steadfast Integration)](#4-order-fulfillment-steadfast-integration)
+5. [Product Search (Text + Visual)](#5-product-search-text--visual)
+6. [AI Content Generation](#6-ai-content-generation)
+7. [Competitor Price Scraping](#7-competitor-price-scraping)
+8. [Landing Page A/B Testing](#8-landing-page-ab-testing)
+9. [Messenger Webhook Flow](#9-messenger-webhook-flow)
+10. [Analytics Event Tracking](#10-analytics-event-tracking)
+11. [User Authentication](#11-user-authentication)
+
+---
+
+## 1. E-Commerce Purchase Flow
+
+### Complete User Journey
+
+```mermaid
+flowchart TD
+    A[🏠 Homepage] --> B{Browse Products}
+    B --> C[Category Page]
+    B --> D[Search Results]
+    B --> E[Hero Slider Feature]
+
+    C --> F[📦 Product Detail]
+    D --> F
+    E --> F
+
+    F --> G{Select Options}
+    G --> H[Choose Variant<br/>Color/Size]
+    G --> I[Check Stock]
+
+    H --> J{In Stock?}
+    I --> J
+
+    J -->|Yes| K[➕ Add to Cart]
+    J -->|No| L[Show 'Out of Stock']
+
+    K --> M[🛒 Cart Page]
+    M --> N{User Action}
+
+    N --> O[Update Quantity]
+    N --> P[Remove Item]
+    N --> Q[Apply Coupon]
+    N --> R[Proceed to Checkout]
+
+    O --> M
+    P --> M
+    Q --> S{Valid Coupon?}
+    S -->|Yes| T[Apply Discount]
+    S -->|No| U[Show Error]
+    T --> M
+    U --> M
+
+    R --> V[📝 Checkout Page]
+    V --> W[Enter Details]
+    W --> X{Select Payment}
+
+    X -->|COD| Y[Cash on Delivery]
+    X -->|bKash| Z[Enter Transaction ID]
+
+    Y --> AA[Select Location]
+    Z --> AA
+
+    AA -->|Dhaka| BB[৳60 Delivery]
+    AA -->|Outside| CC[৳120 Delivery]
+
+    BB --> DD[Confirm Order]
+    CC --> DD
+
+    DD --> EE{Transaction Atomic}
+    EE -->|Success| FF[✅ Order Confirmed]
+    EE -->|Stock Race| GG[❌ Show Error]
+
+    FF --> HH[Stock Reduced]
+    FF --> II[Email Sent<br/>Background Thread]
+    FF --> JJ[Invoice Generated<br/>#JEBA-XXXX]
+
+    JJ --> KK[📋 Order Confirmation Page]
+```
+
+---
+
+## 2. Cart Management
+
+### Session-Based Cart Logic
+
+```mermaid
+sequenceDiagram
+    participant U as User Browser
+    participant S as Django Session
+    participant V as Cart View
+    participant P as Product Model
+
+    Note over U,P: Add to Cart Flow
+
+    U->>V: POST /cart/add/ {product_id, quantity, variant_id}
+    V->>S: Get cart from session
+    S-->>V: cart = {} or existing cart
+
+    V->>P: Get product & variant
+    P-->>V: Product data + stock
+
+    alt Stock Available
+        V->>V: Calculate line item
+        V->>S: cart[product_id] = {qty, variant, price}
+        S-->>U: Updated cart cookie
+        V-->>U: Success + Cart Count
+    else Out of Stock
+        V-->>U: Error: "Out of Stock"
+    end
+
+    Note over U,P: Update Quantity Flow
+
+    U->>V: POST /cart/update/ {product_id, quantity}
+    V->>S: Get cart
+    V->>P: Verify stock >= quantity
+
+    alt Valid Quantity
+        V->>S: Update cart[product_id].qty
+        V-->>U: Updated totals
+    else Exceeds Stock
+        V-->>U: Error: "Only X available"
+    end
+```
+
+### Cart Data Structure (Session)
+
+```python
+# Session key: 'cart'
+cart = {
+    "123": {  # Product ID
+        "quantity": 2,
+        "variation_id": 456,  # Optional
+        "variation_name": "Red - XL",
+        "price": "1500.00",
+        "buying_cost": "1000.00"  # For profit calculation
+    },
+    "789": {
+        "quantity": 1,
+        "variation_id": None,
+        "price": "2500.00",
+        "buying_cost": "1800.00"
+    }
+}
+```
+
+---
+
+## 3. Checkout Process
+
+### Atomic Transaction Flow
+
+```mermaid
+flowchart TD
+    A[Checkout Form Submitted] --> B{Validate Form}
+    B -->|Invalid| C[Return Errors]
+    B -->|Valid| D[Start Atomic Transaction]
+
+    D --> E[Lock Products for Update<br/>select_for_update]
+
+    E --> F{All Items In Stock?}
+    F -->|No| G[Rollback Transaction]
+    G --> H[Show Stock Error]
+
+    F -->|Yes| I[Create Sale Object]
+    I --> J[Create SaleItems]
+
+    J --> K[Loop: Reduce Stock]
+    K --> L[product.stock_quantity -= qty]
+    L --> M[variation.stock_quantity -= qty]
+
+    M --> N{bKash Payment?}
+    N -->|Yes| O[Validate Transaction ID]
+    O -->|Invalid| P[Rollback]
+    O -->|Valid| Q[Save Transaction ID]
+
+    N -->|No| Q
+
+    Q --> R[Commit Transaction]
+    R --> S[Generate Invoice Number]
+    S --> T[Trigger Background Email]
+    T --> U[Return Success Response]
+
+    subgraph "Background Thread"
+        T --> V[Send Order Confirmation]
+        T --> W[Track ProductEvent PURCHASE]
+    end
+```
+
+### Stock Lock Pattern
+
+```python
+# Atomic checkout with row-level locking
+from django.db import transaction
+
+with transaction.atomic():
+    # Lock rows to prevent race conditions
+    products = Product.objects.select_for_update().filter(
+        id__in=cart_product_ids
+    )
+
+    for product in products:
+        cart_qty = cart[str(product.id)]['quantity']
+        if product.stock_quantity < cart_qty:
+            raise ValueError(f"Insufficient stock for {product.name}")
+
+        product.stock_quantity -= cart_qty
+        product.save()
+
+    # Create sale after all stock validated
+    sale = Sale.objects.create(...)
+```
+
+---
+
+## 4. Order Fulfillment (Steadfast Integration)
+
+### Courier API Flow
+
+```mermaid
+sequenceDiagram
+    participant A as Admin
+    participant D as Django Admin
+    participant S as Steadfast API
+    participant C as Courier System
+
+    Note over A,C: Submit Order to Courier
+
+    A->>D: Click "Send to Steadfast"
+    D->>D: Load send_to_steadfast.html
+    D-->>A: Show edit form (name, address, COD)
+
+    A->>D: Confirm & Submit
+    D->>S: POST /api/v1/create_order
+    Note right of D: Headers: Api-Key, Secret-Key
+
+    S-->>D: {consignment_id, tracking_code, status}
+
+    alt Success
+        D->>D: Save consignment_id, tracking_code
+        D->>D: Update status = "SHIPPED"
+        D-->>A: Success message
+    else API Error
+        D-->>A: Show error details
+    end
+
+    Note over A,C: Live Tracking (User View)
+
+    A->>D: View order_detail.html
+    D->>S: GET /api/v1/status/{consignment_id}
+    S-->>D: {status: "Delivered", ...}
+    D->>D: Display REAL-TIME status
+    D-->>A: Show current courier status
+```
+
+### Steadfast API Helper
+
+```python
+# products/steadfast.py
+import requests
+from django.conf import settings
+
+def create_consignment(sale):
+    """Submit order to Steadfast courier."""
+    url = f"{settings.STEADFAST_BASE_URL}/create_order"
+
+    payload = {
+        "invoice": sale.invoice_number,
+        "recipient_name": sale.customer_name,
+        "recipient_phone": sale.phone_number,
+        "recipient_address": sale.shipping_address,
+        "cod_amount": float(sale.total_amount),
+        "note": f"Order {sale.order_id}"
+    }
+
+    headers = {
+        "Api-Key": settings.STEADFAST_API_KEY,
+        "Secret-Key": settings.STEADFAST_SECRET_KEY,
+        "Content-Type": "application/json"
+    }
+
+    response = requests.post(url, json=payload, headers=headers)
+    return response.json()
+```
+
+---
+
+## 5. Product Search (Text + Visual)
+
+### Hybrid Search Flow
+
+```mermaid
+flowchart TD
+    A[User Query] --> B{Query Type?}
+
+    B -->|Text Search| C[Text Search Engine]
+    B -->|Image Upload| D[Visual Search Engine]
+
+    C --> E[Django ORM Filter]
+    E --> F[name__icontains OR<br/>description__icontains]
+
+    D --> G[imagehash Processing]
+    G --> H[Generate pHash/aHash]
+    H --> I[Compare with Product Hashes]
+    I --> J[Return Similarity Scores]
+
+    F --> K[Combine Results]
+    J --> K
+
+    K --> L[Rank by Relevance]
+    L --> M[Apply Filters<br/>Category, Price, In Stock]
+    M --> N[Return Search Results]
+
+    N --> O[Log SearchEvent]
+    O --> P[Track result_count]
+```
+
+### Visual Search Algorithm
+
+```python
+# Using imagehash for visual product matching
+import imagehash
+from PIL import Image
+
+def visual_search(uploaded_image, products):
+    """Find products matching uploaded image."""
+    # Generate hash of uploaded image
+    query_hash = imagehash.phash(Image.open(uploaded_image))
+
+    results = []
+    for product in products:
+        if product.main_image_obj:
+            product_hash = imagehash.phash(
+                Image.open(product.main_image_obj.image.path)
+            )
+            # Hamming distance (lower = more similar)
+            distance = query_hash - product_hash
+            if distance < 15:  # Threshold
+                results.append({
+                    'product': product,
+                    'similarity': 100 - (distance * 5)
+                })
+
+    return sorted(results, key=lambda x: x['similarity'], reverse=True)
+```
+
+---
+
+## 6. AI Content Generation
+
+### Gemini Integration Flow
+
+```mermaid
+sequenceDiagram
+    participant A as Admin
+    participant V as AI Builder View
+    participant S as ai_service.py
+    participant G as Google Gemini API
+
+    A->>V: Create/Edit AIPage with prompt
+    V->>S: generate_landing_page(prompt, product)
+
+    S->>S: Build system context
+    Note right of S: Include product details,<br/>brand guidelines,<br/>Bengali/English toggle
+
+    S->>G: gemini.generate_content(messages)
+    G-->>S: Generated HTML/CSS
+
+    S->>S: Parse response
+    S->>S: Sanitize output
+
+    S-->>V: {html, css, metadata}
+
+    V->>V: Create PageVersion snapshot
+    V->>V: Update AIPage.compiled_html/css
+    V-->>A: Show preview with diff
+```
+
+### AI Service Pattern
+
+```python
+# jeba_ai_builder/ai_service.py
+import google.generativeai as genai
+from django.conf import settings
+
+genai.configure(api_key=settings.GEMINI_API_KEY)
+
+def generate_landing_page(prompt, product=None):
+    """Generate landing page HTML using Gemini."""
+
+    system_context = """
+    You are an expert landing page designer for Jeba Enterprise,
+    a Bangladeshi e-commerce platform. Generate modern, mobile-first
+    HTML with embedded CSS. Use Bengali text for main content.
+
+    Brand colors: Primary #D4F759, Accent #000000
+    Currency: ৳ (Taka)
+    """
+
+    if product:
+        system_context += f"""
+        Product: {product.name}
+        Price: ৳{product.selling_price}
+        Description: {product.description[:500]}
+        """
+
+    model = genai.GenerativeModel('gemini-pro')
+    response = model.generate_content([system_context, prompt])
+
+    return {
+        'html': extract_html(response.text),
+        'css': extract_css(response.text)
+    }
+```
+
+---
+
+## 7. Competitor Price Scraping
+
+### Playwright-Based Daraz Scraper
+
+```mermaid
+flowchart TD
+    A[Admin: Start Scrape] --> B[Load ScraperPreset]
+    B --> C[Initialize Playwright]
+    C --> D[Navigate to Daraz Search]
+
+    D --> E[Scroll to Load Lazy Images]
+    E --> F[Parse Product Cards]
+
+    F --> G[For Each Scraped Product]
+    G --> H{Match Type}
+
+    H --> I[Text Match<br/>thefuzz.ratio]
+    H --> J[Image Match<br/>imagehash]
+
+    I --> K[text_score]
+    J --> L[image_score]
+
+    K --> M[Combine Scores]
+    L --> M
+
+    M --> N[weighted_score =<br/>text_weight * text_score +<br/>image_weight * image_score]
+
+    N --> O{Score >= threshold?}
+    O -->|Yes| P[Add to Matches]
+    O -->|No| Q[Skip]
+
+    P --> R{Best Match Found?}
+    R -->|Yes| S[Create/Update CompetitorPrice]
+    R -->|No| T[Log No Match]
+
+    S --> U[Save min_price, max_price]
+    U --> V[Display Results to Admin]
+```
+
+### Hybrid Matching Algorithm
+
+```python
+# jeba_intelligence/scraper.py
+from thefuzz import fuzz
+import imagehash
+from PIL import Image
+
+def calculate_match_score(product, scraped_item, preset):
+    """Calculate hybrid text + image match score."""
+
+    # Text matching (using thefuzz)
+    text_score = fuzz.ratio(
+        product.name.lower(),
+        scraped_item['title'].lower()
+    )
+
+    # Image matching (using imagehash)
+    if scraped_item.get('image_path') and product.thumbnail:
+        product_hash = imagehash.phash(Image.open(product.thumbnail))
+        scraped_hash = imagehash.phash(Image.open(scraped_item['image_path']))
+        hash_distance = product_hash - scraped_hash
+        image_score = max(0, 100 - (hash_distance * 5))
+    else:
+        image_score = 0
+
+    # Weighted combination
+    final_score = (
+        preset.text_weight * text_score +
+        preset.image_weight * image_score
+    )
+
+    # Slam dunk rules (auto-accept high confidence)
+    if text_score >= preset.text_slam_dunk:
+        return 100
+    if image_score >= preset.image_slam_dunk:
+        return 100
+
+    return final_score
+```
+
+---
+
+## 8. Landing Page A/B Testing
+
+### Variant Selection Flow
+
+```mermaid
+flowchart TD
+    A[User Visits /landing/campaign-slug/] --> B[Load Campaign]
+    B --> C[Get Active Variants]
+
+    C --> D{Check Session Cookie}
+    D -->|Has Variant ID| E[Use Assigned Variant]
+    D -->|No Cookie| F[Random Selection]
+
+    F --> G[Build Weight Pool]
+    Note right of G: [A:50, B:30, C:20]
+
+    G --> H[Random Pick by Weight]
+    H --> I[Assign Variant to Session]
+    I --> J[Set Cookie: variant_id]
+
+    E --> K[Load Variant Sections]
+    J --> K
+
+    K --> L[Create VisitorSession]
+    L --> M[Track PAGE_VIEW Event]
+
+    M --> N[Render Landing Page]
+    N --> O[Apply Variant Colors]
+    N --> P[Show/Hide FOMO Timer]
+    N --> Q[Enable/Disable Exit Popup]
+
+    O --> R[Return HTML Response]
+    P --> R
+    Q --> R
+```
+
+### Weighted Random Selection
+
+```python
+# jeba_landing/views.py
+import random
+
+def select_variant(campaign, request):
+    """Select A/B variant based on weights."""
+
+    # Check if user already has a variant
+    session_variant_id = request.session.get(f'variant_{campaign.id}')
+    if session_variant_id:
+        return CampaignVariant.objects.get(id=session_variant_id)
+
+    # Get active variants with weights
+    variants = campaign.variants.all()
+
+    # Build weighted pool
+    pool = []
+    for variant in variants:
+        pool.extend([variant] * variant.weight)
+
+    # Random selection
+    if pool:
+        selected = random.choice(pool)
+        request.session[f'variant_{campaign.id}'] = selected.id
+        return selected
+
+    return variants.first()
+```
+
+---
+
+## 9. Messenger Webhook Flow
+
+### Facebook Webhook Integration
+
+```mermaid
+sequenceDiagram
+    participant FB as Facebook
+    participant W as Webhook View
+    participant M as Message Model
+    participant AI as AI Responder
+    participant A as Admin Dashboard
+
+    Note over FB,A: Webhook Verification
+    FB->>W: GET /messenger/webhook/?hub.verify_token=...
+    W->>W: Verify token matches settings
+    W-->>FB: Return hub.challenge
+
+    Note over FB,A: Incoming Message
+    FB->>W: POST /messenger/webhook/
+    Note right of W: {entry: [{messaging: [...]}]}
+
+    W->>W: Parse webhook payload
+    W->>M: Get/Create Conversation by PSID
+    W->>M: Create Message record
+
+    W->>W: Check MessengerSettings.enable_auto_ai
+
+    alt Auto AI Enabled
+        W->>AI: generate_suggestions(message)
+        AI->>AI: Gemini: Analyze + Generate
+        AI-->>W: [suggestion_1, suggestion_2, suggestion_3]
+        W->>M: Create AISuggestion records
+    end
+
+    W-->>FB: 200 OK
+
+    Note over FB,A: Admin Response
+    A->>A: View chat dashboard
+    A->>A: See AI suggestions
+    A->>W: POST /messenger/send/ {psid, message}
+    W->>FB: POST /me/messages (Graph API)
+    FB-->>W: Message sent confirmation
+    W->>M: Create Message (sender='page')
+```
+
+### AI Response Generation
+
+```python
+# jeba_messenger/ai_responder.py
+import google.generativeai as genai
+
+def generate_suggestions(message, conversation):
+    """Generate AI response suggestions for incoming message."""
+
+    # Build conversation history context
+    history = Message.objects.filter(
+        conversation=conversation
+    ).order_by('-timestamp')[:10]
+
+    context = f"""
+    You are a customer service AI for Jeba Enterprise (Bangladeshi e-commerce).
+
+    Customer info:
+    - Name: {conversation.first_name} {conversation.last_name}
+    - Saved Phone: {conversation.saved_phone or 'Unknown'}
+    - Sentiment: {conversation.sentiment}
+
+    Recent conversation:
+    {format_history(history)}
+
+    Latest message: "{message.text}"
+
+    Generate 3 response suggestions in Bengali:
+    1. Professional tone
+    2. Friendly tone
+    3. Persuasive (sales-focused) tone
+    """
+
+    model = genai.GenerativeModel('gemini-pro')
+    response = model.generate_content(context)
+
+    suggestions = parse_suggestions(response.text)
+
+    return [
+        AISuggestion.objects.create(
+            trigger_message=message,
+            suggested_text=s['text'],
+            tone=s['tone'],
+            language='bn'
+        )
+        for s in suggestions
+    ]
+```
+
+---
+
+## 10. Analytics Event Tracking
+
+### Event Collection Flow
+
+```mermaid
+flowchart TD
+    A[User Action] --> B{Action Type}
+
+    B -->|Page Load| C[Middleware Captures]
+    B -->|Click/Scroll| D[JavaScript Event]
+    B -->|Purchase| E[Checkout View]
+
+    C --> F[AnalyticsMiddleware.process_view]
+    F --> G[Create ProductEvent VIEW]
+
+    D --> H[AJAX POST /analytics/track/]
+    H --> I[Validate Session]
+    I --> J[Create ProductEvent]
+
+    E --> K[After Sale.save]
+    K --> L[Create ProductEvent PURCHASE]
+    L --> M[Update DailyAdSpend Aggregates]
+
+    G --> N[Enrich Event]
+    J --> N
+    L --> N
+
+    N --> O[Add UTM Parameters]
+    N --> P[Add Device/Browser]
+    N --> Q[Add Geo from IP]
+
+    O --> R[SessionTrace Update]
+    P --> R
+    Q --> R
+
+    R --> S[Store raw_data JSON]
+```
+
+### JavaScript Telemetry Collector
+
+```javascript
+// landing_analytics.js (client-side)
+const telemetry = {
+  session_id: generateUUID(),
+  events: [],
+  scroll_depth: 0,
+  start_time: Date.now(),
+};
+
+// Track scroll depth
+document.addEventListener("scroll", () => {
+  const depth = Math.round((window.scrollY / document.body.scrollHeight) * 100);
+  telemetry.scroll_depth = Math.max(telemetry.scroll_depth, depth);
+
+  if (depth >= 50 && !telemetry.scroll_50_tracked) {
+    trackEvent("SCROLL_50");
+    telemetry.scroll_50_tracked = true;
+  }
+  if (depth >= 90 && !telemetry.scroll_90_tracked) {
+    trackEvent("SCROLL_90");
+    telemetry.scroll_90_tracked = true;
+  }
+});
+
+// Track CTA clicks
+document.querySelectorAll("[data-track-cta]").forEach((el) => {
+  el.addEventListener("click", () => {
+    trackEvent("CLICK_CTA", { button: el.textContent });
+  });
+});
+
+// Exit intent detection
+document.addEventListener("mouseout", (e) => {
+  if (e.clientY < 0) {
+    trackEvent("EXIT_INTENT");
+  }
+});
+
+// Send heartbeat every 30 seconds
+setInterval(() => {
+  trackEvent("HEARTBEAT", {
+    duration: Date.now() - telemetry.start_time,
+  });
+}, 30000);
+
+function trackEvent(type, metadata = {}) {
+  fetch("/analytics/track/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      session_id: telemetry.session_id,
+      event_type: type,
+      metadata: metadata,
+      scroll_depth: telemetry.scroll_depth,
+    }),
+  });
+}
+```
+
+---
+
+## 11. User Authentication
+
+### Login/Register Flow
+
+```mermaid
+flowchart TD
+    A[User: /accounts/login/] --> B[Show Login Form]
+    B --> C{Has Account?}
+
+    C -->|No| D[/accounts/register/]
+    D --> E[Registration Form]
+    E --> F[Create User]
+    F --> G[Signal: Create UserProfile]
+    G --> H[Send Welcome Email]
+    H --> I[Auto Login]
+
+    C -->|Yes| J[Enter Credentials]
+    J --> K{Valid?}
+    K -->|No| L[Show Error]
+    K -->|Yes| M[Django Login]
+
+    I --> N[Redirect to Dashboard]
+    M --> N
+
+    N --> O[/accounts/dashboard/]
+    O --> P[Show Order History]
+    O --> Q[Show/Edit Profile]
+    O --> R[Change Password]
+```
+
+### Password Reset Flow
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant V as Views
+    participant E as Email (Gmail SMTP)
+    participant D as Database
+
+    U->>V: GET /accounts/password_reset/
+    V-->>U: Show email form
+
+    U->>V: POST email
+    V->>D: Find User by email
+
+    alt User Found
+        V->>V: Generate reset token
+        V->>E: Send reset link
+        E-->>U: Email with token URL
+        V-->>U: "Check your email"
+
+        U->>V: Click link /reset/<uidb64>/<token>/
+        V->>D: Validate token
+        V-->>U: Show new password form
+
+        U->>V: POST new password
+        V->>D: Update password
+        V-->>U: "Password changed" + login redirect
+    else User Not Found
+        V-->>U: "Check your email" (security)
+    end
+```
+
+---
+
+## Key Design Patterns Used
+
+| Pattern                 | Usage                                    |
+| ----------------------- | ---------------------------------------- |
+| **Atomic Transactions** | Checkout stock management                |
+| **Singleton**           | SiteSettings, MessengerSettings          |
+| **Observer (Signals)**  | Auto-create UserProfile on User creation |
+| **Strategy**            | Payment method handling (COD vs bKash)   |
+| **Factory**             | Event tracking (ProductEvent types)      |
+| **Repository**          | Session-based cart management            |
+| **Adapter**             | Steadfast API wrapper                    |
+| **Background Jobs**     | Email sending (threading)                |

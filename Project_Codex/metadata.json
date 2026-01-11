@@ -1,0 +1,225 @@
+{
+  "project_name": "Jeba Enterprise",
+  "codename": "jebaenterprise",
+  "repository": "arafat-faisal/jebaenterprise",
+  "project_path": "e:\\WebProjects\\jebaenterprise",
+  "codex_version": "1.0.0",
+  "generated_at": "2026-01-11T23:53:50+06:00",
+  "last_updated": "2026-01-11T23:53:50+06:00",
+
+  "technology_stack": {
+    "framework": "Django",
+    "framework_version": "5.2.8",
+    "language": "Python",
+    "language_version": "3.10+",
+    "database": "PostgreSQL",
+    "database_adapter": "psycopg2",
+    "admin_theme": "django-jazzmin",
+    "static_files": "whitenoise",
+    "ai_provider": "Google Gemini",
+    "web_scraping": "Playwright",
+    "image_processing": ["Pillow", "ImageHash", "rembg"]
+  },
+
+  "apps": {
+    "jeba_core": {
+      "description": "Core settings and utilities",
+      "models": ["SiteSettings"],
+      "is_active": true
+    },
+    "jeba_inventory": {
+      "description": "Product catalog management",
+      "models": [
+        "Product",
+        "Category",
+        "Tag",
+        "ProductVariant",
+        "ProductImage",
+        "ProductVariation"
+      ],
+      "is_active": true
+    },
+    "jeba_sales": {
+      "description": "Order processing and checkout",
+      "models": ["Sale", "SaleItem", "Coupon"],
+      "is_active": true
+    },
+    "jeba_accounts": {
+      "description": "User authentication and profiles",
+      "models": ["UserProfile"],
+      "is_active": true
+    },
+    "jeba_analytics": {
+      "description": "User behavior and ROI analytics",
+      "models": ["SearchEvent", "ProductEvent", "SessionTrace", "DailyAdSpend"],
+      "is_active": true
+    },
+    "jeba_engagement": {
+      "description": "Customer engagement features",
+      "models": ["Review", "Wishlist"],
+      "is_active": true
+    },
+    "jeba_intelligence": {
+      "description": "Competitor analysis and scraping",
+      "models": ["CompetitorPrice", "ScraperPreset"],
+      "is_active": true
+    },
+    "jeba_blog": {
+      "description": "Content marketing and blog",
+      "models": ["BlogPost"],
+      "is_active": true
+    },
+    "jeba_landing": {
+      "description": "Marketing landing pages",
+      "models": [
+        "Campaign",
+        "CampaignVariant",
+        "LandingSection",
+        "VisitorSession",
+        "ConversionEvent"
+      ],
+      "is_active": true
+    },
+    "jeba_ai_builder": {
+      "description": "AI-powered page generator",
+      "models": ["AIPage", "PageConversation", "PageVersion"],
+      "is_active": true
+    },
+    "jeba_messenger": {
+      "description": "Facebook Messenger integration",
+      "models": [
+        "MessengerSettings",
+        "Conversation",
+        "Message",
+        "AISuggestion"
+      ],
+      "is_active": true
+    },
+    "jeba_seo": {
+      "description": "SEO management",
+      "models": ["GlobalSEOSettings", "StaticPageSEO"],
+      "is_active": true
+    },
+    "jeba_diagnostics": {
+      "description": "Performance monitoring",
+      "models": ["PageReport"],
+      "is_active": true
+    },
+    "products": {
+      "description": "Legacy routing app (deprecated)",
+      "models": [],
+      "is_active": false,
+      "deprecated": true
+    }
+  },
+
+  "statistics": {
+    "total_apps": 14,
+    "active_apps": 13,
+    "total_models": 32,
+    "python_files_approx": 163,
+    "template_files_approx": 50,
+    "requirements_count": 110
+  },
+
+  "key_features": [
+    "Multi-image product gallery",
+    "Dynamic pricing with variants",
+    "Visual search (imagehash)",
+    "Atomic checkout with stock locking",
+    "bKash and COD payment",
+    "Steadfast courier integration",
+    "AI content generation (Gemini)",
+    "Competitor price scraping (Playwright)",
+    "A/B testing for landing pages",
+    "Facebook Messenger with AI suggestions",
+    "Session-level analytics telemetry",
+    "ROI and ROAS calculation",
+    "GeoIP-based analytics",
+    "Multi-language support (EN/BN)",
+    "SEO sitemap and robots.txt"
+  ],
+
+  "configuration": {
+    "settings_file": "config/settings.py",
+    "env_file": ".env",
+    "static_url": "/static/",
+    "media_url": "/media/",
+    "timezone": "Asia/Dhaka",
+    "default_language": "en-us",
+    "supported_languages": ["en", "bn"],
+    "currency": "BDT",
+    "currency_symbol": "৳"
+  },
+
+  "external_integrations": {
+    "steadfast_api": {
+      "base_url": "https://portal.packzy.com/api/v1",
+      "env_keys": ["STEADFAST_API_KEY", "STEADFAST_SECRET_KEY"]
+    },
+    "google_gemini": {
+      "env_keys": ["GEMINI_API_KEY"]
+    },
+    "gmail_smtp": {
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "env_keys": ["EMAIL_HOST_USER", "EMAIL_HOST_PASSWORD"]
+    },
+    "facebook_messenger": {
+      "env_keys": ["FB_PAGE_ACCESS_TOKEN", "FB_VERIFY_TOKEN"]
+    },
+    "telegram": {
+      "env_keys": ["TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID"]
+    },
+    "maxmind_geoip": {
+      "database": "geoip/GeoLite2-City.mmdb"
+    }
+  },
+
+  "codex_files": [
+    "overview.md",
+    "code_structure.md",
+    "data_schemas.md",
+    "dependencies.md",
+    "logic_flows.md",
+    "edge_cases.md",
+    "rules.toml",
+    "initial_prompt.txt",
+    "metadata.json",
+    "codex_version.txt",
+    "checkpoint_log.md",
+    "search_index.md"
+  ],
+
+  "provenance": {
+    "sources": [
+      {
+        "tool": "file_analysis",
+        "target": "config/settings.py",
+        "purpose": "Extract Django configuration and installed apps"
+      },
+      {
+        "tool": "file_analysis",
+        "target": "requirements.txt",
+        "purpose": "Extract Python dependencies"
+      },
+      {
+        "tool": "file_analysis",
+        "target": "*/models.py",
+        "purpose": "Extract database schema definitions"
+      },
+      {
+        "tool": "file_analysis",
+        "target": "FEATURES.md",
+        "purpose": "Extract feature registry"
+      },
+      {
+        "tool": "file_analysis",
+        "target": "info.md",
+        "purpose": "Extract development history and progress"
+      }
+    ],
+    "analysis_method": "Comprehensive file parsing and code structure analysis",
+    "generated_by": "AI Codex Generator v1.0"
+  }
+}

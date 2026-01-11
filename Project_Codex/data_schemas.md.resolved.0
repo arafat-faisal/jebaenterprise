@@ -1,0 +1,740 @@
+# Jeba Enterprise - Data Schemas
+
+> **Last Updated:** 2026-01-11  
+> **Database:** PostgreSQL  
+> **ORM:** Django 5.2
+
+---
+
+## Table of Contents
+1. [Core Settings](#1-core-settings-jeba_core)
+2. [Inventory & Catalog](#2-inventory--catalog-jeba_inventory)
+3. [Sales & Orders](#3-sales--orders-jeba_sales)
+4. [User Accounts](#4-user-accounts-jeba_accounts)
+5. [Analytics & Events](#5-analytics--events-jeba_analytics)
+6. [Engagement](#6-engagement-jeba_engagement)
+7. [Intelligence](#7-intelligence-jeba_intelligence)
+8. [Blog](#8-blog-jeba_blog)
+9. [Landing Pages](#9-landing-pages-jeba_landing)
+10. [AI Builder](#10-ai-builder-jeba_ai_builder)
+11. [Messenger](#11-messenger-jeba_messenger)
+12. [SEO](#12-seo-jeba_seo)
+13. [Diagnostics](#13-diagnostics-jeba_diagnostics)
+
+---
+
+## 1. Core Settings (`jeba_core`)
+
+### SiteSettings (Singleton)
+**Table:** `products_sitesettings`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key (always 1) |
+| `featured_products` | ManyToMany → Product | Hero slider products |
+| `logo` | ImageField | Main website logo |
+| `favicon` | ImageField | Browser favicon |
+| `header_scripts` | TextField | Google Analytics, Pixel codes |
+| `footer_scripts` | TextField | Chat widgets, pre-close scripts |
+| `bkash_number` | CharField(15) | Payment number |
+| `delivery_charge_inside` | Decimal(5,0) | Dhaka delivery ৳60 |
+| `delivery_charge_outside` | Decimal(5,0) | Outside Dhaka ৳120 |
+| `facebook_page_url` | URLField | Facebook page link |
+| `messenger_username` | CharField(50) | Messenger ID |
+| `meta_pixel_id` | CharField(50) | Meta Pixel ID |
+| `meta_access_token` | TextField | Conversions API token |
+| `contact_phone` | CharField(20) | Support phone |
+| `contact_email` | EmailField | Support email |
+| `contact_address` | TextField | Physical address |
+| `business_hours` | CharField(100) | Operating hours |
+| `whatsapp_number` | CharField(20) | WhatsApp contact |
+| `contact_message_template` | TextField | Bengali message template |
+| `call_for_price` | BooleanField | Hide prices globally |
+| `maintenance_mode` | BooleanField | Site maintenance toggle |
+
+**Singleton Pattern:** Overrides [save()](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#130-144) to force `pk=1`, blocks [delete()](file:///e:/WebProjects/jebaenterprise/jeba_core/models.py#136-138).
+
+---
+
+## 2. Inventory & Catalog (`jeba_inventory`)
+
+### Category
+**Table:** `products_category`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| [name](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#129-135) | CharField(100) | Category name (unique) |
+
+---
+
+### Tag
+**Table:** `jeba_inventory_tag`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| [name](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#129-135) | CharField(50) | Tag name (unique) |
+| `slug` | SlugField(50) | URL-safe identifier (auto-generated) |
+
+---
+
+### Product
+**Table:** `products_product`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| [name](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#129-135) | CharField(255) | Product name |
+| `slug` | SlugField(255) | URL identifier (unique) |
+| [short_description](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#135-141) | TextField | Brief summary |
+| [description](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#141-147) | TextField | Full HTML description |
+| [category](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#348-377) | ForeignKey → Category | Product category |
+| `tags` | ManyToMany → Tag | Product tags |
+| `buying_cost` | Decimal(10,2) | Cost price |
+| `selling_price` | Decimal(10,2) | Regular price |
+| `sale_price` | Decimal(10,2) | Discounted price |
+| `stock_quantity` | Integer | Inventory count |
+| `is_featured` | BooleanField | Show in hero section |
+| `is_active` | BooleanField | Published status |
+| `created_at` | DateTimeField | Creation timestamp |
+| `updated_at` | DateTimeField | Last update |
+
+**AI Content Fields:**
+| Field | Type | Description |
+|-------|------|-------------|
+| `ai_name` | CharField(255) | AI-generated name |
+| `ai_short_description` | TextField | AI-generated short desc |
+| `ai_description` | TextField | AI-generated full desc |
+| `use_ai_content` | BooleanField | Toggle AI vs manual |
+
+**Properties:**
+- [display_name()](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#129-135) - Returns AI name if enabled, else manual
+- [display_description()](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#141-147) - Returns AI description if enabled
+- [discount_percentage](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#202-211) - Calculated sale discount %
+- [main_image_obj](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#190-196) - First image with `is_main=True`
+- [thumbnail](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#197-201) - URL of main image
+- [has_variants](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#212-216) - Boolean if variants exist
+- [available_colors](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#217-221) - List of color variant options
+- [available_sizes](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#222-226) - List of size variant options
+
+---
+
+### ProductVariant
+**Table:** `jeba_inventory_product_variant`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `product` | ForeignKey → Product | Parent product |
+| `variant_type` | CharField(20) | COLOR / SIZE / MATERIAL / BUNDLE |
+| [name](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#129-135) | CharField(100) | Variant name (e.g., "Red") |
+| `value` | CharField(100) | Display value (e.g., "#FF0000") |
+| `price_adjustment` | Decimal(10,2) | + / - from base price |
+| `original_price` | Decimal(10,2) | If different from parent |
+| `discounted_price` | Decimal(10,2) | Sale price for variant |
+| `stock_quantity` | Integer | Variant-specific stock |
+| `sku` | CharField(50) | Unique SKU |
+| [image](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#190-196) | ImageField | Variant-specific image |
+| `is_active` | BooleanField | Enabled status |
+| `sort_order` | Integer | Display order |
+
+**Meta:** `unique_together = [['product', 'variant_type', 'name']]`
+
+---
+
+### ProductImage
+**Table:** `products_productimage`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `product` | ForeignKey → Product | Parent product |
+| [image](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#190-196) | ImageField | Image file |
+| `alt_text` | CharField(255) | Accessibility text |
+| `is_main` | BooleanField | Primary display image |
+| `sort_order` | Integer | Gallery order |
+
+---
+
+### ProductVariation (Legacy)
+**Table:** `products_productvariation`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `product` | ForeignKey → Product | Parent product |
+| [name](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#129-135) | CharField(100) | Variation name |
+| `selling_price` | Decimal(10,2) | Variation price |
+
+> ⚠️ **Deprecated:** Use [ProductVariant](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#229-396) for new development.
+
+---
+
+## 3. Sales & Orders (`jeba_sales`)
+
+### Sale
+**Table:** `products_sale`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `user` | ForeignKey → User | Optional registered user |
+| `customer_name` | CharField(100) | Guest name |
+| `access_token` | UUIDField | Guest order access token |
+| `phone_number` | CharField(20) | Contact number |
+| `shipping_address` | TextField | Delivery address |
+| `consignment_id` | Integer | Steadfast consignment ID |
+| `tracking_code` | CharField(50) | Steadfast tracking code |
+| `payment_method` | CharField(10) | COD / BKASH |
+| `transaction_id` | CharField(50) | bKash transaction ID |
+| `delivery_charge` | Decimal(6,2) | Shipping cost |
+| `status` | CharField(20) | Order status |
+| `created_at` | DateTimeField | Order timestamp |
+| `manual_subtotal` | Decimal(10,2) | Override for subtotal |
+| `manual_total_amount` | Decimal(10,2) | Override for total |
+
+**Status Choices:** PENDING, PROCESSING, SHIPPED, DELIVERED, CANCELLED, RETURNED
+
+**Properties:**
+- [invoice_number](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#60-66) - Format: `#JEBA-{id+8000}`
+- [order_id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) - Format: `#{id+8000}`
+- [subtotal](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#85-88) - Manual override or calculated
+- [total_amount](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#90-93) - Manual override or subtotal + delivery
+- [total_profit](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#94-98) - Sum of item profits
+
+---
+
+### SaleItem
+**Table:** `products_saleitem`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `sale` | ForeignKey → Sale | Parent order |
+| `product` | ForeignKey → Product | Ordered product |
+| [variation](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#342-346) | ForeignKey → ProductVariation | Selected variation |
+| `quantity` | PositiveInteger | Item count |
+| `buying_cost` | Decimal(10,2) | Cost at time of sale |
+| `sold_price` | Decimal(10,2) | Price at time of sale |
+| `variant_summary` | CharField(255) | "Color: Red, Size: XL" |
+
+**Properties:**
+- [total_price](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#119-123) - `sold_price * quantity`
+- [profit](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#124-129) - [(sold_price - buying_cost) * quantity](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#7-34)
+
+---
+
+### Coupon
+**Table:** `jeba_sales_coupon`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `code` | CharField(50) | Coupon code (unique) |
+| [discount_amount](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#334-339) | Decimal(10,2) | Flat discount in Taka |
+| `min_spend` | Decimal(10,2) | Minimum cart total |
+| `active` | BooleanField | Enabled status |
+
+---
+
+## 4. User Accounts (`jeba_accounts`)
+
+### UserProfile
+**Table:** `products_userprofile`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `user` | OneToOneField → User | Django auth user |
+| `phone_number` | CharField(20) | Contact number |
+| `address` | TextField | Default shipping address |
+
+**Signal:** Auto-creates profile on User creation via `post_save`.
+
+---
+
+## 5. Analytics & Events (`jeba_analytics`)
+
+### SearchEvent
+**Table:** `products_searchevent`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `query` | CharField(255) | Search query |
+| `user` | ForeignKey → User | Logged-in user |
+| `session_id` | CharField(100) | Session identifier |
+| `utm_source` | CharField(50) | Traffic source |
+| `utm_medium` | CharField(50) | Traffic medium |
+| `utm_campaign` | CharField(100) | Campaign name |
+| `metadata` | JSONField | IP, location, device info |
+| `result_count` | PositiveInteger | Results found |
+| `created_at` | DateTimeField | Event timestamp |
+
+---
+
+### ProductEvent
+**Table:** `products_productevent`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `product` | ForeignKey → Product | Viewed product |
+| `user` | ForeignKey → User | Viewer (if logged in) |
+| `session_id` | CharField(100) | Session identifier |
+| `event_type` | CharField(20) | VIEW/CART/PURCHASE/SHARE/CONTACT/CHECKOUT |
+| `value_at_event` | Decimal(10,2) | Price when event occurred |
+| `stock_status_at_view` | BooleanField | In stock when viewed |
+| `utm_source` | CharField(50) | Traffic attribution |
+| `utm_medium` | CharField(50) | Traffic medium |
+| `utm_campaign` | CharField(100) | Campaign name |
+| `time_on_page` | PositiveInteger | Seconds on page |
+| `scroll_depth` | PositiveInteger | Max scroll % (0-100) |
+| `load_time` | Float | Page load ms |
+| `metadata` | JSONField | Additional tech details |
+| `created_at` | DateTimeField | Event timestamp |
+
+---
+
+### SessionTrace
+**Table:** `jeba_analytics_sessiontrace`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `session_id` | CharField(100) | Unique session (indexed) |
+| [url](file:///e:/WebProjects/jebaenterprise/jeba_blog/models.py#87-89) | CharField(500) | Page URL |
+| `ip_address` | GenericIPAddress | Visitor IP |
+| `user_agent` | TextField | Browser info |
+| `device_type` | CharField(20) | mobile/tablet/desktop |
+| `load_time_ms` | Integer | Full page load |
+| `ttfb_ms` | Integer | Time to First Byte |
+| `max_scroll` | PositiveInteger | Maximum scroll % |
+| `is_bounce` | BooleanField | Single-page visit |
+| `duration_ms` | PositiveInteger | Session duration |
+| `raw_data` | JSONField | Full telemetry blob |
+| `created_at` | DateTimeField | Session start |
+| `updated_at` | DateTimeField | Last update |
+
+---
+
+### DailyAdSpend
+**Table:** `jeba_analytics_adspend`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `date` | DateField | Spend date (unique) |
+| `facebook_spend` | Decimal(10,2) | Facebook ad cost |
+| `google_spend` | Decimal(10,2) | Google ad cost |
+| `tiktok_spend` | Decimal(10,2) | TikTok/other cost |
+| `total_revenue` | Decimal(12,2) | Daily revenue (auto) |
+| [total_profit](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#94-98) | Decimal(12,2) | Daily profit (auto) |
+| `total_orders` | PositiveInteger | Order count (auto) |
+
+**Properties:**
+- [total_spend](file:///e:/WebProjects/jebaenterprise/jeba_analytics/models.py#168-171) - Sum of all platform spends
+- [net_profit](file:///e:/WebProjects/jebaenterprise/jeba_analytics/models.py#172-176) - `total_profit - total_spend`
+- [roas](file:///e:/WebProjects/jebaenterprise/jeba_analytics/models.py#177-183) - Return on Ad Spend ratio
+
+---
+
+## 6. Engagement (`jeba_engagement`)
+
+### Review
+**Table:** `products_review`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `product` | ForeignKey → Product | Reviewed product |
+| `user` | ForeignKey → User | Reviewer |
+| `rating` | Integer (1-5) | Star rating |
+| `comment` | TextField | Review text |
+| `created_at` | DateTimeField | Review date |
+
+---
+
+### Wishlist
+**Table:** `products_wishlist`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `user` | ForeignKey → User | User |
+| `product` | ForeignKey → Product | Wished product |
+| `created_at` | DateTimeField | Added date |
+
+**Meta:** `unique_together = ('user', 'product')`
+
+---
+
+## 7. Intelligence (`jeba_intelligence`)
+
+### CompetitorPrice
+**Table:** `products_competitorprice`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `product` | ForeignKey → Product | Target product |
+| `website_name` | CharField(100) | e.g., "Daraz" |
+| `min_price` | Decimal(10,2) | Lowest found price |
+| `max_price` | Decimal(10,2) | Highest found price |
+| `last_checked` | DateTimeField | Last scrape time |
+
+---
+
+### ScraperPreset
+**Table:** `products_scraperpreset`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| [name](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#129-135) | CharField(100) | Preset name (unique) |
+| `image_weight` | Decimal(3,2) | Image match weight (0.3) |
+| `text_weight` | Decimal(3,2) | Text match weight (0.7) |
+| `confidence_threshold` | Integer | Min match score (60) |
+| `text_slam_dunk` | Integer | Text auto-accept (85) |
+| `image_slam_dunk` | Integer | Image auto-accept (90) |
+
+---
+
+## 8. Blog (`jeba_blog`)
+
+### BlogPost
+**Table:** `jeba_blog_post`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `title` | CharField(255) | Post title |
+| `slug` | SlugField(255) | URL identifier (unique) |
+| `meta_title` | CharField(150) | SEO title tag |
+| `meta_description` | CharField(255) | SEO meta description |
+| `featured_image` | ImageField | Hero image |
+| `featured_image_placeholder` | TextField | Base64 LQIP |
+| `content` | TextField | Post body (HTML) |
+| `excerpt` | TextField(500) | Short summary |
+| `products` | ManyToMany → Product | Linked products |
+| `is_published` | BooleanField | Published status |
+| `views` | PositiveInteger | View counter |
+| `created_at` | DateTimeField | Publish date |
+| `updated_at` | DateTimeField | Last edit |
+
+---
+
+## 9. Landing Pages (`jeba_landing`)
+
+### Campaign
+**Table:** `jeba_landing_campaign`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `title` | CharField(255) | Campaign name |
+| `slug` | SlugField(255) | URL path (unique) |
+| `product` | ForeignKey → Product | Associated product |
+| `is_active` | BooleanField | Published status |
+| `meta_title` | CharField(255) | SEO title |
+| `meta_description` | TextField | SEO description |
+| `meta_pixel_id` | CharField(50) | Campaign-specific pixel |
+| `manual_ai_prompt` | TextField | AI generation prompt |
+| `currency` | CharField(10) | BDT / USD |
+| `language_toggle` | BooleanField | Allow BN/EN switch |
+| `created_at` | DateTimeField | Creation date |
+| `updated_at` | DateTimeField | Last update |
+
+---
+
+### CampaignVariant
+**Table:** `jeba_landing_campaignvariant`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `campaign` | ForeignKey → Campaign | Parent campaign |
+| [name](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#129-135) | CharField(100) | Variant name |
+| `weight` | PositiveInteger | Traffic % (0-100) |
+| `primary_color` | CharField(20) | Hex color |
+| `accent_color` | CharField(20) | Hex color |
+| `enable_fomo_timer` | BooleanField | Countdown timer |
+| `fomo_timer_end` | DateTimeField | Timer deadline |
+| `enable_social_proof` | BooleanField | "X viewing now" |
+| `enable_exit_popup` | BooleanField | Exit intent popup |
+| `created_at` | DateTimeField | Creation date |
+| `updated_at` | DateTimeField | Last update |
+
+---
+
+### LandingSection
+**Table:** `jeba_landing_landingsection`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| [variant](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#212-216) | ForeignKey → CampaignVariant | Parent variant |
+| `section_type` | CharField(50) | Section type |
+| [order](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | PositiveInteger | Display order |
+| `content` | JSONField | Section-specific JSON |
+| `is_dark_mode` | BooleanField | Dark background |
+| `padding_y` | CharField(20) | Vertical padding class |
+
+**Section Types:** HERO_CAROUSEL, HERO_VIDEO, FEATURES, PRODUCT_HIGHLIGHT, TESTIMONIALS, FAQ, CTA_Sticky, HTML
+
+---
+
+### VisitorSession
+**Table:** `jeba_landing_visitorsession`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `campaign` | ForeignKey → Campaign | Campaign |
+| [variant](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#212-216) | ForeignKey → CampaignVariant | Shown variant |
+| `session_uuid` | UUIDField | Unique session ID |
+| `ip_address` | GenericIPAddress | Visitor IP |
+| `user_agent` | TextField | Browser info |
+| `device_type` | CharField(20) | Device category |
+| `country` | CharField(50) | Geo country |
+| `city` | CharField(100) | Geo city |
+| `utm_source` | CharField(100) | Traffic source |
+| `utm_medium` | CharField(100) | Traffic medium |
+| `utm_campaign` | CharField(100) | Campaign name |
+| `referrer_url` | TextField | Referring URL |
+| `created_at` | DateTimeField | Session start |
+| `updated_at` | DateTimeField | Last activity |
+
+---
+
+### ConversionEvent
+**Table:** `jeba_landing_conversionevent`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `session` | ForeignKey → VisitorSession | Parent session |
+| `event_type` | CharField(30) | Event type |
+| `metadata` | JSONField | Extra event data |
+| `value` | Decimal(10,2) | Monetary value |
+| `created_at` | DateTimeField | Event time |
+
+**Event Types:** PAGE_VIEW, SCROLL_50, SCROLL_90, CLICK_CTA, ADD_TO_CART, INITIATE_CHECKOUT, PURCHASE, EXIT_INTENT, HEARTBEAT
+
+**Index:** `['event_type', 'created_at']`
+
+---
+
+## 10. AI Builder (`jeba_ai_builder`)
+
+### AIPage
+**Table:** `jeba_ai_builder_aipage`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `title` | CharField(255) | Page title |
+| `slug` | SlugField(255) | URL path (unique) |
+| `product` | ForeignKey → Product | Linked product |
+| `compiled_html` | TextField | Generated HTML |
+| `compiled_css` | TextField | Generated CSS |
+| `is_published` | BooleanField | Live status |
+| `created_at` | DateTimeField | Creation date |
+| `updated_at` | DateTimeField | Last generation |
+
+---
+
+### PageConversation
+**Table:** `jeba_ai_builder_pageconversation`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `page` | ForeignKey → AIPage | Parent page |
+| `role` | CharField(20) | user / ai / system |
+| `text_prompt` | TextField | User message |
+| `reference_image` | ImageField | Reference upload |
+| `created_at` | DateTimeField | Message time |
+
+---
+
+### PageVersion
+**Table:** `jeba_ai_builder_pageversion`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `page` | ForeignKey → AIPage | Parent page |
+| `html_snapshot` | TextField | Saved HTML |
+| `css_snapshot` | TextField | Saved CSS |
+| [description](file:///e:/WebProjects/jebaenterprise/jeba_inventory/models.py#141-147) | CharField(255) | Version note |
+| `created_at` | DateTimeField | Save time |
+
+---
+
+## 11. Messenger (`jeba_messenger`)
+
+### MessengerSettings (Singleton)
+**Table:** `jeba_messenger_messengersettings`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key (always 1) |
+| `enable_auto_ai` | BooleanField | Auto-generate AI suggestions |
+
+---
+
+### Conversation
+**Table:** `jeba_messenger_conversation`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `psid` | CharField(255) | Facebook Page Scoped ID (unique) |
+| `first_name` | CharField(100) | Customer first name |
+| `last_name` | CharField(100) | Customer last name |
+| `profile_pic` | TextField | Profile picture URL |
+| `saved_phone` | CharField(20) | Saved phone number |
+| `saved_address` | TextField | Saved address |
+| `sentiment` | CharField(20) | Customer mood |
+| `notes` | TextField | Admin notes |
+| `status` | CharField(20) | active/archived/blocked |
+| `created_at` | DateTimeField | First contact |
+| `last_interaction` | DateTimeField | Last message |
+
+**Sentiment Choices:** hot, warm, cold, angry, neutral
+
+---
+
+### Message
+**Table:** `jeba_messenger_message`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `conversation` | ForeignKey → Conversation | Parent chat |
+| `sender` | CharField(10) | user / page |
+| `text` | TextField | Message content |
+| `image_url` | TextField | Attached image URL |
+| `fb_message_id` | CharField(255) | Facebook message ID (unique) |
+| `timestamp` | DateTimeField | Message time |
+| `is_read` | BooleanField | Read status |
+
+---
+
+### AISuggestion
+**Table:** `jeba_messenger_aisuggestion`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `trigger_message` | ForeignKey → Message | Triggering message |
+| `suggested_text` | TextField | AI response |
+| `tone` | CharField(50) | Professional/Friendly/Persuasive |
+| `language` | CharField(10) | bn / en |
+| `created_at` | DateTimeField | Generation time |
+
+---
+
+## 12. SEO (`jeba_seo`)
+
+### GlobalSEOSettings (Singleton)
+**Table:** `jeba_seo_globalseosettings`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `site_name` | CharField(100) | Site name |
+| `default_meta_title` | CharField(60) | Fallback title |
+| `default_meta_description` | CharField(160) | Fallback description |
+| `default_social_image` | ImageField | OG image |
+| `google_site_verification` | CharField(100) | Search Console code |
+| `bing_site_verification` | CharField(100) | Bing verification |
+| `facebook_domain_verification` | CharField(100) | Facebook verification |
+
+---
+
+### StaticPageSEO
+**Table:** `jeba_seo_staticpageseo`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| `page_name` | CharField(50) | Page identifier (unique) |
+| `meta_title` | CharField(60) | Page title |
+| `meta_description` | CharField(160) | Page description |
+| `meta_title_ai` | CharField(255) | AI-generated title |
+| `meta_description_ai` | TextField | AI-generated description |
+| `is_seo_optimized` | BooleanField | AI processed flag |
+
+**Page Choices:** home, about, contact, login, register
+
+---
+
+## 13. Diagnostics (`jeba_diagnostics`)
+
+### PageReport
+**Table:** `jeba_diagnostics_pagereport`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| [id](file:///e:/WebProjects/jebaenterprise/jeba_sales/models.py#67-73) | BigAutoField | Primary key |
+| [url](file:///e:/WebProjects/jebaenterprise/jeba_blog/models.py#87-89) | CharField(500) | Tested URL |
+| `created_at` | DateTimeField | Test time |
+| `total_time_ms` | Integer | Total response time |
+| `ttfb_ms` | Integer | Time to First Byte |
+| `download_time_ms` | Integer | Content download time |
+| `html_size_bytes` | Integer | HTML size |
+| `total_assets_size_bytes` | Integer | All assets size |
+| `image_count` | Integer | Image count |
+| `script_count` | Integer | Script count |
+| `css_count` | Integer | CSS file count |
+| `details` | JSONField | Detailed breakdown |
+| `performance_score` | Integer | Score (0-100) |
+
+---
+
+## Entity Relationship Diagram
+
+```mermaid
+erDiagram
+    Product ||--o{ ProductImage : has
+    Product ||--o{ ProductVariant : has
+    Product ||--o{ ProductVariation : has
+    Product }o--|| Category : belongs_to
+    Product }o--o{ Tag : has_many
+    
+    Sale ||--|{ SaleItem : contains
+    SaleItem }o--|| Product : references
+    SaleItem }o--o| ProductVariation : references
+    Sale }o--o| User : placed_by
+    
+    User ||--|| UserProfile : has
+    User ||--o{ Review : writes
+    User ||--o{ Wishlist : has
+    
+    Review }o--|| Product : reviews
+    Wishlist }o--|| Product : wishes
+    
+    Campaign ||--|{ CampaignVariant : has
+    CampaignVariant ||--|{ LandingSection : contains
+    Campaign }o--o| Product : promotes
+    
+    VisitorSession }o--|| Campaign : visits
+    VisitorSession }o--o| CampaignVariant : shown
+    VisitorSession ||--|{ ConversionEvent : triggers
+    
+    Conversation ||--|{ Message : contains
+    Message ||--o{ AISuggestion : generates
+    
+    BlogPost }o--o{ Product : links_to
+    CompetitorPrice }o--|| Product : tracks
+    
+    AIPage }o--o| Product : generates_for
+    AIPage ||--|{ PageConversation : has
+    AIPage ||--|{ PageVersion : versions
+    
+    ProductEvent }o--|| Product : tracks
+    SearchEvent }o--o| User : by
+```
